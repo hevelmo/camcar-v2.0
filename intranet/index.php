@@ -22,7 +22,8 @@
 
 		<title>Camcar | Login</title>
 
-		<link rel="apple-touch-icon" href="../resources/public/intranet/ico/apple-touch-icon-camcar.png">
+		<link rel="apple-touch-icon" href="../resources/public/intranet/img/ico/apple-touch-icon-camcar.png">
+		<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
   		<link rel="shortcut icon" href="../resources/public/img/camcaricon.ico">
 
 		<link rel="stylesheet" href="../resources/public/intranet/css/import-login.css">
@@ -52,16 +53,16 @@
 			<div class="page-content">
       			<div class="page-brand-info">
         			<div class="brand">
-          				<img class="brand-img" src="../resources/public/intranet/img/login/logo-vrcal-white-camcar-241-165.png" alt="...">
+          				<img class="brand-img" src="../resources/public/intranet/img/logos/logo-vrcal-white-camcar-240-164.png" alt="...">
         			</div>
       			</div>
       			<div class="page-login-main">
         			<div class="brand visible-xs">
-          				<img class="brand-img" src="../resources/public/intranet/img/login/logo-hor-camcar.png" alt="...">
+          				<img class="brand-img" src="../resources/public/intranet/img/logos/logo-hor-white-camcar-688-174.png" alt="...">
         			</div>
         			<h3 class="page-login-main-title font-size-24">Sign In</h3>
 
-        			<form method="post" action="login-v2.html">
+        			<form method="post" action="">
       					<div class="form-group">
             				<label class="sr-only" for="inputEmail">Email</label>
             				<input type="email" class="form-control page-login-main-input-focus" id="inputEmail" name="email" placeholder="Email" autofocus>
