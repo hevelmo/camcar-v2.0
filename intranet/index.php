@@ -83,13 +83,13 @@
 			<div class="page-content">
 				<div class="page-brand-info">
 					<div class="brand">
-						<img class="brand-img" src="../resources/public/img/logos/logo-camcar-ver-white@2x.png" alt="Camcar Grupo Automotriz, ve por más...">
+						<img class="brand-img brand-img-resp" src="../resources/public/img/logos/logo-camcar-ver-white@2x.png" alt="Camcar Grupo Automotriz, ve por más...">
 					</div>
 				</div>
 				<!-- Page Login Main -->
 				<div class="page-login-main">
 					<div class="brand visible-xs">
-						<img class="brand-img" src="../resources/public/img/logos/logo-camcar-hor-white@2x.png" alt="Camcar Grupo Automotriz, ve por más...">
+						<img class="brand-img brand-img-visible-xs-resp" src="../resources/public/img/logos/logo-camcar-hor-white@2x.png" alt="Camcar Grupo Automotriz, ve por más...">
 					</div>
 					<h3 class="font-size-24">Ingresar</h3>
 					<!-- Form -->
@@ -102,12 +102,12 @@
 							<label class="sr-only" for="inputPassword">Contraseña</label>
 							<input type="password" class="form-control camcar-remark-input" id="inputPassword" name="password" placeholder="Contraseña">
 						</div>
-						<div class="form-group clearfix">
-							<a class="pull-right" href="#">
+						<div class="form-group text-center  clearfix">
+							<a class="form__link" href="../sitio">
 								<i class="fa fa-chevron-left"></i> Regresar
 							</a>
 						</div>
-						<button type="submit" class="btn btn-primary btn-block bg-red-camcar" onclick="formhash(this.form, this.form.password);">
+						<button type="submit" class="form__submit button button-outline bg-red-camcar white-camcar button-resp col-sm-6 col-md-12" style="padding: 1em; margin: 0 auto;" onclick="formhash(this.form, this.form.password);">
 							<i class="fa fa-user fa-lg fa-fw"></i> Ingresar
 						</button>
 					</form>

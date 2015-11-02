@@ -83,6 +83,10 @@
   }
 }
 @media (min-width: 768px) and (max-width: 991px) {
+  .brand-img-resp {
+    width: 35%;
+    margin-left: -28px;
+  }
   .page-login-v2 .page-login-main {
     padding-top: 80px;
   }
@@ -95,6 +99,11 @@
   }
 }
 @media (max-width: 767px) {
+  .brand-img-visible-xs-resp {
+    width: 75% !important;
+    margin: 0 auto;
+    display: block;
+  }
   .page-login-v2 .page-login-main {
     width: 100%;
     padding-top: 60px;
@@ -104,6 +113,22 @@
   }
 }
 @media (max-width: 480px) {
+  .page-login-v2:before {
+    background-image: none;
+  }
+  .page-login-v2 .page-brand-info .brand-img {
+    display: none;
+  }
+  .page-login-v2 .page-login-main .brand {
+    margin-bottom: 30px;
+  }
+  .page-login-main > h3 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .page-login-v2 form {
+    margin: 20px 0;
+  }
   .page-login-v2 .page-login-main {
     padding: 50px 30px 180px;
   }
