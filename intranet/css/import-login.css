@@ -1,16 +1,56 @@
-/* Stylesheets */
-@import url(../../resources/public/css/styles/main/bootstrap.css);
-@import url(../../resources/public/css/styles/main/bootstrap-extend.css);
-@import url(../../resources/public/css/styles/main/site.css);
-/* Plugins */
-@import url(../../resources/public/css/styles/plugins/animsition/animsition.css);
-@import url(../../resources/public/css/styles/plugins/asscrollable/asScrollable.css);
-@import url(../../resources/public/css/styles/plugins/switchery/switchery.css);
-@import url(../../resources/public/css/styles/plugins/intro-js/introjs.css);
-@import url(../../resources/public/css/styles/plugins/slidepanel/slidePanel.css);
-@import url(../../resources/public/css/styles/plugins/flag-icon-css/flag-icon.css);
-/* Page */
-@import url(../../resources/public/css/styles/login/login-v2.css);
-/* Fonts */
-@import url(../../resources/public/css/webfonts/web-icons/web-icons.min.css);
-@import url(../../resources/public/css/webfonts/brand-icons/brand-icons.min.css);
+/* ################################################################################################### *\
+
+	Project Name: Camcar
+	Proyect Version: 2.0
+	Author: *******
+	Update: hevelmo
+
+	CONTENT STYLES LOGIN PAGE
+
+	[styles] bootstrap
+	[styles] remark site
+	[styles] remark plugins
+	[styles] remark login page
+	[styles] remark webfont
+	[styles] remark fonts.googleApis
+	[styles] remark extras
+
+\* ################################################################################################### */
+	/* ------------------------------------------------------ *\
+		[styles] bootstrap
+	\* ------------------------------------------------------ */
+		@import url(../../resources/public/css/styles/main/bootstrap.css);
+		@import url(../../resources/public/css/styles/main/bootstrap-extend.css);
+	/* ------------------------------------------------------ *\
+		[styles] remark site
+	\* ------------------------------------------------------ */
+		@import url(../../resources/public/css/styles/main/site.css);
+	/* ------------------------------------------------------ *\
+		[styles] remark plugins
+	\* ------------------------------------------------------ */
+		@import url(../../resources/public/css/styles/plugins/animsition/animsition.css);
+		@import url(../../resources/public/css/styles/plugins/asscrollable/asScrollable.css);
+		@import url(../../resources/public/css/styles/plugins/switchery/switchery.css);
+		@import url(../../resources/public/css/styles/plugins/intro-js/introjs.css);
+		@import url(../../resources/public/css/styles/plugins/slidepanel/slidePanel.css);
+		@import url(../../resources/public/css/styles/plugins/flag-icon-css/flag-icon.css);
+	/* ------------------------------------------------------ *\
+		[styles] remark login page
+	\* ------------------------------------------------------ */
+		@import url(../../resources/public/css/styles/login/login-v2.css);
+	/* ------------------------------------------------------ *\
+		[styles] remark webfont
+	\* ------------------------------------------------------ */
+		@import url(../../resources/public/css/webfonts/web-icons/web-icons.min.css);
+		@import url(../../resources/public/css/webfonts/brand-icons/brand-icons.min.css);
+	/* ------------------------------------------------------ *\
+		[styles] remark fonts.googleApis
+	\* ------------------------------------------------------ */
+		@import url(http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic);
+	/* ------------------------------------------------------ *\
+		[styles] remark extras
+	\* ------------------------------------------------------ */
+		@import url(styles/remark-main.css);
+/* ################################################################################################### *\
+	END CONTENT
+\* ################################################################################################### */

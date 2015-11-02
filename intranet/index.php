@@ -20,11 +20,14 @@
         <meta http-equiv='cache-control' content='no-cache' />
         <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
         <meta name='viewport' content='width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0' />
+
 		<title>CAMCAR | Login</title>
-        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
+
         <link rel="stylesheet" href="css/import-login.css">
+
         <link rel="apple-touch-icon" href="../resources/public/img/ico/apple-touch-icon.png">
         <link rel="shortcut icon" href="../resources/public/img/ico/favicon.ico">
+
         <!--[if lt IE 9]>
 		    <script src="../resources/public/lib/plugins/html5shiv/html5shiv.min.js"></script>
 		<![endif]-->
@@ -80,13 +83,13 @@
 			<div class="page-content">
 				<div class="page-brand-info">
 					<div class="brand">
-						<img class="brand-img" src="../resources/public/img/logos/logo@2x.png" alt="...">
+						<img class="brand-img" src="../resources/public/img/logos/logo-camcar-ver-white@2x.png" alt="...">
 					</div>
 				</div>
 				<!-- Page Login Main -->
 				<div class="page-login-main">
 					<div class="brand visible-xs">
-						<img class="brand-img" src="../resources/public/img/logos/logo-blue@2x.png" alt="...">
+						<img class="brand-img" src="../resources/public/img/logos/logo-camcar-hor-white@2x.png" alt="...">
 					</div>
 					<h3 class="font-size-24">Login</h3>
 					<!-- Form -->

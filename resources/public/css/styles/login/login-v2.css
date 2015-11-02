@@ -37,6 +37,7 @@
 }
 .page-login-v2 .page-login-main .brand-img {
   vertical-align: middle;
+  width: 100%;
 }
 .page-login-v2 .page-login-main .brand-text {
   display: inline-block;
