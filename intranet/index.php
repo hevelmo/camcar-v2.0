@@ -83,15 +83,15 @@
 			<div class="page-content">
 				<div class="page-brand-info">
 					<div class="brand">
-						<img class="brand-img" src="../resources/public/img/logos/logo-camcar-ver-white@2x.png" alt="...">
+						<img class="brand-img" src="../resources/public/img/logos/logo-camcar-ver-white@2x.png" alt="Camcar Grupo Automotriz, ve por más...">
 					</div>
 				</div>
 				<!-- Page Login Main -->
 				<div class="page-login-main">
 					<div class="brand visible-xs">
-						<img class="brand-img" src="../resources/public/img/logos/logo-camcar-hor-white@2x.png" alt="...">
+						<img class="brand-img" src="../resources/public/img/logos/logo-camcar-hor-white@2x.png" alt="Camcar Grupo Automotriz, ve por más...">
 					</div>
-					<h3 class="font-size-24">Login</h3>
+					<h3 class="font-size-24">Sign In</h3>
 					<!-- Form -->
 					<form method="post" action="process_login.php">
 						<div class="form-group">
@@ -103,9 +103,13 @@
 							<input type="password" class="form-control" id="inputPassword" name="password" placeholder="Contraseña">
 						</div>
 						<div class="form-group clearfix">
-							<a class="pull-right" href="forgot-password.html">Regresar</a>
+							<a class="pull-right" href="#">
+								<i class="fa fa-chevron-left"></i> Regresar
+							</a>
 						</div>
-						<button type="submit" class="btn btn-primary btn-block">Ingresar</button>
+						<button type="submit" class="btn btn-primary btn-block" onclick="formhash(this.form, this.form.password);">
+							<i class="fa fa-user fa-lg fa-fw"></i> Ingresar
+						</button>
 					</form>
 					<!-- End Form -->
 
@@ -117,6 +121,36 @@
 			</div>
 		</div>
 		<!-- End Page -->
+
+		<!-- MAIN -->
+		<script src="lib/jquery.js"></script>
+		<script src="lib/modernizr.js"></script>
+		<script src="lib/bootstrap.js"></script>
+		<!-- CORE -->
+		<script src="lib/jquery.gdb.js"></script>
+		<script src="lib/jquery-ui.js"></script>
+		<script src="lib/underscore.js"></script>
+		<script src="lib/moment.js"></script>
+		<script src="lib/accounting.js"></script>
+		<script src="lib/finch.js"></script>
+		<!-- HANDLEBARS -->
+		<script src="lib/handlebars.runtime.js"></script>
+		<!-- TEMPLATES -->
+		<script src='templates/min/templates.min.js'></script>
+		<!-- FORMS -->
+		<script src="lib/forms.js"></script>
+		<script src="lib/sha512.js"></script>
+		<!-- PLUGINS -->
+		<!-- CORE JS -->
+		<script src='js/min/core.min.js'></script>
+		<?php /*
+		<!-- CORE -->
+	    <script src='js/objects.js'></script>
+	    <script src='js/method.js'></script>
+	    <script src='js/model.js'></script>
+	    <script src='js/room.js'></script>
+	    <script src='js/main.js'></script>
+		*/ ?>
 
 		<!-- MAIN -->
 		<script src="../resources/public/lib/main/jquery/jquery.js"></script>
