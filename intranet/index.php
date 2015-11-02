@@ -1,12 +1,12 @@
 <?php
-	/*
+
 	include '../incorporate/db_connect.php';
     include '../incorporate/functions.php';
     sec_session_start();
-    if (login_check($mysqli) == true) {
+    /*if (login_check($mysqli) == true) {
         header('Location: admin');
-    }
-	*/
+    }*/
+
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html lang="en" class="no-js css-menubar lt-ie10 lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -26,7 +26,7 @@
         <link rel="stylesheet" href="css/import-login.css">
 
         <link rel="apple-touch-icon" href="../resources/public/img/ico/apple-touch-icon.png">
-        <link rel="shortcut icon" href="../resources/public/img/ico/favicon.ico">
+        <link rel="shortcut icon" href="../resources/public/img/ico/camcaricon.ico">
 
         <!--[if lt IE 9]>
 		    <script src="../resources/public/lib/plugins/html5shiv/html5shiv.min.js"></script>

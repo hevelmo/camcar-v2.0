@@ -84,8 +84,8 @@
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .brand-img-resp {
-    width: 35%;
-    margin-left: -28px;
+width: 35%;
+margin-left: -28px;
   }
   .page-login-v2 .page-login-main {
     padding-top: 80px;
