@@ -1,0 +1,39 @@
+//@prepros-append jquery.js
+//@prepros-append bootstrap.js
+//@prepros-append modernizr.js
+
+//@prepros-append jquery.gdb.js
+//@prepros-append jquery-ui.js
+//@prepros-append underscore.js
+//@prepros-append moment.js
+//@prepros-append accounting.js
+//@prepros-append finch.js
+//@prepros-append handlebars.runtime.js
+//@prepros-append forms.js
+//@prepros-append sha512.js
+
+//@prepros-append assets/plugins/breakpoints/breakpoints.js
+//@prepros-append assets/plugins/animsition/jquery.animsition.js
+//@prepros-append assets/plugins/asscroll/jquery-asScroll.js
+//@prepros-append assets/plugins/mousewheel/jquery.mousewheel.js
+//@prepros-append assets/plugins/asscrollable/jquery.asScrollable.all.js
+//@prepros-append assets/plugins/ashoverscroll/jquery-asHoverScroll.js
+//@prepros-append assets/plugins/switchery/switchery.js
+//@prepros-append assets/plugins/intro-js/intro.js
+//@prepros-append assets/plugins/screenfull/screenfull.js
+//@prepros-append assets/plugins/slidepanel/jquery-slidePanel.js
+//@prepros-append assets/plugins/jquery-placeholder/jquery.placeholder.js
+
+//@prepros-append assets/run/core.js
+//@prepros-append assets/run/site.js
+//@prepros-append assets/run/sections/menu.js
+//@prepros-append assets/run/sections/menubar.js
+//@prepros-append assets/run/sections/gridmenu.js
+//@prepros-append assets/run/sections/sidebar.js
+//@prepros-append assets/run/configs/config-colors.js
+//@prepros-append assets/run/configs/config-tour.js
+//@prepros-append assets/run/components/asscrollable.js
+//@prepros-append assets/run/components/animsition.js
+//@prepros-append assets/run/components/slidepanel.js
+//@prepros-append assets/run/components/switchery.js
+//@prepros-append assets/run/components/jquery-placeholder.js

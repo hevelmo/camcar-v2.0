@@ -21,7 +21,7 @@
         <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
         <meta name='viewport' content='width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0' />
 
-		<title>CAMCAR | Login</title>
+		<title>CAMCAR | Ingresar</title>
 
         <link rel="stylesheet" href="css/import-login.css">
 
@@ -68,11 +68,11 @@
                 }
             }
         </script>
-        <script src="../resources/public/lib/main/modernizr/modernizr.js"></script>
-		<script src="../resources/public/lib/main/breakpoints/breakpoints.js"></script>
+        <script src="../resources/public/lib/modernizr.js"></script>
+		<script src="../resources/public/lib/assets/plugins/breakpoints/breakpoints.js"></script>
 		<script>
-	    	Breakpoints();
-	  	</script>
+			Breakpoints();
+		</script>
 	</head>
 	<body class="page-login-v2 layout-full page-dark">
 		<!--[if lt IE 8]>
@@ -91,23 +91,23 @@
 					<div class="brand visible-xs">
 						<img class="brand-img" src="../resources/public/img/logos/logo-camcar-hor-white@2x.png" alt="Camcar Grupo Automotriz, ve por más...">
 					</div>
-					<h3 class="font-size-24">Sign In</h3>
+					<h3 class="font-size-24">Ingresar</h3>
 					<!-- Form -->
 					<form method="post" action="process_login.php">
 						<div class="form-group">
 							<label class="sr-only" for="inputEmail">Usuario</label>
-							<input type="email" class="form-control" id="inputEmail" name="email" placeholder="Usuario">
+							<input type="email" class="form-control camcar-remark-input" id="inputEmail" name="email" placeholder="Usuario">
 						</div>
 						<div class="form-group">
 							<label class="sr-only" for="inputPassword">Contraseña</label>
-							<input type="password" class="form-control" id="inputPassword" name="password" placeholder="Contraseña">
+							<input type="password" class="form-control camcar-remark-input" id="inputPassword" name="password" placeholder="Contraseña">
 						</div>
 						<div class="form-group clearfix">
 							<a class="pull-right" href="#">
 								<i class="fa fa-chevron-left"></i> Regresar
 							</a>
 						</div>
-						<button type="submit" class="btn btn-primary btn-block" onclick="formhash(this.form, this.form.password);">
+						<button type="submit" class="btn btn-primary btn-block bg-red-camcar" onclick="formhash(this.form, this.form.password);">
 							<i class="fa fa-user fa-lg fa-fw"></i> Ingresar
 						</button>
 					</form>
@@ -123,94 +123,71 @@
 		<!-- End Page -->
 
 		<!-- MAIN -->
-		<script src="lib/jquery.js"></script>
-		<script src="lib/modernizr.js"></script>
-		<script src="lib/bootstrap.js"></script>
+		<script src="../resources/public/lib/jquery.js"></script>
+		<script src="../resources/public/lib/bootstrap.js"></script>
+
 		<!-- CORE -->
-		<script src="lib/jquery.gdb.js"></script>
-		<script src="lib/jquery-ui.js"></script>
-		<script src="lib/underscore.js"></script>
-		<script src="lib/moment.js"></script>
-		<script src="lib/accounting.js"></script>
-		<script src="lib/finch.js"></script>
+		<script src="../resources/public/lib/jquery.gdb.js"></script>
+		<script src="../resources/public/lib/jquery-ui.js"></script>
+		<script src="../resources/public/lib/underscore.js"></script>
+		<script src="../resources/public/lib/moment.js"></script>
+		<script src="../resources/public/lib/accounting.js"></script>
+		<script src="../resources/public/lib/finch.js"></script>
+
 		<!-- HANDLEBARS -->
-		<script src="lib/handlebars.runtime.js"></script>
-		<!-- TEMPLATES -->
-		<script src='templates/min/templates.min.js'></script>
+		<script src="../resources/public/lib/handlebars.runtime.js"></script>
+
 		<!-- FORMS -->
-		<script src="lib/forms.js"></script>
-		<script src="lib/sha512.js"></script>
+		<script src="../resources/public/lib/forms.js"></script>
+		<script src="../resources/public/lib/sha512.js"></script>
+
 		<!-- PLUGINS -->
-		<!-- CORE JS -->
-		<script src='js/min/core.min.js'></script>
-		<?php /*
-		<!-- CORE -->
-	    <script src='js/objects.js'></script>
-	    <script src='js/method.js'></script>
-	    <script src='js/model.js'></script>
-	    <script src='js/room.js'></script>
-	    <script src='js/main.js'></script>
-		*/ ?>
+		<script src="../resources/public/lib/assets/plugins/animsition/jquery.animsition.js"></script>
+		<script src="../resources/public/lib/assets/plugins/asscroll/jquery-asScroll.js"></script>
+		<script src="../resources/public/lib/assets/plugins/mousewheel/jquery.mousewheel.js"></script>
+		<script src="../resources/public/lib/assets/plugins/asscrollable/jquery.asScrollable.all.js"></script>
+		<script src="../resources/public/lib/assets/plugins/ashoverscroll/jquery-asHoverScroll.js"></script>
 
-		<!-- MAIN -->
-		<script src="../resources/public/lib/main/jquery/jquery.js"></script>
-		<script src="../resources/public/lib/main/bootstrap/bootstrap.js"></script>
-
-		<script src="../resources/public/lib/plugins/animsition/jquery.animsition.js"></script>
-		<script src="../resources/public/lib/plugins/asscroll/jquery-asScroll.js"></script>
-		<script src="../resources/public/lib/plugins/mousewheel/jquery.mousewheel.js"></script>
-		<script src="../resources/public/lib/plugins/asscrollable/jquery.asScrollable.all.js"></script>
-		<script src="../resources/public/lib/plugins/ashoverscroll/jquery-asHoverScroll.js"></script>
-
-		<!-- plugins -->
-		<script src="../resources/public/lib/plugins/switchery/switchery.js"></script>
-		<script src="../resources/public/lib/plugins/intro-js/intro.js"></script>
-		<script src="../resources/public/lib/plugins/screenfull/screenfull.js"></script>
-		<script src="../resources/public/lib/plugins/slidepanel/jquery-slidePanel.js"></script>
+		<script src="../resources/public/lib/assets/plugins/switchery/switchery.js"></script>
+		<script src="../resources/public/lib/assets/plugins/intro-js/intro.js"></script>
+		<script src="../resources/public/lib/assets/plugins/screenfull/screenfull.js"></script>
+		<script src="../resources/public/lib/assets/plugins/slidepanel/jquery-slidePanel.js"></script>
 
 		<!--Plugins For This Page Login -->
-		<script src="../resources/public/lib/plugins/jquery-placeholder/jquery.placeholder.js"></script>
+		<script src="../resources/public/lib/assets/plugins/jquery-placeholder/jquery.placeholder.js"></script>
 
-		<!--Scripts -->
-		<script src="../resources/public/lib/run/init/core.js"></script>
-		<script src="../resources/public/lib/run/init/site.js"></script>
+		<!--SCRIPTS -->
+		<script src="../resources/public/lib/assets/run/core.js"></script>
+		<script src="../resources/public/lib/assets/run/site.js"></script>
 
-		<script src="../resources/public/lib/run/sections/menu.js"></script>
-		<script src="../resources/public/lib/run/sections/menubar.js"></script>
-		<script src="../resources/public/lib/run/sections/gridmenu.js"></script>
-		<script src="../resources/public/lib/run/sections/sidebar.js"></script>
+		<script src="../resources/public/lib/assets/run/sections/menu.js"></script>
+		<script src="../resources/public/lib/assets/run/sections/menubar.js"></script>
+		<script src="../resources/public/lib/assets/run/sections/gridmenu.js"></script>
+		<script src="../resources/public/lib/assets/run/sections/sidebar.js"></script>
 
-		<script src="../resources/public/lib/run/configs/config-colors.js"></script>
-		<script src="../resources/public/lib/run/configs/config-tour.js"></script>
+		<script src="../resources/public/lib/assets/run/configs/config-colors.js"></script>
+		<script src="../resources/public/lib/assets/run/configs/config-tour.js"></script>
 
-		<script src="../resources/public/lib/run/components/asscrollable.js"></script>
-		<script src="../resources/public/lib/run/components/animsition.js"></script>
-		<script src="../resources/public/lib/run/components/slidepanel.js"></script>
-		<script src="../resources/public/lib/run/components/switchery.js"></script>
+		<script src="../resources/public/lib/assets/run/components/asscrollable.js"></script>
+		<script src="../resources/public/lib/assets/run/components/animsition.js"></script>
+		<script src="../resources/public/lib/assets/run/components/slidepanel.js"></script>
+		<script src="../resources/public/lib/assets/run/components/switchery.js"></script>
 
 		<!--Scripts For This Page Login -->
-		<script src="../resources/public/lib/run/components/jquery-placeholder.js"></script>
+		<script src="../resources/public/lib/assets/run/components/jquery-placeholder.js"></script>
 
-		<!-- CORE -->
-		<script src="../resources/public/lib/core/jquery.gdb-1.2.0/jquery.gdb-1.2.0.js"></script>
-		<script src="../resources/public/lib/core/jquery.ui-1.10.3/jquery-ui-1.10.3.js"></script>
-		<script src="../resources/public/lib/core/underscore-1.6.0/underscore-1.6.0.js"></script>
-		<script src="../resources/public/lib/core/moment-2.0.0/moment-2.0.0.js"></script>
-		<script src="../resources/public/lib/core/accounting-0.4.1/accounting-0.4.1.js"></script>
-		<script src="../resources/public/lib/core/finch-0.5.13/finch-0.5.13.js"></script>
-
-		<script src="../resources/public/lib/core/forms/sha512.js"></script>
-		<script src="../resources/public/lib/core/forms/forms.js"></script>
+		<!-- TEMPLATES -->
+		<script src='templates/min/templates.min.js'></script>
 
 		<!-- CORE JS -->
-	    <!--
+		<?php /*
+		<script src='js/min/core.min.js'></script>
+		*/ ?>
 	    <script src='js/objects.js'></script>
 	    <script src='js/method.js'></script>
 	    <script src='js/model.js'></script>
 	    <script src='js/room.js'></script>
 	    <script src='js/main.js'></script>
-	    -->
-		<script src='js/min/core.min.js'></script>
 
 		<script>
 		    (function(document, window, $) {

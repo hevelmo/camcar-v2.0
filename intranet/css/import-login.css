@@ -41,8 +41,9 @@
 	/* ------------------------------------------------------ *\
 		[styles] remark webfont
 	\* ------------------------------------------------------ */
-		@import url(../../resources/public/css/webfonts/web-icons/web-icons.min.css);
 		@import url(../../resources/public/css/webfonts/brand-icons/brand-icons.min.css);
+		@import url(../../resources/public/css/webfonts/font-awesome/font-awesome.css);
+		@import url(../../resources/public/css/webfonts/web-icons/web-icons.min.css);
 	/* ------------------------------------------------------ *\
 		[styles] remark fonts.googleApis
 	\* ------------------------------------------------------ */
@@ -50,7 +51,7 @@
 	/* ------------------------------------------------------ *\
 		[styles] remark extras
 	\* ------------------------------------------------------ */
-		@import url(styles/remark-main-login.css);
+		@import url(../../resources/public/css/styles/remark-main-login.css);
 /* ################################################################################################### *\
 	END CONTENT
 \* ################################################################################################### */
