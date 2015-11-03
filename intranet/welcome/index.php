@@ -97,8 +97,8 @@
                     <i class="icon wb-more-horizontal" aria-hidden="true"></i>
                 </button>
                 <div class="navbar-brand navbar-brand-center site-gridmenu-toggle" data-toggle="gridmenu">
-                    <img class="navbar-brand-logo" src="../assets/images/logo.png" title="Remark">
-                    <span class="navbar-brand-text"> Remark</span>
+                    <img class="navbar-brand-logo navbar-brand-site-logo" src="../../resources/public/img/logos/logo-camcar-hor-white@2x.png" title="Remark">
+                    <!--<span class="navbar-brand-text"> Remark</span>-->
                 </div>
                 <button type="button" class="navbar-toggle collapsed" data-target="#site-navbar-search" data-toggle="collapse">
                     <span class="sr-only">Toggle Search</span>
@@ -108,11 +108,104 @@
             <div class="navbar-container container-fluid">
                 <!-- Navbar Collapse -->
                 <div class="collapse navbar-collapse navbar-collapse-toolbar" id="site-navbar-collapse">
+                    <!-- Navbar Toolbar -->
+                    <ul class="nav navbar-toolbar">
+                        <li class="hidden-float" id="toggleMenubar">
+                            <a data-toggle="menubar" href="#" role="button">
+                                <i class="icon hamburger hamburger-arrow-left">
+                                    <span class="sr-only">Toggle menubar</span>
+                                    <span class="hamburger-bar"></span>
+                                </i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" aria-expanded="false" data-animation="fade" role="button">Inicio</a>
+                        </li>
+                        <li class="dropdown dropdown-fw dropdown-mega">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false" data-animation="fade" role="button">Seminuevos <i class="icon wb-chevron-down-mini" aria-hidden="true"></i></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>Nuevo</li>
+                                <li>Listado</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <!-- End Navbar Toolbar -->
+                    <!-- Navbar Toolbar Right -->
+                    <ul class="nav navbar-toolbar navbar-right navbar-toolbar-right">
+                        <li class="dropdown">
+                            <a class="navbar-avatar dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false" data-animation="scale-up" role="button">
+                                <span class="avatar avatar-online">
+                                    <img src="../../resources/public/img/logos/ico-camcar.png" alt="...">
+                                    <i></i>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li role="presentation">
+                                    <a href="javascript:void(0)" role="menuitem"><i class="icon wb-user" aria-hidden="true"></i> Profile</a>
+                                </li>
+                                <li role="presentation">
+                                    <a href="javascript:void(0)" role="menuitem"><i class="icon wb-payment" aria-hidden="true"></i> Billing</a>
+                                </li>
+                                <li role="presentation">
+                                    <a href="javascript:void(0)" role="menuitem"><i class="icon wb-settings" aria-hidden="true"></i> Settings</a>
+                                </li>
+                                <li class="divider" role="presentation"></li>
+                                <li role="presentation">
+                                    <a href="javascript:void(0)" role="menuitem"><i class="icon wb-power" aria-hidden="true"></i> Logout</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li></li>
+                    </ul>
+                    <!-- End Navbar Toolbar Right -->
                 </div>
                 <!-- End Navbar Collapse -->
             </div>
         </nav>
         <div class="site-menubar">
+            <div class="site-menubar-body">
+                <div>
+                    <div>
+                        <ul class="site-menu">
+                            <li class="site-menu-category">General</li>
+                            <li class="site-menu-item has-sub active open">
+                                <a href="javascript:void(0)" data-slug="dashboard">
+                                    <i class="site-menu-icon wb-dashboard" aria-hidden="true"></i>
+                                    <span class="site-menu-title">Dashboard</span>
+                                    <div class="site-menu-badge">
+                                        <span class="badge badge-success">2</span>
+                                    </div>
+                                </a>
+                                <ul class="site-menu-sub">
+                                    <li class="site-menu-item active">
+                                        <a class="animsition-link" href="index.html" data-slug="dashboard-v1">
+                                            <i class="site-menu-icon " aria-hidden="true"></i>
+                                            <span class="site-menu-title">Dashboard v1</span>
+                                        </a>
+                                    </li>
+                                    <li class="site-menu-item">
+                                        <a class="animsition-link" href="dashboard/v2.html" data-slug="dashboard-v2">
+                                            <i class="site-menu-icon " aria-hidden="true"></i>
+                                            <span class="site-menu-title">Dashboard v2</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="site-menubar-footer">
+                <a href="javascript: void(0);" class="fold-show" data-placement="top" data-toggle="tooltip" data-original-title="Settings">
+                    <!--<span class="icon wb-settings" aria-hidden="true"></span>-->
+                </a>
+                <a href="javascript: void(0);" data-placement="top" data-toggle="tooltip" data-original-title="Lock">
+                    <!--<span class="icon wb-eye-close" aria-hidden="true"></span>-->
+                </a>
+                <a href="javascript: void(0);" data-placement="top" data-toggle="tooltip" data-original-title="Logout">
+                    <span class="icon wb-power" aria-hidden="true"></span>
+                </a>
+            </div>
         </div>
 
         <!-- Page -->
@@ -125,9 +218,6 @@
         <!-- Footer -->
         <footer class="site-footer">
             <span class="site-footer-legal">© 2015 <a href="http://themeforest.net/item/remark-responsive-bootstrap-admin-template/11989202">Remark</a></span>
-            <div class="site-footer-right">
-                Crafted with <i class="red-600 wb wb-heart"></i> by <a href="http://themeforest.net/user/amazingSurge">amazingSurge</a>
-            </div>
         </footer>
 
         <!-- MAIN -->

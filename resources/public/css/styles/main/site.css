@@ -1,5 +1,5 @@
 .site-navbar {
-  background-color: #62a8ea;
+  background-color: #fff;
 }
 .site-navbar .navbar-header {
   color: #fff;
@@ -50,7 +50,7 @@ body {
   height:         calc(100% - 66px);
   font-family: "Roboto", sans-serif;
   color: rgba(163, 175, 183, .9);
-  background: #263238;
+  background: #030303;
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, .08);
           box-shadow: 0 2px 4px rgba(0, 0, 0, .08);
 }
@@ -106,7 +106,7 @@ body {
   font-size: 16px;
   color: #76838f;
   text-align: center;
-  background-color: #21292e;
+  background-color: rgb(25, 24, 24);
 }
 .site-menubar-footer > a:hover,
 .site-menubar-footer > a:focus {
@@ -208,7 +208,7 @@ body {
   background-color: rgba(255, 255, 255, .02);
 }
 .site-menu > .site-menu-item.active {
-  background: #242f35;
+  background: rgb(25, 24, 24);
   border-top: 1px solid rgba(0, 0, 0, .04);
   border-bottom: 1px solid rgba(0, 0, 0, .04);
 }
@@ -256,7 +256,7 @@ body {
   background-color: rgba(255, 255, 255, .02);
 }
 .site-menu .site-menu-sub .site-menu-item.active {
-  background: rgba(0, 0, 0, .06);
+  background: rgba(37, 36, 36, 1);
 }
 .site-menu .site-menu-sub .site-menu-item.active > a {
   color: #fff;
@@ -1005,7 +1005,7 @@ body.site-gridmenu-active {
 .site-footer {
   height: 44px;
   padding: 10px 30px;
-  background-color: rgba(0, 0, 0, .02);
+  background-color: #fff;
   border-top: 1px solid #e4eaec;
 }
 .site-footer:before,
@@ -5662,7 +5662,7 @@ a:focus {
   max-width: 100%;
   height: auto;
   border: 0 none;
-  border-radius: 1000px;
+  border-radius: 0px;
 }
 .avatar-online i {
   background-color: #46be8a;
