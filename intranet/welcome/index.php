@@ -1,7 +1,7 @@
 <?php
     /*
      * Copyright (C) 2015 CAMCAR Intranet
-     *
+     * Version: v2.0
     */
     /*
     include_once '../../incorporate/db_connect.php';
@@ -29,7 +29,7 @@
         <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
         <meta name='viewport' content='width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0' />
 
-        <title>CAMCAR | Intranet</title>
+        <title>CAMCAR | Bienvenido</title>
 
         <link rel="stylesheet" href="../css/import-intranet.css">
 
@@ -78,14 +78,28 @@
         </script>
         <script src="../../resources/public/lib/modernizr.js"></script>
         <script src="../../resources/public/lib/assets/plugins/breakpoints/breakpoints.js"></script>
-		<script>
-	    	Breakpoints();
-	  	</script>
 	</head>
     <body class="dashboard">
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+
+        <!-- Auxiliar Temporal Inputs's DIV -->
+        <div id='hidden-inputs-session'>
+            <?php /* ?>
+                <?php */ ?>
+                <input type='hidden' id='session-usr-username' value="<?php echo htmlentities($_SESSION['username']); ?>">
+                <input type='hidden' id='session-usr-id' value="<?php echo htmlentities($_SESSION['user_id']); ?>">
+                <input type='hidden' id='session-usr-type' value="<?php echo htmlentities($_SESSION['usr_type']); ?>">
+                <input type='hidden' id='session-usr-email' value="<?php echo htmlentities($_SESSION['email']); ?>">
+                <input type='hidden' id='session-usr-agn-id' value="<?php echo htmlentities($_SESSION['usr_agn_id']); ?>">
+                <input type='hidden' id='session-usr-agn-name' value="<?php echo htmlentities($_SESSION['usr_agn_nombre']); ?>">
+                <input type='hidden' id='session-usr-agn-logo1' value="<?php echo htmlentities($_SESSION['usr_agn_logo1']); ?>">
+                <input type='hidden' id='session-usr-agn-logo2' value="<?php echo htmlentities($_SESSION['usr_agn_logo2']); ?>">
+                <input type='hidden' id='session-usr-agn-header' value="<?php echo htmlentities($_SESSION['usr_agn_header']); ?>">
+        </div>
+        <!-- Auxiliar Temporal Inputs's DIV -->
+        <div id='hidden-inputs-temporal'></div>
 
         <nav class="site-navbar navbar navbar-default navbar-fixed-top navbar-mega" rol="navigation">
             <div class="navbar-header">
@@ -100,10 +114,10 @@
                     <img class="navbar-brand-logo navbar-brand-site-logo" src="../../resources/public/img/logos/logo-camcar-hor-white@2x.png" title="Remark">
                     <!--<span class="navbar-brand-text"> Remark</span>-->
                 </div>
-                <button type="button" class="navbar-toggle collapsed" data-target="#site-navbar-search" data-toggle="collapse">
+                <!--<button type="button" class="navbar-toggle collapsed" data-target="#site-navbar-search" data-toggle="collapse">
                     <span class="sr-only">Toggle Search</span>
                     <i class="icon wb-search" aria-hidden="true"></i>
-                </button>
+                </button>-->
             </div>
             <div class="navbar-container container-fluid">
                 <!-- Navbar Collapse -->
@@ -133,14 +147,14 @@
                     <!-- Navbar Toolbar Right -->
                     <ul class="nav navbar-toolbar navbar-right navbar-toolbar-right">
                         <li class="dropdown">
-                            <a class="navbar-avatar dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false" data-animation="scale-up" role="button">
+                            <a class="navbar-avatar dropdown-toggle hint--left" data-hint="<?php echo htmlentities('Asesor'); ?>" data-toggle="dropdown" href="#" aria-expanded="false" data-animation="scale-up" role="button">
                                 <span class="avatar avatar-online">
                                     <img src="../../resources/public/img/logos/ico-camcar.png" alt="...">
                                     <i></i>
                                 </span>
                             </a>
                             <ul class="dropdown-menu" role="menu">
-                                <li role="presentation">
+                                <!--<li role="presentation">
                                     <a href="javascript:void(0)" role="menuitem"><i class="icon wb-user" aria-hidden="true"></i> Profile</a>
                                 </li>
                                 <li role="presentation">
@@ -150,8 +164,9 @@
                                     <a href="javascript:void(0)" role="menuitem"><i class="icon wb-settings" aria-hidden="true"></i> Settings</a>
                                 </li>
                                 <li class="divider" role="presentation"></li>
+                                -->
                                 <li role="presentation">
-                                    <a href="javascript:void(0)" role="menuitem"><i class="icon wb-power" aria-hidden="true"></i> Logout</a>
+                                    <a href='../logout/' role="menuitem"><i class="icon wb-power" aria-hidden="true"></i> Logout </a>
                                 </li>
                             </ul>
                         </li>
@@ -167,29 +182,24 @@
                 <div>
                     <div>
                         <ul class="site-menu">
-                            <li class="site-menu-category">General</li>
-                            <li class="site-menu-item has-sub active open">
-                                <a href="javascript:void(0)" data-slug="dashboard">
-                                    <i class="site-menu-icon wb-dashboard" aria-hidden="true"></i>
-                                    <span class="site-menu-title">Dashboard</span>
-                                    <div class="site-menu-badge">
-                                        <span class="badge badge-success">2</span>
-                                    </div>
+                            <!--<li class="site-menu-category">General</li>-->
+                            <li class="site-menu-item has-sub">
+                                <a href="javascript:void(0)" data-slug="layout">
+                                    <i class="site-menu-icon navi-navicons-agreement-v1 fa-3x" aria-hidden="true"></i>
+                                    <span class="site-menu-title">Convenios</span>
                                 </a>
-                                <ul class="site-menu-sub">
-                                    <li class="site-menu-item active">
-                                        <a class="animsition-link" href="index.html" data-slug="dashboard-v1">
-                                            <i class="site-menu-icon " aria-hidden="true"></i>
-                                            <span class="site-menu-title">Dashboard v1</span>
-                                        </a>
-                                    </li>
-                                    <li class="site-menu-item">
-                                        <a class="animsition-link" href="dashboard/v2.html" data-slug="dashboard-v2">
-                                            <i class="site-menu-icon " aria-hidden="true"></i>
-                                            <span class="site-menu-title">Dashboard v2</span>
-                                        </a>
-                                    </li>
-                                </ul>
+                            </li>
+                            <li class="site-menu-item has-sub">
+                                <a href="javascript:void(0)" data-slug="layout">
+                                    <i class="site-menu-icon navi-navicons-birthday-v1 fa-3x" aria-hidden="true"></i>
+                                    <span class="site-menu-title">Cumpleaños</span>
+                                </a>
+                            </li>
+                            <li class="site-menu-item has-sub">
+                                <a href="javascript:void(0)" data-slug="layout">
+                                    <i class="site-menu-icon navi-navicons-pre-owned-car-v1 fa-3x" aria-hidden="true"></i>
+                                    <span class="site-menu-title">Seminuevos</span>
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -202,22 +212,20 @@
                 <a href="javascript: void(0);" data-placement="top" data-toggle="tooltip" data-original-title="Lock">
                     <!--<span class="icon wb-eye-close" aria-hidden="true"></span>-->
                 </a>
-                <a href="javascript: void(0);" data-placement="top" data-toggle="tooltip" data-original-title="Logout">
+                <a href='../logout/' data-placement="top" data-toggle="tooltip" data-original-title="Logout">
                     <span class="icon wb-power" aria-hidden="true"></span>
                 </a>
             </div>
         </div>
 
         <!-- Page -->
-        <div class="page">
-            <div class="page-content padding-30 container-fluid">
-            </div>
-        </div>
+        <!--Templates's DIV-->
+        <div class="wrapper_content_interactive" id='content-temporal-interactive'></div>
         <!-- End Page -->
 
         <!-- Footer -->
         <footer class="site-footer">
-            <span class="site-footer-legal">© 2015 <a href="http://themeforest.net/item/remark-responsive-bootstrap-admin-template/11989202">Remark</a></span>
+            <span class="site-footer-legal">© 2015 Camcar v2</span>
         </footer>
 
         <!-- MAIN -->
@@ -239,6 +247,44 @@
         <script src="../../resources/public/lib/forms.js"></script>
         <script src="../../resources/public/lib/sha512.js"></script>
 
+        <!-- PLUGINS -->
+        <script src="../../resources/public/lib/assets/plugins/animsition/jquery.animsition.js"></script>
+        <script src="../../resources/public/lib/assets/plugins/asscroll/jquery-asScroll.js"></script>
+        <script src="../../resources/public/lib/assets/plugins/mousewheel/jquery.mousewheel.js"></script>
+        <script src="../../resources/public/lib/assets/plugins/asscrollable/jquery.asScrollable.all.js"></script>
+        <script src="../../resources/public/lib/assets/plugins/ashoverscroll/jquery-asHoverScroll.js"></script>
+        <script src="../../resources/public/lib/assets/plugins/switchery/switchery.min.js"></script>
+        <script src="../../resources/public/lib/assets/plugins/intro-js/intro.js"></script>
+        <script src="../../resources/public/lib/assets/plugins/screenfull/screenfull.js"></script>
+        <script src="../../resources/public/lib/assets/plugins/slidepanel/jquery-slidePanel.js"></script>
+
+        <!-- Plugins For This Page -->
+        <script src="../../resources/public/lib/assets/plugins/chartist-js/chartist.min.js"></script>
+        <script src="../../resources/public/lib/assets/plugins/matchheight/jquery.matchHeight-min.js"></script>
+
+        <!-- Scripts -->
+        <script src="../../resources/public/lib/assets/run/core.js"></script>
+        <script src="../../resources/public/lib/assets/run/site.js"></script>
+
+        <script src="../../resources/public/lib/assets/run/sections/menu.js"></script>
+        <script src="../../resources/public/lib/assets/run/sections/menubar.js"></script>
+        <script src="../../resources/public/lib/assets/run/sections/gridmenu.js"></script>
+        <script src="../../resources/public/lib/assets/run/sections/sidebar.js"></script>
+
+        <script src="../../resources/public/lib/assets/run/configs/config-colors.js"></script>
+        <script src="../../resources/public/lib/assets/run/configs/config-tour.js"></script>
+
+        <script src="../../resources/public/lib/assets/run/components/asscrollable.js"></script>
+        <script src="../../resources/public/lib/assets/run/components/animsition.js"></script>
+        <script src="../../resources/public/lib/assets/run/components/slidepanel.js"></script>
+        <script src="../../resources/public/lib/assets/run/components/switchery.js"></script>
+
+        <!-- Scripts For This Page -->
+        <script src="../../resources/public/lib/assets/run/components/matchheight.js"></script>
+
+        <!-- TEMPLATES -->
+        <script src='../templates/min/templates.min.js'></script>
+
         <!-- CORE JS -->
         <script src='../js/objects.js'></script>
         <script src='../js/method.js'></script>
@@ -246,7 +292,7 @@
         <script src='../js/room.js'></script>
         <script src='../js/main.js'></script>
         <!--
-        -->
         <script src='../js/min/core.min.js'></script>
+        -->
     </body>
 </html>

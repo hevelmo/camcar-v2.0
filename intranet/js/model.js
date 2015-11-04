@@ -1,6 +1,20 @@
+/*
+    Here are functions and methods that are models whose performance is used in all the project
+    to invoke some of this models it's necessary to call with the prefix, and then te name of the
+    model and its arguments, for example PRO.momentToHuman(date, language);
+    Each method has a large explanation.
+
+    NOTE: the prefix PRO will change depends on the specific project.
+
+    For the correct performance of almost all of the methods
+    it's necesary to includ JQuery library
+ **/
+
+
 //[Models] Modelos
-var CAMINT = {};
-CAMINT = (function() {
+var CAMIN = {};
+
+CAMIN = (function() {
     var $this = this;
     /*
      ###################################################################################################
@@ -125,6 +139,7 @@ CAMINT = (function() {
          *RETURN: boolean
          *   true: if it has value
          *   false: if it doesnt have a value
+         *
         **/
             function exist(domElement) {
                 return ($(domElement).val()) ? true : false;
@@ -136,12 +151,12 @@ CAMINT = (function() {
          *   domElement: Is a string with the id or class ('#domElement', '.domElement')
          *               of the DOM element whose value will be trimmed (mandatory).
         **/
-        function trimValue(domElement) {
-            var value, clean;
-            value = $(domElement).val();
-            clean = $.trim(value);
-            $(domElement).val(clean);
-        }
+            function trimValue(domElement) {
+                var value, clean;
+                value = $(domElement).val();
+                clean = $.trim(value);
+                $(domElement).val(clean);
+            }
         /*
          *This function returns the HTML content wrapped in an specific DOM element
          *
@@ -238,7 +253,7 @@ CAMINT = (function() {
                     new_domElement += new_el_content;
                     new_domElement += '</' + new_el_type + '>';
                 } else {
-                    new_domElement += ' />';
+                    new_domElement += ' >';
                     new_domElement += new_el_content;
                 }
                 $(domElement).append(new_domElement);
@@ -364,11 +379,11 @@ CAMINT = (function() {
          *   form: Is a string with the id or class ('form#some_form', 'form.some_form')
          *   of the for that will be rested
         **/
-        function resetForm(form) {
-            $(form).each ( function() {
-                this.reset();
-            });
-        }
+            function resetForm(form) {
+                $(form).each ( function() {
+                    this.reset();
+                });
+            }
     /*
      ###################################################################################################
      AJAX's Models
@@ -491,15 +506,15 @@ CAMINT = (function() {
          *
          * sumArrayObjByKey(arrayObj, 'key3');
          * returns 8.66;
-         **/
-        function sumArrayObjByKey(arrayObj, numKey) {
-            return _.reduce(
-                    _.pluck(arrayObj, numKey),
-                    function(sum, num) {
-                        return sum + num;
-                    }
-            );
-        }
+        **/
+            function sumArrayObjByKey(arrayObj, numKey) {
+                return _.reduce(
+                        _.pluck(arrayObj, numKey),
+                        function(sum, num) {
+                            return sum + num;
+                        }
+                );
+            }
         /*
          *This function rename the keys in an array of objects, it only gets the specified keys
          *and ignore the rest of them.
@@ -548,6 +563,7 @@ CAMINT = (function() {
                 }
                 return newArrayObj;
             }
+
         /*
          *This function removes from an array of objects, the objects
          *whose key values are the same to the specified in withoutObj
@@ -614,7 +630,7 @@ CAMINT = (function() {
          *
          *PARAMS:
          *   arrayObj: Is an array of objects tha we will clean of objects with
-                       the specific values in one or more specific keys (mandatory).
+         *             the specific values in one or more specific keys (mandatory).
          *   withoutObj: Is an objet with the keys and values we don't want (mandatory).
          *
          *RETURN: Array of objects
@@ -651,7 +667,7 @@ CAMINT = (function() {
                 }
                 return arrayObj;
             }
-    /*
+        /*
      ###################################################################################################
      NUMBER FORMATS's Models
      ###################################################################################################

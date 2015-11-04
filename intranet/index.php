@@ -3,9 +3,9 @@
 	include '../incorporate/db_connect.php';
     include '../incorporate/functions.php';
     sec_session_start();
-    /*if (login_check($mysqli) == true) {
-        header('Location: admin');
-    }*/
+    if (login_check($mysqli) == true) {
+        header('Location: welcome');
+    }
 
 ?>
 <!DOCTYPE html>
@@ -176,18 +176,18 @@
 		<!--Scripts For This Page Login -->
 		<script src="../resources/public/lib/assets/run/components/jquery-placeholder.js"></script>
 
+
+		<?php /*
 		<!-- TEMPLATES -->
 		<script src='templates/min/templates.min.js'></script>
-
 		<!-- CORE JS -->
-		<?php /*
 		<script src='js/min/core.min.js'></script>
-		*/ ?>
 	    <script src='js/objects.js'></script>
 	    <script src='js/method.js'></script>
 	    <script src='js/model.js'></script>
 	    <script src='js/room.js'></script>
 	    <script src='js/main.js'></script>
+		*/ ?>
 
 		<script>
 		    (function(document, window, $) {

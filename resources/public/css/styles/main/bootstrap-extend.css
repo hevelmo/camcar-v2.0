@@ -2918,7 +2918,7 @@ fieldset[disabled] .btn-pure.focus {
   z-index: 1;
 }
 .nav > li > a {
-  overflow: hidden;
+  overflow: visible;
 }
 .nav > li > a:focus {
   outline: none;
