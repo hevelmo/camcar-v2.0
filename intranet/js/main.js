@@ -28,4 +28,6 @@ $(document).ready(function() {
     /* ------------------------------------------------------ *\
         EVENT CONTROL
     \* ------------------------------------------------------ */
+
+    $(domEl.recurrent_body).on('click', '.dp-header .dp-top .dp-navlink', animateNavMethod.animateNav);
 });

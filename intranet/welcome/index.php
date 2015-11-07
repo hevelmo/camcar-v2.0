@@ -29,7 +29,7 @@
         <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
         <meta name='viewport' content='width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0' />
 
-        <title>CAMCAR | Bienvenido</title>
+        <title id="head-change-section-title">CAMCAR | Bienvenido</title>
 
         <link rel="stylesheet" href="../css/import-intranet.css">
 
@@ -123,7 +123,7 @@
                 <!-- Navbar Collapse -->
                 <div class="collapse navbar-collapse navbar-collapse-toolbar" id="site-navbar-collapse">
                     <!-- Navbar Toolbar -->
-                    <ul class="nav navbar-toolbar">
+                    <ul class="nav navbar-toolbar dp-header">
                         <li class="hidden-float" id="toggleMenubar">
                             <a data-toggle="menubar" href="#" role="button">
                                 <i class="icon hamburger hamburger-arrow-left">
@@ -135,13 +135,24 @@
                         <li>
                             <a href="#" aria-expanded="false" data-animation="fade" role="button">Inicio</a>
                         </li>
-                        <li class="dropdown dropdown-fw dropdown-mega">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false" data-animation="fade" role="button">Seminuevos <i class="icon wb-chevron-down-mini" aria-hidden="true"></i></a>
-                            <ul class="dropdown-menu" role="menu">
+                        <li class="dp-top">
+                            <a href="#" class="dp-navlink">
+                                Seminuevos <i class="icon wb-chevron-down-mini" aria-hidden="true"></i>
+                            </a>
+                            <div class="dp-navlink-menu">
+                                <ul>
+                                    <li>Nuevo</li>
+                                    <li>Listado</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <!--<li class="dropdown dropdown-fw dropdown-mega">
+                            <a class="dropdown-toggle dt-navlink" data-toggle="dropdown" href="#" aria-expanded="false" data-animation="fade" role="button">Seminuevos <i class="icon wb-chevron-down-mini" aria-hidden="true"></i></a>
+                            <ul class="dropdown-menu dp-navlink-menu" role="menu">
                                 <li>Nuevo</li>
                                 <li>Listado</li>
                             </ul>
-                        </li>
+                        </li>-->
                     </ul>
                     <!-- End Navbar Toolbar -->
                     <!-- Navbar Toolbar Right -->

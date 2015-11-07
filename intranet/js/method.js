@@ -42,30 +42,59 @@
 \* ------------------------------------------------------ */
     var addStylesMethod = {
         addStylesHome : function() {
-            //new_el_attributes = {'id': 'myId', 'class': 'myClass', 'value' : '2', 'data-my-data' : '2', 'name' : 'myName'}
-            //appendOne('div#my_div', 'div', new_el_attributes, '', 0);
             stylesHomeAttributes = [
-                ['link', {'id' : 'content-add-style-home', 'rel': 'stylesheet', 'class':'link-home', 'href': 'css/sections/contact.css'}, '', 0]
+                ['link', {'id' : 'content-add-style-welcome-plugins', 'rel': 'stylesheet', 'class':'link-welcome', 'href': '../../resources/public/css/styles/assets/plugins/chartist-js/chartist.css'}, '', 0],
+                ['link', {'id' : 'content-add-style-welcome-plugins', 'rel': 'stylesheet', 'class':'link-welcome', 'href': '../../resources/public/css/styles/assets/plugins/aspieprogress/asPieProgress.css'}, '', 0],
+                ['link', {'id' : 'content-add-style-welcome-dashboard', 'rel': 'stylesheet', 'class':'link-welcome', 'href': '../../resources/public/css/styles/assets/dashboard/v2.css'}, '', 0]
             ];
-            appendMulti(domEl.recurrent_head, stylesHomeAttributes);
-
-            linkContactAttributes = [
-                ['link', {'id': 'content-add-styles-contact', 'rel': 'stylesheet', 'class': 'link-contact', 'href': 'css/sections/contact.css'}, '', 0],
-                ['link', {'id': 'content-add-styles-contact-shosen', 'rel': 'stylesheet', 'class': 'link-contact', 'href': 'css/plugins/jquery.chosen/chosen.css'}, '', 0]
-            ];
-            SUK.appendMulti('head', linkContactAttributes);
+            CAMIN.appendMulti(domEl.recurrent_head, stylesHomeAttributes);
         }
     }
 /* ------------------------------------------------------ *\
     [Methods] cleanStyles
 \* ------------------------------------------------------ */
+    var cleanStylesMethod = {
+        cleanStylesWelcome : function () {
+            $('head .link-welcome').remove();
+        }
+    }
+/* ------------------------------------------------------ *\
+    [Methods] animateNavMethod
+\* ------------------------------------------------------ */
+    var animateNavMethod = {
+        animateNav: function(event) {
+            var nav, animateTime, navLink;
 
+            nav = $('.dp-navlink-menu');
+            animateTime = 500;
+            navLink = $('.dp-header .dp-top .dp-navlink');
+
+            if ( nav.height() === 0) {
+                autoHeightAnimate(nav, animateTime);
+                console.log(nav, animateTime);
+            } else{
+                nav.stop().animate({ height: '0' }, animateTime);
+                console.log(nav);
+            }
+            /* Function to animate height: auto */
+            function autoHeightAnimate(element, time){
+                var curHeight, // Get Default Height
+                    autoHeight; // Get Auto Height
+
+                curHeight = element.height();
+                autoHeight  = element.css('height', 'auto').height()
+
+                element.height(curHeight); // Reset to Default Height
+                element.stop().animate({ height: autoHeight }, parseInt(time)); // Animate to Auto Height
+            }
+        }
+    }
 /* ------------------------------------------------------ *\
     [Metodos] Favicon
 \* ------------------------------------------------------ */
     var favicon = {
         load_favicon: function() {
-            favicon.change("../resources/public/img/PROcaricon.ico");
+            favicon.change("../resources/public/img/caricon.ico");
         },
         change: function(iconURL, optionalDocTitle) {
             if (arguments.length == 2) {
@@ -101,17 +130,5 @@
             CAMIN.loadTemplate(tempsNames.recurrent_welcome_home, domEl.div_recurrent);
         }
     }
-/* ------------------------------------------------------ *\
- [Methods] Home
-\* ------------------------------------------------------ */
-    //This group of methods will be not used it's only example, remove it later
-    var demoMethods = {
-        changeLan : function (event) {
-            var lan, date, newDate;
-            lan = CAMIN.getValue($(this));
-            date = $(domEl.h3_demo_date).data('date');
-            newDate = CAMIN.momentToRoman(date, lan);
-            $(domEl.h3_demo_date).text(newDate);
-        }
-    }
+
 

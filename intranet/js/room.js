@@ -5,16 +5,18 @@
         setup: function(bindings) {
             // Add favicon
             window.onload = favicon.load_favicon();
-            section = "home";
+            section = "intranet-welcome";
         	Breakpoints();
         	Site.run();
+            addStylesMethod.addStylesHome();
         },
         load: function(bindings) {
-        	loadTemplatesMethods.loadTemplateHome();
+            loadTemplatesMethods.loadTemplateHome();
         },
         unload: function(bindings) {
             section = "";
             CAMIN.setHTML(domEl.div_recurren, '');
+            cleanStylesMethod.cleanStylesWelcome();
         }
     });
 Finch.listen();

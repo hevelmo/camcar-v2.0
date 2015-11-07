@@ -19,25 +19,25 @@
 	/* ------------------------------------------------------ *\
 		[styles] bootstrap
 	\* ------------------------------------------------------ */
-		@import url(../../resources/public/css/styles/main/bootstrap.css);
-		@import url(../../resources/public/css/styles/main/bootstrap-extend.css);
+		@import url(../../resources/public/css/styles/assets/main/bootstrap.css);
+		@import url(../../resources/public/css/styles/assets/main/bootstrap-extend.css);
 	/* ------------------------------------------------------ *\
 		[styles] remark site
 	\* ------------------------------------------------------ */
-		@import url(../../resources/public/css/styles/main/site.css);
+		@import url(../../resources/public/css/styles/assets/main/site.css);
 	/* ------------------------------------------------------ *\
 		[styles] remark plugins
 	\* ------------------------------------------------------ */
-		@import url(../../resources/public/css/styles/plugins/animsition/animsition.css);
-		@import url(../../resources/public/css/styles/plugins/asscrollable/asScrollable.css);
-		@import url(../../resources/public/css/styles/plugins/switchery/switchery.css);
-		@import url(../../resources/public/css/styles/plugins/intro-js/introjs.css);
-		@import url(../../resources/public/css/styles/plugins/slidepanel/slidePanel.css);
-		@import url(../../resources/public/css/styles/plugins/flag-icon-css/flag-icon.css);
+		@import url(../../resources/public/css/styles/assets/plugins/animsition/animsition.css);
+		@import url(../../resources/public/css/styles/assets/plugins/asscrollable/asScrollable.css);
+		@import url(../../resources/public/css/styles/assets/plugins/switchery/switchery.css);
+		@import url(../../resources/public/css/styles/assets/plugins/intro-js/introjs.css);
+		@import url(../../resources/public/css/styles/assets/plugins/slidepanel/slidePanel.css);
+		@import url(../../resources/public/css/styles/assets/plugins/flag-icon-css/flag-icon.css);
 	/* ------------------------------------------------------ *\
 		[styles] remark login page
 	\* ------------------------------------------------------ */
-		@import url(../../resources/public/css/styles/login/login-v2.css);
+		@import url(../../resources/public/css/styles/assets/login/login-v2.css);
 	/* ------------------------------------------------------ *\
 		[styles] remark webfont
 	\* ------------------------------------------------------ */
