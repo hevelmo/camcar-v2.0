@@ -141,8 +141,8 @@
                             </a>
                             <div class="dp-navlink-menu">
                                 <ul>
-                                    <li>Nuevo</li>
-                                    <li>Listado</li>
+                                    <li><a href="">Nuevo</a></li>
+                                    <li><a href="">Listado</a></li>
                                 </ul>
                             </div>
                         </li>
