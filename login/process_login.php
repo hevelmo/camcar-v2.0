@@ -12,7 +12,7 @@ if (isset($_POST['email'], $_POST['p'])) {
     $user_browser = $_SERVER['HTTP_USER_AGENT'];
     if (login($email, $password, $mysqli) == true) {
         // Login success
-        header('Location: welcome/');
+        header('Location: ../intranet/welcome/');
         //header('Location: welcome/');
     } else {
         // Login failed

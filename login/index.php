@@ -4,7 +4,7 @@
     include '../incorporate/functions.php';
     sec_session_start();
     if (login_check($mysqli) == true) {
-        header('Location: welcome');
+        header('Location: ../intranet/welcome');
     }
 
 ?>
@@ -21,19 +21,19 @@
         <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
         <meta name='viewport' content='width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0' />
 
-		<title>CAMCAR | Ingresar</title>
+		<title>CAMCAR Ingresar</title>
 
-        <link rel="stylesheet" href="css/import-login.css">
+        <link rel="stylesheet" href="../css/import-login.css">
 
-        <link rel="apple-touch-icon" href="../resources/public/img/ico/apple-touch-icon.png">
-        <link rel="shortcut icon" href="../resources/public/img/ico/camcaricon.ico">
+        <link rel="apple-touch-icon" href="../img/ico/apple-touch-icon.png">
+        <link rel="shortcut icon" href="../img/ico/camcaricon.ico">
 
         <!--[if lt IE 9]>
-		    <script src="../resources/public/lib/plugins/html5shiv/html5shiv.min.js"></script>
+		    <script src="../lib/plugins/html5shiv/html5shiv.min.js"></script>
 		<![endif]-->
 		<!--[if lt IE 10]>
-		    <script src="../resources/public/lib/plugins/media-match/media.match.min.js"></script>
-		    <script src="../resources/public/lib/plugins/respond/respond.min.js"></script>
+		    <script src="../lib/plugins/media-match/media.match.min.js"></script>
+		    <script src="../lib/plugins/respond/respond.min.js"></script>
 		<![endif]-->
         <script>
             var nav = navigator.appName;
@@ -68,8 +68,8 @@
                 }
             }
         </script>
-        <script src="../resources/public/lib/modernizr.js"></script>
-		<script src="../resources/public/lib/assets/plugins/breakpoints/breakpoints.js"></script>
+        <script src="../lib/modernizr.js"></script>
+		<script src="../lib/assets/plugins/breakpoints/breakpoints.js"></script>
 		<script>
 			Breakpoints();
 		</script>
@@ -83,13 +83,13 @@
 			<div class="page-content">
 				<div class="page-brand-info">
 					<div class="brand">
-						<img class="brand-img brand-img-resp" src="../resources/public/img/logos/logo-camcar-ver-white@2x.png" alt="Camcar Grupo Automotriz, ve por más...">
+						<img class="brand-img brand-img-resp" src="../img/logos/logo-camcar-ver-white@2x.png" alt="Camcar Grupo Automotriz, ve por más...">
 					</div>
 				</div>
 				<!-- Page Login Main -->
 				<div class="page-login-main">
 					<div class="brand visible-xs">
-						<img class="brand-img brand-img-visible-xs-resp" src="../resources/public/img/logos/logo-camcar-hor-white@2x.png" alt="Camcar Grupo Automotriz, ve por más...">
+						<img class="brand-img brand-img-visible-xs-resp" src="../img/logos/logo-camcar-hor-white@2x.png" alt="Camcar Grupo Automotriz, ve por más...">
 					</div>
 					<h3 class="font-size-24">Ingresar</h3>
 					<!-- Form -->
@@ -123,58 +123,58 @@
 		<!-- End Page -->
 
 		<!-- MAIN -->
-		<script src="../resources/public/lib/jquery.js"></script>
-		<script src="../resources/public/lib/bootstrap.js"></script>
+		<script src="../lib/jquery.js"></script>
+		<script src="../lib/bootstrap.js"></script>
 
 		<!-- CORE -->
-		<script src="../resources/public/lib/jquery.gdb.js"></script>
-		<script src="../resources/public/lib/jquery-ui.js"></script>
-		<script src="../resources/public/lib/underscore.js"></script>
-		<script src="../resources/public/lib/moment.js"></script>
-		<script src="../resources/public/lib/accounting.js"></script>
-		<script src="../resources/public/lib/finch.js"></script>
+		<script src="../lib/jquery.gdb.js"></script>
+		<script src="../lib/jquery-ui.js"></script>
+		<script src="../lib/underscore.js"></script>
+		<script src="../lib/moment.js"></script>
+		<script src="../lib/accounting.js"></script>
+		<script src="../lib/finch.js"></script>
 
 		<!-- HANDLEBARS -->
-		<script src="../resources/public/lib/handlebars.runtime.js"></script>
+		<script src="../lib/handlebars.runtime.js"></script>
 
 		<!-- FORMS -->
-		<script src="../resources/public/lib/forms.js"></script>
-		<script src="../resources/public/lib/sha512.js"></script>
+		<script src="../lib/forms.js"></script>
+		<script src="../lib/sha512.js"></script>
 
 		<!-- PLUGINS -->
-		<script src="../resources/public/lib/assets/plugins/animsition/jquery.animsition.js"></script>
-		<script src="../resources/public/lib/assets/plugins/asscroll/jquery-asScroll.js"></script>
-		<script src="../resources/public/lib/assets/plugins/mousewheel/jquery.mousewheel.js"></script>
-		<script src="../resources/public/lib/assets/plugins/asscrollable/jquery.asScrollable.all.js"></script>
-		<script src="../resources/public/lib/assets/plugins/ashoverscroll/jquery-asHoverScroll.js"></script>
+		<script src="../lib/assets/plugins/animsition/jquery.animsition.js"></script>
+		<script src="../lib/assets/plugins/asscroll/jquery-asScroll.js"></script>
+		<script src="../lib/assets/plugins/mousewheel/jquery.mousewheel.js"></script>
+		<script src="../lib/assets/plugins/asscrollable/jquery.asScrollable.all.js"></script>
+		<script src="../lib/assets/plugins/ashoverscroll/jquery-asHoverScroll.js"></script>
 
-		<script src="../resources/public/lib/assets/plugins/switchery/switchery.js"></script>
-		<script src="../resources/public/lib/assets/plugins/intro-js/intro.js"></script>
-		<script src="../resources/public/lib/assets/plugins/screenfull/screenfull.js"></script>
-		<script src="../resources/public/lib/assets/plugins/slidepanel/jquery-slidePanel.js"></script>
+		<script src="../lib/assets/plugins/switchery/switchery.js"></script>
+		<script src="../lib/assets/plugins/intro-js/intro.js"></script>
+		<script src="../lib/assets/plugins/screenfull/screenfull.js"></script>
+		<script src="../lib/assets/plugins/slidepanel/jquery-slidePanel.js"></script>
 
 		<!--Plugins For This Page Login -->
-		<script src="../resources/public/lib/assets/plugins/jquery-placeholder/jquery.placeholder.js"></script>
+		<script src="../lib/assets/plugins/jquery-placeholder/jquery.placeholder.js"></script>
 
 		<!--SCRIPTS -->
-		<script src="../resources/public/lib/assets/run/core.js"></script>
-		<script src="../resources/public/lib/assets/run/site.js"></script>
+		<script src="../lib/assets/run/core.js"></script>
+		<script src="../lib/assets/run/site.js"></script>
 
-		<script src="../resources/public/lib/assets/run/sections/menu.js"></script>
-		<script src="../resources/public/lib/assets/run/sections/menubar.js"></script>
-		<script src="../resources/public/lib/assets/run/sections/gridmenu.js"></script>
-		<script src="../resources/public/lib/assets/run/sections/sidebar.js"></script>
+		<script src="../lib/assets/run/sections/menu.js"></script>
+		<script src="../lib/assets/run/sections/menubar.js"></script>
+		<script src="../lib/assets/run/sections/gridmenu.js"></script>
+		<script src="../lib/assets/run/sections/sidebar.js"></script>
 
-		<script src="../resources/public/lib/assets/run/configs/config-colors.js"></script>
-		<script src="../resources/public/lib/assets/run/configs/config-tour.js"></script>
+		<script src="../lib/assets/run/configs/config-colors.js"></script>
+		<script src="../lib/assets/run/configs/config-tour.js"></script>
 
-		<script src="../resources/public/lib/assets/run/components/asscrollable.js"></script>
-		<script src="../resources/public/lib/assets/run/components/animsition.js"></script>
-		<script src="../resources/public/lib/assets/run/components/slidepanel.js"></script>
-		<script src="../resources/public/lib/assets/run/components/switchery.js"></script>
+		<script src="../lib/assets/run/components/asscrollable.js"></script>
+		<script src="../lib/assets/run/components/animsition.js"></script>
+		<script src="../lib/assets/run/components/slidepanel.js"></script>
+		<script src="../lib/assets/run/components/switchery.js"></script>
 
 		<!--Scripts For This Page Login -->
-		<script src="../resources/public/lib/assets/run/components/jquery-placeholder.js"></script>
+		<script src="../lib/assets/run/components/jquery-placeholder.js"></script>
 
 
 		<?php /*

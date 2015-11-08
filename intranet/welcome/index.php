@@ -3,18 +3,17 @@
      * Copyright (C) 2015 CAMCAR Intranet
      * Version: v2.0
     */
-    /*
+
     include_once '../../incorporate/db_connect.php';
     include_once '../../incorporate/functions.php';
 
     sec_session_start();
 
     if (login_check($mysqli) != true) {
-        header('Location: ../');
+        header('Location: ../../login');
     } else {
         header('Location: ../admin');
     }
-    */
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html lang="en" class="no-js css-menubar lt-ie10 lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -29,19 +28,19 @@
         <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
         <meta name='viewport' content='width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0' />
 
-        <title id="head-change-section-title">CAMCAR | Bienvenido</title>
+        <title id="head-change-section-title">CAMCAR Bienvenido</title>
 
-        <link rel="stylesheet" href="../css/import-intranet.css">
+        <link rel="stylesheet" href="../../css/import-intranet.css">
 
-        <link rel="apple-touch-icon" href="../../resources/public/img/ico/apple-touch-icon.png">
-        <link rel="shortcut icon" href="../../resources/public/img/ico/camcaricon.ico">
+        <link rel="apple-touch-icon" href="../../img/ico/apple-touch-icon.png">
+        <link rel="shortcut icon" href="../../img/ico/camcaricon.ico">
 
         <!--[if lt IE 9]>
-		    <script src="../../resources/public/lib/assets/plugins/html5shiv/html5shiv.min.js"></script>
+		    <script src="../../lib/assets/plugins/html5shiv/html5shiv.min.js"></script>
 		<![endif]-->
 		<!--[if lt IE 10]>
-		    <script src="../../resources/public/lib/assets/plugins/media-match/media.match.min.js"></script>
-		    <script src="../../resources/public/lib/assets/plugins/respond/respond.min.js"></script>
+		    <script src="../../lib/assets/plugins/media-match/media.match.min.js"></script>
+		    <script src="../../lib/assets/plugins/respond/respond.min.js"></script>
 		<![endif]-->
         <script>
             var nav = navigator.appName;
@@ -76,8 +75,8 @@
                 }
             }
         </script>
-        <script src="../../resources/public/lib/modernizr.js"></script>
-        <script src="../../resources/public/lib/assets/plugins/breakpoints/breakpoints.js"></script>
+        <script src="../../lib/modernizr.js"></script>
+        <script src="../../lib/assets/plugins/breakpoints/breakpoints.js"></script>
 	</head>
     <body class="dashboard">
         <!--[if lt IE 8]>
@@ -111,7 +110,7 @@
                     <i class="icon wb-more-horizontal" aria-hidden="true"></i>
                 </button>
                 <div class="navbar-brand navbar-brand-center site-gridmenu-toggle" data-toggle="gridmenu">
-                    <img class="navbar-brand-logo navbar-brand-site-logo" src="../../resources/public/img/logos/logo-camcar-hor-white@2x.png" title="Remark">
+                    <img class="navbar-brand-logo navbar-brand-site-logo" src="../../img/logos/logo-camcar-hor-white@2x.png" title="Remark">
                     <!--<span class="navbar-brand-text"> Remark</span>-->
                 </div>
                 <!--<button type="button" class="navbar-toggle collapsed" data-target="#site-navbar-search" data-toggle="collapse">
@@ -160,7 +159,7 @@
                         <li class="dropdown">
                             <a class="navbar-avatar dropdown-toggle hint--left" data-hint="<?php echo htmlentities('Asesor'); ?>" data-toggle="dropdown" href="#" aria-expanded="false" data-animation="scale-up" role="button">
                                 <span class="avatar avatar-online">
-                                    <img src="../../resources/public/img/logos/ico-camcar.png" alt="...">
+                                    <img src="../../img/logos/ico-camcar.png" alt="...">
                                     <i></i>
                                 </span>
                             </a>
@@ -177,7 +176,7 @@
                                 <li class="divider" role="presentation"></li>
                                 -->
                                 <li role="presentation">
-                                    <a href='../logout/' role="menuitem"><i class="icon wb-power" aria-hidden="true"></i> Logout </a>
+                                    <a href='../../logout/' role="menuitem"><i class="icon wb-power" aria-hidden="true"></i> Logout </a>
                                 </li>
                             </ul>
                         </li>
@@ -223,7 +222,7 @@
                 <a href="javascript: void(0);" data-placement="top" data-toggle="tooltip" data-original-title="Lock">
                     <!--<span class="icon wb-eye-close" aria-hidden="true"></span>-->
                 </a>
-                <a href='../logout/' data-placement="top" data-toggle="tooltip" data-original-title="Logout">
+                <a href='../../logout/' data-placement="top" data-toggle="tooltip" data-original-title="Logout">
                     <span class="icon wb-power" aria-hidden="true"></span>
                 </a>
             </div>
@@ -240,58 +239,58 @@
         </footer>
 
         <!-- MAIN -->
-        <script src="../../resources/public/lib/jquery.js"></script>
-        <script src="../../resources/public/lib/bootstrap.js"></script>
+        <script src="../../lib/jquery.js"></script>
+        <script src="../../lib/bootstrap.js"></script>
 
         <!-- CORE -->
-        <script src="../../resources/public/lib/jquery.gdb.js"></script>
-        <script src="../../resources/public/lib/jquery-ui.js"></script>
-        <script src="../../resources/public/lib/underscore.js"></script>
-        <script src="../../resources/public/lib/moment.js"></script>
-        <script src="../../resources/public/lib/accounting.js"></script>
-        <script src="../../resources/public/lib/finch.js"></script>
+        <script src="../../lib/jquery.gdb.js"></script>
+        <script src="../../lib/jquery-ui.js"></script>
+        <script src="../../lib/underscore.js"></script>
+        <script src="../../lib/moment.js"></script>
+        <script src="../../lib/accounting.js"></script>
+        <script src="../../lib/finch.js"></script>
 
         <!-- HANDLEBARS -->
-        <script src="../../resources/public/lib/handlebars.runtime.js"></script>
+        <script src="../../lib/handlebars.runtime.js"></script>
 
         <!-- FORMS -->
-        <script src="../../resources/public/lib/forms.js"></script>
-        <script src="../../resources/public/lib/sha512.js"></script>
+        <script src="../../lib/forms.js"></script>
+        <script src="../../lib/sha512.js"></script>
 
         <!-- PLUGINS -->
-        <script src="../../resources/public/lib/assets/plugins/animsition/jquery.animsition.js"></script>
-        <script src="../../resources/public/lib/assets/plugins/asscroll/jquery-asScroll.js"></script>
-        <script src="../../resources/public/lib/assets/plugins/mousewheel/jquery.mousewheel.js"></script>
-        <script src="../../resources/public/lib/assets/plugins/asscrollable/jquery.asScrollable.all.js"></script>
-        <script src="../../resources/public/lib/assets/plugins/ashoverscroll/jquery-asHoverScroll.js"></script>
-        <script src="../../resources/public/lib/assets/plugins/switchery/switchery.min.js"></script>
-        <script src="../../resources/public/lib/assets/plugins/intro-js/intro.js"></script>
-        <script src="../../resources/public/lib/assets/plugins/screenfull/screenfull.js"></script>
-        <script src="../../resources/public/lib/assets/plugins/slidepanel/jquery-slidePanel.js"></script>
+        <script src="../../lib/assets/plugins/animsition/jquery.animsition.js"></script>
+        <script src="../../lib/assets/plugins/asscroll/jquery-asScroll.js"></script>
+        <script src="../../lib/assets/plugins/mousewheel/jquery.mousewheel.js"></script>
+        <script src="../../lib/assets/plugins/asscrollable/jquery.asScrollable.all.js"></script>
+        <script src="../../lib/assets/plugins/ashoverscroll/jquery-asHoverScroll.js"></script>
+        <script src="../../lib/assets/plugins/switchery/switchery.min.js"></script>
+        <script src="../../lib/assets/plugins/intro-js/intro.js"></script>
+        <script src="../../lib/assets/plugins/screenfull/screenfull.js"></script>
+        <script src="../../lib/assets/plugins/slidepanel/jquery-slidePanel.js"></script>
 
         <!-- Plugins For This Page -->
-        <script src="../../resources/public/lib/assets/plugins/chartist-js/chartist.min.js"></script>
-        <script src="../../resources/public/lib/assets/plugins/matchheight/jquery.matchHeight-min.js"></script>
+        <script src="../../lib/assets/plugins/chartist-js/chartist.min.js"></script>
+        <script src="../../lib/assets/plugins/matchheight/jquery.matchHeight-min.js"></script>
 
         <!-- Scripts -->
-        <script src="../../resources/public/lib/assets/run/core.js"></script>
-        <script src="../../resources/public/lib/assets/run/site.js"></script>
+        <script src="../../lib/assets/run/core.js"></script>
+        <script src="../../lib/assets/run/site.js"></script>
 
-        <script src="../../resources/public/lib/assets/run/sections/menu.js"></script>
-        <script src="../../resources/public/lib/assets/run/sections/menubar.js"></script>
-        <script src="../../resources/public/lib/assets/run/sections/gridmenu.js"></script>
-        <script src="../../resources/public/lib/assets/run/sections/sidebar.js"></script>
+        <script src="../../lib/assets/run/sections/menu.js"></script>
+        <script src="../../lib/assets/run/sections/menubar.js"></script>
+        <script src="../../lib/assets/run/sections/gridmenu.js"></script>
+        <script src="../../lib/assets/run/sections/sidebar.js"></script>
 
-        <script src="../../resources/public/lib/assets/run/configs/config-colors.js"></script>
-        <script src="../../resources/public/lib/assets/run/configs/config-tour.js"></script>
+        <script src="../../lib/assets/run/configs/config-colors.js"></script>
+        <script src="../../lib/assets/run/configs/config-tour.js"></script>
 
-        <script src="../../resources/public/lib/assets/run/components/asscrollable.js"></script>
-        <script src="../../resources/public/lib/assets/run/components/animsition.js"></script>
-        <script src="../../resources/public/lib/assets/run/components/slidepanel.js"></script>
-        <script src="../../resources/public/lib/assets/run/components/switchery.js"></script>
+        <script src="../../lib/assets/run/components/asscrollable.js"></script>
+        <script src="../../lib/assets/run/components/animsition.js"></script>
+        <script src="../../lib/assets/run/components/slidepanel.js"></script>
+        <script src="../../lib/assets/run/components/switchery.js"></script>
 
         <!-- Scripts For This Page -->
-        <script src="../../resources/public/lib/assets/run/components/matchheight.js"></script>
+        <script src="../../lib/assets/run/components/matchheight.js"></script>
 
         <!-- TEMPLATES -->
         <script src='../templates/min/templates.min.js'></script>

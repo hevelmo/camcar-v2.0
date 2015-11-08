@@ -19,31 +19,31 @@
 	/* ------------------------------------------------------ *\
 		[styles] bootstrap
 	\* ------------------------------------------------------ */
-		@import url(../../resources/public/css/styles/assets/main/bootstrap.css);
-		@import url(../../resources/public/css/styles/assets/main/bootstrap-extend.css);
+		@import url(styles/assets/main/bootstrap.css);
+		@import url(styles/assets/main/bootstrap-extend.css);
 	/* ------------------------------------------------------ *\
 		[styles] remark site
 	\* ------------------------------------------------------ */
-		@import url(../../resources/public/css/styles/assets/main/site.css);
+		@import url(styles/assets/main/site.css);
 	/* ------------------------------------------------------ *\
 		[styles] remark plugins
 	\* ------------------------------------------------------ */
-		@import url(../../resources/public/css/styles/assets/plugins/animsition/animsition.css);
-		@import url(../../resources/public/css/styles/assets/plugins/asscrollable/asScrollable.css);
-		@import url(../../resources/public/css/styles/assets/plugins/switchery/switchery.css);
-		@import url(../../resources/public/css/styles/assets/plugins/intro-js/introjs.css);
-		@import url(../../resources/public/css/styles/assets/plugins/slidepanel/slidePanel.css);
-		@import url(../../resources/public/css/styles/assets/plugins/flag-icon-css/flag-icon.css);
+		@import url(styles/assets/plugins/animsition/animsition.css);
+		@import url(styles/assets/plugins/asscrollable/asScrollable.css);
+		@import url(styles/assets/plugins/switchery/switchery.css);
+		@import url(styles/assets/plugins/intro-js/introjs.css);
+		@import url(styles/assets/plugins/slidepanel/slidePanel.css);
+		@import url(styles/assets/plugins/flag-icon-css/flag-icon.css);
 	/* ------------------------------------------------------ *\
 		[styles] remark login page
 	\* ------------------------------------------------------ */
-		@import url(../../resources/public/css/styles/assets/login/login-v2.css);
+		@import url(styles/assets/login/login-v2.css);
 	/* ------------------------------------------------------ *\
 		[styles] remark webfont
 	\* ------------------------------------------------------ */
-		@import url(../../resources/public/css/webfonts/brand-icons/brand-icons.min.css);
-		@import url(../../resources/public/css/webfonts/font-awesome/font-awesome.css);
-		@import url(../../resources/public/css/webfonts/web-icons/web-icons.min.css);
+		@import url(webfonts/brand-icons/brand-icons.min.css);
+		@import url(webfonts/font-awesome/font-awesome.css);
+		@import url(webfonts/web-icons/web-icons.min.css);
 	/* ------------------------------------------------------ *\
 		[styles] remark fonts.googleApis
 	\* ------------------------------------------------------ */
@@ -51,8 +51,8 @@
 	/* ------------------------------------------------------ *\
 		[styles] remark extras
 	\* ------------------------------------------------------ */
-		@import url(../../resources/public/css/styles/remark-main-login.css);
-		@import url(../../resources/public/css/styles/basscss.css);
+		@import url(styles/remark-main-login.css);
+		@import url(styles/basscss.css);
 /* ################################################################################################### *\
 	END CONTENT
 \* ################################################################################################### */

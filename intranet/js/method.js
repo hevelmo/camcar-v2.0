@@ -43,9 +43,9 @@
     var addStylesMethod = {
         addStylesHome : function() {
             stylesHomeAttributes = [
-                ['link', {'id' : 'content-add-style-welcome-plugins', 'rel': 'stylesheet', 'class':'link-welcome', 'href': '../../resources/public/css/styles/assets/plugins/chartist-js/chartist.css'}, '', 0],
-                ['link', {'id' : 'content-add-style-welcome-plugins', 'rel': 'stylesheet', 'class':'link-welcome', 'href': '../../resources/public/css/styles/assets/plugins/aspieprogress/asPieProgress.css'}, '', 0],
-                ['link', {'id' : 'content-add-style-welcome-dashboard', 'rel': 'stylesheet', 'class':'link-welcome', 'href': '../../resources/public/css/styles/assets/dashboard/v2.css'}, '', 0]
+                ['link', {'id' : 'content-add-style-welcome-plugins', 'rel': 'stylesheet', 'class':'link-welcome', 'href': '../../css/styles/assets/plugins/chartist-js/chartist.css'}, '', 0],
+                ['link', {'id' : 'content-add-style-welcome-plugins', 'rel': 'stylesheet', 'class':'link-welcome', 'href': '../../css/styles/assets/plugins/aspieprogress/asPieProgress.css'}, '', 0],
+                ['link', {'id' : 'content-add-style-welcome-dashboard', 'rel': 'stylesheet', 'class':'link-welcome', 'href': '../../css/styles/assets/dashboard/v2.css'}, '', 0]
             ];
             CAMIN.appendMulti(domEl.recurrent_head, stylesHomeAttributes);
         }

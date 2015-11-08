@@ -1,3 +1,3 @@
 <?php
-header('Location: intranet');
+header('Location: login');
 
