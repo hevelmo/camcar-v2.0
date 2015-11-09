@@ -15,7 +15,7 @@ function urlsApi() {
     $tab = 'table';
 
     //Root Api url
-    $root = '../api/v1';
+    $root = '../../api/v1_int';
 
     return array(
         // INSERT

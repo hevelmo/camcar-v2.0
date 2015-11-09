@@ -1,17 +1,17 @@
  <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-include '../../../incorporate/db_connect.php';
-include '../../../incorporate/functions.php';
-include '../../../incorporate/queryintojson.php';
-include '../../../incorporate/json-file-decode.class.php';
+include '../../ncorporate/db_connect.php';
+include '../../ncorporate/functions.php';
+include '../../ncorporate/queryintojson.php';
+include '../../ncorporate/json-file-decode.class.php';
 include '../Mandrill.php';
 
 date_default_timezone_set('America/Mexico_City');
 setlocale(LC_MONETARY, 'en_US');
 
 /**
- *
+ * [intranet - admin]
  * [Initial V 1.0]
  *
 **/
