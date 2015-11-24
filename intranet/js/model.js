@@ -312,7 +312,7 @@ CAMIN = (function() {
          *       ['div', {'id' : 'element4', 'class':'multiDiv'}, 'Hello element 4', 1]
          *   ];
          *
-         *   appendMulti(''div#my_div', elements);
+         *   appendMulti('div#my_div', elements);
          *
          *   The result is:
          *
