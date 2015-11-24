@@ -1,16 +1,49 @@
-/*
-    Here are functions and methods that are models whose performance is used in all the project
-    to invoke some of this models it's necessary to call with the prefix, and then te name of the
-    model and its arguments, for example PRO.momentToHuman(date, language);
-    Each method has a large explanation.
+/* ################################################################################################### *\
 
-    NOTE: the prefix PRO will change depends on the specific project.
+    Project Name: Camcar INTRANET Models
+    Proyect Version: 2.0
+    Author: *******
+    Update: hevelmo
 
-    For the correct performance of almost all of the methods
-    it's necesary to includ JQuery library
- **/
+    CONTENT MODELS
+        [MODELS] Moment Español
+        [MODELS] MOMENT's Models
+            [FUNCTION] momentToRoman(date, language)
+            [FUNCTION] momentToHuman(date, language)
+        [MODELS] Handlebars's Models
+            [FUNCTION] loadTemplate(name, wrapper, filler)
+        [MODELS] DOM's Models
+            [FUNCTION] getValue(domElement)
+            [FUNCTION] setValue(domElement, new_value)
+            [FUNCTION] exist(domElement)
+            [FUNCTION] trimValue(domElement)
+            [FUNCTION] getHTML(domElement)
+            [FUNCTION] setHTML(domElement, information)
+            [FUNCTION] cryptElement(domElement)
+            [FUNCTION] appendOne(domElement, new_el_type, new_el_attributes, new_el_content, hasClosingTag)
+            [FUNCTION] appendMulti(domElement, elements)
+        [MODELS] DATE TIME PICKER's Models
+            [FUNCTION] setDateTPCalendar (wrapper, futureDays, hasMinDate)
+        [MODELS] FORMS's Models
+            [FUNCTION] validFormFull(entered_inputs, required_inputs_names)
+            [FUNCTION] validFormEmpty(entered_inputs, required_inputs_names)
+            [FUNCTION] resetForm(form)
+        [MODELS] AJAX's Models
+            [FUNCTION] postalService(custom_url, json)
+            [FUNCTION] getInternalJSON(url)
+        [MODELS] OBJECTS's Models
+            [FUNCTION] filterArrayObjByKey(arrayObj, key, value, equal)
+            [FUNCTION] sumArrayObjByKey(arrayObj, numKey)
+            [FUNCTION] renameArrayObjKeys(arrayObj, renameKeys)
+            [FUNCTION] withoutArrayObjAND(arrayObj, withoutObj)
+            [FUNCTION] withoutArrayObjOR(arrayObj, withoutObj)
+        [MODELS] NUMBER FORMATS's Models
+            [FUNCTION] currencyFormat(number)
+        [MODELS] OTHER Models
+            [FUNCTION] randomString(name)
+        [MODELS] Returning all Models
 
-
+\* ################################################################################################### */
 //[Models] Modelos
 var CAMIN = {};
 
@@ -18,13 +51,13 @@ CAMIN = (function() {
     var $this = this;
     /*
      ###################################################################################################
-     Moment Español
+        [MODELS] Moment Español
      ###################################################################################################
     */
         moment.lang('es', {months: "Enero_Febrero_Marzo_Abril_Mayo_Junio_Julio_Agosto_Septiembre_Octubre_Noviembre_Diciembre".split("_"), monthsShort: "ene._feb._mar_abr._may_jun_jul._ago_sep._oct._nov._dic.".split("_"), weekdays: "Domingo_Lunes_Martes_Miércoles_Jueves_Viernes_Sábado".split("_"), weekdaysShort: "dom._lun._mar._mier._juev._vie._sab.".split("_"), weekdaysMin: "Do_Lu_Ma_Mi_Ju_Vi_Sa".split("_"), longDateFormat: {LT: "HH:mm", L: "DD/MM/YYYY", LL: "D MMMM YYYY", LLL: "D MMMM YYYY LT", LLLL: "dddd D MMMM YYYY LT"}, calendar: {sameDay: "[Hoy a las] LT", nextDay: '[Mañanaalas]LT', nextWeek: 'dddd[a]LT', lastDay: '[Ayera]LT', lastWeek: 'dddd[hasta]LT', sameElse: 'L'}, relativeTime: {future: "en %s", past: "hace %s", s: "unos segundos", m: "un minuto", mm: "%d minutos", h: "una hora", hh: "%d horas", d: "un día", dd: "%d dias", M: "un mes", MM: "%d meses", y: "un año", yy: "%d años"}, ordinal: function(number) {returnnumber + (number === 1 ? 'er' : 'a');}, week: {dow: 1, doy: 6}});
     /*
      ###################################################################################################
-     MOMENT's Models
+        [MODELS] MOMENT's Models
      ###################################################################################################
     */
         /*
@@ -71,7 +104,7 @@ CAMIN = (function() {
             }
     /*
      ###################################################################################################
-     Handlebars's Models
+        [MODELS] Handlebars's Models
      ###################################################################################################
     */
         /*
@@ -100,7 +133,7 @@ CAMIN = (function() {
             }
     /*
      ###################################################################################################
-     DOM's Models
+        [MODELS] DOM's Models
      ###################################################################################################
     */
         /*
@@ -303,7 +336,7 @@ CAMIN = (function() {
             }
     /*
      ###################################################################################################
-     DATE TIME PICKER's Models
+        [MODELS] DATE TIME PICKER's Models
      ###################################################################################################
     */
         /*
@@ -337,7 +370,7 @@ CAMIN = (function() {
             }
     /*
      ###################################################################################################
-     FORMS's Models
+        [MODELS] FORMS's Models
      ###################################################################################################
     */
         /*
@@ -386,7 +419,7 @@ CAMIN = (function() {
             }
     /*
      ###################################################################################################
-     AJAX's Models
+        [MODELS] AJAX's Models
      ###################################################################################################
     */
         /*
@@ -437,7 +470,7 @@ CAMIN = (function() {
             }
     /*
      ###################################################################################################
-     OBJECTS's Models
+        [MODELS] OBJECTS's Models
      ###################################################################################################
     */
         /*
@@ -667,9 +700,9 @@ CAMIN = (function() {
                 }
                 return arrayObj;
             }
-        /*
+    /*
      ###################################################################################################
-     NUMBER FORMATS's Models
+        [MODELS] NUMBER FORMATS's Models
      ###################################################################################################
     */
         /*
@@ -692,7 +725,7 @@ CAMIN = (function() {
             }
     /*
      ###################################################################################################
-     OTHER Models
+        [MODELS] OTHER Models
      ###################################################################################################
     */
         /*
@@ -714,7 +747,7 @@ CAMIN = (function() {
             }
     /*
      ###################################################################################################
-     Returning all Models
+        [MODELS] Returning all Models
      ###################################################################################################
     */
     return {
