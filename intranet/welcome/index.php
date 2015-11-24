@@ -12,7 +12,7 @@
     if (login_check($mysqli) != true) {
         header('Location: ../../login');
     } else {
-        header('Location: ../admin');
+        //header('Location: ../admin');
     }
 ?>
 <!DOCTYPE html>
