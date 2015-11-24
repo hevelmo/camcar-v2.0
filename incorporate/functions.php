@@ -1,12 +1,12 @@
 <?php
 /*
- * Copyright (C) 2013 Virbac México
- * Waxtotem, 2014.09.04
+ * Copyright (C) 2015 Medigraf
+ * Waxtotem, 2015.10.02
  *
  */
 
-
 include_once 'cam_con_ini.php';
+include_once 'queryintojson.php';
 
 function getConnection() {
     $dbhost = HOST;
@@ -17,7 +17,7 @@ function getConnection() {
 }
 
 function sec_session_start() {
-    $session_name = 'CAMCRM';   // Set a custom session name
+    $sessionName = 'CAMCRM';   // Set a custom session name
     $secure = SECURE;
 
     // This stops JavaScript being able to access the session id.
@@ -34,156 +34,165 @@ function sec_session_start() {
     session_set_cookie_params($cookieParams["lifetime"], $cookieParams["path"], $cookieParams["domain"], $secure, $httponly);
 
     // Sets the session name to the one set above.
-    session_name($session_name);
+    session_name($sessionName);
 
     session_start();            // Start the PHP session
     session_regenerate_id();    // regenerated the session, delete the old one.
 
 }
 
-function login($param, $password, $mysqli) {
-    // Using prepared statements means that SQL injection is not possible.
-    if ($stmt = $mysqli->prepare(
-            "SELECT usr.USR_Id,
-                    -- usr.USR_Username,
-                    usr.USR_Mail,
-                    usr.USR_AGN_Id,
-                    COALESCE(agn.AGN_Nombre, 'Administrador') AGN_Nombre,
-                    COALESCE(agn.AGN_Logo1, 'admin.png') AGN_Logo1,
-                    COALESCE(agn.AGN_Logo2, 'admin.png') AGN_Logo2,
-                    usr.USR_Tipo,
-                    usr.USR_Password,
-                    usr.USR_Salt,
-                    COALESCE(agn.AGN_Header, '') AGN_Header,
-                    USR_AdminAccess
-             FROM camUsuarios usr
-             LEFT JOIN camAgencias agn
-             ON usr.USR_AGN_Id = agn.AGN_Id
-             WHERE USR_Mail = ?
-             -- OR USR_Username = ?
-             AND USR_Control = ?
-             LIMIT 1"
-        )
-    ) {
-        $usercontrol = 1;
-        //$stmt->bind_param('sss', $param, $param, $usercontrol);  // Bind "$param" to parameters.
-        $stmt->bind_param('ss', $param, $usercontrol);  // Bind "$param" to parameters.
-        $stmt->execute();    // Execute the prepared query.
-        $stmt->store_result();
+function login($mail, $password) {
+    $mail = trim($mail);
 
-        // get variables from result.
-        $stmt->bind_result(
-                $user_id,
-                //$username,
-                $email,
-                $agnId,
-                $agency,
-                $agn_logo1,
-                $agn_logo2,
-                $type,
-                $db_password,
-                $user_salt,
-                $agn_header,
-                $admin_access
-            );
-        $stmt->fetch();
+    $sql = "SELECT usr.USR_Id,
+                   usr.USR_Username,
+                   usr.USR_Mail,
+                   usr.USR_AGN_Id,
+                   COALESCE(agn.AGN_Nombre, 'Administrador') AGN_Nombre,
+                   COALESCE(agn.AGN_Logo1, 'admin.png') AGN_Logo1,
+                   COALESCE(agn.AGN_Logo2, 'admin.png') AGN_Logo2,
+                   usr.USR_Tipo,
+                   usr.USR_Password,
+                   usr.USR_Salt,
+                   COALESCE(agn.AGN_Header, '') AGN_Header,
+                   USR_AdminAccess
+            FROM camUsuarios usr
+            LEFT JOIN camAgencias agn
+            ON usr.USR_AGN_Id = agn.AGN_Id
+            WHERE USR_Control = :control
+            AND USR_Mail = :mail
+            LIMIT 1";
 
-        if ($stmt->num_rows == 1) {
+    $structure = array(
+        'usr_id' => 'USR_Id',
+        'usr_username' => 'USR_Username',
+        'usr_mail' => 'USR_Mail',
+        'usr_agn_id' => 'USR_AGN_Id',
+        'usr_agn_name' => 'AGN_Nombre',
+        'usr_agn_logo1' => 'AGN_Logo1',
+        'usr_agn_logo2' => 'AGN_Logo2',
+        'usr_type' => 'USR_Tipo',
+        'usr_password' => 'USR_Password',
+        'usr_salt' => 'USR_Salt',
+        'usr_agn_header' => 'AGN_Header',
+        'usr_adm_access' => 'USR_AdminAccess',
+    );
 
-            // If the user exists we check if the account is locked
-            // from too many login attempts
+    $params = array(
+        'control' => 1,
+        'mail' => $mail
+    );
 
-            if (checkbrute($user_id, $mysqli) == true) {
-                // Account is locked
-                // Send an email to user saying their account is locked
+    $result = restructureQuery($structure, getConnection(), $sql, $params, 0, PDO::FETCH_ASSOC);
+
+    if(count($result)) {
+        if(rightResult($result)) {
+            $userId = $result[0]['usr_id'];
+            $username = $result[0]['usr_username'];
+            $email = $result[0]['usr_mail'];
+            $agnId = $result[0]['usr_agn_id'];
+            $agency = $result[0]['usr_agn_name'];
+            $agnLogo1 = $result[0]['usr_agn_logo1'];
+            $agnLogo2 = $result[0]['usr_agn_logo2'];
+            $type = $result[0]['usr_type'];
+            $dbPassword = $result[0]['usr_password'];
+            $userSalt = $result[0]['usr_salt'];
+            $agnHeader = $result[0]['usr_agn_header'];
+            $adminAccess = $result[0]['usr_adm_access'];
+
+            //If the user exists we check if the account is locked
+            //from too many login attempts
+
+            if(checkbrute($userId) == true) {
+                //Account is locked
+                //Send an email to user saying their account is locked
                 return false;
             } else {
-                // hash the password with the unique salt.
-                $password_sha = $password;
-                $password_final = hash('sha512', $password_sha . $user_salt);
+                //hash the password with the unique salt.
+                $passwordSha = $password;
+                $passwordFinal = hash('sha512', $passwordSha . $userSalt);
 
-                // Check if the password in the database matches
-                // the password the user submitted.
-                if ($db_password == $password_final) {
-                    // Password is correct!
-                    // Get the user-agent string of the user.
-                    $user_browser = $_SERVER['HTTP_USER_AGENT'];
-                    // XSS protection as we might print this value
-                    $user_id = preg_replace("/[^0-9]+/", "", $user_id);
-                    $_SESSION['user_id'] = $user_id;
+                //Check if the password in the database matches
+                //the password the user submitted.
+                if($dbPassword == $passwordFinal) {
+                    //Password is correct!
 
-                    // XSS protection as we might print this value
-                    //$username = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $username);
-                    //$_SESSION['username'] = $username;
+                    //Get the user-agent string of the user.
+                    $userBrowser = $_SERVER['HTTP_USER_AGENT'];
 
-                    $_SESSION['email'] = $email;
+                    //---------- INTEGERS ----------
 
+                    //XSS protection as we might print this value
+                    $userId = preg_replace("/[^0-9]+/", "", $userId);
+                    $_SESSION['user_id'] = $userId;
+
+                    //XSS protection as we might print this value
+                    $agnId = preg_replace("/[^0-9]+/", "", $agnId);
                     $_SESSION['usr_agn_id'] = $agnId;
 
-                    //$agency = preg_replace("^[a-zA-ZñÑáéíóúÁÉÍÓÚ\ ]", "", $agency);
+                    //XSS protection as we might print this value
+                    $type = preg_replace("/[^0-9]+/", "", $type);
+                    $_SESSION['usr_type'] = $type;
+
+                    //XSS protection as we might print this value
+                    $adminAccess = preg_replace("/[^0-9]+/", "", $adminAccess);
+                    $_SESSION['usr_adm_access'] = $adminAccess;
+
+                    //---------- UTF8 STRINGS ----------
 
                     $agency = utf8_encode($agency);
                     $_SESSION['usr_agn_nombre'] = $agency;
-                    $_SESSION['usr_agn_logo1'] = $agn_logo1;
-                    $_SESSION['usr_agn_logo2'] = $agn_logo2;
-                    $_SESSION['usr_agn_header'] = $agn_header;
-                    $_SESSION['usr_type'] = $type;
-                    $_SESSION['usr_adm_access'] = $admin_access;
 
-                    $_SESSION['login_string'] = hash('sha512', $password_final . $user_browser);
-                    // Login successful.
+                    //---------- EMAIL ----------
+
+                   $_SESSION['email'] = $email;
+
+                    //------------- STRINGS -------------
+
+                    $_SESSION['usr_agn_logo1'] = $agnLogo1;
+                    $_SESSION['usr_agn_logo2'] = $agnLogo2;
+                    $_SESSION['usr_agn_header'] = $agnHeader;
+
+                    //---------- LOGIN STRINGS ----------
+
+                    $_SESSION['login_string'] = hash('sha512', $passwordFinal . $userBrowser);
+
+                    //Login successful.
                     return true;
                 } else {
-                    // Password is not correct
-                    // We record this attempt in the database
-                    //$now = time();
-                    //$mysqli->query("INSERT INTO m1ton_login_attempts(user_id, time)
-                                //VALUES ('$user_id', '$now')");
-                    //return false;
+                    //Password is not correct
+                    //We record this attempt in the database
+                    $now = time();
+                    $sql_i =
+                        "INSERT INTO camAttempts(
+                            ATT_USR_Id,
+                            ATT_Time
+                         ) VALUES (
+                            :usr_id,
+                            :time
+                         )";
+                    $structure_i = array();
+                    $params_i = array(
+                        'usr_id' => $userId,
+                        'time' => $now
+                    );
+                    $result = restructureQuery($structure_i, getConnection(), $sql_i, $params_i, 1, PDO::FETCH_ASSOC);
+                    return false;
                 }
             }
+
         } else {
-            // No user exists.
             return false;
         }
     } else {
+        //No user exists.
         return false;
     }
+
 }
 
-function checkbrute($user_id, $mysqli) {
-    // Get timestamp of current time
-    $now = time();
-
-    // All login attempts are counted from the past 2 hours.
-    $valid_attempts = $now - (2 * 60 * 60);
-
-    /*
-    if($stmt = $mysqli->prepare("SELECT time
-                                  FROM cmoss_login_attempts
-                                  WHERE user_id = ? AND time > '$valid_attempts'")) {
-        $stmt->bind_param('i', $user_id);
-
-        // Execute the prepared query.
-        $stmt->execute();
-        $stmt->store_result();
-
-        // If there have been more than 5 failed logins
-        if($stmt->num_rows > 5) {
-            return true;
-        } else {
-            return false;
-        }
-    } else {
-        // Could not create a prepared statement
-        header("Location: ../error.php?err=Database error: cannot prepare statement");
-        exit();
-    }*/
-    return false;
-}
-
-function login_check($mysqli) {
-    if (isset(
+function login_check() {
+    if(isset(
             $_SESSION['user_id'],
             //$_SESSION['username'],
             $_SESSION['email'],
@@ -196,68 +205,105 @@ function login_check($mysqli) {
             $_SESSION['usr_adm_access']
         )
     ) {
-        $user_id = $_SESSION['user_id'];
-        $login_string = $_SESSION['login_string'];
+        $loginString = $_SESSION['login_string'];
+        $userId = $_SESSION['user_id'];
         //$username = $_SESSION['username'];
         $email = $_SESSION['email'];
         $agnId = $_SESSION['usr_agn_id'];
         $type = $_SESSION['usr_type'];
         $agency = $_SESSION['usr_agn_nombre'];
-        $agn_logo1 = $_SESSION['usr_agn_logo1'];
-        $agn_logo2 = $_SESSION['usr_agn_logo2'];
-        $agn_header = $_SESSION['usr_agn_header'];
-        $admin_access = $_SESSION['usr_adm_access'];
+        $agnLogo1 = $_SESSION['usr_agn_logo1'];
+        $agnLogo2 = $_SESSION['usr_agn_logo2'];
+        $agnHeader = $_SESSION['usr_agn_header'];
+        $adminAccess = $_SESSION['usr_adm_access'];
 
-        // Get the user-agent string of the user.
-        $user_browser = $_SERVER['HTTP_USER_AGENT'];
+        //Get the user-agent string of the user.
+        $userBrowser = $_SERVER['HTTP_USER_AGENT'];
 
-        if ($stmt = $mysqli->prepare("SELECT USR_Password
-                                      FROM camUsuarios
-                                      WHERE USR_Id = ?
-                                      LIMIT 1")) {
+        $sql = "SELECT USR_Password
+                FROM camUsuarios
+                WHERE USR_Id = :usr_id
+                LIMIT 1";
 
-            // Bind "$user_id" to parameter.
-            $stmt->bind_param('i', $user_id);
-            $stmt->execute();   // Execute the prepared query.
-            $stmt->store_result();
+        $structure = array(
+            'password' => 'USR_Password'
+        );
 
-            if ($stmt->num_rows == 1) {
+        $params = array(
+            'usr_id' => $userId
+        );
 
-                // If the user exists get variables from result.
-                $stmt->bind_result($password);
-                $stmt->fetch();
-                $login_check = hash('sha512', $password . $user_browser);
+        $result = restructureQuery($structure, getConnection(), $sql, $params, 0, PDO::FETCH_ASSOC);
 
-                if ($login_check == $login_string) {
-                    // Logged In!!!!
+        if(count($result)) {
+            if(rightResult($result)) {
+                //If the user exists get variables from result.
+                $password = $result[0]['password'];
+                $loginCheck = hash('sha512', $password . $userBrowser);
+                if($loginCheck == $loginString) {
+                    //Logged In!!!!
                     return true;
                 } else {
-                    // Not logged in
+                    //Not logged in
                     return false;
                 }
             } else {
-                // Not logged in
+                //Not logged in
                 return false;
             }
         } else {
-            // Could not prepare statement
-            header("Location: ../error.php?err=ProblemasenLaObra");
-            exit();
+            //Not logged in
+            return false;
         }
+
     } else {
         if(isset($_SESSION['user_control'])) {
             return true;
         } else {
           return false;
         }
-        // Not logged in
+        //Not logged in
     }
 }
 
+function checkbrute($userId) {
+    //Get timestamp of current time
+    $now = time();
+    //All login attempts are counted from the past 2 hours.
+    $validAttempts = $now - (2 * 60 * 60);
+    $sql = "SELECT ATT_Time
+            FROM camAttempts
+            WHERE ATT_USR_Id = :usr_id
+            AND ATT_Time > :valid_attempts";
+    $structure = array(
+        'password' => 'DIS_Password'
+    );
+    $params = array(
+        'usr_id' => $userId,
+        'valid_attempts' => $validAttempts
+    );
+    $result = generalQuery(getConnection(), $sql, $params, 0, PDO::FETCH_ASSOC);
+    if(count($result)) {
+        if(rightResult($result)) {
+            //If there have been more than 5 failed logins
+            if(count($result) > 5) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            //Could not create a prepared statement
+            header("Location: ../error.php?err=Database error: cannot prepare statement");
+            exit();
+        }
+    }
+    return false;
+}
+
 function admin_access_check($mysqli) {
-    $admin_access = isset($_SESSION['usr_adm_access']) ? $_SESSION['usr_adm_access'] : 0;
-    $admin_access = intval($admin_access);
-    return ($admin_access > 0);
+    $adminAccess = isset($_SESSION['usr_adm_access']) ? $_SESSION['usr_adm_access'] : 0;
+    $adminAccess = intval($adminAccess);
+    return ($adminAccess > 0);
 }
 
 function esc_url($url) {
@@ -307,16 +353,16 @@ function own_array_column($array, $column) {
         $count = count($elements);
         switch($count) {
             case 1:
-                $values = $myFunction($array, $column);
+                $proyectos_values = $myFunction($array, $column);
                 break;
             case 2:
                 $second = (integer)($elements[1]);
                 if($second === 5) {
-                    $values = $myFunction($array, $column);
-                } else if ($second > 5) {
-                    $values = array_column($array, $column);
+                    $proyectos_values = $myFunction($array, $column);
+                } else if($second > 5) {
+                    $proyectos_values = array_column($array, $column);
                 } else {
-                    $values = $myFunction($array, $column);  
+                    $proyectos_values = $myFunction($array, $column);
                 }
                 break;
             case 3:
@@ -325,26 +371,58 @@ function own_array_column($array, $column) {
                 $third = (integer)($elements[2]);
                 if($second === 5) {
                     if($third >= 0) {
-                        $values = array_column($array, $column);
+                        $proyectos_values = array_column($array, $column);
                     } else {
-                        $values = $myFunction($array, $column);  
+                        $proyectos_values = $myFunction($array, $column);
                     }
-                } else if ($second > 5) {
-                    $values = array_column($array, $column);
+                } else if($second > 5) {
+                    $proyectos_values = array_column($array, $column);
                 } else {
-                    $values = $myFunction($array, $column);  
+                    $proyectos_values = $myFunction($array, $column);
                 }
 
         }
-    } else if ($first > 5) {
-        $values = array_column($array, $column);
+    } else if($first > 5) {
+        $proyectos_values = array_column($array, $column);
     } else {
-        $values = $myFunction($array, $column);
+        $proyectos_values = $myFunction($array, $column);
     }
-    $values = array_values($values);
-    return $values;
+    $proyectos_values = array_values($proyectos_values);
+    return $proyectos_values;
 }
 
+/*
+ * Function taken from:
+ * http://php.net/manual/es/function.array-filter.php
+ * Adapted and customized by Javier Corona, Medigraf, 2015-10-27
+ */
+
+function filterByValue($array, $index, $value, $equal) {
+    $newArray = array();
+    if(is_array($array) && count($array) > 0) {
+        foreach(array_keys($array) as $key) {
+            $temp[$key] = $array[$key][$index];
+            if($equal) {
+                if($temp[$key] == $value) {
+                    $newArray[$key] = $array[$key];
+                }
+            } else {
+                if($temp[$key] != $value) {
+                    $newArray[$key] = $array[$key];
+                }
+            }
+        }
+    }
+    return $newArray;
+}
+
+/*
+ *Gottten from http://php.net/manual/es/function.checkdate.php
+ */
+function validateDate($date, $format = 'Y-m-d H:i:s') {
+    $d = DateTime::createFromFormat($format, $date);
+    return $d && $d->format($format) == $date;
+}
 /*
 function update_users_from_webservice() {
 }

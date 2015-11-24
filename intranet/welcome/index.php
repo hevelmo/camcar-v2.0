@@ -230,7 +230,7 @@
 
         <!-- Page -->
         <!--Templates's DIV-->
-        <div class="wrapper_content_interactive" id='content-temporal-interactive'></div>
+        <div class="wrapper_content_interactive page" id='content-temporal-interactive'></div>
         <!-- End Page -->
 
         <!-- Footer -->

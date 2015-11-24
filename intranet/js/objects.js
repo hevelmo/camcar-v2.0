@@ -1,14 +1,59 @@
 var domEl, tempsNames, urlsApi;
 domEl = {
+	"_currency_h":".currency-h",
+	"_page_content":"content-welcome-page-content",
+	"_page_content_name":"#content-welcome-page-content",
+	"_page_header":"content-welcome-page-header",
+	"_page_header_name":"#content-welcome-page-header",
+	"_panel_perfil":"#panel_perfil",
+	"_panel_perfil_name":"panel_perfil",
+	"_percentage_d":".percentage-d",
+	"_real_v":".real-v",
+	"_today_aniversary":"#today_aniversary",
+	"_today_aniversary_name":"today_aniversary",
+	"_today_birthday":"#today_birthday",
+	"_today_birthday_name":"today_birthday",
+	"_widget_first_row":"content-welcome-widgets-first-row",
+	"_widget_first_row_name":"#content-welcome-widgets-first-row",
 	"div_hidden_inputs_session":"div#hidden-inputs-session",
 	"div_hidden_inputs_temporal":"div#hidden-inputs-temporal",
 	"div_recurrent":"div#content-temporal-interactive",
+	"input_session_usr_agn_header":"input#session-usr-agn-header",
+	"input_session_usr_agn_id":"input#session-usr-agn-id",
+	"input_session_usr_agn_logo1":"input#session-usr-agn-logo1",
+	"input_session_usr_agn_logo2":"input#session-usr-agn-logo2",
+	"input_session_usr_agn_name":"input#session-usr-agn-name",
+	"input_session_usr_email":"input#session-usr-email",
+	"input_session_usr_id":"input#session-usr-id",
+	"input_session_usr_type":"input#session-usr-type",
 	"recurrent_body":"body",
 	"recurrent_head":"head"
 };
 tempsNames = {
-	"recurrent_welcome_home":"tmp_welcome_home"
+	"home_window_aniversary":"tmp_home_window_aniversary",
+	"home_window_birthday":"tmp_home_window_birthday",
+	"home_window_perfil":"tmp_home_window_perfil",
+	"recurrent_welcome_page_content":"tmp_welcome_page_content",
+	"recurrent_welcome_page_header":"tmp_welcome_page_header"
 };
 urlsApi = {
-	
+	"wse_get_epy":"../../api/v1_int/webservice/get/empleados",
+	"wse_get_epy_age":"../../api/v1_int/webservice/get/empleados/edades/",
+	"wse_get_epy_agn":"../../api/v1_int/webservice/get/empleados/agencias/",
+	"wse_get_epy_ani":"../../api/v1_int/webservice/get/empleados/aniversarios/",
+	"wse_get_epy_apm":"../../api/v1_int/webservice/get/empleados/apellidos_maternos/",
+	"wse_get_epy_app":"../../api/v1_int/webservice/get/empleados/apellidos_paternos/",
+	"wse_get_epy_are":"../../api/v1_int/webservice/get/empleados/areas/",
+	"wse_get_epy_car":"../../api/v1_int/webservice/get/empleados/cargos/",
+	"wse_get_epy_cor":"../../api/v1_int/webservice/get/empleados/correos/",
+	"wse_get_epy_cty":"../../api/v1_int/webservice/get/empleados/ciudades/",
+	"wse_get_epy_cum":"../../api/v1_int/webservice/get/empleados/cumpleanos/",
+	"wse_get_epy_est":"../../api/v1_int/webservice/get/empleados/estados/",
+	"wse_get_epy_fin":"../../api/v1_int/webservice/get/empleados/fechas_ingreso/",
+	"wse_get_epy_mar":"../../api/v1_int/webservice/get/empleados/marcas/",
+	"wse_get_epy_nag":"../../api/v1_int/webservice/get/empleados/numeros_agencia/",
+	"wse_get_epy_nep":"../../api/v1_int/webservice/get/empleados/numeros_empleado/",
+	"wse_get_epy_nom":"../../api/v1_int/webservice/get/empleados/nombres/",
+	"wse_get_epy_tel":"../../api/v1_int/webservice/get/empleados/telefonos/",
+	"wse_set_epy":"../../api/v1_int/webservice/set/empleados"
 };

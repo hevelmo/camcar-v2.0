@@ -6,12 +6,12 @@
   background-color: transparent;
 }
 .site-navbar .navbar-header .navbar-toggle {
-  color: #fff;
+  color: #76838f;
 }
 .site-navbar .navbar-header .hamburger:before,
 .site-navbar .navbar-header .hamburger:after,
 .site-navbar .navbar-header .hamburger .hamburger-bar {
-  background-color: #fff;
+  background-color: #76838f;
 }
 .site-navbar .navbar-header .navbar-brand {
   font-family: "Roboto", sans-serif;
@@ -5669,6 +5669,9 @@ a:focus {
   height: auto;
   border: 0 none;
   border-radius: 0px;
+}
+.avatar img.avatar-img {
+  border-radius: 1000px;
 }
 .avatar-online i {
   background-color: #46be8a;

@@ -1,7 +1,18 @@
 /* ------------------------------------------------------ *\
     [Variables] 'Zone'
 \* ------------------------------------------------------ */
-    var section;
+    // GLOBAL USER
+    var //GLOBALUsrUserName = $(domEl.input_session_usr_username).val(),
+        GLOBALUsrId = +$(domEl.input_session_usr_id).val(),
+        GLOABALUsrType = +$(domEl.input_session_usr_type).val(),
+        GLOBALUsrEmail = $(domEl.input_session_usr_email).val(),
+        GLOBALUsrAgnId = +$(domEl.input_session_usr_agn_id).val(),
+        GLOBALUsrAgnName = $(domEl.input_session_usr_agn_name).val(),
+        GLOBALUsrAgnLogo1 = $(domEl.input_session_usr_agn_logo1).val(),
+        GLOBALUsrAgnLogo2 = $(domEl.input_session_usr_agn_logo2).val(),
+        GLOBALUsrAgnHeader = $(domEl.input_session_usr_agn_header).val();
+
+    var section, today;
     var IS_MOBILE = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     // Browser supports HTML5 multiple file?
     var multipleSupport = typeof $('<input/>')[0].multiple !== 'undefined',
@@ -123,11 +134,57 @@
         docHead:document.getElementsByTagName("head")[0]
     }
 /* ------------------------------------------------------ *\
-    [Methods] loadTemplates
+    [Metodos] viewSectionWelcomeHomeMethods
 \* ------------------------------------------------------ */
-    var loadTemplatesMethods = {
-        loadTemplateHome : function() {
-            CAMIN.loadTemplate(tempsNames.recurrent_welcome_home, domEl.div_recurrent);
+    var viewSectionWelcomeHomeMethods = {
+        viewWelcomeHome: function() {
+            viewSectionWelcomeHomeMethods.recurrent_welcome_home();
+            viewSectionWelcomeHomeMethods.loadTemplatesWelcomeHome();
+        },
+        recurrent_welcome_home: function() {
+            CAMIN.appendMulti(domEl.div_recurrent, [
+                ['div', {'id' : domEl._page_header, 'class':'page-header height-300 margin-bottom-30'}, '', true],
+                ['div', {'id' : domEl._page_content, 'class':'page-content container-fluid'}, '', true]
+            ]);
+            CAMIN.appendMulti(domEl._page_content_name, [
+                ['div', {'id' : domEl._widget_first_row, 'class':'row', 'data-plugin': 'matchHeight', 'data-by-row': 'true'}, '', true]
+            ]);
+            CAMIN.appendMulti(domEl._widget_first_row_name, [
+                ['div', {'id' : domEl._panel_perfil_name, 'class':'col-xlg-3 col-lg-4 col-md-12'}, '', true],
+                ['div', {'id' : domEl._today_birthday_name, 'class':'col-lg-5 col-md-6'}, '', true],
+                ['div', {'id' : domEl._today_aniversary_name, 'class':'col-lg-4 col-md-6'}, '', true]
+            ]);
+        },
+        loadTemplatesWelcomeHome: function() {
+            CAMIN.loadTemplate(tempsNames.recurrent_welcome_page_header, domEl._page_header_name);
+            viewSectionWelcomeHomeMethods.globalUserPromise();
+            viewSectionWelcomeHomeMethods.loadTemplatesWindow_panelPerfil();
+            viewSectionWelcomeHomeMethods.loadTemplatesWindow_todayBirthday();
+            viewSectionWelcomeHomeMethods.loadTemplatesWindow_todayAniversary();
+        },
+        globalUserPromise: function() {
+            if(+GLOBALUsrId === 1 || +GLOBALUsrId === 2 || +GLOBALUsrId === 3) {
+                promise = CAMIN.postalService(urlsApi.wse_set_epy, {});
+                promise.success( function (data) {
+                });
+            }
+        },
+        loadTemplatesWindow_panelPerfil: function() {
+            CAMIN.loadTemplate(tempsNames.home_window_perfil, domEl._panel_perfil);
+        },
+        loadTemplatesWindow_todayBirthday: function() {
+            //Get today date in format yyyy-mm-dd
+            today = (moment().format()).substring(0, 10);
+            //Get today's birthdays
+            dataBirthday = CAMIN.getInternalJSON(urlsApi.wse_get_epy_cum + today);
+            CAMIN.loadTemplate(tempsNames.home_window_birthday, domEl._today_birthday, dataBirthday);
+        },
+        loadTemplatesWindow_todayAniversary: function() {
+            //Get today date in format yyyy-mm-dd
+            today = (moment().format()).substring(0, 10);
+            //Get today's aniversaries
+            dataAniversary = CAMIN.getInternalJSON(urlsApi.wse_get_epy_fin + today);
+            CAMIN.loadTemplate(tempsNames.home_window_aniversary, domEl._today_aniversary, dataAniversary);
         }
     }
 

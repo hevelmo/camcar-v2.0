@@ -11,7 +11,7 @@
             addStylesMethod.addStylesHome();
         },
         load: function(bindings) {
-            loadTemplatesMethods.loadTemplateHome();
+            viewSectionWelcomeHomeMethods.viewWelcomeHome();
         },
         unload: function(bindings) {
             section = "";
