@@ -296,13 +296,13 @@
         <script src='../templates/min/templates.min.js'></script>
 
         <!-- CORE JS -->
+        <script src='../js/min/core.min.js'></script>
+        <? php /*
         <script src='../js/objects.js'></script>
         <script src='../js/method.js'></script>
         <script src='../js/model.js'></script>
         <script src='../js/room.js'></script>
         <script src='../js/main.js'></script>
-        <!--
-        <script src='../js/min/core.min.js'></script>
-        -->
+        */ ?>
     </body>
 </html>
