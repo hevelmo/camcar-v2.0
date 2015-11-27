@@ -1,8 +1,8 @@
  <?php
 
-include_once '../../incorporate/db_connect.php';
-include_once '../../incorporate/functions.php';
-include_once '../../incorporate/queryintojson.php';
+include_once '../../../incorporate/db_connect.php';
+include_once '../../../incorporate/functions.php';
+include_once '../../../incorporate/queryintojson.php';
 include_once '../Mandrill.php';
 
 sec_session_start();

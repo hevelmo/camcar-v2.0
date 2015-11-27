@@ -34,7 +34,7 @@ function urlsApi() {
     $tel = 'telefonos';
 
     //Root Api url
-    $root = '../../api/v1_int';
+    $root = '../api/v1';
 
     // rootURL + 'carts/update/'
 

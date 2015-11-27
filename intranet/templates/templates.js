@@ -24,7 +24,7 @@ templates['tmp_home_window_aniversary'] = template({"1":function(container,depth
     + alias4(((helper = (helper = helpers.apellido_materno || (depth0 != null ? depth0.apellido_materno : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"apellido_materno","hash":{},"data":data}) : helper)))
     + "</span>\n                    <span>"
     + alias4(((helper = (helper = helpers.aniversario || (depth0 != null ? depth0.aniversario : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"aniversario","hash":{},"data":data}) : helper)))
-    + " años</span>\n                </p>\n                <small>Opened by\n                    <a class=\"hightlight\" href=\"javascript:void(0)\">\n                        <span class=\"avatar avatar-xs\">\n                            <img src=\"../../img/portraits/1.jpg\" class=\"avatar-img\" alt=\"\">\n                        </span>\n                        <span>Herman Beck</span>\n                    </a>\n                    <time datetime=\"2015-07-01T08:55\">2 hours ago</time>\n                </small>\n            </li>\n";
+    + " años</span>\n                </p>\n            </li>\n";
 },"4":function(container,depth0,helpers,partials,data) {
     return "            <h4 class=\"panel-body-title\">NO HAY ANIVERSARIOS EL DÍA DE HOY</h4>\n";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
