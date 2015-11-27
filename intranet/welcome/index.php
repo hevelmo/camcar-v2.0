@@ -134,6 +134,7 @@
                         <li>
                             <a href="#" aria-expanded="false" data-animation="fade" role="button">Inicio</a>
                         </li>
+                        <!--
                         <li class="dp-top">
                             <a href="#" class="dp-navlink">
                                 Seminuevos <i class="icon wb-chevron-down-mini" aria-hidden="true"></i>
@@ -145,7 +146,7 @@
                                 </ul>
                             </div>
                         </li>
-                        <!--<li class="dropdown dropdown-fw dropdown-mega">
+                        <li class="dropdown dropdown-fw dropdown-mega">
                             <a class="dropdown-toggle dt-navlink" data-toggle="dropdown" href="#" aria-expanded="false" data-animation="fade" role="button">Seminuevos <i class="icon wb-chevron-down-mini" aria-hidden="true"></i></a>
                             <ul class="dropdown-menu dp-navlink-menu" role="menu">
                                 <li>Nuevo</li>
