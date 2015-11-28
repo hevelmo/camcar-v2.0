@@ -29,5 +29,10 @@ $(document).ready(function() {
         EVENT CONTROL
     \* ------------------------------------------------------ */
 
-    $(domEl.recurrent_body).on('click', '.dp-header .dp-top .dp-navlink', animateNavMethod.animateNav);
+    $(domEl.recurrent_body).on('click', domEl.dropdown_animate_nav_header, animateNavMethod.animateNav);
+
+    // SECTIONS
+    $(domEl.recurrent_body).on('click', domEl.go_section_home, goSectionMethods.goSection_home);
+    $(domEl.recurrent_body).on('click', domEl.go_section_agreement, goSectionMethods.goSection_agreement);
+
 });

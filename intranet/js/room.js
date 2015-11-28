@@ -17,6 +17,33 @@
             section = "";
             CAMIN.setHTML(domEl.div_recurren, '');
             cleanStylesMethod.cleanStylesWelcome();
+            cleanStylesMethod.cleanStylesAgreement();
+            removeRecurrentsMethods.removeRecurrents_home();
+            removeRecurrentsMethods.removeRecurrents_agreement();
+        }
+    });
+/* ----------------------------------- *\
+ [Route] CONVENIOS
+\* ----------------------------------- */
+    Finch.route('/convenios', {
+        setup: function(bindings) {
+            // Add favicon
+            window.onload = favicon.load_favicon();
+            section = "intranet-welcome-agreement";
+            Breakpoints();
+            Site.run();
+            addStylesMethod.addStylesAgreement();
+        },
+        load: function(bindings) {
+            viewSectionWelcomeAgreementMethods.viewSectionWelcomeAgreement();
+        },
+        unload: function(bindings) {
+            section = "";
+            CAMIN.setHTML(domEl.div_recurren, '');
+            cleanStylesMethod.cleanStylesWelcome();
+            cleanStylesMethod.cleanStylesAgreement();
+            removeRecurrentsMethods.removeRecurrents_home();
+            removeRecurrentsMethods.removeRecurrents_agreement();
         }
     });
 Finch.listen();

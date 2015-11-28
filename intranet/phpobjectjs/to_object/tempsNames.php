@@ -7,5 +7,6 @@ function tempsNames() {
     	'home_window_aniversary' => 'tmp_home_window_aniversary',
     	'home_window_birthday' => 'tmp_home_window_birthday',
     	'home_window_perfil' => 'tmp_home_window_perfil',
+    	'recurrent_agreement_masonry_items' => 'tmp_agreement_masonry_items',
     );
 }

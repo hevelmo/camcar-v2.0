@@ -1,12 +1,15 @@
 <?php
 
 function domEl() {
+	// SECTION HOME
 	$welcome_page_header_name = 'content-welcome-page-header';
 	$welcome_page_content_name = 'content-welcome-page-content';
 	$welcome_widgets_first_row_name = 'content-welcome-widgets-first-row';
 	$panel_perfil = 'panel_perfil';
 	$today_birthday = 'today_birthday';
 	$today_aniversary = 'today_aniversary';
+	// SECTION AGREEMENT
+	$agreement_page_content = 'content-agreement-page-content';
     return array(
     	'recurrent_head' => 'head',
     	'recurrent_body' => 'body',
@@ -14,15 +17,19 @@ function domEl() {
     	'div_hidden_inputs_session' => 'div#hidden-inputs-session',
     	'div_hidden_inputs_temporal' => 'div#hidden-inputs-temporal',
     	'div_recurrent' => 'div#content-temporal-interactive',
-    	// RECURRENTS
-    	'_page_header' => $welcome_page_header_name,
-    	'_page_header_name' => '#' . $welcome_page_header_name,
+    	// RECURRENTS SECTION HOME
+    	'_home_page_header' => $welcome_page_header_name,
+    	'_home_page_header_name' => '#' . $welcome_page_header_name,
 
-		'_page_content' => $welcome_page_content_name,
-    	'_page_content_name' => '#' . $welcome_page_content_name,
+		'_home_page_content' => $welcome_page_content_name,
+    	'_home_page_content_name' => '#' . $welcome_page_content_name,
 
-    	'_widget_first_row' => $welcome_widgets_first_row_name,
-    	'_widget_first_row_name' => '#' . $welcome_widgets_first_row_name,
+    	'_home_widget_first_row' => $welcome_widgets_first_row_name,
+    	'_home_widget_first_row_name' => '#' . $welcome_widgets_first_row_name,
+    	// RECURRENTS SECTION AGREEMENT
+    	'_agreement_page_content' => $agreement_page_content,
+    	'_agreement_page_content_name' => '#' . $agreement_page_content,
+
 
     	//SESSION AUXILIAR HIDDEN INPUTS
 	    //'input_session_usr_username' => 'input#session-usr-username',
@@ -39,13 +46,13 @@ function domEl() {
 	    '_currency_h' => '.currency-h',
 	    '_real_v' => '.real-v',
 	    //HOME
-	    '_panel_perfil_name' => $panel_perfil,
-	    '_panel_perfil' => '#' . $panel_perfil,
+	    '_home_panel_perfil_name' => $panel_perfil,
+	    '_home_panel_perfil' => '#' . $panel_perfil,
 
-	    '_today_birthday_name' => $today_birthday,
-	    '_today_birthday' => '#' . $today_birthday,
+	    '_home_today_birthday_name' => $today_birthday,
+	    '_home_today_birthday' => '#' . $today_birthday,
 
-	    '_today_aniversary_name' => $today_aniversary,
-	    '_today_aniversary' => '#' . $today_aniversary,
+	    '_home_today_aniversary_name' => $today_aniversary,
+	    '_home_today_aniversary' => '#' . $today_aniversary,
     );
 }

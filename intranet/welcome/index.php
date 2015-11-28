@@ -132,7 +132,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" aria-expanded="false" data-animation="fade" role="button">Inicio</a>
+                            <a href="#" id="go-section-home" aria-expanded="false" data-animation="fade" role="button">Inicio</a>
                         </li>
                         <!--
                         <li class="dp-top">
@@ -195,17 +195,17 @@
                         <ul class="site-menu">
                             <!--<li class="site-menu-category">General</li>-->
                             <li class="site-menu-item has-sub">
-                                <a href="javascript:void(0)" data-slug="layout">
+                                <a id="go-section-agreement" data-slug="layout">
                                     <i class="site-menu-icon navi-navicons-agreement-v1 fa-3x" aria-hidden="true"></i>
                                     <span class="site-menu-title">Convenios</span>
                                 </a>
                             </li>
-                            <li class="site-menu-item has-sub">
+                            <!--<li class="site-menu-item has-sub">
                                 <a href="javascript:void(0)" data-slug="layout">
                                     <i class="site-menu-icon navi-navicons-birthday-v1 fa-3x" aria-hidden="true"></i>
                                     <span class="site-menu-title">Cumpleaños</span>
                                 </a>
-                            </li>
+                            </li>-->
                             <li class="site-menu-item has-sub">
                                 <a href="javascript:void(0)" data-slug="layout">
                                     <i class="site-menu-icon navi-navicons-pre-owned-car-v1 fa-3x" aria-hidden="true"></i>
@@ -270,8 +270,7 @@
         <script src="../../lib/assets/plugins/slidepanel/jquery-slidePanel.js"></script>
 
         <!-- Plugins For This Page -->
-        <script src="../../lib/assets/plugins/chartist-js/chartist.min.js"></script>
-        <script src="../../lib/assets/plugins/matchheight/jquery.matchHeight-min.js"></script>
+        <div id="plugins-for-this-section"></div>
 
         <!-- Scripts -->
         <script src="../../lib/assets/run/core.js"></script>
@@ -291,19 +290,19 @@
         <script src="../../lib/assets/run/components/switchery.js"></script>
 
         <!-- Scripts For This Page -->
-        <script src="../../lib/assets/run/components/matchheight.js"></script>
+        <div id="scripts-for-this-section"></div>
 
         <!-- TEMPLATES -->
         <script src='../templates/min/templates.min.js'></script>
 
         <!-- CORE JS -->
-        <script src='../js/min/core.min.js'></script>
         <? php /*
+        <script src='../js/min/core.min.js'></script>
+        */ ?>
         <script src='../js/objects.js'></script>
         <script src='../js/method.js'></script>
         <script src='../js/model.js'></script>
         <script src='../js/room.js'></script>
         <script src='../js/main.js'></script>
-        */ ?>
     </body>
 </html>
