@@ -25,7 +25,7 @@
 \* ------------------------------------------------------ */
     var favicon = {
         load_favicon: function() {
-            favicon.change("../resources/public/img/PROcaricon.ico");
+            favicon.change("../img/ico/camcaricon.ico");
         },
         change: function(iconURL, optionalDocTitle) {
             if (arguments.length == 2) {
@@ -54,18 +54,125 @@
         docHead:document.getElementsByTagName("head")[0]
     }
 /* ------------------------------------------------------ *\
- [Methods] Home
+    [Function] ScrollToTop
 \* ------------------------------------------------------ */
-    //This group of methods will be not used it's only example, remove it later
-    var demoMethods = {
-        changeLan : function (event) {
-            var lan, date, newDate;
-            lan = PRO.getValue($(this));
-            date = $(domEl.h3_demo_date).data('date');
-            newDate = PRO.momentToRoman(date, lan);
-            $(domEl.h3_demo_date).text(newDate);
+    function scrollToTop() {
+        var windowWidth, $arrow;
+
+        windowWidth = $(window).width(), didScroll = false;
+        $arrow = $('#back-to-top');
+
+        $arrow.on("click", function(e) {
+            $('body,html').animate({ scrollTop: "0" }, 750, 'easeOutExpo' );
+            Finch.navigate('/');
+            e.preventDefault();
+        })
+
+        $(window).scroll(function() {
+            didScroll = true;
+        });
+
+        setInterval(function() {
+            if( didScroll ) {
+                didScroll = false;
+
+                if( $(window).scrollTop() > 200 ) {
+                    $arrow.fadeIn();
+                } else {
+                    $arrow.fadeOut();
+                }
+            }
+        }, 250);
+    }
+/* ------------------------------------------------------ *\
+    [Methods] sticky_wrapper_methods
+\* ------------------------------------------------------ */
+    var sticky_wrapper_methods = {
+        sticky_wrapper: function() {
+            $('.navbar').waypoint('sticky', {
+                wrapper: '<div class="sticky-wrapper" />',
+                stuckClass: 'sticky'
+            });
         }
     }
+/* ------------------------------------------------------ *\
+    [Methods] Animated
+\* ------------------------------------------------------ */
+    var animatedMethods = {
+        animated : function () {
+            $('.animated').appear(function() {
+                var element, animation, animationDelay;
+
+                element = $(this);
+                animation = element.data('animation');
+                animationDelay = element.data('delay');
+
+              if(animationDelay) {
+                setTimeout(function() {
+                  element.addClass( animation + " visible" );
+                  element.removeClass('hiding');
+                  if(element.hasClass('counter')) {
+                    element.find('.value').countTo();
+                  }
+                }, animationDelay);
+              } else {
+                element.addClass( animation + " visible" );
+                element.removeClass('hiding');
+                if(element.hasClass('counter')) {
+                  element.find('.value').countTo();
+                }
+              }
+            },{accY: -150});
+        }
+    }
+/* ------------------------------------------------------ *\
+    [Methods] Animated
+\* ------------------------------------------------------ */
+    var wow_animated_methods = {
+        wow_animated: function() {
+            /*==WOW JS==*/
+            var ww = $(window).width();
+
+            /*==WOW JS==*/
+            if(ww > 480){
+                wow = new WOW({
+                    animateClass: 'animated',
+                    offset: 0
+                });
+                wow.init();
+            }
+        }
+    }
+/* ------------------------------------------------------ *\
+    [Metodos] mobile_menu_methods
+\* ------------------------------------------------------ */
+    var mobile_menu_methods = {
+        mobile_menu_toggle: function(event) {
+            $(this).toggleClass("opened");
+            $(".toggle-menu").slideToggle();
+            $(".site-header-wrapper").toggleClass("sticktr");
+            $(".body").toggleClass("sticktr");
+            var SHHH = $(".site-header").innerHeight();
+            var NBHH = $(".navbar").innerHeight();
+            var THHH = $(".top-header").innerHeight();
+            $(".toggle-menu").css("top",NBHH);
+            $(".header-v2 .toggle-menu").css("top",SHHH);
+            $(".header-v3 .toggle-menu").css("top",SHHH + THHH);
+            console.log('test');
+            return false;
+        },
+        has_menu_toggle: function() {
+            if($("#menu-toggle").hasClass("opened")){
+                $(".toggle-menu").css("display","block");
+            } else {
+                $("#menu-toggle").css("display","none");
+            }
+        }
+    }
+/* ------------------------------------------------------ *\
+ [Methods] Home
+\* ------------------------------------------------------ */
+
 /* ------------------------------------------------------ *\
     [Methods] inputVal
 \* ------------------------------------------------------ */

@@ -78,7 +78,7 @@
 
         <script src="../lib/modernizr.js"></script>
 	</head>
-	<body>
+	<body id="index">
 		<!-- Auxiliar Temporal Inputs's DIV -->
     	<div id='hidden-inputs-session'></div>
     	<!-- Auxiliar Temporal Inputs's DIV -->
@@ -104,6 +104,8 @@
 		<!-- FORMS -->
 		<script src="../lib/forms.js"></script>
 		<script src="../lib/sha512.js"></script>
+        <!-- GOOGLE API -->
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCqo-F2TnMAABZvfV5yTQLlWvUCJlJViU&amp;sensor=false"></script>
 		<!-- PLUGINS -->
 		<!-- CORE JS -->
 		<script src='js/min/core.min.js'></script>
