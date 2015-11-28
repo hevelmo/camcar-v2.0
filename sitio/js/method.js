@@ -6,6 +6,11 @@
     // Browser supports HTML5 multiple file?
     var multipleSupport = typeof $('<input/>')[0].multiple !== 'undefined',
         isIE = /msie/i.test( navigator.userAgent );
+    // Back to Top
+    var offset, offset_opacity, scroll_top_duration;
+    offset = 300;
+    offset_opacity = 1200;
+    scroll_top_duration = 700;
 /* ------------------------------------------------------ *\
     [functions] Alert Custom
 \* ------------------------------------------------------ */
@@ -19,6 +24,27 @@
             buttonReverse : false,
             buttonFocus   : "ok"
         });
+    }
+/* ------------------------------------------------------ *\
+    [Metodos] backToTopMethod
+\* ------------------------------------------------------ */
+    var backToTopMethod = {
+        backToTop: function(event) {
+            event.preventDefault();
+            $('body,html').animate({
+                scrollTop: 0,
+                }, scroll_top_duration
+            );
+        },
+        windowScroll: function() {
+            ( $(this).scrollTop() > offset ) ? $(domEl._back_to_top).addClass('cd-is-visible') : $(domEl._back_to_top).removeClass('cd-is-visible cd-fade-out');
+            if ( $(this).scrollTop() > offset_opacity ) {
+                $(domEl._back_to_top).addClass('cd-fade-out');
+            }
+        },
+        init_window_scroll_top: function() {
+            $(window).scroll(backToTopMethod.windowScroll);
+        }
     }
 /* ------------------------------------------------------ *\
     [Metodos] Favicon
@@ -52,37 +78,6 @@
             }
         },
         docHead:document.getElementsByTagName("head")[0]
-    }
-/* ------------------------------------------------------ *\
-    [Function] ScrollToTop
-\* ------------------------------------------------------ */
-    function scrollToTop() {
-        var windowWidth, $arrow;
-
-        windowWidth = $(window).width(), didScroll = false;
-        $arrow = $('#back-to-top');
-
-        $arrow.on("click", function(e) {
-            $('body,html').animate({ scrollTop: "0" }, 750, 'easeOutExpo' );
-            Finch.navigate('/');
-            e.preventDefault();
-        })
-
-        $(window).scroll(function() {
-            didScroll = true;
-        });
-
-        setInterval(function() {
-            if( didScroll ) {
-                didScroll = false;
-
-                if( $(window).scrollTop() > 200 ) {
-                    $arrow.fadeIn();
-                } else {
-                    $arrow.fadeOut();
-                }
-            }
-        }, 250);
     }
 /* ------------------------------------------------------ *\
     [Methods] sticky_wrapper_methods

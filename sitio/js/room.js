@@ -8,6 +8,7 @@
             window.onload = favicon.load_favicon();
         },
         load: function(bindings) {
+            backToTopMethod.init_window_scroll_top();
         },
         unload: function(bindings) {
             section = "";

@@ -28,4 +28,5 @@ $(document).ready(function() {
     /* ------------------------------------------------------ *\
         EVENT CONTROL
     \* ------------------------------------------------------ */
+    $(domEl.recurrent_body).on('click', domEl._back_to_top, backToTopMethod.backToTop);
 });
