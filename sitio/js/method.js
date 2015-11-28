@@ -1,5 +1,5 @@
 /* ------------------------------------------------------ *\
- [Variables] 'Zone'
+    [Variables] 'Zone'
 \* ------------------------------------------------------ */
     var section;
     var IS_MOBILE = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
@@ -170,15 +170,223 @@
         }
     }
 /* ------------------------------------------------------ *\
- [Methods] Home
+    [functions] setWidthme
 \* ------------------------------------------------------ */
+    var setWidthMethod = {
+        setWidth: function() {
+            var arrayText, arrayText2;
 
+            arrayText=Array();
+            arrayText2=Array();
+
+            $('.grid-content').each( function () {
+                var firstDiv, secondDiv;
+
+                firstDiv = $(this).find("#content-title");
+                secondDiv = $(this).find("#container-paragraph");
+
+                if( firstDiv.html().length > 115 ) {
+                    arrayText.push( firstDiv.html() );
+
+                    firstDiv.html( firstDiv.html().substr( 0,115 ) + "<i style='color: #000; font-size: 14px;'>...</i>" );
+
+                    //$(this).append( "<h3 class='mas cortado' id='"+(arrayText.length-1)+"'>(más)</h3>" );
+                }
+                if( secondDiv.html().length > 220 ) {
+                    arrayText2.push( secondDiv.html() );
+
+                    secondDiv.html( secondDiv.html().substr( 0,220 ) + "<i style='color: #000; font-size: 14px;'>...</i>" );
+
+                    //$(this).append("<h3 class='mas cortado' id='"+(arrayText2.length-1)+"'>(más)</h3>");
+                }
+                $(this).show();
+            });
+        }
+    }
+/* ------------------------------------------------------ *\
+    [Methods] equalHeightsMethods
+\* ------------------------------------------------------ */
+    var equalHeightsMethods = {
+        equalHeightsLoad : function() {
+            var altomax = 0;
+            $('.equal-height').each(function(){
+                if( $(this).height() > altomax ){
+                    altomax = $(this).height();
+                }
+            });
+            $('.equal-height').height( altomax );
+        }
+    }
+/* ------------------------------------------------------ *\
+    [Methods] INPUTS RADIO, CHECKBOX
+\* ------------------------------------------------------ */
+    var changeInputsMethods = {
+        clickChangeCheckbox : function(event) {
+            if ($(".label-checkbox").length) {
+                $('.label-checkbox input:checked').each(function(){
+                    $(this).parent('label').addClass('checkbox-checked');
+                });
+            }
+            if ($(this).is(':checked')) {
+                $(this).parent('.label-checkbox').find(':checkbox').attr('checked', true);
+                $(this).parent('.label-checkbox').addClass('checkbox-checked');
+                $(this).val('on');
+                $('#contact_subscription').val('Activado');
+                $('#test_drive_model_subscription').val('Activado');
+            } else {
+                $(this).parent('label').find(':checkbox').attr('checked', false);
+                $(this).parent('label').removeClass('checkbox-checked');
+                $(this).val('off');
+                $('#contact_subscription').val('Desactivado');
+                $('#test_drive_model_subscription').val('Desactivado');
+            }
+        },
+        clcikChangeRadio : function(event) {
+            if ($(".label-radio").length) {
+                $('.label-radio input:checked').each(function(){
+                    //$(this).parent('label').addClass('radio-checked');
+                });
+            }
+            if ($(this).hasClass('radio-checked')) {
+                $(this).find(':radio').attr('checked', true);
+                $(this).addClass("radio-checked");
+            } else {
+                $(".label-radio").removeClass("radio-checked");
+                $(".label-radio").find(':radio').attr('checked', false);
+                $(this).find(':radio').attr('checked', true);
+                $(this).addClass("radio-checked");
+            }
+        }
+    }
+/* ------------------------------------------------------ *\
+    [Methods] windowWidthMethod
+\* ------------------------------------------------------ */
+    var windowWidthMethod = {
+        windowWidth: function() {
+            var windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+
+            if (windowWidth > 900) { // Medium breakpoint
+                var heroCarousels = document.querySelectorAll(".HeroCarousel");
+                var carousel, yOffset, element, carouselHeight;
+                var windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+
+                for (var i = 0; i < heroCarousels.length; i++) {
+                    carousel = heroCarousels[i];
+                    yOffset = 0;
+                    element = carousel;
+
+                    while (element) {
+                        yOffset += (element.offsetTop - element.scrollTop + element.clientTop);
+                        element = element.offsetParent;
+                    }
+
+                    carouselHeight = windowHeight - yOffset;
+
+                    if (carouselHeight > 450) {
+                        carousel.style.height = carouselHeight + "px";
+                    }
+                }
+            }
+        }
+    }
+/* ------------------------------------------------------ *\
+    [Methods] goSectioMethod
+\* ------------------------------------------------------ */
+    var goSectionMethod = {
+        goSection_home: function() {
+        }
+    }
+/* ------------------------------------------------------ *\
+    [Methods] addAttrForSectionMethod
+\* ------------------------------------------------------ */
+    var addAttrForSectionMethod = {
+        addAttrForSection_home: function() {
+        }
+    }
+/* ------------------------------------------------------ *\
+    [Methods] removeAttrForSectionMethod
+\* ------------------------------------------------------ */
+    var removeAttrForSectionMethod = {
+        removeAttrForSection_home: function() {
+        }
+    }
+/* ------------------------------------------------------ *\
+    [Methods] addStylesForSectionMethod
+\* ------------------------------------------------------ */
+    var addStylesForSectionMethod = {
+        addStylesSection_home: function() {
+        }
+    }
+/* ------------------------------------------------------ *\
+    [Methods] cleanStylesForSectionMethod
+\* ------------------------------------------------------ */
+    var cleanStylesForSectionMethod = {
+        cleanStylesForSection: function() {
+        },
+        cleanStylesSection_home: function() {
+        }
+    }
+/* ------------------------------------------------------ *\
+    [Methods] viewSectionHomeMethod
+\* ------------------------------------------------------ */
+    var viewSectionHomeMethod = {
+        addTemplatesSectionHome: function() {
+        },
+        recurrentSecionHome: function() {
+        },
+        viewSectionHome: function() {
+        }
+    }
+/* ------------------------------------------------------ *\
+    [Methods] removeRecurrentsMethod
+\* ------------------------------------------------------ */
+    var removeRecurrentsMethod = {
+        removeRecurrents: function() {
+        },
+        removeRecurrents_home: function() {
+        }
+    }
 /* ------------------------------------------------------ *\
     [Methods] inputVal
 \* ------------------------------------------------------ */
     var inputValMetdods = {
         isIntegerKP: function (event) {
             return /\d/.test(String.fromCharCode(event.keyCode));
+        },
+        //http://www.lawebdelprogramador.com/foros/JavaScript/1074741-introducir_solo_numero_dos_decimales.html
+        isDecimalKP: function(event) {
+            var key, value;
+            value = $(this).val();
+            key = event.keyCode ? event.keyCode : event.which;
+
+            // backspace
+            if(key == 8) {
+                return true;
+            }
+            // 0-9
+            if(key > 47 && key < 58) {
+                if(value == '') {
+                    return true;
+                }
+                regexp = /.[0-9]{15}$/;
+                return !(regexp.test(value));
+            }
+            // .
+            if(key == 46) {
+                if(value == '') {
+                    return false;
+                }
+                regexp = /^[0-9]+$/;
+                return regexp.test(value);
+            }
+            // other key
+            return false;
+        },
+        roundDecimalBlur: function(event) {
+            var value;
+            value = $(this).val();
+            value = CAMAD.roundNDecimalFormat(value, 2);
+            $(this).val(value);
         }
     }
 /* ------------------------------------------------------ *\
@@ -189,7 +397,8 @@
         date    : new RegExp( /^(\d{4})-(\d{1,2})-(\d{1,2})$/ ),
         email   : new RegExp( /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ ),
         name    : new RegExp( /^[a-zá-úüñ. ]{2,}$/i ),
-        phone   : new RegExp( /^[0-9\s\-]{7,13}$/ )
+        phone   : new RegExp( /^[0-9\s\-]{7,13}$/ ),
+        upload  : new RegExp( /^[\w+\/]+\.\w{3}$/ )
     }
 /* ------------------------------------------------------ *\
     [Methods] validation_messages
@@ -203,15 +412,16 @@
         not_null        : 'No puede ser nulo',
         phone           : 'Verifica que tu número sea de 10 dígitos',
         required        : 'Campo requerido',
-        empty           : 'Campo vacío'
+        empty           : 'Campo vacío',
+        upload          : 'Archivos validos: PDF, DOC, DOCX'
     }
 /* ------------------------------------------------------ *\
     [Methods] validate
 \* ------------------------------------------------------ */
     var validateMethods = {
-        validate : function(value, rules, required, custom_message) {
+        validate : function(value, rules, required, custom_message, formulario, archivo) {
             var r = { valid : false, message : '' },
-            null_value = value == undefined || value === '' ,
+            null_value = value == undefined || value === '' || value === $("#user_profile_pic").val() ,
             ii, rule;
             required = required === true ? true: false;
             if( required ){
@@ -243,19 +453,20 @@
                                 r.message = validation_messages.general;
                             }
                             break;
-                        case 'grade':
-                            if(  !is_model_name( value ) ){
-                                r.message = validation_messages.required;
-                            }
-                            break;
-                        case 'date':
-                            if( !validations_regexp.date.exec( value ) ){
-                                r.message = validation_messages.date;
-                            }
-                            break;
                         case 'phone':
                             if( !validations_regexp.phone.exec( value ) ){
                                 r.message = validation_messages.phone;
+                            }
+                            break;
+                        case 'area':
+                            if(  !is_model_name( value ) ){
+                                r.message = validation_messages.general;
+                            }
+                            break;
+                        case 'upload':
+                            if( !valid_extension_file( formulario, value ) ){
+                                r.message = validation_messages.upload;
+                                //console.log(r.message);
                             }
                             break;
                         default:
@@ -288,7 +499,7 @@
         validate_input : function(event) {
             var target = $(event.target);
             //console.log(target);
-            if( target.is('input') || target.is('textarea') ){
+            if( target.is('input') || target.is('textarea') || target.is('input[type="file"]') ){
                 var valid_data = target.data('validation-data');
                 var val_data    = valid_data.split('|'),
                     required    = val_data.indexOf('required');
