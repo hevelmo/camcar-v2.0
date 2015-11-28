@@ -29,8 +29,9 @@ function domEl() {
     	// RECURRENTS SECTION AGREEMENT
     	'_agreement_page_content' => $agreement_page_content,
     	'_agreement_page_content_name' => '#' . $agreement_page_content,
-
-
+    	// EVENTS SECTION
+    	'go_section_home' => '#go-section-home',
+		'go_section_agreement' => '#go-section-agreement',
     	//SESSION AUXILIAR HIDDEN INPUTS
 	    //'input_session_usr_username' => 'input#session-usr-username',
 	    'input_session_usr_id' => 'input#session-usr-id',

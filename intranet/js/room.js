@@ -16,10 +16,7 @@
         unload: function(bindings) {
             section = "";
             CAMIN.setHTML(domEl.div_recurren, '');
-            cleanStylesMethod.cleanStylesWelcome();
-            cleanStylesMethod.cleanStylesAgreement();
-            removeRecurrentsMethods.removeRecurrents_home();
-            removeRecurrentsMethods.removeRecurrents_agreement();
+            removeRecurrentsMethods.removeRecurrents();
         }
     });
 /* ----------------------------------- *\
@@ -40,10 +37,7 @@
         unload: function(bindings) {
             section = "";
             CAMIN.setHTML(domEl.div_recurren, '');
-            cleanStylesMethod.cleanStylesWelcome();
-            cleanStylesMethod.cleanStylesAgreement();
-            removeRecurrentsMethods.removeRecurrents_home();
-            removeRecurrentsMethods.removeRecurrents_agreement();
+            removeRecurrentsMethods.removeRecurrents();
         }
     });
 Finch.listen();

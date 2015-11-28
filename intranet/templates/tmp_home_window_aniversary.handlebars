@@ -1,7 +1,7 @@
 <!-- Panel Aniversarios -->
-<div class="panel">
+<div class="panel panel-bordered">
     <div class="panel-heading">
-        <h3 class="panel-title">ANIVERSARIOS</h3>
+        <h3 class="panel-title"><i class="site-panel-icon navi-navicons-birthday-v1 fa-2x" aria-hidden="true"></i> ANIVERSARIOS</h3>
     </div>
     <div class="panel-body">
         {{#if webservice.length}}
@@ -9,7 +9,7 @@
         <ul class="list-group list-group-dividered list-group-full">
             {{#each webservice}}
             <li class="list-group-item">
-                <small class="label label-round label-info pull-right">Completed</small>
+                {{!--<small class="label label-round label-info pull-right">Completed</small>--}}
                 <p>
                     <span>{{nombres}} {{apellido_paterno}} {{apellido_materno}}</span>
                     <span>{{aniversario}} años</span>

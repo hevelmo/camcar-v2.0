@@ -1616,6 +1616,13 @@ body.layout-full {
   display: inline-flex;
   padding: 10px 0 7px 0px;
 }
+.site-menubar-unfold .site-panel-icon {
+  margin-right: 16px;
+  margin-top: 0px;
+  display: inline-flex;
+  padding: 0px;
+  vertical-align: middle;
+}
 .site-menubar-unfold .site-menu .site-menu-sub {
   display: none;
 }

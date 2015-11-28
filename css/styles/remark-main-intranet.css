@@ -1,9 +1,9 @@
 .panel-body .panel-body-title {
   display: block;
-  padding: 20px 30px;
-  font-size: 18px;
+  padding: 0px 0px;
+  font-size: 14px;
   color: #37474f;
-  text-align: center;
+  text-align: left;
 }
 .navbar-brand-site-logo {
     height: 55px;

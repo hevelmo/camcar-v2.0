@@ -86,16 +86,16 @@
         <!-- Auxiliar Temporal Inputs's DIV -->
         <div id='hidden-inputs-session'>
             <?php /* ?>
-                <?php */ ?>
-                <input type='hidden' id='session-usr-username' value="<?php echo htmlentities($_SESSION['username']); ?>">
-                <input type='hidden' id='session-usr-id' value="<?php echo htmlentities($_SESSION['user_id']); ?>">
-                <input type='hidden' id='session-usr-type' value="<?php echo htmlentities($_SESSION['usr_type']); ?>">
-                <input type='hidden' id='session-usr-email' value="<?php echo htmlentities($_SESSION['email']); ?>">
-                <input type='hidden' id='session-usr-agn-id' value="<?php echo htmlentities($_SESSION['usr_agn_id']); ?>">
-                <input type='hidden' id='session-usr-agn-name' value="<?php echo htmlentities($_SESSION['usr_agn_nombre']); ?>">
-                <input type='hidden' id='session-usr-agn-logo1' value="<?php echo htmlentities($_SESSION['usr_agn_logo1']); ?>">
-                <input type='hidden' id='session-usr-agn-logo2' value="<?php echo htmlentities($_SESSION['usr_agn_logo2']); ?>">
-                <input type='hidden' id='session-usr-agn-header' value="<?php echo htmlentities($_SESSION['usr_agn_header']); ?>">
+            <?php */ ?>
+            <input type='hidden' id='session-usr-username' value="<?php echo htmlentities($_SESSION['username']); ?>">
+            <input type='hidden' id='session-usr-id' value="<?php echo htmlentities($_SESSION['user_id']); ?>">
+            <input type='hidden' id='session-usr-type' value="<?php echo htmlentities($_SESSION['usr_type']); ?>">
+            <input type='hidden' id='session-usr-email' value="<?php echo htmlentities($_SESSION['email']); ?>">
+            <input type='hidden' id='session-usr-agn-id' value="<?php echo htmlentities($_SESSION['usr_agn_id']); ?>">
+            <input type='hidden' id='session-usr-agn-name' value="<?php echo htmlentities($_SESSION['usr_agn_nombre']); ?>">
+            <input type='hidden' id='session-usr-agn-logo1' value="<?php echo htmlentities($_SESSION['usr_agn_logo1']); ?>">
+            <input type='hidden' id='session-usr-agn-logo2' value="<?php echo htmlentities($_SESSION['usr_agn_logo2']); ?>">
+            <input type='hidden' id='session-usr-agn-header' value="<?php echo htmlentities($_SESSION['usr_agn_header']); ?>">
         </div>
         <!-- Auxiliar Temporal Inputs's DIV -->
         <div id='hidden-inputs-temporal'></div>
@@ -132,7 +132,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" id="go-section-home" aria-expanded="false" data-animation="fade" role="button">Inicio</a>
+                            <a id="go-section-home" aria-expanded="false" data-animation="fade" role="button">Inicio</a>
                         </li>
                         <!--
                         <li class="dp-top">
@@ -217,10 +217,10 @@
                 </div>
             </div>
             <div class="site-menubar-footer">
-                <a href="javascript: void(0);" class="fold-show" data-placement="top" data-toggle="tooltip" data-original-title="Settings">
+                <a href="javascript: void(0);" class="fold-show" data-placement="top" data-toggle="tooltip" data-original-title="">
                     <!--<span class="icon wb-settings" aria-hidden="true"></span>-->
                 </a>
-                <a href="javascript: void(0);" data-placement="top" data-toggle="tooltip" data-original-title="Lock">
+                <a href="javascript: void(0);" data-placement="top" data-toggle="tooltip" data-original-title="">
                     <!--<span class="icon wb-eye-close" aria-hidden="true"></span>-->
                 </a>
                 <a href='../../logout/' data-placement="top" data-toggle="tooltip" data-original-title="Logout">

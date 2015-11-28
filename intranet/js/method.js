@@ -61,10 +61,10 @@
 
             if ( nav.height() === 0) {
                 autoHeightAnimate(nav, animateTime);
-                console.log(nav, animateTime);
+                //console.log(nav, animateTime);
             } else{
                 nav.stop().animate({ height: '0' }, animateTime);
-                console.log(nav);
+                //console.log(nav);
             }
             /* Function to animate height: auto */
             function autoHeightAnimate(element, time){
@@ -84,7 +84,7 @@
 \* ------------------------------------------------------ */
     var favicon = {
         load_favicon: function() {
-            favicon.change("../resources/public/img/caricon.ico");
+            favicon.change("img/ico/camcaricon.ico");
         },
         change: function(iconURL, optionalDocTitle) {
             if (arguments.length == 2) {
@@ -111,6 +111,20 @@
             }
         },
         docHead:document.getElementsByTagName("head")[0]
+    }
+/* ------------------------------------------------------ *\
+    [Methods] equalHeightsMethods
+\* ------------------------------------------------------ */
+    var equalHeightsMethods = {
+        equalHeightsLoad : function() {
+            var altomax = 0;
+            $('.equal-height').each(function(){
+                if( $(this).height() > altomax ){
+                    altomax = $(this).height();
+                }
+            });
+            $('.equal-height').height( altomax );
+        }
     }
 /* ------------------------------------------------------ *\
     [Methods] goSectionMethods
@@ -170,19 +184,25 @@
     var cleanStylesMethod = {
         cleanStylesWelcome : function () {
             $('head .style-link-welcome').remove();
-            $('head .plugin-link-welcome').remove();
-            $('head .script-link-welcome').remove();
+            $('.plugin-link-welcome').remove();
+            $('.script-link-welcome').remove();
         },
         cleanStylesAgreement : function () {
             $('head .style-link-welcome-agreement').remove();
-            $('head .plugin-link-welcome-agreement').remove();
-            $('head .script-link-welcome-agreement').remove();
+            $('.plugin-link-welcome-agreement').remove();
+            $('.script-link-welcome-agreement').remove();
         }
     }
 /* ------------------------------------------------------ *\
     [Metodos] removeRecurrentsMethods
 \* ------------------------------------------------------ */
     var removeRecurrentsMethods = {
+        removeRecurrents: function() {
+            cleanStylesMethod.cleanStylesWelcome();
+            cleanStylesMethod.cleanStylesAgreement();
+            removeRecurrentsMethods.removeRecurrents_home();
+            removeRecurrentsMethods.removeRecurrents_agreement();
+        },
         removeRecurrents_home : function() {
             $(domEl._home_page_header_name).remove();
             $(domEl._home_page_content_name).remove();
@@ -199,6 +219,7 @@
         viewWelcomeHome: function() {
             viewSectionWelcomeHomeMethods.recurrent_welcome_home();
             viewSectionWelcomeHomeMethods.loadTemplatesWelcomeHome();
+            equalHeightsMethods.equalHeightsLoad();
         },
         recurrent_welcome_home: function() {
             CAMIN.appendMulti(domEl.div_recurrent, [
@@ -210,8 +231,8 @@
             ]);
             CAMIN.appendMulti(domEl._home_widget_first_row_name, [
                 ['div', {'id' : domEl._home_panel_perfil_name, 'class':'col-xlg-3 col-lg-4 col-md-12'}, '', true],
-                ['div', {'id' : domEl._home_today_birthday_name, 'class':'col-lg-5 col-md-6'}, '', true],
-                ['div', {'id' : domEl._home_today_aniversary_name, 'class':'col-lg-4 col-md-6'}, '', true]
+                ['div', {'id' : domEl._home_today_birthday_name, 'class':'col-lg-4 col-md-6 equal-height'}, '', true],
+                ['div', {'id' : domEl._home_today_aniversary_name, 'class':'col-lg-4 col-md-6 equal-height'}, '', true]
             ]);
         },
         loadTemplatesWelcomeHome: function() {
@@ -256,10 +277,11 @@
         },
         recurrent_welcome_agreement : function() {
             agreementPageContentAtributes = [
-                ['div', {'id' : domEl._agreement_page_content, 'class':'page-content padding-30 blue-grey-500'}, '', true]
+                ['div', {'id' : domEl._agreement_page_content, 'class':'page-content padding-30 blue-grey-500'}, '', 1]
             ];
             CAMIN.appendMulti(domEl.div_recurrent, agreementPageContentAtributes);
             $(domEl.div_recurrent).addClass('animsition');
+            $(domEl.div_recurrent).attr('style','animation-duration: 0.8s; opacity: 1;');
         },
         loadTemplatesAgreement: function() {
             CAMIN.loadTemplate(tempsNames.recurrent_agreement_masonry_items, domEl._agreement_page_content_name);

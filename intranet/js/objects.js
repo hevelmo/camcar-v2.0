@@ -20,6 +20,8 @@ domEl = {
 	"div_hidden_inputs_session":"div#hidden-inputs-session",
 	"div_hidden_inputs_temporal":"div#hidden-inputs-temporal",
 	"div_recurrent":"div#content-temporal-interactive",
+	"go_section_agreement":"#go-section-agreement",
+	"go_section_home":"#go-section-home",
 	"input_session_usr_agn_header":"input#session-usr-agn-header",
 	"input_session_usr_agn_id":"input#session-usr-agn-id",
 	"input_session_usr_agn_logo1":"input#session-usr-agn-logo1",
