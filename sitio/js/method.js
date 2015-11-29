@@ -343,7 +343,7 @@
         recurrentSecionHome: function() {
             dataStarSiteHomeAttributes = [
                 ['header', {'id':domEl._start_site_navbar, 'class':'navbar navigation-bar-header nav-content'}, '', 1],
-                ['div', {'id':domEl._start_hero_carousel, 'class':'about-content'}, '', 1]
+                ['div', {'id':domEl._start_hero_carousel, 'class':'about-content hero-content'}, '', 1]
             ];
             CAM.appendMulti(domEl.div_recurrent, dataStarSiteHomeAttributes);            
         },

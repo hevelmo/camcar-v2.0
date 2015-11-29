@@ -81,6 +81,9 @@
 }
 .HeroCarousel.inner .carousel .heroItem .heroContent .heading .price, .HeroCarousel.inner .carousel .heroItem .heroContent .heading .subtitle {
     display: block;
+    /*
+    border: 1px solid red;
+    */
 }
 .HeroCarousel.inner .carousel .heroItem .heroContent .linkContainer>span {
     display: block;
@@ -230,11 +233,16 @@
 }
 @media screen and (min-width: 1px) and (max-width: 740px) {
     .HeroCarousel.inner .carousel .heroItem .heroLogo img {
-    top: 0;
-    left: 0;
-    right: auto;
-    bottom: auto;
-}
+        top: 0;
+        left: 0;
+        right: auto;
+        bottom: auto;
+    }
+    .HeroCarousel.inner {
+        background-color: #0c121c;
+        height: auto;
+        margin-top: 0px;
+    }
 }
 .HeroCarousel.inner .carousel>.heroItem>span {
     z-index: auto;
@@ -486,9 +494,9 @@ html.no-js .HeroCarousel.inner .carousel .heroItem .heroContent {
 }
 @media screen and (min-width: 1px) and (max-width: 740px) {
     .HeroCarousel.inner {
-    background-color: #0c121c;
-    height: auto;
-}
+        background-color: #000;
+        height: auto;
+    }
 .HeroCarousel.inner .carousel .rsOverflow {
     height: auto !important;
 }
@@ -501,7 +509,7 @@ html.no-js .HeroCarousel.inner .carousel .heroItem .heroContent {
     height: 250px;
 }
 .HeroCarousel.inner .carousel .heroItem .heroContent, .HeroCarousel.inner .carousel .heroItem.alignedText .heroContent, .HeroCarousel.inner .carousel .heroItem.darkText .heroContent {
-    background: #0c121c;
+    background: #000;
     margin: 0;
     width: 100%;
     max-width: none;
@@ -523,10 +531,10 @@ html.no-js .HeroCarousel.inner .carousel .heroItem .heroContent {
 }
 #index .HeroCarousel.inner .carousel .heroItem .heroContent .linkContainer .primaryLinkWithStyle, #index .HeroCarousel.inner .carousel .heroItem.alignedText .heroContent .linkContainer .primaryLinkWithStyle, #index .HeroCarousel.inner .carousel .heroItem.darkText .heroContent .linkContainer .primaryLinkWithStyle {
     background-color: #ffffff;
-    color: #0c121c;
+    color: rgba(178, 17, 23, 1)
 }
 #index .HeroCarousel.inner .carousel .heroItem .heroContent .linkContainer .primaryLinkWithStyle:hover, #index .HeroCarousel.inner .carousel .heroItem.alignedText .heroContent .linkContainer .primaryLinkWithStyle:hover, #index .HeroCarousel.inner .carousel .heroItem.darkText .heroContent .linkContainer .primaryLinkWithStyle:hover {
-    background-color: #0c121c;
+    background-color: rgba(178, 17, 23, 1);
     color: #ffffff;
 }
 #index .HeroCarousel.inner .carousel .heroItem .heroContent .linkContainer .primaryLinkWithStyle.disabled:hover, #index .HeroCarousel.inner .carousel .heroItem.alignedText .heroContent .linkContainer .primaryLinkWithStyle.disabled:hover, #index .HeroCarousel.inner .carousel .heroItem.darkText .heroContent .linkContainer .primaryLinkWithStyle.disabled:hover {
