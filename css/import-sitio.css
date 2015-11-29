@@ -8,18 +8,13 @@
 	CONTENT STYLES LOGIN PAGE
 
 	[styles] bootstrap
-	[styles] remark site
-	[styles] remark plugins
-	[styles] remark login page
-	[styles] remark webfont
-	[styles] remark fonts.googleApis
-	[styles] remark extras
 
 \* ################################################################################################### */
 	/* ------------------------------------------------------ *\
 		[styles] bootstrap
 	\* ------------------------------------------------------ */
 		@import url(styles/assets/main/bootstrap.css);
+		@import url(styles/assets/main/bootstrap-theme.css);
 		@import url(styles/assets/main/bootstrap-extend.css);
 	/* ------------------------------------------------------ *\
 		[styles] remark webfont
@@ -27,6 +22,7 @@
 		@import url(webfonts/brand-icons/brand-icons.min.css);
 		@import url(webfonts/font-awesome/font-awesome.css);
 		@import url(webfonts/web-icons/web-icons.min.css);
+		@import url(webfonts/pe-icon-7-stroke/pe-icon-7-stroke.css);
 	/* ------------------------------------------------------ *\
 		[styles] remark fonts.googleApis
 	\* ------------------------------------------------------ */
@@ -34,9 +30,11 @@
 	/* ------------------------------------------------------ *\
 		[styles] remark extras
 	\* ------------------------------------------------------ */
-		@import url(sitio/styles/main-sitio.css);
 		@import url(styles/basscss.css);
+		@import url(sitio/styles/main-sitio.css);
+		@import url(sitio/styles/main-navigation.css);
 		@import url(sitio/backtotop.css);
+		@import url(sitio/mobiletoggle.css);
 /* ################################################################################################### *\
 	END CONTENT
 \* ################################################################################################### */

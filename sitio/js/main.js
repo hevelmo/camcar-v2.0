@@ -28,5 +28,8 @@ $(document).ready(function() {
     /* ------------------------------------------------------ *\
         EVENT CONTROL
     \* ------------------------------------------------------ */
+    // BACK TO TOP
     $(domEl.recurrent_body).on('click', domEl._back_to_top, backToTopMethod.backToTop);
+    // NAVBAR
+    $(domEl.div_recurrent).on('click', '#menu-toggle', mobile_menu_methods.mobile_menu_toggle);
 });

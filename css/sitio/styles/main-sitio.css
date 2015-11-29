@@ -1,0 +1,37 @@
+body {
+  font-family: Helvetica, Arial, sans-serif;
+}
+.nav-content {
+  width: 100%;
+  z-index: 99;
+  transition: all 0.7s ease;
+  -webkit-transition: all 0.7s ease;
+  -moz-transition: all 0.7s ease;
+  max-width: 1580px;
+  margin: 0 auto;
+}
+.about-content {
+  width: 100%;
+  z-index: 1;
+  transition: all 0.7s ease;
+  -webkit-transition: all 0.7s ease;
+  -moz-transition: all 0.7s ease;
+  max-width: 1580px;
+  margin: 0 auto;
+}
+.home-link {
+  float: left;
+}
+.home-link .logo {
+  height: 55px;
+  margin: 5px auto;
+}
+.main-navigation > ul {
+  float: right;
+  padding: 0px !important;
+  margin: 6px auto;
+  max-width: 100%;
+}
+.main-navigation > ul li a.cur-hover {
+  cursor: pointer;
+}

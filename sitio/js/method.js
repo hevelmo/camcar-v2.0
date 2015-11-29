@@ -322,14 +322,38 @@
         }
     }
 /* ------------------------------------------------------ *\
+    [Methods] getFunctionsMethods
+\* ------------------------------------------------------ */
+    var getFunctionsMethods = {
+        getFunctions: function() {
+            backToTopMethod.init_window_scroll_top();
+        }
+    }
+/* ------------------------------------------------------ *\
     [Methods] viewSectionHomeMethod
 \* ------------------------------------------------------ */
     var viewSectionHomeMethod = {
         addTemplatesSectionHome: function() {
+            CAM.loadTemplate(tempsNames.recurrent_start_site_navbar, domEl._start_site_navbar_name);
+        },
+        loadTemplatesSectionHome: function() {
+            viewSectionHomeMethod.addTemplatesSectionHome();
         },
         recurrentSecionHome: function() {
+            dataStarSiteHomeAttributes = [
+                ['header', {'id':domEl._start_site_navbar, 'class':'navbar navigation-bar-header nav-content'}, '', 1]
+            ];
+            CAM.appendMulti(domEl.div_recurrent, dataStarSiteHomeAttributes);            
         },
         viewSectionHome: function() {
+            viewSectionHomeMethod.recurrentSecionHome();
+            viewSectionHomeMethod.loadTemplatesSectionHome();
+            sticky_wrapper_methods.sticky_wrapper();
+            getFunctionsMethods.getFunctions();
+            // MOBILE MENU
+            $(window).resize(mobile_menu_methods.has_menu_toggle);
+            //  ONE PAGE NAV SCROLL DOWN
+            one_page_nav_methods.one_page_nav_scroll_down();
         }
     }
 /* ------------------------------------------------------ *\

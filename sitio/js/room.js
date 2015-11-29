@@ -8,7 +8,7 @@
             window.onload = favicon.load_favicon();
         },
         load: function(bindings) {
-            backToTopMethod.init_window_scroll_top();
+            viewSectionHomeMethod.viewSectionHome();
         },
         unload: function(bindings) {
             section = "";
