@@ -2,7 +2,7 @@
 /*
  * Copyright (C) 2015 Medigraf
  * Waxtotem, 2015.10.02
- *
+ * 
  */
 
 include_once 'cam_con_ini.php';
@@ -137,14 +137,14 @@ function login($mail, $password) {
                     //XSS protection as we might print this value
                     $adminAccess = preg_replace("/[^0-9]+/", "", $adminAccess);
                     $_SESSION['usr_adm_access'] = $adminAccess;
-
+                    
                     //---------- UTF8 STRINGS ----------
 
                     $agency = utf8_encode($agency);
                     $_SESSION['usr_agn_nombre'] = $agency;
 
                     //---------- EMAIL ----------
-
+                    
                    $_SESSION['email'] = $email;
 
                     //------------- STRINGS -------------
@@ -154,7 +154,7 @@ function login($mail, $password) {
                     $_SESSION['usr_agn_header'] = $agnHeader;
 
                     //---------- LOGIN STRINGS ----------
-
+                    
                     $_SESSION['login_string'] = hash('sha512', $passwordFinal . $userBrowser);
 
                     //Login successful.
@@ -163,7 +163,7 @@ function login($mail, $password) {
                     //Password is not correct
                     //We record this attempt in the database
                     $now = time();
-                    $sql_i =
+                    $sql_i = 
                         "INSERT INTO camAttempts(
                             ATT_USR_Id,
                             ATT_Time

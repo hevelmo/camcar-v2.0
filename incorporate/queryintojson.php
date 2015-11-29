@@ -2,12 +2,12 @@
 /*
  * Copyright (C) 2015
  * fjcorona
- *
+ * 
  */
 
 function changeArrayIntoJSON($nameJSON, $array) {
-    return (trim($nameJSON) !== '')
-            ? '{"' . $nameJSON . '": ' . json_encode($array) . '}'
+    return (trim($nameJSON) !== '') 
+            ? '{"' . $nameJSON . '": ' . json_encode($array) . '}' 
             : json_encode($array);
 }
 
@@ -81,8 +81,8 @@ function restructureRow($row, $structure) {
 
 function restructureQuery($structure, $connection, $sql, $params, $operation, $pdo) {
     $result = generalQuery($connection, $sql, $params, $operation, $pdo);
-    $restructured = ($operation === 0 && rightResult($result))
-                        ? restructureArray($result, $structure)
+    $restructured = ($operation === 0 && rightResult($result)) 
+                        ? restructureArray($result, $structure) 
                         : $result;
     return $restructured;
 }
@@ -111,7 +111,7 @@ function sortArrayByKeys($array, $keys) {
 }
 
 function multiLevelJSON($array, $structure, $orderBy) {
-
+    
     //Internal function: Build Lines
     $buildLines = function($numLev) {
         $codeLines = array();
@@ -170,7 +170,7 @@ function multiLevelJSON($array, $structure, $orderBy) {
     return $restructuredJSON;
 }
 
-function changeCSVIntoArray($namefile, $spl) {
+function changeCSVIntoArray($namefile, $spl) { 
 
     //This array will save the final clean content of the file
     $content = array();
@@ -195,10 +195,10 @@ function changeCSVIntoArray($namefile, $spl) {
 
         //Trim the blanck spaces at the begining and at the end of the line
         $trimLine = ($spl === " ") ? trim($line) : $line;
-
+        
         //Only ff it its not a blank line it is going to be used
         if($trimLine !== '') {
-
+            
             //The line is separatend in individual elements to make a row
             $row = explode($spl, $trimLine);
 
@@ -206,7 +206,7 @@ function changeCSVIntoArray($namefile, $spl) {
             //One more time there is not a blank line
             $implodeRow = implode(" ", $row);
             $implodeRowTrim = trim($implodeRow);
-
+            
             //It will work only with the rows that generate not empty info
             if($implodeRowTrim !== '') {
 
@@ -225,7 +225,7 @@ function changeCSVIntoArray($namefile, $spl) {
             }
         }
     }
-
+    
     return $content;
 }
 
@@ -237,7 +237,7 @@ function changeLineIntoArray($line, $spl, $structure) {
         $count = 1;
         for($idx = 0; $idx < count($row); $idx++) {
             $element = trim($row[$idx]);
-            if($element !== '') {
+            if($element !== '') {    
                 $splArray[] = array(
                     $count++,
                     $element

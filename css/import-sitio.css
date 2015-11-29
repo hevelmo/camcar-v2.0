@@ -34,6 +34,7 @@
 		@import url(sitio/styles/main-sitio.css);
 		@import url(sitio/styles/main-navigation.css);
 		@import url(sitio/herocarousel/herocarousel.css);
+		@import url(sitio/herocarousel/scrol-down.css);
 		/*@import url(sitio/herocarousel/hero-carousel-animation.css);*/
 		@import url(sitio/herocarousel/inner.css);
 		@import url(sitio/backtotop.css);

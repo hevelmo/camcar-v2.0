@@ -329,7 +329,9 @@
         
 
         <!-- back to top -->
-        <a href="#0" class="back-to-top cd-top">Top</a>
+        <a href="#0" class="back-to-top cd-top">
+            <i class="fa fa-angle-double-up fa-3x animation-pulse" style=""></i>
+        </a>
 
 		<!-- MAIN -->
 		<script src="../lib/jquery.js"></script>

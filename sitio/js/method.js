@@ -343,9 +343,14 @@
         recurrentSecionHome: function() {
             dataStarSiteHomeAttributes = [
                 ['header', {'id':domEl._start_site_navbar, 'class':'navbar navigation-bar-header nav-content'}, '', 1],
-                ['div', {'id':domEl._start_hero_carousel, 'class':'about-content hero-content'}, '', 1]
+                ['div', {'id':domEl._start_hero_carousel, 'class':'about-content hero-content'}, '', 1],
+                ['section', {'id':domEl._start_large_pad_our_brands, 'class':'large-pad about-content'}, '', 1]
             ];
-            CAM.appendMulti(domEl.div_recurrent, dataStarSiteHomeAttributes);            
+            CAM.appendMulti(domEl.div_recurrent, dataStarSiteHomeAttributes);
+            dataScrollDownAttributes = [
+                ['div', {'id':'ScrollDown'}, '', 1]
+            ];
+            CAM.appendMulti(domEl._start_large_pad_our_brands_name, dataScrollDownAttributes);          
         },
         viewSectionHome: function() {
             viewSectionHomeMethod.recurrentSecionHome();
