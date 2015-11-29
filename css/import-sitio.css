@@ -33,6 +33,8 @@
 		@import url(styles/basscss.css);
 		@import url(sitio/styles/main-sitio.css);
 		@import url(sitio/styles/main-navigation.css);
+		@import url(sitio/herocarousel/herocarousel.css);
+		@import url(sitio/herocarousel/inner.css);
 		@import url(sitio/backtotop.css);
 		@import url(sitio/mobiletoggle.css);
 /* ################################################################################################### *\

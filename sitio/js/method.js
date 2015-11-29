@@ -335,13 +335,15 @@
     var viewSectionHomeMethod = {
         addTemplatesSectionHome: function() {
             CAM.loadTemplate(tempsNames.recurrent_start_site_navbar, domEl._start_site_navbar_name);
+            CAM.loadTemplate(tempsNames.recurrent_hero_slide_carousel, domEl._start_hero_carousel_name);
         },
         loadTemplatesSectionHome: function() {
             viewSectionHomeMethod.addTemplatesSectionHome();
         },
         recurrentSecionHome: function() {
             dataStarSiteHomeAttributes = [
-                ['header', {'id':domEl._start_site_navbar, 'class':'navbar navigation-bar-header nav-content'}, '', 1]
+                ['header', {'id':domEl._start_site_navbar, 'class':'navbar navigation-bar-header nav-content'}, '', 1],
+                ['div', {'id':domEl._start_hero_carousel, 'class':'about-content'}, '', 1]
             ];
             CAM.appendMulti(domEl.div_recurrent, dataStarSiteHomeAttributes);            
         },

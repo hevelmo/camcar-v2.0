@@ -18,6 +18,8 @@ body {
   -moz-transition: all 0.7s ease;
   max-width: 1580px;
   margin: 0 auto;
+  overflow: hidden;
+  
 }
 .home-link {
   float: left;

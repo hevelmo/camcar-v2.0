@@ -1,6 +1,9 @@
 <?php
 function domEl() {
+    // NAVBAR
     $start_site_navbar = 'content-start-site-navbar';
+    // HERO CAROUSEL
+    $start_hero_carousel = 'content-start-hero-carousel';
     return array(
     	'recurrent_head' => 'head',
     	'recurrent_body' => 'body',
@@ -13,6 +16,9 @@ function domEl() {
         // MAIN NAVIGATION
         '_start_site_navbar' => $start_site_navbar,
         '_start_site_navbar_name' => '#' . $start_site_navbar,
+        // HERO COROUSEL
+        '_start_hero_carousel' => $start_hero_carousel,
+        '_start_hero_carousel_name' => '#' . $start_hero_carousel,
         // VALIDATION
         'validate_required' => '.validate-required',
     );
