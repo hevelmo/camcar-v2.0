@@ -31,6 +31,9 @@
 		[styles] remark extras
 	\* ------------------------------------------------------ */
 		@import url(styles/basscss.css);
+		@import url(sitio/styles/global-helper-sectio.css);
+		@import url(sitio/styles/integrity-light.css);
+		@import url(sitio/styles/section-colors.css);		
 		@import url(sitio/styles/main-sitio.css);
 		@import url(sitio/styles/main-navigation.css);
 		@import url(sitio/herocarousel/herocarousel.css);

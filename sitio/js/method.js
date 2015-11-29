@@ -334,8 +334,21 @@
 \* ------------------------------------------------------ */
     var viewSectionHomeMethod = {
         addTemplatesSectionHome: function() {
-            CAM.loadTemplate(tempsNames.recurrent_start_site_navbar, domEl._start_site_navbar_name);
-            CAM.loadTemplate(tempsNames.recurrent_hero_slide_carousel, domEl._start_hero_carousel_name);
+            CAM.loadTemplate(tempsNames.recurrent_home_start_site_navbar, domEl._start_site_navbar_name);
+            CAM.loadTemplate(tempsNames.recurrent_home_hero_slide_carousel, domEl._start_hero_carousel_name);
+            viewSectionHomeMethod.loadTemplatesOurBrands();
+            viewSectionHomeMethod.loadTemplatesGroupCounter();
+            CAM.loadTemplate(tempsNames.recurrent_home_full_width_features, domEl._start_full_width_features_name);
+        },
+        loadTemplatesOurBrands: function() {
+            var ourBrandsData;
+            ourBrandsData = CAM.getInternalJSON(urlsApi.getBrandsLogos);
+            CAM.loadTemplate(tempsNames.recurrent_home_our_brands, domEl._start_large_pad_our_brands_name, ourBrandsData);
+        },
+        loadTemplatesGroupCounter: function() {
+            var groupCounterData;
+            groupCounterData = CAM.getInternalJSON(urlsApi.getGroupCounter);
+            CAM.loadTemplate(tempsNames.recurrent_home_group_counter, domEl._start_large_pad_group_counter_name, groupCounterData);
         },
         loadTemplatesSectionHome: function() {
             viewSectionHomeMethod.addTemplatesSectionHome();
@@ -344,13 +357,11 @@
             dataStarSiteHomeAttributes = [
                 ['header', {'id':domEl._start_site_navbar, 'class':'navbar navigation-bar-header nav-content'}, '', 1],
                 ['div', {'id':domEl._start_hero_carousel, 'class':'about-content hero-content'}, '', 1],
-                ['section', {'id':domEl._start_large_pad_our_brands, 'class':'large-pad about-content'}, '', 1]
+                ['section', {'id':domEl._start_large_pad_our_brands, 'class':'large-pad about-content'}, '', 1],
+                ['section', {'id':domEl._start_large_pad_group_counter, 'class':'large-pad about-content black-paper-bg text-white', 'style':'padding: 30px 0 15px;'}, '', 1],
+                ['section', {'id':domEl._start_full_width_features}, '', 1]
             ];
-            CAM.appendMulti(domEl.div_recurrent, dataStarSiteHomeAttributes);
-            dataScrollDownAttributes = [
-                ['div', {'id':'ScrollDown'}, '', 1]
-            ];
-            CAM.appendMulti(domEl._start_large_pad_our_brands_name, dataScrollDownAttributes);          
+            CAM.appendMulti(domEl.div_recurrent, dataStarSiteHomeAttributes);          
         },
         viewSectionHome: function() {
             viewSectionHomeMethod.recurrentSecionHome();
@@ -361,6 +372,7 @@
             $(window).resize(mobile_menu_methods.has_menu_toggle);
             //  ONE PAGE NAV SCROLL DOWN
             //one_page_nav_methods.one_page_nav_scroll_down();
+            animatedMethods.animated();
         }
     }
 /* ------------------------------------------------------ *\

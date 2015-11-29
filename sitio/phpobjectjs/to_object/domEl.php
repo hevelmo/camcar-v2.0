@@ -6,6 +6,10 @@ function domEl() {
     $start_hero_carousel = 'content-start-hero-carousel';
     // OUR BRANDS
     $start_large_pad_our_brands = 'content-start-large-pad-our-brands';
+    // GROUP COUNTER
+    $start_large_pad_group_counter = 'content-start-large-pad-group-counter';
+    // FULL WIDTH FEATURES
+    $start_full_width_features = 'content-start-full-width-features';
     return array(
     	'recurrent_head' => 'head',
     	'recurrent_body' => 'body',
@@ -24,6 +28,12 @@ function domEl() {
         // OUR BRANDS
         '_start_large_pad_our_brands' => $start_large_pad_our_brands,
         '_start_large_pad_our_brands_name' => '#' . $start_large_pad_our_brands,
+        // GROUP COUNTER
+        '_start_large_pad_group_counter' => $start_large_pad_group_counter,
+        '_start_large_pad_group_counter_name' => '#' . $start_large_pad_group_counter,
+        // FULL WIDTH FEATURES
+        '_start_full_width_features' => $start_full_width_features,
+        '_start_full_width_features_name' => '#' . $start_full_width_features,
         // VALIDATION
         'validate_required' => '.validate-required',
     );
