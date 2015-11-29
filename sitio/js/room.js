@@ -9,6 +9,7 @@
         },
         load: function(bindings) {
             viewSectionHomeMethod.viewSectionHome();
+            animatedMethods.animated();
         },
         unload: function(bindings) {
             section = "";

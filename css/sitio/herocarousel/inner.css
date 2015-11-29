@@ -139,14 +139,15 @@
     transition: opacity 0.8s ease;
 }
 .HeroCarousel.inner .carousel .heroItem.alignedText .heroContent {
-    max-width: 440px;
+    /*max-width: 440px;*/
+    max-width: 495px
 }
 .HeroCarousel.inner .carousel .heroItem.left {
     text-align: left;
 }
 .HeroCarousel.inner .carousel .heroItem.left .heroContent {
     margin-left: 50px;
-    margin-top: -250px !important;
+    margin-top: -200px !important;
 }
 .HeroCarousel.inner .carousel .heroItem.left .heroContent .heading {
     text-align: left;
@@ -473,7 +474,7 @@ html.no-js .HeroCarousel.inner .carousel .heroItem .heroContent {
         min-height: 0;
     }
     .HeroCarousel.inner .carousel .heroItem.alignedText .heroContent {
-        width: 280px;
+        width: 440px;
     }
     .HeroCarousel.inner .carousel .heroItem .heroLogo img {
         max-width: 60px;
@@ -636,7 +637,7 @@ html.no-js .HeroCarousel.inner .carousel .heroItem .heroContent {
     }
     .HeroCarousel.inner .carousel .heroItem.left .heroContent, .HeroCarousel.inner .carousel .heroItem.alignedText.left .heroContent, .HeroCarousel.inner .carousel .heroItem.darkText.left .heroContent {
         margin-left: 0;
-        margin-top: -55px !important;
+        margin-top: 0px !important;
     }
 }
 @media screen and (min-width: 401px) {
