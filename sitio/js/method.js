@@ -353,7 +353,7 @@
             // MOBILE MENU
             $(window).resize(mobile_menu_methods.has_menu_toggle);
             //  ONE PAGE NAV SCROLL DOWN
-            one_page_nav_methods.one_page_nav_scroll_down();
+            //one_page_nav_methods.one_page_nav_scroll_down();
         }
     }
 /* ------------------------------------------------------ *\

@@ -1293,7 +1293,7 @@ body.boxed .body{
     line-height: 32px;
     font-size: 0.9em;
     letter-spacing: 1px;
-    color: #a3afb7;
+    color: #656461;
     padding: 10px 10px 10px;
     border-bottom: 2px solid transparent;
     margin: 0;
@@ -1301,7 +1301,7 @@ body.boxed .body{
 	transition: all 0.5s ease;
 	-webkit-transition: all 0.5s ease;
 	-moz-transition: all 0.5s ease;
-    opacity: 1;
+    opacity: 0.7;
 }
 .has-dropdown a {
     padding-right: 30px !important;
@@ -1318,15 +1318,17 @@ body.boxed .body{
     line-height: 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    color: #a3afb7;
+    color: #656461;
     float: right;
     position: relative;
     font-size: 25px;
     right: 10px;
     top: 13px;
+    opacity: 0.7;
 }
 .has-dropdown:hover:before {
 	color: #656461;
+	opacity: 1;
 }
 .main-navigation > ul > li > a:hover {
 	color: #666;
@@ -1416,7 +1418,7 @@ body.boxed .body{
     line-height: 32px;
     width: 100%;
     display: block;
-    color: #a3afb7;
+    color: #656461;
     font-family: "ProximaNovaRegular",Arial,Helvetica,Sans-Serif;
     font-weight: normal;
     text-transform: uppercase;
@@ -1425,7 +1427,7 @@ body.boxed .body{
 	transition: all 0.5s ease;
 	-webkit-transition: all 0.5s ease;
 	-moz-transition: all 0.5s ease;
-    opacity: 1;
+    opacity: 0.7;
     font-size: 0.9em;
     letter-spacing: 1px;
     border-bottom: 2px solid rgba(204, 213, 219, 0);
@@ -4982,8 +4984,14 @@ body{
 	.dd-menu .megamenu-container ul{
 		min-width:inherit;
 	}
+	.main-navigation > ul {
+	    margin-right: 25px;
+	}
 	.main-navigation > ul > li{
 	    margin-right: -5px;
+	}
+	.vin_logout, .vin_people {
+	    right: -10px;
 	}
 	.header-v2 .user-login-panel{
 		display:none;
@@ -5021,6 +5029,9 @@ body{
 	}
 }
 @media only screen and (max-width: 992px) {
+	.none-visible-xs {
+		display: none !important;
+	}
 	.site-tagline{
 		display:none;
 	}
@@ -5070,7 +5081,7 @@ body{
 		display: block;
 		padding: 10px 10px 10px;
 		line-height: normal;
-		color: #a3afb7;
+		color: #656461;
 		text-align: left;
 	}
 	.toggle-menu > ul > li ul{
@@ -5317,6 +5328,9 @@ body{
 	}
 }
 @media only screen and (max-width: 767px) {
+	.none-visible-xs {
+		display: none !important;
+	}
 	.site-header-wrapper{
 		position:relative;
 	}
