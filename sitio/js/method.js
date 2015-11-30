@@ -337,18 +337,14 @@
             CAM.loadTemplate(tempsNames.recurrent_home_start_site_navbar, domEl._start_site_navbar_name);
             CAM.loadTemplate(tempsNames.recurrent_home_hero_slide_carousel, domEl._start_hero_carousel_name);
             viewSectionHomeMethod.loadTemplatesOurBrands();
-            viewSectionHomeMethod.loadTemplatesGroupCounter();
+            CAM.loadTemplate(tempsNames.recurrent_home_group_counter, domEl._start_large_pad_group_counter_name);
             CAM.loadTemplate(tempsNames.recurrent_home_full_width_features, domEl._start_full_width_features_name);
+            CAM.loadTemplate(tempsNames.recurrent_home_dealer_search_gmap, domEl._start_dealer_search_map_name);
         },
         loadTemplatesOurBrands: function() {
             var ourBrandsData;
             ourBrandsData = CAM.getInternalJSON(urlsApi.getBrandsLogos);
             CAM.loadTemplate(tempsNames.recurrent_home_our_brands, domEl._start_large_pad_our_brands_name, ourBrandsData);
-        },
-        loadTemplatesGroupCounter: function() {
-            var groupCounterData;
-            groupCounterData = CAM.getInternalJSON(urlsApi.getGroupCounter);
-            CAM.loadTemplate(tempsNames.recurrent_home_group_counter, domEl._start_large_pad_group_counter_name, groupCounterData);
         },
         loadTemplatesSectionHome: function() {
             viewSectionHomeMethod.addTemplatesSectionHome();
@@ -359,20 +355,14 @@
                 ['div', {'id':domEl._start_hero_carousel, 'class':'about-content hero-content'}, '', 1],
                 ['section', {'id':domEl._start_large_pad_our_brands, 'class':'large-pad about-content'}, '', 1],
                 ['section', {'id':domEl._start_large_pad_group_counter, 'class':'large-pad about-content black-paper-bg text-white', 'style':'padding: 30px 0 15px;'}, '', 1],
-                ['section', {'id':domEl._start_full_width_features}, '', 1]
+                ['section', {'id':domEl._start_full_width_features, 'class':'fullwidth-features about-content'}, '', 1],
+                ['div', {'id':domEl._start_dealer_search_map, 'class':'dealer-search-map about-content'}, '', 1]
             ];
             CAM.appendMulti(domEl.div_recurrent, dataStarSiteHomeAttributes);          
         },
         viewSectionHome: function() {
             viewSectionHomeMethod.recurrentSecionHome();
             viewSectionHomeMethod.loadTemplatesSectionHome();
-            sticky_wrapper_methods.sticky_wrapper();
-            getFunctionsMethods.getFunctions();
-            // MOBILE MENU
-            $(window).resize(mobile_menu_methods.has_menu_toggle);
-            //  ONE PAGE NAV SCROLL DOWN
-            //one_page_nav_methods.one_page_nav_scroll_down();
-            animatedMethods.animated();
         }
     }
 /* ------------------------------------------------------ *\
@@ -382,6 +372,181 @@
         removeRecurrents: function() {
         },
         removeRecurrents_home: function() {
+        }
+    }
+/* ------------------------------------------------------ *\
+    [Methods] Google Maps -> agentsMap
+\* ------------------------------------------------------ */
+    var agentsMap = {
+        AgentsMap : function () {
+            var styles, mapData, agn_name, agn_address, agn_latitud, agn_longitudl,
+                directorio, agn_folder_agencia, agn_img, location_center, mapOptions,
+                map, markers, bounds, info_windows;
+
+            mapData = CAM.getInternalJSON(urlsApi.getMapa);
+            agn_latitud = mapData.campa[0].agn_latitud;
+            agn_longitud = mapData.campa[0].agn_longitud;
+
+            /* Map Center Location - From Theme Options */
+            //location_center = new google.maps.LatLng(Agents[0].lat,Agents[0].lng);
+            location_center = new google.maps.LatLng(agn_latitud,agn_longitud);
+
+            // Create an array of styles.
+
+            styles = [
+                {
+                    "featureType": "landscape",
+                    "elementType": "geometry.fill",
+                    "stylers": [{ "color": "#ffffff" }]
+                },
+                {
+                    "featureType": "landscape.natural.terrain",
+                    "elementType": "geometry.fill",
+                    "stylers": [{ "color": "#000000" }]
+                },
+                {
+                    "featureType": "poi",
+                    "elementType": "geometry.fill",
+                    "stylers": [{ "color": "#eeeeee" }]
+                },
+                {
+                    "featureType": "administrative",
+                    "elementType": "labels.text.fill",
+                    "stylers": [{ "color": "#2ec3f3" }]
+                },
+                {
+                    "featureType": "road.arterial",
+                    "elementType": "geometry.fill",
+                    "stylers": [{ "color": "#eeeeee" }]
+                },
+                {
+                    "featureType": "road.arterial",
+                    "elementType": "geometry.stroke",
+                    "stylers": [{ "color": "#cccccc" }]
+                },
+                {
+                    "featureType": "road",
+                    "elementType": "labels.text.fill",
+                    "stylers": [{ "color": "#666666" }]
+                },
+                {
+                    "featureType": "road",
+                    "elementType": "labels.text.stroke",
+                    "stylers": [{ "color": "#ffffff" }]
+                },
+                {
+                    "featureType": "road.highway",
+                    "elementType": "geometry.fill",
+                    "stylers": [{ "color": "#bbbbbb" }]
+                },
+                {
+                    "featureType": "road.highway",
+                    "elementType": "geometry.stroke",
+                    "stylers": [{ "color": "#dddddd" }]
+                },
+                {
+                    "featureType": "road.local",
+                    "elementType": "geometry.fill",
+                    "stylers": [{ "color": "#e5e5e5" }]
+                },
+                {
+                    "featureType": "water",
+                    "elementType": "geometry.fill",
+                    "stylers": [{ "visibility": "off" }]
+                },
+                {
+                    featureType: "poi.business",
+                    elementType: "labels.icon",
+                    stylers: [
+                        { visibility: "off" }
+                    ]
+                },
+                {
+                    featureType: "poi.school",
+                    elementType: "labels.icon",
+                    stylers: [
+                        { visibility: "off" }
+                    ]
+                },
+                {
+                    featureType: "poi.park",
+                    elementType: "labels.icon",
+                    stylers: [
+                        { visibility: "off" }
+                    ]
+                }
+            ];
+
+            // Create a new StyledMapType object, passing it the array of styles,
+            // as well as the name to be displayed on the map type control.
+            //var styledMap = new google.maps.StyledMapType(styles, {name: "GrayScale"});
+
+            mapOptions = {
+                zoom: 10,
+                center: new google.maps.LatLng(agn_latitud,agn_longitud),
+                scrollwheel: false,
+                mapTypeControlOptions: {
+                    mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+                }
+            }
+
+            map = new google.maps.Map(document.getElementById("gmap"), mapOptions);
+
+            //map.mapTypes.set('map_style', styledMap);
+            //map.setMapTypeId('map_style');
+
+            markers = new Array();
+            bounds = new google.maps.LatLngBounds();
+            info_windows = new Array();
+
+            /* Properties Array */
+            for (var i=0; i < mapData.campa.length; i++) {
+                agn_name = mapData.campa[i].agn_nombre;
+                agn_address = mapData.campa[i].agn_direccion;
+                directorio = mapData.campa[i].agn_folder;
+                agn_folder_agencia = 'sitio/agencias/logos';
+                agn_img = mapData.campa[i].agn_logo2;
+                agn_latitud = mapData.campa[i].agn_latitud;
+                agn_longitud = mapData.campa[i].agn_longitud;
+
+                markers[i] = new google.maps.Marker({
+                    position: new google.maps.LatLng(agn_latitud,agn_longitud),
+                    map: map,
+                    icon: '../img/sitio/pin_camcar.png',
+                    title: agn_name,
+                    animation: google.maps.Animation.DROP
+                });
+
+                bounds.extend(markers[i].getPosition());
+
+                info_windows[i] = new google.maps.InfoWindow({
+                    content:
+                        '<div class="marker-info-win" style="text-align: center;">'+
+                        '<div class="marker-inner-win"><span class="info-content">'+
+                        '<img src="../img/'+agn_folder_agencia+'/'+agn_img+'" alt="'+agn_name+'" style="margin-botton: 10px;" width="100">'+
+                        '<h5 class="marker-heading" style="color:#000; padding: 0px; margin: 0px;">'+agn_name+'</h5>'+
+                        '<span>'+agn_address+'</span>' +
+                        '</span>'+
+                        '</div></div>'
+                });
+
+                attachInfoWindowToMarker(map, markers[i], info_windows[i]);
+            }
+            //console.log(mapData);
+            map.fitBounds(bounds);
+
+
+            /* function to attach infowindow with marker */
+            function attachInfoWindowToMarker( map, marker, infoWindow ) {
+                //infoWindow.open(map, marker);
+                google.maps.event.addListener( marker, 'click', function() {
+                    infoWindow.open( map, marker );
+                });
+                //console.log(infoWindow);
+            }
+        },
+        loadAgentsMap : function () {
+            google.maps.event.addDomListener(window, 'load', agentsMap.AgentsMap());
         }
     }
 /* ------------------------------------------------------ *\

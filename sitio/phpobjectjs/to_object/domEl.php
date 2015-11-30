@@ -10,6 +10,8 @@ function domEl() {
     $start_large_pad_group_counter = 'content-start-large-pad-group-counter';
     // FULL WIDTH FEATURES
     $start_full_width_features = 'content-start-full-width-features';
+    // DEALER SEARCH MAP
+    $start_dealer_search_map = 'content-start-dealer-search-map';
     return array(
     	'recurrent_head' => 'head',
     	'recurrent_body' => 'body',
@@ -34,6 +36,9 @@ function domEl() {
         // FULL WIDTH FEATURES
         '_start_full_width_features' => $start_full_width_features,
         '_start_full_width_features_name' => '#' . $start_full_width_features,
+        // FULL WIDTH FEATURES
+        '_start_dealer_search_map' => $start_dealer_search_map,
+        '_start_dealer_search_map_name' => '#' . $start_dealer_search_map,
         // VALIDATION
         'validate_required' => '.validate-required',
     );

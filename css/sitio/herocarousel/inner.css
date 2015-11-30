@@ -147,7 +147,7 @@
 }
 .HeroCarousel.inner .carousel .heroItem.left .heroContent {
     margin-left: 50px;
-    margin-top: 0px !important;
+    margin-top: 30px !important;
 }
 .HeroCarousel.inner .carousel .heroItem.left .heroContent .heading {
     text-align: left;

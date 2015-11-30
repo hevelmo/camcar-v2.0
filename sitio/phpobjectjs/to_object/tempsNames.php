@@ -12,5 +12,7 @@ function tempsNames() {
     	'recurrent_home_group_counter' => 'tmp_section_home_group_counter',
     	// FULL WIDTH FEATURES
     	'recurrent_home_full_width_features' => 'tmp_section_home_full_width_features',
+    	// DEALER SEARCH GMAP
+    	'recurrent_home_dealer_search_gmap' => 'tmp_section_home_dealer_search_gmap',
     );
 }

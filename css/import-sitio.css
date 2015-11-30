@@ -23,6 +23,8 @@
 		@import url(webfonts/font-awesome/font-awesome.css);
 		@import url(webfonts/web-icons/web-icons.min.css);
 		@import url(webfonts/pe-icon-7-stroke/pe-icon-7-stroke.css);
+		@import url(webfonts/fullwidth-features/fullwidth-features.css);
+		@import url(webfonts/avenir/avenir.css);
 	/* ------------------------------------------------------ *\
 		[styles] remark fonts.googleApis
 	\* ------------------------------------------------------ */
@@ -33,9 +35,11 @@
 		@import url(styles/basscss.css);
 		@import url(sitio/styles/global-helper-sectio.css);
 		@import url(sitio/styles/integrity-light.css);
-		@import url(sitio/styles/section-colors.css);		
+		@import url(sitio/styles/section-colors.css);
+		@import url(sitio/styles/fullwidth-features.css	);
 		@import url(sitio/styles/main-sitio.css);
 		@import url(sitio/styles/main-navigation.css);
+		@import url(sitio/styles/typography.css);
 		@import url(sitio/herocarousel/herocarousel.css);
 		@import url(sitio/herocarousel/scrol-down.css);
 		/*@import url(sitio/herocarousel/hero-carousel-animation.css);*/

@@ -53,6 +53,9 @@ $app->configureMode('development', function () use ($app) {
     $app->get('/get/agencia/nuevos/marcas/logotipos', /*'mw1',*/ 'getBrandsLogos');
     // HOME SECTION GROUP COUNTER
     $app->get('/get/grupo/camcar', /*'mw1',*/ 'getGroupCounter');
+    // MAPA
+    $app->get('/get/mapa/seminuevo', /*'mw1',*/ 'getMapa');
+    $app->get('/get/mapa/seminuevo/:senId', /*'mw1',*/ 'getMapaById');
 // DELETE
 //$app->get('/del/table/:idTable', /*'mw1',*/ 'delTable');
 $app->run();
@@ -181,6 +184,59 @@ $app->run();
                 ";
         getGroupCounterJSON($sql);
     }
+    // STRUCTURE MAP JSON
+    function getMapaJSON($sql, $senId) {
+        $structure = array(
+            'sen_id' => 'SEN_Id',
+            'agn_nombre' => 'AGN_Nombre',
+            'agn_direccion' => 'AGN_Dirección',
+            'agn_folder' => 'AGN_Folder',
+            'agn_logo1' => 'AGN_Logo1',
+            'agn_logo2' => 'AGN_Logo2',
+            'agn_latitud' => 'AGN_MLatitud',
+            'agn_longitud' => 'AGN_MLongitud',
+            'map_url' => 'AGN_MUrl'
+        );
+        $params = array();
+        // PARAMS MAP BY ID
+        ($senId !== '') ? $params['senId'] = $senId : $params = $params;
+        echo changeQueryIntoJSON('campa', $structure, getConnection(), $sql, $params, 0, PDO::FETCH_ASSOC);
+    }
+    // MAP
+    function getMapa() {
+        $sql = "SELECT *
+                FROM (
+                    SELECT *
+                    FROM camSeminuevos
+                ) sen
+                INNER JOIN (
+                    SELECT *
+                    FROM camAgencias
+                    WHERE AGN_Tipo = 1
+                    AND AGN_Status = 1
+                    AND AGN_IsMap_Agencia = 1
+                ) agn
+                GROUP BY AGN_Id";
+        getMapaJSON($sql, '');
+    }
+    // MAP BY ID
+    function getMapaById($senId) {
+        $sql = "SELECT *
+                FROM (
+                    SELECT *
+                    FROM camSeminuevos
+                    WHERE SEN_Status = 1
+                ) sen
+                INNER JOIN (
+                    SELECT *
+                    FROM camAgencias
+                    WHERE AGN_Tipo = 0
+                ) agn
+                ON sen.SEN_AGN_Id = agn.AGN_Id
+                WHERE SEN_Id = :senId";
+        getMapaJSON($sql, $senId);
+    }
+
     // DELETE
     function delTable($idTable) {
         $sql = "DELETE FROM camTable WHERE TAB_Id = :tabId";

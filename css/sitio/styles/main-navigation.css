@@ -1330,7 +1330,8 @@ body.boxed .body{
 	color: #656461;
 	opacity: 1;
 }
-.main-navigation > ul > li > a:hover {
+.main-navigation > ul > li > a:hover,
+.main-navigation > ul > li > a.current {
 	color: #666;
 	transition: all 0.5s ease;
 	-webkit-transition: all 0.5s ease;

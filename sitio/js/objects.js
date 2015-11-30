@@ -1,6 +1,8 @@
 var domEl, tempsNames, urlsApi;
 domEl = {
 	"_back_to_top":".back-to-top",
+	"_start_dealer_search_map":"content-start-dealer-search-map",
+	"_start_dealer_search_map_name":"#content-start-dealer-search-map",
 	"_start_full_width_features":"content-start-full-width-features",
 	"_start_full_width_features_name":"#content-start-full-width-features",
 	"_start_hero_carousel":"content-start-hero-carousel",
@@ -19,6 +21,7 @@ domEl = {
 	"validate_required":".validate-required"
 };
 tempsNames = {
+	"recurrent_home_dealer_search_gmap":"tmp_section_home_dealer_search_gmap",
 	"recurrent_home_full_width_features":"tmp_section_home_full_width_features",
 	"recurrent_home_group_counter":"tmp_section_home_group_counter",
 	"recurrent_home_hero_slide_carousel":"tmp_section_home_hero_slide_carousel",
@@ -27,5 +30,7 @@ tempsNames = {
 };
 urlsApi = {
 	"getBrandsLogos":"api/v15/get/agencia/nuevos/marcas/logotipos",
-	"getGroupCounter":"api/v15/get/grupo/camcar"
+	"getGroupCounter":"api/v15/get/grupo/camcar",
+	"getMapa":"api/v15/get/mapa/seminuevo",
+	"getMapaById":"api/v15/get/mapa/seminuevo/"
 };

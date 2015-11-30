@@ -45,5 +45,8 @@ function urlsApi() {
         'getBrandsLogos' => $root . '/' . $get . '/' . $agencie . '/' . $news . '/' . $brands . '/'. $logos,
         // HOME SECTION GROUP COUNTER
         'getGroupCounter' => $root . '/' . $get . '/' . $group_counter,
+        // MAPA
+        'getMapa' => $root . '/' . $get . '/' . $tab_mapa . '/' . $tab_seminuevo,
+        'getMapaById' => $root . '/' . $get . '/' . $tab_mapa . '/' . $tab_seminuevo . '/',
     );
 }
