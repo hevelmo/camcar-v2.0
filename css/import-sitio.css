@@ -25,6 +25,7 @@
 		@import url(webfonts/pe-icon-7-stroke/pe-icon-7-stroke.css);
 		@import url(webfonts/fullwidth-features/fullwidth-features.css);
 		@import url(webfonts/avenir/avenir.css);
+		@import url(webfonts/elegant-icons/elegant-icons.css);
 	/* ------------------------------------------------------ *\
 		[styles] remark fonts.googleApis
 	\* ------------------------------------------------------ */
@@ -48,6 +49,7 @@
 		@import url(sitio/mobiletoggle.css);
 		@import url(sitio/animate.css);
 		@import url(sitio/animation.css);
+		@import url(sitio/styles/footer.css);
 		/*@import url(sitio/cd-animation.css);*/
 /* ################################################################################################### *\
 	END CONTENT

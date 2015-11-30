@@ -24,6 +24,9 @@ function domEl() {
         // MAIN NAVIGATION
         '_start_site_navbar' => $start_site_navbar,
         '_start_site_navbar_name' => '#' . $start_site_navbar,
+        // MENU TOGGLE
+        '_menu_toogle' => '#menu-toggle',
+        '_menu_toogle_close' => '.menu-toggle-close',
         // HERO COROUSEL
         '_start_hero_carousel' => $start_hero_carousel,
         '_start_hero_carousel_name' => '#' . $start_hero_carousel,

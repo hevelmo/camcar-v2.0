@@ -4,6 +4,8 @@ function tempsNames() {
     return array(
     	// NAVBAR
     	'recurrent_home_start_site_navbar' => 'tmp_section_home_start_site_navbar',
+        // RECURRENT HOME SECTION
+        'recurrent_tmps_home' => 'tmp_section_home',
     	// HERO CAROUSEL
     	'recurrent_home_hero_slide_carousel' => 'tmp_section_home_hero_slide_carousel',
     	// OUR BRANDS

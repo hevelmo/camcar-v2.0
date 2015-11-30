@@ -1,6 +1,8 @@
 var domEl, tempsNames, urlsApi;
 domEl = {
 	"_back_to_top":".back-to-top",
+	"_menu_toogle":"#menu-toggle",
+	"_menu_toogle_close":".menu-toggle-close",
 	"_start_dealer_search_map":"content-start-dealer-search-map",
 	"_start_dealer_search_map_name":"#content-start-dealer-search-map",
 	"_start_full_width_features":"content-start-full-width-features",
@@ -26,7 +28,8 @@ tempsNames = {
 	"recurrent_home_group_counter":"tmp_section_home_group_counter",
 	"recurrent_home_hero_slide_carousel":"tmp_section_home_hero_slide_carousel",
 	"recurrent_home_our_brands":"tmp_section_home_our_brands",
-	"recurrent_home_start_site_navbar":"tmp_section_home_start_site_navbar"
+	"recurrent_home_start_site_navbar":"tmp_section_home_start_site_navbar",
+	"recurrent_tmps_home":"tmp_section_home"
 };
 urlsApi = {
 	"getBrandsLogos":"api/v15/get/agencia/nuevos/marcas/logotipos",

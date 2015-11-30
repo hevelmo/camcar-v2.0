@@ -156,6 +156,21 @@
             console.log('test');
             return false;
         },
+        close_menu_toggle: function(event) {
+            //$('.action-close-menu-toggle').removeClass('opened');
+            $(this).toggleClass("opened");
+            $(".toggle-menu").slideToggle();
+            $(".site-header-wrapper").toggleClass("sticktr");
+            $(".body").toggleClass("sticktr");
+            var SHHH = $(".site-header").innerHeight();
+            var NBHH = $(".navbar").innerHeight();
+            var THHH = $(".top-header").innerHeight();
+            $(".toggle-menu").css("top",NBHH);
+            $(".header-v2 .toggle-menu").css("top",SHHH);
+            $(".header-v3 .toggle-menu").css("top",SHHH + THHH);
+            console.log('test');
+            return false;
+        },
         has_menu_toggle: function() {
             if($("#menu-toggle").hasClass("opened")){
                 $(".toggle-menu").css("display","block");
@@ -330,11 +345,23 @@
         }
     }
 /* ------------------------------------------------------ *\
+    [Metodos] addAttrNavAgenciesNewsMethod
+\* ------------------------------------------------------ */
+    var addAttrNavAgenciesNewsMethod = {
+        addAttrNavAgenciesNews: function() {
+            $('#go-agencies-news').attr({
+                'data-agp_nombre':'ford-cavsa',
+                'data-agp_id':'4',
+                'data-index':'1'
+            });
+        }
+    }
+/* ------------------------------------------------------ *\
     [Methods] viewSectionHomeMethod
 \* ------------------------------------------------------ */
     var viewSectionHomeMethod = {
         addTemplatesSectionHome: function() {
-            CAM.loadTemplate(tempsNames.recurrent_home_start_site_navbar, domEl._start_site_navbar_name);
+            //CAM.loadTemplate(tempsNames.recurrent_home_start_site_navbar, domEl._start_site_navbar_name);
             CAM.loadTemplate(tempsNames.recurrent_home_hero_slide_carousel, domEl._start_hero_carousel_name);
             viewSectionHomeMethod.loadTemplatesOurBrands();
             CAM.loadTemplate(tempsNames.recurrent_home_group_counter, domEl._start_large_pad_group_counter_name);
@@ -351,14 +378,14 @@
         },
         recurrentSecionHome: function() {
             dataStarSiteHomeAttributes = [
-                ['header', {'id':domEl._start_site_navbar, 'class':'navbar navigation-bar-header nav-content'}, '', 1],
                 ['div', {'id':domEl._start_hero_carousel, 'class':'about-content hero-content'}, '', 1],
-                ['section', {'id':domEl._start_large_pad_our_brands, 'class':'large-pad about-content'}, '', 1],
-                ['section', {'id':domEl._start_large_pad_group_counter, 'class':'large-pad about-content black-paper-bg text-white', 'style':'padding: 30px 0 15px;'}, '', 1],
-                ['section', {'id':domEl._start_full_width_features, 'class':'fullwidth-features about-content'}, '', 1],
-                ['div', {'id':domEl._start_dealer_search_map, 'class':'dealer-search-map about-content'}, '', 1]
+                ['div', {'id':domEl._start_large_pad_our_brands, 'class':'about-content'}, '', 1],
+                ['div', {'id':domEl._start_large_pad_group_counter, 'class':'about-content'}, '', 1],
+                ['div', {'id':domEl._start_full_width_features, 'class':'about-content'}, '', 1],
+                ['div', {'id':domEl._start_dealer_search_map, 'class':'about-content'}, '', 1]
             ];
-            CAM.appendMulti(domEl.div_recurrent, dataStarSiteHomeAttributes);          
+            CAM.appendMulti(domEl.div_recurrent, dataStarSiteHomeAttributes);
+            //CAM.loadTemplate(tempsNames.recurrent_tmps_home, domEl.div_recurrent);
         },
         viewSectionHome: function() {
             viewSectionHomeMethod.recurrentSecionHome();

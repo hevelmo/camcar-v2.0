@@ -37,6 +37,7 @@ body {
   max-width: 1580px;
   margin: 0 auto;
 }
+.footer-content,
 .about-content {
   width: 100%;
   z-index: 1;
@@ -460,3 +461,719 @@ a.cur-hover,
     display: block;
   }
 }
+@media (min-width: 320px) {
+  .bootstrap-select.form-control.sel-categoria:not([class*="span"]),
+  .bootstrap-select.form-control.sel-marca:not([class*="span"]),
+  .bootstrap-select.form-control.sel-modelo:not([class*="span"]) {
+    width: 272px;
+  }
+  .hidden-movil {display: none;}
+  .footer-6 .footer-lower {
+    text-align: center;
+  }
+  .social-links li {
+    width: 100%;
+  }
+  .social-links > li div.log-medigraf {
+    margin: 0 auto;
+    width: 18px;
+  }
+}
+@media (min-width: 360px) {
+  .clients-logo li a > span {
+    max-width: 100%;
+  }
+}
+@media (min-width: 320px) and (max-width: 575px) {
+  /* BEGIN TABS AGENCIES */
+    .large-pad.section-large-pad {
+      padding: 15px 0;
+    }
+    .sem-style-button-agencies-resp {
+      margin: 25px auto 0px;
+      width: 100%;
+      border-radius: 0;
+    }
+    .client-section {
+      margin: 0 auto;
+    }
+    .clients-logo li {
+      width: 100%;
+      border-bottom: 1px solid #ccc;
+      margin: 0 auto -8px;
+      background-color: transparent;
+    }
+    .clients-logo li a {
+      width: 100%;
+      height: 45px;
+      margin: 0 auto 0px;
+      border-bottom: 1px solid #ccc;
+    }
+    .clients-logo li:hover a{
+      color: #7a7a7a;
+      background-color: #eeeeee;
+      border-bottom: none;
+      -webkit-transition:all 0.3s ease 0.2s;
+      -moz-transition:all 0.3s ease 0.2s;
+      -ms-transition:all 0.3s ease 0.2s;
+      -o-transition:all 0.3s ease 0.2s;
+      transition:all 0.3s ease 0.1s;
+    }
+    .clients-logo li a img,
+    .clients-logo li a span {
+      display: inline-block;
+      float: left;
+      vertical-align: middle;
+    }
+    .clients-logo li a > img {
+      width: 80px;
+    }
+    .clients-logo li a > span {
+      width: 75% !important;
+      padding: 15px 5px 0 15px !important;
+      text-align: left;
+      padding-left: 10px !important;
+      height: 45px;
+      margin-top: 0;
+      font-size: 1em !important;
+    }
+    section.double-pad {
+      margin: -50px auto;
+      height: auto;
+      padding: 140px;
+    }
+    .agn_logo {
+    }
+  /* END TABS AGENCIES */
+  button.sem-style-button-resp {
+    margin: 0 auto;
+    width: 85%;
+    border-radius: 0;
+  }
+  div.sem-style-panel-filters {
+    margin: 0 auto;
+    width: 85%;
+    padding: 0;
+  }
+  div.sem-style-panel-filters .form-group {
+    margin: 0 auto;
+  }
+  div#div-select-category{
+    margin-left: 0;
+  }
+
+  .contact-2 .contact-method span {
+    width: 80%;
+  }
+  #vehicle-location, .agentia-location { display: none; }
+  .premium-listing {
+    top: 38%;
+  }
+  .adm-premium-listing {
+    top: 15px;
+  }
+  .hidden-movil {display: none;}
+}
+@media (max-width: 640px) {
+  /* BEGIN TABS AGENCIES */
+    .large-pad.section-large-pad {
+      padding: 15px 0;
+    }
+    .sem-style-button-agencies-resp {
+      margin: 25px auto 0px;
+      width: 100%;
+      border-radius: 0;
+    }
+    .client-section {
+      margin: 0 auto;
+    }
+    .clients-logo li {
+      width: 100%;
+      border-bottom: 1px solid #ccc;
+      margin: 0 auto -8px;
+      background-color: transparent;
+    }
+    .clients-logo li a {
+      width: 100%;
+      height: 45px;
+      margin: 0 auto 0px;
+      border-bottom: 1px solid #ccc;
+    }
+    .clients-logo li:hover a{
+      color: #7a7a7a;
+      background-color: #eeeeee;
+      border-bottom: none;
+      -webkit-transition:all 0.3s ease 0.2s;
+      -moz-transition:all 0.3s ease 0.2s;
+      -ms-transition:all 0.3s ease 0.2s;
+      -o-transition:all 0.3s ease 0.2s;
+      transition:all 0.3s ease 0.1s;
+    }
+    .clients-logo li a img,
+    .clients-logo li a span {
+      display: inline-block;
+      float: left;
+      vertical-align: middle;
+    }
+    .clients-logo li a > img {
+      width: 80px;
+    }
+    .clients-logo li a > span {
+      width: 78%;
+      padding: 15px;
+      text-align: left;
+      padding-left: 25px;
+      height: 45px;
+      margin-top: 0;
+      font-size: 1.1em !important;
+    }
+    section.double-pad {
+      margin: 0px auto;
+      height: auto;
+      padding: 140px;
+    }
+    .agn_logo {
+    }
+  /* END TABS AGENCIES */
+  #vehicle-location, .agentia-location { display: none; }
+}
+@media (min-width: 480px) and (max-width: 895px) {
+  button.sem-style-button-resp {
+    margin: 0 auto;
+    width: 85%;
+    border-radius: 0;
+  }
+  .bootstrap-select.form-control.sel-categoria:not([class*="span"]),
+  .bootstrap-select.form-control.sel-marca:not([class*="span"]),
+  .bootstrap-select.form-control.sel-modelo:not([class*="span"]) {
+    width: 407px;
+  }
+  .hidden-movil {display: none;}
+}
+@media (min-width: 640px) and (max-width: 1055px) {
+  button.sem-style-button-resp {
+    margin: 0 auto;
+    width: 85%;
+    border-radius: 0;
+  }
+  div.sem-style-panel-filters {
+    margin: 0 auto;
+    width: 85%;
+    padding: 0;
+  }
+  div.sem-style-panel-filters .form-group {
+    margin: 0 auto;
+  }
+  div#div-select-category{
+    margin-left: 0;
+  }
+  .bootstrap-select.form-control.sel-categoria:not([class*="span"]),
+  .bootstrap-select.form-control.sel-marca:not([class*="span"]),
+  .bootstrap-select.form-control.sel-modelo:not([class*="span"]) {
+    width: 544px;
+  }
+  .contact-2 .contact-method span {
+    width: 80%;
+  }
+  .vehicle-enquiry-foot strong.address {
+    width: 93%;
+  }
+  #vehicle-location, .agentia-location { display: none; }
+  .hidden-movil {display: none;}
+}
+
+@media (min-width: 768px) and (max-width: 1174px) and (min-width: 768px) and (max-width: 1079px)  {
+  button.sem-style-button-resp {
+    margin: 0 auto;
+    width: 85%;
+    border-radius: 0;
+  }
+  .bootstrap-select.form-control.sel-categoria:not([class*="span"]),
+  .bootstrap-select.form-control.sel-marca:not([class*="span"]),
+  .bootstrap-select.form-control.sel-modelo:not([class*="span"]) {
+    width: 200px;
+  }
+  .result-item .premium-listing {
+    top: 31%;
+  }
+  .results-grid-view .result-item-features {
+    padding-top: 5px;
+    font-size: 12px;
+  }
+  .vehicle-enquiry-foot {
+    width: 100%;
+  }
+  .vehicle-enquiry-foot strong.address {
+    width: 85%;
+  }
+  #vehicle-location, .agentia-location { display: block; }
+  .hidden-movil {display: none;}
+  .footer-6 .footer-lower {
+    text-align: left;
+  }
+  .fullwidth-feature {
+    position: relative;
+  }
+  .fullwidth-features {
+    height: 796px;
+  }
+  .fullwidth-feature .top p,
+  .fullwidth-feature:hover .top p {
+    max-height: 100%;
+    overflow: visible;
+    opacity: 1;
+    padding-top: 0px;
+    margin-left: 15px;
+    margin-right: 15px;
+
+  }
+  .fullwidth-feature .top.bg-workshop {
+    background: #b02f1f;
+    /*border-right: 1px solid #C24348;*/
+  }
+  .fullwidth-feature .top.bg-rentails {
+    background: #007ab3;
+    /*border-right: 1px solid #167FB0;*/
+  }
+  .fullwidth-feature .top.bg-pre-owned {
+    background: #3e8f3e;
+    /*border-right: 1px solid #81B681;*/
+  }
+  .fullwidth-feature .btn-change-color-rentails {
+    color: #fff;
+    background-color: #5bc0de;
+    /*border-color: #46b8da;*/
+  }
+  .fullwidth-feature .btn-change-color-pre-owned {
+    color: #fff;
+    background-color: #5cb85c;
+    /*border-color: #4cae4c;*/
+  }
+  .fullwidth-feature .top.bg-workshop,
+  .fullwidth-feature .top.bg-rentails,
+  .fullwidth-feature .top.bg-pre-owned,
+  .fullwidth-feature .top {
+    padding: 64px 24px;
+  }
+  .fullwidth-feature:hover .top.bg-workshop,
+  .fullwidth-feature:hover .top.bg-rentails,
+  .fullwidth-feature:hover .top.bg-pre-owned,
+  .fullwidth-feature:hover {
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+  }
+  .vin_logout,
+  .vin_people {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .menu {
+    margin: 6px auto;
+    max-width: 100%;
+    float: right;
+    padding-right: 15px;
+  }
+  .large-pad.section-large-pad {
+    padding: 50px 0;
+  }
+  #Search-tabs { display: block; }
+  button.sem-style-button-resp {
+    margin: 0 auto;
+    width: 85%;
+    border-radius: 0;
+  }
+  .bootstrap-select.form-control.sel-categoria:not([class*="span"]),
+  .bootstrap-select.form-control.sel-marca:not([class*="span"]),
+  .bootstrap-select.form-control.sel-modelo:not([class*="span"]) {
+    width: 270px;
+  }
+  .contact-2 .contact-method span {
+    width: 70%;
+  }
+  .footer-6 .footer-lower {
+    text-align: left;
+  }
+  .fullwidth-feature {
+    position: absolute;
+  }
+  .fullwidth-features {
+    height: 340px;
+  }
+  .fullwidth-feature .top {
+    padding: 80px;
+    text-align: center;
+    transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+  }
+  .fullwidth-feature:hover .top.bg-workshop {
+    background: #b02f1f;
+    /*border-right: 1px solid #C24348;*/
+  }
+  .fullwidth-feature:hover .top.bg-rentails {
+    background: #007ab3;
+    /*border-right: 1px solid #167FB0;*/
+  }
+  .fullwidth-feature:hover .top.bg-pre-owned {
+    background: #3e8f3e;
+    /*border-right: 1px solid #81B681;*/
+  }
+  .fullwidth-feature:hover .btn-change-color-rentails {
+    /*color: #fff;*/
+    /*background-color: #5bc0de;*/
+    /*border-color: #46b8da;*/
+    background-color: #ffffff;
+    color: rgba(178, 17, 23, 1);
+  }
+  .fullwidth-feature .btn-change-color-rentails {
+    color: #fff;
+    background-color: #d9534f;
+    /*border-color: #d43f3a;*/
+  }
+  .fullwidth-feature:hover .btn-change-color-pre-owned {
+    color: #fff;
+    background-color: #5cb85c;
+    /*border-color: #4cae4c;*/
+  }
+  .fullwidth-feature .btn-change-color-pre-owned {
+    color: #fff;
+    background-color: #d9534f;
+    /*border-color: #d43f3a;*/
+  }
+  .fullwidth-feature .top p {
+    transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    color: #fff;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    margin-left: 0px;
+      margin-right: 0px;
+  }
+  .fullwidth-feature:hover .top p {
+    max-height: 100%;
+    opacity: 1;
+    padding-top: 25px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .fullwidth-feature .top.bg-workshop,
+  .fullwidth-feature .top.bg-rentails,
+  .fullwidth-feature .top.bg-pre-owned,
+  .fullwidth-feature {
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  }
+}
+@media (min-width: 1366px)  {
+  div.sem-style-panel-filters {
+    margin: 0 auto;
+    width: 77%;
+    padding: 0;
+  }
+  .footer-6 .footer-lower {
+    text-align: left;
+  }
+}
+@media (min-width: 1280px)  {
+  div.sem-style-panel-filters {
+    margin: 0 auto;
+    width: 77%;
+    padding: 0;
+  }
+  .footer-6 .footer-lower {
+    text-align: left;
+  }
+}
+.text-primary, .btn-primary .badge, .btn-link,a.list-group-item.active > .badge,.nav-pills > .active > a > .badge, p.drop-caps:first-child:first-letter, .accent-color, .nav-np .next:hover, .nav-np .prev:hover, .basic-link, .pagination > li > a:hover,.pagination > li > span:hover,.pagination > li > a:focus,.pagination > li > span:focus, .accordion-heading:hover .accordion-toggle, .accordion-heading:hover .accordion-toggle.inactive, .accordion-heading:hover .accordion-toggle i, .accordion-heading .accordion-toggle.active, .accordion-heading .accordion-toggle.active, .accordion-heading .accordion-toggle.active i, .main-navigation > ul > li > ul > li a:hover, .main-navigation > ul > li:hover > a, .main-navigation > ul > li:hover > a > i, .top-navigation li a:hover, .search-form h3, .featured-block h4, .vehicle-cost, .icon-box-inline span, .post-title a, .post-review-block h3.post-title a:hover, .review-status strong, .testimonial-block blockquote:before, .testimonial-info span, .additional-images .owl-carousel .item-video i, .vehicle-enquiry-foot i, .vehicle-enquiry-head h4, .add-features-list li i, .comparision-table .price, .search-filters .accordion-heading.accordionize .accordion-toggle.active, .search-filters .accordion-heading.togglize .accordion-toggle.active, .search-filters .accordion-heading .accordion-toggle.active, .search-filters .accordion-heading:hover .accordion-toggle.active, .search-filters .accordion-heading:hover .accordion-toggle.active:hover, .search-filters .accordion-heading.accordionize .accordion-toggle.active i, .search-filters .accordion-heading.togglize .accordion-toggle.active i, .filter-options-list li a:hover, .calculator-widget .loan-amount, .map-agent h4 a, .pricing-column h3, .listing-form-steps li.active a .step-state, .listing-form-steps li:hover a .step-state, .result-item-pricing .price, .result-item-features li i, .users-sidebar .list-group li a:hover > i, .saved-cars-table .price, .post .post-title a:hover, a, .post-actions .comment-count a:hover, .pricing-column .features a:hover, a:hover, .service-block h4 a:hover, .saved-cars-table .search-find-results a:hover, .widget a:hover, .nav-tabs > li > a:hover, .list-group-item a:hover, .icon-box.ibox-plain .ibox-icon i,.icon-box.ibox-plain .ibox-icon img, .icon-box.ibox-border .ibox-icon i,.icon-box.ibox-border .ibox-icon img, .top-header .sf-menu > li:hover > a, .header-v2 .topnav > ul > li:hover > a, .header-v4 .search-function .search-trigger, .additional-triggers > li > a:hover{
+  color:rgba(0, 0, 0, 1);
+}
+a{
+  color:#5e5e5e;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-transition:all 0.3s ease 0.2s;
+  -moz-transition:all 0.3s ease 0.2s;
+  -ms-transition:all 0.3s ease 0.2s;
+  -o-transition:all 0.3s ease 0.2s;
+  transition:all 0.3s ease 0.1s;
+}
+a:hover{
+  text-decoration:none;
+}
+a:hover,
+a:active,
+a:focus{
+  outline: 0;
+  text-decoration:none;
+  color:#666666;
+}
+img, a img {
+  border: none;
+}
+a > img {
+  vertical-align: middle;
+}
+ul.inline{
+  margin:10px 0;
+}
+ul.inline > li{
+  display:inline-block;
+  margin-right:10px;
+}
+ul.inline > li i.fa{
+  margin-right:2px;
+}
+
+li.item.format-image a > img,
+li.item .vehicle-block.format-standard a.media-box > img,
+li.item.format-video a > img,
+li.item.format-link {
+  vertical-align: middle;
+  width: 100%;
+  height: 140px;
+}
+
+input.submit_contact[type="submit"],
+input.submit_contact[type="submit"]:link,
+input.submit_contact[type="submit"]:visited,
+button.submit_contact,
+button.submit_contact:link,
+button.submit_contact:visited {
+  background: rgba(255, 255, 255, 0);
+  border: 2px solid rgba(0,0,0,0.4);
+  line-height: 1.4em;
+  font-weight: bold;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  letter-spacing: 0.1em;
+  padding: 13px 23px 11px;
+  min-width: 125px;
+  margin-top: 0px;
+  -webkit-transition-duration: 0.4s;
+  -khtml-transition-duration: 0.4s;
+  -moz-transition-duration: 0.4s;
+  -ms-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  -webkit-transition-timing-function: ease;
+  -khtml-transition-timing-function: ease;
+  -moz-transition-timing-function: ease;
+  -ms-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  transition-timing-function: ease;
+  overflow: hidden;
+  overflow: visible;
+  font-size: 0.8em;
+  color: rgba(0,0,0,0.4);
+  font-weight: bold;
+}
+input.submit_contact[type="submit"][disabled],
+input.submit_contact[type="submit"][disabled]:hover,
+button.submit_contact[disabled],
+button.submit_contact[disabled]:hover {
+  color: rgba(0,0,0,0.2) !important;
+  background: rgba(255, 255, 255, 0) !important;
+  background-color: rgba(255, 255, 255, 0) !important;
+  border: 2px solid rgba(0,0,0,0.2) !important;
+}
+input.submit_contact[type="submit"]:hover,
+button.submit_contact:hover {
+  color: rgba(255,255,255,0.9);
+  background: #b21117;
+  background-color: #b21117;
+  border: 2px solid #b21117;
+}
+input.submit_contact[type="submit"]:focus,
+input.submit_contact[type="submit"]:active,
+button.submit_contact:focus,
+button.submit_contact:active {
+  outline: thin solid rgba(178, 17, 23, 1);
+  border: 2px solid rgba(178, 17, 23, 0.4);
+}
+
+a.secondary, a.secondary:link, a.secondary:visited,
+input.secondary,
+input.secondary:link,
+input.secondary:visited,
+button.secondary,
+button.secondary:link,
+button.secondary:visited,
+.secondary-arrow,
+.secondary-arrow:link,
+.secondary-arrow:visited {
+  background: rgba(110, 110, 110, 0.9);
+  border: 1px solid rgba(255,255,255,0.4);
+  line-height: 1.4em;
+  font-weight: bold;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  letter-spacing: 0.1em;
+  padding: 13px 23px 11px;
+  min-width: 125px;
+  margin-top: 0px;
+  -webkit-transition-duration: 0.4s;
+  -khtml-transition-duration: 0.4s;
+  -moz-transition-duration: 0.4s;
+  -ms-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  -webkit-transition-timing-function: ease;
+  -khtml-transition-timing-function: ease;
+  -moz-transition-timing-function: ease;
+  -ms-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  transition-timing-function: ease;
+  overflow: hidden;
+  overflow: visible;
+  font-size: 0.8em;
+  color: rgba(255,255,255,1);
+  font-weight: bold;
+}
+button:hover.secondary,
+a.secondary:hover {
+  color: rgba(0,0,0,0.9);
+  background: rgba(255, 255, 255, 1);
+  background-color: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(255,255,255,0.9);
+}
+/* FORM NEWSLETTER */
+.h-widget {
+  margin: 0 0 0.5em;
+  font-size: 129%;
+  line-height: 1;
+  color: #fff;
+  font-weight: bold;
+}
+.indicates-required {
+  font-size: 0.95em;
+  color: #fff;
+  font-weight: bold;
+}
+.indicates-required .asterisk {
+  font-size: 0.95em;
+  color: #ffffff !important;
+  /*color: #b21117 !important;*/
+}
+.asterisk {
+  font-size: 0.95em;
+  color: #b21117 !important;
+}
+.mc-field-group {
+  width: 100%;
+}
+
+.mc-field-group fieldset {
+    margin: 0px auto;
+    padding: 0;
+    position: relative;
+    width: 100%;
+    color: #999;
+    border: 0;
+}
+.mc-field-group fieldset .invalid-message {
+    width:100%;
+    padding:7px 10px;
+    margin-top:5px;
+    background-color:#fff;
+    color:#e1251b;
+    font-size:14px;
+    position:relative;
+    display:none;
+}
+.mc-field-group fieldset .invalid-message span {
+    position:absolute;
+    top:-10px;
+    right:30px;
+    width:0;
+    height:0;
+    border-left:7px solid transparent;
+    border-right:7px solid transparent;
+    border-bottom:10px solid #fff;
+}
+.mc-field-group label,
+.mc-field-group input {
+  display: block;
+}
+.input-newsletter::-webkit-input-placeholder { color: rgba(255,255,255,0.9); }
+.input-newsletter:hover::-webkit-input-placeholder { color: rgba(0,0,0,1); }
+.input-newsletter:-moz-placeholder { color: rgba(255,255,255,0.9); }
+.input-newsletter:hover:-moz-placeholder { color: rgba(0,0,0,1); }
+.input-newsletter::-moz-placeholder { color: rgba(255,255,255,0.9); }
+.input-newsletter:hover::-moz-placeholder { color: rgba(0,0,0,1); }
+.input-newsletter:-ms-input-placeholder { color: rgba(255,255,255,0.9); }
+.input-newsletter:hover:-ms-input-placeholder { color: rgba(0,0,0,1); }
+
+.input-newsletter[type=email],
+.input-newsletter[type=text] {
+  background: rgba(255, 255, 255, 0);
+  border: 1px solid rgba(255,255,255,0.9);
+  color: rgba(255,255,255,1);
+  border-radius: 1px;
+  width: 100%;
+  float: none;
+  margin-bottom: 15px;
+  letter-spacing: 0.1em;
+  font-size: 1.1em;
+  line-height: 1.4em;
+  padding: 12px;
+  -webkit-box-shadow: 0 0 2px rgba(255,255,255,0);
+  box-shadow: 0 0 2px rgba(255,255,255,0);
+  -webkit-transition-duration: 0.4s;
+  -khtml-transition-duration: 0.4s;
+  -moz-transition-duration: 0.4s;
+  -ms-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  -webkit-transition-timing-function: ease;
+  -khtml-transition-timing-function: ease;
+  -moz-transition-timing-function: ease;
+  -ms-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  transition-timing-function: ease;
+  font-weight: 900;
+}
+.input-newsletter[type=email]:hover,
+.input-newsletter[type=text]:hover {
+  background: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(255,255,255,1);
+  color: rgba(0,0,0,0.9);
+}
+input[type=email].input-newsletter:focus,
+input[type=text].input-newsletter:focus {
+  border-radius: 1px;
+  padding: 12px;
+  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.2);
+  box-shadow: 0 0 4px rgba(0,0,0,0.2);
+  -webkit-transition-duration: 0.4s;
+  -khtml-transition-duration: 0.4s;
+  -moz-transition-duration: 0.4s;
+  -ms-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  -webkit-transition-timing-function: ease;
+  -khtml-transition-timing-function: ease;
+  -moz-transition-timing-function: ease;
+  -ms-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  transition-timing-function: ease;
+}
+/*
+@media screen and (min-width:  960px) {
+  .none-visible-xs {
+    display: none !important;
+  }
+  .visible-xs-poeple {
+    display: block !important;
+  }
+}
+*/

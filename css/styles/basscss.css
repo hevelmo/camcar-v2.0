@@ -248,64 +248,135 @@ button::before,
 .black-camcar {color: #030303 !important;}
 .white-camcar {color: #fcfbfb !important;}
 .red-camcar {color: #b21117 !important;}
+.bg-facebook,
+.bg-twitter,
+.bg-youtube {
+  font-weight: bold;
+}
+.bg-facebook {
+  background-color: #3b5998 !important;
+  color: #f7f7f7 !important;
+  font-size: larger;
+  letter-spacing: 2px;
+  text-align: center;
+    padding-top: 0.7em;
+    padding-bottom: 0.7em;
+  -webkit-transition: all .25s ease;
+     -moz-transition: all .25s ease;
+      -ms-transition: all .25s ease;
+       -o-transition: all .25s ease;
+          transition: all .25s ease;
+}
+.bg-facebook:hover {
+  background-color: #2d4373 !important;
+  color: #ffffff !important;
+  -webkit-transition: all .25s ease;
+     -moz-transition: all .25s ease;
+      -ms-transition: all .25s ease;
+       -o-transition: all .25s ease;
+          transition: all .25s ease;
+}
+.bg-twitter {
+  background-color: #55acee !important;
+  color: #f7f7f7 !important;
+    font-size: larger;
+  letter-spacing: 2px;
+  text-align: center;
+    padding-top: 0.7em;
+    padding-bottom: 0.7em;
+  -webkit-transition: all .25s ease;
+     -moz-transition: all .25s ease;
+      -ms-transition: all .25s ease;
+       -o-transition: all .25s ease;
+          transition: all .25s ease;
+}
+.bg-twitter:hover {
+  background-color: #2795e9 !important;
+  color: #ffffff !important;
+  -webkit-transition: all .25s ease;
+     -moz-transition: all .25s ease;
+      -ms-transition: all .25s ease;
+       -o-transition: all .25s ease;
+          transition: all .25s ease;
+}
+.bg-youtube {
+  background-color: #cc181e !important;
+  color: #f7f7f7 !important;
+    font-size: larger;
+  letter-spacing: 2px;
+  text-align: center;
+    padding-top: 0.7em;
+    padding-bottom: 0.7em;
+  -webkit-transition: all .25s ease;
+     -moz-transition: all .25s ease;
+      -ms-transition: all .25s ease;
+       -o-transition: all .25s ease;
+          transition: all .25s ease;
+}
+.bg-youtube:hover {
+  background-color: #e62117 !important;
+  color: #ffffff !important;
+  -webkit-transition: all .25s ease;
+     -moz-transition: all .25s ease;
+      -ms-transition: all .25s ease;
+       -o-transition: all .25s ease;
+          transition: all .25s ease;
+}
+
+
+
 
 .bg-black-camcar {
-	background-color: rgba(3, 3, 3, 0.5);
-	color: rgba(252, 251, 251, 0.5);
-	-webkit-transition: all .25s ease;
-	   -moz-transition: all .25s ease;
-	    -ms-transition: all .25s ease;
-	     -o-transition: all .25s ease;
-	        transition: all .25s ease;
+  background-color: rgba(3, 3, 3, 0.5) !important;
+  color: rgba(252, 251, 251, 0.5) !important;
+  -webkit-transition: all .25s ease;
+     -moz-transition: all .25s ease;
+      -ms-transition: all .25s ease;
+       -o-transition: all .25s ease;
+          transition: all .25s ease;
 }
 .bg-black-camcar:hover {
-	background-color: #030303;
-	color: #fcfbfb;
-	-webkit-transition: all .25s ease;
-	   -moz-transition: all .25s ease;
-	    -ms-transition: all .25s ease;
-	     -o-transition: all .25s ease;
-	        transition: all .25s ease;
+  background-color: #030303 !important;
+  color: #fcfbfb !important;
+  -webkit-transition: all .25s ease;
+     -moz-transition: all .25s ease;
+      -ms-transition: all .25s ease;
+       -o-transition: all .25s ease;
+          transition: all .25s ease;
 }
 .bg-white-camcar {
-	background-color: rgba(252, 251, 251, 0.5);
-	color: rgba(3, 3, 3, 0.5);
-	-webkit-transition: all .25s ease;
-	   -moz-transition: all .25s ease;
-	    -ms-transition: all .25s ease;
-	     -o-transition: all .25s ease;
-	        transition: all .25s ease;
+  background-color: rgba(252, 251, 251, 0.5) !important;
+  color: rgba(3, 3, 3, 0.5) !important;
+  -webkit-transition: all .25s ease;
+     -moz-transition: all .25s ease;
+      -ms-transition: all .25s ease;
+       -o-transition: all .25s ease;
+          transition: all .25s ease;
 }
 .bg-white-camcar:hover {
-	background-color: #fcfbfb;
-	color: #030303;
-	-webkit-transition: all .25s ease;
-	   -moz-transition: all .25s ease;
-	    -ms-transition: all .25s ease;
-	     -o-transition: all .25s ease;
-	        transition: all .25s ease;
+  background-color: #fcfbfb !important;
+  color: #030303 !important;
+  -webkit-transition: all .25s ease;
+     -moz-transition: all .25s ease;
+      -ms-transition: all .25s ease;
+       -o-transition: all .25s ease;
+          transition: all .25s ease;
 }
-
 .bg-red-camcar {
-	border-radius: 0;
-	background-color: #b21117;
-	border-color: #b21117;
-	color: #fcfbfb;
-	-webkit-transition: all .25s ease;
-	   -moz-transition: all .25s ease;
-	    -ms-transition: all .25s ease;
-	     -o-transition: all .25s ease;
-	        transition: all .25s ease;
+  background-color: rgba(178, 17, 23, 0.5) !important;
+  color: rgba(252, 251, 251, 0.5) !important;
+  -webkit-transition: all .25s ease;
+     -moz-transition: all .25s ease;
+      -ms-transition: all .25s ease;
+       -o-transition: all .25s ease;
+          transition: all .25s ease;
 }
-.bg-red-camcar:hover,
-.bg-red-camcar:focus,
-.bg-red-camcar:active {
-	background-color: rgba(178, 17, 23, 0.8) !important;
-	border-color: rgba(178, 17, 23, 0) !important;
-	color: rgba(252, 251, 251, 1);
-	-webkit-transition: all .25s ease;
-	   -moz-transition: all .25s ease;
-	    -ms-transition: all .25s ease;
-	     -o-transition: all .25s ease;
-	        transition: all .25s ease;
+.bg-red-camcar:hover {
+  background-color: #b21117 !important;
+  color: #fcfbfb !important;
+  -webkit-transition: all .25s ease;
+     -moz-transition: all .25s ease;
+      -ms-transition: all .25s ease;
+       -o-transition: all .25s ease;
+          transition: all .25s ease;
 }

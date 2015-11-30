@@ -1443,7 +1443,7 @@ body.boxed .body{
     border-bottom: 2px solid #ccd5db;
 	transition: all 0.5s ease;
 	-webkit-transition: all 0.5s ease;
-	-moz-transition: all 0.5s ease;   
+	-moz-transition: all 0.5s ease;
 }
 .main-navigation ul li > ul {
   max-height: 0;
@@ -2516,11 +2516,11 @@ h1.page-title{
 .footer_widget.widget a{
 	color:#999;
 }
-.footer-lower {
+/*.footer-lower {
     border-top: 1px solid #d4d4d4;
     clear: both;
     color: rgba(255,255,255,0.7);
-}
+}*/
 
 /* Sign Up Form */
 .signup-form{

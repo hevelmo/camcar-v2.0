@@ -6,13 +6,14 @@
             section = "home";
             // Add favicon
             window.onload = favicon.load_favicon();
+            sticky_wrapper_methods.sticky_wrapper();
+            addAttrNavAgenciesNewsMethod.addAttrNavAgenciesNews();
         },
         load: function(bindings) {
             viewSectionHomeMethod.viewSectionHome();
-            sticky_wrapper_methods.sticky_wrapper();
-            agentsMap.loadAgentsMap();
-            agentsMap.loadAgentsMap();
             animatedMethods.animated();
+            agentsMap.loadAgentsMap();
+            agentsMap.loadAgentsMap();
             // MOBILE MENU
             $(window).resize(mobile_menu_methods.has_menu_toggle);
 

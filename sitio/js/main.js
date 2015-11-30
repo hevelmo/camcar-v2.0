@@ -31,5 +31,9 @@ $(document).ready(function() {
     // BACK TO TOP
     $(domEl.recurrent_body).on('click', domEl._back_to_top, backToTopMethod.backToTop);
     // NAVBAR
-    $(domEl.div_recurrent).on('click', '#menu-toggle', mobile_menu_methods.mobile_menu_toggle);
+    $(domEl.recurrent_body).on('click', domEl._menu_toogle, mobile_menu_methods.mobile_menu_toggle);
+    // MBILE MENU TOGGLE
+    $(domEl.recurrent_body).on('click', domEl._menu_toogle_close, mobile_menu_methods.close_menu_toggle);
+    // FORM NEWSLETTER
+    $(domEl.recurrent_body).on('focusout', domEl.validate_required, validateMethods.validate_input);
 });

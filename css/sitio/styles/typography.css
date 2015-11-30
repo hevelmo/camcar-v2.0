@@ -5,7 +5,7 @@
     font-family: 'font-avenir','Roboto', "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px;
     line-height: 24px;
-    font-weight: lighter;
+    font-weight: 400;
     margin-bottom: 24px;
     color: #656461;
   }
@@ -84,7 +84,7 @@
   }
   h5 {
     font-size: 18px;
-    font-weight: lighter;
+    font-weight: normal;
     margin-bottom: 24px;
     line-height: 28px;
     font-family: 'font-avenir','Roboto', "Helvetica Neue", Helvetica, Arial, sans-serif;

@@ -43,7 +43,7 @@ $app->configureMode('development', function () use ($app) {
  * [Routes Deep V 15.0]
 **/
 // POST route
-    
+
 // INSERT
 // UPDATE
 // GET route
@@ -51,8 +51,6 @@ $app->configureMode('development', function () use ($app) {
 // SELECT
     // HOME SECTION OUR BRANDS
     $app->get('/get/agencia/nuevos/marcas/logotipos', /*'mw1',*/ 'getBrandsLogos');
-    // HOME SECTION GROUP COUNTER
-    $app->get('/get/grupo/camcar', /*'mw1',*/ 'getGroupCounter');
     // MAPA
     $app->get('/get/mapa/seminuevo', /*'mw1',*/ 'getMapa');
     $app->get('/get/mapa/seminuevo/:senId', /*'mw1',*/ 'getMapaById');
@@ -165,24 +163,6 @@ $app->run();
                 ORDER BY BRD_Index
                 ";
         getBrandsLogosJSON($sql);
-    }
-    // GET HOME SECTION GROUP COUNTER JSON
-    function getGroupCounterJSON ($sql) {
-        $structure = array(
-            'grupo_marcas' => 'GRU_Marcas',
-            'grupo_agencias' => 'GRU_Agencias',
-            'grupo_ciudades' => 'GRU_Ciudades',
-            'grupo_profesionales' => 'GRU_Profesionales'
-        );
-        $params = array();
-        echo changeQueryIntoJSON('campa', $structure, getConnection(), $sql, $params, 0, PDO::FETCH_ASSOC);
-    }
-    // GET HOME SECTION GROUP COUNTER
-    function getGroupCounter () {
-        $sql = "SELECT *
-                FROM camGrupoCamcar
-                ";
-        getGroupCounterJSON($sql);
     }
     // STRUCTURE MAP JSON
     function getMapaJSON($sql, $senId) {
