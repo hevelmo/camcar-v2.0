@@ -2,19 +2,21 @@
 function domEl() {
     // NAVBAR
     $start_site_navbar = 'content-start-site-navbar';
-    // HERO CAROUSEL
+    // HOME SECTION HERO CAROUSEL
     $start_hero_carousel = 'content-start-hero-carousel';
-    // OUR BRANDS
+    // HOME SECTION OUR BRANDS
     $start_large_pad_our_brands = 'content-start-large-pad-our-brands';
-    // GROUP COUNTER
+    // HOME SECTION GROUP COUNTER
     $start_large_pad_group_counter = 'content-start-large-pad-group-counter';
-    // FULL WIDTH FEATURES
+    // HOME SECTION FULL WIDTH FEATURES
     $start_full_width_features = 'content-start-full-width-features';
-    // DEALER SEARCH MAP
+    // HOME SECTION DEALER SEARCH MAP
     $start_dealer_search_map = 'content-start-dealer-search-map';
     return array(
-    	'recurrent_head' => 'head',
-    	'recurrent_body' => 'body',
+    	'head_recurrent' => 'head',
+    	'body_recurrent' => 'body',
+        // NAVBAR WRAPPER
+        'navbar_recurrent' => '#start-site-header',
     	// BACK TO TOP
     	'_back_to_top' => '.back-to-top',
     	//GENERAL HI DIVS
@@ -24,9 +26,6 @@ function domEl() {
         // MAIN NAVIGATION
         '_start_site_navbar' => $start_site_navbar,
         '_start_site_navbar_name' => '#' . $start_site_navbar,
-        // MENU TOGGLE
-        '_menu_toogle' => '#menu-toggle',
-        '_menu_toogle_close' => '.menu-toggle-close',
         // HERO COROUSEL
         '_start_hero_carousel' => $start_hero_carousel,
         '_start_hero_carousel_name' => '#' . $start_hero_carousel,
@@ -42,9 +41,29 @@ function domEl() {
         // FULL WIDTH FEATURES
         '_start_dealer_search_map' => $start_dealer_search_map,
         '_start_dealer_search_map_name' => '#' . $start_dealer_search_map,
+        // MOBILE MENU TOGGLE
+        '_menu_toogle' => '#menu-toggle',
+        '_menu_toogle_close' => '.menu-toggle-close',
         // CLICK GO SECTION
-        'go_index' => '#go-index',
-        'go_agencies_news' => '#go-agencies-news',
+        'goSection_index' => '#go-index',
+        'goSection_index_logo_resp' => '#go-home-logo-resp',
+        'goSection_index_logo' => '#go-home-logo',
+        'goSection_agencies_news' => '#go-agencies-news',
+        'goSection_agencies_preowned' => '#go-agencies-preowned',
+        'goSection_inventories_preowned' => '#go-inventories-preowned',
+        'goSection_workshop' => '#go-workshop',
+        'goSection_rental' => '#go-rental',
+        'goSection_blog' => '#go-blog',
+        'goSection_about_us' => '#go-about-us',
+        // FULLWIDTH FEATURES CLIGO GO SECTION
+        'goSection_fullwidth_features_workshop' => '#fullwidth-features-go-workshop',
+        'goSection_fullwidth_features_rental' => '#fullwidth-features-go-rental',
+        'goSection_fullwidth_features_inventories_preowned' => '#fullwidth-features-go-inventories-preowned',
+        // OUR BRANDS AGENCIES NEWS
+        'goSection_ourBrand_agencies_preowned' => 'a.agn-act-seminuevo',
+        'goSection_ourBrand_agencies_news' => 'a.agn-act-nuevo',
+        'goSection_ourBrand_whorkshop' => 'a.agn-act-taller',
+        'goSection_ourBrand_rental' => 'a.agn-act-rentas',
         // VALIDATION
         'validate_required' => '.validate-required',
     );

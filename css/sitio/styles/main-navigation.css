@@ -1436,7 +1436,8 @@ body.boxed .body{
 .main-navigation ul ul li:last-child a {
   padding-bottom: 0px;
 }
-.main-navigation ul ul li a:hover {
+.main-navigation ul ul li a:hover,
+.main-navigation ul ul li a.current {
     text-decoration: none;
     color: #666;
     opacity: 1;

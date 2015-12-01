@@ -84,42 +84,8 @@
     	<!-- Auxiliar Temporal Inputs's DIV -->
     	<div id='hidden-inputs-temporal'></div>
 
-        <!-- Start Site Header -->
-        <header class="navbar navigation-bar-header nav-content">
-            <div class="container container-site sp-cont">
-                <a class="visible-sm visible-xs mobile-toggle" id="menu-toggle">
-                    <div class="bar-1"></div>
-                    <div class="bar-2"></div>
-                </a>
-                <a class="visible-xs-home-link visible-sm visible-xs" href="#">
-                    <img alt="Logo" class="logo" src="../img/logos/logo_camcar.png" alt="Lincoln Cavsa">
-                </a>
-                <!-- Main Navigation -->
-                <nav class="main-navigation toggle-menu navigation-bar" role="navigation">
-                    <a class="home-link main-navigator-home-link" href="#">
-                        <img alt="Logo" class="logo" src="../img/logos/logo_camcar.png" alt="Lincoln Cavsa">
-                    </a>
-                    <ul class="sf-menu navigation-bar">
-                        <li><a id="go-index" class="current cur-hover menu-toggle-close">Inicio</a></li>
-                        <li><a id="go-agencies-news" class="cur-hover menu-toggle-close">Agencias</a></li>
-                        <li class="has-dropdown">
-                            <a id="sem-agencies" class="cur-hover">Seminuevos</a>
-                            <ul class="subnav">
-                                <li><a id="go-agencies" class="cur-hover menu-toggle-close">Agencias</a></li>
-                                <li><a id="go-inventories" class="cur-hover menu-toggle-close">Inventarios</a></li>
-                            </ul>
-                        </li>
-                        <li class=""><a id="go-workshop" class="cur-hover menu-toggle-close">Talleres</a></li>
-                        <li class=""><a id="go-rental" class="cur-hover menu-toggle-close">Rentas</a></li>
-                        <li class=""><a id="go-news" class="cur-hover menu-toggle-close">Noticias</a></li>
-                        <li class=""><a id="sem-contact" class="cur-hover menu-toggle-close">Nosotros</a></li>
-                        <li class="visible-sm visible-xs visible-xs-poeple"><a href="../login/" id="sem-people-camcar" class="cur-hover">Gente Camcar</a></li>
-                    </ul>
-                    <a href="../login/" class="vin_people none-visible-xs" id="sem-people-camcar"><i class="fa fa-user"></i></a>
-                </nav>
-            </div>
-        </header>
-        <!-- End Start Site Header -->
+        <!--Template navbar-->
+        <div class="wrapper_content_navbar" id='start-site-header'></div>
 
     	<!--Templates's DIV-->
     	<div class="wrapper_content_interactive" id='content-temporal-interactive'></div>
@@ -271,7 +237,8 @@
 
         <!-- back to top -->
         <a href="#0" class="back-to-top cd-top">
-            <i class="fa fa-angle-double-up fa-3x animation-pulse" style=""></i>
+            top
+            <!--<i class="fa fa-angle-double-up fa-3x animation-pulse" style=""></i>-->
         </a>
 
 		<!-- MAIN -->
@@ -307,6 +274,7 @@
         <script src="../lib/site/isotope.js"></script>
         <script src="../lib/site/jquery.appear.js"></script>
         <script src="../lib/site/jquery.countTo.js"></script>
+        <script src="../lib/site/matchMedia.js"></script>
 
         <script src="../lib/site/herocarousel/jquery.herocarousel-plugins.js"></script>
 

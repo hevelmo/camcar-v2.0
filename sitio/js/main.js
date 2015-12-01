@@ -29,14 +29,29 @@ $(document).ready(function() {
         EVENT CONTROL
     \* ------------------------------------------------------ */
     // BACK TO TOP
-    $(domEl.recurrent_body).on('click', domEl._back_to_top, backToTopMethod.backToTop);
+    $(domEl.body_recurrent).on('click', domEl._back_to_top, backToTopMethod.backToTop);
     // NAVBAR
-    $(domEl.recurrent_body).on('click', '#menu-toggle', mobile_menu_methods.mobile_menu_toggle);
+    $(domEl.navbar_recurrent).on('click', domEl._menu_toogle, mobile_menu_methods.mobile_menu_toggle);
     // MOBILE MENU TOGGLE
-    $(domEl.recurrent_body).on('click', '.menu-toggle-close', mobile_menu_methods.close_menu_toggle);
+    $(domEl.navbar_recurrent).on('click', domEl._menu_toogle_close, mobile_menu_methods.close_menu_toggle);
     // CLICK GO SECTION
-    $(domEl.recurrent_body).on('click', domEl.go_index, clikGoMethods.clikGo_home);
-    $(domEl.recurrent_body).on('click', domEl.go_agencies_news, clikGoMethods.clikGo_agencies_news);
+    $(domEl.navbar_recurrent).on('click', domEl.goSection_index, clikGoMethods.clikGo_home);
+    $(domEl.navbar_recurrent).on('click', domEl.goSection_agencies_news, clikGoMethods.clikGo_agencies_news);
+    $(domEl.navbar_recurrent).on('click', domEl.goSection_agencies_preowned, clikGoMethods.clickGo_agencies_preowned);
+    $(domEl.navbar_recurrent).on('click', domEl.goSection_inventories_preowned, clikGoMethods.clickGo_inventories_preowned);
+    $(domEl.navbar_recurrent).on('click', domEl.goSection_workshop, clikGoMethods.clickGo_workshop);
+    $(domEl.navbar_recurrent).on('click', domEl.goSection_rental, clikGoMethods.clickGo_rental);
+    $(domEl.navbar_recurrent).on('click', domEl.goSection_blog, clikGoMethods.clickGo_blog);
+    $(domEl.navbar_recurrent).on('click', domEl.goSection_about_us, clikGoMethods.clickGo_about_us);
+    // FULLWIDTH FEATURES CLICK GO SECTION
+    $(domEl.div_recurrent).on('click', domEl.goSection_fullwidth_features_inventories_preowned, clikGoMethods.clickGo_inventories_preowned);
+    $(domEl.div_recurrent).on('click', domEl.goSection_fullwidth_features_workshop, clikGoMethods.clickGo_workshop);
+    $(domEl.div_recurrent).on('click', domEl.goSection_fullwidth_features_rental, clikGoMethods.clickGo_rental);
+    // OUR BRANDS CLICK GO SECTION
+    //$(domEl.div_recurrent).on('click', domEl.goSection_ourBrand_agencies_news, clikGoMethods.clikGo_agencies_news);
+    //$(domEl.div_recurrent).on('click', domEl.goSection_ourBrand_agencies_preowned, clikGoMethods.clickGo_agencies_preowned);
+    //$(domEl.div_recurrent).on('click', domEl.goSection_ourBrand_whorkshop, clikGoMethods.clickGo_workshop);
+    //$(domEl.div_recurrent).on('click', domEl.goSection_ourBrand_rental, clikGoMethods.clickGo_rental);
     // FORM NEWSLETTER
-    $(domEl.recurrent_body).on('focusout', domEl.validate_required, validateMethods.validate_input);
+    $(domEl.body_recurrent).on('focusout', domEl.validate_required, validateMethods.validate_input);
 });

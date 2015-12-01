@@ -10,23 +10,14 @@
   overflow: hidden;
   text-indent: 100%;
   white-space: nowrap;
-  /*background: rgba(178, 17, 23, 1);*/
   background: rgba(178, 17, 23, 1) url(../../img/cd-top-arrow.svg) no-repeat center 50%;
   visibility: hidden;
   opacity: 0;
   -webkit-transition: opacity .3s 0s, visibility 0s .3s;
   -moz-transition: opacity .3s 0s, visibility 0s .3s;
   transition: opacity .3s 0s, visibility 0s .3s;
+  z-index: 100;
 }
-/*.cd-top i,
-.cd-top i:active,
-.cd-top i:focus,
-.cd-top i:hover {
-  color: #fff;
-  text-align: center;
-  display: block;
-  top: -2px;
-}*/
 .cd-top.cd-is-visible, .cd-top.cd-fade-out, .no-touch .cd-top:hover {
   -webkit-transition: opacity .3s 0s, visibility 0s 0s;
   -moz-transition: opacity .3s 0s, visibility 0s 0s;
@@ -36,15 +27,13 @@
   /* the button becomes visible */
   visibility: visible;
   opacity: 1;
-  z-index: 20;
 }
 .cd-top.cd-fade-out {
   /* if the user keeps scrolling down, the button is out of focus and becomes less visible */
   opacity: .5;
 }
 .no-touch .cd-top:hover {
-  background: rgba(178, 17, 23, 1);
-  text-decoration: none;
+  background-color: rgba(178, 17, 23, 1);
   opacity: 1;
 }
 @media only screen and (min-width: 768px) {
