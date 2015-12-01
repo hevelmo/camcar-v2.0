@@ -91,85 +91,40 @@
         }
     }
 /* ------------------------------------------------------ *\
-    [Methods] Animated
-\* ------------------------------------------------------ */
-    var animatedMethods = {
-        animated : function () {
-            $('.animated').appear(function() {
-                var element, animation, animationDelay;
-
-                element = $(this);
-                animation = element.data('animation');
-                animationDelay = element.data('delay');
-
-              if(animationDelay) {
-                setTimeout(function() {
-                  element.addClass( animation + " visible" );
-                  element.removeClass('hiding');
-                  if(element.hasClass('counter')) {
-                    element.find('.value').countTo();
-                  }
-                }, animationDelay);
-              } else {
-                element.addClass( animation + " visible" );
-                element.removeClass('hiding');
-                if(element.hasClass('counter')) {
-                  element.find('.value').countTo();
-                }
-              }
-            },{accY: -150});
-        }
-    }
-/* ------------------------------------------------------ *\
-    [Methods] Animated
-\* ------------------------------------------------------ */
-    var wow_animated_methods = {
-        wow_animated: function() {
-            /*==WOW JS==*/
-            var ww = $(window).width();
-
-            /*==WOW JS==*/
-            if(ww > 480){
-                wow = new WOW({
-                    animateClass: 'animated',
-                    offset: 0
-                });
-                wow.init();
-            }
-        }
-    }
-/* ------------------------------------------------------ *\
     [Metodos] mobile_menu_methods
 \* ------------------------------------------------------ */
     var mobile_menu_methods = {
         mobile_menu_toggle: function(event) {
-            $(this).toggleClass("opened");
-            $(".toggle-menu").slideToggle();
-            $(".site-header-wrapper").toggleClass("sticktr");
-            $(".body").toggleClass("sticktr");
-            var SHHH = $(".site-header").innerHeight();
-            var NBHH = $(".navbar").innerHeight();
-            var THHH = $(".top-header").innerHeight();
-            $(".toggle-menu").css("top",NBHH);
-            $(".header-v2 .toggle-menu").css("top",SHHH);
-            $(".header-v3 .toggle-menu").css("top",SHHH + THHH);
-            console.log('test');
-            return false;
+            if ( IS_MOBILE ) {
+                $(this).toggleClass("opened");
+                $(".toggle-menu").slideToggle();
+                $(".site-header-wrapper").toggleClass("sticktr");
+                $(".body").toggleClass("sticktr");
+                var SHHH = $(".site-header").innerHeight();
+                var NBHH = $(".navbar").innerHeight();
+                var THHH = $(".top-header").innerHeight();
+                $(".toggle-menu").css("top",NBHH);
+                $(".header-v2 .toggle-menu").css("top",SHHH);
+                $(".header-v3 .toggle-menu").css("top",SHHH + THHH);
+                console.log('test');
+                return false;
+            }
         },
         close_menu_toggle: function(event) {
-            //$('.action-close-menu-toggle').removeClass('opened');
-            $(this).toggleClass("opened");
-            $(".toggle-menu").slideToggle();
-            $(".site-header-wrapper").toggleClass("sticktr");
-            $(".body").toggleClass("sticktr");
-            var SHHH = $(".site-header").innerHeight();
-            var NBHH = $(".navbar").innerHeight();
-            var THHH = $(".top-header").innerHeight();
-            $(".toggle-menu").css("top",NBHH);
-            $(".header-v2 .toggle-menu").css("top",SHHH);
-            $(".header-v3 .toggle-menu").css("top",SHHH + THHH);
-            console.log('test');
-            return false;
+            if ( IS_MOBILE ) {
+                $(this).toggleClass("opened");
+                $(".toggle-menu").slideToggle();
+                $(".site-header-wrapper").toggleClass("sticktr");
+                $(".body").toggleClass("sticktr");
+                var SHHH = $(".site-header").innerHeight();
+                var NBHH = $(".navbar").innerHeight();
+                var THHH = $(".top-header").innerHeight();
+                $(".toggle-menu").css("top",NBHH);
+                $(".header-v2 .toggle-menu").css("top",SHHH);
+                $(".header-v3 .toggle-menu").css("top",SHHH + THHH);
+                console.log('test');
+                return false;
+            }
         },
         has_menu_toggle: function() {
             if($("#menu-toggle").hasClass("opened")){
@@ -360,22 +315,22 @@
     [Methods] viewSectionHomeMethod
 \* ------------------------------------------------------ */
     var viewSectionHomeMethod = {
-        addTemplatesSectionHome: function() {
+        /*addTemplatesSectionHome: function() {
             //CAM.loadTemplate(tempsNames.recurrent_home_start_site_navbar, domEl._start_site_navbar_name);
             CAM.loadTemplate(tempsNames.recurrent_home_hero_slide_carousel, domEl._start_hero_carousel_name);
             viewSectionHomeMethod.loadTemplatesOurBrands();
             CAM.loadTemplate(tempsNames.recurrent_home_group_counter, domEl._start_large_pad_group_counter_name);
             CAM.loadTemplate(tempsNames.recurrent_home_full_width_features, domEl._start_full_width_features_name);
             CAM.loadTemplate(tempsNames.recurrent_home_dealer_search_gmap, domEl._start_dealer_search_map_name);
-        },
+        },*/
         loadTemplatesOurBrands: function() {
             var ourBrandsData;
             ourBrandsData = CAM.getInternalJSON(urlsApi.getBrandsLogos);
             CAM.loadTemplate(tempsNames.recurrent_home_our_brands, domEl._start_large_pad_our_brands_name, ourBrandsData);
         },
-        loadTemplatesSectionHome: function() {
+        /*loadTemplatesSectionHome: function() {
             viewSectionHomeMethod.addTemplatesSectionHome();
-        },
+        },*/
         recurrentSecionHome: function() {
             dataStarSiteHomeAttributes = [
                 ['div', {'id':domEl._start_hero_carousel, 'class':'about-content hero-content'}, '', 1],
@@ -386,10 +341,70 @@
             ];
             CAM.appendMulti(domEl.div_recurrent, dataStarSiteHomeAttributes);
             //CAM.loadTemplate(tempsNames.recurrent_tmps_home, domEl.div_recurrent);
-        },
+        }/*,
         viewSectionHome: function() {
             viewSectionHomeMethod.recurrentSecionHome();
             viewSectionHomeMethod.loadTemplatesSectionHome();
+        }*/
+    }
+/* ------------------------------------------------------ *\
+    [Methods] clikGoMethods
+\* ------------------------------------------------------ */
+    var clikGoMethods = {
+        clikGo_home: function(event) {
+            $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );
+            Finch.navigate('/');
+        },
+        clikGo_agencies_news: function(event) {
+            $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );
+            Finch.navigate('/agencias');
+        }
+    }
+/* ------------------------------------------------------ *\
+    [Methods] Animated
+\* ------------------------------------------------------ */
+    var animatedMethods = {
+        animated : function () {
+            $('.animated').appear(function() {
+                var element, animation, animationDelay;
+                element = $(this);
+                animation = element.data('animation');
+                animationDelay = element.data('delay');
+
+                if(animationDelay) {
+                    setTimeout(function() {
+                        element.addClass( animation + " visible" );
+                        element.removeClass('hiding');
+                        if(element.hasClass('counter')) {
+                            element.find('.valor').countTo();
+                        }
+                    }, animationDelay);
+                } else {
+                    element.addClass( animation + " visible" );
+                    element.removeClass('hiding');
+                    if(element.hasClass('counter')) {
+                        element.find('.valor').countTo();
+                    }
+                }
+            },{accY: -150});
+        }
+    }
+/* ------------------------------------------------------ *\
+    [Methods] Animated
+\* ------------------------------------------------------ */
+    var wow_animated_methods = {
+        wow_animated: function() {
+            /*==WOW JS==*/
+            var ww = $(window).width();
+
+            /*==WOW JS==*/
+            if(ww > 480){
+                wow = new WOW({
+                    animateClass: 'animated',
+                    offset: 0
+                });
+                wow.init();
+            }
         }
     }
 /* ------------------------------------------------------ *\

@@ -42,6 +42,9 @@ function domEl() {
         // FULL WIDTH FEATURES
         '_start_dealer_search_map' => $start_dealer_search_map,
         '_start_dealer_search_map_name' => '#' . $start_dealer_search_map,
+        // CLICK GO SECTION
+        'go_index' => '#go-index',
+        'go_agencies_news' => '#go-agencies-news',
         // VALIDATION
         'validate_required' => '.validate-required',
     );

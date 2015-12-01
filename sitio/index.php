@@ -104,7 +104,7 @@
                         <img alt="Logo" class="logo" src="../img/logos/logo_camcar.png" alt="Lincoln Cavsa">
                     </a>
                     <ul class="sf-menu navigation-bar">
-                        <li><a id="return_index" class="current cur-hover menu-toggle-close">Inicio</a></li>
+                        <li><a id="go-index" class="current cur-hover menu-toggle-close">Inicio</a></li>
                         <li><a id="go-agencies-news" class="cur-hover menu-toggle-close">Agencias</a></li>
                         <li class="has-dropdown">
                             <a id="sem-agencies" class="cur-hover">Seminuevos</a>
@@ -280,30 +280,42 @@
 
 		<!-- MAIN -->
 		<script src="../lib/site/jquery-1.11.2.js"></script>
-		<!--<script src="../lib/modernizr.js"></script>-->
-		<script src="../lib/site/bootstrap.js"></script>
-		<!-- CORE -->
-		<script src="../lib/jquery.gdb.js"></script>
-		<script src="../lib/jquery-ui.js"></script>
-		<script src="../lib/underscore.js"></script>
-		<script src="../lib/moment.js"></script>
-		<script src="../lib/accounting.js"></script>
-		<script src="../lib/finch.js"></script>
-        <!-- Plugins -->
-        <script src="../lib/site/jquery.appear.js"></script>
-        <script src="../lib/site/jquery.countTo.js"></script>
-        <script src="../lib/site/waypoints.js"></script>
-        <script src="../lib/site/waypoints-sticky.js"></script>
-        <script src="../lib/site/wow-animated.js"></script>
-        <!-- HANDLEBARS -->
+
+        <!-- GOOGLE API -->
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
+
+        <!--<script src="../lib/modernizr.js"></script>-->
+        <script src="../lib/site/bootstrap.js"></script>
+        <!-- CORE -->
+        <script src="../lib/jquery.gdb.js"></script>
+        <script src="../lib/jquery-ui.js"></script>
+        <script src="../lib/underscore.js"></script>
+
         <script src="../lib/handlebars.runtime.js"></script>
         <!-- TEMPLATES -->
         <script src='templates/min/templates.min.js'></script>
+
+        <script src="../lib/moment.js"></script>
+        <script src="../lib/accounting.js"></script>
+        <script src="../lib/finch.js"></script>
+        <!-- Plugins -->
+        <!--<script src="../lib/site/jquery.sticky.js"></script>-->
+
+        <script src="../lib/site/waypoints.js"></script>
+        <script src="../lib/site/waypoints-sticky.js"></script>
+        <script src="../lib/site/wow-animated.js"></script>
+
+        <script src="../lib/site/jquery.scrollTo.js"></script>
+        <script src="../lib/site/jquery.easing.1.3.js"></script>
+        <script src="../lib/site/bootstrap-select.js"></script>
+        <script src="../lib/site/isotope.js"></script>
+        <script src="../lib/site/jquery.appear.js"></script>
+        <script src="../lib/site/jquery.countTo.js"></script>
+
+
         <!-- FORMS -->
         <script src="../lib/forms.js"></script>
         <script src="../lib/sha512.js"></script>
-        <!-- GOOGLE API -->
-        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCqo-F2TnMAABZvfV5yTQLlWvUCJlJViU&amp;sensor=false"></script>
 		<!-- PLUGINS -->
 		<!-- CORE JS -->
         <?php /*
