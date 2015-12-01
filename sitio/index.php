@@ -87,11 +87,7 @@
         <!-- Start Site Header -->
         <header class="navbar navigation-bar-header nav-content">
             <div class="container container-site sp-cont">
-                <!--<div class="search-function">
-                    <a href="#" class="search-trigger"><i class="fa fa-search"></i></a>
-                </div>-->
                 <a class="visible-sm visible-xs mobile-toggle" id="menu-toggle">
-                    <!--<i class="fa fa-bars"></i>-->
                     <div class="bar-1"></div>
                     <div class="bar-2"></div>
                 </a>
@@ -299,7 +295,7 @@
         <script src="../lib/accounting.js"></script>
         <script src="../lib/finch.js"></script>
         <!-- Plugins -->
-        <!--<script src="../lib/site/jquery.sticky.js"></script>-->
+        <script src="../lib/site/jquery.sticky.js"></script>
 
         <script src="../lib/site/waypoints.js"></script>
         <script src="../lib/site/waypoints-sticky.js"></script>
@@ -312,6 +308,7 @@
         <script src="../lib/site/jquery.appear.js"></script>
         <script src="../lib/site/jquery.countTo.js"></script>
 
+        <script src="../lib/site/herocarousel/jquery.herocarousel-plugins.js"></script>
 
         <!-- FORMS -->
         <script src="../lib/forms.js"></script>

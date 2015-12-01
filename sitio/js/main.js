@@ -31,9 +31,9 @@ $(document).ready(function() {
     // BACK TO TOP
     $(domEl.recurrent_body).on('click', domEl._back_to_top, backToTopMethod.backToTop);
     // NAVBAR
-    $(domEl.recurrent_body).on('click', domEl._menu_toogle, mobile_menu_methods.mobile_menu_toggle);
+    $(domEl.recurrent_body).on('click', '#menu-toggle', mobile_menu_methods.mobile_menu_toggle);
     // MOBILE MENU TOGGLE
-    $(domEl.recurrent_body).on('click', domEl._menu_toogle_close, mobile_menu_methods.close_menu_toggle);
+    $(domEl.recurrent_body).on('click', '.menu-toggle-close', mobile_menu_methods.close_menu_toggle);
     // CLICK GO SECTION
     $(domEl.recurrent_body).on('click', domEl.go_index, clikGoMethods.clikGo_home);
     $(domEl.recurrent_body).on('click', domEl.go_agencies_news, clikGoMethods.clikGo_agencies_news);
