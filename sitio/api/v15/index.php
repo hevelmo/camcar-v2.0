@@ -12,7 +12,7 @@ setlocale(LC_MONETARY, 'en_US');
 
 /**
  *
- * [Initial V 14.0]
+ * [Initial V 15.0]
  *
 **/
 
@@ -43,17 +43,18 @@ $app->configureMode('development', function () use ($app) {
  * [Routes Deep V 15.0]
 **/
 // POST route
-
 // INSERT
 // UPDATE
 // GET route
-
 // SELECT
     // HOME SECTION OUR BRANDS
     $app->get('/get/agencia/nuevos/marcas/logotipos', /*'mw1',*/ 'getBrandsLogos');
     // MAPA
     $app->get('/get/mapa/seminuevo', /*'mw1',*/ 'getMapa');
     $app->get('/get/mapa/seminuevo/:senId', /*'mw1',*/ 'getMapaById');
+    // AGENCIES NEWS
+    //$app->get('/get/agencia/nuevos/principal/:agn_name_agencia', /*'mw1',*/ 'getAgenciesNewsByTypeAgencie');
+
 // DELETE
 //$app->get('/del/table/:idTable', /*'mw1',*/ 'delTable');
 $app->run();
@@ -216,6 +217,7 @@ $app->run();
                 WHERE SEN_Id = :senId";
         getMapaJSON($sql, $senId);
     }
+
 
     // DELETE
     function delTable($idTable) {

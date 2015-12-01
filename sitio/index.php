@@ -84,6 +84,24 @@
     	<!-- Auxiliar Temporal Inputs's DIV -->
     	<div id='hidden-inputs-temporal'></div>
 
+        <div id="hidden-inputs-temporal-news">
+            <input id="hidden-news-id" type="hidden" class="input-hidden" value="">
+            <input id="hidden-agencie-name" type="hidden" class="input-hidden" value="">
+            <input id="hidden-agencie-key" type="hidden" class="input-hidden" value="">
+            <input id="hidden-news-name" type="hidden" class="input-hidden" value="">
+            <input id="hidden-news-key" type="hidden" class="input-hidden" value="">
+        </div>
+
+        <div id="temporal-filters">
+            <input type="hidden" id="hidden_mapa" value="0">
+            <input type="hidden" id="hidden_category" value="0">
+            <input type="hidden" id="hidden_marc" value="0">
+            <input type="hidden" id="hidden_model" value="0">
+            <input type="hidden" id="hidden_agen_news_name" value="">
+            <input type="hidden" id="hidden_brand" value="0">
+            <input type="hidden" id="hidden_agencie_name" value="0">
+            <input type="hidden" id="hidden_agencie_type" value="0">
+        </div>
         <!--Template navbar-->
         <div class="wrapper_content_navbar" id='start-site-header'></div>
 

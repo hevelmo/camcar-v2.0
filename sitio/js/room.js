@@ -41,18 +41,41 @@
 /* ----------------------------------- *\
  [Route] AGENCIES NEWS
 \* ----------------------------------- */
-    Finch.route('/agencias', {
+    Finch.route('/agencias/nuevos/:agn_name_agencia/:agn_url/:agn_id', {
         setup: function(bindings) {
-            section = "agencies-news";
+            var agn_name, agn_url, agn_id;
+            agn_name = bindings.agn_name_agencia;
+            agn_url = bindings.agn_url;
+            agn_id = bindings.agn_id;
             // Add favicon
             window.onload = favicon.load_favicon();
             addAttrNavAgenciesNewsMethod.addAttrNavAgenciesNews();
+
+            // GOOGLE ANALYTICS
+            if ( agn_name === undefined && agn_url === undefined && agn_id === undefined ) {
+                ga('send', 'pageview', '/agencias/nuevos');
+            } else if ( agn_name !== undefined && agn_url === undefined && agn_id === undefined ) {
+                ga('send', 'pageview', '/agencias/nuevos/' + bindings.agn_name);
+            } else if ( agn_name !== undefined && agn_url !== undefined && agn_id !== undefined ) {
+                ga('send', 'pageview', '/agencias/nuevos/' + bindings.agn_name + '/' + bindings.agn_url + '/' + agn_id);
+            }
         },
         load: function(bindings) {
+            var agn_name, agn_url, agn_id;
+
+            agn_name = bindings.agn_name_agencia;
+            agn_url = bindings.agn_url;
+            agn_id = bindings.agn_id;
+
             viewSectionMethod.recurrentNavbar();
             CAM.loadTemplate(tempsNames.recurrent_home_start_site_navbar, domEl._start_site_navbar_name);
             sticky_wrapper_methods.sticky_wrapper();
             currentSectionMethod.currentSection_agencies_news();
+
+            // TODAS LAS AGENCIAS NUEVOS
+            if ( agn_name === undefined && agn_url === undefined && agn_id === undefined ) {
+                section = "agencies-news";
+            }
 
             viewSectionMethod.recurrentSecionAgenciesNews();
 

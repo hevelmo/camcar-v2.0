@@ -289,13 +289,6 @@
         }
     }
 /* ------------------------------------------------------ *\
-    [Methods] goSectioMethod
-\* ------------------------------------------------------ */
-    var goSectionMethod = {
-        goSection_home: function() {
-        }
-    }
-/* ------------------------------------------------------ *\
     [Methods] addAttrForSectionMethod
 \* ------------------------------------------------------ */
     var addAttrForSectionMethod = {
@@ -408,7 +401,7 @@
         },
         clikGo_agencies_news: function(event) {
             $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );
-            Finch.navigate('/agencias');
+            Finch.navigate('/agencias/nuevos');
         },
         clickGo_agencies_preowned: function(event) {
             $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );

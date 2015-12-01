@@ -26,19 +26,19 @@ function domEl() {
         // MAIN NAVIGATION
         '_start_site_navbar' => $start_site_navbar,
         '_start_site_navbar_name' => '#' . $start_site_navbar,
-        // HERO COROUSEL
+        // HOME SECTION HERO COROUSEL
         '_start_hero_carousel' => $start_hero_carousel,
         '_start_hero_carousel_name' => '#' . $start_hero_carousel,
-        // OUR BRANDS
+        // HOME SECTION OUR BRANDS
         '_start_large_pad_our_brands' => $start_large_pad_our_brands,
         '_start_large_pad_our_brands_name' => '#' . $start_large_pad_our_brands,
-        // GROUP COUNTER
+        // HOME SECTION GROUP COUNTER
         '_start_large_pad_group_counter' => $start_large_pad_group_counter,
         '_start_large_pad_group_counter_name' => '#' . $start_large_pad_group_counter,
-        // FULL WIDTH FEATURES
+        // HOME SECTION FULL WIDTH FEATURES
         '_start_full_width_features' => $start_full_width_features,
         '_start_full_width_features_name' => '#' . $start_full_width_features,
-        // FULL WIDTH FEATURES
+        // HOME SECTION FULL WIDTH FEATURES
         '_start_dealer_search_map' => $start_dealer_search_map,
         '_start_dealer_search_map_name' => '#' . $start_dealer_search_map,
         // MOBILE MENU TOGGLE
