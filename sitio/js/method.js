@@ -458,29 +458,37 @@
 \* ------------------------------------------------------ */
     var currentSectionMethod = {
         currentSection_home: function() {
+            $('head title#head-change-section-title').html('CAMCAR Grupo Automotriz');
             $(domEl.goSection_index).addClass('current');
         },
         currentSection_agencies_news: function() {
+            $('head title#head-change-section-title').html('CAMCAR Agencias Nuevos');
             $(domEl.goSection_agencies_news).addClass('current');
         },
         currentSection_agencies_preowned: function() {
+            $('head title#head-change-section-title').html('CAMCAR Seminuevos');
             $('#dropdown-nav-preowuned').addClass('current');
             $(domEl.goSection_agencies_preowned).addClass('current');
         },
         currentSection_inventories_preowned: function() {
+            $('head title#head-change-section-title').html('CAMCAR Inventarios');
             $('#dropdown-nav-preowuned').addClass('current');
             $(domEl.goSection_inventories_preowned).addClass('current');
         },
         currentSection_workshop: function() {
+            $('head title#head-change-section-title').html('CAMCAR Talleres');
             $(domEl.goSection_workshop).addClass('current');
         },
         currentSection_rental: function() {
+            $('head title#head-change-section-title').html('CAMCAR Rentas');
             $(domEl.goSection_rental).addClass('current');
         },
         currentSection_blog: function() {
+            $('head title#head-change-section-title').html('CAMCAR Noticias');
             $(domEl.goSection_blog).addClass('current');
         },
         currentSection_about_us: function() {
+            $('head title#head-change-section-title').html('CAMCAR Nosotros');
             $(domEl.goSection_about_us).addClass('current');
         },
         remove_currentSection: function() {

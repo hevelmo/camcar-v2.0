@@ -11,8 +11,8 @@
         load: function(bindings) {
             viewSectionMethod.recurrentNavbar();
             CAM.loadTemplate(tempsNames.recurrent_start_site_navbar, domEl._start_site_navbar_name);
-            sticky_wrapper_methods.sticky_wrapper();
             currentSectionMethod.currentSection_home();
+            sticky_wrapper_methods.sticky_wrapper();
 
             viewSectionMethod.recurrentSecionHome();
 
@@ -70,9 +70,9 @@
             //agn_id = bindings.agn_id;
 
             viewSectionMethod.recurrentNavbar();
+            currentSectionMethod.currentSection_agencies_news();
             CAM.loadTemplate(tempsNames.recurrent_start_site_navbar, domEl._start_site_navbar_name);
             sticky_wrapper_methods.sticky_wrapper();
-            currentSectionMethod.currentSection_agencies_news();
 
             viewSectionMethod.recurrentSecionAgenciesNews();
             CAM.loadTemplate(tempsNames.recurrent_agencies_news_start_utility_bar_breadcrumb, domEl._start_utility_bar_breadcrumb_name);

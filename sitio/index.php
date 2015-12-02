@@ -16,7 +16,7 @@
         <meta class="temp" name="robots" content="index, follow">
         <link class="temp" rel="alternate" hreflang="es-MX" href="http://camcar.mx/sitio" />
 
-		<title>Camcar Grupo Automotriz</title>
+		<title id="head-change-section-title">Camcar Grupo Automotriz</title>
 
         <link href="http://fonts.googleapis.com/css?family=Roboto:100,400,300,700,400italic,500%7CMontserrat:400,700" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="../css/import-sitio.css">
@@ -301,14 +301,14 @@
         <script src="../lib/sha512.js"></script>
 		<!-- PLUGINS -->
 		<!-- CORE JS -->
-        <?php /*
 		<script src='js/min/core.min.js'></script>
-        */ ?>
+        <?php /*
 	    <script src='js/objects.js'></script>
 	    <script src='js/method.js'></script>
 	    <script src='js/model.js'></script>
 	    <script src='js/room.js'></script>
 	    <script src='js/main.js'></script>
+        */ ?>
 	</body>
 </html>
 
