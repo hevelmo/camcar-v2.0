@@ -15,6 +15,8 @@ domEl = {
 	"_start_large_pad_our_brands_name":"#content-start-large-pad-our-brands",
 	"_start_site_navbar":"content-start-site-navbar",
 	"_start_site_navbar_name":"#content-start-site-navbar",
+	"_start_utility_bar_breadcrumb":"content-start-utility-bar-breadcrumb",
+	"_start_utility_bar_breadcrumb_name":"#content-start-utility-bar-breadcrumb",
 	"body_recurrent":"body",
 	"div_hidden_inputs_session":"div#hidden-inputs-session",
 	"div_hidden_inputs_temporal":"div#hidden-inputs-temporal",
@@ -46,8 +48,8 @@ tempsNames = {
 	"recurrent_home_group_counter":"tmp_section_home_group_counter",
 	"recurrent_home_hero_slide_carousel":"tmp_section_home_hero_slide_carousel",
 	"recurrent_home_our_brands":"tmp_section_home_our_brands",
-	"recurrent_home_start_site_navbar":"tmp_section_home_start_site_navbar",
-	"recurrent_tmps_home":"tmp_section_home"
+	"recurrent_start_site_navbar":"tmp_start_site_navbar",
+	"recurrent_start_utility_bar_breadcrumb":"tmp_start_utility_bar_breadcrumb"
 };
 urlsApi = {
 	"getBrandsLogos":"api/v15/get/agencia/nuevos/marcas/logotipos",

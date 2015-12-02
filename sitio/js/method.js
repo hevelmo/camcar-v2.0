@@ -357,6 +357,7 @@
         },
         recurrentSecionAgenciesNews: function() {
             dataStarSiteAgenciesNewsAttributes = [
+                ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content'}, '', 1],
             ];
             CAM.appendMulti(domEl.div_recurrent, dataStarSiteAgenciesNewsAttributes);
         },
@@ -446,6 +447,9 @@
             $(domEl._start_large_pad_group_counter_name).remove();
             $(domEl._start_full_width_features_name).remove();
             $(domEl._start_dealer_search_map_name).remove();
+        },
+        removeRecurrents_agencies_news: function() {
+
         }
     }
 /* ------------------------------------------------------ *\

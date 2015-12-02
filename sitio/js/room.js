@@ -10,7 +10,7 @@
         },
         load: function(bindings) {
             viewSectionMethod.recurrentNavbar();
-            CAM.loadTemplate(tempsNames.recurrent_home_start_site_navbar, domEl._start_site_navbar_name);
+            CAM.loadTemplate(tempsNames.recurrent_start_site_navbar, domEl._start_site_navbar_name);
             sticky_wrapper_methods.sticky_wrapper();
             currentSectionMethod.currentSection_home();
 
@@ -41,16 +41,18 @@
 /* ----------------------------------- *\
  [Route] AGENCIES NEWS
 \* ----------------------------------- */
-    Finch.route('/agencias/nuevos/:agn_name_agencia/:agn_url/:agn_id', {
+    Finch.route('/agencias/nuevos', {
+    //Finch.route('/agencias/nuevos/:agn_name_agencia/:agn_url/:agn_id', {
         setup: function(bindings) {
-            var agn_name, agn_url, agn_id;
-            agn_name = bindings.agn_name_agencia;
-            agn_url = bindings.agn_url;
-            agn_id = bindings.agn_id;
+            //var agn_name, agn_url, agn_id;
+            //agn_name = bindings.agn_name_agencia;
+            //agn_url = bindings.agn_url;
+            //agn_id = bindings.agn_id;
             // Add favicon
             window.onload = favicon.load_favicon();
             addAttrNavAgenciesNewsMethod.addAttrNavAgenciesNews();
 
+            /*
             // GOOGLE ANALYTICS
             if ( agn_name === undefined && agn_url === undefined && agn_id === undefined ) {
                 ga('send', 'pageview', '/agencias/nuevos');
@@ -58,27 +60,46 @@
                 ga('send', 'pageview', '/agencias/nuevos/' + bindings.agn_name);
             } else if ( agn_name !== undefined && agn_url !== undefined && agn_id !== undefined ) {
                 ga('send', 'pageview', '/agencias/nuevos/' + bindings.agn_name + '/' + bindings.agn_url + '/' + agn_id);
-            }
+            }*/
         },
         load: function(bindings) {
-            var agn_name, agn_url, agn_id;
+            //var agn_name, agn_url, agn_id;
 
-            agn_name = bindings.agn_name_agencia;
-            agn_url = bindings.agn_url;
-            agn_id = bindings.agn_id;
+            //agn_name = bindings.agn_name_agencia;
+            //agn_url = bindings.agn_url;
+            //agn_id = bindings.agn_id;
 
             viewSectionMethod.recurrentNavbar();
-            CAM.loadTemplate(tempsNames.recurrent_home_start_site_navbar, domEl._start_site_navbar_name);
+            CAM.loadTemplate(tempsNames.recurrent_start_site_navbar, domEl._start_site_navbar_name);
             sticky_wrapper_methods.sticky_wrapper();
             currentSectionMethod.currentSection_agencies_news();
 
-            // TODAS LAS AGENCIAS NUEVOS
+            /*// TODAS LAS AGENCIAS NUEVOS
             if ( agn_name === undefined && agn_url === undefined && agn_id === undefined ) {
                 section = "agencies-news";
+                var agpid;
+                agpid = +CAM.getValue('#hidden_brand');
+
             }
+            // AGENCIA PRINCIPAL SELECCIONADA
+            else if ( agn_name !== undefined && agn_url === undefined && agn_id === undefined ) {
+                //console.log('Agencia principal seleccionada');
+                section = "agencies_news_by_agencie";
+            }
+            // SUB AGENCIA SELECCIONADA
+            else if ( agn_name !== undefined && agn_url !== undefined && agn_id !== undefined ) {
+                //console.log('Sub Agencia seleccionada');
+                section = "agencies_news_by_sub_agencie";
+                CAM.setValue(domEl.input_hidden_mapa, agn_id);
+            } else {
+                //console.log('Ruta invalida');
+                Finch.navigate('/agencias/nuevos');
+            }*/
 
             viewSectionMethod.recurrentSecionAgenciesNews();
+            CAM.loadTemplate(tempsNames.recurrent_start_utility_bar_breadcrumb, domEl._start_utility_bar_breadcrumb_name);
 
+            animatedMethods.animated();
             $(window).resize(mobile_menu_methods.has_menu_toggle);
             backToTopMethod.init_window_scroll_top();
         },
@@ -87,6 +108,7 @@
             CAM.setHTML(domEl.div_recurren, '');
             removeRecurrentsMethod.removeRecurrents();
             currentSectionMethod.remove_currentSection();
+            CAM.setValue('#hidden_brand', '0');
         }
     });
 /* ----------------------------------- *\
@@ -101,7 +123,7 @@
         },
         load: function(bindings) {
             viewSectionMethod.recurrentNavbar();
-            CAM.loadTemplate(tempsNames.recurrent_home_start_site_navbar, domEl._start_site_navbar_name);
+            CAM.loadTemplate(tempsNames.recurrent_start_site_navbar, domEl._start_site_navbar_name);
             sticky_wrapper_methods.sticky_wrapper();
             currentSectionMethod.currentSection_agencies_preowned();
 
@@ -129,7 +151,7 @@
         },
         load: function(bindings) {
             viewSectionMethod.recurrentNavbar();
-            CAM.loadTemplate(tempsNames.recurrent_home_start_site_navbar, domEl._start_site_navbar_name);
+            CAM.loadTemplate(tempsNames.recurrent_start_site_navbar, domEl._start_site_navbar_name);
             sticky_wrapper_methods.sticky_wrapper();
             currentSectionMethod.currentSection_inventories_preowned();
 
@@ -157,7 +179,7 @@
         },
         load: function(bindings) {
             viewSectionMethod.recurrentNavbar();
-            CAM.loadTemplate(tempsNames.recurrent_home_start_site_navbar, domEl._start_site_navbar_name);
+            CAM.loadTemplate(tempsNames.recurrent_start_site_navbar, domEl._start_site_navbar_name);
             sticky_wrapper_methods.sticky_wrapper();
             currentSectionMethod.currentSection_workshop();
 
@@ -185,7 +207,7 @@
         },
         load: function(bindings) {
             viewSectionMethod.recurrentNavbar();
-            CAM.loadTemplate(tempsNames.recurrent_home_start_site_navbar, domEl._start_site_navbar_name);
+            CAM.loadTemplate(tempsNames.recurrent_start_site_navbar, domEl._start_site_navbar_name);
             sticky_wrapper_methods.sticky_wrapper();
             currentSectionMethod.currentSection_rental();
 
@@ -213,7 +235,7 @@
         },
         load: function(bindings) {
             viewSectionMethod.recurrentNavbar();
-            CAM.loadTemplate(tempsNames.recurrent_home_start_site_navbar, domEl._start_site_navbar_name);
+            CAM.loadTemplate(tempsNames.recurrent_start_site_navbar, domEl._start_site_navbar_name);
             sticky_wrapper_methods.sticky_wrapper();
             currentSectionMethod.currentSection_blog();
 
@@ -241,7 +263,7 @@
         },
         load: function(bindings) {
             viewSectionMethod.recurrentNavbar();
-            CAM.loadTemplate(tempsNames.recurrent_home_start_site_navbar, domEl._start_site_navbar_name);
+            CAM.loadTemplate(tempsNames.recurrent_start_site_navbar, domEl._start_site_navbar_name);
             sticky_wrapper_methods.sticky_wrapper();
             currentSectionMethod.currentSection_about_us();
 

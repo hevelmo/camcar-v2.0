@@ -1177,3 +1177,16 @@ input[type=text].input-newsletter:focus {
   }
 }
 */
+/* BREADCRUMB */
+#start-utility-bar .breadcrumb {
+  margin: 10px;
+}
+#start-utility-bar .breadcrumb li {
+  opacity: 0.7;
+}
+#start-utility-bar .breadcrumb li.active {
+  opacity: 1;
+}
+#start-utility-bar .breadcrumb li a {
+  color: #2c3f4c;
+}

@@ -1960,7 +1960,7 @@ body.boxed .body{
 	min-height:40px;
 	height:auto;
 	position:relative;
-	z-index:555;
+	z-index:80;
 }
 .share-text{
 	line-height:40px;
