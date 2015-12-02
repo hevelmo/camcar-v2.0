@@ -43,7 +43,7 @@
 		@import url(sitio/styles/typography.css);
 		@import url(sitio/herocarousel/herocarousel.css);
 		/*
-		
+
 		@import url(sitio/herocarousel/hero-carousel-animation.css);
 		*/
 		@import url(sitio/herocarousel/scrol-down.css);
@@ -55,6 +55,7 @@
 		@import url(sitio/animation.css);
 		@import url(sitio/styles/footer.css);
 		/*@import url(sitio/cd-animation.css);*/
+		@import url(corp-medigraf.css);
 /* ################################################################################################### *\
 	END CONTENT
 \* ################################################################################################### */

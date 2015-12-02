@@ -436,6 +436,7 @@
         removeRecurrents: function() {
             removeRecurrentsMethod.removeRecurrent_navbar();
             removeRecurrentsMethod.removeRecurrents_home();
+            removeRecurrentsMethod.removeRecurrents_agencies_news();
         },
         removeRecurrent_navbar: function() {
             $(domEl._start_site_navbar_name).remove();
@@ -449,7 +450,7 @@
             $(domEl._start_dealer_search_map_name).remove();
         },
         removeRecurrents_agencies_news: function() {
-
+            $(domEl._start_utility_bar_breadcrumb_name).remove();
         }
     }
 /* ------------------------------------------------------ *\
