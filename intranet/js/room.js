@@ -16,6 +16,7 @@
         unload: function(bindings) {
             section = "";
             CAMIN.setHTML(domEl.div_recurren, '');
+            cleanStylesMethod.cleanStyles();
             removeRecurrentsMethods.removeRecurrents();
         }
     });
@@ -37,6 +38,7 @@
         unload: function(bindings) {
             section = "";
             CAMIN.setHTML(domEl.div_recurren, '');
+            cleanStylesMethod.cleanStyles();
             removeRecurrentsMethods.removeRecurrents();
         }
     });

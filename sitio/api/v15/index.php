@@ -62,11 +62,11 @@ $app->configureMode('development', function () use ($app) {
     // AGENCIES NEWS BY AGENCIE
     $app->get('/get/agencia/nuevos/:agn_nombre/:agn_id', /*'mw1',*/ 'getAgenciesNewsByAgencie');
     // PRINCIPAL AGENCIE NEWS
-    $app->get('/get/agencias/nuevos', /*'mw1',*/ 'getAgenciesNewsPrincipales');
+    //$app->get('/get/agencias/nuevos', /*'mw1',*/ 'getAgenciesNewsPrincipales');
     // PRINCIPAL AGENCIE NEWS BY AGENCIE
-    $app->get('/get/agencias/nuevos/:nombre', /*'mw1',*/ 'getAgenciesNewsPrincipalesByAgencia');
+    //$app->get('/get/agencias/nuevos/:nombre', /*'mw1',*/ 'getAgenciesNewsPrincipalesByAgencia');
     // LOGOS AGENCIES NEWS PRINCIPAL
-    $app->get('/get/logos/agencia/nuevos', /*'mw1',*/ 'getLogosAgenciesNews');
+    //$app->get('/get/logos/agencia/nuevos', /*'mw1',*/ 'getLogosAgenciesNews');
 
 // DELETE
 //$app->get('/del/table/:idTable', /*'mw1',*/ 'delTable');

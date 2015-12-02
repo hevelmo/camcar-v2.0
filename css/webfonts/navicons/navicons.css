@@ -38,12 +38,15 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.navi-navicons-agreement-v1:before {
+.navi-nav-icons-agreement-v1:before {
   content: "\e000";
 }
-.navi-navicons-birthday-v1:before {
+.navi-nav-icons-birthday-v1:before {
   content: "\e001";
 }
-.navi-navicons-pre-owned-car-v1:before {
+.navi-nav-icons-pre-owned-car-v1:before {
   content: "\e002";
+}
+.navi-nav-icons-directory-v1:before {
+  content: "\e003";
 }

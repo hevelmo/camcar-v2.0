@@ -3,6 +3,8 @@ domEl = {
 	"_agreement_page_content":"content-agreement-page-content",
 	"_agreement_page_content_name":"#content-agreement-page-content",
 	"_currency_h":".currency-h",
+	"_directory_page_content":"content-directory-page-content",
+	"_directory_page_content_name":"#content-directory-page-content",
 	"_home_page_content":"content-welcome-page-content",
 	"_home_page_content_name":"#content-welcome-page-content",
 	"_home_page_header":"content-welcome-page-header",

@@ -196,19 +196,25 @@
                             <!--<li class="site-menu-category">General</li>-->
                             <li class="site-menu-item has-sub">
                                 <a id="go-section-agreement" data-slug="layout">
-                                    <i class="site-menu-icon navi-navicons-agreement-v1 fa-3x" aria-hidden="true"></i>
+                                    <i class="site-menu-icon navi-nav-icons-agreement-v1 fa-3x" aria-hidden="true"></i>
                                     <span class="site-menu-title">Convenios</span>
                                 </a>
                             </li>
                             <!--<li class="site-menu-item has-sub">
                                 <a href="javascript:void(0)" data-slug="layout">
-                                    <i class="site-menu-icon navi-navicons-birthday-v1 fa-3x" aria-hidden="true"></i>
+                                    <i class="site-menu-icon navi-nav-icons-birthday-v1 fa-3x" aria-hidden="true"></i>
                                     <span class="site-menu-title">Cumpleaños</span>
                                 </a>
                             </li>-->
                             <li class="site-menu-item has-sub">
-                                <a href="javascript:void(0)" data-slug="layout">
-                                    <i class="site-menu-icon navi-navicons-pre-owned-car-v1 fa-3x" aria-hidden="true"></i>
+                                <a id="go-section-directory" data-slug="layout">
+                                    <i class="site-menu-icon navi-nav-icons-directory-v1 fa-3x" aria-hidden="true"></i>
+                                    <span class="site-menu-title">Directorio</span>
+                                </a>
+                            </li>
+                            <li class="site-menu-item has-sub">
+                                <a href="" data-slug="layout">
+                                    <i class="site-menu-icon navi-nav-icons-pre-owned-car-v1 fa-3x" aria-hidden="true"></i>
                                     <span class="site-menu-title">Seminuevos</span>
                                 </a>
                             </li>
@@ -288,6 +294,7 @@
         <script src="../../lib/assets/run/components/animsition.js"></script>
         <script src="../../lib/assets/run/components/slidepanel.js"></script>
         <script src="../../lib/assets/run/components/switchery.js"></script>
+        <script src="../../lib/site/matchMedia.js"></script>
 
         <!-- Scripts For This Page -->
         <div id="scripts-for-this-section"></div>

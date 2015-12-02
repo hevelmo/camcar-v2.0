@@ -10,6 +10,8 @@ function domEl() {
 	$today_aniversary = 'today_aniversary';
 	// SECTION AGREEMENT
 	$agreement_page_content = 'content-agreement-page-content';
+	// SECTION DIRECTORY
+	$directory_page_content = 'content-directory-page-content';
     return array(
     	'recurrent_head' => 'head',
     	'recurrent_body' => 'body',
@@ -29,6 +31,9 @@ function domEl() {
     	// RECURRENTS SECTION AGREEMENT
     	'_agreement_page_content' => $agreement_page_content,
     	'_agreement_page_content_name' => '#' . $agreement_page_content,
+    	// RECURRENTS SECTION AGREEMENT
+    	'_directory_page_content' => $directory_page_content,
+    	'_directory_page_content_name' => '#' . $directory_page_content,
     	// EVENTS SECTION
     	'go_section_home' => '#go-section-home',
 		'go_section_agreement' => '#go-section-agreement',
