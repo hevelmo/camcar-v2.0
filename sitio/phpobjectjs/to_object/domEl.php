@@ -28,9 +28,6 @@ function domEl() {
         // MAIN NAVIGATION
         '_start_site_navbar' => $start_site_navbar,
         '_start_site_navbar_name' => '#' . $start_site_navbar,
-        // UTILITY BAR BREADCRUMB
-        '_start_utility_bar_breadcrumb' => $start_utility_bar_breadcrumb,
-        '_start_utility_bar_breadcrumb_name' => '#' . $start_utility_bar_breadcrumb,
         // HOME SECTION HERO COROUSEL
         '_start_hero_carousel' => $start_hero_carousel,
         '_start_hero_carousel_name' => '#' . $start_hero_carousel,
@@ -46,6 +43,9 @@ function domEl() {
         // HOME SECTION FULL WIDTH FEATURES
         '_start_dealer_search_map' => $start_dealer_search_map,
         '_start_dealer_search_map_name' => '#' . $start_dealer_search_map,
+        // UTILITY BAR BREADCRUMB
+        '_start_utility_bar_breadcrumb' => $start_utility_bar_breadcrumb,
+        '_start_utility_bar_breadcrumb_name' => '#' . $start_utility_bar_breadcrumb,
         // MOBILE MENU TOGGLE
         '_menu_toogle' => '#menu-toggle',
         '_menu_toogle_close' => '.menu-toggle-close',

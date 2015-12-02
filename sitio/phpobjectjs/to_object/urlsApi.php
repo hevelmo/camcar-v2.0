@@ -45,8 +45,22 @@ function urlsApi() {
         'getBrandsLogos' => $root . '/' . $get . '/' . $agencie . '/' . $news . '/' . $brands . '/'. $logos,
         // HOME SECTION GROUP COUNTER
         'getGroupCounter' => $root . '/' . $get . '/' . $group_counter,
-        // MAPA
+        // AGENTS MAP
         'getMapa' => $root . '/' . $get . '/' . $tab_mapa . '/' . $tab_seminuevo,
         'getMapaById' => $root . '/' . $get . '/' . $tab_mapa . '/' . $tab_seminuevo . '/',
+        // AGENCIES NEWS
+        'getAgenciesNews' => $root . '/' . $get . '/' . $agencie . '/' . $news,
+        // AGENCIES NEWS BY ID
+        //$app->get('/get/agencia/nuevos/:agpid', /*'mw1',*/ 'getAgenciesNewsById');
+        // AGENCIES NEWS BY MAP
+        'getAgenciesNewsByMap' => $root . '/' . $get . '/' . $agencie . '/' . $news .'/mapas/',
+        // AGENCIES NEWS BY AGENCIE
+        'getAgenciesNewsByAgencie' => $root . '/' . $get . '/' . $agencie . '/' . $news . '/',
+        // PRINCIPAL AGENCIE NEWS
+        'getAgenciesNewsPrincipales' => $root . '/' . $get . '/' . $agencie . '/' . $news,
+        // PRINCIPAL AGENCIE NEWS BY AGENCIE
+        'getAgenciesNewsPrincipalesByAgencia' => $root . '/' . $get . '/agencias/' . $news. '/',
+        // LOGOS AGENCIES NEWS PRINCIPAL
+        'getLogosAgenciesNews' => $root . '/' . $get . '/logos/' . $agencie . '/' . $news,
     );
 }

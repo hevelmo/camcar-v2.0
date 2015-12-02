@@ -74,6 +74,9 @@
             sticky_wrapper_methods.sticky_wrapper();
             currentSectionMethod.currentSection_agencies_news();
 
+            viewSectionMethod.recurrentSecionAgenciesNews();
+            CAM.loadTemplate(tempsNames.recurrent_agencies_news_start_utility_bar_breadcrumb, domEl._start_utility_bar_breadcrumb_name);
+
             /*// TODAS LAS AGENCIAS NUEVOS
             if ( agn_name === undefined && agn_url === undefined && agn_id === undefined ) {
                 section = "agencies-news";
@@ -95,9 +98,6 @@
                 //console.log('Ruta invalida');
                 Finch.navigate('/agencias/nuevos');
             }*/
-
-            viewSectionMethod.recurrentSecionAgenciesNews();
-            CAM.loadTemplate(tempsNames.recurrent_start_utility_bar_breadcrumb, domEl._start_utility_bar_breadcrumb_name);
 
             animatedMethods.animated();
             $(window).resize(mobile_menu_methods.has_menu_toggle);

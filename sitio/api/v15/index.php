@@ -51,9 +51,22 @@ $app->configureMode('development', function () use ($app) {
     $app->get('/get/agencia/nuevos/marcas/logotipos', /*'mw1',*/ 'getBrandsLogos');
     // MAPA
     $app->get('/get/mapa/seminuevo', /*'mw1',*/ 'getMapa');
+    // MAPA BY ID
     $app->get('/get/mapa/seminuevo/:senId', /*'mw1',*/ 'getMapaById');
     // AGENCIES NEWS
-    //$app->get('/get/agencia/nuevos/principal/:agn_name_agencia', /*'mw1',*/ 'getAgenciesNewsByTypeAgencie');
+    $app->get('/get/agencia/nuevos', /*'mw1',*/ 'getAgenciesNews');
+    // AGENCIES NEWS BY ID
+    $app->get('/get/agencia/nuevos/:agpid', /*'mw1',*/ 'getAgenciesNewsById');
+    // AGENCIES NEWS BY MAP
+    $app->get('/get/agencia/nuevos/mapas/:agn_id', /*'mw1',*/ 'getAgenciesNewsByMap');
+    // AGENCIES NEWS BY AGENCIE
+    $app->get('/get/agencia/nuevos/:agn_nombre/:agn_id', /*'mw1',*/ 'getAgenciesNewsByAgencie');
+    // PRINCIPAL AGENCIE NEWS
+    $app->get('/get/agencias/nuevos', /*'mw1',*/ 'getAgenciesNewsPrincipales');
+    // PRINCIPAL AGENCIE NEWS BY AGENCIE
+    $app->get('/get/agencias/nuevos/:nombre', /*'mw1',*/ 'getAgenciesNewsPrincipalesByAgencia');
+    // LOGOS AGENCIES NEWS PRINCIPAL
+    $app->get('/get/logos/agencia/nuevos', /*'mw1',*/ 'getLogosAgenciesNews');
 
 // DELETE
 //$app->get('/del/table/:idTable', /*'mw1',*/ 'delTable');
@@ -216,6 +229,165 @@ $app->run();
                 ON sen.SEN_AGN_Id = agn.AGN_Id
                 WHERE SEN_Id = :senId";
         getMapaJSON($sql, $senId);
+    }
+    // AGENCIES NEWS
+    function getAgenciesNewsJSON($sql, $agpid) {
+        $structure = array(
+            'agnid' => 'AGN_Id',
+            'agpagencia' => 'AGP_Agencia',
+            'agpshort' => 'AGP_Short',
+            'agnnombre' => 'AGN_Nombre',
+            'agnurl' => 'AGN_Url',
+            'agnsmall' => 'AGN_Small',
+            'agnlatitud' => 'AGN_MLatitud',
+            'agnlongitud' => 'AGN_MLongitud',
+            'agngmapurl' => 'AGN_MUrl'
+        );
+        $params = array();
+        ($agpid !== '') ? $params['agpid'] = $agpid : $params = $params;
+        echo changeQueryIntoJSON('campa', $structure, getConnection(), $sql, $params, 0, PDO::FETCH_ASSOC);
+    }
+    function getAgenciesNewsByMapsJSON($sql, $agn_id) {
+        $structure = array(
+            'agnid' => 'AGN_Id',
+            'agnnombre' => 'AGN_Nombre',
+            'agndireccion' => 'AGN_Dirección',
+            'agnfolder' => 'AGN_Folder',
+            'logo' => array(
+                'agnlogo1' => 'AGN_Logo1',
+                'agnlogo2' => 'AGN_Logo2'
+            ),
+            'agnlatitud' => 'AGN_MLatitud',
+            'agnlongitud' => 'AGN_MLongitud'
+        );
+        $params = array();
+        ($agn_id !== '') ? $params['agn_id'] = $agn_id : $params = $params;
+        echo changeQueryIntoJSON('campa', $structure, getConnection(), $sql, $params, 0, PDO::FETCH_ASSOC);
+    }
+    function getAgenciesNewsByAgencieJSON($sql, $agn_nombre, $agn_id) {
+        $structure = array(
+            'agnid' => 'AGN_Id',
+            'agpagencia' => 'AGP_Agencia',
+            'agpshort' => 'AGP_Short',
+            'agnnombre' => 'AGN_Nombre',
+            'agndireccion' => 'AGN_Dirección',
+            'telefonos' => array(
+                'ventas' => array(
+                    'agntelefonoventaslinea1' => 'TEL_Telefono_Ventas_linea1',
+                    'agntelefonoventaslinea2' => 'TEL_Telefono_Ventas_linea2',
+                    'agncallventaslinea1' => 'TEL_Call_Ventas_linea1',
+                    'agncallventaslinea2' => 'TEL_Call_Ventas_linea2'
+                ),
+                'servicios' => array(
+                    'agntelefonoserviciolinea1' => 'TEL_Telefono_Servicio_linea1',
+                    'agntelefonoserviciolinea2' => 'TEL_Telefono_Servicio_linea2',
+                    'agncallserviciolinea1' => 'TEL_Call_Servicio_linea1',
+                    'agncallserviciolinea2' => 'TEL_Call_Servicio_linea2'
+                )
+            ),
+            'agnurl' => 'AGN_Url',
+            'horarios' => array(
+                'ventas' => array(
+                    'agnhrventas' => 'HRS_HVentas'
+                ),
+                'servicios' => array(
+                    'agnhrservicio' => 'HRS_HServicio'
+                ),
+                'refacciones' => array(
+                    'agnhrrefaccion' => 'HRS_HRefacciones'
+                )
+            ),
+            'agnfolder' => 'AGN_Folder',
+            'logotipos' => array(
+                'agnlogo1' => 'AGN_Logo1',
+                'agnlogo2' => 'AGN_Logo2'
+            ),
+            'agnfachada' => 'AGN_Fachada',
+            'agnsmall' => 'AGN_Small',
+            'sociales' => array(
+                'sitio_web' => array(
+                    'agnwebsite' => 'SOC_WebSite'
+                ),
+                'facebook' => array(
+                    'agntitle_facebook_cta1' => 'SOC_Facebok_Nombre_Cta1',
+                    'agnfacebookcta1' => 'SOC_Facebook_Cta1',
+                    'agntitle_facebook_cta2' => 'SOC_Facebok_Nombre_Cta2',
+                    'agnfacebookcta2' => 'SOC_Facebook_Cta2'
+                ),
+                'twitter' => array(
+                    'agntitle_twitter' => 'SOC_Nombre_Twitter',
+                    'agntwitter' => 'SOC_Twitter'
+                )
+            ),
+            'mapas' => array(
+                'agnlatitud' => 'AGN_MLatitud',
+                'agnlongitud' => 'AGN_MLongitud',
+                'agngmapurl' => 'AGN_MUrl'
+            )
+        );
+        $params = array();
+        ($agn_nombre !== '') ? $params['agn_nombre'] = $agn_nombre : $params = $params;
+        ($agn_id !== '') ? $params['agn_id'] = $agn_id : $params = $params;
+        echo changeQueryIntoJSON('campa', $structure, getConnection(), $sql, $params, 0, PDO::FETCH_ASSOC);
+    }
+    function getAgenciesNews() {
+        $sql = "SELECT *
+                FROM (
+                    SELECT *
+                    FROM camAgencias
+                    WHERE AGN_Tipo = 1
+                ) agn
+                INNER JOIN camAgenciasPrincipales agp
+                ON agn.AGN_AGP_Id = agp.AGP_Id
+                ";
+
+        getAgenciesNewsJSON($sql, '');
+    }
+    function getAgenciesNewsById($agpid) {
+        $sql = "SELECT *
+                FROM (
+                    SELECT *
+                    FROM camAgencias
+                    WHERE AGN_Tipo = 1
+                    AND AGN_AGP_Id = :agpid
+                ) agn
+                INNER JOIN camAgenciasPrincipales agp
+                ON agn.AGN_AGP_Id = agp.AGP_Id
+                ";
+
+        getAgenciesNewsJSON($sql, $agpid);
+    }
+    function getAgenciesNewsByMap($agn_id) {
+        $sql = "SELECT *
+                FROM (
+                    SELECT *
+                    FROM camAgencias
+                    WHERE AGN_Tipo = 1
+                ) agn
+                WHERE AGN_Id = :agn_id
+                ";
+        getAgenciesNewsByMapsJSON($sql, $agn_id);
+    }
+    // AGENCIES NEWS BY AGENCIES
+    function getAgenciesNewsByAgencie($agn_nombre, $agn_id) {
+        $sql = "SELECT *
+                FROM (
+                    SELECT *
+                    FROM camAgencias
+                    WHERE AGN_Tipo = 1
+                ) agn
+                INNER JOIN camTelefonos tel
+                ON agn.AGN_Id = tel.TEL_AGN_Id
+                INNER JOIN camHorarios hrs
+                ON agn.AGN_Id = hrs.HRS_AGN_Id
+                INNER JOIN camSociales soc
+                ON agn.AGN_Id = soc.SOC_AGN_Id
+                INNER JOIN camAgenciasPrincipales agp
+                ON agn.AGN_AGP_Id = agp.AGP_Id
+                WHERE AGN_Id = :agn_id
+                AND AGN_Url = :agn_nombre
+                ORDER BY AGN_Id";
+        getAgenciesNewsByAgencieJSON($sql, $agn_nombre, $agn_id);
     }
 
 

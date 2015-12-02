@@ -43,17 +43,23 @@ domEl = {
 	"validate_required":".validate-required"
 };
 tempsNames = {
+	"recurrent_agencies_news_start_utility_bar_breadcrumb":"tmp_agencies_news_start_utility_bar_breadcrumb",
 	"recurrent_home_dealer_search_gmap":"tmp_section_home_dealer_search_gmap",
 	"recurrent_home_full_width_features":"tmp_section_home_full_width_features",
 	"recurrent_home_group_counter":"tmp_section_home_group_counter",
 	"recurrent_home_hero_slide_carousel":"tmp_section_home_hero_slide_carousel",
 	"recurrent_home_our_brands":"tmp_section_home_our_brands",
-	"recurrent_start_site_navbar":"tmp_start_site_navbar",
-	"recurrent_start_utility_bar_breadcrumb":"tmp_start_utility_bar_breadcrumb"
+	"recurrent_start_site_navbar":"tmp_start_site_navbar"
 };
 urlsApi = {
+	"getAgenciesNews":"api/v15/get/agencia/nuevos",
+	"getAgenciesNewsByAgencie":"api/v15/get/agencia/nuevos/",
+	"getAgenciesNewsByMap":"api/v15/get/agencia/nuevos/mapas/",
+	"getAgenciesNewsPrincipales":"api/v15/get/agencia/nuevos",
+	"getAgenciesNewsPrincipalesByAgencia":"api/v15/get/agencias/nuevos/",
 	"getBrandsLogos":"api/v15/get/agencia/nuevos/marcas/logotipos",
 	"getGroupCounter":"api/v15/get/grupo/camcar",
+	"getLogosAgenciesNews":"api/v15/get/logos/agencia/nuevos",
 	"getMapa":"api/v15/get/mapa/seminuevo",
 	"getMapaById":"api/v15/get/mapa/seminuevo/"
 };
