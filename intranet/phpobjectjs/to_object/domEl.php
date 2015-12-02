@@ -11,10 +11,15 @@ function domEl() {
 	// SECTION AGREEMENT
 	$agreement_page_content = 'content-agreement-page-content';
 	// SECTION DIRECTORY
-	$directory_page_content = 'content-directory-page-content';
+	//$directory_page_content = 'content-directory-page-content';
+	$directory_page_aside = 'content-directory-page-aside';
+	$directory_page_main = 'content-directory-page-main';
     return array(
     	'recurrent_head' => 'head',
     	'recurrent_body' => 'body',
+    	// NAVIGATION
+		'site_navbar' => '#content-site-navbar-interactive',
+		'site_menubar' => '#content-site-menubar-interactive',
     	//GENERAL HI DIVS
     	'div_hidden_inputs_session' => 'div#hidden-inputs-session',
     	'div_hidden_inputs_temporal' => 'div#hidden-inputs-temporal',
@@ -31,12 +36,16 @@ function domEl() {
     	// RECURRENTS SECTION AGREEMENT
     	'_agreement_page_content' => $agreement_page_content,
     	'_agreement_page_content_name' => '#' . $agreement_page_content,
-    	// RECURRENTS SECTION AGREEMENT
-    	'_directory_page_content' => $directory_page_content,
-    	'_directory_page_content_name' => '#' . $directory_page_content,
+    	// RECURRENTS SECTION DIRECTORY
+    	'_directory_page_aside' => $directory_page_aside,
+    	'_directory_page_aside_name' => '#' . $directory_page_aside,
+    	'_directory_page_main' => $directory_page_main,
+    	'_directory_page_main_name' => '#' . $directory_page_main,
+    	'div_recurrent_site_action' => '#content-site-action',
     	// EVENTS SECTION
     	'go_section_home' => '#go-section-home',
 		'go_section_agreement' => '#go-section-agreement',
+		'go_section_directory' => '#go-section-directory',
     	//SESSION AUXILIAR HIDDEN INPUTS
 	    //'input_session_usr_username' => 'input#session-usr-username',
 	    'input_session_usr_id' => 'input#session-usr-id',

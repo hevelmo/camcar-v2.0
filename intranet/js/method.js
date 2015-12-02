@@ -163,6 +163,11 @@
         goSection_agreement : function(event) {
             //$('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );
             Finch.navigate('/convenios');
+        },
+        // Directorio
+        goSection_directory : function(event) {
+            //$('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );
+            Finch.navigate('/directorio');
         }
     }
 /* ------------------------------------------------------ *\
@@ -203,15 +208,28 @@
         },
         addStylesDirectory : function() {
             stylesDirectoryAttributes = [
-                ['link', {'id' : 'content-add-style-welcome-directory-pages', 'rel': 'stylesheet', 'class':'style-link-welcome-directory', 'href': '../../css/styles/assets/pages/advanced/masonry.css'}, '', 0],
+                ['link', {'id' : 'content-add-style-welcome-directory-pages', 'rel': 'stylesheet', 'class':'style-link-welcome-directory', 'href': '../../css/styles/assets/plugins/filament-tablesaw/tablesaw.css'}, '', 0],
+                ['link', {'id' : 'content-add-style-welcome-directory-pages', 'rel': 'stylesheet', 'class':'style-link-welcome-directory', 'href': '../../css/styles/assets/plugins/slidepanel/slidePanel.css'}, '', 0],
+                ['link', {'id' : 'content-add-style-welcome-directory-pages', 'rel': 'stylesheet', 'class':'style-link-welcome-directory', 'href': '../../css/styles/assets/pages/apps/contacts.css'}, '', 0]
             ];
             CAMIN.appendMulti(domEl.recurrent_head, stylesDirectoryAttributes);
             pluginsDirectoryAttributes = [
-                ['script', {'id' : 'content-add-plugin-welcome-directory-plugins', 'class':'plugin-link-welcome-directory', 'src': '../../lib/assets/plugins/masonry/masonry.pkgd.min.js'}, '', 1]
+                ['script', {'id' : 'content-add-plugin-welcome-directory-plugins', 'class':'plugin-link-welcome-directory', 'src': '../../lib/assets/plugins/filament-tablesaw/tablesaw.js'}, '', 1],
+                ['script', {'id' : 'content-add-plugin-welcome-directory-plugins', 'class':'plugin-link-welcome-directory', 'src': '../../lib/assets/plugins/slidepanel/jquery-slidePanel.js'}, '', 1],
+                ['script', {'id' : 'content-add-plugin-welcome-directory-plugins', 'class':'plugin-link-welcome-directory', 'src': '../../lib/assets/plugins/aspaginator/jquery.asPaginator.js'}, '', 1],
+                ['script', {'id' : 'content-add-plugin-welcome-directory-plugins', 'class':'plugin-link-welcome-directory', 'src': '../../lib/assets/plugins/jquery-placeholder/jquery.placeholder.js'}, '', 1]
             ];
             CAMIN.appendMulti('div#plugins-for-this-section', pluginsDirectoryAttributes);
             scriptsDirectoryAttributes = [
-                ['script', {'id' : 'content-add-plugin-welcome-directory-scripts', 'class':'script-link-welcome-directory', 'src': '../../lib/assets/run/components/masonry.js'}, '', 1]
+                ['script', {'id' : 'content-add-plugin-welcome-directory-scripts', 'class':'script-link-welcome-directory', 'src': '../../lib/assets/run/plugins/sticky-header.js'}, '', 1],
+                ['script', {'id' : 'content-add-plugin-welcome-directory-scripts', 'class':'script-link-welcome-directory', 'src': '../../lib/assets/run/plugins/action-btn.js'}, '', 1],
+                ['script', {'id' : 'content-add-plugin-welcome-directory-scripts', 'class':'script-link-welcome-directory', 'src': '../../lib/assets/run/components/aspaginator.js'}, '', 1],
+                ['script', {'id' : 'content-add-plugin-welcome-directory-scripts', 'class':'script-link-welcome-directory', 'src': '../../lib/assets/run/app.js'}, '', 1],
+                ['script', {'id' : 'content-add-plugin-welcome-directory-scripts', 'class':'script-link-welcome-directory', 'src': '../../lib/assets/run/components/animate-list.js'}, '', 1],
+                ['script', {'id' : 'content-add-plugin-welcome-directory-scripts', 'class':'script-link-welcome-directory', 'src': '../../lib/assets/run/components/jquery-placeholder.js'}, '', 1],
+                ['script', {'id' : 'content-add-plugin-welcome-directory-scripts', 'class':'script-link-welcome-directory', 'src': '../../lib/assets/run/components/material.js'}, '', 1],
+                ['script', {'id' : 'content-add-plugin-welcome-directory-scripts', 'class':'script-link-welcome-directory', 'src': '../../lib/assets/run/components/selectable.js'}, '', 1],
+                ['script', {'id' : 'content-add-plugin-welcome-directory-scripts', 'class':'script-link-welcome-directory', 'src': '../../lib/assets/current/apps/contacts.js'}, '', 1]
             ];
             CAMIN.appendMulti('div#scripts-for-this-section', scriptsDirectoryAttributes);
         }
@@ -248,6 +266,7 @@
         removeRecurrents: function() {
             removeRecurrentsMethods.removeRecurrents_home();
             removeRecurrentsMethods.removeRecurrents_agreement();
+            removeRecurrentsMethods.removeRecurrents_directory();
         },
         removeRecurrents_home : function() {
             $(domEl._home_page_header_name).remove();
@@ -258,6 +277,29 @@
             $(domEl._agreement_page_content_name).remove();
         },
         removeRecurrents_directory : function() {
+            $(domEl._directory_page_aside_name).remove();
+            $(domEl._directory_page_main_name).remove();
+            $(domEl.div_recurrent_site_action).remove();
+        }
+    }
+/* ------------------------------------------------------ *\
+    [Metodos] loadSiteNavigationMethods
+\* ------------------------------------------------------ */
+    var loadSiteNavigationMethods = {
+        loadSiteNavigation: function() {
+            CAMIN.loadTemplate(tempsNames.recurrent_site_navbar, domEl.site_navbar);
+            CAMIN.loadTemplate(tempsNames.recurrent_site_menubar, domEl.site_menubar);
+        }
+    }
+/* ------------------------------------------------------ *\
+    [Metodos] removeSiteNavigationMethods
+\* ------------------------------------------------------ */
+    var removeSiteNavigationMethods = {
+        removeSiteNavigation: function() {
+            /*$(domEl.site_navbar).remove();
+            $(domEl.site_menubar).remove();
+            CAMIN.setHTML(domEl.site_navbar, '');
+            CAMIN.setHTML(domEl.site_menubar, '');*/
         }
     }
 /* ------------------------------------------------------ *\
@@ -282,6 +324,7 @@
                 ['div', {'id' : domEl._home_today_birthday_name, 'class':'col-lg-4 col-md-6 equal-height'}, '', true],
                 ['div', {'id' : domEl._home_today_aniversary_name, 'class':'col-lg-4 col-md-6 equal-height'}, '', true]
             ]);
+            $(domEl.recurrent_body).addClass('dashboard');
         },
         loadTemplatesWelcomeHome: function() {
             CAMIN.loadTemplate(tempsNames.recurrent_welcome_page_header, domEl._home_page_header_name);
@@ -324,10 +367,11 @@
             viewSectionWelcomeAgreementMethods.loadTemplatesAgreement();
         },
         recurrent_welcome_agreement : function() {
-            agreementPageContentAtributes = [
+            agreementPageContentAttributes = [
                 ['div', {'id' : domEl._agreement_page_content, 'class':'page-content padding-30 blue-grey-500'}, '', 1]
             ];
-            CAMIN.appendMulti(domEl.div_recurrent, agreementPageContentAtributes);
+            CAMIN.appendMulti(domEl.div_recurrent, agreementPageContentAttributes);
+            $(domEl.recurrent_body).addClass('dashboard');
             $(domEl.div_recurrent).addClass('animsition');
             $(domEl.div_recurrent).attr('style','animation-duration: 0.8s; opacity: 1;');
         },
@@ -344,14 +388,47 @@
             viewSectionWelcomeDirectoryMethods.loadTemplatesDirectory();
         },
         recurrent_welcome_directory : function() {
-            directoryPageContentAtributes = [
-                ['div', {'id' : domEl._directory_page_content, 'class':'page-content padding-30 blue-grey-500'}, '', 1]
+            directoryPageContentAttributes = [
+                ['div', {'id' : domEl._directory_page_aside, 'class':'page-aside'}, '', 1],
+                ['div', {'id' : domEl._directory_page_main, 'class':'page-main'}, '', 1]
             ];
-            CAMIN.appendMulti(domEl.div_recurrent, directoryPageContentAtributes);
+            CAMIN.appendMulti(domEl.div_recurrent, directoryPageContentAttributes);
+            $(domEl.recurrent_body).removeClass('dashboard');
             $(domEl.div_recurrent).addClass('animsition');
             $(domEl.div_recurrent).attr('style','animation-duration: 0.8s; opacity: 1;');
         },
         loadTemplatesDirectory: function() {
-            CAMIN.loadTemplate(tempsNames.recurrent_directory_masonry_items, domEl._directory_page_content_name);
+            CAMIN.loadTemplate(tempsNames.recurrent_directory_contacts_sidebar, domEl._directory_page_aside_name);
+            CAMIN.loadTemplate(tempsNames.recurrent_directory_contacts_content_header, domEl._directory_page_main_name);
+            CAMIN.loadTemplate(tempsNames.recurrent_directory_contacts_site_action, domEl.div_recurrent_site_action);
+        }
+    }
+/* ------------------------------------------------------ *\
+    [Methods] currentSectionMethod
+\* ------------------------------------------------------ */
+    var currentSectionMethod = {
+        currentSection_home: function() {
+            $('#head-change-section-title').html('CAMCAR Bienvenido');
+            $('#site-section-home').addClass('active');
+            $(domEl.recurrent_body).removeClass('app-contacts');
+            $(domEl.div_recurrent).removeClass('bg-white');
+        },
+        currentSection_agreement: function() {
+            $('#head-change-section-title').html('CAMCAR Convenios');
+            $('#site-section-agreement').addClass('active');
+            $(domEl.recurrent_body).removeClass('app-contacts');
+            $(domEl.div_recurrent).removeClass('bg-white');
+        },
+        currentSection_directory: function() {
+            $('#head-change-section-title').html('CAMCAR Directorio');
+            $('#site-section-directory').addClass('active');
+            $(domEl.recurrent_body).addClass('app-contacts');
+            $(domEl.div_recurrent).addClass('bg-white');
+        },
+        remove_currentSection: function() {
+            $(domEl.div_recurrent).removeClass('bg-white');
+            $('#site-section-home').removeClass('active');
+            $('#site-section-agreement').removeClass('active');
+            $('#site-section-directory').removeClass('active');
         }
     }

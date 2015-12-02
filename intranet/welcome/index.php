@@ -28,7 +28,7 @@
         <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
         <meta name='viewport' content='width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0' />
 
-        <title id="head-change-section-title">CAMCAR Bienvenido</title>
+        <title id="head-change-section-title">CAMCAR</title>
 
         <link rel="stylesheet" href="../../css/import-intranet.css">
 
@@ -83,167 +83,50 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <!-- Auxiliar Temporal Inputs's DIV -->
-        <div id='hidden-inputs-session'>
-            <?php /* ?>
-            <?php */ ?>
-            <input type='hidden' id='session-usr-username' value="<?php echo htmlentities($_SESSION['username']); ?>">
-            <input type='hidden' id='session-usr-id' value="<?php echo htmlentities($_SESSION['user_id']); ?>">
-            <input type='hidden' id='session-usr-type' value="<?php echo htmlentities($_SESSION['usr_type']); ?>">
-            <input type='hidden' id='session-usr-email' value="<?php echo htmlentities($_SESSION['email']); ?>">
-            <input type='hidden' id='session-usr-agn-id' value="<?php echo htmlentities($_SESSION['usr_agn_id']); ?>">
-            <input type='hidden' id='session-usr-agn-name' value="<?php echo htmlentities($_SESSION['usr_agn_nombre']); ?>">
-            <input type='hidden' id='session-usr-agn-logo1' value="<?php echo htmlentities($_SESSION['usr_agn_logo1']); ?>">
-            <input type='hidden' id='session-usr-agn-logo2' value="<?php echo htmlentities($_SESSION['usr_agn_logo2']); ?>">
-            <input type='hidden' id='session-usr-agn-header' value="<?php echo htmlentities($_SESSION['usr_agn_header']); ?>">
+        <!-- Sub Body 1 -->
+        <div id="sub-body-one">
+            <!-- Auxiliar Temporal Inputs's DIV -->
+            <div id='hidden-inputs-session'>
+                <?php /* ?>
+                <?php */ ?>
+                <input type='hidden' id='session-usr-username' value="<?php echo htmlentities($_SESSION['username']); ?>">
+                <input type='hidden' id='session-usr-id' value="<?php echo htmlentities($_SESSION['user_id']); ?>">
+                <input type='hidden' id='session-usr-type' value="<?php echo htmlentities($_SESSION['usr_type']); ?>">
+                <input type='hidden' id='session-usr-email' value="<?php echo htmlentities($_SESSION['email']); ?>">
+                <input type='hidden' id='session-usr-agn-id' value="<?php echo htmlentities($_SESSION['usr_agn_id']); ?>">
+                <input type='hidden' id='session-usr-agn-name' value="<?php echo htmlentities($_SESSION['usr_agn_nombre']); ?>">
+                <input type='hidden' id='session-usr-agn-logo1' value="<?php echo htmlentities($_SESSION['usr_agn_logo1']); ?>">
+                <input type='hidden' id='session-usr-agn-logo2' value="<?php echo htmlentities($_SESSION['usr_agn_logo2']); ?>">
+                <input type='hidden' id='session-usr-agn-header' value="<?php echo htmlentities($_SESSION['usr_agn_header']); ?>">
+            </div>
+            <!-- Auxiliar Temporal Inputs's DIV -->
+            <div id='hidden-inputs-temporal'></div>
+
+            <!-- NAVIGATION -->
+            <!--Templates's NAV-->
+            <nav class="site-navbar navbar navbar-default navbar-fixed-top navbar-mega" rol="navigation" id='content-site-navbar-interactive'></nav>
+            <div class="site-menubar" id='content-site-menubar-interactive'></div>
+
+            <!-- Page -->
+            <!--Templates's DIV-->
+            <div class="wrapper_content_interactive page" id='content-temporal-interactive'></div>
+            <!-- End Page -->
+
+            <!-- Footer -->
+            <footer class="site-footer">
+                <span class="site-footer-legal">© 2015 Camcar v2</span>
+            </footer>
         </div>
-        <!-- Auxiliar Temporal Inputs's DIV -->
-        <div id='hidden-inputs-temporal'></div>
+        <!-- End Sub Body 1 -->
 
-        <nav class="site-navbar navbar navbar-default navbar-fixed-top navbar-mega" rol="navigation">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle hamburger hamburger-close navbar-toggle-left hided" data-toggle="menubar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="hamburger-bar"></span>
-                </button>
-                <button type="button" class="navbar-toggle collapsed" data-target="#site-navbar-collapse" data-toggle="collapse">
-                    <i class="icon wb-more-horizontal" aria-hidden="true"></i>
-                </button>
-                <div class="navbar-brand navbar-brand-center site-gridmenu-toggle" data-toggle="gridmenu">
-                    <img class="navbar-brand-logo navbar-brand-site-logo" src="../../img/logos/logo-camcar-hor-white@2x.png" title="Remark">
-                    <!--<span class="navbar-brand-text"> Remark</span>-->
-                </div>
-                <!--<button type="button" class="navbar-toggle collapsed" data-target="#site-navbar-search" data-toggle="collapse">
-                    <span class="sr-only">Toggle Search</span>
-                    <i class="icon wb-search" aria-hidden="true"></i>
-                </button>-->
-            </div>
-            <div class="navbar-container container-fluid">
-                <!-- Navbar Collapse -->
-                <div class="collapse navbar-collapse navbar-collapse-toolbar" id="site-navbar-collapse">
-                    <!-- Navbar Toolbar -->
-                    <ul class="nav navbar-toolbar dp-header">
-                        <li class="hidden-float" id="toggleMenubar">
-                            <a data-toggle="menubar" href="#" role="button">
-                                <i class="icon hamburger hamburger-arrow-left">
-                                    <span class="sr-only">Toggle menubar</span>
-                                    <span class="hamburger-bar"></span>
-                                </i>
-                            </a>
-                        </li>
-                        <li>
-                            <a id="go-section-home" aria-expanded="false" data-animation="fade" role="button">Inicio</a>
-                        </li>
-                        <!--
-                        <li class="dp-top">
-                            <a href="#" class="dp-navlink">
-                                Seminuevos <i class="icon wb-chevron-down-mini" aria-hidden="true"></i>
-                            </a>
-                            <div class="dp-navlink-menu">
-                                <ul>
-                                    <li><a href="">Nuevo</a></li>
-                                    <li><a href="">Listado</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="dropdown dropdown-fw dropdown-mega">
-                            <a class="dropdown-toggle dt-navlink" data-toggle="dropdown" href="#" aria-expanded="false" data-animation="fade" role="button">Seminuevos <i class="icon wb-chevron-down-mini" aria-hidden="true"></i></a>
-                            <ul class="dropdown-menu dp-navlink-menu" role="menu">
-                                <li>Nuevo</li>
-                                <li>Listado</li>
-                            </ul>
-                        </li>-->
-                    </ul>
-                    <!-- End Navbar Toolbar -->
-                    <!-- Navbar Toolbar Right -->
-                    <ul class="nav navbar-toolbar navbar-right navbar-toolbar-right">
-                        <li class="dropdown">
-                            <a class="navbar-avatar dropdown-toggle hint--left" data-hint="<?php echo htmlentities('Asesor'); ?>" data-toggle="dropdown" href="#" aria-expanded="false" data-animation="scale-up" role="button">
-                                <span class="avatar avatar-online">
-                                    <img src="../../img/logos/ico-camcar.png" alt="...">
-                                    <i></i>
-                                </span>
-                            </a>
-                            <ul class="dropdown-menu" role="menu">
-                                <!--<li role="presentation">
-                                    <a href="javascript:void(0)" role="menuitem"><i class="icon wb-user" aria-hidden="true"></i> Profile</a>
-                                </li>
-                                <li role="presentation">
-                                    <a href="javascript:void(0)" role="menuitem"><i class="icon wb-payment" aria-hidden="true"></i> Billing</a>
-                                </li>
-                                <li role="presentation">
-                                    <a href="javascript:void(0)" role="menuitem"><i class="icon wb-settings" aria-hidden="true"></i> Settings</a>
-                                </li>
-                                <li class="divider" role="presentation"></li>
-                                -->
-                                <li role="presentation">
-                                    <a href='../../logout/' role="menuitem"><i class="icon wb-power" aria-hidden="true"></i> Logout </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li></li>
-                    </ul>
-                    <!-- End Navbar Toolbar Right -->
-                </div>
-                <!-- End Navbar Collapse -->
-            </div>
-        </nav>
-        <div class="site-menubar">
-            <div class="site-menubar-body">
-                <div>
-                    <div>
-                        <ul class="site-menu">
-                            <!--<li class="site-menu-category">General</li>-->
-                            <li class="site-menu-item has-sub">
-                                <a id="go-section-agreement" data-slug="layout">
-                                    <i class="site-menu-icon navi-nav-icons-agreement-v1 fa-3x" aria-hidden="true"></i>
-                                    <span class="site-menu-title">Convenios</span>
-                                </a>
-                            </li>
-                            <!--<li class="site-menu-item has-sub">
-                                <a href="javascript:void(0)" data-slug="layout">
-                                    <i class="site-menu-icon navi-nav-icons-birthday-v1 fa-3x" aria-hidden="true"></i>
-                                    <span class="site-menu-title">Cumpleaños</span>
-                                </a>
-                            </li>-->
-                            <li class="site-menu-item has-sub">
-                                <a id="go-section-directory" data-slug="layout">
-                                    <i class="site-menu-icon navi-nav-icons-directory-v1 fa-3x" aria-hidden="true"></i>
-                                    <span class="site-menu-title">Directorio</span>
-                                </a>
-                            </li>
-                            <li class="site-menu-item has-sub">
-                                <a href="" data-slug="layout">
-                                    <i class="site-menu-icon navi-nav-icons-pre-owned-car-v1 fa-3x" aria-hidden="true"></i>
-                                    <span class="site-menu-title">Seminuevos</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="site-menubar-footer">
-                <a href="javascript: void(0);" class="fold-show" data-placement="top" data-toggle="tooltip" data-original-title="">
-                    <!--<span class="icon wb-settings" aria-hidden="true"></span>-->
-                </a>
-                <a href="javascript: void(0);" data-placement="top" data-toggle="tooltip" data-original-title="">
-                    <!--<span class="icon wb-eye-close" aria-hidden="true"></span>-->
-                </a>
-                <a href='../../logout/' data-placement="top" data-toggle="tooltip" data-original-title="Logout">
-                    <span class="icon wb-power" aria-hidden="true"></span>
-                </a>
-            </div>
+        <div id="content-site-action" class="site-action"></div>
+
+        <!-- End Sub Body 2 -->
+        <div id="sub-body-two">
+            <div id="content-slide-panel"></div>
         </div>
+        <!-- End Sub Body 2 -->
 
-        <!-- Page -->
-        <!--Templates's DIV-->
-        <div class="wrapper_content_interactive page" id='content-temporal-interactive'></div>
-        <!-- End Page -->
-
-        <!-- Footer -->
-        <footer class="site-footer">
-            <span class="site-footer-legal">© 2015 Camcar v2</span>
-        </footer>
 
         <!-- MAIN -->
         <script src="../../lib/jquery.js"></script>

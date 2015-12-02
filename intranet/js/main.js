@@ -34,5 +34,6 @@ $(document).ready(function() {
     // SECTIONS
     $(domEl.recurrent_body).on('click', domEl.go_section_home, goSectionMethods.goSection_home);
     $(domEl.recurrent_body).on('click', domEl.go_section_agreement, goSectionMethods.goSection_agreement);
+    $(domEl.recurrent_body).on('click', domEl.go_section_directory, goSectionMethods.goSection_directory);
 
 });

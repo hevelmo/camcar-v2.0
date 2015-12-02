@@ -3,8 +3,10 @@ domEl = {
 	"_agreement_page_content":"content-agreement-page-content",
 	"_agreement_page_content_name":"#content-agreement-page-content",
 	"_currency_h":".currency-h",
-	"_directory_page_content":"content-directory-page-content",
-	"_directory_page_content_name":"#content-directory-page-content",
+	"_directory_page_aside":"content-directory-page-aside",
+	"_directory_page_aside_name":"#content-directory-page-aside",
+	"_directory_page_main":"content-directory-page-main",
+	"_directory_page_main_name":"#content-directory-page-main",
 	"_home_page_content":"content-welcome-page-content",
 	"_home_page_content_name":"#content-welcome-page-content",
 	"_home_page_header":"content-welcome-page-header",
@@ -22,7 +24,9 @@ domEl = {
 	"div_hidden_inputs_session":"div#hidden-inputs-session",
 	"div_hidden_inputs_temporal":"div#hidden-inputs-temporal",
 	"div_recurrent":"div#content-temporal-interactive",
+	"div_recurrent_site_action":"#content-site-action",
 	"go_section_agreement":"#go-section-agreement",
+	"go_section_directory":"#go-section-directory",
 	"go_section_home":"#go-section-home",
 	"input_session_usr_agn_header":"input#session-usr-agn-header",
 	"input_session_usr_agn_id":"input#session-usr-agn-id",
@@ -33,13 +37,20 @@ domEl = {
 	"input_session_usr_id":"input#session-usr-id",
 	"input_session_usr_type":"input#session-usr-type",
 	"recurrent_body":"body",
-	"recurrent_head":"head"
+	"recurrent_head":"head",
+	"site_menubar":"#content-site-menubar-interactive",
+	"site_navbar":"#content-site-navbar-interactive"
 };
 tempsNames = {
 	"home_window_aniversary":"tmp_home_window_aniversary",
 	"home_window_birthday":"tmp_home_window_birthday",
 	"home_window_perfil":"tmp_home_window_perfil",
 	"recurrent_agreement_masonry_items":"tmp_agreement_masonry_items",
+	"recurrent_directory_contacts_content_header":"tmp_directory_contacts_content_header",
+	"recurrent_directory_contacts_sidebar":"tmp_directory_contacts_sidebar",
+	"recurrent_directory_contacts_site_action":"tmp_directory_contacts_site_action",
+	"recurrent_site_menubar":"tmp_site_menubar",
+	"recurrent_site_navbar":"tmp_site_navbar",
 	"recurrent_welcome_page_content":"tmp_welcome_page_content",
 	"recurrent_welcome_page_header":"tmp_welcome_page_header"
 };
