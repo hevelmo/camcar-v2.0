@@ -44,9 +44,33 @@
 .navi-nav-icons-birthday-v1:before {
   content: "\e001";
 }
-.navi-nav-icons-pre-owned-car-v1:before {
+.navi-nav-icons-directory-v1:before {
   content: "\e002";
 }
-.navi-nav-icons-directory-v1:before {
+.navi-nav-icons-home-v1:before {
+  content: "\e004";
+}
+.navi-nav-icons-directory-v2:before {
+  content: "\e005";
+}
+.navi-nav-icons-pre-owned-car-v1:before {
   content: "\e003";
+}
+.navi-nav-icons-movil-preowned-v2:before {
+  content: "\e006";
+}
+.navi-nav-icons-movil-preowned-list-v2:before {
+  content: "\e007";
+}
+.navi-nav-icons-movil-preowned-del-v2:before {
+  content: "\e008";
+}
+.navi-nav-icons-movil-preowned-check-v2:before {
+  content: "\e009";
+}
+.navi-nav-icons-movil-preowned-cancel-v2:before {
+  content: "\e00a";
+}
+.navi-nav-icons-movil-preowned-add-v2:before {
+  content: "\e00b";
 }

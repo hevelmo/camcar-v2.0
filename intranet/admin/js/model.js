@@ -1,16 +1,63 @@
+/* ################################################################################################### *\
+
+    Project Name: Camcar ADMIN Models
+    Proyect Version: 2.0
+    Author: *******
+    Update: hevelmo
+
+    CONTENT MODELS
+        [MODELS] Moment Español
+        [MODELS] MOMENT's Models
+            [FUNCTION] momentToRoman(date, language)
+            [FUNCTION] momentToHuman(date, language)
+        [MODELS] Handlebars's Models
+            [FUNCTION] loadTemplate(name, wrapper, filler)
+        [MODELS] DOM's Models
+            [FUNCTION] getValue(domElement)
+            [FUNCTION] setValue(domElement, new_value)
+            [FUNCTION] exist(domElement)
+            [FUNCTION] trimValue(domElement)
+            [FUNCTION] getHTML(domElement)
+            [FUNCTION] setHTML(domElement, information)
+            [FUNCTION] cryptElement(domElement)
+            [FUNCTION] appendOne(domElement, new_el_type, new_el_attributes, new_el_content, hasClosingTag)
+            [FUNCTION] appendMulti(domElement, elements)
+        [MODELS] DATE TIME PICKER's Models
+            [FUNCTION] setDateTPCalendar (wrapper, futureDays, hasMinDate)
+        [MODELS] FORMS's Models
+            [FUNCTION] validFormFull(entered_inputs, required_inputs_names)
+            [FUNCTION] validFormEmpty(entered_inputs, required_inputs_names)
+            [FUNCTION] resetForm(form)
+        [MODELS] AJAX's Models
+            [FUNCTION] postalService(custom_url, json)
+            [FUNCTION] getInternalJSON(url)
+        [MODELS] OBJECTS's Models
+            [FUNCTION] filterArrayObjByKey(arrayObj, key, value, equal)
+            [FUNCTION] sumArrayObjByKey(arrayObj, numKey)
+            [FUNCTION] renameArrayObjKeys(arrayObj, renameKeys)
+            [FUNCTION] withoutArrayObjAND(arrayObj, withoutObj)
+            [FUNCTION] withoutArrayObjOR(arrayObj, withoutObj)
+        [MODELS] NUMBER FORMATS's Models
+            [FUNCTION] currencyFormat(number)
+        [MODELS] OTHER Models
+            [FUNCTION] randomString(name)
+        [MODELS] Returning all Models
+
+\* ################################################################################################### */
 //[Models] Modelos
 var CAMADM = {};
+
 CAMADM = (function() {
     var $this = this;
     /*
      ###################################################################################################
-     Moment Español
+        [MODELS] Moment Español
      ###################################################################################################
     */
         moment.lang('es', {months: "Enero_Febrero_Marzo_Abril_Mayo_Junio_Julio_Agosto_Septiembre_Octubre_Noviembre_Diciembre".split("_"), monthsShort: "ene._feb._mar_abr._may_jun_jul._ago_sep._oct._nov._dic.".split("_"), weekdays: "Domingo_Lunes_Martes_Miércoles_Jueves_Viernes_Sábado".split("_"), weekdaysShort: "dom._lun._mar._mier._juev._vie._sab.".split("_"), weekdaysMin: "Do_Lu_Ma_Mi_Ju_Vi_Sa".split("_"), longDateFormat: {LT: "HH:mm", L: "DD/MM/YYYY", LL: "D MMMM YYYY", LLL: "D MMMM YYYY LT", LLLL: "dddd D MMMM YYYY LT"}, calendar: {sameDay: "[Hoy a las] LT", nextDay: '[Mañanaalas]LT', nextWeek: 'dddd[a]LT', lastDay: '[Ayera]LT', lastWeek: 'dddd[hasta]LT', sameElse: 'L'}, relativeTime: {future: "en %s", past: "hace %s", s: "unos segundos", m: "un minuto", mm: "%d minutos", h: "una hora", hh: "%d horas", d: "un día", dd: "%d dias", M: "un mes", MM: "%d meses", y: "un año", yy: "%d años"}, ordinal: function(number) {returnnumber + (number === 1 ? 'er' : 'a');}, week: {dow: 1, doy: 6}});
     /*
      ###################################################################################################
-     MOMENT's Models
+        [MODELS] MOMENT's Models
      ###################################################################################################
     */
         /*
@@ -57,7 +104,7 @@ CAMADM = (function() {
             }
     /*
      ###################################################################################################
-     Handlebars's Models
+        [MODELS] Handlebars's Models
      ###################################################################################################
     */
         /*
@@ -86,7 +133,7 @@ CAMADM = (function() {
             }
     /*
      ###################################################################################################
-     DOM's Models
+        [MODELS] DOM's Models
      ###################################################################################################
     */
         /*
@@ -125,6 +172,7 @@ CAMADM = (function() {
          *RETURN: boolean
          *   true: if it has value
          *   false: if it doesnt have a value
+         *
         **/
             function exist(domElement) {
                 return ($(domElement).val()) ? true : false;
@@ -136,12 +184,12 @@ CAMADM = (function() {
          *   domElement: Is a string with the id or class ('#domElement', '.domElement')
          *               of the DOM element whose value will be trimmed (mandatory).
         **/
-        function trimValue(domElement) {
-            var value, clean;
-            value = $(domElement).val();
-            clean = $.trim(value);
-            $(domElement).val(clean);
-        }
+            function trimValue(domElement) {
+                var value, clean;
+                value = $(domElement).val();
+                clean = $.trim(value);
+                $(domElement).val(clean);
+            }
         /*
          *This function returns the HTML content wrapped in an specific DOM element
          *
@@ -238,7 +286,7 @@ CAMADM = (function() {
                     new_domElement += new_el_content;
                     new_domElement += '</' + new_el_type + '>';
                 } else {
-                    new_domElement += ' />';
+                    new_domElement += ' >';
                     new_domElement += new_el_content;
                 }
                 $(domElement).append(new_domElement);
@@ -264,7 +312,7 @@ CAMADM = (function() {
          *       ['div', {'id' : 'element4', 'class':'multiDiv'}, 'Hello element 4', 1]
          *   ];
          *
-         *   appendMulti(''div#my_div', elements);
+         *   appendMulti('div#my_div', elements);
          *
          *   The result is:
          *
@@ -288,7 +336,7 @@ CAMADM = (function() {
             }
     /*
      ###################################################################################################
-     DATE TIME PICKER's Models
+        [MODELS] DATE TIME PICKER's Models
      ###################################################################################################
     */
         /*
@@ -322,7 +370,7 @@ CAMADM = (function() {
             }
     /*
      ###################################################################################################
-     FORMS's Models
+        [MODELS] FORMS's Models
      ###################################################################################################
     */
         /*
@@ -364,14 +412,14 @@ CAMADM = (function() {
          *   form: Is a string with the id or class ('form#some_form', 'form.some_form')
          *   of the for that will be rested
         **/
-        function resetForm(form) {
-            $(form).each ( function() {
-                this.reset();
-            });
-        }
+            function resetForm(form) {
+                $(form).each ( function() {
+                    this.reset();
+                });
+            }
     /*
      ###################################################################################################
-     AJAX's Models
+        [MODELS] AJAX's Models
      ###################################################################################################
     */
         /*
@@ -422,7 +470,7 @@ CAMADM = (function() {
             }
     /*
      ###################################################################################################
-     OBJECTS's Models
+        [MODELS] OBJECTS's Models
      ###################################################################################################
     */
         /*
@@ -491,15 +539,15 @@ CAMADM = (function() {
          *
          * sumArrayObjByKey(arrayObj, 'key3');
          * returns 8.66;
-         **/
-        function sumArrayObjByKey(arrayObj, numKey) {
-            return _.reduce(
-                    _.pluck(arrayObj, numKey),
-                    function(sum, num) {
-                        return sum + num;
-                    }
-            );
-        }
+        **/
+            function sumArrayObjByKey(arrayObj, numKey) {
+                return _.reduce(
+                        _.pluck(arrayObj, numKey),
+                        function(sum, num) {
+                            return sum + num;
+                        }
+                );
+            }
         /*
          *This function rename the keys in an array of objects, it only gets the specified keys
          *and ignore the rest of them.
@@ -548,6 +596,7 @@ CAMADM = (function() {
                 }
                 return newArrayObj;
             }
+
         /*
          *This function removes from an array of objects, the objects
          *whose key values are the same to the specified in withoutObj
@@ -614,7 +663,7 @@ CAMADM = (function() {
          *
          *PARAMS:
          *   arrayObj: Is an array of objects tha we will clean of objects with
-                       the specific values in one or more specific keys (mandatory).
+         *             the specific values in one or more specific keys (mandatory).
          *   withoutObj: Is an objet with the keys and values we don't want (mandatory).
          *
          *RETURN: Array of objects
@@ -653,7 +702,7 @@ CAMADM = (function() {
             }
     /*
      ###################################################################################################
-     NUMBER FORMATS's Models
+        [MODELS] NUMBER FORMATS's Models
      ###################################################################################################
     */
         /*
@@ -676,7 +725,7 @@ CAMADM = (function() {
             }
     /*
      ###################################################################################################
-     OTHER Models
+        [MODELS] OTHER Models
      ###################################################################################################
     */
         /*
@@ -698,7 +747,7 @@ CAMADM = (function() {
             }
     /*
      ###################################################################################################
-     Returning all Models
+        [MODELS] Returning all Models
      ###################################################################################################
     */
     return {
