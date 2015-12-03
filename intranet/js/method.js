@@ -17,6 +17,21 @@
     // Browser supports HTML5 multiple file?
     var multipleSupport = typeof $('<input/>')[0].multiple !== 'undefined',
         isIE = /msie/i.test( navigator.userAgent );
+    var classes, direction, duration, easing;
+    classes = {
+        base: 'slidePanel',
+        baseId: 'slide-Panel',
+        show: 'slidePanel-show',
+        loading: 'slidePanel-loading',
+        content: 'slidePanel-content',
+        contentid: 'content-slidePanel',
+        dragging: 'slidePanel-dragging',
+        willClose: 'slidePanel-will-close'
+    };
+
+    direction = 'right'; // top, bottom, left, right
+    duration = '500ms';
+    easing = 'ease';
 /* ------------------------------------------------------ *\
     [functions] DETEC MOBILE
 \* ------------------------------------------------------ */
@@ -108,7 +123,7 @@
 \* ------------------------------------------------------ */
     var favicon = {
         load_favicon: function() {
-            favicon.change("img/ico/camcaricon.ico");
+            favicon.change("../../img/ico/camcaricon.ico");
         },
         change: function(iconURL, optionalDocTitle) {
             if (arguments.length == 2) {
