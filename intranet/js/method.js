@@ -275,13 +275,13 @@
         },
         removeRecurrents_agreement : function() {
             $(domEl._agreement_page_content_name).remove();
-            //CAMIN.setHTML(donEl.div_recurrent_slidepanel, '');
+            //CAMIN.setHTML(domEl.div_recurrent_slidepanel, '');
         },
         removeRecurrents_directory : function() {
             $(domEl._directory_page_aside_name).remove();
             $(domEl._directory_page_main_name).remove();
             CAMIN.setHTML(domEl.div_recurrent_site_action, '');
-            CAMIN.setHTML(donEl.div_recurrent_slidepanel, '');
+            CAMIN.setHTML(domEl.div_recurrent_slidepanel, '');
         }
     }
 /* ------------------------------------------------------ *\

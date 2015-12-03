@@ -25,9 +25,11 @@
             animatedMethods.animated();
 
             CAM.loadTemplate(tempsNames.recurrent_home_dealer_search_gmap, domEl._start_dealer_search_map_name);
+            //customGoogleMapMethod.customGoogleMap();
+            //customGoogleMapMethod.loadCustomGoogleMap();
+            agentsMap.AgentsMap();
             agentsMap.loadAgentsMap();
-            agentsMap.loadAgentsMap();
-
+            
             $(window).resize(mobile_menu_methods.has_menu_toggle);
             backToTopMethod.init_window_scroll_top();
         },

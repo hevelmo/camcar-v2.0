@@ -552,102 +552,441 @@
 /* ------------------------------------------------------ *\
     [Methods] Google Maps -> agentsMap
 \* ------------------------------------------------------ */
+    var customGoogleMapMethod = {
+        customGoogleMap: function() {
+            var map_zoom,
+                is_internetExplorer11, marker_url,
+                main_color, saturation_value, brightness_value,
+                style,
+                map_options,
+                map,
+                markers,
+                zoomControlDiv,
+                zoomControl,
+                mapData, agn_name, agn_address, agn_latitud, agn_longitudl,
+                directorio, agn_folder_agencia, agn_img;
+            //set your google maps parameters
+            map_zoom = 14;
+            mapData = CAM.getInternalJSON(urlsApi.getMapa);
+            agn_latitud = mapData.campa[0].agn_latitud;
+            agn_longitud = mapData.campa[0].agn_longitud;
+            //google map custom marker icon - .png fallback for IE11
+            s_internetExplorer11 = navigator.userAgent.toLowerCase().indexOf('trident') > -1;
+            marker_url = ( is_internetExplorer11 ) ? '../img/custom-map/cd-icon-location.png' : '../img/custom-map/cd-icon-location.svg';
+            //define the basic color of your map, plus a value for saturation and brightness
+            main_color = '#2d313f';
+            saturation_value = -20;
+            brightness_value = 5;
+            //inizialize the map
+            style = [ 
+                { //set saturation for the labels on the map 
+                    elementType: "labels",
+                    stylers: [ { saturation: saturation_value } ]
+                },
+                { //poi stands for point of interest - don't show these lables on the map 
+                    featureType: "poi",
+                    elementType: "labels",
+                    stylers: [  { visibility: "off" } ]
+                },
+                { //don't show highways lables on the map 
+                    featureType: 'road.highway',
+                    elementType: 'labels',
+                    stylers: [ { visibility: "off" } ] 
+                },
+                {  //don't show local road lables on the map
+                    featureType: "road.local",  
+                    elementType: "labels.icon", 
+                    stylers: [ { visibility: "off" } ]
+                },
+                {  //don't show arterial road lables on the map
+                    featureType: "road.arterial", 
+                    elementType: "labels.icon", 
+                    stylers: [ { visibility: "off" } ] 
+                },
+                { //don't show road lables on the map
+                    featureType: "road",
+                    elementType: "geometry.stroke",
+                    stylers: [ { visibility: "off" } ]
+                },
+                { //style different elements on the map
+                    featureType: "transit", 
+                    elementType: "geometry.fill", 
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" }, 
+                        { lightness: brightness_value }, 
+                        { saturation: saturation_value }
+                    ]
+                }, 
+                {
+                    featureType: "poi",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" }, 
+                        { lightness: brightness_value }, 
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "poi.government",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" }, 
+                        { lightness: brightness_value }, 
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "poi.sport_complex",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" }, 
+                        { lightness: brightness_value }, 
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "poi.attraction",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" }, 
+                        { lightness: brightness_value }, 
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "poi.business",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" }, 
+                        { lightness: brightness_value }, 
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "transit",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" }, 
+                        { lightness: brightness_value }, 
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "transit.station",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" }, 
+                        { lightness: brightness_value }, 
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "landscape",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" }, 
+                        { lightness: brightness_value }, 
+                        { saturation: saturation_value }
+                    ]
+                    
+                },
+                {
+                    featureType: "road",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" }, 
+                        { lightness: brightness_value }, 
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "road.highway",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" }, 
+                        { lightness: brightness_value }, 
+                        { saturation: saturation_value }
+                    ]
+                }, 
+                {
+                    featureType: "water",
+                    elementType: "geometry",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" }, 
+                        { lightness: brightness_value }, 
+                        { saturation: saturation_value }
+                    ]
+                }
+            ];
+            //set google map options
+            map_options = {
+                center: new google.maps.LatLng(agn_latitud, agn_longitud),
+                zoom: map_zoom,
+                panControl: false,
+                zoomControl: false,
+                mapTypeControl: false,
+                streetViewControl: false,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                scrollwheel: false,
+                styles: style,
+            }
+            //we define here the style of the map
+            map = new google.maps.Map(document.getElementById('gmap'), map_options);
+            //add a custom marker to the map
+            markers = new Array();
+            bounds = new google.maps.LatLngBounds();
+            info_windows = new Array();
+
+            for (var i=0; i < mapData.campa.length; i++) {
+                agn_name = mapData.campa[i].agn_nombre;
+                agn_address = mapData.campa[i].agn_direccion;
+                directorio = mapData.campa[i].agn_folder;
+                agn_folder_agencia = 'sitio/agencias/logos';
+                agn_img = mapData.campa[i].agn_logo2;
+                agn_latitud = mapData.campa[i].agn_latitud;
+                agn_longitud = mapData.campa[i].agn_longitud;
+
+                markers[i] = new google.maps.Marker({
+                    position: new google.maps.LatLng(agn_latitud, agn_longitud),
+                    map: map,
+                    visible: true,
+                    icon: marker_url,
+                    title: agn_name,
+                    animation: google.maps.Animation.DROP
+                });
+
+                bounds.extend(markers[i].getPosition());
+
+                info_windows[i] = new google.maps.InfoWindow({
+                    content:
+                        '<div class="marker-info-win" style="text-align: center;">'+
+                        '<div class="marker-inner-win"><span class="info-content">'+
+                        '<img src="../img/'+agn_folder_agencia+'/'+agn_img+'" alt="'+agn_name+'" style="margin-botton: 10px;" width="100">'+
+                        '<h5 class="marker-heading" style="color:#000; padding: 0px; margin: 0px;">'+agn_name+'</h5>'+
+                        '<span>'+agn_address+'</span>' +
+                        '</span>'+
+                        '</div></div>'
+                });
+
+                attachInfoWindowToMarker(map, markers[i], info_windows[i]);
+            }
+            map.fitBounds(bounds);
+
+            // function to attach infowindow with marker 
+            function attachInfoWindowToMarker( map, marker, infoWindow ) {
+                //infoWindow.open(map, marker);
+                google.maps.event.addListener( marker, 'click', function() {
+                    infoWindow.open( map, marker );
+                });
+                //console.log(infoWindow);
+            }
+
+            //add custom buttons for the zoom-in/zoom-out on the map
+            function CustomZoomControl(controlDiv, map, marker, infoWindow) {
+                //grap the zoom elements from the DOM and insert them in the map 
+                var controlUIzoomIn, controlUIzoomOut;
+                controlUIzoomIn= document.getElementById('cd-zoom-in'),
+                controlUIzoomOut= document.getElementById('cd-zoom-out');
+                controlDiv.appendChild(controlUIzoomIn);
+                controlDiv.appendChild(controlUIzoomOut);
+
+                // Setup the click event listeners and zoom-in or out according to the clicked element
+                google.maps.event.addDomListener(controlUIzoomIn, 'click', function() {
+                    map.setZoom(map.getZoom()+1)
+                });
+                google.maps.event.addDomListener(controlUIzoomOut, 'click', function() {
+                    map.setZoom(map.getZoom()-1)
+                });
+            }
+            zoomControlDiv = document.createElement('div');
+            zoomControl = new CustomZoomControl(zoomControlDiv, map);
+
+            //insert the zoom div on the top left of the map
+            map.controls[google.maps.ControlPosition.LEFT_TOP].push(zoomControlDiv);
+        },
+        loadCustomGoogleMap : function () {
+            google.maps.event.addDomListener(window, 'load', customGoogleMapMethod.customGoogleMap());
+        }
+    }
     var agentsMap = {
         AgentsMap : function () {
             var styles, mapData, agn_name, agn_address, agn_latitud, agn_longitudl,
                 directorio, agn_folder_agencia, agn_img, location_center, mapOptions,
-                map, markers, bounds, info_windows;
+                map, markers, bounds, info_windows, main_color, saturation_value, brightness_value;
+
+            main_color = '#2d313f';
+            saturation_value = -20;
+            brightness_value = 5;
 
             mapData = CAM.getInternalJSON(urlsApi.getMapa);
             agn_latitud = mapData.campa[0].agn_latitud;
             agn_longitud = mapData.campa[0].agn_longitud;
 
-            /* Map Center Location - From Theme Options */
+            // Map Center Location - From Theme Options 
             //location_center = new google.maps.LatLng(Agents[0].lat,Agents[0].lng);
             location_center = new google.maps.LatLng(agn_latitud,agn_longitud);
 
             // Create an array of styles.
 
-            styles = [
+            style = [ 
+                { //set saturation for the labels on the map 
+                    elementType: "labels",
+                    stylers: [ { saturation: saturation_value } ]
+                },
+                { //poi stands for point of interest - don't show these lables on the map 
+                    featureType: "poi",
+                    elementType: "labels",
+                    stylers: [  { visibility: "off" } ]
+                },
+                { //don't show highways lables on the map 
+                    featureType: 'road.highway',
+                    elementType: 'labels',
+                    stylers: [ { visibility: "off" } ] 
+                },
+                {  //don't show local road lables on the map
+                    featureType: "road.local",  
+                    elementType: "labels.icon", 
+                    stylers: [ { visibility: "off" } ]
+                },
+                {  //don't show arterial road lables on the map
+                    featureType: "road.arterial", 
+                    elementType: "labels.icon", 
+                    stylers: [ { visibility: "off" } ] 
+                },
+                { //don't show road lables on the map
+                    featureType: "road",
+                    elementType: "geometry.stroke",
+                    stylers: [ { visibility: "off" } ]
+                },
+                { //style different elements on the map
+                    featureType: "transit", 
+                    elementType: "geometry.fill", 
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" }, 
+                        { lightness: brightness_value }, 
+                        { saturation: saturation_value }
+                    ]
+                }, 
                 {
-                    "featureType": "landscape",
-                    "elementType": "geometry.fill",
-                    "stylers": [{ "color": "#ffffff" }]
+                    featureType: "poi",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" }, 
+                        { lightness: brightness_value }, 
+                        { saturation: saturation_value }
+                    ]
                 },
                 {
-                    "featureType": "landscape.natural.terrain",
-                    "elementType": "geometry.fill",
-                    "stylers": [{ "color": "#000000" }]
+                    featureType: "poi.government",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" }, 
+                        { lightness: brightness_value }, 
+                        { saturation: saturation_value }
+                    ]
                 },
                 {
-                    "featureType": "poi",
-                    "elementType": "geometry.fill",
-                    "stylers": [{ "color": "#eeeeee" }]
+                    featureType: "poi.sport_complex",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" }, 
+                        { lightness: brightness_value }, 
+                        { saturation: saturation_value }
+                    ]
                 },
                 {
-                    "featureType": "administrative",
-                    "elementType": "labels.text.fill",
-                    "stylers": [{ "color": "#2ec3f3" }]
-                },
-                {
-                    "featureType": "road.arterial",
-                    "elementType": "geometry.fill",
-                    "stylers": [{ "color": "#eeeeee" }]
-                },
-                {
-                    "featureType": "road.arterial",
-                    "elementType": "geometry.stroke",
-                    "stylers": [{ "color": "#cccccc" }]
-                },
-                {
-                    "featureType": "road",
-                    "elementType": "labels.text.fill",
-                    "stylers": [{ "color": "#666666" }]
-                },
-                {
-                    "featureType": "road",
-                    "elementType": "labels.text.stroke",
-                    "stylers": [{ "color": "#ffffff" }]
-                },
-                {
-                    "featureType": "road.highway",
-                    "elementType": "geometry.fill",
-                    "stylers": [{ "color": "#bbbbbb" }]
-                },
-                {
-                    "featureType": "road.highway",
-                    "elementType": "geometry.stroke",
-                    "stylers": [{ "color": "#dddddd" }]
-                },
-                {
-                    "featureType": "road.local",
-                    "elementType": "geometry.fill",
-                    "stylers": [{ "color": "#e5e5e5" }]
-                },
-                {
-                    "featureType": "water",
-                    "elementType": "geometry.fill",
-                    "stylers": [{ "visibility": "off" }]
+                    featureType: "poi.attraction",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" }, 
+                        { lightness: brightness_value }, 
+                        { saturation: saturation_value }
+                    ]
                 },
                 {
                     featureType: "poi.business",
-                    elementType: "labels.icon",
+                    elementType: "geometry.fill",
                     stylers: [
-                        { visibility: "off" }
+                        { hue: main_color },
+                        { visibility: "on" }, 
+                        { lightness: brightness_value }, 
+                        { saturation: saturation_value }
                     ]
                 },
                 {
-                    featureType: "poi.school",
-                    elementType: "labels.icon",
+                    featureType: "transit",
+                    elementType: "geometry.fill",
                     stylers: [
-                        { visibility: "off" }
+                        { hue: main_color },
+                        { visibility: "on" }, 
+                        { lightness: brightness_value }, 
+                        { saturation: saturation_value }
                     ]
                 },
                 {
-                    featureType: "poi.park",
-                    elementType: "labels.icon",
+                    featureType: "transit.station",
+                    elementType: "geometry.fill",
                     stylers: [
-                        { visibility: "off" }
+                        { hue: main_color },
+                        { visibility: "on" }, 
+                        { lightness: brightness_value }, 
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "landscape",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" }, 
+                        { lightness: brightness_value }, 
+                        { saturation: saturation_value }
+                    ]
+                    
+                },
+                {
+                    featureType: "road",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" }, 
+                        { lightness: brightness_value }, 
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "road.highway",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" }, 
+                        { lightness: brightness_value }, 
+                        { saturation: saturation_value }
+                    ]
+                }, 
+                {
+                    featureType: "water",
+                    elementType: "geometry",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" }, 
+                        { lightness: brightness_value }, 
+                        { saturation: saturation_value }
                     ]
                 }
             ];
@@ -662,7 +1001,8 @@
                 scrollwheel: false,
                 mapTypeControlOptions: {
                     mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
-                }
+                },
+                styles: style,
             }
 
             map = new google.maps.Map(document.getElementById("gmap"), mapOptions);
@@ -674,7 +1014,7 @@
             bounds = new google.maps.LatLngBounds();
             info_windows = new Array();
 
-            /* Properties Array */
+            // Properties Array 
             for (var i=0; i < mapData.campa.length; i++) {
                 agn_name = mapData.campa[i].agn_nombre;
                 agn_address = mapData.campa[i].agn_direccion;
@@ -710,8 +1050,7 @@
             //console.log(mapData);
             map.fitBounds(bounds);
 
-
-            /* function to attach infowindow with marker */
+            //function to attach infowindow with marker 
             function attachInfoWindowToMarker( map, marker, infoWindow ) {
                 //infoWindow.open(map, marker);
                 google.maps.event.addListener( marker, 'click', function() {

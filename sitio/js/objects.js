@@ -43,7 +43,7 @@ domEl = {
 	"validate_required":".validate-required"
 };
 tempsNames = {
-	"recurrent_agencies_news_start_utility_bar_breadcrumb":"tmp_agencies_news_start_utility_bar_breadcrumb",
+	"recurrent_agencies_news_start_utility_bar_breadcrumb":"tmp_section_agencies_news_start_utility_bar_breadcrumb",
 	"recurrent_home_dealer_search_gmap":"tmp_section_home_dealer_search_gmap",
 	"recurrent_home_full_width_features":"tmp_section_home_full_width_features",
 	"recurrent_home_group_counter":"tmp_section_home_group_counter",

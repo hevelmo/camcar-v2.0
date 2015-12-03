@@ -15,6 +15,6 @@ function tempsNames() {
         // DEALER SEARCH GMAP
         'recurrent_home_dealer_search_gmap' => 'tmp_section_home_dealer_search_gmap',
         // UTILITY BAR BREADCRUMB
-        'recurrent_agencies_news_start_utility_bar_breadcrumb' => 'tmp_agencies_news_start_utility_bar_breadcrumb',
+        'recurrent_agencies_news_start_utility_bar_breadcrumb' => 'tmp_section_agencies_news_start_utility_bar_breadcrumb',
     );
 }
