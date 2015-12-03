@@ -31,6 +31,11 @@ $(document).ready(function() {
 
     $(domEl.recurrent_body).on('click', domEl.dropdown_animate_nav_header, animateNavMethod.animateNav);
 
+    // SLIDEPANEL
+    //$(domEl.div_recurrent).on('click', domEl._widget_toggle_slide_panel, handleSlidePanelMethods.toggleSlidePanel);
+    // CLOSE SLIDEPANEL
+    //$(domEl.body_recurrent).on('click', domEl._close_slide_panel, handleSlidePanelMethods.clickCloseSlidePanel);
+
     // SECTIONS
     $(domEl.recurrent_body).on('click', domEl.go_section_home, goSectionMethods.goSection_home);
     $(domEl.recurrent_body).on('click', domEl.go_section_agreement, goSectionMethods.goSection_agreement);

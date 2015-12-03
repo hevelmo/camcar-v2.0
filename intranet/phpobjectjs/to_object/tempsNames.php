@@ -10,8 +10,10 @@ function tempsNames() {
     	'home_window_birthday' => 'tmp_home_window_birthday',
     	'home_window_perfil' => 'tmp_home_window_perfil',
     	'recurrent_agreement_masonry_items' => 'tmp_agreement_masonry_items',
+    	'recurrent_agreement_slide_panel' => 'tmp_agreement_slide_panel',
     	'recurrent_directory_contacts_sidebar' => 'tmp_directory_contacts_sidebar',
     	'recurrent_directory_contacts_content_header' => 'tmp_directory_contacts_content_header',
     	'recurrent_directory_contacts_site_action' => 'tmp_directory_contacts_site_action',
+    	'recurrent_directory_contacts_slide_panel' => 'tmp_directory_contacts_slide_panel',
     );
 }

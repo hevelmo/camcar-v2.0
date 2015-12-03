@@ -215,7 +215,7 @@
             CAMIN.appendMulti(domEl.recurrent_head, stylesDirectoryAttributes);
             pluginsDirectoryAttributes = [
                 ['script', {'id' : 'content-add-plugin-welcome-directory-plugins', 'class':'plugin-link-welcome-directory', 'src': '../../lib/assets/plugins/filament-tablesaw/tablesaw.js'}, '', 1],
-                ['script', {'id' : 'content-add-plugin-welcome-directory-plugins', 'class':'plugin-link-welcome-directory', 'src': '../../lib/assets/plugins/slidepanel/jquery-slidePanel.js'}, '', 1],
+                //['script', {'id' : 'content-add-plugin-welcome-directory-plugins', 'class':'plugin-link-welcome-directory', 'src': '../../lib/assets/plugins/slidepanel/jquery-slidePanel.js'}, '', 1],
                 ['script', {'id' : 'content-add-plugin-welcome-directory-plugins', 'class':'plugin-link-welcome-directory', 'src': '../../lib/assets/plugins/aspaginator/jquery.asPaginator.js'}, '', 1],
                 ['script', {'id' : 'content-add-plugin-welcome-directory-plugins', 'class':'plugin-link-welcome-directory', 'src': '../../lib/assets/plugins/jquery-placeholder/jquery.placeholder.js'}, '', 1]
             ];
@@ -275,11 +275,13 @@
         },
         removeRecurrents_agreement : function() {
             $(domEl._agreement_page_content_name).remove();
+            //CAMIN.setHTML(donEl.div_recurrent_slidepanel, '');
         },
         removeRecurrents_directory : function() {
             $(domEl._directory_page_aside_name).remove();
             $(domEl._directory_page_main_name).remove();
-            $(domEl.div_recurrent_site_action).remove();
+            CAMIN.setHTML(domEl.div_recurrent_site_action, '');
+            CAMIN.setHTML(donEl.div_recurrent_slidepanel, '');
         }
     }
 /* ------------------------------------------------------ *\
@@ -431,4 +433,106 @@
             $('#site-section-agreement').removeClass('active');
             $('#site-section-directory').removeClass('active');
         }
+    }
+/* ------------------------------------------------------ *\
+    [methods] handle_slide_panel_methods
+\* ------------------------------------------------------ */
+    var handleSlidePanelMethods = {
+        appendSlidePanel: function() {
+            $('html').addClass(classes.base + '-html');
+            slidePanelAttributes = [
+                ['div',
+                    {
+                        'id': classes.baseId,
+                        'class': classes.base + ' ' + classes.base + '-' + direction  + ' ' + classes.show + ' animation-slide-' + direction,
+                        'data-animate': 'slide-' + direction
+                    }, '', 1]
+            ];
+            CAMIN.appendMulti(donEl.div_recurrent_slidepanel, slidePanelAttributes);
+            slidePanelScrollableAttributes = [
+                ['div', {'id': classes.contentid, 'class': classes.content}, '', 1]
+                //['div', {}, '', 1],
+                //['div', {'class': classes.base + '-handler'}, '', 1]
+            ];
+            $('#' + classes.baseId).attr('style', 'transform: translate3d(0%, 0px, 0px); transition: ' + duration + ' ' + easing + ';');
+            CAMIN.appendMulti('#' + classes.baseId, slidePanelScrollableAttributes);
+        },
+        handleSlidePanel: function() {
+            if(typeof $.slidePanel === 'undefined') return;
+
+            var defaults = $.components.getDefaults("slidePanel");
+            var options = $.extend({}, defaults, {
+                template: function(options) {
+                    return '<div class="' + options.classes.base + ' ' + options.classes.base + '-' + options.direction + '">' +
+                            '<div class="' + options.classes.base + '-scrollable"><div>' +
+                            '<div class="' + options.classes.content + '"></div>' +
+                            '</div></div>' +
+                            '<div class="' + options.classes.base + '-handler"></div>' +
+                            '</div>';
+                },
+                afterLoad: function() {
+                    this.$panel.find('.' + this.options.classes.base + '-scrollable').asScrollable({
+                        namespace: 'scrollable',
+                        contentSelector: '>',
+                        containerSelector: '>'
+                    });
+                }
+            });
+        },
+        toggleSlidePanel: function(event) {
+            var element, carId, segId, feature, data, template, wrapper, titleHtml;
+            CAMIN.setHTML(donEl.div_recurrent_slidepanel, '');
+            handleSlidePanelMethods.appendSlidePanel();
+            element = $(this);
+            carId = +element.data('car-id');
+            segId = +element.data('seg-id');
+            feature = element.data('feature');
+            switch(feature) {
+                case 'benefits':
+                    template = tempsNames.slide_panel_benefits;
+                    wrapper = domEl.div_slide_panel;
+                    data = CAMIN.getInternalJSON(urlsApi.get_ben_id + carId + '/' + segId);
+                    break;
+                case 'features':
+                    template = tempsNames.slide_panel_features;
+                    wrapper = domEl.div_slide_panel;
+                    data = CAMIN.getInternalJSON(urlsApi.get_car_id + carId + '/' + segId);
+            }
+            CAMIN.loadTemplate(template, wrapper, data);
+            titleHtml = CAMIN.getHTML(domEl._slide_panel_title);
+            titleHtml = $.trim(titleHtml);
+            titleHtml = titleHtml.toUpperCase();
+            CAMIN.setHTML(domEl._slide_panel_title, titleHtml);
+        },
+        clickCloseSlidePanel: function(event) {
+            GLOBALPanelCloseBody = true;
+            GLOBALPanelCloseRecurrent = false;
+            GLOBALPanelCloseWidget = false;
+            handleSlidePanelMethods.closeSPanel();
+        },
+        closeSPanel: function() {
+            $('#' + classes.baseId).attr('style',"right: -100% !important; transition: 500ms ease;");
+            $('html').addClass(classes.base + '-html');
+            setTimeout(function () {
+                setTimeout(function () {
+                    CAMIN.setHTML(donEl.div_recurrent_slidepanel, '');
+                }, 100);
+            }, 750);
+        },
+        /*
+        closeOutSpanelManager: function() {
+        },
+        clickOutSPanelBody: function(event) {
+            GLOBALPanelCloseBody = true;
+            handleSlidePanelMethods.closeOutSpanelManager();
+        },
+        clickOutSPanelRecurrent: function(event) {
+            GLOBALPanelCloseRecurrent = true;
+            handleSlidePanelMethods.closeOutSpanelManager();
+        },
+        clickOutSPanelWidget: function(event) {
+            GLOBALPanelCloseWidget = true;
+            handleSlidePanelMethods.closeOutSpanelManager();
+        }
+        */
     }

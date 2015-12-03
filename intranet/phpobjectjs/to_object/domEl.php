@@ -42,6 +42,8 @@ function domEl() {
     	'_directory_page_main' => $directory_page_main,
     	'_directory_page_main_name' => '#' . $directory_page_main,
     	'div_recurrent_site_action' => '#content-site-action',
+    	// SLIDEPANEL
+    	'div_recurrent_slidepanel' => '#content-slide-panel',
     	// EVENTS SECTION
     	'go_section_home' => '#go-section-home',
 		'go_section_agreement' => '#go-section-agreement',
