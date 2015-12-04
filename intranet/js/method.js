@@ -28,7 +28,6 @@
         dragging: 'slidePanel-dragging',
         willClose: 'slidePanel-will-close'
     };
-
     direction = 'right'; // top, bottom, left, right
     duration = '500ms';
     easing = 'ease';
