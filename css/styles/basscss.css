@@ -371,6 +371,15 @@ button::before,
        -o-transition: all .25s ease;
           transition: all .25s ease;
 }
+.bg-active-red-camcar {
+  background-color: #b21117 !important;
+  color: #fcfbfb !important;
+  -webkit-transition: all .25s ease;
+     -moz-transition: all .25s ease;
+      -ms-transition: all .25s ease;
+       -o-transition: all .25s ease;
+          transition: all .25s ease;
+}
 .bg-red-camcar:hover {
   background-color: #b21117 !important;
   color: #fcfbfb !important;
