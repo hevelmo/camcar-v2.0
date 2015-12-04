@@ -363,6 +363,17 @@ button::before,
           transition: all .25s ease;
 }
 .bg-red-camcar {
+  background-color: #b21117 !important;
+  color: #fcfbfb !important;
+  -webkit-transition: all .25s ease;
+     -moz-transition: all .25s ease;
+      -ms-transition: all .25s ease;
+       -o-transition: all .25s ease;
+          transition: all .25s ease;
+}
+.bg-red-camcar.disabled,
+.bg-red-camcar[disabled],
+.bg-red-camcar:disabled {
   background-color: rgba(178, 17, 23, 0.5) !important;
   color: rgba(252, 251, 251, 0.5) !important;
   -webkit-transition: all .25s ease;

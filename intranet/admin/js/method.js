@@ -174,16 +174,16 @@
     var addStylesMethod = {
         addStylesNewPreowned : function() {
             stylesPreownedAttributes = [
-                ['link', {'id' : 'content-add-style-welcome-plugins', 'rel': 'stylesheet', 'class':'style-link-welcome', 'href': '../../css/styles/assets/plugins/bootstrap-select/bootstrap-select.css'}, '', 0],
-                ['link', {'id' : 'content-add-style-welcome-plugins', 'rel': 'stylesheet', 'class':'style-link-welcome', 'href': '../../css/styles/assets/pages/forms/advanced.css'}, '', 0]
+                ['link', {'id' : 'content-add-style-adm-plugins', 'rel': 'stylesheet', 'class':'style-link-adm', 'href': '../../css/styles/assets/plugins/bootstrap-select/bootstrap-select.css'}, '', 0],
+                ['link', {'id' : 'content-add-style-adm-plugins', 'rel': 'stylesheet', 'class':'style-link-adm', 'href': '../../css/styles/assets/pages/forms/advanced.css'}, '', 0]
             ];
             CAMADM.appendMulti(domEl.recurrent_head, stylesPreownedAttributes);
             pluginsNewPreownedAttributes = [
-                ['script', {'id' : 'content-add-plugin-welcome-plugins', 'class':'plugin-link-welcome', 'src': '../../lib/assets/plugins/bootstrap-select/bootstrap-select.js'}, '', 0]
+                ['script', {'id' : 'content-add-plugin-adm-plugins', 'class':'plugin-link-adm', 'src': '../../lib/assets/plugins/bootstrap-select/bootstrap-select.js'}, '', 0]
             ];
             CAMADM.appendMulti('div#plugins-for-this-section', pluginsNewPreownedAttributes);
             scriptsPreownedAttributes = [
-                ['script', {'id' : 'content-add-plugin-welcome-scripts', 'class':'script-link-welcome', 'src': '../../lib/assets/run/components/bootstrap-select.js'}, '', 0]
+                ['script', {'id' : 'content-add-plugin-adm-scripts', 'class':'script-link-adm', 'src': '../../lib/assets/run/components/bootstrap-select.js'}, '', 0]
             ];
             CAMADM.appendMulti('div#scripts-for-this-section', scriptsPreownedAttributes);
         }
@@ -209,22 +209,42 @@
         }
     }
 /* ------------------------------------------------------ *\
-    [Metodos] viewSectionWelcomeNewPreownedMethods
+    [Metodos] viewSectionAdmHomeMethods
 \* ------------------------------------------------------ */
-    var viewSectionWelcomeNewPreownedMethods = {
-        viewSectionWelcomeNewPreowned: function() {
-            viewSectionWelcomeNewPreownedMethods.recurrent_adm_new_preowned();
-            viewSectionWelcomeNewPreownedMethods.loadTemplatesNewPreowned();
+    var viewSectionAdmHomedMethods = {
+        viewSectionAdmHomed: function() {
+            viewSectionAdmHomedMethods.recurrent_adm_new_preowned();
+            viewSectionAdmHomedMethods.loadTemplatesNewPreowned();
+        },
+        recurrent_adm_new_preowned: function() {
+            homePageHeaderAttributes = [
+                ['div', {'id' : domEl._section_mew_preowned_page_header, 'class':'page-header page-header-bordered page-header-tabs'}, '', 1],
+                ['div', {'id' : domEl._section_mew_preowned_page_content, 'class':'page-content container-fluid', 'style':'padding-top: 0px;'}, '', 1]
+            ];
+            CAMADM.appendMulti(domEl.div_recurrent, homePageHeaderAttributes);
+        },
+        loadTemplatesHome: function() {
+            CAMADM.loadTemplate(tempsNames.recurrent_adm_section_home_page_header, domEl._section_home_page_header_name);
+            CAMADM.loadTemplate(tempsNames.recurrent_adm_section_home_page_content, domEl._section_home_page_content_name);
+        }
+    }
+/* ------------------------------------------------------ *\
+    [Metodos] viewSectionAdmNewPreownedMethods
+\* ------------------------------------------------------ */
+    var viewSectionAdmNewPreownedMethods = {
+        viewSectionAdmNewPreowned: function() {
+            viewSectionAdmNewPreownedMethods.recurrent_adm_new_preowned();
+            viewSectionAdmNewPreownedMethods.loadTemplatesNewPreowned();
         },
         recurrent_adm_new_preowned: function() {
             newPreownedPageHeaderAttributes = [
-                ['div', {'id' : domEl._section_mew_preowned_page_header, 'class':'page-header page-header-bordered page-header-tabs'}, '', 1],
-                ['div', {'id' : domEl._section_mew_preowned_page_content, 'class':'page-content container-fluid', 'style':'padding-top: 0px;'}, '', 1]
+                ['div', {'id' : domEl._section_new_preowned_page_header, 'class':'page-header page-header-bordered page-header-tabs'}, '', 1],
+                ['div', {'id' : domEl._section_new_preowned_page_content, 'class':'page-content container-fluid', 'style':'padding-top: 0px;'}, '', 1]
             ];
             CAMADM.appendMulti(domEl.div_recurrent, newPreownedPageHeaderAttributes);
         },
         loadTemplatesNewPreowned: function() {
-            CAMADM.loadTemplate(tempsNames.recurrent_adm_section_new_preowned_page_header, domEl._section_mew_preowned_page_header_name);
-            CAMADM.loadTemplate(tempsNames.recurrent_adm_section_new_preowned_page_content, domEl._section_mew_preowned_page_content_name);
+            CAMADM.loadTemplate(tempsNames.recurrent_adm_section_new_preowned_page_header, domEl._section_new_preowned_page_header_name);
+            CAMADM.loadTemplate(tempsNames.recurrent_adm_section_new_preowned_page_content, domEl._section_new_preowned_page_content_name);
         }
     }

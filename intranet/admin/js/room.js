@@ -5,7 +5,7 @@
         setup: function(bindings) {
         	// Add favicon
             window.onload = favicon.load_favicon();
-            section = "intranet-welcome";
+            section = "intranet-adm-home";
         	Breakpoints();
         	Site.run();
         	addStylesMethod.addStylesNewPreowned();
@@ -13,7 +13,7 @@
         load: function(bindings) {
         	loadSiteNavigationMethods.loadSiteNavigation();
 
-        	viewSectionWelcomeNewPreownedMethods.viewSectionWelcomeNewPreowned();
+        	viewSectionAdmNewPreownedMethods.viewSectionAdmNewPreowned();
         	$('.selectpicker').selectpicker();
         },
         unload: function(bindings) {

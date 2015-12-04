@@ -169,6 +169,9 @@ textarea.camcar-remark-textarea:focus,
     -webkit-box-shadow: none;
     box-shadow: none;
 }
+.camcar-remark-select button.dropdown-toggle:active::-webkit-input-placeholder,
+.camcar-remark-select button:focus::-webkit-input-placeholder,
+textarea.camcar-remark-textarea:focus::-webkit-input-placeholder,
 input.camcar-remark-input:focus::-webkit-input-placeholder {
 	color: rgba(178, 17, 23, 0.5);
 }
@@ -179,10 +182,31 @@ input.camcar-remark-input:focus::-webkit-input-placeholder {
 	border-radius: 0px;
 	margin-top: -1px;
 	border-top-color: rgba(178, 17, 23, 0.5);
+	padding: 0;
 }
 .form-material .form-control, .form-material .form-control:focus, .form-material .form-control.focus {
     background-image: none;
 }
+.btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default {
+	background-color: rgba(178, 17, 23, 0.1);
+	border-color: rgba(178, 17, 23, 0.9);
+}
+.btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default {
+	color: #030303;
+    background-color: rgba(178, 17, 23, 0.1);
+    border-color: rgba(178, 17, 23, 0.9);
+    font-weight: bold;
+}
+.dropdown-menu > li {
+	padding: 0;
+	margin: 0;
+}
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+	background: rgba(178, 17, 23, 0.1);
+	border-radius: 0;
+	font-weight: bold;
+}
+
 .button-to-ico {
 	font-size: 20px !important;
     line-height: 0px !important;
