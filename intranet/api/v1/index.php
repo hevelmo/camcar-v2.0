@@ -68,6 +68,10 @@ $app->get('/webservice/get/empleados/telefonos/:telefono', 'mw1', 'getWSEmpleado
 
 $app->post('/webservice/set/empleados', 'mw1', 'setWSEmpleados');
 
+// BG HEADER
+$app->get('/get/header/agencias/:agn_id', 'mw1', 'getHeaderAgencia');
+$app->get('/get/header/agencias', 'mw1', 'getHeaderAgencias');
+
 // POST route
 $app->post(
     '/post',
@@ -141,6 +145,38 @@ $app->run();
     General Web Services Methods
 ----------------------------------------------------------------------------
 */
+    // GET HEADER AGENCIES
+    function getAgenciasJSON($sql, $agnId) {
+        $result = getAgenciasArray($sql, $agnId);
+        echo changeArrayIntoJSON('camadpa', $result);
+    }
+    function getHeaderAgenciaJSON($sql, $agn_id) {
+        $structure = array(
+            'agn_id' => 'AGN_Id',
+            'agn_name' => 'AGN_Nombre',
+            'agn_style' => 'AGN_Url',
+            'agn_header' => 'AGN_Header'
+        );
+        $params = array();
+        ($agn_id !== '') ? $params['agn_id'] = $agn_id : $params = $params;
+        $result = restructureQuery($structure, getConnection(), $sql, $params, 0, PDO::FETCH_ASSOC);
+
+        echo changeArrayIntoJSON('camadpa', $result);
+    }
+    function getHeaderAgencias() {
+        $sql = "SELECT *
+                FROM camAgencias
+                WHERE AGN_Tipo = 0";
+        getHeaderAgenciaJSON($sql, '');
+    }
+    function getHeaderAgencia($agn_id) {
+        $sql = "SELECT *
+                FROM camAgencias
+                WHERE AGN_Tipo = 0
+                AND AGN_Id = :agn_id";
+        getHeaderAgenciaJSON($sql, $agn_id);
+    }
+    // GET EMPLOYEES
     function getWSEmpleadosArray() {
         $today = new DateTime(date('o-m-d'));
         //Get contents from webservice provided by camcar

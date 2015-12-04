@@ -319,6 +319,55 @@
         }
     }
 /* ------------------------------------------------------ *\
+    [Methods] goSectionMethods
+\* ------------------------------------------------------ */
+    var bannerMethods = {
+        bannerLoad : function() {
+            var agn_header, agn_name, url, pic_agencie_style, pic_headers;
+            var banner, newImg, currentSRC, newSRC, elemnts, folder;
+            //console.log('entra');
+            //get_name_agencie_active
+            //get-user-type-active
+
+            //usr_agn_id = CAMIN.getValue(domEl.adm_input_session_usr_agn_id);
+            //agn_name = CAMIN.getValue(domEl.input_session_usr_agn_name);
+            agn_header = CAMIN.getValue(domEl.input_session_usr_agn_header);
+
+            //bannerData = CAMIN.getInternalJSON(urlsApi.adm_get_agn_header_id + usr_agn_id);
+
+            if (agn_header === '') {
+                bannerData = CAMIN.getInternalJSON(urlsApi.adm_get_agn_header);
+                pic_headers = CAMIN.filterArrayObjByKey(bannerData.camadpa, 'agn_header', '', 0);
+                //console.log(pic_headers);
+
+                currentSRC = $(domEl.adm_img_banner).attr('style');
+
+                currentSRC = currentSRC;
+                currentImg = '';
+                //console.log(currentSRC);
+                if(currentSRC !== '') {
+                    //elements = currentSRC.split('/');
+                    elements = currentSRC;
+                    currentImg = elements
+                }
+                banner = bannerData.camadpa[0].agn_header;
+                newImg = banner;
+
+                do {
+                    newImg = pic_headers[Math.floor(Math.random() * pic_headers.length)];
+                } while(newImg === currentImg && agn_new_name === currentImg);
+            } else {
+                newImg = agn_header;
+            }
+
+            folder = '../../img/agencias/header/seminuevos';
+            //folder = '../../resources/public/img/agencies/headers/seminuevos';
+            newSRC =  folder + '/' + newImg;
+            //newSRC =  newImg;
+            $(domEl._home_page_header_name).attr('style', "background-image: url("+newSRC+"); top: 0px; margin-left: 0px; margin-right: 0px;");
+        }
+    }
+/* ------------------------------------------------------ *\
     [Metodos] viewSectionWelcomeHomeMethods
 \* ------------------------------------------------------ */
     var viewSectionWelcomeHomeMethods = {
@@ -326,6 +375,7 @@
             viewSectionWelcomeHomeMethods.recurrent_welcome_home();
             viewSectionWelcomeHomeMethods.loadTemplatesWelcomeHome();
             equalHeightsMethods.equalHeightsLoad();
+            bannerMethods.bannerLoad();
         },
         recurrent_welcome_home: function() {
             CAMIN.appendMulti(domEl.div_recurrent, [
@@ -338,7 +388,8 @@
             CAMIN.appendMulti(domEl._home_widget_first_row_name, [
                 ['div', {'id' : domEl._home_panel_perfil_name, 'class':'col-xlg-3 col-lg-4 col-md-12'}, '', true],
                 ['div', {'id' : domEl._home_today_birthday_name, 'class':'col-lg-4 col-md-6 equal-height'}, '', true],
-                ['div', {'id' : domEl._home_today_aniversary_name, 'class':'col-lg-4 col-md-6 equal-height'}, '', true]
+                ['div', {'id' : domEl._home_today_agreements_name, 'class':'col-lg-4 col-md-6 equal-height'}, '', true]
+                //['div', {'id' : domEl._home_today_aniversary_name, 'class':'col-lg-4 col-md-6 equal-height'}, '', true]
             ]);
             $(domEl.recurrent_body).addClass('dashboard');
         },
@@ -347,7 +398,8 @@
             viewSectionWelcomeHomeMethods.globalUserPromise();
             viewSectionWelcomeHomeMethods.loadTemplatesWindow_panelPerfil();
             viewSectionWelcomeHomeMethods.loadTemplatesWindow_todayBirthday();
-            viewSectionWelcomeHomeMethods.loadTemplatesWindow_todayAniversary();
+            viewSectionWelcomeHomeMethods.loadTemplatesWindow_agreements();
+            //viewSectionWelcomeHomeMethods.loadTemplatesWindow_todayAniversary();
         },
         globalUserPromise: function() {
             if(+GLOBALUsrId === 1 || +GLOBALUsrId === 2 || +GLOBALUsrId === 3) {
@@ -372,6 +424,9 @@
             //Get today's aniversaries
             dataAniversary = CAMIN.getInternalJSON(urlsApi.wse_get_epy_fin + today);
             CAMIN.loadTemplate(tempsNames.home_window_aniversary, domEl._home_today_aniversary, dataAniversary);
+        },
+        loadTemplatesWindow_agreements: function() {
+            CAMIN.loadTemplate(tempsNames.home_window_agreements, domEl._home_today_agreements);
         }
     }
 /* ------------------------------------------------------ *\

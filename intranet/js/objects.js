@@ -13,6 +13,8 @@ domEl = {
 	"_home_page_header_name":"#content-welcome-page-header",
 	"_home_panel_perfil":"#panel_perfil",
 	"_home_panel_perfil_name":"panel_perfil",
+	"_home_today_agreements":"#today_agreements",
+	"_home_today_agreements_name":"today_agreements",
 	"_home_today_aniversary":"#today_aniversary",
 	"_home_today_aniversary_name":"today_aniversary",
 	"_home_today_birthday":"#today_birthday",
@@ -43,6 +45,7 @@ domEl = {
 	"site_navbar":"#content-site-navbar-interactive"
 };
 tempsNames = {
+	"home_window_agreements":"tmp_home_window_agreements",
 	"home_window_aniversary":"tmp_home_window_aniversary",
 	"home_window_birthday":"tmp_home_window_birthday",
 	"home_window_perfil":"tmp_home_window_perfil",
@@ -58,6 +61,8 @@ tempsNames = {
 	"recurrent_welcome_page_header":"tmp_welcome_page_header"
 };
 urlsApi = {
+	"adm_get_agn_header":"../api/v1/get/header/agencias",
+	"adm_get_agn_header_id":"../api/v1/get/header/agencias/",
 	"wse_get_epy":"../api/v1/webservice/get/empleados",
 	"wse_get_epy_age":"../api/v1/webservice/get/empleados/edades/",
 	"wse_get_epy_agn":"../api/v1/webservice/get/empleados/agencias/",

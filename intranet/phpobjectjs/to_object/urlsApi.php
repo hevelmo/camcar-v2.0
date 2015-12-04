@@ -63,6 +63,9 @@ function urlsApi() {
         'wse_get_epy_nep' => $root . '/' . $wse . '/' . $get . '/' . $epy . '/' . $nep . '/',
         'wse_get_epy_nom' => $root . '/' . $wse . '/' . $get . '/' . $epy . '/' . $nom . '/',
         'wse_get_epy_tel' => $root . '/' . $wse . '/' . $get . '/' . $epy . '/' . $tel . '/',
+        // PAGE HEADER BG
+        'adm_get_agn_header' => $root . '/' . $get . '/header/' . $agn,
+        'adm_get_agn_header_id' => $root . '/' . $get . '/header/' . $agn . '/',
 
         // DELETE
 

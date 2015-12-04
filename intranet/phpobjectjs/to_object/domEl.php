@@ -8,6 +8,7 @@ function domEl() {
 	$panel_perfil = 'panel_perfil';
 	$today_birthday = 'today_birthday';
 	$today_aniversary = 'today_aniversary';
+	$today_agreements = 'today_agreements';
 	// SECTION AGREEMENT
 	$agreement_page_content = 'content-agreement-page-content';
 	// SECTION DIRECTORY
@@ -71,5 +72,8 @@ function domEl() {
 
 	    '_home_today_aniversary_name' => $today_aniversary,
 	    '_home_today_aniversary' => '#' . $today_aniversary,
+
+	    '_home_today_agreements_name' => $today_agreements,
+	    '_home_today_agreements' => '#' . $today_agreements,
     );
 }

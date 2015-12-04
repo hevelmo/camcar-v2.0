@@ -5680,7 +5680,7 @@ a:focus {
   max-width: 100%;
   height: auto;
   border: 0 none;
-  border-radius: 0px;
+  border-radius: 1000px;
 }
 .avatar img.avatar-img {
   border-radius: 1000px;

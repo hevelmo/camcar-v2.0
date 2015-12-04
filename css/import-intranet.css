@@ -48,6 +48,7 @@
 		@import url(webfonts/web-icons/web-icons.min.css);
 		@import url(webfonts/weather-icons/weather-icons.css);
 		@import url(webfonts/navicons/navicons.css);
+		@import url(webfonts/7-stroke/7-stroke.css);
 	/* ------------------------------------------------------ *\
 		[styles] remark fonts.googleApis
 	\* ------------------------------------------------------ */
@@ -57,6 +58,7 @@
 	\* ------------------------------------------------------ */
 		/*
 		*/
+		@import url(main.css);
 		@import url(styles/remark-main-intranet.css);
 		@import url(styles/basscss.css);
 		@import url(styles/hint.css);
