@@ -58,6 +58,7 @@
 		/*
 		*/
 		@import url(styles/remark-main-intranet.css);
+		@import url(styles/remark-main-admin.css);
 		@import url(styles/basscss.css);
 		@import url(styles/hint.css);
 /* ################################################################################################### *\

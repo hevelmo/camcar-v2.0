@@ -169,6 +169,26 @@
         }
     }
 /* ------------------------------------------------------ *\
+    [Methods] addStyles
+\* ------------------------------------------------------ */
+    var addStylesMethod = {
+        addStylesNewPreowned : function() {
+            stylesPreownedAttributes = [
+                ['link', {'id' : 'content-add-style-welcome-plugins', 'rel': 'stylesheet', 'class':'style-link-welcome', 'href': '../../css/styles/assets/plugins/bootstrap-select/bootstrap-select.css'}, '', 0],
+                ['link', {'id' : 'content-add-style-welcome-plugins', 'rel': 'stylesheet', 'class':'style-link-welcome', 'href': '../../css/styles/assets/pages/forms/advanced.css'}, '', 0]
+            ];
+            CAMADM.appendMulti(domEl.recurrent_head, stylesPreownedAttributes);
+            pluginsNewPreownedAttributes = [
+                ['script', {'id' : 'content-add-plugin-welcome-plugins', 'class':'plugin-link-welcome', 'src': '../../lib/assets/plugins/bootstrap-select/bootstrap-select.js'}, '', 0]
+            ];
+            CAMADM.appendMulti('div#plugins-for-this-section', pluginsNewPreownedAttributes);
+            scriptsPreownedAttributes = [
+                ['script', {'id' : 'content-add-plugin-welcome-scripts', 'class':'script-link-welcome', 'src': '../../lib/assets/run/components/bootstrap-select.js'}, '', 0]
+            ];
+            CAMADM.appendMulti('div#scripts-for-this-section', scriptsPreownedAttributes);
+        }
+    }
+/* ------------------------------------------------------ *\
     [Methods] goSectionMethods
 \* ------------------------------------------------------ */
     var goSectionMethods = {
@@ -186,5 +206,25 @@
         loadSiteNavigation: function() {
             CAMADM.loadTemplate(tempsNames.recurrent_adm_site_navbar, domEl.site_navbar);
             CAMADM.loadTemplate(tempsNames.recurrent_adm_site_menubar, domEl.site_menubar);
+        }
+    }
+/* ------------------------------------------------------ *\
+    [Metodos] viewSectionWelcomeNewPreownedMethods
+\* ------------------------------------------------------ */
+    var viewSectionWelcomeNewPreownedMethods = {
+        viewSectionWelcomeNewPreowned: function() {
+            viewSectionWelcomeNewPreownedMethods.recurrent_adm_new_preowned();
+            viewSectionWelcomeNewPreownedMethods.loadTemplatesNewPreowned();
+        },
+        recurrent_adm_new_preowned: function() {
+            newPreownedPageHeaderAttributes = [
+                ['div', {'id' : domEl._section_mew_preowned_page_header, 'class':'page-header page-header-bordered page-header-tabs'}, '', 1],
+                ['div', {'id' : domEl._section_mew_preowned_page_content, 'class':'page-content container-fluid', 'style':'padding-top: 0px;'}, '', 1]
+            ];
+            CAMADM.appendMulti(domEl.div_recurrent, newPreownedPageHeaderAttributes);
+        },
+        loadTemplatesNewPreowned: function() {
+            CAMADM.loadTemplate(tempsNames.recurrent_adm_section_new_preowned_page_header, domEl._section_mew_preowned_page_header_name);
+            CAMADM.loadTemplate(tempsNames.recurrent_adm_section_new_preowned_page_content, domEl._section_mew_preowned_page_content_name);
         }
     }

@@ -8,9 +8,13 @@
             section = "intranet-welcome";
         	Breakpoints();
         	Site.run();
+        	addStylesMethod.addStylesNewPreowned();
         },
         load: function(bindings) {
         	loadSiteNavigationMethods.loadSiteNavigation();
+
+        	viewSectionWelcomeNewPreownedMethods.viewSectionWelcomeNewPreowned();
+        	$('.selectpicker').selectpicker();
         },
         unload: function(bindings) {
             section = "";
