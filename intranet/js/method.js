@@ -184,6 +184,21 @@
             Finch.navigate('/directorio');
         }
     }
+    var toggleMenuBarMethod = {
+        toggleMenuBar: function(event) {
+            //$('#menubar').addClass('collapsed');
+            if ($('#menubar #menu_bar_toggle').hasClass('unfolded')) {
+                $('#navbar_brand_logo').attr('src','../../img/logos/logo-camcar-hor-white-ico@2x.png');
+                $('#navbar_brand_logo').addClass('change_img');
+                $('#menubar').addClass('is_collapsed');
+                console.log('hided');
+            } else {
+                $('#navbar_brand_logo').attr('src','../../img/logos/logo-camcar-hor-white@2x.png');
+                $('#navbar_brand_logo').removeClass('change_img');
+                $('#menubar').removeClass('is_collapsed');
+            }
+        }
+    }
 /* ------------------------------------------------------ *\
     [Methods] addStyles
 \* ------------------------------------------------------ */

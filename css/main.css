@@ -19,3 +19,23 @@
 .page-header .page-header-block .page-header-list-subheading li i {
 	font-size: 25px;
 }
+/* NAVBAR TOOLBAR */
+.navbar-toolbar > li#toggleMenubar > a#menubar {
+    padding: 0;
+    line-height: 0px;
+    top: 22px;
+}
+#navbar_brand_logo {
+    -webkit-transition: all .25s ease-in;
+       -moz-transition: all .25s ease-in;
+        -ms-transition: all .25s ease-in;
+         -o-transition: all .25s ease-in;
+            transition: all .25s ease-in;
+}
+#navbar_brand_logo.change_img {
+    -webkit-transition: all .5s ease-out;
+       -moz-transition: all .5s ease-out;
+        -ms-transition: all .5s ease-out;
+         -o-transition: all .5s ease-out;
+            transition: all .5s ease-out;
+}

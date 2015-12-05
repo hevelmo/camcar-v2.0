@@ -31,6 +31,8 @@ $(document).ready(function() {
 
     $(domEl.recurrent_body).on('click', domEl.dropdown_animate_nav_header, animateNavMethod.animateNav);
 
+    $(domEl.recurrent_body).on('click', '#menu_bar_toggle', toggleMenuBarMethod.toggleMenuBar);
+
     // SLIDEPANEL
     //$(domEl.div_recurrent).on('click', domEl._widget_toggle_slide_panel, handleSlidePanelMethods.toggleSlidePanel);
     // CLOSE SLIDEPANEL
