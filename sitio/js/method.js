@@ -333,11 +333,21 @@
 /* ------------------------------------------------------ *\
     [Methods] viewSectionHomeMethod
 \* ------------------------------------------------------ */
-    var viewSectionMethod = {
+    var viewSectionMethod = {        
+        loadTemplatesBanners: function() {
+            var bannersData;
+            bannersData = CAM.getInternalJSON(urlsApi.getBanners);
+            CAM.loadTemplate(tempsNames.recurrent_home_hero_slide_carousel, domEl._start_hero_carousel_name, bannersData);
+        },
         loadTemplatesOurBrands: function() {
             var ourBrandsData;
             ourBrandsData = CAM.getInternalJSON(urlsApi.getBrandsLogos);
             CAM.loadTemplate(tempsNames.recurrent_home_our_brands, domEl._start_large_pad_our_brands_name, ourBrandsData);
+        },
+        loadTemplatesGroupCounter: function() {
+            var groupCounterData;
+            groupCounterData = CAM.getInternalJSON(urlsApi.getGroupCounter);
+            CAM.loadTemplate(tempsNames.recurrent_home_group_counter, domEl._start_large_pad_group_counter_name, groupCounterData);
         },
         recurrentNavbar: function() {
             dataStartNavbarAttributes = [

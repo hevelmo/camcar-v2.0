@@ -47,8 +47,12 @@ $app->configureMode('development', function () use ($app) {
 // UPDATE
 // GET route
 // SELECT
+    // HOME SECTION BANNERS
+    $app->get('/get/banners', /*'mw1',*/ 'getBanners');
     // HOME SECTION OUR BRANDS
     $app->get('/get/agencia/nuevos/marcas/logotipos', /*'mw1',*/ 'getBrandsLogos');
+    // HOME SECTION GROUP COUNTER
+    $app->get('/get/grupo/camcar', /*'mw1',*/ 'getGroupCounter');
     // MAPA
     $app->get('/get/mapa/seminuevo', /*'mw1',*/ 'getMapa');
     // MAPA BY ID
@@ -127,6 +131,47 @@ $app->run();
   ----------------------------------------------------------------------------
 */
     // SELECT
+    // GET HOME SECTION BANNERS JSON
+    function getBannersJSON ($sql) {
+        $structure = array(
+            'banId' => 'BAN_Id',
+            'agnNombre' => 'BAN_AGN_Nombre',
+            'banSrc650' => 'BAN_SRC650x277',
+            'banSrc900' => 'BAN_SRC900x586',
+            'banSrc1600' => 'BAN_SRC1600x900',
+            'banTitle' => 'BAN_Title',
+            'headingTextSub' => array(
+                'subtitle01' => 'BAN_Subtitle01',
+                'subtitle02' => 'BAN_Subtitle02',
+                'subtitle03' => 'BAN_Subtitle03',
+                'subtitle04' => 'BAN_Subtitle04',
+            ),
+            'banner_tipo' => 'BAN_Tipo',
+            'primaryLinkurl' => 'BAN_PrimaryLinkUrl',
+            'primaryLinkTitle' => 'BAN_PrimaryLinkSub'
+        );
+        $params = array();
+        $result_link_container = restructureQuery($structure, getConnection(), $sql, $params, 0, PDO::FETCH_ASSOC);
+        for ($idx=0; $idx < count($result_link_container); $idx++) {
+            $ban_target = $agn_type = $result_link_container[$idx]['banner_tipo'];
+            $result_link_container[$idx]['target_noticia'] = ($agn_type != 'noticia' ) ? '' : '_self';
+            $result_link_container[$idx]['target_sitio'] = ($agn_type != 'sitio' ) ? '' : '_blank';
+            $result_link_container[$idx]['target_agencia'] = ($agn_type != 'agencia' ) ? '' : '_self';
+            $result_link_container[$idx]['target_agencias'] = ($agn_type != 'agencias' ) ? '' : '_self';
+        }
+        $json = changeArrayIntoJSON('campa', $result_link_container);
+        echo $json;
+        //echo changeQueryIntoJSON('campa', $structure, getConnection(), $sql, $params, 0, PDO::FETCH_ASSOC);
+    }
+    // GET HOME SECTION BANNERS
+    function getBanners() {
+        $sql = "SELECT * 
+                FROM camBanners 
+                WHERE BAN_Status = 1
+                ORDER BY BAN_Id DESC
+                ";
+        getBannersJSON($sql);
+    }
     // GET HOME SECTION OUR BRANDS JSON
     function getBrandsLogosJSON ($sql) {
         $structure = array(
@@ -177,6 +222,24 @@ $app->run();
                 ORDER BY BRD_Index
                 ";
         getBrandsLogosJSON($sql);
+    }
+    // GET HOME SECTION GROUP COUNTER JSON
+    function getGroupCounterJSON ($sql) {
+        $structure = array(
+            'grupo_marcas' => 'GRU_Marcas',
+            'grupo_agencias' => 'GRU_Agencias',
+            'grupo_ciudades' => 'GRU_Ciudades',
+            'grupo_profesionales' => 'GRU_Profesionales'
+        );
+        $params = array();
+        echo changeQueryIntoJSON('campa', $structure, getConnection(), $sql, $params, 0, PDO::FETCH_ASSOC);
+    }
+    // GET HOME SECTION GROUP COUNTER
+    function getGroupCounter () {
+        $sql = "SELECT *
+                FROM camGrupoCamcar
+                ";
+        getGroupCounterJSON($sql);
     }
     // STRUCTURE MAP JSON
     function getMapaJSON($sql, $senId) {

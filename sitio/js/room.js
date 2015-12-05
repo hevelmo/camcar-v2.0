@@ -16,11 +16,11 @@
 
             viewSectionMethod.recurrentSecionHome();
 
-            CAM.loadTemplate(tempsNames.recurrent_home_hero_slide_carousel, domEl._start_hero_carousel_name);
+            viewSectionMethod.loadTemplatesBanners();
             windowWidthMethod.windowWidth();
 
             viewSectionMethod.loadTemplatesOurBrands();
-            CAM.loadTemplate(tempsNames.recurrent_home_group_counter, domEl._start_large_pad_group_counter_name);
+            viewSectionMethod.loadTemplatesGroupCounter();
             CAM.loadTemplate(tempsNames.recurrent_home_full_width_features, domEl._start_full_width_features_name);
             animatedMethods.animated();
 

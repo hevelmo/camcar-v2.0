@@ -48,10 +48,10 @@ $(document).ready(function() {
     $(domEl.div_recurrent).on('click', domEl.goSection_fullwidth_features_workshop, clikGoMethods.clickGo_workshop);
     $(domEl.div_recurrent).on('click', domEl.goSection_fullwidth_features_rental, clikGoMethods.clickGo_rental);
     // OUR BRANDS CLICK GO SECTION
-    //$(domEl.div_recurrent).on('click', domEl.goSection_ourBrand_agencies_news, clikGoMethods.clikGo_agencies_news);
-    //$(domEl.div_recurrent).on('click', domEl.goSection_ourBrand_agencies_preowned, clikGoMethods.clickGo_agencies_preowned);
-    //$(domEl.div_recurrent).on('click', domEl.goSection_ourBrand_whorkshop, clikGoMethods.clickGo_workshop);
-    //$(domEl.div_recurrent).on('click', domEl.goSection_ourBrand_rental, clikGoMethods.clickGo_rental);
+    $(domEl.div_recurrent).on('click', ".act-agn-nuevo", clikGoMethods.clikGo_agencies_news);
+    $(domEl.div_recurrent).on('click', ".act-agn-seminuevo", clikGoMethods.clickGo_agencies_preowned);
+    $(domEl.div_recurrent).on('click', ".act-agn-taller", clikGoMethods.clickGo_workshop);
+    $(domEl.div_recurrent).on('click', ".act-agn-rentas", clikGoMethods.clickGo_rental);
     // FORM NEWSLETTER
     $(domEl.body_recurrent).on('focusout', domEl.validate_required, validateMethods.validate_input);
 });

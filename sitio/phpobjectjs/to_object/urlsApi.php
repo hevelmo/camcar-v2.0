@@ -32,6 +32,7 @@ function urlsApi() {
     $logos = 'logotipos';
     $banners = 'banners';
     $group_counter = 'grupo/camcar';
+    $banners = 'banners';
 
     //Root Api url
     $root = 'api/v15';
@@ -41,6 +42,8 @@ function urlsApi() {
         // UPDATE
         // SELECT
         // DELETE
+        // HOME SECTION BANNERS
+        'getBanners' => $root . '/' . $get . '/' . $banners,
         // HOME SECTION BRANDS
         'getBrandsLogos' => $root . '/' . $get . '/' . $agencie . '/' . $news . '/' . $brands . '/'. $logos,
         // HOME SECTION GROUP COUNTER
