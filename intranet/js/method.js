@@ -386,7 +386,7 @@
                 ['div', {'id' : domEl._home_widget_first_row, 'class':'row', 'data-plugin': 'matchHeight', 'data-by-row': 'true'}, '', true]
             ]);
             CAMIN.appendMulti(domEl._home_widget_first_row_name, [
-                ['div', {'id' : domEl._home_panel_perfil_name, 'class':'col-xlg-3 col-lg-4 col-md-12'}, '', true],
+                ['div', {'id' : domEl._home_panel_perfil_name, 'class':'col-xlg-4 col-lg-4 col-md-12'}, '', true],
                 ['div', {'id' : domEl._home_today_birthday_name, 'class':'col-lg-4 col-md-6 equal-height'}, '', true],
                 ['div', {'id' : domEl._home_today_agreements_name, 'class':'col-lg-4 col-md-6 equal-height'}, '', true]
                 //['div', {'id' : domEl._home_today_aniversary_name, 'class':'col-lg-4 col-md-6 equal-height'}, '', true]
