@@ -32,6 +32,7 @@
 
             $(window).resize(mobile_menu_methods.has_menu_toggle);
             backToTopMethod.init_window_scroll_top();
+            __sizeCheck($(window));
         },
         unload: function(bindings) {
             section = "";

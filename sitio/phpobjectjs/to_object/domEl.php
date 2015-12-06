@@ -65,10 +65,10 @@ function domEl() {
         'goSection_fullwidth_features_rental' => '#fullwidth-features-go-rental',
         'goSection_fullwidth_features_inventories_preowned' => '#fullwidth-features-go-inventories-preowned',
         // OUR BRANDS AGENCIES NEWS
-        'goSection_ourBrand_agencies_preowned' => '.agn-act-seminuevo',
-        'goSection_ourBrand_agencies_news' => '.agn-act-nuevo',
-        'goSection_ourBrand_whorkshop' => '.agn-act-taller',
-        'goSection_ourBrand_rental' => '.agn-act-rentas',
+        'goSection_ourBrand_agencies_preowned' => '.act-agn-seminuevo',
+        'goSection_ourBrand_agencies_news' => '.act-agn-nuevo',
+        'goSection_ourBrand_whorkshop' => '.act-agn-taller',
+        'goSection_ourBrand_rental' => '.act-agn-rentas',
         // VALIDATION
         'validate_required' => '.validate-required',
     );

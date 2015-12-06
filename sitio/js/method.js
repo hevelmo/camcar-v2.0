@@ -2,10 +2,12 @@
     [Variables] 'Zone'
 \* ------------------------------------------------------ */
     var section;
-    var IS_MOBILE, mediaquery;
+    var IS_MOBILE, mediaquery, mqMW320, mqMW360, mqMW375, mqMW384, mqMW400, mqMW412, mqMW414, mqMW480, mqMW600, mqMW640,  mqMW768,  mqMW800, mqMW1024,  mqMW1200,  mqMW1280,  mqMW1366, mqMW1440, mqMW1600, mqMW1601;
+    mediaquery = window.matchMedia("(max-width: 768px)");
     // Browser supports HTML5 multiple file?
-    var multipleSupport = typeof $('<input/>')[0].multiple !== 'undefined',
-        isIE = /msie/i.test( navigator.userAgent );
+    var multipleSupport, isIE;
+    multipleSupport = typeof $('<input/>')[0].multiple !== 'undefined',
+    isIE = /msie/i.test( navigator.userAgent )
     // Back to Top
     var offset, offset_opacity, scroll_top_duration;
     offset = 300;
@@ -35,6 +37,58 @@
             buttonReverse : false,
             buttonFocus   : "ok"
         });
+    }
+/* ------------------------------------------------------ *\
+    [functions] __sizeCheck
+\* ------------------------------------------------------ */
+    function __sizeCheck(element) {
+        var _cWidth;
+        // current width
+        _cWidth = element.width();
+        // update text
+        _cText = 'desktop screens > 1200px';
+        console.log(_cText);
+        // check block
+        if(_cWidth < 1680) {
+            _cText = 'desktop computer ' + _cWidth + 'px';
+            console.log(_cText);
+        }
+        if(_cWidth < 1280) {
+            _cText = 'desktop computer ' + _cWidth + 'px';
+            console.log(_cText);
+        }
+        if(_cWidth < 1024) {
+            _cText = 'ipad landscape ' + _cWidth + 'px';
+            console.log(_cText);
+        }
+        if(_cWidth < 768) {
+            _cText = 'ipad portrait ' + _cWidth + 'px';
+            console.log(_cText);
+        }
+        if(_cWidth < 480) {
+            _cText = 'iphone landscape ' + _cWidth + 'px';
+            console.log(_cText);
+        }
+        if(_cWidth < 320) {
+            _cText = 'iphone portrait ' + _cWidth + 'px';
+            console.log(_cText);
+        }
+        if(_cWidth < 240) {
+            _cText = 'so small phones ' + _cWidth + 'px';
+            console.log(_cText);
+        }
+    }
+/* ------------------------------------------------------ *\
+    [Methods] MATCHMEDIA
+\* ------------------------------------------------------ */
+    var matchMediaMethod = {
+        mediaquery: function() {
+            if (mediaquery.matches) {
+                // mediaquery es 768px
+            } else {
+                // mediaquery no es 768px
+            }
+        }
     }
 /* ------------------------------------------------------ *\
     [Metodos] backToTopMethod
@@ -169,7 +223,7 @@
         }
     }
 /* ------------------------------------------------------ *\
-    [functions] setWidthme
+    [Metodos] setWidthme
 \* ------------------------------------------------------ */
     var setWidthMethod = {
         setWidth: function() {
@@ -562,7 +616,7 @@
 /* ------------------------------------------------------ *\
     [Methods] Google Maps -> agentsMap
 \* ------------------------------------------------------ */
-    var customGoogleMapMethod = {
+    /*var customGoogleMapMethod = {
         customGoogleMap: function() {
             var map_zoom,
                 is_internetExplorer11, marker_url,
@@ -828,7 +882,7 @@
         loadCustomGoogleMap : function () {
             google.maps.event.addDomListener(window, 'load', customGoogleMapMethod.customGoogleMap());
         }
-    }
+    }*/
     var agentsMap = {
         AgentsMap : function () {
             var styles, mapData, agn_name, agn_address, agn_latitud, agn_longitudl,
