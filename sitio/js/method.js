@@ -39,6 +39,18 @@
         });
     }
 /* ------------------------------------------------------ *\
+    [functions] loadSlider
+\* ------------------------------------------------------ */
+    function loadSlider() {
+      $(domEl.div_recurrent +' .flexslider').flexslider({
+        animation: "slide",
+        controlNav: "thumbnails",
+        start: function(slider) {
+          $('body').removeClass('loading');
+        }
+      });
+    }
+/* ------------------------------------------------------ *\
     [functions] __sizeCheck
 \* ------------------------------------------------------ */
     function __sizeCheck(element) {
@@ -245,10 +257,10 @@
 
                     //$(this).append( "<h3 class='mas cortado' id='"+(arrayText.length-1)+"'>(más)</h3>" );
                 }
-                if( secondDiv.html().length > 220 ) {
+                if( secondDiv.html().length > 218 ) {
                     arrayText2.push( secondDiv.html() );
 
-                    secondDiv.html( secondDiv.html().substr( 0,220 ) + "<i style='color: #000; font-size: 14px;'>...</i>" );
+                    secondDiv.html( secondDiv.html().substr( 0,218 ) + "<i style='color: #000; font-size: 14px;'>...</i>" );
 
                     //$(this).append("<h3 class='mas cortado' id='"+(arrayText2.length-1)+"'>(más)</h3>");
                 }
@@ -268,6 +280,15 @@
                 }
             });
             $('.equal-height').height( altomax );
+        },
+        equalHeightsLoad_blog : function() {
+            var altomax = 0;
+            $('.grid-item-inner').each(function(){
+                if( $(this).height() > altomax ){
+                    altomax = $(this).height();
+                }
+            });
+            $('.grid-item-inner').height( altomax );
         }
     }
 /* ------------------------------------------------------ *\
@@ -387,7 +408,7 @@
 /* ------------------------------------------------------ *\
     [Methods] viewSectionHomeMethod
 \* ------------------------------------------------------ */
-    var viewSectionMethod = {        
+    var viewSectionMethod = {
         loadTemplatesBanners: function() {
             var bannersData;
             bannersData = CAM.getInternalJSON(urlsApi.getBanners);
@@ -447,6 +468,8 @@
         },
         recurrentSecionBlog: function() {
             dataStarSiteBlogAttributes = [
+                ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content'}, '', 1],
+                ['div', {'id':domEl._start_body_content_main, 'class':'main about-content', 'role':'main'}, '', 1]
             ];
             CAM.appendMulti(domEl.div_recurrent, dataStarSiteBlogAttributes);
         },
@@ -505,6 +528,7 @@
             removeRecurrentsMethod.removeRecurrent_navbar();
             removeRecurrentsMethod.removeRecurrents_home();
             removeRecurrentsMethod.removeRecurrents_agencies_news();
+            removeRecurrentsMethod.removeRecurrents_blog();
         },
         removeRecurrent_navbar: function() {
             $(domEl._start_site_navbar_name).remove();
@@ -519,6 +543,10 @@
         },
         removeRecurrents_agencies_news: function() {
             $(domEl._start_utility_bar_breadcrumb_name).remove();
+        },
+        removeRecurrents_blog: function() {
+            $(domEl._start_utility_bar_breadcrumb_name).remove();
+            $(domEl._start_body_content_main_name).remove();
         }
     }
 /* ------------------------------------------------------ *\
@@ -618,6 +646,30 @@
         }
     }
 /* ------------------------------------------------------ *\
+    [Methods] getClickActionsMethod
+\* ------------------------------------------------------ */
+    var bgImageHolderMethods = {
+        appendBgImageHolder : function () {
+            $('.background-image-holder').each(function() {
+                var imgSrc= $(this).children('img').attr('src');
+                $(this).css('background', 'url("' + imgSrc + '")');
+                $(this).children('img').hide();
+                $(this).css('background-position', '15% 65%');
+            });
+            $('.background-image-holder').addClass('fadeIn');
+        },
+        appendBgImageHolder2 : function () {
+            $('.background-image-holder').each(function() {
+                var imgSrc;
+                imgSrc = $(this).children('img').attr('src');
+                $(this).css('background', 'url("' + imgSrc + '")');
+                $(this).children('img').hide();
+                $(this).css('background-position', '50% 50%');
+            });
+            $('.background-image-holder').addClass('fadeIn');
+        }
+    }
+/* ------------------------------------------------------ *\
     [Methods] Google Maps -> agentsMap
 \* ------------------------------------------------------ */
     /*var customGoogleMapMethod = {
@@ -646,30 +698,30 @@
             saturation_value = -20;
             brightness_value = 5;
             //inizialize the map
-            style = [ 
-                { //set saturation for the labels on the map 
+            style = [
+                { //set saturation for the labels on the map
                     elementType: "labels",
                     stylers: [ { saturation: saturation_value } ]
                 },
-                { //poi stands for point of interest - don't show these lables on the map 
+                { //poi stands for point of interest - don't show these lables on the map
                     featureType: "poi",
                     elementType: "labels",
                     stylers: [  { visibility: "off" } ]
                 },
-                { //don't show highways lables on the map 
+                { //don't show highways lables on the map
                     featureType: 'road.highway',
                     elementType: 'labels',
-                    stylers: [ { visibility: "off" } ] 
+                    stylers: [ { visibility: "off" } ]
                 },
                 {  //don't show local road lables on the map
-                    featureType: "road.local",  
-                    elementType: "labels.icon", 
+                    featureType: "road.local",
+                    elementType: "labels.icon",
                     stylers: [ { visibility: "off" } ]
                 },
                 {  //don't show arterial road lables on the map
-                    featureType: "road.arterial", 
-                    elementType: "labels.icon", 
-                    stylers: [ { visibility: "off" } ] 
+                    featureType: "road.arterial",
+                    elementType: "labels.icon",
+                    stylers: [ { visibility: "off" } ]
                 },
                 { //don't show road lables on the map
                     featureType: "road",
@@ -677,22 +729,22 @@
                     stylers: [ { visibility: "off" } ]
                 },
                 { //style different elements on the map
-                    featureType: "transit", 
-                    elementType: "geometry.fill", 
+                    featureType: "transit",
+                    elementType: "geometry.fill",
                     stylers: [
                         { hue: main_color },
-                        { visibility: "on" }, 
-                        { lightness: brightness_value }, 
+                        { visibility: "on" },
+                        { lightness: brightness_value },
                         { saturation: saturation_value }
                     ]
-                }, 
+                },
                 {
                     featureType: "poi",
                     elementType: "geometry.fill",
                     stylers: [
                         { hue: main_color },
-                        { visibility: "on" }, 
-                        { lightness: brightness_value }, 
+                        { visibility: "on" },
+                        { lightness: brightness_value },
                         { saturation: saturation_value }
                     ]
                 },
@@ -701,8 +753,8 @@
                     elementType: "geometry.fill",
                     stylers: [
                         { hue: main_color },
-                        { visibility: "on" }, 
-                        { lightness: brightness_value }, 
+                        { visibility: "on" },
+                        { lightness: brightness_value },
                         { saturation: saturation_value }
                     ]
                 },
@@ -711,8 +763,8 @@
                     elementType: "geometry.fill",
                     stylers: [
                         { hue: main_color },
-                        { visibility: "on" }, 
-                        { lightness: brightness_value }, 
+                        { visibility: "on" },
+                        { lightness: brightness_value },
                         { saturation: saturation_value }
                     ]
                 },
@@ -721,8 +773,8 @@
                     elementType: "geometry.fill",
                     stylers: [
                         { hue: main_color },
-                        { visibility: "on" }, 
-                        { lightness: brightness_value }, 
+                        { visibility: "on" },
+                        { lightness: brightness_value },
                         { saturation: saturation_value }
                     ]
                 },
@@ -731,8 +783,8 @@
                     elementType: "geometry.fill",
                     stylers: [
                         { hue: main_color },
-                        { visibility: "on" }, 
-                        { lightness: brightness_value }, 
+                        { visibility: "on" },
+                        { lightness: brightness_value },
                         { saturation: saturation_value }
                     ]
                 },
@@ -741,8 +793,8 @@
                     elementType: "geometry.fill",
                     stylers: [
                         { hue: main_color },
-                        { visibility: "on" }, 
-                        { lightness: brightness_value }, 
+                        { visibility: "on" },
+                        { lightness: brightness_value },
                         { saturation: saturation_value }
                     ]
                 },
@@ -751,8 +803,8 @@
                     elementType: "geometry.fill",
                     stylers: [
                         { hue: main_color },
-                        { visibility: "on" }, 
-                        { lightness: brightness_value }, 
+                        { visibility: "on" },
+                        { lightness: brightness_value },
                         { saturation: saturation_value }
                     ]
                 },
@@ -760,19 +812,19 @@
                     featureType: "landscape",
                     stylers: [
                         { hue: main_color },
-                        { visibility: "on" }, 
-                        { lightness: brightness_value }, 
+                        { visibility: "on" },
+                        { lightness: brightness_value },
                         { saturation: saturation_value }
                     ]
-                    
+
                 },
                 {
                     featureType: "road",
                     elementType: "geometry.fill",
                     stylers: [
                         { hue: main_color },
-                        { visibility: "on" }, 
-                        { lightness: brightness_value }, 
+                        { visibility: "on" },
+                        { lightness: brightness_value },
                         { saturation: saturation_value }
                     ]
                 },
@@ -781,18 +833,18 @@
                     elementType: "geometry.fill",
                     stylers: [
                         { hue: main_color },
-                        { visibility: "on" }, 
-                        { lightness: brightness_value }, 
+                        { visibility: "on" },
+                        { lightness: brightness_value },
                         { saturation: saturation_value }
                     ]
-                }, 
+                },
                 {
                     featureType: "water",
                     elementType: "geometry",
                     stylers: [
                         { hue: main_color },
-                        { visibility: "on" }, 
-                        { lightness: brightness_value }, 
+                        { visibility: "on" },
+                        { lightness: brightness_value },
                         { saturation: saturation_value }
                     ]
                 }
@@ -851,7 +903,7 @@
             }
             map.fitBounds(bounds);
 
-            // function to attach infowindow with marker 
+            // function to attach infowindow with marker
             function attachInfoWindowToMarker( map, marker, infoWindow ) {
                 //infoWindow.open(map, marker);
                 google.maps.event.addListener( marker, 'click', function() {
@@ -862,7 +914,7 @@
 
             //add custom buttons for the zoom-in/zoom-out on the map
             function CustomZoomControl(controlDiv, map, marker, infoWindow) {
-                //grap the zoom elements from the DOM and insert them in the map 
+                //grap the zoom elements from the DOM and insert them in the map
                 var controlUIzoomIn, controlUIzoomOut;
                 controlUIzoomIn= document.getElementById('cd-zoom-in'),
                 controlUIzoomOut= document.getElementById('cd-zoom-out');
@@ -901,36 +953,36 @@
             agn_latitud = mapData.campa[0].agn_latitud;
             agn_longitud = mapData.campa[0].agn_longitud;
 
-            // Map Center Location - From Theme Options 
+            // Map Center Location - From Theme Options
             //location_center = new google.maps.LatLng(Agents[0].lat,Agents[0].lng);
             location_center = new google.maps.LatLng(agn_latitud,agn_longitud);
 
             // Create an array of styles.
 
-            style = [ 
-                { //set saturation for the labels on the map 
+            style = [
+                { //set saturation for the labels on the map
                     elementType: "labels",
                     stylers: [ { saturation: saturation_value } ]
                 },
-                { //poi stands for point of interest - don't show these lables on the map 
+                { //poi stands for point of interest - don't show these lables on the map
                     featureType: "poi",
                     elementType: "labels",
                     stylers: [  { visibility: "off" } ]
                 },
-                { //don't show highways lables on the map 
+                { //don't show highways lables on the map
                     featureType: 'road.highway',
                     elementType: 'labels',
-                    stylers: [ { visibility: "off" } ] 
+                    stylers: [ { visibility: "off" } ]
                 },
                 {  //don't show local road lables on the map
-                    featureType: "road.local",  
-                    elementType: "labels.icon", 
+                    featureType: "road.local",
+                    elementType: "labels.icon",
                     stylers: [ { visibility: "off" } ]
                 },
                 {  //don't show arterial road lables on the map
-                    featureType: "road.arterial", 
-                    elementType: "labels.icon", 
-                    stylers: [ { visibility: "off" } ] 
+                    featureType: "road.arterial",
+                    elementType: "labels.icon",
+                    stylers: [ { visibility: "off" } ]
                 },
                 { //don't show road lables on the map
                     featureType: "road",
@@ -938,22 +990,22 @@
                     stylers: [ { visibility: "off" } ]
                 },
                 { //style different elements on the map
-                    featureType: "transit", 
-                    elementType: "geometry.fill", 
+                    featureType: "transit",
+                    elementType: "geometry.fill",
                     stylers: [
                         { hue: main_color },
-                        { visibility: "on" }, 
-                        { lightness: brightness_value }, 
+                        { visibility: "on" },
+                        { lightness: brightness_value },
                         { saturation: saturation_value }
                     ]
-                }, 
+                },
                 {
                     featureType: "poi",
                     elementType: "geometry.fill",
                     stylers: [
                         { hue: main_color },
-                        { visibility: "on" }, 
-                        { lightness: brightness_value }, 
+                        { visibility: "on" },
+                        { lightness: brightness_value },
                         { saturation: saturation_value }
                     ]
                 },
@@ -962,8 +1014,8 @@
                     elementType: "geometry.fill",
                     stylers: [
                         { hue: main_color },
-                        { visibility: "on" }, 
-                        { lightness: brightness_value }, 
+                        { visibility: "on" },
+                        { lightness: brightness_value },
                         { saturation: saturation_value }
                     ]
                 },
@@ -972,8 +1024,8 @@
                     elementType: "geometry.fill",
                     stylers: [
                         { hue: main_color },
-                        { visibility: "on" }, 
-                        { lightness: brightness_value }, 
+                        { visibility: "on" },
+                        { lightness: brightness_value },
                         { saturation: saturation_value }
                     ]
                 },
@@ -982,8 +1034,8 @@
                     elementType: "geometry.fill",
                     stylers: [
                         { hue: main_color },
-                        { visibility: "on" }, 
-                        { lightness: brightness_value }, 
+                        { visibility: "on" },
+                        { lightness: brightness_value },
                         { saturation: saturation_value }
                     ]
                 },
@@ -992,8 +1044,8 @@
                     elementType: "geometry.fill",
                     stylers: [
                         { hue: main_color },
-                        { visibility: "on" }, 
-                        { lightness: brightness_value }, 
+                        { visibility: "on" },
+                        { lightness: brightness_value },
                         { saturation: saturation_value }
                     ]
                 },
@@ -1002,8 +1054,8 @@
                     elementType: "geometry.fill",
                     stylers: [
                         { hue: main_color },
-                        { visibility: "on" }, 
-                        { lightness: brightness_value }, 
+                        { visibility: "on" },
+                        { lightness: brightness_value },
                         { saturation: saturation_value }
                     ]
                 },
@@ -1012,8 +1064,8 @@
                     elementType: "geometry.fill",
                     stylers: [
                         { hue: main_color },
-                        { visibility: "on" }, 
-                        { lightness: brightness_value }, 
+                        { visibility: "on" },
+                        { lightness: brightness_value },
                         { saturation: saturation_value }
                     ]
                 },
@@ -1021,19 +1073,19 @@
                     featureType: "landscape",
                     stylers: [
                         { hue: main_color },
-                        { visibility: "on" }, 
-                        { lightness: brightness_value }, 
+                        { visibility: "on" },
+                        { lightness: brightness_value },
                         { saturation: saturation_value }
                     ]
-                    
+
                 },
                 {
                     featureType: "road",
                     elementType: "geometry.fill",
                     stylers: [
                         { hue: main_color },
-                        { visibility: "on" }, 
-                        { lightness: brightness_value }, 
+                        { visibility: "on" },
+                        { lightness: brightness_value },
                         { saturation: saturation_value }
                     ]
                 },
@@ -1042,18 +1094,18 @@
                     elementType: "geometry.fill",
                     stylers: [
                         { hue: main_color },
-                        { visibility: "on" }, 
-                        { lightness: brightness_value }, 
+                        { visibility: "on" },
+                        { lightness: brightness_value },
                         { saturation: saturation_value }
                     ]
-                }, 
+                },
                 {
                     featureType: "water",
                     elementType: "geometry",
                     stylers: [
                         { hue: main_color },
-                        { visibility: "on" }, 
-                        { lightness: brightness_value }, 
+                        { visibility: "on" },
+                        { lightness: brightness_value },
                         { saturation: saturation_value }
                     ]
                 }
@@ -1082,7 +1134,7 @@
             bounds = new google.maps.LatLngBounds();
             info_windows = new Array();
 
-            // Properties Array 
+            // Properties Array
             for (var i=0; i < mapData.campa.length; i++) {
                 agn_name = mapData.campa[i].agn_nombre;
                 agn_address = mapData.campa[i].agn_direccion;
@@ -1118,7 +1170,7 @@
             //console.log(mapData);
             map.fitBounds(bounds);
 
-            //function to attach infowindow with marker 
+            //function to attach infowindow with marker
             function attachInfoWindowToMarker( map, marker, infoWindow ) {
                 //infoWindow.open(map, marker);
                 google.maps.event.addListener( marker, 'click', function() {

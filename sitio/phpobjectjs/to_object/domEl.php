@@ -2,18 +2,23 @@
 function domEl() {
     // NAVBAR
     $start_site_navbar = 'content-start-site-navbar';
-    // HOME SECTION HERO CAROUSEL
+    // HOME SECTION
+    //HERO CAROUSEL
     $start_hero_carousel = 'content-start-hero-carousel';
-    // HOME SECTION OUR BRANDS
+    // OUR BRANDS
     $start_large_pad_our_brands = 'content-start-large-pad-our-brands';
-    // HOME SECTION GROUP COUNTER
+    // GROUP COUNTER
     $start_large_pad_group_counter = 'content-start-large-pad-group-counter';
-    // HOME SECTION FULL WIDTH FEATURES
+    // FULL WIDTH FEATURES
     $start_full_width_features = 'content-start-full-width-features';
-    // HOME SECTION DEALER SEARCH MAP
+    // DEALER SEARCH MAP
     $start_dealer_search_map = 'content-start-dealer-search-map';
-    // AGENCIES NEWS UTILITY BAR BREADCRUMB
+    // AGENCIES NEWS
+    // UTILITY BAR BREADCRUMB
     $start_utility_bar_breadcrumb = 'content-start-utility-bar-breadcrumb';
+    // BLOG NEWS
+    // BLOG BY NEWS
+    $start_body_content_main = 'content-start-body-main';
     return array(
     	'head_recurrent' => 'head',
     	'body_recurrent' => 'body',
@@ -28,24 +33,28 @@ function domEl() {
         // MAIN NAVIGATION
         '_start_site_navbar' => $start_site_navbar,
         '_start_site_navbar_name' => '#' . $start_site_navbar,
-        // HOME SECTION HERO COROUSEL
+        // HOME SECTION
+        // HERO COROUSEL
         '_start_hero_carousel' => $start_hero_carousel,
         '_start_hero_carousel_name' => '#' . $start_hero_carousel,
-        // HOME SECTION OUR BRANDS
+        // OUR BRANDS
         '_start_large_pad_our_brands' => $start_large_pad_our_brands,
         '_start_large_pad_our_brands_name' => '#' . $start_large_pad_our_brands,
-        // HOME SECTION GROUP COUNTER
+        // GROUP COUNTER
         '_start_large_pad_group_counter' => $start_large_pad_group_counter,
         '_start_large_pad_group_counter_name' => '#' . $start_large_pad_group_counter,
-        // HOME SECTION FULL WIDTH FEATURES
+        // FULL WIDTH FEATURES
         '_start_full_width_features' => $start_full_width_features,
         '_start_full_width_features_name' => '#' . $start_full_width_features,
-        // HOME SECTION FULL WIDTH FEATURES
+        // FULL WIDTH FEATURES
         '_start_dealer_search_map' => $start_dealer_search_map,
         '_start_dealer_search_map_name' => '#' . $start_dealer_search_map,
         // UTILITY BAR BREADCRUMB
         '_start_utility_bar_breadcrumb' => $start_utility_bar_breadcrumb,
         '_start_utility_bar_breadcrumb_name' => '#' . $start_utility_bar_breadcrumb,
+        // BLOG
+        '_start_body_content_main' => $start_body_content_main,
+        '_start_body_content_main_name' => '#' . $start_body_content_main,
         // MOBILE MENU TOGGLE
         '_menu_toogle' => '#menu-toggle',
         '_menu_toogle_close' => '.menu-toggle-close',

@@ -295,6 +295,9 @@
         <script src="../lib/site/matchMedia.js"></script>
 
         <script src="../lib/site/herocarousel/jquery.herocarousel-plugins.js"></script>
+        <script src="../lib/site/flexslider/jquery.flexslider.js"></script>
+        <!--<script src='../lib/site/owl-carousel/min/owl.carousel.min.js'></script>-->
+        <!--<script src="../lib/site/min/smooth-scroll.min.js"></script>-->
 
         <!-- FORMS -->
         <script src="../lib/forms.js"></script>

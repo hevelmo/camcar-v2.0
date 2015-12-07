@@ -243,9 +243,15 @@
             currentSectionMethod.currentSection_blog();
 
             viewSectionMethod.recurrentSecionBlog();
+            CAM.loadTemplate(tempsNames.recurrent_blog_news_start_utility_bar_breadcrumb, domEl._start_utility_bar_breadcrumb_name);
+            CAM.loadTemplate(tempsNames.recurrent_blog_news_start_grid_holder, domEl._start_body_content_main_name);
 
             $(window).resize(mobile_menu_methods.has_menu_toggle);
+            bgImageHolderMethods.appendBgImageHolder2();
+            $(window).load(equalHeightsMethods.equalHeightsLoad_blog);
             backToTopMethod.init_window_scroll_top();
+            setWidthMethod.setWidth();
+            loadSlider();
         },
         unload: function(bindings) {
             section = "";

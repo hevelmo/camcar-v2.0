@@ -42,6 +42,8 @@
 		@import url(sitio/styles/main-navigation.css);
 		@import url(sitio/styles/typography.css);
 		@import url(sitio/herocarousel/herocarousel.css);
+		@import url(sitio/styles/media-box.css);
+
 		/*
 
 		@import url(sitio/herocarousel/hero-carousel-animation.css);
