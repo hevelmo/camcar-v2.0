@@ -491,6 +491,10 @@
         clickGo_about_us: function(event) {
             $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );
             Finch.navigate('/nosotros');
+        },
+        clickGo_privacy_notice: function(event) {
+            $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );
+            Finch.navigate('/aviso-de-privacidad');
         }
     }
 /* ------------------------------------------------------ *\
