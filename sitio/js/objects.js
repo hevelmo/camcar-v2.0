@@ -51,6 +51,7 @@ domEl = {
 	"validate_required":".validate-required"
 };
 tempsNames = {
+	"recurrent_about_us_start_utility_bar_breadcrumb":"tmp_section_about_us_start_utility_bar_breadcrumb",
 	"recurrent_agencies_news_start_utility_bar_breadcrumb":"tmp_section_agencies_news_start_utility_bar_breadcrumb",
 	"recurrent_blog_by_news_start_single_post":"tmp_section_blog_by_news_start_single_post",
 	"recurrent_blog_by_news_start_single_post_galery":"tmp_section_blog_by_news_start_single_post_galery",

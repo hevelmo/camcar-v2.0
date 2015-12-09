@@ -34,6 +34,8 @@ $(document).ready(function() {
     $(domEl.navbar_recurrent).on('click', domEl._menu_toogle, mobile_menu_methods.mobile_menu_toggle);
     // MOBILE MENU TOGGLE
     $(domEl.navbar_recurrent).on('click', domEl._menu_toogle_close, mobile_menu_methods.close_menu_toggle);
+    // BREADCRUMB HOME
+    $(domEl.div_recurrent).on('click', '#go-breadcrumb-home', clikGoMethods.clikGo_home);
     // CLICK GO SECTION
     $(domEl.navbar_recurrent).on('click', domEl.goSection_index, clikGoMethods.clikGo_home);
     // AGENCIES NEWS

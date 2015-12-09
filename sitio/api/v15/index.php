@@ -551,26 +551,6 @@ $app->run();
                     FROM camBlogVideos
                 ) vdo
                 ON blg.BLG_Id = vdo.VDO_BLG_Id
-                LEFT JOIN (
-                    SELECT *
-                    FROM camAgencias
-                ) agn
-                ON blg.BLG_AGN_Id = agn.AGN_Id
-                LEFT JOIN (
-                    SELECT *
-                    FROM camSociales
-                ) soc
-                ON agn.AGN_Id = soc.SOC_AGN_Id
-                LEFT JOIN (
-                    SELECT *
-                    FROM camTelefonos
-                ) tel
-                ON agn.AGN_Id = tel.TEL_AGN_Id
-                LEFT JOIN (
-                    SELECT *
-                    FROM camHorarios
-                ) hrs
-                ON agn.AGN_Id = hrs.HRS_AGN_Id
                 ";
         getBlogByPostJSON($sql, $blogAgenciaShort, $blogTituloShort, $blogId);
     }

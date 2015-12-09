@@ -621,9 +621,15 @@
 \* ------------------------------------------------------ */
     var viewSectionAboutUsMethod = {
         viewSectionAboutUs: function() {
+            viewSectionAboutUsMethod.recurrentSecionAboutUs();
+            viewSectionAboutUsMethod.loadTemplatesUtilityBarBreadcrumb();
+        },
+        loadTemplatesUtilityBarBreadcrumb: function() {
+            CAM.loadTemplate(tempsNames.recurrent_about_us_start_utility_bar_breadcrumb, domEl._start_utility_bar_breadcrumb_name);
         },
         recurrentSecionAboutUs: function() {
             dataStarSiteAboutUsAttributes = [
+                ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content'}, '', 1]
             ];
             CAM.appendMulti(domEl.div_recurrent, dataStarSiteAboutUsAttributes);
         }

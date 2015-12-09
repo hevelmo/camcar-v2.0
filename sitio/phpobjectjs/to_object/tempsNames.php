@@ -33,5 +33,9 @@ function tempsNames() {
         // SINGLE POST
         'recurrent_blog_by_news_start_single_post' => 'tmp_section_blog_by_news_start_single_post',
         'recurrent_blog_by_news_start_single_post_galery' => 'tmp_section_blog_by_news_start_single_post_galery',
+
+        // ABOUT US
+        // UTILITY BAR BREACRUMB
+        'recurrent_about_us_start_utility_bar_breadcrumb' => 'tmp_section_about_us_start_utility_bar_breadcrumb',
     );
 }
