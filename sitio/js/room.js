@@ -248,24 +248,9 @@
                 section = "blog";
                 viewSectionBlogMethod.viewSectionBlog();
             } else if ( $dataAgencie !== undefined && $dataBlog !== undefined && $dataBlogId !== undefined ) {
-                var $getBlog_id, $getAgencieBlog_name, $getAgencieBlog_key, $getBlog_name, $getBlog_key;
                 section = 'blog-by-post';
-
-                //CAM.setValue('#hidden-agencie-name', $dataAgencie);
-                //CAM.setValue('#hidden-blog-name', $dataBlog);
-                CAM.setValue('#hidden-blog-id', $dataBlogId);
-
-                $getblog_id = +CAM.getValue('#hidden-blog-id');
-                $getAgencieblog_name = CAM.getValue('#hidden-agencie-name');
-                $getAgencieblog_key = CAM.getValue('#hidden-agencie-key');
-                $getblog_name = CAM.getValue('#hidden-blog-name');
-                $getblog_key = CAM.getValue('#hidden-blog-key');
-
                 viewSectionBlogByNewsMethod.viewSectionBlogByNews($dataAgencie, $dataBlog, $dataBlogId);
-
-                console.log(section);
-            } else {
-                Finch.navigate('/noticias');
+                //console.log(section);
             }
             $(window).resize(mobile_menu_methods.has_menu_toggle);
             bgImageHolderMethods.appendBgImageHolder2();

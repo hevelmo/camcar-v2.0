@@ -19,6 +19,7 @@ function domEl() {
     // BLOG NEWS
     // BLOG BY NEWS
     $start_body_content_main = 'content-start-body-main';
+    $start_flexslider = 'content-flexslider';
     return array(
     	'head_recurrent' => 'head',
     	'body_recurrent' => 'body',
@@ -55,6 +56,10 @@ function domEl() {
         // BLOG
         '_start_body_content_main' => $start_body_content_main,
         '_start_body_content_main_name' => '#' . $start_body_content_main,
+        // BLOG BY POST
+        '_start_flexslider' => $start_flexslider,
+        '_start_flexslider_name' => '#' . $start_flexslider,
+        'diV_recurrent_blog_galery' => '#content-section-blog-galery',
         // MOBILE MENU TOGGLE
         '_menu_toogle' => '#menu-toggle',
         '_menu_toogle_close' => '.menu-toggle-close',

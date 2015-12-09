@@ -597,16 +597,16 @@
 
             blogUrl = urlsApi.getBlogByPost + blogAgencieKey + '/' + blogPostkey + '/' + blogId;
             blogSinglePost = CAM.getInternalJSON(blogUrl);
-            console.log(blogId, blogAgencieKey, blogPostkey);
+            //console.log(blogId, blogAgencieKey, blogPostkey);
 
             CAM.loadTemplate(tempsNames.recurrent_blog_by_news_start_single_post, domEl._start_body_content_main_name, blogSinglePost);
             toHtmlMethod.toHtml();
 
             dataSectionBlogGaleryAttributes = [
-                ['section', {'id':'content-flexslider', 'class':'slider'}, '', 1]
+                ['section', {'id':domEl._start_flexslider, 'class':'slider'}, '', 1]
             ];
-            CAM.appendMulti('#content-section-blog-galery', dataSectionBlogGaleryAttributes);
-            CAM.loadTemplate(tempsNames.recurrent_blog_by_news_start_single_post_galery, '#content-flexslider', blogSinglePost);
+            CAM.appendMulti(domEl.diV_recurrent_blog_galery, dataSectionBlogGaleryAttributes);
+            CAM.loadTemplate(tempsNames.recurrent_blog_by_news_start_single_post_galery, domEl._start_flexslider_name, blogSinglePost);
         },
         recurrentSectionBlogByNews: function() {
             dataStarSiteBlogByNewsAttributes = [
