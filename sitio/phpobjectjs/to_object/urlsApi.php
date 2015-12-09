@@ -33,6 +33,7 @@ function urlsApi() {
     $banners = 'banners';
     $group_counter = 'grupo/camcar';
     $banners = 'banners';
+    $noticia = 'noticia';
 
     //Root Api url
     $root = 'api/v15';
@@ -65,5 +66,9 @@ function urlsApi() {
         'getAgenciesNewsPrincipalesByAgencia' => $root . '/' . $get . '/agencias/' . $news. '/',
         // LOGOS AGENCIES NEWS PRINCIPAL
         'getLogosAgenciesNews' => $root . '/' . $get . '/logos/' . $agencie . '/' . $news,
+        // BLOG
+        'getBlog' => $root . '/' . $get . '/blog',
+        'getBlogByPost' => $root . '/' . $get . '/blog/' . $noticia . '/',
+
     );
 }

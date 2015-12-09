@@ -36,15 +36,25 @@ $(document).ready(function() {
     $(domEl.navbar_recurrent).on('click', domEl._menu_toogle_close, mobile_menu_methods.close_menu_toggle);
     // CLICK GO SECTION
     $(domEl.navbar_recurrent).on('click', domEl.goSection_index, clikGoMethods.clikGo_home);
+    // AGENCIES NEWS
     $(domEl.navbar_recurrent).on('click', domEl.goSection_agencies_news, clikGoMethods.clikGo_agencies_news);
+    // AGENCIES PRE-OWNED
     $(domEl.navbar_recurrent).on('click', domEl.goSection_agencies_preowned, clikGoMethods.clickGo_agencies_preowned);
+    // INVENTORIES PRE-OWNED
     $(domEl.navbar_recurrent).on('click', domEl.goSection_inventories_preowned, clikGoMethods.clickGo_inventories_preowned);
+    // WORKSHOP
     $(domEl.navbar_recurrent).on('click', domEl.goSection_workshop, clikGoMethods.clickGo_workshop);
+    // RENTAL
     $(domEl.navbar_recurrent).on('click', domEl.goSection_rental, clikGoMethods.clickGo_rental);
+    // BLOG
     $(domEl.navbar_recurrent).on('click', domEl.goSection_blog, clikGoMethods.clickGo_blog);
+    // BLOG BY NEWS
+    $(domEl.div_recurrent).on('click', domEl.goSection_blog_by_news, clikGoMethods.clickGo_blogByNotice);
+    // ABOUT US
     $(domEl.navbar_recurrent).on('click', domEl.goSection_about_us, clikGoMethods.clickGo_about_us);
-    // LOGO
+    // LOGO RESP
     $(domEl.navbar_recurrent).on('click', domEl.goSection_index_logo_resp, clikGoMethods.clikGo_home);
+    // LOGO
     $(domEl.navbar_recurrent).on('click', domEl.goSection_index_logo, clikGoMethods.clikGo_home);
     // FULLWIDTH FEATURES CLICK GO SECTION
     $(domEl.div_recurrent).on('click', domEl.goSection_fullwidth_features_inventories_preowned, clikGoMethods.clickGo_inventories_preowned);

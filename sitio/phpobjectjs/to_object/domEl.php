@@ -68,6 +68,7 @@ function domEl() {
         'goSection_workshop' => '#go-workshop',
         'goSection_rental' => '#go-rental',
         'goSection_blog' => '#go-blog',
+        'goSection_blog_by_news' => '#go-blog-item-by-news',
         'goSection_about_us' => '#go-about-us',
         // FULLWIDTH FEATURES CLIGO GO SECTION
         'goSection_fullwidth_features_workshop' => '#fullwidth-features-go-workshop',
@@ -78,6 +79,9 @@ function domEl() {
         'goSection_ourBrand_agencies_news' => '.act-agn-nuevo',
         'goSection_ourBrand_whorkshop' => '.act-agn-taller',
         'goSection_ourBrand_rental' => '.act-agn-rentas',
+        // BREADCRUMB BLOG
+        'filter_breadcrumb_blog_agencie' => '#filter-blog-agencie',
+        'filter_breadcrumb_blog_post' => '#filter-blog-post',
         // VALIDATION
         'validate_required' => '.validate-required',
     );

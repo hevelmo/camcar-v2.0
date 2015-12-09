@@ -1,9 +1,49 @@
 <div id="content" class="content full">
     <div class="container">
         <ul class="grid-holder col-3 posts-grid">
-            <li class="grid-item post format-standard">
-                <div class="grid-item-inner">
-                    <a id="go-news-item-by-news" class="media-box"
+            {{#each campa}}
+            <li class="grid-item post format-standard" id="{{blogId}}">
+                <div class="grid-item-inner equal-height">
+                    <a id="go-blog-item-by-news" class="media-box"
+                       data-news-id="{{blogId}}"
+                        data-agencie-name="{{blogAgencia}}"
+                        data-new-name="{{blogTitulo}}"
+                        data-agencie-key="{{blogAgenciaShort}}"
+                        data-new-key="{{blogTituloShort}}">
+                        <img src="../img/sitio/blog/{{blogSmall}}" alt="{{blogTitulo}}" class="post-img">
+                    </a>
+                    <div class="grid-content">
+                        <div class="post-actions">
+                            <div class="post-date">{{blogPublicacion}}</div>
+                        </div>
+                        <h3 class="post-title mb1"
+                            id="go-blog-item-by-news"
+                            data-news-id="{{blogId}}"
+                            data-agencie-name="{{blogAgencia}}"
+                            data-new-name="{{blogTitulo}}"
+                            data-agencie-key="{{blogAgenciaShort}}"
+                            data-new-key="{{blogTituloShort}}">
+                            <div class="to-html">{{blogSmallTitulo}}</div>
+                        </h3>
+                        <div class="to-html">{{blogSmallDescripcion}}</div>
+                        <div class="post-actions post-actions-buttom mb0">
+                            <a id="go-blog-item-by-news" class="continue-reading btn__view_more"
+                              data-news-id="{{blogId}}"
+                              data-agencie-name="{{blogAgencia}}"
+                              data-new-name="{{blogTitulo}}"
+                              data-agencie-key="{{blogAgenciaShort}}"
+                              data-new-key="{{blogTituloShort}}">
+                                Ver Más
+                                <i class="fa fa-chevron-right fa-fw fa-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            {{/each}}
+            {{!--<li class="grid-item post format-standard">
+                <div class="grid-item-inner equal-height">
+                    <a id="go-blog-item-by-news" class="media-box"
                        data-news-id="10"
                         data-agencie-name="Mercedes Benz"
                         data-new-name="Nueva agencia Sprinter en Guadalajara"
@@ -16,7 +56,7 @@
                             <div class="post-date">04 de Diciembre de 2015</div>
                         </div>
                         <h3 class="post-title mb1"
-                            id="go-news-item-by-news"
+                            id="go-blog-item-by-news"
                             data-news-id="10"
                             data-agencie-name="Mercedes Benz"
                             data-new-name="Nueva agencia Sprinter en Guadalajara"
@@ -28,7 +68,7 @@
                             Contando con la presencia de altos directivos de Mercedes-Benz y grupo CAMCAR, se celebró en la ciudad de Guadalajara el cóctel inaugural de la primera agencia Sprinter en Jalisco.
                         </p>
                         <div class="post-actions post-actions-buttom mb0">
-                            <a id="go-news-item-by-news" class="continue-reading btn__view_more"
+                            <a id="go-blog-item-by-news" class="continue-reading btn__view_more"
                               data-news-id="10"
                               data-agencie-name="Mercedes Benz"
                               data-new-name="Nueva agencia Sprinter en Guadalajara"
@@ -42,8 +82,8 @@
                 </div>
             </li>
             <li class="grid-item post format-standard">
-                <div class="grid-item-inner">
-                    <a id="go-news-item-by-news" class="media-box"
+                <div class="grid-item-inner equal-height">
+                    <a id="go-blog-item-by-news" class="media-box"
                        data-news-id="9"
                        data-agencie-name="Suzuki CAMCAR"
                        data-new-name="Lanzamiento Suzuki Nueva Vitara"
@@ -56,7 +96,7 @@
                             <div class="post-date">12 de Noviembre de 2015</div>
                         </div>
                         <h3 class="post-title mb1"
-                            id="go-news-item-by-news"
+                            id="go-blog-item-by-news"
                             data-news-id="9"
                             data-agencie-name="Suzuki CAMCAR"
                             data-new-name="Lanzamiento Suzuki Nueva Vitara"
@@ -68,7 +108,7 @@
                             Suzuki Camcar ofrece durante el mes de noviembre atractivos planes de financiamiento para estrenar la nueva Suzuki Vitara 2016. <br><br>
                         </p>
                         <div class="post-actions post-actions-buttom mb0">
-                            <a id="go-news-item-by-news" class="continue-reading btn__view_more"
+                            <a id="go-blog-item-by-news" class="continue-reading btn__view_more"
                                data-news-id="9"
                                data-agencie-name="Suzuki CAMCAR"
                                data-new-name="Lanzamiento Suzuki Nueva Vitara"
@@ -82,8 +122,8 @@
                 </div>
             </li>
             <li class="grid-item post format-standard">
-                <div class="grid-item-inner">
-                    <a id="go-news-item-by-news" class="media-box"
+                <div class="grid-item-inner equal-height">
+                    <a id="go-blog-item-by-news" class="media-box"
                        data-news-id="8"
                        data-agencie-name="Jaguar Land Rover"
                        data-new-name="Gira Nacional Sibarita"
@@ -96,7 +136,7 @@
                             <div class="post-date">05 de Noviembre de 2015</div>
                         </div>
                         <h3 class="post-title mb1"
-                            id="go-news-item-by-news"
+                            id="go-blog-item-by-news"
                             data-news-id="8"
                             data-agencie-name="Jaguar Land Rover"
                             data-new-name="Gira Nacional Sibarita"
@@ -108,7 +148,7 @@
                             Club 21Chefs y Jaguar Land Rover Guadalajara tienen el honor de invitarle a disfrutar una experiencia para todos sus sentidos. Jueves 12 de Noviembre de 2015 a las 20:00 hrs.
                         </p>
                         <div class="post-actions post-actions-buttom mb0">
-                            <a id="go-news-item-by-news" class="continue-reading btn__view_more"
+                            <a id="go-blog-item-by-news" class="continue-reading btn__view_more"
                                data-news-id="8"
                                data-agencie-name="Jaguar Land Rover"
                                data-new-name="Gira Nacional Sibarita"
@@ -122,8 +162,8 @@
                 </div>
             </li>
             <li class="grid-item post format-standard">
-                <div class="grid-item-inner">
-                    <a id="go-news-item-by-news" class="media-box"
+                <div class="grid-item-inner equal-height">
+                    <a id="go-blog-item-by-news" class="media-box"
                        data-news-id="7"
                        data-agencie-name="Jaguar Land Rover León"
                        data-new-name="Apertura de Nueva Agencia Jaguar Land Rover León"
@@ -136,7 +176,7 @@
                             <div class="post-date">03 de Noviembre de 2015</div>
                         </div>
                         <h3 class="post-title mb1"
-                            id="go-news-item-by-news"
+                            id="go-blog-item-by-news"
                                data-news-id="7"
                                data-agencie-name="Jaguar Land Rover León"
                                data-new-name="Apertura de Nueva Agencia Jaguar Land Rover León"
@@ -148,7 +188,7 @@
                             Jaguar Land Rover México anuncia orgullosamente la apertura de las nuevas instalaciones de su distribuidora en León, Guanajuato.
                         </p>
                         <div class="post-actions post-actions-buttom mb0">
-                            <a id="go-news-item-by-news" class="continue-reading btn__view_more"
+                            <a id="go-blog-item-by-news" class="continue-reading btn__view_more"
                                data-news-id="7"
                                data-agencie-name="Jaguar Land Rover León"
                                data-new-name="Apertura de Nueva Agencia Jaguar Land Rover León"
@@ -162,8 +202,8 @@
                 </div>
             </li>
             <li class="grid-item post format-standard">
-                <div class="grid-item-inner">
-                    <a id="go-news-item-by-news" class="media-box"
+                <div class="grid-item-inner equal-height">
+                    <a id="go-blog-item-by-news" class="media-box"
                        data-news-id="6"
                        data-agencie-name="Lincoln"
                        data-new-name="Lincoln, creando arte con tus emociones"
@@ -175,7 +215,7 @@
                         <div class="post-actions">
                             <div class="post-date">01 de Septiembre 2015</div>
                         </div>
-                        <h3 class="post-title mb1" id="go-news-item-by-news"
+                        <h3 class="post-title mb1" id="go-blog-item-by-news"
                            data-news-id="6"
                            data-agencie-name="Lincoln"
                            data-new-name="Lincoln, creando arte con tus emociones"
@@ -187,7 +227,7 @@
                             Presentamos la nueva Lincoln MKX 2016 de una manera única, invitamos a 10 personas a manejarla y sus emociones crearon una obra de arte, ve el video y descubre como.
                         </p>
                         <div class="post-actions post-actions-buttom mb0">
-                            <a id="go-news-item-by-news" class="continue-reading btn__view_more"
+                            <a id="go-blog-item-by-news" class="continue-reading btn__view_more"
                                data-news-id="6"
                                data-agencie-name="Lincoln"
                                data-new-name="Lincoln, creando arte con tus emociones"
@@ -201,8 +241,8 @@
                 </div>
             </li>
             <li class="grid-item post format-standard">
-                <div class="grid-item-inner">
-                    <a id="go-news-item-by-news" class="media-box"
+                <div class="grid-item-inner equal-height">
+                    <a id="go-blog-item-by-news" class="media-box"
                        data-news-id="5"
                        data-agencie-name="SYC Motors"
                        data-new-name="Primera edición de escala expo car show"
@@ -214,7 +254,7 @@
                         <div class="post-actions">
                             <div class="post-date">13 de Agosto 2015</div>
                         </div>
-                        <h3 class="post-title mb1" id="go-news-item-by-news"
+                        <h3 class="post-title mb1" id="go-blog-item-by-news"
                            data-news-id="5"
                            data-agencie-name="SYC Motors"
                            data-new-name="Primera edición de escala expo car show"
@@ -226,7 +266,7 @@
                             SyC Motors y Mitsubishi Centro presentaron el pasado Domingo 02 de Agosto del presente año, más de 4,000 autos en exhibición a escala. La Lic. Wendy  Licon, conductora de televisión y madrina del evento
                         </p>
                         <div class="post-actions post-actions-buttom mb0">
-                            <a id="go-news-item-by-news" class="continue-reading btn__view_more"
+                            <a id="go-blog-item-by-news" class="continue-reading btn__view_more"
                                data-news-id="5"
                                data-agencie-name="SYC Motors"
                                data-new-name="Primera edición de escala expo car show"
@@ -240,8 +280,8 @@
                 </div>
             </li>
             <li class="grid-item post format-standard">
-                <div class="grid-item-inner">
-                    <a id="go-news-item-by-news" class="media-box"
+                <div class="grid-item-inner equal-height">
+                    <a id="go-blog-item-by-news" class="media-box"
                        data-news-id="4"
                        data-agencie-name="Tyre Plus"
                        data-new-name="Gran Inauguración de Tyre Plus 17 de Agosto"
@@ -253,7 +293,7 @@
                         <div class="post-actions">
                             <div class="post-date">Martes 04 de Agosto 2015</div>
                         </div>
-                        <h3 class="post-title mb1" id="go-news-item-by-news"
+                        <h3 class="post-title mb1" id="go-blog-item-by-news"
                            data-news-id="4"
                            data-agencie-name="Tyre Plus"
                            data-new-name="Gran Inauguración de Tyre Plus 17 de Agosto"
@@ -265,7 +305,7 @@
                             TYRE PLUS cambia de dirección a Agustín Yañez No. 2494 (entre Lope de Vega y Calderón de la Barca), Teléfono 3770 4000 <br> La inauguración será el 17 de Agosto...
                         </p>
                         <div class="post-actions post-actions-buttom mb0">
-                            <a id="go-news-item-by-news" class="continue-reading btn__view_more"
+                            <a id="go-blog-item-by-news" class="continue-reading btn__view_more"
                                data-news-id="4"
                                data-agencie-name="Tyre Plus"
                                data-new-name="Gran Inauguración de Tyre Plus 17 de Agosto"
@@ -279,8 +319,8 @@
                 </div>
             </li>
             <li class="grid-item post format-standard">
-                <div class="grid-item-inner">
-                    <a id="go-news-item-by-news" class="media-box"
+                <div class="grid-item-inner equal-height">
+                    <a id="go-blog-item-by-news" class="media-box"
                        data-news-id="3"
                        data-agencie-name="Jaguar Land Rover GDL"
                        data-new-name="Presentación de la nueva Discovery Sport en Guadalajara"
@@ -292,7 +332,7 @@
                         <div class="post-actions">
                             <div class="post-date">Jueves 18 de Junio 2015</div>
                         </div>
-                        <h3 class="post-title mb1" id="go-news-item-by-news"
+                        <h3 class="post-title mb1" id="go-blog-item-by-news"
                            data-news-id="3"
                            data-agencie-name="Jaguar Land Rover GDL"
                            data-new-name="Presentación de la nueva Discovery Sport en Guadalajara"
@@ -304,7 +344,7 @@
                             La Triatleta, orgullosamente jalisciense, Begoña Vázquez, se presentó como embajadora de la marca comercial y después de un breve discurso
                         </p>
                         <div class="post-actions post-actions-buttom mb0">
-                            <a id="go-news-item-by-news" class="continue-reading btn__view_more"
+                            <a id="go-blog-item-by-news" class="continue-reading btn__view_more"
                                data-news-id="3"
                                data-agencie-name="Jaguar Land Rover GDL"
                                data-new-name="Presentación de la nueva Discovery Sport en Guadalajara"
@@ -318,8 +358,8 @@
                 </div>
             </li>
             <li class="grid-item post format-standard">
-                <div class="grid-item-inner">
-                    <a id="go-news-item-by-news" class="media-box"
+                <div class="grid-item-inner equal-height">
+                    <a id="go-blog-item-by-news" class="media-box"
                        data-news-id="2"
                        data-agencie-name="Jaguar Land Rover"
                        data-new-name="Nueva Discovery Sport diseño exclusivamente para hoy"
@@ -331,7 +371,7 @@
                         <div class="post-actions">
                             <div class="post-date">Mayo 25, 2015</div>
                         </div>
-                        <h3 class="post-title mb1" id="go-news-item-by-news"
+                        <h3 class="post-title mb1" id="go-blog-item-by-news"
                            data-news-id="2"
                            data-agencie-name="Jaguar Land Rover"
                            data-new-name="Nueva Discovery Sport diseño exclusivamente para hoy"
@@ -343,7 +383,7 @@
                             <b>DISEÑADO EXCLUSIVAMENTE PARA HOY</b> <br> Este es un vehículo moderno, relevante y convincente, tiene una forma compacta, bien proporcionada y postura decidida
                         </p>
                         <div class="post-actions post-actions-buttom mb0">
-                            <a id="go-news-item-by-news" class="continue-reading btn__view_more"
+                            <a id="go-blog-item-by-news" class="continue-reading btn__view_more"
                                data-news-id="2"
                                data-agencie-name="Jaguar Land Rover"
                                data-new-name="Nueva Discovery Sport diseño exclusivamente para hoy"
@@ -357,8 +397,8 @@
                 </div>
             </li>
             <li class="grid-item post format-standard">
-                <div class="grid-item-inner">
-                    <a id="go-news-item-by-news" class="media-box"
+                <div class="grid-item-inner equal-height">
+                    <a id="go-blog-item-by-news" class="media-box"
                        data-news-id="1"
                        data-agencie-name="Volvo Suecia Car Minerva"
                        data-new-name="Volvo Suecia Car Minerva innova con cerificación VPS"
@@ -370,7 +410,7 @@
                         <div class="post-actions">
                             <div class="post-date">Sábado 23 de Mayo 2015</div>
                         </div>
-                        <h3 class="post-title mb1" id="go-news-item-by-news"
+                        <h3 class="post-title mb1" id="go-blog-item-by-news"
                            data-news-id="1"
                            data-agencie-name="Volvo Suecia Car Minerva"
                            data-new-name="Volvo Suecia Car Minerva innova con cerificación VPS"
@@ -382,7 +422,7 @@
                             Volvo Suecia Car Minerva se posicionó como el primer Distribuidor Autorizado Volvo en contar con la certificación VPS (Volvo Personal Service)
                         </p>
                         <div class="post-actions post-actions-buttom mb0">
-                            <a id="go-news-item-by-news" class="continue-reading btn__view_more"
+                            <a id="go-blog-item-by-news" class="continue-reading btn__view_more"
                                data-news-id="1"
                                data-agencie-name="Volvo Suecia Car Minerva"
                                data-new-name="Volvo Suecia Car Minerva innova con cerificación VPS"
@@ -394,7 +434,7 @@
                         </div>
                     </div>
                 </div>
-            </li>
+            </li>--}}
         </ul>
     </div>
 </div>

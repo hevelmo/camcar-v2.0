@@ -2245,7 +2245,7 @@ h1.page-title{
 	clear:both;
 }
 .post-actions .post-date, .post-actions .comment-count{
-	width:50%;
+	width:100%;
 	float:left;
 }
 .post-actions .comment-count{

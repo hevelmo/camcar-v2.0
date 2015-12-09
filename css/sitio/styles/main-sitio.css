@@ -1337,7 +1337,7 @@ img.post-img {
     text-transform: uppercase;
 }
 .post-paragraph {
-  margin-bottom: 12px;
+  margin-bottom: 12px !important;
 }
 .gallery-grid .post-title{
   padding:0 0 20px;

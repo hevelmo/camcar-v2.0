@@ -280,15 +280,6 @@
                 }
             });
             $('.equal-height').height( altomax );
-        },
-        equalHeightsLoad_blog : function() {
-            var altomax = 0;
-            $('.grid-item-inner').each(function(){
-                if( $(this).height() > altomax ){
-                    altomax = $(this).height();
-                }
-            });
-            $('.grid-item-inner').height( altomax );
         }
     }
 /* ------------------------------------------------------ *\
@@ -406,9 +397,35 @@
         }
     }
 /* ------------------------------------------------------ *\
+    [Methods] viewNavbarMethod
+\* ------------------------------------------------------ */
+    var viewNavbarMethod = {
+        viewNavbar: function() {
+            viewNavbarMethod.recurrentNavbar();
+            viewNavbarMethod.loadTemplatesNavbar();
+        },
+        loadTemplatesNavbar: function() {
+            CAM.loadTemplate(tempsNames.recurrent_start_site_navbar, domEl._start_site_navbar_name);
+        },
+        recurrentNavbar: function() {
+            dataStartNavbarAttributes = [
+                ['header', {'id':domEl._start_site_navbar, 'class':'navbar navigation-bar-header nav-content'}, '', 1],
+            ];
+            CAM.appendMulti(domEl.navbar_recurrent, dataStartNavbarAttributes);
+        }
+    }
+/* ------------------------------------------------------ *\
     [Methods] viewSectionHomeMethod
 \* ------------------------------------------------------ */
-    var viewSectionMethod = {
+    var viewSectionHomeMethod = {
+        viewSectionHome: function() {
+            viewSectionHomeMethod.recurrentSecionHome();
+            viewSectionHomeMethod.loadTemplatesBanners();
+            viewSectionHomeMethod.loadTemplatesOurBrands();
+            viewSectionHomeMethod.loadTemplatesGroupCounter();
+            CAM.loadTemplate(tempsNames.recurrent_home_full_width_features, domEl._start_full_width_features_name);
+            CAM.loadTemplate(tempsNames.recurrent_home_dealer_search_gmap, domEl._start_dealer_search_map_name);
+        },
         loadTemplatesBanners: function() {
             var bannersData;
             bannersData = CAM.getInternalJSON(urlsApi.getBanners);
@@ -424,12 +441,6 @@
             groupCounterData = CAM.getInternalJSON(urlsApi.getGroupCounter);
             CAM.loadTemplate(tempsNames.recurrent_home_group_counter, domEl._start_large_pad_group_counter_name, groupCounterData);
         },
-        recurrentNavbar: function() {
-            dataStartNavbarAttributes = [
-                ['header', {'id':domEl._start_site_navbar, 'class':'navbar navigation-bar-header nav-content'}, '', 1],
-            ];
-            CAM.appendMulti(domEl.navbar_recurrent, dataStartNavbarAttributes);
-        },
         recurrentSecionHome: function() {
             dataStarSiteHomeAttributes = [
                 ['div', {'id':domEl._start_hero_carousel, 'class':'about-content hero-content'}, '', 1],
@@ -439,32 +450,100 @@
                 ['div', {'id':domEl._start_dealer_search_map, 'class':'about-content'}, '', 1]
             ];
             CAM.appendMulti(domEl.div_recurrent, dataStarSiteHomeAttributes);
+        }
+    }
+/* ------------------------------------------------------ *\
+    [Methods] viewSectionAgenciesNewsMethod
+\* ------------------------------------------------------ */
+    var viewSectionAgenciesNewsMethod = {
+        viewSectionAgenciesNews: function() {
+            viewSectionAgenciesNewsMethod.recurrentSecionAgenciesNews();
+            viewSectionAgenciesNewsMethod.loadTemplatesUtilityBarBreadcrumb();
+        },
+        loadTemplatesUtilityBarBreadcrumb: function() {
+            CAM.loadTemplate(tempsNames.recurrent_agencies_news_start_utility_bar_breadcrumb, domEl._start_utility_bar_breadcrumb_name);
         },
         recurrentSecionAgenciesNews: function() {
             dataStarSiteAgenciesNewsAttributes = [
                 ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content'}, '', 1],
             ];
             CAM.appendMulti(domEl.div_recurrent, dataStarSiteAgenciesNewsAttributes);
+        }
+    }
+/* ------------------------------------------------------ *\
+    [Methods] viewSectionAgenciesPreownedMethod
+\* ------------------------------------------------------ */
+    var viewSectionAgenciesPreownedMethod = {
+        viewSectionAgenciesPreowned: function() {
         },
         recurrentSecionAgenciesPreowned: function() {
             dataStarSiteAgenciesPreownedAttributes = [
             ];
             CAM.appendMulti(domEl.div_recurrent, dataStarSiteAgenciesPreownedAttributes);
+        }
+    }
+/* ------------------------------------------------------ *\
+    [Methods] viewSectionInventoriesPreownedMethod
+\* ------------------------------------------------------ */
+    var viewSectionInventoriesPreownedMethod = {
+        viewSectionInventoriesPreowned: function() {
         },
         recurrentSecionInventoriesPreowned: function() {
             dataStarSiteInventoriesPreownedAttributes = [
             ];
             CAM.appendMulti(domEl.div_recurrent, dataStarSiteInventoriesPreownedAttributes);
+        }
+    }
+/* ------------------------------------------------------ *\
+    [Methods] viewSectionWorkShopMethod
+\* ------------------------------------------------------ */
+    var viewSectionWorkShopMethod = {
+        viewSectionWorkShop: function() {
         },
         recurrentSecionWorkShop: function() {
             dataStarSiteWorkShopAttributes = [
             ];
             CAM.appendMulti(domEl.div_recurrent, dataStarSiteWorkShopAttributes);
+        }
+    }
+/* ------------------------------------------------------ *\
+    [Methods] viewSectionRentalMethod
+\* ------------------------------------------------------ */
+    var viewSectionRentalMethod = {
+        viewSectionRental: function() {
         },
         recurrentSecionRental: function() {
             dataStarSiteRentalAttributes = [
             ];
             CAM.appendMulti(domEl.div_recurrent, dataStarSiteRentalAttributes);
+        }
+    }
+/* ------------------------------------------------------ *\
+    [Methods] viewSectionBlogMethod
+\* ------------------------------------------------------ */
+    var viewSectionBlogMethod = {
+        viewSectionBlog: function() {
+            viewSectionBlogMethod.recurrentSecionBlog();
+            viewSectionBlogMethod.loadTemplatesUtilityBarBreadcrumb();
+            viewSectionBlogMethod.loadTemplatesGridHolderBlog();
+        },
+        loadTemplatesUtilityBarBreadcrumb: function() {
+            CAM.loadTemplate(tempsNames.recurrent_blog_news_start_utility_bar_breadcrumb, domEl._start_utility_bar_breadcrumb_name);
+        },
+        loadTemplatesGridHolderBlog: function() {
+            var blogSmallData;
+            blogSmallData = CAM.getInternalJSON(urlsApi.getBlog);
+            CAM.loadTemplate(tempsNames.recurrent_blog_news_start_grid_holder, domEl._start_body_content_main_name, blogSmallData);
+
+            $('.to-html').each ( function( key, value ) {
+                var html, element;
+                element = $(this);
+                html = CAM.getHTML(element);
+                html = $.trim(html);
+                html = CAM.replaceAll(html, '&lt;', '<');
+                html = CAM.replaceAll(html, '&gt;', '>');
+                CAM.setHTML(element, html);
+            });
         },
         recurrentSecionBlog: function() {
             dataStarSiteBlogAttributes = [
@@ -472,11 +551,64 @@
                 ['div', {'id':domEl._start_body_content_main, 'class':'main about-content', 'role':'main'}, '', 1]
             ];
             CAM.appendMulti(domEl.div_recurrent, dataStarSiteBlogAttributes);
+        }
+    }
+/* ------------------------------------------------------ *\
+    [Methods] viewSectionBlogByNewsMethod
+\* ------------------------------------------------------ */
+    var viewSectionBlogByNewsMethod = {
+        viewSectionBlogByNews: function() {
+            viewSectionBlogByNewsMethod.recurrentSectionBlogByNews();
+            viewSectionBlogByNewsMethod.loadTemplatesUtilityBarBreadcrumb();
+        },
+        loadTemplatesUtilityBarBreadcrumb: function() {
+            var $getBlog_id, $getAgencieBlog_name, $getAgencieBlog_key, $getBlog_name, $getBlog_key;
+            var blogBPostData;
+
+            $getblog_id = CAM.getValue('#hidden-blog-id');
+            $getAgencieblog_name = CAM.getValue('#hidden-agencie-name');
+            $getAgencieblog_key = CAM.getValue('#hidden-agencie-key');
+            $getblog_name = CAM.getValue('#hidden-blog-name');
+            $getblog_key = CAM.getValue('#hidden-blog-key');
+
+            blogUrl = urlsApi.getBlogByPost + $getAgencieblog_key + '/' + $getblog_key + '/' + $getblog_id;
+            blogBPostData = CAM.getInternalJSON(blogUrl);
+            console.log($getblog_id, $getAgencieblog_key, $getblog_key);
+
+            CAM.loadTemplate(tempsNames.recurrent_blog_by_news_start_utility_bar_breadcrumb, domEl._start_utility_bar_breadcrumb_name, blogBPostData);
+
+            //$(domEl.filter_breadcrumb_blog_agencie).html($getAgencieblog_name);
+            //$(domEl.filter_breadcrumb_blog_post).html($getblog_name);
+        },
+        recurrentSectionBlogByNews: function() {
+            dataStarSiteBlogByNewsAttributes = [
+                ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content'}, '', 1]
+            ];
+            CAM.appendMulti(domEl.div_recurrent, dataStarSiteBlogByNewsAttributes);
+        }
+    }
+/* ------------------------------------------------------ *\
+    [Methods] viewSectionAboutUsMethod
+\* ------------------------------------------------------ */
+    var viewSectionAboutUsMethod = {
+        viewSectionAboutUs: function() {
         },
         recurrentSecionAboutUs: function() {
             dataStarSiteAboutUsAttributes = [
             ];
             CAM.appendMulti(domEl.div_recurrent, dataStarSiteAboutUsAttributes);
+        }
+    }
+/* ------------------------------------------------------ *\
+    [Methods] viewSectionPrivacyNoticeMethod
+\* ------------------------------------------------------ */
+    var viewSectionPrivacyNoticeMethod = {
+        viewSectionPrivacyNotice: function() {
+        },
+        recurrentSecionPrivacyNotice: function() {
+            dataStarSitePrivacyNoticeAttributes = [
+            ];
+            CAM.appendMulti(domEl.div_recurrent, dataStarSitePrivacyNoticeAttributes);
         }
     }
 /* ------------------------------------------------------ *\
@@ -509,7 +641,48 @@
         },
         clickGo_blog: function(event) {
             $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );
+            $('.input-hidden').val('');
             Finch.navigate('/noticias');
+        },
+        clickGo_blogByNotice: function(event) {
+            var $setBlog_id, $setAgencieBlog_name, $setAgencieBlog_key, $setBlog_name, $setBlog_key, $element;
+            $element = $(this);
+
+            $setBlog_id = $element.data('news-id');
+            $setAgencieBlog_name = $element.data('agencie-name');
+            $setAgencieBlog_key = $element.data('agencie-key');
+            $setBlog_name = $element.data('new-name');
+            $setBlog_key = $element.data('new-key');
+
+            $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );
+            Finch.navigate('/noticias/' + $setAgencieBlog_key + '/' + $setBlog_key + '/' + $setBlog_id);
+
+            CAM.setValue('#hidden-blog-id', $setBlog_id);
+            CAM.setValue('#hidden-agencie-name', $setAgencieBlog_name);
+            CAM.setValue('#hidden-agencie-key', $setAgencieBlog_key);
+            CAM.setValue('#hidden-blog-name', $setBlog_name);
+            CAM.setValue('#hidden-blog-key', $setBlog_key);
+
+        },
+        clickGoSlider_blogByNotice: function(event) {
+            var $setBlog_id, $setAgencieBlog_name, $setAgencieBlog_key, $setBlog_name, $setBlog_key, $element;
+            $element = $(this);
+
+            $setBlog_id = $element.data('news-id');
+            $setAgencieBlog_name = $element.data('agencie-name');
+            $setAgencieBlog_key = $element.data('agencie-key');
+            $setBlog_name = $element.data('new-name');
+            $setBlog_key = $element.data('new-key');
+
+            $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );
+
+            CAM.setValue('#hidden-blog-id', $setBlog_id);
+            CAM.setValue('#hidden-agencie-name', $setAgencieBlog_name);
+            CAM.setValue('#hidden-agencie-key', $setAgencieBlog_key);
+            CAM.setValue('#hidden-blog-name', $setBlog_name);
+            CAM.setValue('#hidden-blog-key', $setBlog_key);
+
+            Finch.navigate('/noticias/' + $setAgencieBlog_key + '/' + $setBlog_key);
         },
         clickGo_about_us: function(event) {
             $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );
@@ -529,6 +702,7 @@
             removeRecurrentsMethod.removeRecurrents_home();
             removeRecurrentsMethod.removeRecurrents_agencies_news();
             removeRecurrentsMethod.removeRecurrents_blog();
+            removeRecurrentsMethod.removeRecurrents_blog_by_news();
         },
         removeRecurrent_navbar: function() {
             $(domEl._start_site_navbar_name).remove();
@@ -547,6 +721,9 @@
         removeRecurrents_blog: function() {
             $(domEl._start_utility_bar_breadcrumb_name).remove();
             $(domEl._start_body_content_main_name).remove();
+        },
+        removeRecurrents_blog_by_news: function() {
+            $(domEl._start_utility_bar_breadcrumb_name).remove();
         }
     }
 /* ------------------------------------------------------ *\

@@ -72,6 +72,11 @@ $app->configureMode('development', function () use ($app) {
     // LOGOS AGENCIES NEWS PRINCIPAL
     //$app->get('/get/logos/agencia/nuevos', /*'mw1',*/ 'getLogosAgenciesNews');
 
+    // SECTION BLOG
+    $app->get('/get/blog', /*'mw1',*/ 'getBlog');
+    // SECTION BLOG BY NEWS
+    $app->get('/get/blog/noticia/:blogAgenciaShort/:blogTituloShort/:blogId', /*'mw1',*/ 'getBlogByPost');
+
 // DELETE
 //$app->get('/del/table/:idTable', /*'mw1',*/ 'delTable');
 $app->run();
@@ -165,8 +170,8 @@ $app->run();
     }
     // GET HOME SECTION BANNERS
     function getBanners() {
-        $sql = "SELECT * 
-                FROM camBanners 
+        $sql = "SELECT *
+                FROM camBanners
                 WHERE BAN_Status = 1
                 ORDER BY BAN_Id DESC
                 ";
@@ -453,6 +458,65 @@ $app->run();
         getAgenciesNewsByAgencieJSON($sql, $agn_nombre, $agn_id);
     }
 
+    // BLOG JSON
+    function getBlogJSON($sql, $blogAgenciaShort, $blogTituloShort, $blogId) {
+        $structure = array(
+            'blogId' => 'BLG_Id',
+            'blogTitulo' => 'BLG_Titulo',
+            'blogTituloShort' => 'BLG_TituloShort',
+            'blogSubTitulo' => 'BLG_SubTitulo',
+            'blogSmallTitulo' => 'BLG_SmallTitulo',
+            'blogSmallDescripcion' => 'BLG_SmallDescripcion',
+            'blogDescripcion' => 'BLG_Descripcion',
+            'blogAgencia' => 'BLG_Agencia',
+            'blogAgenciaShort' => 'BLG_AgenciaShort',
+            'blogSmall' => 'BLG_Small',
+            'blogPrimaryLinkUrl' => 'BLG_PrimaryLinkUrl',
+            'blogPrimaryLinkName' => 'BLG_PrimaryLinkName',
+            'blogPublicacion' => 'BLG_Publicacion'
+        );
+        $params = array();
+        ($blogAgenciaShort !== '') ? $params['blogAgenciaShort'] = $blogAgenciaShort : $params = $params;
+        ($blogTituloShort !== '') ? $params['blogTituloShort'] = $blogTituloShort : $params = $params;
+        ($blogId !== '') ? $params['blogId'] = $blogId : $params = $params;
+        echo changeQueryIntoJSON('campa', $structure, getConnection(), $sql, $params, 0, PDO::FETCH_ASSOC);
+    }
+    // GET BLOG
+    function getBlog() {
+        $sql = "SELECT *
+                FROM (
+                    SELECT *
+                    FROM camBlog
+                    ORDER BY BLG_Id
+                    DESC
+                ) blg
+                ";
+        getBlogJSON($sql, '', '', '');
+    }
+    // GET BLOG BY Id
+    /*function getBlogById($blogId) {
+        $sql = "SELECT *
+                FROM (
+                    SELECT *
+                    FROM camBlog
+                    WHERE BLG_Id = :blogId
+                ) blg
+                ";
+        getBlogJSON($sql, $blogId, '');
+    }*/
+    // GET BLOG BY POST
+    function getBlogByPost($blogAgenciaShort, $blogTituloShort, $blogId) {
+        $sql = "SELECT *
+                FROM (
+                    SELECT *
+                    FROM camBlog
+                    WHERE BLG_AgenciaShort = :blogAgenciaShort
+                    AND BLG_TituloShort = :blogTituloShort
+                    AND BLG_Id = :blogId
+                ) blg
+                ";
+        getBlogJSON($sql, $blogAgenciaShort, $blogTituloShort, $blogId);
+    }
 
     // DELETE
     function delTable($idTable) {
