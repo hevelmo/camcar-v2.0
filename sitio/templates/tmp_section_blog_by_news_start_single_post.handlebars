@@ -14,8 +14,21 @@
           				</h2>
         			</header>
         			<article class="post-content">
+        				{{#if campa.0.blogGaleria}}
+        					<div class="featured-image">
+                                <a id="content-section-blog-galery">
+                                </a>
+                            </div>
+        				{{/if}}
+        				{{#if campa.0.blogVideo}}
+        					<div class="featured-image featured-image-mobile">
+                                <a>
+                                    <iframe width="795" height="480" src="{{campa.0.blogVideo}}?rel=0" frameborder="0" allowfullscreen=""></iframe>
+                                </a>
+                            </div>
+        				{{/if}}
         				{{#if campa.0.blogSubTitulo}}
-    					<h3 class="post-subtitle">{{campa.0.blogSubTitulo}}</h3>
+    					<h3 class="post-subtitle to-html">{{campa.0.blogSubTitulo}}</h3>
         				{{/if}}
         				{{#if campa.0.blogFeatureImage}}
         				<div class="featured-image">
@@ -53,7 +66,21 @@
         				{{#if campa.0.blogPostBlockquote}}
         				<div class="to-html">{{campa.0.blogPostBlockquote}}</div>
         				{{/if}}
+        				{{#if campa.0.blogPrimaryLinkUrl}}
+        				<div class="tab_content_agencies animation-fadeIn">
+                            <section class="" style="padding: 0px 0px 0px;">
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 text-center" style="font-size: 16px; padding: 20px 5px 0px;">
+                                        <a href="{{campa.0.blogPrimaryLinkUrl}}" class="button py4 button-transparent bg-youtube resp-button tex-center" target="_blank">
+                                            <i class="fa fa-youtube-square fa-fw fa-lg"></i> {{campa.0.blogPrimaryLinkName}}
+                                        </a>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+        				{{/if}}
         			</article>
+        			<article class="post-content-address" id="content-address"></article>
       			</div>
       			<!-- Start Sidebar -->
       			<div class="col-md-3 sidebar">

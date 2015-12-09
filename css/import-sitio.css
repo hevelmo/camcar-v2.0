@@ -26,6 +26,7 @@
 		@import url(webfonts/fullwidth-features/fullwidth-features.css);
 		@import url(webfonts/avenir/avenir.css);
 		@import url(webfonts/elegant-icons/elegant-icons.css);
+		@import url(webfonts/font-flexslider.css);
 	/* ------------------------------------------------------ *\
 		[styles] remark fonts.googleApis
 	\* ------------------------------------------------------ */
@@ -43,6 +44,7 @@
 		@import url(sitio/styles/typography.css);
 		@import url(sitio/herocarousel/herocarousel.css);
 		@import url(sitio/styles/media-box.css);
+		@import url(sitio/flexslider/flexslidernew.css);
 
 		/*
 

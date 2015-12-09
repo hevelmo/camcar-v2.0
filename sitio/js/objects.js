@@ -50,6 +50,7 @@ domEl = {
 tempsNames = {
 	"recurrent_agencies_news_start_utility_bar_breadcrumb":"tmp_section_agencies_news_start_utility_bar_breadcrumb",
 	"recurrent_blog_by_news_start_single_post":"tmp_section_blog_by_news_start_single_post",
+	"recurrent_blog_by_news_start_single_post_galery":"tmp_section_blog_by_news_start_single_post_galery",
 	"recurrent_blog_by_news_start_utility_bar_breadcrumb":"tmp_section_blog_by_news_start_utility_bar_breadcrumb",
 	"recurrent_blog_news_start_grid_holder":"tmp_section_blog_news_start_grid_holder",
 	"recurrent_blog_news_start_utility_bar_breadcrumb":"tmp_section_blog_news_start_utility_bar_breadcrumb",

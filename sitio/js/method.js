@@ -600,8 +600,13 @@
             console.log(blogId, blogAgencieKey, blogPostkey);
 
             CAM.loadTemplate(tempsNames.recurrent_blog_by_news_start_single_post, domEl._start_body_content_main_name, blogSinglePost);
-
             toHtmlMethod.toHtml();
+
+            dataSectionBlogGaleryAttributes = [
+                ['section', {'id':'content-flexslider', 'class':'slider'}, '', 1]
+            ];
+            CAM.appendMulti('#content-section-blog-galery', dataSectionBlogGaleryAttributes);
+            CAM.loadTemplate(tempsNames.recurrent_blog_by_news_start_single_post_galery, '#content-flexslider', blogSinglePost);
         },
         recurrentSectionBlogByNews: function() {
             dataStarSiteBlogByNewsAttributes = [

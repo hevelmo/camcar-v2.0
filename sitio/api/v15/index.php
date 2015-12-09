@@ -488,6 +488,37 @@ $app->run();
         ($blogId !== '') ? $params['blogId'] = $blogId : $params = $params;
         echo changeQueryIntoJSON('campa', $structure, getConnection(), $sql, $params, 0, PDO::FETCH_ASSOC);
     }
+    function getBlogByPostJSON($sql, $blogAgenciaShort, $blogTituloShort, $blogId) {
+        $structure = array(
+            'blogId' => 'BLG_Id',
+            'blogTitulo' => 'BLG_Titulo',
+            'blogTituloShort' => 'BLG_TituloShort',
+            'blogSubTitulo' => 'BLG_SubTitulo',
+            'blogFeatureImage' => 'BLG_PostImage',
+            'blogSmallTitulo' => 'BLG_SmallTitulo',
+            'blogSmallDescripcion' => 'BLG_SmallDescripcion',
+            'blogDescripcion' => 'BLG_Descripcion',
+            'blogPostParrafo1' => 'BLG_BlogPostParrafo1',
+            'blogPostParrafo2' => 'BLG_BlogPostParrafo2',
+            'blogPostSubTitulo' => 'BLG_BlogPostSubTitulo',
+            'blogPostFeatureImage1' => 'BLG_BlogPostFeatureImage1',
+            'blogPostFeatureImage2' => 'BLG_BlogPostFeatureImage2',
+            'blogPostBlockquote' => 'BLG_BlogPostBlockquote',
+            'blogAgencia' => 'BLG_Agencia',
+            'blogAgenciaShort' => 'BLG_AgenciaShort',
+            'blogSmall' => 'BLG_Small',
+            'blogPrimaryLinkUrl' => 'BLG_PrimaryLinkUrl',
+            'blogPrimaryLinkName' => 'BLG_PrimaryLinkName',
+            'blogPublicacion' => 'BLG_Publicacion',
+            'blogGaleria' => 'GAL_Galeria',
+            'blogVideo' => 'VDO_Video'
+        );
+        $params = array();
+        ($blogAgenciaShort !== '') ? $params['blogAgenciaShort'] = $blogAgenciaShort : $params = $params;
+        ($blogTituloShort !== '') ? $params['blogTituloShort'] = $blogTituloShort : $params = $params;
+        ($blogId !== '') ? $params['blogId'] = $blogId : $params = $params;
+        echo changeQueryIntoJSON('campa', $structure, getConnection(), $sql, $params, 0, PDO::FETCH_ASSOC);
+    }
     // GET BLOG
     function getBlog() {
         $sql = "SELECT *
@@ -521,8 +552,18 @@ $app->run();
                     AND BLG_TituloShort = :blogTituloShort
                     AND BLG_Id = :blogId
                 ) blg
+                LEFT JOIN (
+                    SELECT *
+                    FROM camBlogGaleria
+                ) gal
+                ON blg.BLG_Id = gal.GAL_BLG_Id
+                LEFT JOIN (
+                    SELECT *
+                    FROM camBlogVideos
+                ) vdo
+                ON blg.BLG_Id = vdo.VDO_BLG_Id
                 ";
-        getBlogJSON($sql, $blogAgenciaShort, $blogTituloShort, $blogId);
+        getBlogByPostJSON($sql, $blogAgenciaShort, $blogTituloShort, $blogId);
     }
 
     // DELETE
