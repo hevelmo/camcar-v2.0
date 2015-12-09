@@ -459,7 +459,7 @@ $app->run();
     }
 
     // BLOG JSON
-    function getBlogJSON($sql, $blogAgenciaShort, $blogTituloShort, $blogId) {
+    function getBlogJSON($sql) {
         $structure = array(
             'blogId' => 'BLG_Id',
             'blogTitulo' => 'BLG_Titulo',
@@ -483,9 +483,6 @@ $app->run();
             'blogPublicacion' => 'BLG_Publicacion'
         );
         $params = array();
-        ($blogAgenciaShort !== '') ? $params['blogAgenciaShort'] = $blogAgenciaShort : $params = $params;
-        ($blogTituloShort !== '') ? $params['blogTituloShort'] = $blogTituloShort : $params = $params;
-        ($blogId !== '') ? $params['blogId'] = $blogId : $params = $params;
         echo changeQueryIntoJSON('campa', $structure, getConnection(), $sql, $params, 0, PDO::FETCH_ASSOC);
     }
     function getBlogByPostJSON($sql, $blogAgenciaShort, $blogTituloShort, $blogId) {
@@ -529,19 +526,8 @@ $app->run();
                     DESC
                 ) blg
                 ";
-        getBlogJSON($sql, '', '', '');
+        getBlogJSON($sql);
     }
-    // GET BLOG BY Id
-    /*function getBlogById($blogId) {
-        $sql = "SELECT *
-                FROM (
-                    SELECT *
-                    FROM camBlog
-                    WHERE BLG_Id = :blogId
-                ) blg
-                ";
-        getBlogJSON($sql, $blogId, '');
-    }*/
     // GET BLOG BY POST
     function getBlogByPost($blogAgenciaShort, $blogTituloShort, $blogId) {
         $sql = "SELECT *

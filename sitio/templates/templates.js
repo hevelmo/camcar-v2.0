@@ -10,7 +10,7 @@ templates['tmp_section_blog_by_news_start_single_post'] = template({"1":function
 
   return "        					<div class=\"featured-image featured-image-mobile\">\n                                <a>\n                                    <iframe width=\"795\" height=\"480\" src=\""
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.blogVideo : stack1), depth0))
-    + "?rel=0\" frameborder=\"0\" allowfullscreen=\"\"></iframe>\n                                </a>\n                            </div>\n";
+    + "?rel=0\" frameborder=\"0\" allowfullscreen=\"\"></iframe>\n                                </a>\n                            </div>\n                            <div class=\"tab_content_agencies animation-fadeIn\">\n                                <section class=\"\" style=\"padding: 0px 0px 0px;\">\n                                    <div class=\"row\">\n                                        <div class=\"col-md-12 col-sm-12 text-center\" style=\"font-size: 16px; padding: 20px 5px 0px;\">\n                                            <a href=\"https://www.youtube.com/c/CamcarMx\" class=\"button py4 button-transparent bg-youtube resp-button tex-center resp-button-channel\" target=\"_blank\">\n                                                <i class=\"fa fa-youtube-square fa-fw fa-lg\"></i> CANAL DE YOUTUBE\n                                            </a>\n                                        </div>\n                                    </div>\n                                </section>\n                            </div>\n";
 },"5":function(container,depth0,helpers,partials,data) {
     var stack1;
 
@@ -93,7 +93,7 @@ templates['tmp_section_blog_by_news_start_single_post'] = template({"1":function
     + ((stack1 = helpers["if"].call(alias3,((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.blogPostFeatureImage2 : stack1),{"name":"if","hash":{},"fn":container.program(19, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + ((stack1 = helpers["if"].call(alias3,((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.blogPostBlockquote : stack1),{"name":"if","hash":{},"fn":container.program(21, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + ((stack1 = helpers["if"].call(alias3,((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.blogPrimaryLinkUrl : stack1),{"name":"if","hash":{},"fn":container.program(23, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "        			</article>\n      			</div>\n      			<!-- Start Sidebar -->\n      			<div class=\"col-md-3 sidebar\">\n        		</div>\n      		</div>\n    	</div>\n  	</div>\n</div>\n<!-- End Body Content -->\n";
+    + "        			</article>\n        			<article class=\"post-content-address\" id=\"content-address\"></article>\n      			</div>\n      			<!-- Start Sidebar -->\n      			<div class=\"col-md-3 sidebar\">\n        		</div>\n      		</div>\n    	</div>\n  	</div>\n</div>\n<!-- End Body Content -->\n";
 },"useData":true});
 templates['tmp_section_blog_by_news_start_single_post_galery'] = template({"1":function(container,depth0,helpers,partials,data) {
     var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
@@ -117,7 +117,7 @@ templates['tmp_section_blog_by_news_start_single_post_galery'] = template({"1":f
 templates['tmp_section_blog_by_news_start_utility_bar_breadcrumb'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=container.lambda, alias2=container.escapeExpression;
 
-  return "<!-- Utiity Bar -->\n<div class=\"utility-bar\" id=\"start-utility-bar\">\n	<div class=\"container\">\n    	<div class=\"row\">\n        	<div class=\"col-md-12 col-sm-6 col-xs-8\">\n                <ol class=\"breadcrumb\">\n                    <li><a class=\"cur-hover\" id=\"\"><i class=\"fa fa-home fa-fw fa-lg\"></i> Inicio</a></li>\n                    <li class=\"\"><a id=\"go-breadcrumb-blog\" class=\"cur-hover\">Noticas</a></li>\n                    <li class=\"active\"><a id=\"filter-blog-agencie\" class=\"cur-hover\">"
+  return "<!-- Utiity Bar -->\n<div class=\"utility-bar\" id=\"start-utility-bar\">\n	<div class=\"container\">\n    	<div class=\"row\">\n        	<div class=\"col-md-12 col-sm-12 col-xs-12\">\n                <ol class=\"breadcrumb\">\n                    <li><a class=\"cur-hover\" id=\"\"><i class=\"fa fa-home fa-fw fa-lg\"></i> <span class=\"resp-text-indent\">Inicio</span></a></li>\n                    <li class=\"\"><a id=\"go-breadcrumb-blog\" class=\"cur-hover\">Noticas</a></li>\n                    <li class=\"active\"><a id=\"filter-blog-agencie\" class=\"cur-hover\">"
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.blogAgencia : stack1), depth0))
     + "</a></li>\n                    <li class=\"active\"><a id=\"filter-blog-post\" class=\"cur-hover\">"
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.blogTitulo : stack1), depth0))
@@ -177,7 +177,7 @@ templates['tmp_section_blog_news_start_grid_holder'] = template({"1":function(co
     + "        </ul>\n    </div>\n</div>\n";
 },"useData":true});
 templates['tmp_section_blog_news_start_utility_bar_breadcrumb'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<!-- Utiity Bar -->\n<div class=\"utility-bar\" id=\"start-utility-bar\">\n	<div class=\"container\">\n    	<div class=\"row\">\n        	<div class=\"col-md-12 col-sm-6 col-xs-8\">\n                <ol class=\"breadcrumb\">\n                    <li><a class=\"cur-hover\" id=\"\"><i class=\"fa fa-home fa-fw fa-lg\"></i> Inicio</a></li>\n                    <li class=\"active\"><a class=\"cur-hover\">Noticas</a></li>\n                </ol>\n        	</div>\n        </div>\n  	</div>\n</div>\n";
+    return "<!-- Utiity Bar -->\n<div class=\"utility-bar\" id=\"start-utility-bar\">\n	<div class=\"container\">\n    	<div class=\"row\">\n        	<div class=\"col-md-12 col-sm-12 col-xs-12\">\n                <ol class=\"breadcrumb\">\n                    <li><a class=\"cur-hover\" id=\"\"><i class=\"fa fa-home fa-fw fa-lg\"></i> <span class=\"resp-text-indent\">Inicio</span></a></li>\n                    <li class=\"active\"><a class=\"cur-hover\">Noticas</a></li>\n                </ol>\n        	</div>\n        </div>\n  	</div>\n</div>\n";
 },"useData":true});
 templates['tmp_section_home_dealer_search_gmap'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     return "<div id=\"gmap\" style=\"height:500px;\"></div>";
