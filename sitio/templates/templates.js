@@ -1,42 +1,85 @@
 (function() {
   var template = Handlebars.template, templates = Handlebars.templates = Handlebars.templates || {};
-templates['tmp_blog_by_news_start_single_post_01'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "";
-},"useData":true});
-templates['tmp_blog_by_news_start_single_post_02'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "";
-},"useData":true});
-templates['tmp_blog_by_news_start_single_post_03'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "";
-},"useData":true});
-templates['tmp_blog_by_news_start_single_post_04'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "";
-},"useData":true});
-templates['tmp_blog_by_news_start_single_post_05'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "";
-},"useData":true});
-templates['tmp_blog_by_news_start_single_post_06'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "";
-},"useData":true});
-templates['tmp_blog_by_news_start_single_post_07'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "";
-},"useData":true});
-templates['tmp_blog_by_news_start_single_post_08'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "";
-},"useData":true});
-templates['tmp_blog_by_news_start_single_post_09'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "";
-},"useData":true});
-templates['tmp_blog_by_news_start_single_post_10'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "";
-},"useData":true});
 templates['tmp_section_agencies_news_start_utility_bar_breadcrumb'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     return "<!-- Utiity Bar -->\n<div class=\"utility-bar\" id=\"start-utility-bar\">\n	<div class=\"container\">\n    	<div class=\"row\">\n        	<div class=\"col-md-12 col-sm-6 col-xs-8\">\n                <ol class=\"breadcrumb\">\n                    <li><a class=\"cur-hover\" id=\"\"><i class=\"fa fa-home fa-fw fa-lg\"></i> Inicio</a></li>\n                    <li class=\"active\" id=\"bread-agencie-new-title\"><a class=\"cur-hover\">Agencias</a></li>\n                    <li class=\"active\" id=\"bread-agencie-new-type\"><a class=\"cur-hover\">Nuevos</a></li>\n                    <li class=\"active\" id=\"filter-agencie-news-principal\"><a class=\"cur-hover\"></a></li>\n                    <li class=\"active\" id=\"filter-agencie-news-principal-type\"><a class=\"cur-hover\"></a></li>\n                </ol>\n        	</div>\n        </div>\n  	</div>\n</div>\n";
+},"useData":true});
+templates['tmp_section_blog_by_news_start_single_post'] = template({"1":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "    					<h3 class=\"post-subtitle\">"
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.blogSubTitulo : stack1), depth0))
+    + "</h3>\n";
+},"3":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "        				<div class=\"featured-image\">\n                            <a>\n                                <img src=\"../img/sitio/blog/"
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.blogFeatureImage : stack1), depth0))
+    + "\" alt=\"\" class=\"post-img\">\n                            </a>\n                        </div>\n";
+},"5":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "        				<div class=\"to-html\">"
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.blogDescripcion : stack1), depth0))
+    + "</div>\n";
+},"7":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "        				<div class=\"to-html\">"
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.blogPostParrafo1 : stack1), depth0))
+    + "</div>\n";
+},"9":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "        				<div class=\"to-html\">"
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.blogPostSubTitulo : stack1), depth0))
+    + "</div>\n";
+},"11":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "        				<div class=\"to-html\">"
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.blogPostParrafo2 : stack1), depth0))
+    + "</div>\n";
+},"13":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "        				<div class=\"featured-image\">\n                            <a>\n                                <img src=\"../img/sitio/blog/"
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.blogPostFeatureImage1 : stack1), depth0))
+    + "\" alt=\"\" class=\"post-img\">\n                            </a>\n                        </div>\n";
+},"15":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "        				<div class=\"featured-image\">\n                            <a>\n                                <img src=\"../img/sitio/blog/"
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.blogPostFeatureImage2 : stack1), depth0))
+    + "\" alt=\"\" class=\"post-img\">\n                            </a>\n                        </div>\n";
+},"17":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "        				<div class=\"to-html\">"
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.blogPostBlockquote : stack1), depth0))
+    + "</div>\n";
+},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : {};
+
+  return "<!-- Start Body Content -->\n<div class=\"main\" role=\"main\">\n	<div id=\"content\" class=\"content full\">\n  		<div class=\"container\">\n    		<div class=\"row\">\n      			<div class=\"col-md-9 single-post\">\n        			<header class=\"single-post-header clearfix\">\n                        <div class=\"post-actions\">\n                            <div class=\"post-date\">"
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.blogPublicacion : stack1), depth0))
+    + "</div>\n                            <div class=\"comment-count\"><a id=\"go-back-blog\"><i class=\"fa fa-chevron-left\"></i> Regresar</a></div>\n                        </div>\n          				<h2 class=\"post-title\">\n          					"
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.blogTitulo : stack1), depth0))
+    + "\n          				</h2>\n        			</header>\n        			<article class=\"post-content\">\n"
+    + ((stack1 = helpers["if"].call(alias3,((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.blogSubTitulo : stack1),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers["if"].call(alias3,((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.blogFeatureImage : stack1),{"name":"if","hash":{},"fn":container.program(3, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers["if"].call(alias3,((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.blogDescripcion : stack1),{"name":"if","hash":{},"fn":container.program(5, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers["if"].call(alias3,((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.blogPostParrafo1 : stack1),{"name":"if","hash":{},"fn":container.program(7, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers["if"].call(alias3,((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.blogPostSubTitulo : stack1),{"name":"if","hash":{},"fn":container.program(9, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers["if"].call(alias3,((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.blogPostParrafo2 : stack1),{"name":"if","hash":{},"fn":container.program(11, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers["if"].call(alias3,((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.blogPostFeatureImage1 : stack1),{"name":"if","hash":{},"fn":container.program(13, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers["if"].call(alias3,((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.blogPostFeatureImage2 : stack1),{"name":"if","hash":{},"fn":container.program(15, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers["if"].call(alias3,((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.blogPostBlockquote : stack1),{"name":"if","hash":{},"fn":container.program(17, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "        			</article>\n      			</div>\n      			<!-- Start Sidebar -->\n      			<div class=\"col-md-3 sidebar\">\n        		</div>\n      		</div>\n    	</div>\n  	</div>\n</div>\n<!-- End Body Content -->\n";
 },"useData":true});
 templates['tmp_section_blog_by_news_start_utility_bar_breadcrumb'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=container.lambda, alias2=container.escapeExpression;
 
-  return "<!-- Utiity Bar -->\n<div class=\"utility-bar\" id=\"start-utility-bar\">\n	<div class=\"container\">\n    	<div class=\"row\">\n        	<div class=\"col-md-12 col-sm-6 col-xs-8\">\n                <ol class=\"breadcrumb\">\n                    <li><a class=\"cur-hover\" id=\"\"><i class=\"fa fa-home fa-fw fa-lg\"></i> Inicio</a></li>\n                    <li class=\"\"><a class=\"cur-hover\">Noticas</a></li>\n                    <li class=\"active\"><a id=\"filter-blog-agencie\" class=\"cur-hover\">"
+  return "<!-- Utiity Bar -->\n<div class=\"utility-bar\" id=\"start-utility-bar\">\n	<div class=\"container\">\n    	<div class=\"row\">\n        	<div class=\"col-md-12 col-sm-6 col-xs-8\">\n                <ol class=\"breadcrumb\">\n                    <li><a class=\"cur-hover\" id=\"\"><i class=\"fa fa-home fa-fw fa-lg\"></i> Inicio</a></li>\n                    <li class=\"\"><a id=\"go-breadcrumb-blog\" class=\"cur-hover\">Noticas</a></li>\n                    <li class=\"active\"><a id=\"filter-blog-agencie\" class=\"cur-hover\">"
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.blogAgencia : stack1), depth0))
     + "</a></li>\n                    <li class=\"active\"><a id=\"filter-blog-post\" class=\"cur-hover\">"
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.blogTitulo : stack1), depth0))

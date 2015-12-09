@@ -397,6 +397,22 @@
         }
     }
 /* ------------------------------------------------------ *\
+    [Metodos] toHtmlMethod
+\* ------------------------------------------------------ */
+    var toHtmlMethod = {
+        toHtml: function() {
+            $('.to-html').each ( function( key, value ) {
+                var html, element;
+                element = $(this);
+                html = CAM.getHTML(element);
+                html = $.trim(html);
+                html = CAM.replaceAll(html, '&lt;', '<');
+                html = CAM.replaceAll(html, '&gt;', '>');
+                CAM.setHTML(element, html);
+            });
+        }
+    }
+/* ------------------------------------------------------ *\
     [Methods] viewNavbarMethod
 \* ------------------------------------------------------ */
     var viewNavbarMethod = {
@@ -535,15 +551,7 @@
             blogSmallData = CAM.getInternalJSON(urlsApi.getBlog);
             CAM.loadTemplate(tempsNames.recurrent_blog_news_start_grid_holder, domEl._start_body_content_main_name, blogSmallData);
 
-            $('.to-html').each ( function( key, value ) {
-                var html, element;
-                element = $(this);
-                html = CAM.getHTML(element);
-                html = $.trim(html);
-                html = CAM.replaceAll(html, '&lt;', '<');
-                html = CAM.replaceAll(html, '&gt;', '>');
-                CAM.setHTML(element, html);
-            });
+            toHtmlMethod.toHtml();
         },
         recurrentSecionBlog: function() {
             dataStarSiteBlogAttributes = [
@@ -557,32 +565,48 @@
     [Methods] viewSectionBlogByNewsMethod
 \* ------------------------------------------------------ */
     var viewSectionBlogByNewsMethod = {
-        viewSectionBlogByNews: function() {
+        viewSectionBlogByNews: function(blogAgencieKey, blogPostkey, blogId) {
             viewSectionBlogByNewsMethod.recurrentSectionBlogByNews();
-            viewSectionBlogByNewsMethod.loadTemplatesUtilityBarBreadcrumb();
+            viewSectionBlogByNewsMethod.loadTemplatesUtilityBarBreadcrumb(blogAgencieKey, blogPostkey, blogId);
+            viewSectionBlogByNewsMethod.loadTemplatesSinglePost(blogAgencieKey, blogPostkey, blogId);
         },
-        loadTemplatesUtilityBarBreadcrumb: function() {
-            var $getBlog_id, $getAgencieBlog_name, $getAgencieBlog_key, $getBlog_name, $getBlog_key;
-            var blogBPostData;
+        loadBreadcrumbs_blogByPost: function(blogAgencieKey, blogPostkey) {
+            if ( section === 'blog' ) {
+            } else if ( section === 'blog-by-post' ) {
+                $('#filter-blog-agencie').html(blogAgencieKey);
+                $('#filter-blog-post').html(blogPostkey);
+            }
+        },
+        loadTemplatesUtilityBarBreadcrumb: function(blogAgencieKey, blogPostkey, blogId) {
+            var blogPostData, blogUrl, campaBlogAgencia, campaBlogPost;
 
-            $getblog_id = CAM.getValue('#hidden-blog-id');
-            $getAgencieblog_name = CAM.getValue('#hidden-agencie-name');
-            $getAgencieblog_key = CAM.getValue('#hidden-agencie-key');
-            $getblog_name = CAM.getValue('#hidden-blog-name');
-            $getblog_key = CAM.getValue('#hidden-blog-key');
+            blogUrl = urlsApi.getBlogByPost + blogAgencieKey + '/' + blogPostkey + '/' + blogId;
+            blogPostData = CAM.getInternalJSON(blogUrl);
+            //console.log(blogId, blogAgencieKey, blogPostkey);
 
-            blogUrl = urlsApi.getBlogByPost + $getAgencieblog_key + '/' + $getblog_key + '/' + $getblog_id;
-            blogBPostData = CAM.getInternalJSON(blogUrl);
-            console.log($getblog_id, $getAgencieblog_key, $getblog_key);
+            campaBlogAgencia = blogPostData.campa[0].blogAgencia;
+            campaBlogPost = blogPostData.campa[0].blogTitulo;
 
-            CAM.loadTemplate(tempsNames.recurrent_blog_by_news_start_utility_bar_breadcrumb, domEl._start_utility_bar_breadcrumb_name, blogBPostData);
+            CAM.loadTemplate(tempsNames.recurrent_blog_by_news_start_utility_bar_breadcrumb, domEl._start_utility_bar_breadcrumb_name, blogPostData);
 
-            //$(domEl.filter_breadcrumb_blog_agencie).html($getAgencieblog_name);
-            //$(domEl.filter_breadcrumb_blog_post).html($getblog_name);
+            viewSectionBlogByNewsMethod.loadBreadcrumbs_blogByPost(campaBlogAgencia, campaBlogPost);
+            //console.log(campaBlogAgencia, campaBlogPost);
+        },
+        loadTemplatesSinglePost: function(blogAgencieKey, blogPostkey, blogId) {
+            var blogSinglePost, blogUrl;
+
+            blogUrl = urlsApi.getBlogByPost + blogAgencieKey + '/' + blogPostkey + '/' + blogId;
+            blogSinglePost = CAM.getInternalJSON(blogUrl);
+            console.log(blogId, blogAgencieKey, blogPostkey);
+
+            CAM.loadTemplate(tempsNames.recurrent_blog_by_news_start_single_post, domEl._start_body_content_main_name, blogSinglePost);
+
+            toHtmlMethod.toHtml();
         },
         recurrentSectionBlogByNews: function() {
             dataStarSiteBlogByNewsAttributes = [
-                ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content'}, '', 1]
+                ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content'}, '', 1],
+                ['div', {'id':domEl._start_body_content_main, 'class':'about-content'}, '', 1]
             ];
             CAM.appendMulti(domEl.div_recurrent, dataStarSiteBlogByNewsAttributes);
         }
@@ -641,7 +665,7 @@
         },
         clickGo_blog: function(event) {
             $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );
-            $('.input-hidden').val('');
+            //$('.input-hidden').val('');
             Finch.navigate('/noticias');
         },
         clickGo_blogByNotice: function(event) {
@@ -655,7 +679,6 @@
             $setBlog_key = $element.data('new-key');
 
             $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );
-            Finch.navigate('/noticias/' + $setAgencieBlog_key + '/' + $setBlog_key + '/' + $setBlog_id);
 
             CAM.setValue('#hidden-blog-id', $setBlog_id);
             CAM.setValue('#hidden-agencie-name', $setAgencieBlog_name);
@@ -663,6 +686,7 @@
             CAM.setValue('#hidden-blog-name', $setBlog_name);
             CAM.setValue('#hidden-blog-key', $setBlog_key);
 
+            Finch.navigate('/noticias/' + $setAgencieBlog_key + '/' + $setBlog_key + '/' + $setBlog_id);
         },
         clickGoSlider_blogByNotice: function(event) {
             var $setBlog_id, $setAgencieBlog_name, $setAgencieBlog_key, $setBlog_name, $setBlog_key, $element;

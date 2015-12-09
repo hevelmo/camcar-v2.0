@@ -49,16 +49,6 @@ domEl = {
 };
 tempsNames = {
 	"recurrent_agencies_news_start_utility_bar_breadcrumb":"tmp_section_agencies_news_start_utility_bar_breadcrumb",
-	"recurrent_blog_by_news_starr_single_post_01":"tmp_blog_by_news_start_single_post_01",
-	"recurrent_blog_by_news_starr_single_post_02":"tmp_blog_by_news_start_single_post_02",
-	"recurrent_blog_by_news_starr_single_post_03":"tmp_blog_by_news_start_single_post_03",
-	"recurrent_blog_by_news_starr_single_post_04":"tmp_blog_by_news_start_single_post_04",
-	"recurrent_blog_by_news_starr_single_post_05":"tmp_blog_by_news_start_single_post_05",
-	"recurrent_blog_by_news_starr_single_post_06":"tmp_blog_by_news_start_single_post_06",
-	"recurrent_blog_by_news_starr_single_post_07":"tmp_blog_by_news_start_single_post_07",
-	"recurrent_blog_by_news_starr_single_post_08":"tmp_blog_by_news_start_single_post_08",
-	"recurrent_blog_by_news_starr_single_post_09":"tmp_blog_by_news_start_single_post_09",
-	"recurrent_blog_by_news_starr_single_post_10":"tmp_blog_by_news_start_single_post_10",
 	"recurrent_blog_by_news_start_single_post":"tmp_section_blog_by_news_start_single_post",
 	"recurrent_blog_by_news_start_utility_bar_breadcrumb":"tmp_section_blog_by_news_start_utility_bar_breadcrumb",
 	"recurrent_blog_news_start_grid_holder":"tmp_section_blog_news_start_grid_holder",

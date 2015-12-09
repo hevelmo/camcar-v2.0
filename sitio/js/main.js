@@ -48,6 +48,9 @@ $(document).ready(function() {
     $(domEl.navbar_recurrent).on('click', domEl.goSection_rental, clikGoMethods.clickGo_rental);
     // BLOG
     $(domEl.navbar_recurrent).on('click', domEl.goSection_blog, clikGoMethods.clickGo_blog);
+    // BLOG BREADCRUMB
+    $(domEl.div_recurrent).on('click', '#go-breadcrumb-blog', clikGoMethods.clickGo_blog);
+    $(domEl.div_recurrent).on('click', '#go-back-blog', clikGoMethods.clickGo_blog);
     // BLOG BY NEWS
     $(domEl.div_recurrent).on('click', domEl.goSection_blog_by_news, clikGoMethods.clickGo_blogByNotice);
     // ABOUT US

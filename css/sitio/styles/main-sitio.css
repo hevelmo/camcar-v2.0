@@ -1189,6 +1189,11 @@ input[type=text].input-newsletter:focus {
 }
 #start-utility-bar .breadcrumb li a {
   color: #656461;
+  font-weight: bolder;
+}
+#start-utility-bar .breadcrumb li.active a {
+  color: #2c3f4c;
+  font-weight: 400;
 }
 #cd-zoom-in, #cd-zoom-out {
   height: 32px;
@@ -1466,4 +1471,25 @@ img, a img {
 }
 a > img {
   vertical-align: middle;
+}
+.post-content h3.post-subtitle {
+    font-size: 24px;
+    margin: 0 0 15px 0;
+    color: #333;
+    font-weight: 400;
+    line-height: 1.5em;
+    text-transform: uppercase;
+}
+.post-content p {
+  margin-bottom: 24px !important;
+}
+.post-content h3.post-subtitle {
+    font-size: 24px;
+    margin: 0 0 15px 0;
+    color: #333;
+    font-weight: 400;
+    line-height: 1.5em;
+}
+img.post-img {
+    max-width: 100%;
 }
