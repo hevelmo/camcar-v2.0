@@ -638,13 +638,16 @@
         },
         loadTemplatesLArgePadContactForm: function() {
             CAM.loadTemplate(tempsNames.recurrent_about_us_start_large_pad_contact_form, domEl._start_large_pad_contact_form_name);
+            CAM.loadTemplate(tempsNames.recurrent_about_us_start_contact_main, domEl._start_contact_main_name);
         },
         recurrentSecionAboutUs: function() {
             dataStarSiteAboutUsAttributes = [
                 ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content'}, '', 1],
                 ['section', {'id':domEl._start_large_pad_land_mark, 'class':'large-pad text-hero-2 about-content'}, '', 1],
                 ['section', {'id':domEl._start_large_pad_feature_list, 'class':'large-pad feature-lists red-bg about-content'}, '', 1],
-                ['section', {'id':domEl._start_large_pad_contact_form, 'class':'large-pad about-content'}, '', 1]
+                ['section', {'id':domEl._start_large_pad_contact_form, 'class':'large-pad text-hero-2 about-content', 'style':'padding-botto: 0;'}, '', 1],
+                ['section', {'id':domEl._start_section_separator, 'class':'section-separator about-content', 'style':'padding: 0px; height: 0px; background-color: #fff; clear: both;'}, '', 1],
+                ['section', {'id':domEl._start_contact_main, 'class':'contact-2 about-content'}, '', 1]
             ];
             CAM.appendMulti(domEl.div_recurrent, dataStarSiteAboutUsAttributes);
         }
@@ -753,6 +756,7 @@
             removeRecurrentsMethod.removeRecurrents_agencies_news();
             removeRecurrentsMethod.removeRecurrents_blog();
             removeRecurrentsMethod.removeRecurrents_blog_by_news();
+            removeRecurrentsMethod.removeRecurrents_about_us();
         },
         removeRecurrent_navbar: function() {
             $(domEl._start_site_navbar_name).remove();
@@ -774,6 +778,13 @@
         },
         removeRecurrents_blog_by_news: function() {
             $(domEl._start_utility_bar_breadcrumb_name).remove();
+        },
+        removeRecurrents_about_us: function() {
+            $(domEl._start_large_pad_land_mark_name).remove();
+            $(domEl._start_large_pad_feature_list_name).remove();
+            $(domEl._start_large_pad_contact_form_name).remove();
+            $(domEl._start_section_separator_name).remove();
+            $(domEl._start_contact_main_name).remove();
         }
     }
 /* ------------------------------------------------------ *\
@@ -899,273 +910,6 @@
 /* ------------------------------------------------------ *\
     [Methods] Google Maps -> agentsMap
 \* ------------------------------------------------------ */
-    /*var customGoogleMapMethod = {
-        customGoogleMap: function() {
-            var map_zoom,
-                is_internetExplorer11, marker_url,
-                main_color, saturation_value, brightness_value,
-                style,
-                map_options,
-                map,
-                markers,
-                zoomControlDiv,
-                zoomControl,
-                mapData, agn_name, agn_address, agn_latitud, agn_longitudl,
-                directorio, agn_folder_agencia, agn_img;
-            //set your google maps parameters
-            map_zoom = 14;
-            mapData = CAM.getInternalJSON(urlsApi.getMapa);
-            agn_latitud = mapData.campa[0].agn_latitud;
-            agn_longitud = mapData.campa[0].agn_longitud;
-            //google map custom marker icon - .png fallback for IE11
-            s_internetExplorer11 = navigator.userAgent.toLowerCase().indexOf('trident') > -1;
-            marker_url = ( is_internetExplorer11 ) ? '../img/custom-map/cd-icon-location.png' : '../img/custom-map/cd-icon-location.svg';
-            //define the basic color of your map, plus a value for saturation and brightness
-            main_color = '#2d313f';
-            saturation_value = -20;
-            brightness_value = 5;
-            //inizialize the map
-            style = [
-                { //set saturation for the labels on the map
-                    elementType: "labels",
-                    stylers: [ { saturation: saturation_value } ]
-                },
-                { //poi stands for point of interest - don't show these lables on the map
-                    featureType: "poi",
-                    elementType: "labels",
-                    stylers: [  { visibility: "off" } ]
-                },
-                { //don't show highways lables on the map
-                    featureType: 'road.highway',
-                    elementType: 'labels',
-                    stylers: [ { visibility: "off" } ]
-                },
-                {  //don't show local road lables on the map
-                    featureType: "road.local",
-                    elementType: "labels.icon",
-                    stylers: [ { visibility: "off" } ]
-                },
-                {  //don't show arterial road lables on the map
-                    featureType: "road.arterial",
-                    elementType: "labels.icon",
-                    stylers: [ { visibility: "off" } ]
-                },
-                { //don't show road lables on the map
-                    featureType: "road",
-                    elementType: "geometry.stroke",
-                    stylers: [ { visibility: "off" } ]
-                },
-                { //style different elements on the map
-                    featureType: "transit",
-                    elementType: "geometry.fill",
-                    stylers: [
-                        { hue: main_color },
-                        { visibility: "on" },
-                        { lightness: brightness_value },
-                        { saturation: saturation_value }
-                    ]
-                },
-                {
-                    featureType: "poi",
-                    elementType: "geometry.fill",
-                    stylers: [
-                        { hue: main_color },
-                        { visibility: "on" },
-                        { lightness: brightness_value },
-                        { saturation: saturation_value }
-                    ]
-                },
-                {
-                    featureType: "poi.government",
-                    elementType: "geometry.fill",
-                    stylers: [
-                        { hue: main_color },
-                        { visibility: "on" },
-                        { lightness: brightness_value },
-                        { saturation: saturation_value }
-                    ]
-                },
-                {
-                    featureType: "poi.sport_complex",
-                    elementType: "geometry.fill",
-                    stylers: [
-                        { hue: main_color },
-                        { visibility: "on" },
-                        { lightness: brightness_value },
-                        { saturation: saturation_value }
-                    ]
-                },
-                {
-                    featureType: "poi.attraction",
-                    elementType: "geometry.fill",
-                    stylers: [
-                        { hue: main_color },
-                        { visibility: "on" },
-                        { lightness: brightness_value },
-                        { saturation: saturation_value }
-                    ]
-                },
-                {
-                    featureType: "poi.business",
-                    elementType: "geometry.fill",
-                    stylers: [
-                        { hue: main_color },
-                        { visibility: "on" },
-                        { lightness: brightness_value },
-                        { saturation: saturation_value }
-                    ]
-                },
-                {
-                    featureType: "transit",
-                    elementType: "geometry.fill",
-                    stylers: [
-                        { hue: main_color },
-                        { visibility: "on" },
-                        { lightness: brightness_value },
-                        { saturation: saturation_value }
-                    ]
-                },
-                {
-                    featureType: "transit.station",
-                    elementType: "geometry.fill",
-                    stylers: [
-                        { hue: main_color },
-                        { visibility: "on" },
-                        { lightness: brightness_value },
-                        { saturation: saturation_value }
-                    ]
-                },
-                {
-                    featureType: "landscape",
-                    stylers: [
-                        { hue: main_color },
-                        { visibility: "on" },
-                        { lightness: brightness_value },
-                        { saturation: saturation_value }
-                    ]
-
-                },
-                {
-                    featureType: "road",
-                    elementType: "geometry.fill",
-                    stylers: [
-                        { hue: main_color },
-                        { visibility: "on" },
-                        { lightness: brightness_value },
-                        { saturation: saturation_value }
-                    ]
-                },
-                {
-                    featureType: "road.highway",
-                    elementType: "geometry.fill",
-                    stylers: [
-                        { hue: main_color },
-                        { visibility: "on" },
-                        { lightness: brightness_value },
-                        { saturation: saturation_value }
-                    ]
-                },
-                {
-                    featureType: "water",
-                    elementType: "geometry",
-                    stylers: [
-                        { hue: main_color },
-                        { visibility: "on" },
-                        { lightness: brightness_value },
-                        { saturation: saturation_value }
-                    ]
-                }
-            ];
-            //set google map options
-            map_options = {
-                center: new google.maps.LatLng(agn_latitud, agn_longitud),
-                zoom: map_zoom,
-                panControl: false,
-                zoomControl: false,
-                mapTypeControl: false,
-                streetViewControl: false,
-                mapTypeId: google.maps.MapTypeId.ROADMAP,
-                scrollwheel: false,
-                styles: style,
-            }
-            //we define here the style of the map
-            map = new google.maps.Map(document.getElementById('gmap'), map_options);
-            //add a custom marker to the map
-            markers = new Array();
-            bounds = new google.maps.LatLngBounds();
-            info_windows = new Array();
-
-            for (var i=0; i < mapData.campa.length; i++) {
-                agn_name = mapData.campa[i].agn_nombre;
-                agn_address = mapData.campa[i].agn_direccion;
-                directorio = mapData.campa[i].agn_folder;
-                agn_folder_agencia = 'sitio/agencias/logos';
-                agn_img = mapData.campa[i].agn_logo2;
-                agn_latitud = mapData.campa[i].agn_latitud;
-                agn_longitud = mapData.campa[i].agn_longitud;
-
-                markers[i] = new google.maps.Marker({
-                    position: new google.maps.LatLng(agn_latitud, agn_longitud),
-                    map: map,
-                    visible: true,
-                    icon: marker_url,
-                    title: agn_name,
-                    animation: google.maps.Animation.DROP
-                });
-
-                bounds.extend(markers[i].getPosition());
-
-                info_windows[i] = new google.maps.InfoWindow({
-                    content:
-                        '<div class="marker-info-win" style="text-align: center;">'+
-                        '<div class="marker-inner-win"><span class="info-content">'+
-                        '<img src="../img/'+agn_folder_agencia+'/'+agn_img+'" alt="'+agn_name+'" style="margin-botton: 10px;" width="100">'+
-                        '<h5 class="marker-heading" style="color:#000; padding: 0px; margin: 0px;">'+agn_name+'</h5>'+
-                        '<span>'+agn_address+'</span>' +
-                        '</span>'+
-                        '</div></div>'
-                });
-
-                attachInfoWindowToMarker(map, markers[i], info_windows[i]);
-            }
-            map.fitBounds(bounds);
-
-            // function to attach infowindow with marker
-            function attachInfoWindowToMarker( map, marker, infoWindow ) {
-                //infoWindow.open(map, marker);
-                google.maps.event.addListener( marker, 'click', function() {
-                    infoWindow.open( map, marker );
-                });
-                //console.log(infoWindow);
-            }
-
-            //add custom buttons for the zoom-in/zoom-out on the map
-            function CustomZoomControl(controlDiv, map, marker, infoWindow) {
-                //grap the zoom elements from the DOM and insert them in the map
-                var controlUIzoomIn, controlUIzoomOut;
-                controlUIzoomIn= document.getElementById('cd-zoom-in'),
-                controlUIzoomOut= document.getElementById('cd-zoom-out');
-                controlDiv.appendChild(controlUIzoomIn);
-                controlDiv.appendChild(controlUIzoomOut);
-
-                // Setup the click event listeners and zoom-in or out according to the clicked element
-                google.maps.event.addDomListener(controlUIzoomIn, 'click', function() {
-                    map.setZoom(map.getZoom()+1)
-                });
-                google.maps.event.addDomListener(controlUIzoomOut, 'click', function() {
-                    map.setZoom(map.getZoom()-1)
-                });
-            }
-            zoomControlDiv = document.createElement('div');
-            zoomControl = new CustomZoomControl(zoomControlDiv, map);
-
-            //insert the zoom div on the top left of the map
-            map.controls[google.maps.ControlPosition.LEFT_TOP].push(zoomControlDiv);
-        },
-        loadCustomGoogleMap : function () {
-            google.maps.event.addDomListener(window, 'load', customGoogleMapMethod.customGoogleMap());
-        }
-    }*/
     var agentsMap = {
         AgentsMap : function () {
             var styles, mapData, agn_name, agn_address, agn_latitud, agn_longitudl,

@@ -40,5 +40,6 @@ function tempsNames() {
         'recurrent_about_us_start_large_pad_land_mark' => 'tmp_section_about_us_start_large_pad_land_mark',
         'recurrent_about_us_start_large_pad_feature_list' => 'tmp_section_about_us_start_large_pad_feature_list',
         'recurrent_about_us_start_large_pad_contact_form' => 'tmp_section_about_us_start_large_pad_contact_form',
+        'recurrent_about_us_start_contact_main' => 'tmp_section_about_us_start_contact_main',
     );
 }

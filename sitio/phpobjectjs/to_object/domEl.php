@@ -24,6 +24,9 @@ function domEl() {
     $start_large_pad_land_mark = 'content-start-large-pag-land-mark';
     $start_large_pad_feature_list = 'content-start-large-pag-feature-list';
     $start_large_pad_contact_form = 'content-start-large-pag-contact-form';
+    $start_contact_main = 'content-start-contact-main';
+    // SECTION SEPARATOR
+    $start_section_separator = 'content-section-separator';
     return array(
     	'head_recurrent' => 'head',
     	'body_recurrent' => 'body',
@@ -71,6 +74,11 @@ function domEl() {
         '_start_large_pad_feature_list_name' => '#' . $start_large_pad_feature_list,
         '_start_large_pad_contact_form' => $start_large_pad_contact_form,
         '_start_large_pad_contact_form_name' => '#' . $start_large_pad_contact_form,
+        '_start_contact_main' => $start_contact_main,
+        '_start_contact_main_name' => '#' . $start_contact_main,
+        // SECTION SEPARATOR
+        '_start_section_separator' => $start_section_separator,
+        '_start_section_separator_name' => '#' . $start_section_separator,
         // MOBILE MENU TOGGLE
         '_menu_toogle' => '#menu-toggle',
         '_menu_toogle_close' => '.menu-toggle-close',
@@ -96,6 +104,9 @@ function domEl() {
         'goSection_ourBrand_whorkshop' => '.act-agn-taller',
         'goSection_ourBrand_rental' => '.act-agn-rentas',
         // BREADCRUMB BLOG
+        'goSection_breadcrumb_home' => '#go-breadcrumb-home',
+        'goSection_breadcrumb_blog' => '#go-breadcrumb-blog',
+        'goBack_breadcrumb_blog' => '#go-back-blog',
         'filter_breadcrumb_blog_agencie' => '#filter-blog-agencie',
         'filter_breadcrumb_blog_post' => '#filter-blog-post',
         // VALIDATION

@@ -35,7 +35,7 @@ $(document).ready(function() {
     // MOBILE MENU TOGGLE
     $(domEl.navbar_recurrent).on('click', domEl._menu_toogle_close, mobile_menu_methods.close_menu_toggle);
     // BREADCRUMB HOME
-    $(domEl.div_recurrent).on('click', '#go-breadcrumb-home', clikGoMethods.clikGo_home);
+    $(domEl.div_recurrent).on('click', domEl.goSection_breadcrumb_home, clikGoMethods.clikGo_home);
     // CLICK GO SECTION
     $(domEl.navbar_recurrent).on('click', domEl.goSection_index, clikGoMethods.clikGo_home);
     // AGENCIES NEWS
@@ -51,8 +51,8 @@ $(document).ready(function() {
     // BLOG
     $(domEl.navbar_recurrent).on('click', domEl.goSection_blog, clikGoMethods.clickGo_blog);
     // BLOG BREADCRUMB
-    $(domEl.div_recurrent).on('click', '#go-breadcrumb-blog', clikGoMethods.clickGo_blog);
-    $(domEl.div_recurrent).on('click', '#go-back-blog', clikGoMethods.clickGo_blog);
+    $(domEl.div_recurrent).on('click', domEl.goSection_breadcrumb_blog, clikGoMethods.clickGo_blog);
+    $(domEl.div_recurrent).on('click', domEl.goBack_breadcrumb_blog, clikGoMethods.clickGo_blog);
     // BLOG BY NEWS
     $(domEl.div_recurrent).on('click', domEl.goSection_blog_by_news, clikGoMethods.clickGo_blogByNotice);
     // ABOUT US
