@@ -6,7 +6,7 @@
  *
  */
 
-include_once '../incorporate/functions.php';
+include_once '../../incorporate/functions.php';
 sec_session_start();
 
 // Unset all session values
