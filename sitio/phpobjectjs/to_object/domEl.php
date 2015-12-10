@@ -20,6 +20,10 @@ function domEl() {
     // BLOG BY NEWS
     $start_body_content_main = 'content-start-body-main';
     $start_flexslider = 'content-flexslider';
+    // ABOUT US
+    $start_large_pad_land_mark = 'content-start-large-pag-land-mark';
+    $start_large_pad_feature_list = 'content-start-large-pag-feature-list';
+    $start_large_pad_contact_form = 'content-start-large-pag-contact-form';
     return array(
     	'head_recurrent' => 'head',
     	'body_recurrent' => 'body',
@@ -60,6 +64,13 @@ function domEl() {
         '_start_flexslider' => $start_flexslider,
         '_start_flexslider_name' => '#' . $start_flexslider,
         'diV_recurrent_blog_galery' => '#content-section-blog-galery',
+        // ABOUT US
+        '_start_large_pad_land_mark' => $start_large_pad_land_mark,
+        '_start_large_pad_land_mark_name' => '#' . $start_large_pad_land_mark,
+        '_start_large_pad_feature_list' => $start_large_pad_feature_list,
+        '_start_large_pad_feature_list_name' => '#' . $start_large_pad_feature_list,
+        '_start_large_pad_contact_form' => $start_large_pad_contact_form,
+        '_start_large_pad_contact_form_name' => '#' . $start_large_pad_contact_form,
         // MOBILE MENU TOGGLE
         '_menu_toogle' => '#menu-toggle',
         '_menu_toogle_close' => '.menu-toggle-close',

@@ -37,5 +37,8 @@ function tempsNames() {
         // ABOUT US
         // UTILITY BAR BREACRUMB
         'recurrent_about_us_start_utility_bar_breadcrumb' => 'tmp_section_about_us_start_utility_bar_breadcrumb',
+        'recurrent_about_us_start_large_pad_land_mark' => 'tmp_section_about_us_start_large_pad_land_mark',
+        'recurrent_about_us_start_large_pad_feature_list' => 'tmp_section_about_us_start_large_pad_feature_list',
+        'recurrent_about_us_start_large_pad_contact_form' => 'tmp_section_about_us_start_large_pad_contact_form',
     );
 }

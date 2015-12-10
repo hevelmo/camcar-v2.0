@@ -623,13 +623,28 @@
         viewSectionAboutUs: function() {
             viewSectionAboutUsMethod.recurrentSecionAboutUs();
             viewSectionAboutUsMethod.loadTemplatesUtilityBarBreadcrumb();
+            viewSectionAboutUsMethod.loadTemplatesLArgePadLandMark();
+            viewSectionAboutUsMethod.loadTemplatesLArgePadFeatureList();
+            viewSectionAboutUsMethod.loadTemplatesLArgePadContactForm();
         },
         loadTemplatesUtilityBarBreadcrumb: function() {
             CAM.loadTemplate(tempsNames.recurrent_about_us_start_utility_bar_breadcrumb, domEl._start_utility_bar_breadcrumb_name);
         },
+        loadTemplatesLArgePadLandMark: function() {
+            CAM.loadTemplate(tempsNames.recurrent_about_us_start_large_pad_land_mark, domEl._start_large_pad_land_mark_name);
+        },
+        loadTemplatesLArgePadFeatureList: function() {
+            CAM.loadTemplate(tempsNames.recurrent_about_us_start_large_pad_feature_list, domEl._start_large_pad_feature_list_name);
+        },
+        loadTemplatesLArgePadContactForm: function() {
+            CAM.loadTemplate(tempsNames.recurrent_about_us_start_large_pad_contact_form, domEl._start_large_pad_contact_form_name);
+        },
         recurrentSecionAboutUs: function() {
             dataStarSiteAboutUsAttributes = [
-                ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content'}, '', 1]
+                ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content'}, '', 1],
+                ['section', {'id':domEl._start_large_pad_land_mark, 'class':'large-pad text-hero-2 about-content'}, '', 1],
+                ['section', {'id':domEl._start_large_pad_feature_list, 'class':'large-pad feature-lists red-bg about-content'}, '', 1],
+                ['section', {'id':domEl._start_large_pad_contact_form, 'class':'large-pad about-content'}, '', 1]
             ];
             CAM.appendMulti(domEl.div_recurrent, dataStarSiteAboutUsAttributes);
         }
