@@ -413,6 +413,25 @@
         }
     }
 /* ------------------------------------------------------ *\
+    [Methods] Smooth Scroll
+\* ------------------------------------------------------ */
+    var smoothScrollMethods = {
+        smoothScroll : function (event) {
+            if($('nav').hasClass('nav-2')) {
+                $('.inner-link').smoothScroll({
+                    offset: -55,
+                    speed: 800
+                });
+            } else {
+                var navHeight = $('nav').outerHeight();
+                $('.inner-link').smoothScroll({
+                    offset: -navHeight,
+                    speed: 800
+                });
+            }
+        }
+    }
+/* ------------------------------------------------------ *\
     [Methods] viewNavbarMethod
 \* ------------------------------------------------------ */
     var viewNavbarMethod = {
@@ -515,9 +534,38 @@
 \* ------------------------------------------------------ */
     var viewSectionWorkShopMethod = {
         viewSectionWorkShop: function() {
+            viewSectionWorkShopMethod.recurrentSecionWorkShop();
+            viewSectionWorkShopMethod.loadTemplatesUtilityBarBreadcrumb();
+            viewSectionWorkShopMethod.loadTemplatesWorkshopBodyContent();
+            viewSectionWorkShopMethod.loadTemplatesWorkshopBrand();
+            viewSectionWorkShopMethod.loadTemplatesWorkshopAgencies();
+        },
+        loadTemplatesUtilityBarBreadcrumb: function() {
+            CAM.loadTemplate(tempsNames.recurrent_workshop_start_utility_bar_breadcrumb, domEl._start_utility_bar_breadcrumb_name);
+        },
+        loadTemplatesWorkshopBodyContent: function() {
+            CAM.loadTemplate(tempsNames.recurrent_workshop_start_large_pad_land_mark, domEl._start_workshop_content_body_name);
+        },
+        loadTemplatesWorkshopBrand: function() {
+            var brandsWorkshopData;
+
+            brandsWorkshopData = CAM.getInternalJSON(urlsApi.getWorkshopBrands);
+
+            CAM.loadTemplate(tempsNames.recurrent_workshop_start_large_pad_brand, domEl._start_workshop_content_brand_name, brandsWorkshopData);
+        },
+        loadTemplatesWorkshopAgencies: function() {
+            var workshopData;
+
+            workshopData = CAM.getInternalJSON(urlsApi.getWorkshop);
+
+            CAM.loadTemplate(tempsNames.recurrent_workshop_start_image_block, domEl._start_workshop_content_agencies_name, workshopData);
         },
         recurrentSecionWorkShop: function() {
             dataStarSiteWorkShopAttributes = [
+                ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content'}, '', 1],
+                ['section', {'id':domEl._start_workshop_content_body, 'class':'large-pad text-hero-2 about-content'}, '', 1],
+                ['section', {'id':domEl._start_workshop_content_brand, 'class':'large-pad text-hero-2 about-content'}, '', 1],
+                ['div', {'id':domEl._start_workshop_content_agencies, 'class':'labout-content', 'style':'background-color: #f9f9f9; padding-top: 20px; padding-bottom: 60px;'}, '', 1]
             ];
             CAM.appendMulti(domEl.div_recurrent, dataStarSiteWorkShopAttributes);
         }
@@ -959,6 +1007,9 @@
             $(domEl._start_utility_bar_breadcrumb_name).remove();
         },
         removeRecurrents_workshop: function() {
+            $(domEl._start_workshop_content_body_name).remove();
+            $(domEl._start_workshop_content_brand_name).remove();
+            $(domEl._start_workshop_content_agencies_name).remove();
         },
         removeRecurrents_rental: function() {
             $(domEl._start_rental_content_body_name).remove();

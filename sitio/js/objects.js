@@ -35,6 +35,12 @@ domEl = {
 	"_start_site_navbar_name":"#content-start-site-navbar",
 	"_start_utility_bar_breadcrumb":"content-start-utility-bar-breadcrumb",
 	"_start_utility_bar_breadcrumb_name":"#content-start-utility-bar-breadcrumb",
+	"_start_workshop_content_agencies":"content-start-workshop-agencies",
+	"_start_workshop_content_agencies_name":"#content-start-workshop-agencies",
+	"_start_workshop_content_body":"content-start-workshop-body-main",
+	"_start_workshop_content_body_name":"#content-start-workshop-body-main",
+	"_start_workshop_content_brand":"content-start-workshop-brand",
+	"_start_workshop_content_brand_name":"#content-start-workshop-brand",
 	"body_recurrent":"body",
 	"div_hidden_inputs_session":"div#hidden-inputs-session",
 	"div_hidden_inputs_temporal":"div#hidden-inputs-temporal",
@@ -94,7 +100,11 @@ tempsNames = {
 	"recurrent_rental_start_image_block":"tmp_section_rental_start_image_block",
 	"recurrent_rental_start_large_pad_land_mark":"tmp_section_rental_start_large_pad_land_mark",
 	"recurrent_rental_start_utility_bar_breadcrumb":"tmp_section_rental_start_utility_bar_breadcrumb",
-	"recurrent_start_site_navbar":"tmp_start_site_navbar"
+	"recurrent_start_site_navbar":"tmp_start_site_navbar",
+	"recurrent_workshop_start_image_block":"tmp_section_workshop_start_image_block",
+	"recurrent_workshop_start_large_pad_brand":"tmp_section_workshop_start_large_pad_brand",
+	"recurrent_workshop_start_large_pad_land_mark":"tmp_section_workshop_start_large_pad_land_mark",
+	"recurrent_workshop_start_utility_bar_breadcrumb":"tmp_section_workshop_start_utility_bar_breadcrumb"
 };
 urlsApi = {
 	"getAgenciesNews":"api/v15/get/agencia/nuevos",

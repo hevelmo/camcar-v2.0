@@ -16,6 +16,10 @@ function domEl() {
     // AGENCIES NEWS
     // UTILITY BAR BREADCRUMB
     $start_utility_bar_breadcrumb = 'content-start-utility-bar-breadcrumb';
+    // WORKSHOP
+    $start_workshop_content_body = 'content-start-workshop-body-main';
+    $start_workshop_content_brand = 'content-start-workshop-brand';
+    $start_workshop_content_agencies = 'content-start-workshop-agencies';
     // RENTAL
     $start_rental_content_body = 'content-start-rental-body-main';
     $start_rental_content_agencies = 'content-start-rental-agencies';
@@ -63,6 +67,13 @@ function domEl() {
         // UTILITY BAR BREADCRUMB
         '_start_utility_bar_breadcrumb' => $start_utility_bar_breadcrumb,
         '_start_utility_bar_breadcrumb_name' => '#' . $start_utility_bar_breadcrumb,
+        // WORKSHOP
+        '_start_workshop_content_body' => $start_workshop_content_body,
+        '_start_workshop_content_body_name' => '#' . $start_workshop_content_body,
+        '_start_workshop_content_brand' => $start_workshop_content_brand,
+        '_start_workshop_content_brand_name' => '#' . $start_workshop_content_brand,
+        '_start_workshop_content_agencies' => $start_workshop_content_agencies,
+        '_start_workshop_content_agencies_name' => '#' . $start_workshop_content_agencies,
         // RENTAL
         '_start_rental_content_body' => $start_rental_content_body,
         '_start_rental_content_body_name' => '#' . $start_rental_content_body,

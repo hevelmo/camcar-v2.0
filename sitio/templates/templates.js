@@ -460,10 +460,93 @@ templates['tmp_section_rental_start_image_block'] = template({"1":function(conta
     + "</div>\n";
 },"useData":true});
 templates['tmp_section_rental_start_large_pad_land_mark'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<div class=\"container\">\n    <div class=\"row\">\n        <div class=\"col-md-10 col-md-offset-1 col-sm-12\">\n            <div class=\"col-md-12 col-sm-12 text-center\">\n                <h1 class=\"h-landmark\">\n                    <span>\n                    <img src=\"../img/sitio/rental/logo_u_save.png\" alt=\"U-SAVE\" width=\"199\">\n                    </span>\n                </h1>\n                <h5 style=\"margin-bottom: 35px;\"><strong>Capital Rental<strong><em style=\"padding: 0px 0px 0 10px;\">S.A. de C.V.</em></strong></strong></h5>\n            </div>\n            <p class=\"super-lead text-center\" style=\"  font-size: 100% !important; line-height: 25px;\">\n                En U-Save el factor primordial es lograr que el alquiler económico de automóviles incluya un excelente servicio, calidad y comodidad. Con convenientes centros en aeropuertos y vecindarios, U-Save cubre sus necesidades de alquiler de autos y camionetas.\n                <br>\n                Un auto en el aeropuerto, un vehículo de reemplazo con seguro o una minivan, ya sea para vacacionar o trabajar, U-Save tiene la mejor opción.\n                <br>\n                <strong style=\"  font-size: 120% !important; \">En pocas palabras: Dondequiera que vaya, <br>¡ahorre con U-Save!</strong>\n            </p>\n        </div>\n    </div><!--end of row-->\n    <div class=\"row\">\n        <div class=\"col-md-12 col-sm-12 text-center\" style=\"font-size: 16px; padding: 40px 5px 20px;\">\n            <div class=\"contact-method\">\n                <a  href=\"../img/sitio/files/CURRICULO_USAVE.pdf\" class=\"primaryLink withStyle\" title=\"CURRICULO USAVE\" target=\"_blank\">\n                    <i class=\"icon icon-eye fa-lg fa-fw\"></i>\n                    <span style=\"padding: 15px; line-height: 0.75em;\">VER INFORMACIÓN</span>\n                </a>\n            </div>\n        </div>\n    </div>\n    <div class=\"row\">\n        <div id=\"content-rentals-agencies\"></div>\n    </div><!--end of row-->\n</div><!--end of container-->\n";
+    return "<div class=\"container\">\n    <div class=\"row\">\n        <div class=\"col-md-10 col-md-offset-1 col-sm-12\">\n            <div class=\"col-md-12 col-sm-12 text-center\">\n                <h1 class=\"h-landmark\">\n                    <span>\n                    <img src=\"../img/sitio/rental/logo_u_save.png\" alt=\"U-SAVE\" width=\"199\">\n                    </span>\n                </h1>\n                <h5 style=\"margin-bottom: 35px;\"><strong>Capital Rental<strong><em style=\"padding: 0px 0px 0 10px;\">S.A. de C.V.</em></strong></strong></h5>\n            </div>\n            <p class=\"super-lead text-center\" style=\"  font-size: 100% !important; line-height: 25px;\">\n                En U-Save el factor primordial es lograr que el alquiler económico de automóviles incluya un excelente servicio, calidad y comodidad. Con convenientes centros en aeropuertos y vecindarios, U-Save cubre sus necesidades de alquiler de autos y camionetas.\n                <br>\n                Un auto en el aeropuerto, un vehículo de reemplazo con seguro o una minivan, ya sea para vacacionar o trabajar, U-Save tiene la mejor opción.\n                <br>\n                <strong style=\"  font-size: 120% !important; \">En pocas palabras: Dondequiera que vaya, <br>¡ahorre con U-Save!</strong>\n            </p>\n        </div>\n    </div><!--end of row-->\n    <div class=\"row\">\n        <div class=\"col-md-12 col-sm-12 text-center\" style=\"font-size: 16px; padding: 40px 5px 20px;\">\n            <div class=\"contact-method\">\n                <a  href=\"../img/sitio/files/CURRICULO_USAVE.pdf\" class=\"primaryLink withStyle\" title=\"CURRICULO USAVE\" target=\"_blank\">\n                    <i class=\"icon icon-eye fa-lg fa-fw\"></i>\n                    <span style=\"padding: 15px; line-height: 0.75em;\">VER INFORMACIÓN</span>\n                </a>\n            </div>\n        </div>\n    </div>\n</div><!--end of container-->\n";
 },"useData":true});
 templates['tmp_section_rental_start_utility_bar_breadcrumb'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     return "<!-- Utiity Bar -->\n<div class=\"utility-bar\" id=\"start-utility-bar\">\n	<div class=\"container\">\n    	<div class=\"row\">\n        	<div class=\"col-md-12 col-sm-12 col-xs-12\">\n                <ol class=\"breadcrumb\">\n                    <li><a class=\"cur-hover\" id=\"go-breadcrumb-home\"><i class=\"fa fa-home fa-fw fa-lg\"></i> <span class=\"resp-text-indent\">Inicio</span></a></li>\n                    <li><a class=\"cur-hover\">Agencias</a></li>\n                    <li class=\"active\"><a class=\"cur-hover\">Rentas</a></li>\n                    <li class=\"active\"><a id=\"filter-rental-agencie\" class=\"cur-hover\"></a></li>\n                </ol>\n        	</div>\n        </div>\n  	</div>\n</div>\n";
+},"useData":true});
+templates['tmp_section_workshop_start_image_block'] = template({"1":function(container,depth0,helpers,partials,data) {
+    var stack1, helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
+
+  return "<a id=\""
+    + alias4(((helper = (helper = helpers.agnId || (depth0 != null ? depth0.agnId : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"agnId","hash":{},"data":data}) : helper)))
+    + "\" class=\"in-page-link\"></a>\n<section class=\"image-block\">\n    <div class=\"container\">\n        <div class=\"row\">\n\n            <div class=\"col-md-5 col-sm-7 "
+    + alias4(((helper = (helper = helpers.columns || (depth0 != null ? depth0.columns : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"columns","hash":{},"data":data}) : helper)))
+    + "\">\n                <div class=\"text-block "
+    + alias4(((helper = (helper = helpers.textAlign || (depth0 != null ? depth0.textAlign : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"textAlign","hash":{},"data":data}) : helper)))
+    + "\">\n                    <h2 class=\"entry-title entry-title-portfolio\">"
+    + alias4(((helper = (helper = helpers.agnNombre || (depth0 != null ? depth0.agnNombre : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"agnNombre","hash":{},"data":data}) : helper)))
+    + "</h2>\n                    <br>\n                    <p class=\"lead\">\n                        <strong>Dirección:</strong> "
+    + alias4(((helper = (helper = helpers.agnDireccion || (depth0 != null ? depth0.agnDireccion : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"agnDireccion","hash":{},"data":data}) : helper)))
+    + " <br>\n"
+    + ((stack1 = helpers["if"].call(alias1,((stack1 = (depth0 != null ? depth0.telefonos : depth0)) != null ? stack1.ventas : stack1),{"name":"if","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers["if"].call(alias1,((stack1 = (depth0 != null ? depth0.horarios : depth0)) != null ? stack1.ventas : stack1),{"name":"if","hash":{},"fn":container.program(4, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers["if"].call(alias1,((stack1 = (depth0 != null ? depth0.horarios : depth0)) != null ? stack1.servicios : stack1),{"name":"if","hash":{},"fn":container.program(6, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers["if"].call(alias1,((stack1 = (depth0 != null ? depth0.horarios : depth0)) != null ? stack1.refacciones : stack1),{"name":"if","hash":{},"fn":container.program(8, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "                    </p>\n"
+    + ((stack1 = helpers["if"].call(alias1,((stack1 = (depth0 != null ? depth0.sociales : depth0)) != null ? stack1.website : stack1),{"name":"if","hash":{},"fn":container.program(10, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "                </div>\n            </div>\n        </div><!--end of row-->\n    </div><!--end of container-->\n\n    <div class=\"image-holder col-md-6 col-sm-4 "
+    + alias4(((helper = (helper = helpers.direction || (depth0 != null ? depth0.direction : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"direction","hash":{},"data":data}) : helper)))
+    + "\">\n        <div class=\"background-image-holder\">\n            <img alt=\"Slide Background\" class=\"background-image\" src=\"../img/sitio/talleres/"
+    + alias4(((helper = (helper = helpers.agnSmall || (depth0 != null ? depth0.agnSmall : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"agnSmall","hash":{},"data":data}) : helper)))
+    + "\">\n        </div>\n    </div>\n</section>\n";
+},"2":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "                        <strong>Teléfono:</strong> "
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? depth0.telefonos : depth0)) != null ? stack1.ventas : stack1)) != null ? stack1.agntelefonoventaslinea1 : stack1), depth0))
+    + " <br>\n";
+},"4":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "                            <strong>Ventas: </strong>"
+    + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? depth0.horarios : depth0)) != null ? stack1.ventas : stack1), depth0))
+    + "\n";
+},"6":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "                            <strong>Servicios: </strong>"
+    + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? depth0.horarios : depth0)) != null ? stack1.servicios : stack1), depth0))
+    + "\n";
+},"8":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "                            <strong>Refacciones: </strong>"
+    + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? depth0.horarios : depth0)) != null ? stack1.refacciones : stack1), depth0))
+    + "\n";
+},"10":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "                    <a class=\"primaryLink workshop-agencie button-resp withStyle\" href=\""
+    + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? depth0.sociales : depth0)) != null ? stack1.website : stack1), depth0))
+    + "\" target=\"_blank\">\n                        <span>SITIO WEB</span>\n                    </a>\n";
+},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "<div class=\"container\">\n"
+    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.campa : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "</div>";
+},"useData":true});
+templates['tmp_section_workshop_start_large_pad_brand'] = template({"1":function(container,depth0,helpers,partials,data) {
+    var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
+
+  return "                <div class=\"x-column vc one-sixth\">\n                    <a class=\"x-img x-img-link x-img-none none inner-link\" href=\"#"
+    + alias4(((helper = (helper = helpers.agnId || (depth0 != null ? depth0.agnId : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"agnId","hash":{},"data":data}) : helper)))
+    + "\" target=\"default\">\n                        <img src=\"../img/sitio/talleres/logos/"
+    + alias4(((helper = (helper = helpers.agnlogo1 || (depth0 != null ? depth0.agnlogo1 : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"agnlogo1","hash":{},"data":data}) : helper)))
+    + "\">\n                    </a>\n                </div>\n";
+},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "<div class=\"container\">\n    <div class=\"row\">\n        <div class=\"col-md-12 col-sm-12\">\n            <div id=\"x-content-band-3\" class=\"x-content-band vc\" style=\"padding-top: 0px !important;\">\n"
+    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.campa : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "            </div>\n        </div>\n    </div><!--end of row-->\n</div><!--end of container-->\n";
+},"useData":true});
+templates['tmp_section_workshop_start_large_pad_land_mark'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    return "<div class=\"container\">\n    <div class=\"row\">\n        <div class=\"col-md-10 col-md-offset-1 col-sm-12\">\n            <div class=\"col-md-12 col-sm-12 text-center\">\n                <h1 class=\"h-landmark\"><span>Talleres Especializados</span></h1>\n                    <h5><strong>CAMCAR Grupo Automotriz.<strong><em style=\"padding: 0px 0px 0 10px;\">Ve por Más...</em></strong></strong></h5>\n                </div>\n                <p class=\"super-lead text-center\" style=\"  font-size: 110% !important; line-height: 25px;\">\n                    Somos 7 talleres especializados de marca, cumpliendo con los más altos estándares de calidad y entrenamiento para respaldar a usted la promesa de atención y servicio que ofrecemos.\n                </p>\n            </div>\n        </div>\n    </div><!--end of row-->\n</div><!--end of container-->\n";
+},"useData":true});
+templates['tmp_section_workshop_start_utility_bar_breadcrumb'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    return "<!-- Utiity Bar -->\n<div class=\"utility-bar\" id=\"start-utility-bar\">\n	<div class=\"container\">\n    	<div class=\"row\">\n        	<div class=\"col-md-12 col-sm-12 col-xs-12\">\n                <ol class=\"breadcrumb\">\n                    <li><a class=\"cur-hover\" id=\"go-breadcrumb-home\"><i class=\"fa fa-home fa-fw fa-lg\"></i> <span class=\"resp-text-indent\">Inicio</span></a></li>\n                    <li class=\"active\"><a class=\"cur-hover\">Talleres Especializados</a></li>\n                </ol>\n        	</div>\n        </div>\n  	</div>\n</div>\n";
 },"useData":true});
 templates['tmp_start_site_navbar'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     return "<!-- Start Site Header -->\n<div class=\"container container-site sp-cont\">\n    <a class=\"visible-sm visible-xs mobile-toggle\" id=\"menu-toggle\">\n        <div class=\"bar-1\"></div>\n        <div class=\"bar-2\"></div>\n    </a>\n    <a class=\"visible-xs-home-link visible-sm visible-xs\" id=\"go-home-logo-resp\">\n        <img alt=\"Logo\" class=\"logo\" src=\"../img/logos/logo_camcar.png\" alt=\"Lincoln Cavsa\">\n    </a>\n    <!-- Main Navigation -->\n    <nav class=\"main-navigation toggle-menu navigation-bar\" role=\"navigation\">\n        <a class=\"home-link main-navigator-home-link\" id=\"go-home-logo\">\n            <img alt=\"Logo\" class=\"logo\" src=\"../img/logos/logo_camcar.png\" alt=\"Lincoln Cavsa\">\n        </a>\n        <ul class=\"sf-menu navigation-bar\">\n            <li><a id=\"go-index\" class=\"cur-hover menu-toggle-close\">Inicio</a></li>\n            <li><a id=\"go-agencies-news\" class=\"cur-hover menu-toggle-close\">Agencias</a></li>\n            <li class=\"has-dropdown\">\n                <a id=\"dropdown-nav-preowuned\" class=\"cur-hover\">Seminuevos</a>\n                <ul class=\"subnav\">\n                    <li><a id=\"go-agencies-preowned\" class=\"cur-hover menu-toggle-close\">Agencias</a></li>\n                    <li><a id=\"go-inventories-preowned\" class=\"cur-hover menu-toggle-close\">Inventarios</a></li>\n                </ul>\n            </li>\n            <li class=\"\"><a id=\"go-workshop\" class=\"cur-hover menu-toggle-close\">Talleres</a></li>\n            <li class=\"\"><a id=\"go-rental\" class=\"cur-hover menu-toggle-close\" data-agencie-rental-name=\"U-SAVE Car &amp; Truck Rental\" data-agencie-rental-key=\"u-save-car-truck-rental\">Rentas</a></li>\n            <li class=\"\"><a id=\"go-blog\" class=\"cur-hover menu-toggle-close\">Noticias</a></li>\n            <li class=\"\"><a id=\"go-about-us\" class=\"cur-hover menu-toggle-close\">Nosotros</a></li>\n            <li class=\"visible-sm visible-xs visible-xs-poeple\"><a href=\"../intranet/login/\" id=\"go-people-camcar-resp\" class=\"cur-hover\">Gente Camcar</a></li>\n        </ul>\n        <a href=\"../intranet/login/\" class=\"vin_people none-visible-xs\" id=\"sem-people-camcar\"><i class=\"fa fa-user\"></i></a>\n    </nav>\n</div>\n<!-- End Start Site Header -->\n";

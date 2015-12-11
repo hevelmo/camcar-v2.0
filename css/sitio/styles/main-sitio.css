@@ -1792,13 +1792,16 @@ img.post-img {
 }
 
 
-a.primaryLink.rental-agencie {
+a.primaryLink.rental-agencie,
+a.primaryLink.workshop-agencie {
   text-transform: uppercase;
 }
-a.primaryLink.rental-agencie.withStyle {
+a.primaryLink.rental-agencie.withStyle,
+a.primaryLink.workshop-agencie.withStyle {
     margin: 50px 0 0;
 }
-a.primaryLink.rental-agencie.withStyle {
+a.primaryLink.rental-agencie.withStyle,
+a.primaryLink.workshop-agencie.withStyle {
     display: inline-table;
     min-width: 125px;
     height: 45px;
@@ -1834,12 +1837,15 @@ a.primaryLink.rental-agencie.withStyle {
     *zoom: 1;
 }
 a.primaryLink.rental-agencie.withStyle>i,
-a.primaryLink.rental-agencie.withStyle>span {
+a.primaryLink.workshop-agencie.withStyle>i,
+a.primaryLink.rental-agencie.withStyle>span,
+a.primaryLink.workshop-agencie.withStyle>span {
     display: table-cell;
     vertical-align: middle;
     font-size: 1.3em;
 }
-a.primaryLink.rental-agencie.withStyle.disabled {
+a.primaryLink.rental-agencie.withStyle.disabled,
+a.primaryLink.workshop-agencie.withStyle.disabled {
     filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=20);
     opacity: 0.2;
     cursor: default;
@@ -1865,7 +1871,7 @@ a.primaryLink.rental-agencie.withStyle.disabled:focus {
     background-color: #ffffff;
     color: #0c121c;
 }
-a.primaryLink.rental-agencie.withStyle{
+a.primaryLink.rental-agencie.withStyle {
     margin-top: 0px;
 }
 a.primaryLink.rental-agencie.withStyle {
@@ -1885,7 +1891,7 @@ a.primaryLink.rental-agencie.withStyle.disabled:hover {
     color: #0c121c;
     text-decoration: none;
 }
-a.primaryLink.rental-agencie.withStyle:active,
+a.primaryLink.rental-agencie.withStyle:active 
 a.primaryLink.rental-agencie.withStyle:focus {
     background-color: rgb(0, 97, 159);
     color: #ffffff;
@@ -1895,7 +1901,56 @@ a.primaryLink.rental-agencie.withStyle.disabled:focus {
     color: #0c121c;
 }
 
-
+a.primaryLink.workshop-agencie.withStyle {
+    background-color: #ffffff;
+    border: 2px solid #b21117;
+    color: #b21117;
+}
+a.primaryLink.workshop-agencie.withStyle:hover {
+    background-color: #b21117;
+    color: #ffffff;
+}
+a.primaryLink.workshop-agencie.withStyle.disabled:hover {
+    background-color: #ffffff;
+    color: #0c121c;
+}
+a.primaryLink.workshop-agencie.withStyle:focus {
+    background-color: #0c121c;
+    color: #ffffff;
+}
+a.primaryLink.workshop-agencie.withStyle.disabled:focus {
+    background-color: #ffffff;
+    color: #0c121c;
+}
+a.primaryLink.workshop-agencie.withStyle{
+    margin-top: 0px;
+}
+a.primaryLink.workshop-agencie.withStyle {
+    text-shadow: none;
+}
+a.primaryLink.workshop-agencie.withStyle {
+    background-color: #ffffff;
+    color: #b21117;
+}
+a.primaryLink.workshop-agencie.withStyle:hover {
+    background-color: #b21117;
+    color: #ffffff;
+    text-decoration: none;
+}
+a.primaryLink.workshop-agencie.withStyle.disabled:hover {
+    background-color: #b21117;
+    color: #0c121c;
+    text-decoration: none;
+}
+a.primaryLink.workshop-agencie.withStyle:active,
+a.primaryLink.workshop-agencie.withStyle:focus {
+    background-color: #b21117;
+    color: #ffffff;
+}
+a.primaryLink.workshop-agencie.withStyle.disabled:focus {
+    background-color: #ffffff;
+    color: #0c121c;
+}
 
 
 

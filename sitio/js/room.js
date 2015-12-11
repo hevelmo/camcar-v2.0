@@ -14,6 +14,7 @@
 
             currentSectionMethod.currentSection_home();
             viewSectionHomeMethod.viewSectionHome();
+
             windowWidthMethod.windowWidth();
             animatedMethods.animated();
             agentsMap.AgentsMap();
@@ -177,6 +178,9 @@
 
             viewSectionWorkShopMethod.viewSectionWorkShop();
 
+            smoothScrollMethods.smoothScroll();
+
+            bgImageHolderMethods.appendBgImageHolder2();
             $(window).resize(mobile_menu_methods.has_menu_toggle);
             backToTopMethod.init_window_scroll_top();
         },
@@ -315,8 +319,6 @@
         load: function(bindings) {
             viewNavbarMethod.viewNavbar();
             sticky_wrapper_methods.sticky_wrapper();
-
-            currentSectionMethod.currentSection_about_us();
 
             viewSectionPrivacyNoticeMethod.viewSectionPrivacyNotice();
 
