@@ -521,7 +521,7 @@ $app->run();
         for ($idx=0; $idx < count($result_agencias); $idx++) {
             $agnId = $result_agencias[$idx]['agnId'];
 
-            $result_agencias[$idx]['columns'] = ($idx % 2 === 0) ? 'col-md-offset-7 col-sm-offset-5' : '';
+            $result_agencias[$idx]['columns'] = ($idx % 2 === 0) ? 'col-md-offset-7 col-sm-offset-6' : '';
             $result_agencias[$idx]['textAlign'] = ($idx % 2 === 0) ? 'text-left' : 'text-right';
             $result_agencias[$idx]['direction'] = ($idx % 2 === 0) ? 'pull-left' : 'pull-right';
 
