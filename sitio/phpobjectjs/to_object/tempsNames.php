@@ -21,6 +21,11 @@ function tempsNames() {
         // UTILITY BAR BREADCRUMB
         'recurrent_agencies_news_start_utility_bar_breadcrumb' => 'tmp_section_agencies_news_start_utility_bar_breadcrumb',
 
+        // RENTAL
+        'recurrent_rental_start_utility_bar_breadcrumb' => 'tmp_section_rental_start_utility_bar_breadcrumb',
+        'recurrent_rental_start_large_pad_land_mark' => 'tmp_section_rental_start_large_pad_land_mark',
+        'recurrent_rental_start_image_block' => 'tmp_section_rental_start_image_block',
+
         // SECTION BLOG NEWS
         // UTILITY BAR BREADCRUMB
         'recurrent_blog_news_start_utility_bar_breadcrumb' => 'tmp_section_blog_news_start_utility_bar_breadcrumb',
@@ -41,5 +46,6 @@ function tempsNames() {
         'recurrent_about_us_start_large_pad_feature_list' => 'tmp_section_about_us_start_large_pad_feature_list',
         'recurrent_about_us_start_large_pad_contact_form' => 'tmp_section_about_us_start_large_pad_contact_form',
         'recurrent_about_us_start_contact_main' => 'tmp_section_about_us_start_contact_main',
+        'recurrent_about_us_start_form_contact_main' => 'tmp_section_about_us_start_form_contact_main',
     );
 }

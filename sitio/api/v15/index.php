@@ -72,10 +72,20 @@ $app->configureMode('development', function () use ($app) {
     // LOGOS AGENCIES NEWS PRINCIPAL
     //$app->get('/get/logos/agencia/nuevos', /*'mw1',*/ 'getLogosAgenciesNews');
 
+    // SECTION WORKSHOP
+    $app->get('/get/talleres', /*'mw1',*/ 'getWorkshop');
+    $app->get('/get/talleres/logos', /*'mw1',*/ 'getWorkshopBrands');
+
+    // SECTION RENTAL
+    $app->get('/get/rentas/:agnRental', /*'mw1',*/ 'getRental');
+
     // SECTION BLOG
     $app->get('/get/blog', /*'mw1',*/ 'getBlog');
     // SECTION BLOG BY NEWS
     $app->get('/get/blog/noticia/:blogAgenciaShort/:blogTituloShort/:blogId', /*'mw1',*/ 'getBlogByPost');
+
+    // ABOUT US CONTAC FORM MAIN
+    $app->post('/contacto', /*'mw1',*/ 'post_form_contact_main');
 
 // DELETE
 //$app->get('/del/table/:idTable', /*'mw1',*/ 'delTable');
@@ -190,7 +200,9 @@ $app->run();
             'logoId' => 'BRD_Id',
             'logoIndex' => 'BRD_Index',
             'agnPrincipal' => 'BRD_AGP_Id',
-            'logo' => 'BRD_Logo'
+            'logo' => 'BRD_Logo',
+            'agnBreadcrumb_name' => 'AGN_Breadcrumb_Nombre',
+            'agnBreadcrumb_key' => 'AGN_Breadcrumb_Key'
         );
         $params = array();
         $result_agencie = restructureQuery($structure, getConnection(), $sql, $params, 0, PDO::FETCH_ASSOC);
@@ -458,6 +470,205 @@ $app->run();
         getAgenciesNewsByAgencieJSON($sql, $agn_nombre, $agn_id);
     }
 
+    // WORKSHOP
+    function getWorkshop() {
+        $sql_agencias = "SELECT *
+                        FROM (
+                            SELECT *
+                            FROM camAgencias
+                            WHERE AGN_Tipo = 2
+                        ) agn
+                        ";
+        $sql_telefonos ="SELECT *
+                        FROM camTelefonos
+                        WHERE TEL_AGN_Id = :telefonos
+                        ";
+        $sql_horarios ="SELECT *
+                        FROM camHorarios
+                        WHERE HRS_AGN_Id = :horarios
+                        ";
+        $sql_sociales = "SELECT *
+                        FROM camSociales
+                        WHERE SOC_AGN_Id = :sociales
+                        ";
+        $params_agencias = array();
+        $structure_agencias = array(
+            'agnId' => 'AGN_Id',
+            'agpid' => 'AGN_AGP_Id',
+            'agnTipo' => 'AGN_Tipo',
+            'agnNombre' => 'AGN_Nombre',
+            'agnDireccion' => 'AGN_Dirección',
+            'agnSmall' => 'AGN_Small'
+        );
+        $structure_telefonos = array(
+            'ventas' => array(
+                'agntelefonoventaslinea1' => 'TEL_Telefono_Ventas_linea1'
+            )
+        );
+        $structure_horarios = array(
+            'hrsId' => 'HRS_AGN_Id',
+            'ventas' => 'HRS_HVentas',
+            'refacciones' => 'HRS_HRefacciones',
+            'servicios' => 'HRS_HServicio'
+        );
+        $structure_sociales = array(
+            'socId' => 'SOC_AGN_Id',
+            'website' => 'SOC_WebSite'
+        );
+
+        $result_agencias = restructureQuery($structure_agencias, getConnection(), $sql_agencias, $params_agencias, 0, PDO::FETCH_ASSOC);
+
+        for ($idx=0; $idx < count($result_agencias); $idx++) {
+            $agnId = $result_agencias[$idx]['agnId'];
+
+            $result_agencias[$idx]['columns'] = ($idx % 2 === 0) ? 'col-md-offset-7 col-sm-offset-5' : '';
+            $result_agencias[$idx]['textAlign'] = ($idx % 2 === 0) ? 'text-left' : 'text-right';
+            $result_agencias[$idx]['direction'] = ($idx % 2 === 0) ? 'pull-left' : 'pull-right';
+
+            // TELEFONOS
+            $params_telefonos = array(
+                'telefonos' => $agnId
+            );
+
+            $result_telefonos = generalQuery(getConnection(), $sql_telefonos, $params_telefonos, 0, PDO::FETCH_ASSOC);
+
+            $result_telefonos = (count($result_telefonos) > 0)
+                ? restructureRow($result_telefonos[0], $structure_telefonos)
+                : array();
+
+            $result_agencias[$idx]['telefonos'] = $result_telefonos;
+
+            // HORARIOS
+            $params_horarios = array(
+                'horarios' => $agnId
+            );
+
+            $result_horarios = generalQuery(getConnection(), $sql_horarios, $params_horarios, 0, PDO::FETCH_ASSOC);
+
+            $result_horarios = (count($result_horarios) > 0)
+                ? restructureRow($result_horarios[0], $structure_horarios)
+                : array();
+
+            $result_agencias[$idx]['horarios'] = $result_horarios;
+
+            // SOCIALES
+            $params_sociales = array(
+                'sociales' => $agnId
+            );
+
+            $result_sociales = generalQuery(getConnection(), $sql_sociales, $params_sociales, 0, PDO::FETCH_ASSOC);
+
+            $result_sociales = (count($result_sociales) > 0)
+                ? restructureRow($result_sociales[0], $structure_sociales)
+                : array();
+
+            $result_agencias[$idx]['sociales'] = $result_sociales;
+        }
+
+        //$result = restructureArray($result, $structure);
+
+        $json = changeArrayIntoJSON('campa', $result_agencias);
+
+        $json = str_replace('"sociales":[]', '"sociales":{}', $json);
+
+        echo $json;
+    }
+    function getWorkshopBrands() {
+        $sql = "SELECT *
+                FROM (
+                    SELECT *
+                    FROM camAgencias
+                    WHERE AGN_Tipo = 2
+                    GROUP BY AGN_Logo1
+                ) agn
+                ";
+        $params = array();
+        $structure = array(
+            'agnId' => 'AGN_Id',
+            'agnTipo' => 'AGN_Tipo',
+            'agnlogo1' => 'AGN_Logo1'
+        );
+        echo changeQueryIntoJSON('campa', $structure, getConnection(), $sql, $params, 0, PDO::FETCH_ASSOC);
+    }
+
+    // RENTAL
+    function getRental() {
+        $sql_agencias = "SELECT *
+                        FROM (
+                            SELECT *
+                            FROM camAgencias
+                            WHERE AGN_Tipo = 3
+                        ) agn
+                        ";
+        $sql_telefonos ="SELECT *
+                        FROM camTelefonos
+                        WHERE TEL_AGN_Id = :telefonos
+                        ";
+        $sql_sociales ="SELECT *
+                        FROM camSociales
+                        WHERE SOC_AGN_Id = :sociales
+                        ";
+        $params_agencias = array();
+        $structure_agencias = array(
+            'agnId' => 'AGN_Id',
+            'agpid' => 'AGN_AGP_Id',
+            'agnTipo' => 'AGN_Tipo',
+            'agnNombre' => 'AGN_Nombre',
+            'agnUrl' => 'AGN_Url',
+            'agnDireccion' => 'AGN_Dirección',
+            'agnSmall' => 'AGN_Small',
+            'agnBreadcrumb' => 'AGN_Breadcrumb_Nombre'
+        );
+        $structure_telefonos = array(
+            'telId' => 'TEL_AGN_Id',
+            'telefono' => 'TEL_Telefono_Ventas_linea1',
+            'call' => 'TEL_Call_Ventas_linea1'
+        );
+        $structure_sociales = array(
+            'socId' => 'SOC_AGN_Id',
+            'website' => 'SOC_WebSite'
+        );
+
+        $result_agencias = restructureQuery($structure_agencias, getConnection(), $sql_agencias, $params_agencias, 0, PDO::FETCH_ASSOC);
+
+        for ($idx=0; $idx < count($result_agencias); $idx++) {
+            $agnId = $result_agencias[$idx]['agnId'];
+
+            $result_agencias[$idx]['columns'] = ($idx % 2 === 0) ? 'col-md-offset-7 col-sm-offset-6' : '';
+            $result_agencias[$idx]['textAlign'] = ($idx % 2 === 0) ? 'text-left' : 'text-right';
+            $result_agencias[$idx]['direction'] = ($idx % 2 === 0) ? 'pull-left' : 'pull-right';
+
+            // TELEFONOS
+            $params_telefonos = array(
+                'telefonos' => $agnId
+            );
+
+            $result_telefonos = generalQuery(getConnection(), $sql_telefonos, $params_telefonos, 0, PDO::FETCH_ASSOC);
+
+            $result_telefonos = (count($result_telefonos) > 0)
+                ? restructureRow($result_telefonos[0], $structure_telefonos)
+                : array();
+
+            $result_agencias[$idx]['telefonos'] = $result_telefonos;
+
+            // SOCIALES
+            $params_sociales = array(
+                'sociales' => $agnId
+            );
+            $result_sociales = generalQuery(getConnection(), $sql_sociales, $params_sociales, 0, PDO::FETCH_ASSOC);
+
+            $result_sociales = (count($result_sociales) > 0)
+                ? restructureRow($result_sociales[0], $structure_sociales)
+                : array();
+
+            $result_agencias[$idx]['sociales'] = $result_sociales;
+        }
+
+        $json = changeArrayIntoJSON('campa', $result_agencias);
+
+        echo $json;
+    }
+
     // BLOG JSON
     function getBlogJSON($sql) {
         $structure = array(
@@ -564,8 +775,297 @@ $app->run();
         );
         echo changeQueryIntoJSON('campa', $structure, getConnection(), $sql, $params, 3, PDO::FETCH_ASSOC);
     }
+
+    // CONTACT MAIN
+    function post_form_contact_main() {
+        $property = requestBody();
+        $contact_main_name = $property->contact_main_name;
+        $contact_main_email = $property->contact_main_email;
+        $contact_main_message = $property->contact_main_message;
+
+        contact_main($contact_main_name, $contact_main_email, $contact_main_message);
+
+        echo changeArrayIntoJSON("campa", array('process'=>'ok'));
+    }
 /*
   ----------------------------------------------------------------------------
   General Get Mandril
   ----------------------------------------------------------------------------
 */
+    function contact_main($contact_main_name, $contact_main_email, $contact_main_message) {
+        try {
+            $mandrill = new Mandrill('V6ypCDEnJAgL9FsOyyDxAw');
+            $message = array(
+                'html' => '
+                    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+                    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+                    <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full2"  bgcolor="#ffffff"style="background-color: rgb(255, 255, 255);">
+                        <tr>
+                            <td style="background-color: rgba(0,161,220,0.3); -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; background-position: -120px -15px; background-attachment: fixed; background-repeat: no-repeat;" id="not6">
+
+                                                    <!-- Mobile Wrapper -->
+                                <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile2" style="background: rgb(178, 17, 23);">
+                                    <tr>
+                                        <td width="100%" align="center">
+
+                                            <div class="sortable_inner ui-sortable">
+                                            <!-- Space -->
+                                            <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" class="full" object="drag-module-small">
+                                                <tr>
+                                                    <td width="100%" height="50"></td>
+                                                </tr>
+                                            </table><!-- End Space -->
+
+                                            <!-- Space -->
+                                            <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" class="full" object="drag-module-small">
+                                                <tr>
+                                                    <td width="100%" height="50"></td>
+                                                </tr>
+                                            </table><!-- End Space -->
+
+                                            <!-- Start Top -->
+                                            <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile2" bgcolor="#4edeb5" style="border-top-left-radius: 5px; border-top-right-radius: 5px; background-color: rgba(255,255,255,0.85);" object="drag-module-small">
+                                                <tr>
+                                                    <td width="100%" valign="middle" align="center" class="logo">
+
+                                                        <!-- Header Text -->
+                                                        <table width="540" border="0" cellpadding="0" cellspacing="0" align="center" style="text-align: center; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="fullCenter2">
+                                                            <tr>
+                                                                <td width="100%" height="30"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="100%"><span ><img src="http://camcar.mx/resources/public/img/logo_camcar.png" width="225" alt="" border="0" ></span></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="100%" height="30"></td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                            <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile2" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgba(255, 255, 255, 1);">
+                                                <tr>
+                                                    <td width="100%" valign="middle" align="center">
+
+                                                        <table width="540" border="0" cellpadding="0" cellspacing="0" align="center" style="text-align: center; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="fullCenter2">
+                                                            <tr>
+                                                                <td width="100%" height="30"></td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                            <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile2" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgba(255, 255, 255, 1);">
+                                                <tr>
+                                                    <td width="100%" valign="middle" align="center">
+
+                                                        <table width="540" border="0" cellpadding="0" cellspacing="0" align="center" style="text-align: center; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="fullCenter2">
+                                                            <tr>
+                                                                <td valign="middle" width="100%" style="text-align: left; font-family: Helvetica, Arial, sans-serif; font-size: 23px; color: rgb(63, 67, 69); line-height: 30px; font-weight: 100;">
+                                                                    <!--[if !mso]><!--><span style="font-family: Helvetica; font-weight: normal; text-align: center; display: block;"><!--<![endif]-->Contacto <!--[if !mso]><!--></span><!--<![endif]-->
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                            <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile2" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgba(255, 255, 255, 1);">
+                                                <tr>
+                                                    <td width="100%" valign="middle" align="center">
+
+                                                        <table width="540" border="0" cellpadding="0" cellspacing="0" align="center" style="text-align: center; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="fullCenter2">
+                                                            <tr>
+                                                                <td width="100%" height="30"></td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                            <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile2" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgba(255, 255, 255, 1);">
+                                                <tr>
+                                                    <td width="100%" valign="middle" align="center">
+
+                                                        <table width="540" border="0" cellpadding="0" cellspacing="0" align="center" style="text-align: center; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="fullCenter2">
+                                                            <tr>
+                                                                <td valign="middle" width="100%" style="text-align: left; font-family: Helvetica, Arial, sans-serif; font-size: 14px; color: rgb(63, 67, 69); line-height: 24px;">
+                                                                    <!--[if !mso]><!--><span style="font-family: Helvetica; font-weight: normal;"><!--<![endif]-->
+                                                                        <hr style="border: 0; border-top: 1px solid #00a1dc; display: block; width: 100%; margin-top: 0%;">
+                                                                        <ol type="1">
+                                                                            <li style="list-style-type: disc;">
+                                                                                <b>Nombre: </b>
+                                                                                <ul>
+                                                                                    <li>
+                                                                                         <i>' . $contact_main_name . '</i>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </li>
+                                                                            <li style="list-style-type: disc;">
+                                                                                <b>Email:</b>
+                                                                                <ul>
+                                                                                    <li>
+                                                                                         <i>' . $contact_main_email . '</i>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </li>
+                                                                        </ol>
+                                                                        <hr style="border: 0; border-top: 1px solid #00a1dc; display: block; width: 100%; margin-bottom: 2%;">
+
+                                                                <!--[if !mso]><!--></span><!--<![endif]-->
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                            <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile2" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgba(255, 255, 255, 1);">
+                                                <tr>
+                                                    <td width="100%" valign="middle" align="center">
+
+                                                        <table width="540" border="0" cellpadding="0" cellspacing="0" align="center" style="text-align: center; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="fullCenter2">
+                                                            <tr>
+                                                                <td width="100%" height="10"></td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                            <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile2" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgba(255, 255, 255, 1);">
+                                                <tr>
+                                                    <td width="100%" valign="middle" align="center">
+
+                                                        <table width="540" border="0" cellpadding="0" cellspacing="0" align="center" style="text-align: center; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="fullCenter2">
+                                                            <tr>
+                                                                <td valign="middle" width="100%" style="text-align: left; font-family: Helvetica, Arial, sans-serif; font-size: 19px; color: rgb(63, 67, 69); line-height: 30px; font-weight: bold;">
+                                                                    <!--[if !mso]><!--><span style="font-family: Helvetica; font-weight: normal; text-align: left; display: block; margin-bottom: 20px;"><!--<![endif]-->Mensaje. <!--[if !mso]><!--></span><!--<![endif]-->
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td valign="middle" width="100%" style="text-align: left; font-family: Helvetica, Arial, sans-serif; font-size: 14px; color: rgb(63, 67, 69); line-height: 24px;">
+                                                                    <!--[if !mso]><!--><span style="font-family: Helvetica; font-weight: normal; word-break: break-all;"><!--<![endif]-->
+                                                                    ' . $contact_main_message . '
+                                                                    <!--[if !mso]><!--></span><!--<![endif]-->
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                            <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile2" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgba(255, 255, 255, 1);">
+                                                <tr>
+                                                    <td width="100%" valign="middle" align="center">
+
+                                                        <table width="540" border="0" cellpadding="0" cellspacing="0" align="center" style="text-align: center; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="fullCenter2">
+                                                            <tr>
+                                                                <td width="100%" height="10"></td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+
+
+                                            <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile2" bgcolor="#ffffff"style="border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; background-color: rgba(255, 255, 255, 1);" object="drag-module-small">
+                                                <tr>
+                                                    <td width="100%" valign="middle" align="center">
+
+                                                        <table width="540" border="0" cellpadding="0" cellspacing="0" align="center" style="text-align: center; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="fullCenter2">
+                                                            <tr>
+                                                                <td width="100%" height="10"></td>
+                                                            </tr>
+                                                        </table>
+
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                            <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" class="full2" object="drag-module-small">
+                                                <tr>
+                                                    <td width="100%" height="30"></td>
+                                                </tr>
+                                            </table>
+
+                                            <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile2" object="drag-module-small">
+                                                <tr>
+                                                    <td valign="middle" width="100%" style="text-align: left; font-family: Helvetica, Arial, sans-serif; font-size: 15px; color: rgba(255, 255, 255, 1); line-height: 15px; text-align: center">
+                                                       <!--[if !mso]><!--><span style="font-family: Helvetica; font-weight: normal;"><!--<![endif]-->&copy; 2015 Camcar Grupo Automotriz <!--<![endif]--></span><!--[if !mso]><!-->
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                            <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile2" object="drag-module-small">
+                                                <tr>
+                                                    <td width="100%" height="30"></td>
+                                                </tr>
+                                            </table>
+
+                                            <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile2" object="drag-module-small">
+                                                <tr>
+                                                    <td width="100%" height="29"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="100%" height="1"></td>
+                                                </tr>
+                                            </table>
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                </table>
+
+                            </div>
+                            </td>
+                        </tr>
+                    </table>
+                ',
+                'subject' => 'Contacto',
+                'from_email' => $contact_main_email,
+                'from_name' => $contact_main_name,
+                'to' => array(
+                    array(
+                        'email' => 'marina.reyes@camcar.mx',
+                        //'email' => 'hevelmo060683@gmail.com',
+                        'name' => 'Contacto Camcar',
+                        'type' => 'to'
+                    )
+                ),
+                'headers' => array('Reply-To' => 'marina.reyes@camcar.mx'),
+                'important' => false,
+                'track_opens' => true,
+                'track_clicks' => true,
+                'auto_text' => null,
+                'auto_html' => null,
+                'inline_css' => null,
+                'url_strip_qs' => null,
+                'preserve_recipients' => null,
+                'view_content_link' => null,
+                'bcc_address' => null,
+                'tracking_domain' => null,
+                'signing_domain' => null,
+                'return_path_domain' => null,
+                'merge' => true,
+
+                'tags' => array('orden-new-notificacion'),
+                'google_analytics_domains' => array('http://camcar.mx/'),
+                'google_analytics_campaign' => 'marina.reyes@camcar.mx',
+                'metadata' => array('website' => 'http://camcar.mx/'),
+            );
+            $async = false;
+            $ip_pool = 'Main Pool';
+            $send_at = '';
+            $result = $mandrill->messages->send($message, $async, $ip_pool, $send_at);
+            //print_r($result);
+        } catch(Mandrill_Error $e) {
+            // Mandrill errors are thrown as exceptions
+            echo 'A mandrill error occurred: ' . get_class($e) . ' - ' . $e->getMessage();
+            // A mandrill error occurred: Mandrill_Unknown_Subaccount - No subaccount exists with the id 'customer-123'
+            throw $e;
+        }
+    }

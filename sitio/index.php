@@ -84,6 +84,11 @@
     	<!-- Auxiliar Temporal Inputs's DIV -->
     	<div id='hidden-inputs-temporal'></div>
 
+        <div id="hidden-inputs-temporal-rental">
+            <input id="hidden-agencie-rental-name" type="hidden" class="input-hidden" value="">
+            <input id="hidden-agencie-rental-key" type="hidden" class="input-hidden" value="">
+        </div>
+
         <div id="hidden-inputs-temporal-blog">
             <input id="hidden-blog-id" type="hidden" class="input-hidden" value="">
             <input id="hidden-agencie-name" type="hidden" class="input-hidden" value="">

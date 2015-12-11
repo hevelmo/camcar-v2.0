@@ -49,9 +49,11 @@ function urlsApi() {
         'getBrandsLogos' => $root . '/' . $get . '/' . $agencie . '/' . $news . '/' . $brands . '/'. $logos,
         // HOME SECTION GROUP COUNTER
         'getGroupCounter' => $root . '/' . $get . '/' . $group_counter,
+
         // AGENTS MAP
         'getMapa' => $root . '/' . $get . '/' . $tab_mapa . '/' . $tab_seminuevo,
         'getMapaById' => $root . '/' . $get . '/' . $tab_mapa . '/' . $tab_seminuevo . '/',
+
         // AGENCIES NEWS
         'getAgenciesNews' => $root . '/' . $get . '/' . $agencie . '/' . $news,
         // AGENCIES NEWS BY ID
@@ -66,9 +68,21 @@ function urlsApi() {
         'getAgenciesNewsPrincipalesByAgencia' => $root . '/' . $get . '/agencias/' . $news. '/',
         // LOGOS AGENCIES NEWS PRINCIPAL
         'getLogosAgenciesNews' => $root . '/' . $get . '/logos/' . $agencie . '/' . $news,
+
+        // AGNCIES WORKSHOP
+        'getWorkshop' => $root . '/' . $get . '/talleres',
+        'getWorkshopBrands' => $root . '/' . $get . '/talleres/logos',
+
+        // AGENCIES RENTAl
+        'getRental' => $root . '/' . $get . '/rentas/',
+        //'getRentalBrand' => $root . '/' . $get . '/rentas/logo',
+
         // BLOG
         'getBlog' => $root . '/' . $get . '/blog',
         'getBlogByPost' => $root . '/' . $get . '/blog/' . $noticia . '/',
+
+        // ABOUT US FORM CONTACT MAIN
+        'post_form_contact_main' => $root . '/contacto',
 
     );
 }

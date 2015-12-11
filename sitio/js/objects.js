@@ -25,6 +25,10 @@ domEl = {
 	"_start_large_pad_land_mark_name":"#content-start-large-pag-land-mark",
 	"_start_large_pad_our_brands":"content-start-large-pad-our-brands",
 	"_start_large_pad_our_brands_name":"#content-start-large-pad-our-brands",
+	"_start_rental_content_agencies":"content-start-rental-agencies",
+	"_start_rental_content_agencies_name":"#content-start-rental-agencies",
+	"_start_rental_content_body":"content-start-rental-body-main",
+	"_start_rental_content_body_name":"#content-start-rental-body-main",
 	"_start_section_separator":"content-section-separator",
 	"_start_section_separator_name":"#content-section-separator",
 	"_start_site_navbar":"content-start-site-navbar",
@@ -32,12 +36,14 @@ domEl = {
 	"_start_utility_bar_breadcrumb":"content-start-utility-bar-breadcrumb",
 	"_start_utility_bar_breadcrumb_name":"#content-start-utility-bar-breadcrumb",
 	"body_recurrent":"body",
-	"diV_recurrent_blog_galery":"#content-section-blog-galery",
 	"div_hidden_inputs_session":"div#hidden-inputs-session",
 	"div_hidden_inputs_temporal":"div#hidden-inputs-temporal",
 	"div_recurrent":"div#content-temporal-interactive",
+	"div_recurrent_blog_galery":"#content-section-blog-galery",
+	"div_recurrent_form_contact":"#container-form-contact",
 	"filter_breadcrumb_blog_agencie":"#filter-blog-agencie",
 	"filter_breadcrumb_blog_post":"#filter-blog-post",
+	"form_cam_form_contact_main":"#cam-form-contact-main",
 	"goBack_breadcrumb_blog":"#go-back-blog",
 	"goSection_about_us":"#go-about-us",
 	"goSection_agencies_news":"#go-agencies-news",
@@ -60,11 +66,16 @@ domEl = {
 	"goSection_rental":"#go-rental",
 	"goSection_workshop":"#go-workshop",
 	"head_recurrent":"head",
+	"input_cam_contact_main_email":"#cam-contact-main-email",
+	"input_cam_contact_main_message":"#cam-contact-main-message",
+	"input_cam_contact_main_name":"#cam-contact-main-name",
 	"navbar_recurrent":"#start-site-header",
+	"send_cam_contact_main_send":"#cam-contact-main-send",
 	"validate_required":".validate-required"
 };
 tempsNames = {
 	"recurrent_about_us_start_contact_main":"tmp_section_about_us_start_contact_main",
+	"recurrent_about_us_start_form_contact_main":"tmp_section_about_us_start_form_contact_main",
 	"recurrent_about_us_start_large_pad_contact_form":"tmp_section_about_us_start_large_pad_contact_form",
 	"recurrent_about_us_start_large_pad_feature_list":"tmp_section_about_us_start_large_pad_feature_list",
 	"recurrent_about_us_start_large_pad_land_mark":"tmp_section_about_us_start_large_pad_land_mark",
@@ -80,6 +91,9 @@ tempsNames = {
 	"recurrent_home_group_counter":"tmp_section_home_group_counter",
 	"recurrent_home_hero_slide_carousel":"tmp_section_home_hero_slide_carousel",
 	"recurrent_home_our_brands":"tmp_section_home_our_brands",
+	"recurrent_rental_start_image_block":"tmp_section_rental_start_image_block",
+	"recurrent_rental_start_large_pad_land_mark":"tmp_section_rental_start_large_pad_land_mark",
+	"recurrent_rental_start_utility_bar_breadcrumb":"tmp_section_rental_start_utility_bar_breadcrumb",
 	"recurrent_start_site_navbar":"tmp_start_site_navbar"
 };
 urlsApi = {
@@ -95,5 +109,9 @@ urlsApi = {
 	"getGroupCounter":"api/v15/get/grupo/camcar",
 	"getLogosAgenciesNews":"api/v15/get/logos/agencia/nuevos",
 	"getMapa":"api/v15/get/mapa/seminuevo",
-	"getMapaById":"api/v15/get/mapa/seminuevo/"
+	"getMapaById":"api/v15/get/mapa/seminuevo/",
+	"getRental":"api/v15/get/rentas/",
+	"getWorkshop":"api/v15/get/talleres",
+	"getWorkshopBrands":"api/v15/get/talleres/logos",
+	"post_form_contact_main":"api/v15/contacto"
 };

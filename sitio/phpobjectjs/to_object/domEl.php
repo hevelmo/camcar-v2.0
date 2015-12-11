@@ -16,6 +16,9 @@ function domEl() {
     // AGENCIES NEWS
     // UTILITY BAR BREADCRUMB
     $start_utility_bar_breadcrumb = 'content-start-utility-bar-breadcrumb';
+    // RENTAL
+    $start_rental_content_body = 'content-start-rental-body-main';
+    $start_rental_content_agencies = 'content-start-rental-agencies';
     // BLOG NEWS
     // BLOG BY NEWS
     $start_body_content_main = 'content-start-body-main';
@@ -60,22 +63,37 @@ function domEl() {
         // UTILITY BAR BREADCRUMB
         '_start_utility_bar_breadcrumb' => $start_utility_bar_breadcrumb,
         '_start_utility_bar_breadcrumb_name' => '#' . $start_utility_bar_breadcrumb,
+        // RENTAL
+        '_start_rental_content_body' => $start_rental_content_body,
+        '_start_rental_content_body_name' => '#' . $start_rental_content_body,
+        '_start_rental_content_agencies' => $start_rental_content_agencies,
+        '_start_rental_content_agencies_name' => '#' . $start_rental_content_agencies,
         // BLOG
         '_start_body_content_main' => $start_body_content_main,
         '_start_body_content_main_name' => '#' . $start_body_content_main,
         // BLOG BY POST
         '_start_flexslider' => $start_flexslider,
         '_start_flexslider_name' => '#' . $start_flexslider,
-        'diV_recurrent_blog_galery' => '#content-section-blog-galery',
+        'div_recurrent_blog_galery' => '#content-section-blog-galery',
         // ABOUT US
         '_start_large_pad_land_mark' => $start_large_pad_land_mark,
         '_start_large_pad_land_mark_name' => '#' . $start_large_pad_land_mark,
         '_start_large_pad_feature_list' => $start_large_pad_feature_list,
         '_start_large_pad_feature_list_name' => '#' . $start_large_pad_feature_list,
+        // FORM CONTACT MAIN
         '_start_large_pad_contact_form' => $start_large_pad_contact_form,
         '_start_large_pad_contact_form_name' => '#' . $start_large_pad_contact_form,
         '_start_contact_main' => $start_contact_main,
         '_start_contact_main_name' => '#' . $start_contact_main,
+        'div_recurrent_form_contact' => '#container-form-contact',
+        // FIELDS FORM CONTACT MAIN
+        'form_cam_form_contact_main' => '#cam-form-contact-main',
+        'input_cam_contact_main_name' => '#cam-contact-main-name',
+        'input_cam_contact_main_email' => '#cam-contact-main-email',
+        'input_cam_contact_main_message' => '#cam-contact-main-message',
+        //'input_cam_contact_main_concessionary' => '#cam-contact-main-concessionary',
+        //'input_cam_contact_main_logo' => '#cam-contact-main-logo',
+        'send_cam_contact_main_send' => '#cam-contact-main-send',
         // SECTION SEPARATOR
         '_start_section_separator' => $start_section_separator,
         '_start_section_separator_name' => '#' . $start_section_separator,

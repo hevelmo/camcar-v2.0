@@ -57,6 +57,12 @@ $(document).ready(function() {
     $(domEl.div_recurrent).on('click', domEl.goSection_blog_by_news, clikGoMethods.clickGo_blogByNotice);
     // ABOUT US
     $(domEl.navbar_recurrent).on('click', domEl.goSection_about_us, clikGoMethods.clickGo_about_us);
+    // ABOUT US FORM CONTACT MAIN
+    $(domEl.div_recurrent).on('keyup', domEl.input_cam_contact_main_name, formContactMainMethod.validate_fields_keyup);
+    $(domEl.div_recurrent).on('keyup', domEl.input_cam_contact_main_email, formContactMainMethod.validate_fields_keyup);
+    $(domEl.div_recurrent).on('keyup', domEl.input_cam_contact_main_message, formContactMainMethod.validate_fields_keyup);
+    // SEND CONTACT MAIN
+    $(domEl.div_recurrent).on('click', domEl.send_cam_contact_main_send, formContactMainMethod.send_contact_main);
     // LOGO RESP
     $(domEl.navbar_recurrent).on('click', domEl.goSection_index_logo_resp, clikGoMethods.clikGo_home);
     // LOGO
@@ -70,6 +76,6 @@ $(document).ready(function() {
     $(domEl.div_recurrent).on('click', domEl.goSection_ourBrand_agencies_preowned, clikGoMethods.clickGo_agencies_preowned);
     $(domEl.div_recurrent).on('click', domEl.goSection_ourBrand_whorkshop, clikGoMethods.clickGo_workshop);
     $(domEl.div_recurrent).on('click', domEl.goSection_ourBrand_rental, clikGoMethods.clickGo_rental);
-    // FORM NEWSLETTER
+    // FORMS
     $(domEl.body_recurrent).on('focusout', domEl.validate_required, validateMethods.validate_input);
 });

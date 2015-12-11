@@ -164,6 +164,7 @@
     Finch.route('/talleres', {
         setup: function(bindings) {
             section = "workshop";
+            ga('send', 'pageview', '/talleres');
             // Add favicon
             window.onload = favicon.load_favicon();
             addAttrNavAgenciesNewsMethod.addAttrNavAgenciesNews();
@@ -189,21 +190,26 @@
 /* ----------------------------------- *\
  [Route] RENTAL
 \* ----------------------------------- */
-    Finch.route('/rentas', {
+    Finch.route('/rentas/:agnRental', {
         setup: function(bindings) {
-            section = "rental";
+            var $agnRentaGA = bindings.agnRental;
+            section = "rental-agencie";
+            ga('send', 'pageview', '/rentas/' + $agnRentaGA);
             // Add favicon
             window.onload = favicon.load_favicon();
             addAttrNavAgenciesNewsMethod.addAttrNavAgenciesNews();
         },
         load: function(bindings) {
+            var $agnRenta = bindings.agnRental;
+
             viewNavbarMethod.viewNavbar();
             sticky_wrapper_methods.sticky_wrapper();
 
             currentSectionMethod.currentSection_rental();
 
-            viewSectionRentalMethod.viewSectionRental();
+            viewSectionRentalMethod.viewSectionRental($agnRenta);
 
+            bgImageHolderMethods.appendBgImageHolder2();
             $(window).resize(mobile_menu_methods.has_menu_toggle);
             backToTopMethod.init_window_scroll_top();
         },
@@ -269,9 +275,10 @@
 /* ----------------------------------- *\
  [Route] ABOUT US
 \* ----------------------------------- */
-    Finch.route('/nosotros', {
+    Finch.route('/contacto', {
         setup: function(bindings) {
             section = "about-us";
+            ga('send', 'pageview', '/contacto');
             // Add favicon
             window.onload = favicon.load_favicon();
             addAttrNavAgenciesNewsMethod.addAttrNavAgenciesNews();

@@ -526,10 +526,44 @@
     [Methods] viewSectionRentalMethod
 \* ------------------------------------------------------ */
     var viewSectionRentalMethod = {
-        viewSectionRental: function() {
+        viewSectionRental: function(agnRental) {
+            viewSectionRentalMethod.recurrentSecionRental();
+            viewSectionRentalMethod.loadTemplatesUtilityBarBreadcrumb(agnRental);
+            viewSectionRentalMethod.loadTemplatesRentalBodyContent();
+            viewSectionRentalMethod.loadTemplatesRentalAgencies(agnRental);
+        },
+        loadBreadcrumbs_blogByPost: function(agnRental) {
+            if ( section === 'rental-agencie' ) {
+                $('#filter-rental-agencie').html(agnRental);
+            }
+        },
+        loadTemplatesUtilityBarBreadcrumb: function(agnRental) {
+            var rentalData, rentalUrl, campaRentalAgencie;
+
+            rentalUrl = urlsApi.getRental + agnRental;
+            rentalData = CAM.getInternalJSON(rentalUrl);
+
+            campaRentalAgencie = rentalData.campa[0].agnBreadcrumb;
+
+            CAM.loadTemplate(tempsNames.recurrent_rental_start_utility_bar_breadcrumb, domEl._start_utility_bar_breadcrumb_name, rentalData);
+            viewSectionRentalMethod.loadBreadcrumbs_blogByPost(campaRentalAgencie);
+        },
+        loadTemplatesRentalBodyContent: function() {
+            CAM.loadTemplate(tempsNames.recurrent_rental_start_large_pad_land_mark, domEl._start_rental_content_body_name);
+        },
+        loadTemplatesRentalAgencies: function(agnRental) {
+            var rentalData, rentalUrl, campaRentalAgencie;
+
+            rentalUrl = urlsApi.getRental + agnRental;
+            rentalData = CAM.getInternalJSON(rentalUrl);
+
+            CAM.loadTemplate(tempsNames.recurrent_rental_start_image_block, domEl._start_rental_content_agencies_name, rentalData);
         },
         recurrentSecionRental: function() {
             dataStarSiteRentalAttributes = [
+                ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content'}, '', 1],
+                ['section', {'id':domEl._start_rental_content_body, 'class':'large-pad text-hero-2 about-content'}, '', 1],
+                ['div', {'id':domEl._start_rental_content_agencies, 'class':'about-content', 'style':'background-color: #f9f9f9; padding-top: 20px; padding-bottom: 60px;'}, '', 1]
             ];
             CAM.appendMulti(domEl.div_recurrent, dataStarSiteRentalAttributes);
         }
@@ -605,7 +639,7 @@
             dataSectionBlogGaleryAttributes = [
                 ['section', {'id':domEl._start_flexslider, 'class':'slider'}, '', 1]
             ];
-            CAM.appendMulti(domEl.diV_recurrent_blog_galery, dataSectionBlogGaleryAttributes);
+            CAM.appendMulti(domEl.div_recurrent_blog_galery, dataSectionBlogGaleryAttributes);
             CAM.loadTemplate(tempsNames.recurrent_blog_by_news_start_single_post_galery, domEl._start_flexslider_name, blogSinglePost);
         },
         recurrentSectionBlogByNews: function() {
@@ -626,6 +660,7 @@
             viewSectionAboutUsMethod.loadTemplatesLArgePadLandMark();
             viewSectionAboutUsMethod.loadTemplatesLArgePadFeatureList();
             viewSectionAboutUsMethod.loadTemplatesLArgePadContactForm();
+            formContactMainMethod.refreshFrom();
         },
         loadTemplatesUtilityBarBreadcrumb: function() {
             CAM.loadTemplate(tempsNames.recurrent_about_us_start_utility_bar_breadcrumb, domEl._start_utility_bar_breadcrumb_name);
@@ -650,6 +685,145 @@
                 ['section', {'id':domEl._start_contact_main, 'class':'contact-2 about-content'}, '', 1]
             ];
             CAM.appendMulti(domEl.div_recurrent, dataStarSiteAboutUsAttributes);
+        }
+    }
+/* ------------------------------------------------------ *\
+    [Methods] formContactMainMethod
+\* ------------------------------------------------------ */
+    var formContactMainMethod = {
+        addData_formContactMain: function() {
+            var dataFormContact, $postalService;
+            dataFormContact = $(domEl.form_cam_form_contact_main).serializeFormJSON();
+            //console.log(dataFormContact);
+            return CAM.postalService(urlsApi.post_form_contact_main, dataFormContact);
+        },
+        fillingControl: function() {
+            var validFieldsItems, dataFormContact, isFull, isNoEmpty;
+            validFieldsItems = [ 'contact_main_name', 'contact_main_email', 'contact_main_message' ];
+
+            dataFormContact = $(domEl.form_cam_form_contact_main).serializeFormJSON();
+
+            isFull = CAM.validFormFull(dataFormContact, validFieldsItems);
+            $(domEl.send_cam_contact_main_send).attr('disabled', !isFull);
+
+            isEmpty = CAM.validFormFull(dataFormContact, validFieldsItems);
+            $(domEl.send_cam_contact_main_send).attr('disabled', !isEmpty);
+
+            console.log(dataFormContact);
+        },
+        refreshFrom: function() {
+            CAM.loadTemplate(tempsNames.recurrent_about_us_start_form_contact_main, domEl.div_recurrent_form_contact);
+            $(domEl.send_cam_contact_main_send).attr('disabled', true);
+        },
+        resetForm: function() {
+            CAM.resetForm(domEl.form_cam_form_contact_main);
+            $(domEl.send_cam_contact_main_send).attr('disabled', true);
+        },
+        resetPreLoader: function() {
+            CAM.setHTML('.form-loader', '');
+        },
+        validate_fields_keyup: function() {
+            formContactMainMethod.fillingControl();
+        },
+        send_contact_main: function(event) {
+            formContactMainMethod.fillingControl();
+            var $cam_contact_main_name, $cam_contact_main_email, $cam_contact_main_message, form_errors;
+            $cam_contact_main_name = $('#cam-contact-main-email');
+            $cam_contact_main_email = $('#cam-contact-main-message');
+            $cam_contact_main_message = $('#cam-contact-main-name');
+            form_errors = 0;
+            if( validateMethods.validate_input( $cam_contact_main_name ) ){
+                form_errors++;
+                $cam_contact_main_name.focusout();
+            }
+            if( validateMethods.validate_input( $cam_contact_main_email ) ){
+                form_errors++;
+                $cam_contact_main_email.focusout();
+            }
+            if( validateMethods.validate_input( $cam_contact_main_message ) ){
+                form_errors++;
+                $cam_contact_main_message.focusout();
+            }
+            if( form_errors != 0 ){
+                var data = {
+                    name : $cam_contact_main_name.val(),
+                    email : $cam_contact_main_email.val(),
+                    message : $cam_contact_main_message.val(),
+                    source : 'Contacto'
+                }
+                var contact_main_promise = formContactMainMethod.addData_formContactMain();
+                contact_main_promise.success(function ( data ) {
+                    console.log(data);
+                    //ga('send', 'event', 'Contacto', news_srt, departamento, news_val + car_val );
+                    setTimeout(function() {
+                        console.log('Espera');
+                        setTimeout(function () {
+                            $('#form-wrapper').fadeOut( 300 , function(){
+                                setTimeout(function () {
+                                    $('.form-loader').fadeIn();
+                                }, 300);
+                            });
+                            setTimeout(function () {
+                                console.log("Correo Enviado...");
+                                setTimeout(function () {
+                                    $('#form-wrapper').fadeOut( 300 , function(){
+                                        var correo = $('#cam-contact-main-email').val();
+                                        $('#email-from').text(correo);
+                                        setTimeout(function () {
+                                            $('.form-thanks').fadeIn();
+                                        }, 1800);
+                                    });
+                                    setTimeout(function () {
+                                        $('.form-loader').fadeOut();
+                                        formContactMainMethod.resetForm();
+                                        setTimeout(function () {
+                                            $('#form-wrapper').fadeIn( 300 , function(){
+                                                var correo = $('#cam-contact-main-email').val();
+                                                $('#email-from').text(correo);
+                                                $('.form-thanks').fadeOut();
+                                            });
+                                        }, 3400);
+                                    }, 1800);
+                                }, 1800);
+                            }, 1400);
+                        }, 300);
+                    }, 500);
+                });
+                contact_main_promise.error(function ( data ) {
+                    setTimeout(function() {
+                        //console.log('Espera');
+                        setTimeout(function () {
+                                $('#form-wrapper').fadeOut( 300 , function(){
+                                    setTimeout(function () {
+                                        $('.form-loader').fadeIn();
+                                    }, 1000);
+                                });
+                            setTimeout(function () {
+                                //console.log("Correo Enviado...");
+                                setTimeout(function () {
+                                    $('#form-wrapper').fadeOut( 300 , function(){
+                                        setTimeout(function () {
+                                            $('.form-error').fadeIn();
+                                        }, 1800);
+                                    });
+                                    setTimeout(function () {
+                                        $('.form-loader').fadeOut();
+                                        formContactMainMethod.resetForm();
+                                        setTimeout(function () {
+                                            $('#form-wrapper').fadeIn( 300 , function(){
+                                                $('.form-error').fadeOut();
+                                            });
+                                            setTimeout(function () {
+                                                formContactMainMethod.resetForm();
+                                            }, 2000);
+                                        }, 3400);
+                                    }, 1800);
+                                }, 5900);
+                            }, 3400);
+                        }, 1800);
+                    }, 500);
+                });
+            }
         }
     }
 /* ------------------------------------------------------ *\
@@ -689,12 +863,22 @@
             Finch.navigate('/talleres');
         },
         clickGo_rental: function(event) {
+            var $agn_rental_name, $agn_rental_key, $element;
+
+            $element = $(this);
+            $agn_rental_name = $element.data('agencie-rental-name');
+            $agn_rental_key = $element.data('agencie-rental-key');
+
+            CAM.setValue('#hidden-agencie-rental-name', $agn_rental_name);
+            CAM.setValue('#hidden-agencie-rental-key', $agn_rental_key);
+
             $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );
-            Finch.navigate('/rentas');
+
+            Finch.navigate('/rentas/' + $agn_rental_key);
         },
         clickGo_blog: function(event) {
             $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );
-            //$('.input-hidden').val('');
+            $('.input-hidden').val('');
             Finch.navigate('/noticias');
         },
         clickGo_blogByNotice: function(event) {
@@ -739,7 +923,7 @@
         },
         clickGo_about_us: function(event) {
             $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );
-            Finch.navigate('/nosotros');
+            Finch.navigate('/contacto');
         },
         clickGo_privacy_notice: function(event) {
             $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );
@@ -754,6 +938,8 @@
             removeRecurrentsMethod.removeRecurrent_navbar();
             removeRecurrentsMethod.removeRecurrents_home();
             removeRecurrentsMethod.removeRecurrents_agencies_news();
+            removeRecurrentsMethod.removeRecurrents_workshop();
+            removeRecurrentsMethod.removeRecurrents_rental();
             removeRecurrentsMethod.removeRecurrents_blog();
             removeRecurrentsMethod.removeRecurrents_blog_by_news();
             removeRecurrentsMethod.removeRecurrents_about_us();
@@ -771,6 +957,12 @@
         },
         removeRecurrents_agencies_news: function() {
             $(domEl._start_utility_bar_breadcrumb_name).remove();
+        },
+        removeRecurrents_workshop: function() {
+        },
+        removeRecurrents_rental: function() {
+            $(domEl._start_rental_content_body_name).remove();
+            $(domEl._start_rental_content_agencies_name).remove();
         },
         removeRecurrents_blog: function() {
             $(domEl._start_utility_bar_breadcrumb_name).remove();
