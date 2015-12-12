@@ -63,6 +63,8 @@
 		@import url(sitio/styles/form-elements.css);
 		@import url(sitio/form-validation.css);
 		@import url(corp-medigraf.css);
+
+		@import url(styles/hint.css);
 /* ################################################################################################### *\
 	END CONTENT
 \* ################################################################################################### */
