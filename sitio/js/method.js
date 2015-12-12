@@ -1,3 +1,53 @@
+/* ################################################################################################### *\
+
+    Project Name: core method
+    Proyect Version: 1.0
+    Author: *******
+    Update: hevelmo
+
+    CONTENT METHOD
+        [Variables] 'Zone'
+        [functions] DETEC MOBILE
+        [functions] Alert Custom
+        [functions] loadSlider
+        [functions] __sizeCheck
+        [Methods] MATCHMEDIA
+        [Methods] sticky_wrapper_methods
+        [Methods] equalHeightsMethods
+        [Methods] INPUTS RADIO, CHECKBOX
+        [Methods] windowWidthMethod
+        [Methods] addAttrForSectionMethod
+        [Methods] removeAttrForSectionMethod
+        [Methods] addStylesForSectionMethod
+        [Methods] cleanStylesForSectionMethod
+        [Methods] Smooth Scroll
+        [Methods] viewNavbarMethod
+        [Methods] viewSectionHomeMethod
+        [Methods] activeLogAgenciesNewsMethod
+        [Methods] viewSectionAgenciesNewsMethod
+        [Methods] viewSectionAgenciesNewsPrincipalMethod
+        [Methods] viewSectionAgenciesPreownedMethod
+        [Methods] viewSectionInventoriesPreownedMethod
+        [Methods] viewSectionWorkShopMethod
+        [Methods] viewSectionRentalMethod
+        [Methods] viewSectionBlogMethod
+        [Methods] viewSectionBlogByNewsMethod
+        [Methods] viewSectionAboutUsMethod
+        [Methods] formContactMainMethod
+        [Methods] viewSectionPrivacyNoticeMethod
+        [Methods] clikGoMethods
+        [Methods] removeRecurrentsMethod
+        [Methods] currentSectionMethod
+        [Methods] Animated
+        [Methods] wow_animated_methods
+        [Methods] getClickActionsMethod
+        [Methods] Google Maps -> agentsMap
+        [Methods] inputVal
+        [Methods] validations_regexp
+        [Methods] validation_messages
+        [Methods] validate
+
+\* ################################################################################################### */
 /* ------------------------------------------------------ *\
     [Variables] 'Zone'
 \* ------------------------------------------------------ */
@@ -394,6 +444,7 @@
                 'data-agp_id':'4',
                 'data-index':'1'
             });
+            console.log('data agp');
         }
     }
 /* ------------------------------------------------------ *\
@@ -488,13 +539,10 @@
         }
     }
 /* ------------------------------------------------------ *\
-    [Methods] viewSectionAgenciesNewsMethod
+    [Methods] activeLogAgenciesNewsMethod
 \* ------------------------------------------------------ */
-    var viewSectionAgenciesNewsMethod = {
-        viewSectionAgenciesNews: function() {
-            viewSectionAgenciesNewsMethod.recurrentSecionAgenciesNews();
-        },
-        activateLog : function (agn_name) {
+    var activeLogAgenciesNewsMethod = {
+        activeLogAgenciesNews: function(agn_name) {
             $(domEl.action_new_agn).each(function() {
                 var agp_nombre_element;
                 agp_nombre_element = $(this).data('agp_nombre');
@@ -502,6 +550,17 @@
                     $(this).children('.img-disable').addClass('active');
                 }
             });
+        }
+    }
+/* ------------------------------------------------------ *\
+    [Methods] viewSectionAgenciesNewsMethod
+\* ------------------------------------------------------ */
+    var viewSectionAgenciesNewsMethod = {
+        viewSectionAgenciesNews: function(agn_name_agencia, agn_url, agn_id) {
+            viewSectionAgenciesNewsMethod.recurrentSecionAgenciesNews();
+            viewSectionAgenciesNewsMethod.loadTemplatesUtilityBarBreadcrumb();
+            viewSectionAgenciesNewsMethod.loadTemplatesBodyContent();
+            viewSectionAgenciesNewsMethod.loadTemplatesAgencesNewsBrands();
         },
         loadTemplatesUtilityBarBreadcrumb: function() {
             CAM.loadTemplate(tempsNames.recurrent_agencies_news_start_utility_bar_breadcrumb, domEl._start_utility_bar_breadcrumb_name);
@@ -531,6 +590,17 @@
                 ['section', {'id':domEl._start_agencies_news_midpadding_work, 'class':'midpadding work white about-content', 'style':'overflow: visible; padding-top: 20px; padding-bottom: 20px;'}, '', 1]
             ];
             CAM.appendMulti(domEl.div_recurrent, dataStarSiteAgenciesNewsAttributes);
+        }
+    }
+/* ------------------------------------------------------ *\
+    [Methods] viewSectionAgenciesNewsPrincipalMethod
+\* ------------------------------------------------------ */
+    var viewSectionAgenciesNewsPrincipalMethod = {
+        viewSectionAgenciesNewsPrincipal: function(agn_name_agencia, agn_url, agn_id) {
+            viewSectionAgenciesNewsMethod.recurrentSecionAgenciesNews();
+            viewSectionAgenciesNewsMethod.loadTemplatesUtilityBarBreadcrumb();
+            viewSectionAgenciesNewsMethod.loadTemplatesBodyContent();
+            viewSectionAgenciesNewsMethod.loadTemplatesAgencesNewsBrands();
         }
     }
 /* ------------------------------------------------------ *\
@@ -1150,7 +1220,7 @@
         }
     }
 /* ------------------------------------------------------ *\
-    [Methods] Animated
+    [Methods] wow_animated_methods
 \* ------------------------------------------------------ */
     var wow_animated_methods = {
         wow_animated: function() {

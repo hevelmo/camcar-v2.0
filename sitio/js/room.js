@@ -6,12 +6,12 @@
             section = "home";
             // Add favicon
             window.onload = favicon.load_favicon();
-            addAttrNavAgenciesNewsMethod.addAttrNavAgenciesNews();
         },
         load: function(bindings) {
             viewNavbarMethod.viewNavbar();
             sticky_wrapper_methods.sticky_wrapper();
 
+            addAttrNavAgenciesNewsMethod.addAttrNavAgenciesNews();
             currentSectionMethod.currentSection_home();
             viewSectionHomeMethod.viewSectionHome();
 
@@ -43,7 +43,6 @@
             agn_id = bindings.agn_id;
             // Add favicon
             window.onload = favicon.load_favicon();
-            addAttrNavAgenciesNewsMethod.addAttrNavAgenciesNews();
             // GOOGLE ANALYTICS
             if ( agn_name === undefined && agn_url === undefined && agn_id === undefined ) {
                 ga('send', 'pageview', '/agencias/nuevos');
@@ -62,14 +61,18 @@
             viewNavbarMethod.viewNavbar();
             sticky_wrapper_methods.sticky_wrapper();
 
+            addAttrNavAgenciesNewsMethod.addAttrNavAgenciesNews();
             currentSectionMethod.currentSection_agencies_news();
             // TODAS LAS AGENCIAS NUEVOS
             if ( agn_name === undefined && agn_url === undefined && agn_id === undefined ) {
                 section = "agencies-news";
+                viewSectionAgenciesNewsMethod.viewSectionAgenciesNews();
             }
             // AGENCIA PRINCIPAL SELECCIONADA
             else if ( agn_name !== undefined && agn_url === undefined && agn_id === undefined ) {
                 section = "agencies-news-principal";
+                viewSectionAgenciesNewsPrincipalMethod.viewSectionAgenciesNewsPrincipal(agn_name, agn_url, agn_id);
+                activeLogAgenciesNewsMethod.activeLogAgenciesNews(agn_name, agn_url, agn_id);
             }
             // SUB AGENCIA SELECCIONADA
             else if ( agn_name !== undefined && agn_url !== undefined && agn_id !== undefined ) {
@@ -122,12 +125,12 @@
             section = "agencies-preowned";
             // Add favicon
             window.onload = favicon.load_favicon();
-            addAttrNavAgenciesNewsMethod.addAttrNavAgenciesNews();
         },
         load: function(bindings) {
             viewNavbarMethod.viewNavbar();
             sticky_wrapper_methods.sticky_wrapper();
 
+            addAttrNavAgenciesNewsMethod.addAttrNavAgenciesNews();
             currentSectionMethod.currentSection_agencies_preowned();
 
             viewSectionAgenciesPreownedMethod.viewSectionAgenciesPreowned();
@@ -150,12 +153,12 @@
             section = "inventories-preowned";
             // Add favicon
             window.onload = favicon.load_favicon();
-            addAttrNavAgenciesNewsMethod.addAttrNavAgenciesNews();
         },
         load: function(bindings) {
             viewNavbarMethod.viewNavbar();
             sticky_wrapper_methods.sticky_wrapper();
 
+            addAttrNavAgenciesNewsMethod.addAttrNavAgenciesNews();
             currentSectionMethod.currentSection_inventories_preowned();
 
             viewSectionInventoriesPreownedMethod.viewSectionInventoriesPreowned();
@@ -179,12 +182,12 @@
             ga('send', 'pageview', '/talleres');
             // Add favicon
             window.onload = favicon.load_favicon();
-            addAttrNavAgenciesNewsMethod.addAttrNavAgenciesNews();
         },
         load: function(bindings) {
             viewNavbarMethod.viewNavbar();
             sticky_wrapper_methods.sticky_wrapper();
 
+            addAttrNavAgenciesNewsMethod.addAttrNavAgenciesNews();
             currentSectionMethod.currentSection_workshop();
 
             viewSectionWorkShopMethod.viewSectionWorkShop();
@@ -212,7 +215,6 @@
             ga('send', 'pageview', '/rentas/' + $agnRentaGA);
             // Add favicon
             window.onload = favicon.load_favicon();
-            addAttrNavAgenciesNewsMethod.addAttrNavAgenciesNews();
         },
         load: function(bindings) {
             var $agnRenta = bindings.agnRental;
@@ -220,6 +222,7 @@
             viewNavbarMethod.viewNavbar();
             sticky_wrapper_methods.sticky_wrapper();
 
+            addAttrNavAgenciesNewsMethod.addAttrNavAgenciesNews();
             currentSectionMethod.currentSection_rental();
 
             viewSectionRentalMethod.viewSectionRental($agnRenta);
@@ -253,7 +256,6 @@
                 ga( 'send', 'pageview', '/noticias/' + $dataAgencieGA + '/' + $dataBlogGA );
             }
 
-            addAttrNavAgenciesNewsMethod.addAttrNavAgenciesNews();
         },
         load: function(bindings) {
             var $dataAgencie, $dataBlog, $dataBlogId;
@@ -264,6 +266,7 @@
             viewNavbarMethod.viewNavbar();
             sticky_wrapper_methods.sticky_wrapper();
 
+            addAttrNavAgenciesNewsMethod.addAttrNavAgenciesNews();
             currentSectionMethod.currentSection_blog();
             if ( $dataAgencie === undefined && $dataBlog === undefined && $dataBlogId === undefined ) {
                 section = "blog";
@@ -296,12 +299,12 @@
             ga('send', 'pageview', '/contacto');
             // Add favicon
             window.onload = favicon.load_favicon();
-            addAttrNavAgenciesNewsMethod.addAttrNavAgenciesNews();
         },
         load: function(bindings) {
             viewNavbarMethod.viewNavbar();
             sticky_wrapper_methods.sticky_wrapper();
 
+            addAttrNavAgenciesNewsMethod.addAttrNavAgenciesNews();
             currentSectionMethod.currentSection_about_us();
 
             viewSectionAboutUsMethod.viewSectionAboutUs();
@@ -325,12 +328,12 @@
             section = "privacy-notice";
             // Add favicon
             window.onload = favicon.load_favicon();
-            addAttrNavAgenciesNewsMethod.addAttrNavAgenciesNews();
         },
         load: function(bindings) {
             viewNavbarMethod.viewNavbar();
             sticky_wrapper_methods.sticky_wrapper();
 
+            addAttrNavAgenciesNewsMethod.addAttrNavAgenciesNews();
             viewSectionPrivacyNoticeMethod.viewSectionPrivacyNotice();
 
             $(window).resize(mobile_menu_methods.has_menu_toggle);

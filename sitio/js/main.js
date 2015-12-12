@@ -39,7 +39,9 @@ $(document).ready(function() {
     // CLICK GO SECTION
     $(domEl.navbar_recurrent).on('click', domEl.goSection_index, clikGoMethods.clikGo_home);
     // AGENCIES NEWS
-    $(domEl.navbar_recurrent).on('click', domEl.goSection_agencies_news, clikGoMethods.clikGo_agencies_news);
+    $(domEl.navbar_recurrent).on('click', domEl.goSection_agencies_news, clikGoMethods.clikGo_agencies_news_principal);
+    //$(domEl.navbar_recurrent).on('click', domEl.goSection_agencies_news, clikGoMethods.clikGo_agencies_news);
+    $(domEl.div_recurrent).on('click', '#go-back-agencies-news', clikGoMethods.clikGo_agencies_news);
     // AGENCIES NEWS ACTION
     $(domEl.div_recurrent).on('click', domEl.action_new_agn, clikGoMethods.clikGo_agencies_news_principal);
     // AGENCIES PRE-OWNED
@@ -74,7 +76,7 @@ $(document).ready(function() {
     $(domEl.div_recurrent).on('click', domEl.goSection_fullwidth_features_workshop, clikGoMethods.clickGo_workshop);
     $(domEl.div_recurrent).on('click', domEl.goSection_fullwidth_features_rental, clikGoMethods.clickGo_rental);
     // OUR BRANDS CLICK GO SECTION
-    $(domEl.div_recurrent).on('click', domEl.goSection_ourBrand_agencies_news, clikGoMethods.clikGo_agencies_news);
+    $(domEl.div_recurrent).on('click', domEl.goSection_ourBrand_agencies_news, clikGoMethods.clikGo_agencies_news_principal);
     $(domEl.div_recurrent).on('click', domEl.goSection_ourBrand_agencies_preowned, clikGoMethods.clickGo_agencies_preowned);
     $(domEl.div_recurrent).on('click', domEl.goSection_ourBrand_whorkshop, clikGoMethods.clickGo_workshop);
     $(domEl.div_recurrent).on('click', domEl.goSection_ourBrand_rental, clikGoMethods.clickGo_rental);
