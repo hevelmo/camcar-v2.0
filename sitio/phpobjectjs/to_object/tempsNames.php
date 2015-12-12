@@ -20,6 +20,12 @@ function tempsNames() {
         // SECTION AGENCIES NEWS
         // UTILITY BAR BREADCRUMB
         'recurrent_agencies_news_start_utility_bar_breadcrumb' => 'tmp_section_agencies_news_start_utility_bar_breadcrumb',
+        'recurrent_agencies_news_by_agencies_start_utility_bar_breadcrumb' => 'tmp_section_agencies_news_by_agencies_start_utility_bar_breadcrumb',
+        'recurrent_agencies_news_by_sub_agencies_start_utility_bar_breadcrumb' => 'tmp_section_agencies_news_by_sub_agencies_start_utility_bar_breadcrumb',
+
+        'recurrent_agencies_news_start_large_pad_land_mark' => 'tmp_section_agencies_news_start_large_pad_land_mark',
+        'recurrent_agencies_news_start_large_pad_brands' => 'tmp_section_agencies_news_start_large_pad_brands',
+        'recurrent_agencies_news_start_categories' => 'tmp_section_agencies_news_start_categories',
 
         // WORKSHOP
         'recurrent_workshop_start_utility_bar_breadcrumb' => 'tmp_section_workshop_start_utility_bar_breadcrumb',

@@ -18,8 +18,93 @@ templates['tmp_section_about_us_start_large_pad_land_mark'] = template({"compile
 templates['tmp_section_about_us_start_utility_bar_breadcrumb'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     return "<!-- Utiity Bar -->\n<div class=\"utility-bar\" id=\"start-utility-bar\">\n	<div class=\"container\">\n    	<div class=\"row\">\n        	<div class=\"col-md-12 col-sm-12 col-xs-12\">\n                <ol class=\"breadcrumb\">\n                    <li><a class=\"cur-hover\" id=\"go-breadcrumb-home\"><i class=\"fa fa-home fa-fw fa-lg\"></i> <span class=\"resp-text-indent\">Inicio</span></a></li>\n                    <li class=\"active\"><a class=\"cur-hover\">Nosotros</a></li>\n                </ol>\n        	</div>\n        </div>\n  	</div>\n</div>\n";
 },"useData":true});
+templates['tmp_section_agencies_news_by_agencies_start_utility_bar_breadcrumb'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    return "<!-- Utiity Bar -->\n<div class=\"utility-bar\" id=\"start-utility-bar\">\n	<div class=\"container\">\n    	<div class=\"row\">\n        	<div class=\"col-md-12 col-sm-6 col-xs-8\">\n                <ol class=\"breadcrumb\">\n                    <li><a class=\"cur-hover\" id=\"go-breadcrumb-home\"><i class=\"fa fa-home fa-fw fa-lg\"></i> Inicio</a></li>\n                    <li><a class=\"cur-hover\">Agencias</a></li>\n                    <li class=\"active\"><a class=\"cur-hover\">Nuevos</a></li>\n                    <li class=\"active\"><a id=\"filter-agencie-news-principal\" class=\"cur-hover\"></a></li>\n                </ol>\n        	</div>\n        </div>\n  	</div>\n</div>\n";
+},"useData":true});
+templates['tmp_section_agencies_news_by_subagencies_start_utility_bar_breadcrumb'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    return "<!-- Utiity Bar -->\n<div class=\"utility-bar\" id=\"start-utility-bar\">\n	<div class=\"container\">\n    	<div class=\"row\">\n        	<div class=\"col-md-12 col-sm-6 col-xs-8\">\n                <ol class=\"breadcrumb\">\n                    <li><a class=\"cur-hover\" id=\"go-breadcrumb-home\"><i class=\"fa fa-home fa-fw fa-lg\"></i> Inicio</a></li>\n                    <li><a class=\"cur-hover\">Agencias</a></li>\n                    <li class=\"active\"><a class=\"cur-hover\">Nuevos</a></li>\n                    <li class=\"active\"><a id=\"filter-agencie-news-principal\" class=\"cur-hover\"></a></li>\n                    <li class=\"active\"><a id=\"filter-agencie-news-principal-type\" class=\"cur-hover\"></a></li>\n                </ol>\n        	</div>\n        </div>\n  	</div>\n</div>\n";
+},"useData":true});
+templates['tmp_section_agencies_news_start_categories'] = template({"1":function(container,depth0,helpers,partials,data) {
+    var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
+
+  return "		<!-- AGENCY Nº "
+    + alias4(((helper = (helper = helpers.agnid || (depth0 != null ? depth0.agnid : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"agnid","hash":{},"data":data}) : helper)))
+    + " -->\n		<li class=\"grid-item animation-fadeIn\" id=\""
+    + alias4(((helper = (helper = helpers.agnid || (depth0 != null ? depth0.agnid : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"agnid","hash":{},"data":data}) : helper)))
+    + "\">\n			<div class=\"grid-project\" title=\""
+    + alias4(((helper = (helper = helpers.agnnombre || (depth0 != null ? depth0.agnnombre : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"agnnombre","hash":{},"data":data}) : helper)))
+    + "\">\n				<!-- project image -->\n				<a class=\"go-action-agencie-news\" id=\"go-action-agencie-news-"
+    + alias4(((helper = (helper = helpers.agnid || (depth0 != null ? depth0.agnid : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"agnid","hash":{},"data":data}) : helper)))
+    + "\" data-agn-news-agencie='"
+    + alias4(((helper = (helper = helpers.agpshort || (depth0 != null ? depth0.agpshort : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"agpshort","hash":{},"data":data}) : helper)))
+    + "' data-agn-news-name='"
+    + alias4(((helper = (helper = helpers.agnnombre || (depth0 != null ? depth0.agnnombre : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"agnnombre","hash":{},"data":data}) : helper)))
+    + "' data-agn-news-url='"
+    + alias4(((helper = (helper = helpers.agnurl || (depth0 != null ? depth0.agnurl : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"agnurl","hash":{},"data":data}) : helper)))
+    + "' data-agn-news-id='"
+    + alias4(((helper = (helper = helpers.agnid || (depth0 != null ? depth0.agnid : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"agnid","hash":{},"data":data}) : helper)))
+    + "' title=\""
+    + alias4(((helper = (helper = helpers.agnnombre || (depth0 != null ? depth0.agnnombre : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"agnnombre","hash":{},"data":data}) : helper)))
+    + "\">\n					<div class=\"img-box\">\n						<img src=\"../img/sitio/agencias/small/"
+    + alias4(((helper = (helper = helpers.agnsmall || (depth0 != null ? depth0.agnsmall : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"agnsmall","hash":{},"data":data}) : helper)))
+    + "\" alt=\""
+    + alias4(((helper = (helper = helpers.agnnombre || (depth0 != null ? depth0.agnnombre : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"agnnombre","hash":{},"data":data}) : helper)))
+    + "\" class=\"zoom-on-hover\">\n					</div>\n					<div class=\"project-info\">\n						<!-- folio single link -->\n						<h1 class=\"grid-title\">"
+    + alias4(((helper = (helper = helpers.agnnombre || (depth0 != null ? depth0.agnnombre : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"agnnombre","hash":{},"data":data}) : helper)))
+    + "</h1>\n					</div>\n				</a>\n			</div>\n		</li>\n";
+},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "<div class=\"container\">\n	<ul class=\"grid filter times-three basic\" id=\""
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.agnid : stack1), depth0))
+    + "\">\n"
+    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.campa : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "	</ul>\n	<!-- clear floats -->\n	<div class=\"clear\">\n	</div>\n</div>\n";
+},"useData":true});
+templates['tmp_section_agencies_news_start_large_pad_brands'] = template({"1":function(container,depth0,helpers,partials,data) {
+    var stack1, helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
+
+  return "				<div class=\"x-column vc one-sixth action-brand-agencie\">\n					<a class=\"x-img x-img-margin x-img-link x-img-none none inner-link ttip_"
+    + alias4(((helper = (helper = helpers.tltip || (depth0 != null ? depth0.tltip : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"tltip","hash":{},"data":data}) : helper)))
+    + "_action_brand action-new-agn\" data-agp_nombre=\""
+    + alias4(((helper = (helper = helpers.agpshort || (depth0 != null ? depth0.agpshort : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"agpshort","hash":{},"data":data}) : helper)))
+    + "\" data-agp_id=\""
+    + alias4(((helper = (helper = helpers.agpid || (depth0 != null ? depth0.agpid : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"agpid","hash":{},"data":data}) : helper)))
+    + "\" data-index=\""
+    + alias4(((helper = (helper = helpers.agpindex || (depth0 != null ? depth0.agpindex : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"agpindex","hash":{},"data":data}) : helper)))
+    + "\">\n						<img src=\"../img/sitio/agencias/brands/"
+    + alias4(((helper = (helper = helpers.logo || (depth0 != null ? depth0.logo : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"logo","hash":{},"data":data}) : helper)))
+    + "\" class=\"img-disable\">\n"
+    + ((stack1 = helpers["if"].call(alias1,((stack1 = (depth0 != null ? depth0.marcas : depth0)) != null ? stack1.length : stack1),{"name":"if","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "					</a>\n				</div>\n";
+},"2":function(container,depth0,helpers,partials,data) {
+    var stack1, helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
+
+  return "						<span class=\"ttip_"
+    + alias4(((helper = (helper = helpers.tltip || (depth0 != null ? depth0.tltip : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"tltip","hash":{},"data":data}) : helper)))
+    + "_brands "
+    + alias4(((helper = (helper = helpers.animate || (depth0 != null ? depth0.animate : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"animate","hash":{},"data":data}) : helper)))
+    + "\">\n							<img src=\"../img/callout.png\" class=\"ttip_callout\">\n							<div class=\"brands-icons text-center\">\n								<ul>\n"
+    + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.marcas : depth0),{"name":"each","hash":{},"fn":container.program(3, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "								</ul>\n							</div>\n						</span>\n";
+},"3":function(container,depth0,helpers,partials,data) {
+    var helper;
+
+  return "										<li>\n											<img src=\"../img/sitio/agencias/logos/"
+    + container.escapeExpression(((helper = (helper = helpers.brand || (depth0 != null ? depth0.brand : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"brand","hash":{},"data":data}) : helper)))
+    + "\" width=\"145\">\n										</li>\n";
+},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "<div class=\"container\">\n	<div class=\"row\">\n		<div class=\"col-md-12 col-sm-12\">\n			<div id=\"x-content-band-3\" class=\"x-content-band vc\" style=\"margin: 0 auto; padding: 0;\">\n"
+    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.campa : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "			</div>\n		</div>\n\n	</div>\n</div>\n";
+},"useData":true});
+templates['tmp_section_agencies_news_start_large_pad_land_mark'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    return "<div class=\"container\">\n    <div class=\"row\">\n        <div class=\"col-md-12 col-sm-12\">\n            <div class=\"col-md-12 col-sm-12 text-center\">\n                <h1 class=\"h-landmark\"><span>Agencias</span></h1>\n                <h5 class=\"h5-landmark\" style=\"padding-top: 25px; \"><strong>CAMCAR Grupo Automotriz.<strong><em style=\"padding: 0px 0px 0 10px;\">Ve por Más...</em></strong></strong></h5>\n                <p class=\"super-lead col-md-8 col-md-offset-2\" style=\"font-size: 115% !important;\">\n                    CAMCAR es el resultado de un gran equipo. Nacimos con la <strong>VISIÓN DE SER LÍDERES EN EL MERCADO</strong> al que hoy atendemos con la mayor oferta de marcas automotrices.\n                </p>\n            </div>\n        </div>\n    </div><!--end of row-->\n</div><!--end of container-->\n";
+},"useData":true});
 templates['tmp_section_agencies_news_start_utility_bar_breadcrumb'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<!-- Utiity Bar -->\n<div class=\"utility-bar\" id=\"start-utility-bar\">\n	<div class=\"container\">\n    	<div class=\"row\">\n        	<div class=\"col-md-12 col-sm-6 col-xs-8\">\n                <ol class=\"breadcrumb\">\n                    <li><a class=\"cur-hover\" id=\"go-breadcrumb-home\"><i class=\"fa fa-home fa-fw fa-lg\"></i> Inicio</a></li>\n                    <li class=\"active\" id=\"bread-agencie-new-title\"><a class=\"cur-hover\">Agencias</a></li>\n                    <li class=\"active\" id=\"bread-agencie-new-type\"><a class=\"cur-hover\">Nuevos</a></li>\n                    <li class=\"active\" id=\"filter-agencie-news-principal\"><a class=\"cur-hover\"></a></li>\n                    <li class=\"active\" id=\"filter-agencie-news-principal-type\"><a class=\"cur-hover\"></a></li>\n                </ol>\n        	</div>\n        </div>\n  	</div>\n</div>\n";
+    return "<!-- Utiity Bar -->\n<div class=\"utility-bar\" id=\"start-utility-bar\">\n	<div class=\"container\">\n    	<div class=\"row\">\n        	<div class=\"col-md-12 col-sm-6 col-xs-8\">\n                <ol class=\"breadcrumb\">\n                    <li><a class=\"cur-hover\" id=\"go-breadcrumb-home\"><i class=\"fa fa-home fa-fw fa-lg\"></i> Inicio</a></li>\n                    <li><a class=\"cur-hover\">Agencias</a></li>\n                    <li class=\"active\"><a class=\"cur-hover\">Nuevos</a></li>\n                </ol>\n        	</div>\n        </div>\n  	</div>\n</div>\n";
 },"useData":true});
 templates['tmp_section_blog_by_news_start_single_post'] = template({"1":function(container,depth0,helpers,partials,data) {
     return "        					<div class=\"featured-image\">\n                                <a id=\"content-section-blog-galery\">\n                                </a>\n                            </div>\n";

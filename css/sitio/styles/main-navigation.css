@@ -3646,11 +3646,11 @@ h1.page-title{
 .grid-holder .grid-item{
 	float: left;
 }
-.grid-item{
+/*.grid-item{
 	margin-bottom: 3%;
 	border-bottom: medium none;
 	margin-top:2px;
-}
+}*/
 .isotope-events .grid-item.event-list-item{
 	margin-bottom:0;
 	margin-top:0;

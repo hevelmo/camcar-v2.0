@@ -55,19 +55,25 @@ function urlsApi() {
         'getMapaById' => $root . '/' . $get . '/' . $tab_mapa . '/' . $tab_seminuevo . '/',
 
         // AGENCIES NEWS
+        // LOGOS AGENCIES NEWS PRINCIPAL
+        'getLogosAgenciesNews' => $root . '/' . $get . '/logos/' . $agencie . '/' . $news,
+        // PRINCIPAL AGENCIE NEWS
+        'getAgenciesNewsPrincipales' => $root . '/' . $get . '/' . $agencie . '/' . $news,
+        // AGENCIES NEWS -> PRINCIPAL AGENCIES NEWS
+        'getAgenciesNewsByTypeAgencie' => $root . '/' . $get . '/' . $agencie . '/' . $news . '/principal/',
+        // PRINCIPAL AGENCIE NEWS BY AGENCIE
+        'getAgenciesNewsPrincipalesByAgencia' => $root . '/' . $get . '/agencias/' . $news. '/',
+
+
         'getAgenciesNews' => $root . '/' . $get . '/' . $agencie . '/' . $news,
-        // AGENCIES NEWS BY ID
-        //$app->get('/get/agencia/nuevos/:agpid', /*'mw1',*/ 'getAgenciesNewsById');
+        // Agencias Nuevos Fachada
+        'getAgenciesNewsFachada' => $root . '/' . $get . '/' . $agencie . '/' . $news . '/' . $fachada,
+        'getAgenciesNewsAddress' => $root . '/' . $get . '/' . $agencie . '/' . $news . '/' . $address,
+        'getAgenciesNewsMap' => $root . '/' . $get . '/' . $agencie . '/' . $news . '/' . $map,
         // AGENCIES NEWS BY MAP
         'getAgenciesNewsByMap' => $root . '/' . $get . '/' . $agencie . '/' . $news .'/mapas/',
         // AGENCIES NEWS BY AGENCIE
         'getAgenciesNewsByAgencie' => $root . '/' . $get . '/' . $agencie . '/' . $news . '/',
-        // PRINCIPAL AGENCIE NEWS
-        'getAgenciesNewsPrincipales' => $root . '/' . $get . '/' . $agencie . '/' . $news,
-        // PRINCIPAL AGENCIE NEWS BY AGENCIE
-        'getAgenciesNewsPrincipalesByAgencia' => $root . '/' . $get . '/agencias/' . $news. '/',
-        // LOGOS AGENCIES NEWS PRINCIPAL
-        'getLogosAgenciesNews' => $root . '/' . $get . '/logos/' . $agencie . '/' . $news,
 
         // AGNCIES WORKSHOP
         'getWorkshop' => $root . '/' . $get . '/talleres',

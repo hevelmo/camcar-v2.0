@@ -16,6 +16,9 @@ function domEl() {
     // AGENCIES NEWS
     // UTILITY BAR BREADCRUMB
     $start_utility_bar_breadcrumb = 'content-start-utility-bar-breadcrumb';
+    $start_agencies_news_content_body = 'content-start-agencies-news-body-main';
+    $start_agencies_news_large_pad_brands = 'content-start-agencies-news-large-pad-brands';
+    $start_agencies_news_midpadding_work = 'content-start-agencies-news-midpadding-work';
     // WORKSHOP
     $start_workshop_content_body = 'content-start-workshop-body-main';
     $start_workshop_content_brand = 'content-start-workshop-brand';
@@ -67,6 +70,17 @@ function domEl() {
         // UTILITY BAR BREADCRUMB
         '_start_utility_bar_breadcrumb' => $start_utility_bar_breadcrumb,
         '_start_utility_bar_breadcrumb_name' => '#' . $start_utility_bar_breadcrumb,
+        // AGNCIES NEWS
+        '_start_agencies_news_content_body' => $start_agencies_news_content_body,
+        '_start_agencies_news_content_body_name' => '#' . $start_agencies_news_content_body,
+        // AGENCIES NEWS BRANDS
+        '_start_agencies_news_large_pad_brands' => $start_agencies_news_large_pad_brands,
+        '_start_agencies_news_large_pad_brands_name' => '#' . $start_agencies_news_large_pad_brands,
+        // AGENCIES NEWS CATEGORIES
+        '_start_agencies_news_midpadding_work' => $start_agencies_news_midpadding_work,
+        '_start_agencies_news_midpadding_work_name' => '#' . $start_agencies_news_midpadding_work,
+        // AGENCIES NEWS ACTION
+        'action_new_agn' => '.action-new-agn',
         // WORKSHOP
         '_start_workshop_content_body' => $start_workshop_content_body,
         '_start_workshop_content_body_name' => '#' . $start_workshop_content_body,

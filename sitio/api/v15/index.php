@@ -57,6 +57,7 @@ $app->configureMode('development', function () use ($app) {
     $app->get('/get/mapa/seminuevo', /*'mw1',*/ 'getMapa');
     // MAPA BY ID
     $app->get('/get/mapa/seminuevo/:senId', /*'mw1',*/ 'getMapaById');
+
     // AGENCIES NEWS
     $app->get('/get/agencia/nuevos', /*'mw1',*/ 'getAgenciesNews');
     // AGENCIES NEWS BY ID
@@ -66,11 +67,13 @@ $app->configureMode('development', function () use ($app) {
     // AGENCIES NEWS BY AGENCIE
     $app->get('/get/agencia/nuevos/:agn_nombre/:agn_id', /*'mw1',*/ 'getAgenciesNewsByAgencie');
     // PRINCIPAL AGENCIE NEWS
-    //$app->get('/get/agencias/nuevos', /*'mw1',*/ 'getAgenciesNewsPrincipales');
+    $app->get('/get/agencias/nuevos', /*'mw1',*/ 'getAgenciesNewsPrincipales');
     // PRINCIPAL AGENCIE NEWS BY AGENCIE
-    //$app->get('/get/agencias/nuevos/:nombre', /*'mw1',*/ 'getAgenciesNewsPrincipalesByAgencia');
+    $app->get('/get/agencias/nuevos/:nombre', /*'mw1',*/ 'getAgenciesNewsPrincipalesByAgencia');
     // LOGOS AGENCIES NEWS PRINCIPAL
-    //$app->get('/get/logos/agencia/nuevos', /*'mw1',*/ 'getLogosAgenciesNews');
+    $app->get('/get/logos/agencia/nuevos', /*'mw1',*/ 'getLogosAgenciesNews');
+    // AGENCIES NEWS -> PRINCIPAL AGENCIE
+    $app->get('/get/agencia/nuevos/principal/:agn_name_agencia', /*'mw1',*/ 'getAgenciesNewsByTypeAgencie');
 
     // SECTION WORKSHOP
     $app->get('/get/talleres', /*'mw1',*/ 'getWorkshop');
@@ -448,6 +451,89 @@ $app->run();
                 ";
         getAgenciesNewsByMapsJSON($sql, $agn_id);
     }
+    function getAgenciasLogosJSON ($sql) {
+        $structure = array(
+            'agpid' => 'AGN_AGP_Id',
+            'principal' => 'AGP_Logo',
+            'brand' => 'BRD_Logo',
+        );
+        $params = array();
+        echo changeQueryIntoJSON('campa', $structure, getConnection(), $sql, $params, 0, PDO::FETCH_ASSOC);
+    }
+    function getAgenciesNewsPrincipales() {
+        $sql = "SELECT *
+                FROM (
+                    SELECT *
+                    FROM camAgencias
+                    WHERE AGN_Tipo = 1
+                ) agn
+                INNER JOIN (
+                    SELECT *
+                    FROM camAgenciasPrincipales
+                 ) agp
+                 INNER JOIN (
+                    SELECT *
+                    FROM camBrandsLogos
+                 ) brd
+                 ORDER BY AGN_AGP_Id";
+        getAgenciasLogosJSON($sql);
+    }
+    // LOGO BRANDS AGENCIES NEWS
+    function getLogosAgenciesNews() {
+        $sql = "SELECT *
+                FROM camAgenciasPrincipales agp
+                INNER JOIN (
+                    SELECT *
+                    FROM camMarcasLogosAgencias
+                ) mla
+                ON agp.AGP_Id = mla.MLA_AGP_Id
+                ORDER BY AGP_Index
+                ";
+        $params = array();
+        $structure = array(
+            'agencia_principal' => array(
+                'agpid' => 'AGP_Id',
+                'agpindex' => 'AGP_Index',
+                'agpnombre' => 'AGP_Agencia',
+                'agpshort' => 'AGP_Short',
+                'logo' => 'AGP_Logo'
+            ),
+            'marcas' => array(
+                'mlaid' => 'MLA_Id',
+                'brand' => 'MLA_Logo',
+                'mlastatus' => 'MLA_Status'
+            )
+        );
+        $orderBy = array();
+        $result = generalQuery(getConnection(), $sql, $params, 0, PDO::FETCH_ASSOC);
+        $result = multiLevelJSON($result, $structure, $orderBy);
+
+        $counter = 1;
+
+        for ($i=0; $i < count($result); $i++) {
+            $tltip = ($counter <= 6) ? 'top' : 'down';
+            $result[$i]['tltip'] = $tltip;
+
+            $animate = ($counter <= 6) ? 'animation-slideUp' : 'animation-slideDown';
+            $result[$i]['animate'] = $animate;
+
+            $longmarcas = count($result[$i]['marcas']);
+            $longcount = 0;
+
+            foreach ($result[$i]['marcas'] as $marca) {
+                if ($marca['mlastatus'] == 0) {
+                    $longcount++;
+                }
+            }
+            if ($longcount == $longmarcas) {
+                $result[$i]['marcas'] = array();
+            }
+
+            $counter++;
+        }
+
+        echo changeArrayIntoJSON('campa', $result);
+    }
     // AGENCIES NEWS BY AGENCIES
     function getAgenciesNewsByAgencie($agn_nombre, $agn_id) {
         $sql = "SELECT *
@@ -468,6 +554,52 @@ $app->run();
                 AND AGN_Url = :agn_nombre
                 ORDER BY AGN_Id";
         getAgenciesNewsByAgencieJSON($sql, $agn_nombre, $agn_id);
+    }
+    // BRANDS AGENCIES NEWS BY NAME AGENCIE
+    function getAgenciesNewsPrincipalesByAgencia($nombre) {
+        $sql = "SELECT *
+                FROM camAgenciasPrincipales agp
+                INNER JOIN (
+                    SELECT *
+                    FROM camMarcasLogosAgencias
+                ) mla
+                ON agp.AGP_Id = mla.MLA_AGP_Id
+                WHERE AGP_Agencia = :nombre
+                ORDER BY AGP_Id, MLA_Logo
+                ";
+        $params = array();
+        $structure = array(
+            'agpid' => 'AGP_Id',
+            'agpnombre' => 'AGP_Short'
+        );
+        ($nombre !== '') ? $params['nombre'] = $nombre : $params = $params;
+        echo changeQueryIntoJSON('campa', $structure, getConnection(), $sql, $params, 0, PDO::FETCH_ASSOC);
+    }
+    // EVENT ALL AGENCIES BY TYPE AGENCIE
+    function getAgenciesNewsByTypeAgencie($agn_name_agencia) {
+        $sql = "SELECT *
+                FROM camAgencias agn
+                LEFT JOIN (
+                    SELECT *
+                    FROM camAgenciasPrincipales
+                ) agp
+                ON agn.AGN_AGP_Id = agp.AGP_Id
+                WHERE AGP_Short = :agn_name_agencia
+                AND AGN_Tipo = 1
+                ORDER BY AGP_Id
+                ";
+        $params = array();
+        $structure = array(
+            'agn_id' => 'AGN_Id',
+            'agp_id' => 'AGP_Id',
+            'agn_agp_id' => 'AGN_AGP_Id',
+            'agp_agencia' => 'AGP_Agencia',
+            'agp_short' => 'AGP_Short',
+            'tipo' => 'AGN_Tipo'
+        );
+        ($agn_name_agencia !== '') ? $params['agn_name_agencia'] = $agn_name_agencia : $params = $params;
+        //($agn_type !== '') ? $params['agn_type'] = $agn_type : $params = $params;
+        echo changeQueryIntoJSON('campa', $structure, getConnection(), $sql, $params, 0, PDO::FETCH_ASSOC);
     }
 
     // WORKSHOP

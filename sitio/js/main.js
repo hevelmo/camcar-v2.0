@@ -40,6 +40,8 @@ $(document).ready(function() {
     $(domEl.navbar_recurrent).on('click', domEl.goSection_index, clikGoMethods.clikGo_home);
     // AGENCIES NEWS
     $(domEl.navbar_recurrent).on('click', domEl.goSection_agencies_news, clikGoMethods.clikGo_agencies_news);
+    // AGENCIES NEWS ACTION
+    $(domEl.div_recurrent).on('click', domEl.action_new_agn, clikGoMethods.clikGo_agencies_news_principal);
     // AGENCIES PRE-OWNED
     $(domEl.navbar_recurrent).on('click', domEl.goSection_agencies_preowned, clikGoMethods.clickGo_agencies_preowned);
     // INVENTORIES PRE-OWNED

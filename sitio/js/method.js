@@ -493,14 +493,42 @@
     var viewSectionAgenciesNewsMethod = {
         viewSectionAgenciesNews: function() {
             viewSectionAgenciesNewsMethod.recurrentSecionAgenciesNews();
-            viewSectionAgenciesNewsMethod.loadTemplatesUtilityBarBreadcrumb();
+        },
+        activateLog : function (agn_name) {
+            $(domEl.action_new_agn).each(function() {
+                var agp_nombre_element;
+                agp_nombre_element = $(this).data('agp_nombre');
+                if(agn_name === agp_nombre_element) {
+                    $(this).children('.img-disable').addClass('active');
+                }
+            });
         },
         loadTemplatesUtilityBarBreadcrumb: function() {
             CAM.loadTemplate(tempsNames.recurrent_agencies_news_start_utility_bar_breadcrumb, domEl._start_utility_bar_breadcrumb_name);
         },
+        loadTemplatesBodyContent: function() {
+            CAM.loadTemplate(tempsNames.recurrent_agencies_news_start_large_pad_land_mark, domEl._start_agencies_news_content_body_name);
+        },
+        loadTemplatesAgencesNewsBrands: function() {
+            var logosData;
+            logosData = CAM.getInternalJSON(urlsApi.getLogosAgenciesNews);
+            CAM.loadTemplate(tempsNames.recurrent_agencies_news_start_large_pad_brands, domEl._start_agencies_news_large_pad_brands_name, logosData);
+        },
+        loadTemplatesAgenciesNewsCategories: function(agpid) {
+            var url, agnNewsData;
+            agpid = +agpid;
+            url = (!agpid)
+                ? urlsApi.getAgenciesNews
+                : urlsApi.getAgenciesNews + '/' + agpid;
+            agnNewsData = CAM.getInternalJSON(url);
+            CAM.loadTemplate(tempsNames.recurrent_agencies_news_start_categories, domEl._start_agencies_news_midpadding_work_name, agnNewsData);
+        },
         recurrentSecionAgenciesNews: function() {
             dataStarSiteAgenciesNewsAttributes = [
                 ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content'}, '', 1],
+                ['section', {'id':domEl._start_agencies_news_content_body, 'class':'large-pad text-hero-2 agencies-news about-content'}, '', 1],
+                ['section', {'id':domEl._start_agencies_news_large_pad_brands, 'class':'large-pad agencies-news about-content', 'style':'overflow: visible;'}, '', 1],
+                ['section', {'id':domEl._start_agencies_news_midpadding_work, 'class':'midpadding work white about-content', 'style':'overflow: visible; padding-top: 20px; padding-bottom: 20px;'}, '', 1]
             ];
             CAM.appendMulti(domEl.div_recurrent, dataStarSiteAgenciesNewsAttributes);
         }
@@ -653,8 +681,7 @@
             viewSectionBlogByNewsMethod.loadTemplatesSinglePost(blogAgencieKey, blogPostkey, blogId);
         },
         loadBreadcrumbs_blogByPost: function(blogAgencieKey, blogPostkey) {
-            if ( section === 'blog' ) {
-            } else if ( section === 'blog-by-post' ) {
+            if ( section === 'blog-by-post' ) {
                 $('#filter-blog-agencie').html(blogAgencieKey);
                 $('#filter-blog-post').html(blogPostkey);
             }
@@ -898,6 +925,17 @@
             $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );
             Finch.navigate('/agencias/nuevos');
         },
+        clikGo_agencies_news_principal: function(event) {
+            var agnPrincipal, $element;
+            $element = $(this);
+            agnPrincipal = $element.data('agp_nombre');
+            //$('body,html').animate({ scrollTop: "280" }, 999, 'easeOutExpo' );
+
+            Finch.navigate('/agencias/nuevos/' + agnPrincipal );
+
+            $(domEl.action_new_agn).children('.img-disable').removeClass('active');
+            $element.children('.img-disable').addClass('active');
+        },
         clickGo_agencies_preowned: function(event) {
             $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );
             Finch.navigate('/seminuevos');
@@ -1005,6 +1043,9 @@
         },
         removeRecurrents_agencies_news: function() {
             $(domEl._start_utility_bar_breadcrumb_name).remove();
+            $(domEl._start_agencies_news_content_body_name).remove();
+            $(domEl._start_agencies_news_large_pad_brands_name).remove();
+            $(domEl._start_agencies_news_midpadding_work_name).remove();
         },
         removeRecurrents_workshop: function() {
             $(domEl._start_workshop_content_body_name).remove();
