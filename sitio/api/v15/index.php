@@ -594,6 +594,7 @@ $app->run();
             'agp_id' => 'AGP_Id',
             'agn_agp_id' => 'AGN_AGP_Id',
             'agp_agencia' => 'AGP_Agencia',
+            'agn_nombre' => 'AGP_Nombre',
             'agp_short' => 'AGP_Short',
             'tipo' => 'AGN_Tipo'
         );

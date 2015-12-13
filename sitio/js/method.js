@@ -1,53 +1,3 @@
-/* ################################################################################################### *\
-
-    Project Name: core method
-    Proyect Version: 1.0
-    Author: *******
-    Update: hevelmo
-
-    CONTENT METHOD
-        [Variables] 'Zone'
-        [functions] DETEC MOBILE
-        [functions] Alert Custom
-        [functions] loadSlider
-        [functions] __sizeCheck
-        [Methods] MATCHMEDIA
-        [Methods] sticky_wrapper_methods
-        [Methods] equalHeightsMethods
-        [Methods] INPUTS RADIO, CHECKBOX
-        [Methods] windowWidthMethod
-        [Methods] addAttrForSectionMethod
-        [Methods] removeAttrForSectionMethod
-        [Methods] addStylesForSectionMethod
-        [Methods] cleanStylesForSectionMethod
-        [Methods] Smooth Scroll
-        [Methods] viewNavbarMethod
-        [Methods] viewSectionHomeMethod
-        [Methods] activeLogAgenciesNewsMethod
-        [Methods] viewSectionAgenciesNewsMethod
-        [Methods] viewSectionAgenciesNewsPrincipalMethod
-        [Methods] viewSectionAgenciesPreownedMethod
-        [Methods] viewSectionInventoriesPreownedMethod
-        [Methods] viewSectionWorkShopMethod
-        [Methods] viewSectionRentalMethod
-        [Methods] viewSectionBlogMethod
-        [Methods] viewSectionBlogByNewsMethod
-        [Methods] viewSectionAboutUsMethod
-        [Methods] formContactMainMethod
-        [Methods] viewSectionPrivacyNoticeMethod
-        [Methods] clikGoMethods
-        [Methods] removeRecurrentsMethod
-        [Methods] currentSectionMethod
-        [Methods] Animated
-        [Methods] wow_animated_methods
-        [Methods] getClickActionsMethod
-        [Methods] Google Maps -> agentsMap
-        [Methods] inputVal
-        [Methods] validations_regexp
-        [Methods] validation_messages
-        [Methods] validate
-
-\* ################################################################################################### */
 /* ------------------------------------------------------ *\
     [Variables] 'Zone'
 \* ------------------------------------------------------ */
@@ -556,11 +506,12 @@
     [Methods] viewSectionAgenciesNewsMethod
 \* ------------------------------------------------------ */
     var viewSectionAgenciesNewsMethod = {
-        viewSectionAgenciesNews: function(agn_name_agencia, agn_url, agn_id) {
+        viewSectionAgenciesNews: function() {
             viewSectionAgenciesNewsMethod.recurrentSecionAgenciesNews();
             viewSectionAgenciesNewsMethod.loadTemplatesUtilityBarBreadcrumb();
             viewSectionAgenciesNewsMethod.loadTemplatesBodyContent();
             viewSectionAgenciesNewsMethod.loadTemplatesAgencesNewsBrands();
+            viewSectionAgenciesNewsMethod.loadTemplatesAgenciesNewsCategories();
         },
         loadTemplatesUtilityBarBreadcrumb: function() {
             CAM.loadTemplate(tempsNames.recurrent_agencies_news_start_utility_bar_breadcrumb, domEl._start_utility_bar_breadcrumb_name);
@@ -598,10 +549,27 @@
     var viewSectionAgenciesNewsPrincipalMethod = {
         viewSectionAgenciesNewsPrincipal: function(agn_name_agencia, agn_url, agn_id) {
             viewSectionAgenciesNewsMethod.recurrentSecionAgenciesNews();
-            viewSectionAgenciesNewsMethod.loadTemplatesUtilityBarBreadcrumb();
+            viewSectionAgenciesNewsMethod.loadTemplatesUtilityBarBreadcrumb(agn_name_agencia);
             viewSectionAgenciesNewsMethod.loadTemplatesBodyContent();
             viewSectionAgenciesNewsMethod.loadTemplatesAgencesNewsBrands();
-        }
+            viewSectionAgenciesNewsMethod.loadTemplatesAgenciesNewsCategories(agn_name_agencia);
+        },
+        loadBreadcrumbs_agnPrincipal: function(agn_name_agencia) {
+            if ( section === 'agencies-news-principal' ) {
+                $('#filter-agencie-news-principal').html(agn_name_agencia);
+            }
+        },
+        loadTemplatesUtilityBarBreadcrumb_agnPrincipal: function(agn_name_agencia) {
+            var agnPrincipal, url, campa_agnPrincipal;
+
+            url = urlsApi.getAgenciesNewsByTypeAgencie + agn_name_agencia;
+            agnPrincipal = CAM.getInternalJSON(url);
+            console.log(url);
+
+            CAM.loadTemplate(tempsNames.recurrent_agencies_news_start_utility_bar_breadcrumb, domEl._start_utility_bar_breadcrumb_name, agnPrincipal);
+            viewSectionAgenciesNewsPrincipalMethod.loadBreadcrumbs_agnPrincipal(agnPrincipal.campa[0].agp_agencia);
+            console.log(agnPrincipal.campa[0].agp_agencia);
+        },
     }
 /* ------------------------------------------------------ *\
     [Methods] viewSectionAgenciesPreownedMethod

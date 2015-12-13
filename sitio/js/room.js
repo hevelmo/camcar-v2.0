@@ -83,28 +83,6 @@
                 Finch.navigate('/agencias/nuevos');
             }
 
-            /*
-            if ( agn_name === undefined && agn_url === undefined && agn_id === undefined ) {
-                section = "agencies-news";
-                var agpid;
-                agpid = +CAM.getValue('#hidden_brand');
-
-            }
-            // AGENCIA PRINCIPAL SELECCIONADA
-            else if ( agn_name !== undefined && agn_url === undefined && agn_id === undefined ) {
-                //console.log('Agencia principal seleccionada');
-                section = "agencies_news_by_agencie";
-            }
-            // SUB AGENCIA SELECCIONADA
-            else if ( agn_name !== undefined && agn_url !== undefined && agn_id !== undefined ) {
-                //console.log('Sub Agencia seleccionada');
-                section = "agencies_news_by_sub_agencie";
-                CAM.setValue(domEl.input_hidden_mapa, agn_id);
-            } else {
-                //console.log('Ruta invalida');
-                Finch.navigate('/agencias/nuevos');
-            }*/
-
             animatedMethods.animated();
             $(window).resize(mobile_menu_methods.has_menu_toggle);
             backToTopMethod.init_window_scroll_top();
