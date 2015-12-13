@@ -59,21 +59,21 @@ $app->configureMode('development', function () use ($app) {
     $app->get('/get/mapa/seminuevo/:senId', /*'mw1',*/ 'getMapaById');
 
     // AGENCIES NEWS
+    // HOME -> BRANDS AGENCIES
+    $app->get('/get/agencia/nuevos/marcas/logotipos', /*'mw1',*/ 'getBrandsLogos');
+    // AGENCIES NEWS -> PRINCIPAL AGENCIE
+    $app->get('/get/agencia/nuevos/principal/:agn_name_agencia', /*'mw1',*/ 'getAgenciesNewsByTypeAgencie');
+
+    // AGENCIES NEWS
     $app->get('/get/agencia/nuevos', /*'mw1',*/ 'getAgenciesNews');
-    // AGENCIES NEWS BY ID
     $app->get('/get/agencia/nuevos/:agpid', /*'mw1',*/ 'getAgenciesNewsById');
-    // AGENCIES NEWS BY MAP
     $app->get('/get/agencia/nuevos/mapas/:agn_id', /*'mw1',*/ 'getAgenciesNewsByMap');
-    // AGENCIES NEWS BY AGENCIE
     $app->get('/get/agencia/nuevos/:agn_nombre/:agn_id', /*'mw1',*/ 'getAgenciesNewsByAgencie');
     // PRINCIPAL AGENCIE NEWS
     $app->get('/get/agencias/nuevos', /*'mw1',*/ 'getAgenciesNewsPrincipales');
-    // PRINCIPAL AGENCIE NEWS BY AGENCIE
     $app->get('/get/agencias/nuevos/:nombre', /*'mw1',*/ 'getAgenciesNewsPrincipalesByAgencia');
     // LOGOS AGENCIES NEWS PRINCIPAL
     $app->get('/get/logos/agencia/nuevos', /*'mw1',*/ 'getLogosAgenciesNews');
-    // AGENCIES NEWS -> PRINCIPAL AGENCIE
-    $app->get('/get/agencia/nuevos/principal/:agn_name_agencia', /*'mw1',*/ 'getAgenciesNewsByTypeAgencie');
 
     // SECTION WORKSHOP
     $app->get('/get/talleres', /*'mw1',*/ 'getWorkshop');
@@ -586,7 +586,6 @@ $app->run();
                 ON agn.AGN_AGP_Id = agp.AGP_Id
                 WHERE AGP_Short = :agn_name_agencia
                 AND AGN_Tipo = 1
-                ORDER BY AGP_Id
                 ";
         $params = array();
         $structure = array(
@@ -594,7 +593,6 @@ $app->run();
             'agp_id' => 'AGP_Id',
             'agn_agp_id' => 'AGN_AGP_Id',
             'agp_agencia' => 'AGP_Agencia',
-            'agn_nombre' => 'AGP_Nombre',
             'agp_short' => 'AGP_Short',
             'tipo' => 'AGN_Tipo'
         );

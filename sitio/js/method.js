@@ -506,12 +506,12 @@
     [Methods] viewSectionAgenciesNewsMethod
 \* ------------------------------------------------------ */
     var viewSectionAgenciesNewsMethod = {
-        viewSectionAgenciesNews: function() {
+        viewSectionAgenciesNews: function(agpid) {
             viewSectionAgenciesNewsMethod.recurrentSecionAgenciesNews();
             viewSectionAgenciesNewsMethod.loadTemplatesUtilityBarBreadcrumb();
             viewSectionAgenciesNewsMethod.loadTemplatesBodyContent();
             viewSectionAgenciesNewsMethod.loadTemplatesAgencesNewsBrands();
-            viewSectionAgenciesNewsMethod.loadTemplatesAgenciesNewsCategories();
+            viewSectionAgenciesNewsMethod.loadTemplatesAgenciesNewsCategories(agpid);
         },
         loadTemplatesUtilityBarBreadcrumb: function() {
             CAM.loadTemplate(tempsNames.recurrent_agencies_news_start_utility_bar_breadcrumb, domEl._start_utility_bar_breadcrumb_name);
@@ -549,10 +549,9 @@
     var viewSectionAgenciesNewsPrincipalMethod = {
         viewSectionAgenciesNewsPrincipal: function(agn_name_agencia, agn_url, agn_id) {
             viewSectionAgenciesNewsMethod.recurrentSecionAgenciesNews();
-            viewSectionAgenciesNewsMethod.loadTemplatesUtilityBarBreadcrumb(agn_name_agencia);
+            viewSectionAgenciesNewsPrincipalMethod.loadTemplatesUtilityBarBreadcrumb_agnPrincipal(agn_name_agencia);
             viewSectionAgenciesNewsMethod.loadTemplatesBodyContent();
             viewSectionAgenciesNewsMethod.loadTemplatesAgencesNewsBrands();
-            viewSectionAgenciesNewsMethod.loadTemplatesAgenciesNewsCategories(agn_name_agencia);
         },
         loadBreadcrumbs_agnPrincipal: function(agn_name_agencia) {
             if ( section === 'agencies-news-principal' ) {
@@ -560,15 +559,20 @@
             }
         },
         loadTemplatesUtilityBarBreadcrumb_agnPrincipal: function(agn_name_agencia) {
-            var agnPrincipal, url, campa_agnPrincipal;
+            var agnPrincipal, url, campa_agnPrincipal, campaAgnPrincipal, campaAgnPrincipal_Id;
 
             url = urlsApi.getAgenciesNewsByTypeAgencie + agn_name_agencia;
             agnPrincipal = CAM.getInternalJSON(url);
-            console.log(url);
+            console.log(agn_name_agencia);
 
-            CAM.loadTemplate(tempsNames.recurrent_agencies_news_start_utility_bar_breadcrumb, domEl._start_utility_bar_breadcrumb_name, agnPrincipal);
-            viewSectionAgenciesNewsPrincipalMethod.loadBreadcrumbs_agnPrincipal(agnPrincipal.campa[0].agp_agencia);
-            console.log(agnPrincipal.campa[0].agp_agencia);
+            campaAgnPrincipal = agnPrincipal.campa[0].agp_agencia;
+            campaAgnPrincipal_Id = agnPrincipal.campa[0].agn_agp_id;
+
+            CAM.loadTemplate(tempsNames.recurrent_agencies_news_by_agencies_start_utility_bar_breadcrumb, domEl._start_utility_bar_breadcrumb_name, agnPrincipal);
+            viewSectionAgenciesNewsPrincipalMethod.loadBreadcrumbs_agnPrincipal(campaAgnPrincipal);
+            console.log(campaAgnPrincipal);
+
+            viewSectionAgenciesNewsMethod.loadTemplatesAgenciesNewsCategories(campaAgnPrincipal_Id);
         },
     }
 /* ------------------------------------------------------ *\
@@ -969,10 +973,10 @@
             agnPrincipal = $element.data('agp_nombre');
             //$('body,html').animate({ scrollTop: "280" }, 999, 'easeOutExpo' );
 
-            Finch.navigate('/agencias/nuevos/' + agnPrincipal );
-
             $(domEl.action_new_agn).children('.img-disable').removeClass('active');
             $element.children('.img-disable').addClass('active');
+
+            Finch.navigate('/agencias/nuevos/' + agnPrincipal );
         },
         clickGo_agencies_preowned: function(event) {
             $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );
