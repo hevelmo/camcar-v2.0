@@ -73,6 +73,12 @@
                 section = "agencies-news-principal";
                 viewSectionAgenciesNewsPrincipalMethod.viewSectionAgenciesNewsPrincipal(agn_name, agn_url, agn_id);
                 activeLogAgenciesNewsMethod.activeLogAgenciesNews(agn_name, agn_url, agn_id);
+                if ( agn_name === 'volvo' ) {
+                    CAM.loadTemplate(tempsNames.recurrent_agencies_news_by_agencies_video_strip_agencies, domEl._start_agencies_news_video_strip_name);
+                    //console.log(agn_name);
+                } else {
+                    $(domEl._start_agencies_news_video_strip_name).remove();
+                }
             }
             // SUB AGENCIA SELECCIONADA
             else if ( agn_name !== undefined && agn_url !== undefined && agn_id !== undefined ) {

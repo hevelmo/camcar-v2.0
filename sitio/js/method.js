@@ -552,6 +552,7 @@
             viewSectionAgenciesNewsPrincipalMethod.loadTemplatesUtilityBarBreadcrumb_agnPrincipal(agn_name_agencia);
             viewSectionAgenciesNewsMethod.loadTemplatesBodyContent();
             viewSectionAgenciesNewsMethod.loadTemplatesAgencesNewsBrands();
+            viewSectionAgenciesNewsPrincipalMethod.recurrentSecionAgenciesNews__agnPrincipal();
         },
         loadBreadcrumbs_agnPrincipal: function(agn_name_agencia) {
             if ( section === 'agencies-news-principal' ) {
@@ -574,6 +575,12 @@
 
             viewSectionAgenciesNewsMethod.loadTemplatesAgenciesNewsCategories(campaAgnPrincipal_Id);
         },
+        recurrentSecionAgenciesNews__agnPrincipal: function() {
+            dataStarSiteAgenciesNews_agnPrincipal_attributes = [
+                ['section', {'id':domEl._start_agencies_news_video_strip, 'class':'action-strip-2 video-strip about-content'}, '', 1]
+            ];
+            CAM.appendMulti(domEl.div_recurrent, dataStarSiteAgenciesNews_agnPrincipal_attributes);
+        }
     }
 /* ------------------------------------------------------ *\
     [Methods] viewSectionAgenciesPreownedMethod
@@ -1059,6 +1066,27 @@
         }
     }
 /* ------------------------------------------------------ *\
+    [Metodos] video_strip_methods
+\* ------------------------------------------------------ */
+    var video_strip_methods = {
+        video_strip_pre_video: function(event) {
+            $(this).closest('.pre-video').addClass('fade-off');
+            $(this).closest('.video-strip').find('.iframe-holder').addClass('show-iframe');
+            var that = $(this);
+            setTimeout(function(){
+                that.closest('.video-strip').find('.iframe-holder').addClass('fade-on');
+            },500);
+        },
+        video_strip_close_frame: function(event) {
+            $(this).closest('.iframe-holder').removeClass('fade-on');
+            var that = $(this);
+            setTimeout(function(){
+                that.closest('.video-strip').find('.iframe-holder').removeClass('show-iframe');
+                that.closest('.video-strip').find('.pre-video').removeClass('fade-off');
+            },500);
+        }
+    }
+/* ------------------------------------------------------ *\
     [Methods] removeRecurrentsMethod
 \* ------------------------------------------------------ */
     var removeRecurrentsMethod = {
@@ -1088,6 +1116,7 @@
             $(domEl._start_agencies_news_content_body_name).remove();
             $(domEl._start_agencies_news_large_pad_brands_name).remove();
             $(domEl._start_agencies_news_midpadding_work_name).remove();
+            $(domEl._start_agencies_news_video_strip_name).remove();
         },
         removeRecurrents_workshop: function() {
             $(domEl._start_workshop_content_body_name).remove();

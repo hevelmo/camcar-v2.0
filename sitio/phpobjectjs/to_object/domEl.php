@@ -19,6 +19,7 @@ function domEl() {
     $start_agencies_news_content_body = 'content-start-agencies-news-body-main';
     $start_agencies_news_large_pad_brands = 'content-start-agencies-news-large-pad-brands';
     $start_agencies_news_midpadding_work = 'content-start-agencies-news-midpadding-work';
+    $start_agencies_news_video_strip = 'content-start-agencies-news-video-strip-agencie';
     // WORKSHOP
     $start_workshop_content_body = 'content-start-workshop-body-main';
     $start_workshop_content_brand = 'content-start-workshop-brand';
@@ -79,6 +80,9 @@ function domEl() {
         // AGENCIES NEWS CATEGORIES
         '_start_agencies_news_midpadding_work' => $start_agencies_news_midpadding_work,
         '_start_agencies_news_midpadding_work_name' => '#' . $start_agencies_news_midpadding_work,
+        // AGENCIES NEWS VIDEO STRIP
+        '_start_agencies_news_video_strip' => $start_agencies_news_video_strip,
+        '_start_agencies_news_video_strip_name' => '#' . $start_agencies_news_video_strip,
         // AGENCIES NEWS ACTION
         'action_new_agn' => '.action-new-agn',
         // WORKSHOP
