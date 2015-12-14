@@ -635,9 +635,9 @@
         },
         recurrentSecionAgenciesNewsSubAgencie: function() {
             dataStarSiteAgenciesNewsSubAgencieAttributes = [
-                ['div', {'id':domEl._start_agencies_news_fachada, 'class':'about-content'}, '', 1],
+                ['div', {'id':domEl._start_agencies_news_fachada, 'class':'about-content', 'style':'background-color: #f9f9f9;'}, '', 1],
                 ['section', {'id':domEl._start_agencies_news_address, 'class':'no-data-adrress about-content', 'style':'padding: 35px 0 0 0;'}, '', 1],
-                ['section', {'id':domEl._start_agencies_news_map, 'class':'about-content', 'style':'padding: 0px 5px 15px 5px;'}, '', 1]
+                ['section', {'id':domEl._start_agencies_news_map, 'class':'about-content', 'style':'padding: 25px 5px 25px 5px;'}, '', 1]
             ];
             CAM.appendMulti(domEl.div_recurrent, dataStarSiteAgenciesNewsSubAgencieAttributes);
         }
@@ -919,7 +919,7 @@
                 ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content'}, '', 1],
                 ['section', {'id':domEl._start_workshop_content_body, 'class':'large-pad text-hero-2 about-content'}, '', 1],
                 ['section', {'id':domEl._start_workshop_content_brand, 'class':'large-pad text-hero-2 about-content'}, '', 1],
-                ['div', {'id':domEl._start_workshop_content_agencies, 'class':'labout-content', 'style':'background-color: #f9f9f9; padding-top: 20px; padding-bottom: 60px;'}, '', 1]
+                ['div', {'id':domEl._start_workshop_content_agencies, 'class':'about-content', 'style':'background-color: #f9f9f9; padding-top: 20px; padding-bottom: 60px;'}, '', 1]
             ];
             CAM.appendMulti(domEl.div_recurrent, dataStarSiteWorkShopAttributes);
         }

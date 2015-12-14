@@ -63,7 +63,6 @@ $app->configureMode('development', function () use ($app) {
     $app->get('/get/agencia/nuevos/marcas/logotipos', /*'mw1',*/ 'getBrandsLogos');
     // AGENCIES NEWS -> PRINCIPAL AGENCIE
     $app->get('/get/agencia/nuevos/principal/:agn_name_agencia', /*'mw1',*/ 'getAgenciesNewsByTypeAgencie');
-
     // AGENCIES NEWS
     $app->get('/get/agencia/nuevos', /*'mw1',*/ 'getAgenciesNews');
     $app->get('/get/agencia/nuevos/:agpid', /*'mw1',*/ 'getAgenciesNewsById');

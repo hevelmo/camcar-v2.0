@@ -206,16 +206,16 @@ templates['tmp_section_agencies_news_by_subagencies_start_utility_bar_breadcrumb
 templates['tmp_section_agencies_news_fachada'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return "<section class=\"double-pad\">\n	<div class=\"container\">\n		<div class=\"row\">\n			<div class=\"background-image-holder background-image-holder-size \">\n			    <img alt=\"Slide Background\" class=\"background-image\" src=\"../img/sitio/agencias/fachadas-nuevos/"
+  return "<div class=\"container\">\n	<section class=\"double-pad\">\n		<div class=\"container\">\n			<div class=\"row\">\n				<div class=\"background-image-holder background-image-holder-size \">\n				    <img alt=\"Slide Background\" class=\"background-image\" src=\"../img/sitio/agencias/fachadas-nuevos/"
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.agnfachada : stack1), depth0))
-    + "\">\n			</div>\n		</div>\n	</div>\n</section>\n";
+    + "\">\n				</div>\n			</div>\n		</div>\n	</section>\n</div>\n";
 },"useData":true});
 templates['tmp_section_agencies_news_map'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
   return "<div class=\"container\">\n	<div class=\"row\">\n	    <div class=\"col-md-12 text-center\">\n			<div id=\"map-canvas-news\" class=\"map-canvas h500 none-visible-xs\"></div>\n		</div>\n	</div>\n	<div class=\"row\">\n	    <div class=\"col-md-12 text-center\">\n			<a href=\""
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.mapas : stack1)) != null ? stack1.agngmapurl : stack1), depth0))
-    + "\" class=\"button py4 button-transparent bg-facebook resp-button bg-black-camcar visible-sm visible-xs no-data-mapa\" title=\"VIEW MAP\" target=\"_blank\">\n			    <i class=\"ion-ios-locate fs-fw fa-lg\"></i>\n			    <span>VER MAPA</span>\n			</a>\n		</div>\n	</div>\n</div>\n";
+    + "\" class=\"button py4 button-transparent bg-facebook resp-button bg-black-camcar visible-sm visible-xs no-data-mapa\" title=\"VIEW MAP\" target=\"_blank\">\n			    <i class=\"ion-map fs-fw fa-lg\"></i>\n			    <span>VER MAPA</span>\n			</a>\n		</div>\n	</div>\n</div>\n";
 },"useData":true});
 templates['tmp_section_agencies_news_start_categories'] = template({"1":function(container,depth0,helpers,partials,data) {
     var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
