@@ -596,6 +596,7 @@
             if ( section === 'agencies-news-sub-agencie' ) {
                 $('#filter-agencie-news-principal').html(agn_principal);
                 $('#filter-agencie-news-principal-type').html(agn_url);
+                $(domEl._start_agencies_news_midpadding_work_name).remove();
             }
         },
         loadTemplatesUtilityBarBreadcrumb_subAgencie : function (agn_principal, agn_url, agn_id) {
@@ -609,8 +610,25 @@
             campaAgnNombre = byAgencieNews.campa[0].agnnombre;
 
             CAM.loadTemplate(tempsNames.recurrent_agencies_news_by_sub_agencies_start_utility_bar_breadcrumb, domEl._start_utility_bar_breadcrumb_name, byAgencieNews);
+            
             viewSectionAgenciesNewsBySubAgencieMethod.loadBreadcrumbs_subAgencie(campaAgpAgencie, campaAgnNombre);
             console.log(campaAgpAgencie, campaAgnNombre);
+
+            viewSectionAgenciesNewsBySubAgencieMethod.recurrentSecionAgenciesNewsSubAgencie();
+
+            CAM.loadTemplate(tempsNames.recurrent_agencies_news_start_fachada, domEl._start_agencies_news_fachada_name, byAgencieNews);
+            CAM.loadTemplate(tempsNames.recurrent_agencies_news_start_address, domEl._start_agencies_news_address_name, byAgencieNews);
+            CAM.loadTemplate(tempsNames.recurrent_agencies_news_start_map, domEl._start_agencies_news_map_name, byAgencieNews);
+
+            bgImageHolderMethods.appendBgImageHolder2();
+        },
+        recurrentSecionAgenciesNewsSubAgencie: function() {
+            dataStarSiteAgenciesNewsSubAgencieAttributes = [
+                ['section', {'id':domEl._start_agencies_news_fachada, 'class':'double-pad about-content'}, '', 1],
+                ['div', {'id':domEl._start_agencies_news_address, 'class':''}, '', 1],
+                ['div', {'id':domEl._start_agencies_news_map, 'class':''}, '', 1]
+            ];
+            CAM.appendMulti(domEl.div_recurrent, dataStarSiteAgenciesNewsSubAgencieAttributes);
         }
     }
 /* ------------------------------------------------------ *\
@@ -1164,6 +1182,9 @@
             $(domEl._start_agencies_news_large_pad_brands_name).remove();
             $(domEl._start_agencies_news_midpadding_work_name).remove();
             $(domEl._start_agencies_news_video_strip_name).remove();
+            $(domEl._start_agencies_news_fachada_name).remove();
+            $(domEl._start_agencies_news_address_name).remove();
+            $(domEl._start_agencies_news_map_name).remove();
         },
         removeRecurrents_workshop: function() {
             $(domEl._start_workshop_content_body_name).remove();
@@ -1286,7 +1307,7 @@
         }
     }
 /* ------------------------------------------------------ *\
-    [Methods] getClickActionsMethod
+    [Methods] bgImageHolderMethods
 \* ------------------------------------------------------ */
     var bgImageHolderMethods = {
         appendBgImageHolder : function () {

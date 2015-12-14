@@ -27,6 +27,11 @@ function tempsNames() {
         'recurrent_agencies_news_start_large_pad_brands' => 'tmp_section_agencies_news_start_large_pad_brands',
         'recurrent_agencies_news_start_categories' => 'tmp_section_agencies_news_start_categories',
 
+        // AGENCIES NEWS SUB AGENCIE
+        'recurrent_agencies_news_start_fachada' => 'tmp_section_agencies_news_fachada',
+        'recurrent_agencies_news_start_address' => 'tmp_section_agencies_news_address',
+        'recurrent_agencies_news_start_map' => 'tmp_section_agencies_news_map',
+
         // AGENCIES NEWS VIDEO STRIP
         'recurrent_agencies_news_by_agencies_video_strip_agencies' => 'tmp_section_agencies_news_by_agencies_video_strip_agencies',
 

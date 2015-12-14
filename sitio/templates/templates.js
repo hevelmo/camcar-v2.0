@@ -18,6 +18,177 @@ templates['tmp_section_about_us_start_large_pad_land_mark'] = template({"compile
 templates['tmp_section_about_us_start_utility_bar_breadcrumb'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     return "<!-- Utiity Bar -->\n<div class=\"utility-bar\" id=\"start-utility-bar\">\n	<div class=\"container\">\n    	<div class=\"row\">\n        	<div class=\"col-md-12 col-sm-12 col-xs-12\">\n                <ol class=\"breadcrumb\">\n                    <li><a class=\"cur-hover\" id=\"go-breadcrumb-home\"><i class=\"fa fa-home fa-fw fa-lg\"></i> <span class=\"resp-text-indent\">Inicio</span></a></li>\n                    <li class=\"active\"><a class=\"cur-hover\">Nosotros</a></li>\n                </ol>\n        	</div>\n        </div>\n  	</div>\n</div>\n";
 },"useData":true});
+templates['tmp_section_agencies_news_address'] = template({"1":function(container,depth0,helpers,partials,data) {
+    var stack1, alias1=depth0 != null ? depth0 : {};
+
+  return ((stack1 = helpers["if"].call(alias1,((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.logotipos : stack1)) != null ? stack1.agnlogo1 : stack1),{"name":"if","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers["if"].call(alias1,((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.logotipos : stack1)) != null ? stack1.agnlogo2 : stack1),{"name":"if","hash":{},"fn":container.program(4, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "");
+},"2":function(container,depth0,helpers,partials,data) {
+    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
+
+  return "                <img src=\"../img/sitio/agencias/logos/"
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.logotipos : stack1)) != null ? stack1.agnlogo1 : stack1), depth0))
+    + "\" alt=\""
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.agnnombre : stack1), depth0))
+    + "\" class=\"x-img x-img-none none agn_logo\">\n";
+},"4":function(container,depth0,helpers,partials,data) {
+    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
+
+  return "                <img src=\"../img/sitio/agencias/logos/"
+    + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.logotipos : stack1)) != null ? stack1.agnlogo2 : stack1), depth0))
+    + "\" alt=\""
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.agnnombre : stack1), depth0))
+    + "\" class=\"x-img x-img-none none agn_logo\">\n";
+},"6":function(container,depth0,helpers,partials,data) {
+    var stack1, alias1=depth0 != null ? depth0 : {};
+
+  return "            <div class=\"contact-method\">\n                <i class=\"icon pe-7s-phone agn_icono\"></i>\n"
+    + ((stack1 = helpers["if"].call(alias1,((stack1 = (depth0 != null ? depth0.telefonos : depth0)) != null ? stack1.ventas : stack1),{"name":"if","hash":{},"fn":container.program(7, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers["if"].call(alias1,((stack1 = (depth0 != null ? depth0.telefonos : depth0)) != null ? stack1.servicios : stack1),{"name":"if","hash":{},"fn":container.program(12, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "            </div>\n";
+},"7":function(container,depth0,helpers,partials,data) {
+    var stack1, alias1=depth0 != null ? depth0 : {};
+
+  return "                    <span class=\"agn_span\">\n"
+    + ((stack1 = helpers["if"].call(alias1,((stack1 = ((stack1 = (depth0 != null ? depth0.telefonos : depth0)) != null ? stack1.ventas : stack1)) != null ? stack1.agntelefonoventaslinea1 : stack1),{"name":"if","hash":{},"fn":container.program(8, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers["if"].call(alias1,((stack1 = ((stack1 = (depth0 != null ? depth0.telefonos : depth0)) != null ? stack1.ventas : stack1)) != null ? stack1.agntelefonoventaslinea2 : stack1),{"name":"if","hash":{},"fn":container.program(10, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "                    </span>\n";
+},"8":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "                            <strong>Ventas: </strong>\n                            "
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? depth0.telefonos : depth0)) != null ? stack1.ventas : stack1)) != null ? stack1.agntelefonoventaslinea1 : stack1), depth0))
+    + "\n";
+},"10":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "                            / "
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? depth0.telefonos : depth0)) != null ? stack1.ventas : stack1)) != null ? stack1.agntelefonoventaslinea2 : stack1), depth0))
+    + "\n";
+},"12":function(container,depth0,helpers,partials,data) {
+    var stack1, alias1=depth0 != null ? depth0 : {};
+
+  return "                    <span class=\"agn_span\">\n"
+    + ((stack1 = helpers["if"].call(alias1,((stack1 = ((stack1 = (depth0 != null ? depth0.telefonos : depth0)) != null ? stack1.servicios : stack1)) != null ? stack1.agntelefonoserviciolinea1 : stack1),{"name":"if","hash":{},"fn":container.program(13, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers["if"].call(alias1,((stack1 = ((stack1 = (depth0 != null ? depth0.telefonos : depth0)) != null ? stack1.servicios : stack1)) != null ? stack1.agntelefonoserviciolinea2 : stack1),{"name":"if","hash":{},"fn":container.program(15, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "                    </span>\n";
+},"13":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "                            <strong>Servicio: </strong>\n                            "
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? depth0.telefonos : depth0)) != null ? stack1.servicios : stack1)) != null ? stack1.agntelefonoserviciolinea1 : stack1), depth0))
+    + "\n";
+},"15":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "                            / "
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? depth0.telefonos : depth0)) != null ? stack1.servicios : stack1)) != null ? stack1.agntelefonoserviciolinea2 : stack1), depth0))
+    + "\n";
+},"17":function(container,depth0,helpers,partials,data) {
+    var stack1, alias1=depth0 != null ? depth0 : {};
+
+  return "        <div class=\"contact-method\">\n"
+    + ((stack1 = helpers["if"].call(alias1,((stack1 = ((stack1 = (depth0 != null ? depth0.horarios : depth0)) != null ? stack1.ventas : stack1)) != null ? stack1.agnhrventas : stack1),{"name":"if","hash":{},"fn":container.program(18, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers["if"].call(alias1,((stack1 = ((stack1 = (depth0 != null ? depth0.horarios : depth0)) != null ? stack1.servicios : stack1)) != null ? stack1.agnhrservicio : stack1),{"name":"if","hash":{},"fn":container.program(20, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers["if"].call(alias1,((stack1 = ((stack1 = (depth0 != null ? depth0.horarios : depth0)) != null ? stack1.refacciones : stack1)) != null ? stack1.agnhrrefaccion : stack1),{"name":"if","hash":{},"fn":container.program(22, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "        </div>\n";
+},"18":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "            <i class=\"icon pe-7s-clock agn_icono\"></i>\n            <span class=\"agn_span\">\n                <strong>Ventas:</strong> "
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? depth0.horarios : depth0)) != null ? stack1.ventas : stack1)) != null ? stack1.agnhrventas : stack1), depth0))
+    + " <br>\n";
+},"20":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "                <strong>Servicio:</strong> "
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? depth0.horarios : depth0)) != null ? stack1.servicios : stack1)) != null ? stack1.agnhrservicio : stack1), depth0))
+    + " <br>\n";
+},"22":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "                <strong>Refacciones:</strong> "
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? depth0.horarios : depth0)) != null ? stack1.refacciones : stack1)) != null ? stack1.agnhrrefaccion : stack1), depth0))
+    + "\n            </span>\n";
+},"24":function(container,depth0,helpers,partials,data) {
+    var stack1, alias1=depth0 != null ? depth0 : {};
+
+  return "<div class=\"row\">\n    <div class=\"col-md-12 text-center\" style=\"padding: 20px;\">\n"
+    + ((stack1 = helpers["if"].call(alias1,((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.sociales : stack1)) != null ? stack1.sitio_web : stack1)) != null ? stack1.agnwebsite : stack1),{"name":"if","hash":{},"fn":container.program(25, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.campa : depth0),{"name":"each","hash":{},"fn":container.program(27, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers["if"].call(alias1,((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.sociales : stack1)) != null ? stack1.twitter : stack1)) != null ? stack1.agntwitter : stack1),{"name":"if","hash":{},"fn":container.program(34, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "    </div>\n</div>\n";
+},"25":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "            <a href=\""
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.sociales : stack1)) != null ? stack1.sitio_web : stack1)) != null ? stack1.agnwebsite : stack1), depth0))
+    + "\" class=\"button py4 button-transparent bg-youtube resp-button\" target=\"_blank\">\n                <i class=\"fa fa-globe fa-fw fa-lg\"></i> SITIO WEB\n            </a>\n";
+},"27":function(container,depth0,helpers,partials,data) {
+    var stack1, alias1=depth0 != null ? depth0 : {};
+
+  return ((stack1 = helpers["if"].call(alias1,((stack1 = ((stack1 = (depth0 != null ? depth0.sociales : depth0)) != null ? stack1.facebook : stack1)) != null ? stack1.agnfacebookcta1 : stack1),{"name":"if","hash":{},"fn":container.program(28, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers["if"].call(alias1,((stack1 = ((stack1 = (depth0 != null ? depth0.sociales : depth0)) != null ? stack1.facebook : stack1)) != null ? stack1.agnfacebookcta2 : stack1),{"name":"if","hash":{},"fn":container.program(31, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "");
+},"28":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "                <a href=\""
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? depth0.sociales : depth0)) != null ? stack1.facebook : stack1)) != null ? stack1.agnfacebookcta1 : stack1), depth0))
+    + "\" class=\"button py4 button-transparent bg-facebook resp-button\" target=\"_blank\">\n"
+    + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = ((stack1 = (depth0 != null ? depth0.sociales : depth0)) != null ? stack1.facebook : stack1)) != null ? stack1.agntitle_facebook_cta1 : stack1),{"name":"if","hash":{},"fn":container.program(29, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "                </a>\n";
+},"29":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "                        <i class=\"fa fa-facebook fa-fw fa-lg\"></i> "
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? depth0.sociales : depth0)) != null ? stack1.facebook : stack1)) != null ? stack1.agntitle_facebook_cta1 : stack1), depth0))
+    + "\n";
+},"31":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "                <a href=\""
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? depth0.sociales : depth0)) != null ? stack1.facebook : stack1)) != null ? stack1.agnfacebookcta2 : stack1), depth0))
+    + "\" class=\"button py4 button-transparent bg-facebook resp-button\" target=\"_blank\">\n"
+    + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = ((stack1 = (depth0 != null ? depth0.sociales : depth0)) != null ? stack1.facebook : stack1)) != null ? stack1.agntitle_facebook_cta2 : stack1),{"name":"if","hash":{},"fn":container.program(32, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "                </a>\n";
+},"32":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "                        <i class=\"fa fa-facebook fa-fw fa-lg\"></i> "
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? depth0.sociales : depth0)) != null ? stack1.facebook : stack1)) != null ? stack1.agntitle_facebook_cta2 : stack1), depth0))
+    + "\n";
+},"34":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "            <a href=\""
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.sociales : stack1)) != null ? stack1.twitter : stack1)) != null ? stack1.agntwitter : stack1), depth0))
+    + "\" class=\"button py4 button-transparent bg-twitter resp-button\" target=\"_blank\">\n"
+    + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.sociales : stack1)) != null ? stack1.twitter : stack1)) != null ? stack1.agntitle_twitter : stack1),{"name":"if","hash":{},"fn":container.program(35, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "            </a>\n";
+},"35":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "                    <i class=\"fa fa-twitter fa-fw fa-lg\"></i> "
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.sociales : stack1)) != null ? stack1.twitter : stack1)) != null ? stack1.agntitle_twitter : stack1), depth0))
+    + "\n";
+},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : {};
+
+  return "<div class=\"row\">\n    <div class=\"col-md-4 col-sm-4 text-center\" data-id="
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.agnid : stack1), depth0))
+    + ">\n        <h5 style=\"color: #000; text-transform: uppercase;\"><span style=\"color:#7a7a7a;\">"
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.agnnombre : stack1), depth0))
+    + "</span></h5>\n"
+    + ((stack1 = helpers["if"].call(alias3,((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.logotipos : stack1),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "    </div>\n    <div class=\"col-md-8 col-sm-8 text-left\" style=\"font-size: 16px; padding: 20px 5px 0px;\">\n"
+    + ((stack1 = helpers.each.call(alias3,(depth0 != null ? depth0.campa : depth0),{"name":"each","hash":{},"fn":container.program(6, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "\n        <div class=\"contact-method\">\n            <i class=\"icon pe-7s-map-marker agn_icono\"></i>\n            <span class=\"agn_span\">\n                "
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.agndireccion : stack1), depth0))
+    + "\n            </span>\n        </div>\n"
+    + ((stack1 = helpers.each.call(alias3,(depth0 != null ? depth0.campa : depth0),{"name":"each","hash":{},"fn":container.program(17, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "    </div>\n</div>\n"
+    + ((stack1 = helpers["if"].call(alias3,((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.sociales : stack1),{"name":"if","hash":{},"fn":container.program(24, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "");
+},"useData":true});
 templates['tmp_section_agencies_news_by_agencies_start_utility_bar_breadcrumb'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
@@ -30,6 +201,20 @@ templates['tmp_section_agencies_news_by_agencies_video_strip_agencies'] = templa
 },"useData":true});
 templates['tmp_section_agencies_news_by_subagencies_start_utility_bar_breadcrumb'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     return "<!-- Utiity Bar -->\n<div class=\"utility-bar\" id=\"start-utility-bar\">\n	<div class=\"container\">\n    	<div class=\"row\">\n        	<div class=\"col-md-12 col-sm-6 col-xs-8\">\n                <ol class=\"breadcrumb\">\n                    <li><a class=\"cur-hover\" id=\"go-breadcrumb-home\"><i class=\"fa fa-home fa-fw fa-lg\"></i> Inicio</a></li>\n                    <li><a id=\"go-back-agencies-news\" class=\"cur-hover\">Agencias</a></li>\n                    <li class=\"active\"><a class=\"cur-hover\">Nuevos</a></li>\n                    <li class=\"active\"><a id=\"filter-agencie-news-principal\" class=\"cur-hover\"></a></li>\n                    <li class=\"active\"><a id=\"filter-agencie-news-principal-type\" class=\"cur-hover\"></a></li>\n                </ol>\n        	</div>\n        </div>\n  	</div>\n</div>\n";
+},"useData":true});
+templates['tmp_section_agencies_news_fachada'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "<div class=\"container\">\n	<div class=\"row\">\n		<div class=\"background-image-holder \">\n		    <img alt=\"Slide Background\" class=\"background-image\" src=\"../img/sitio/agencias/fachadas-nuevos/"
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.agnfachada : stack1), depth0))
+    + "\">\n		</div>\n	</div>\n</div>\n";
+},"useData":true});
+templates['tmp_section_agencies_news_map'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "<div id=\"map-canvas-news\" class=\"map-canvas h500\"></div>\n\n<a href=\""
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.mapas : stack1)) != null ? stack1.agngmapurl : stack1), depth0))
+    + "\" class=\"btn btn-default btn_default visible-xs no-data-mapa\" title=\"VIEW MAP\" target=\"_blank\">\n    <i class=\"icon icon-geolocalizator\"></i>\n    <span>VER MAPA</span>\n</a>\n";
 },"useData":true});
 templates['tmp_section_agencies_news_start_categories'] = template({"1":function(container,depth0,helpers,partials,data) {
     var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
