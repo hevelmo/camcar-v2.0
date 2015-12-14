@@ -59,35 +59,35 @@
         _cWidth = element.width();
         // update text
         _cText = 'desktop screens > 1200px';
-        console.log(_cText);
+        //console.log(_cText);
         // check block
         if(_cWidth < 1680) {
             _cText = 'desktop computer ' + _cWidth + 'px';
-            console.log(_cText);
+            //console.log(_cText);
         }
         if(_cWidth < 1280) {
             _cText = 'desktop computer ' + _cWidth + 'px';
-            console.log(_cText);
+            //console.log(_cText);
         }
         if(_cWidth < 1024) {
             _cText = 'ipad landscape ' + _cWidth + 'px';
-            console.log(_cText);
+            //console.log(_cText);
         }
         if(_cWidth < 768) {
             _cText = 'ipad portrait ' + _cWidth + 'px';
-            console.log(_cText);
+            //console.log(_cText);
         }
         if(_cWidth < 480) {
             _cText = 'iphone landscape ' + _cWidth + 'px';
-            console.log(_cText);
+            //console.log(_cText);
         }
         if(_cWidth < 320) {
             _cText = 'iphone portrait ' + _cWidth + 'px';
-            console.log(_cText);
+            //console.log(_cText);
         }
         if(_cWidth < 240) {
             _cText = 'so small phones ' + _cWidth + 'px';
-            console.log(_cText);
+            //console.log(_cText);
         }
     }
 /* ------------------------------------------------------ *\
@@ -185,7 +185,7 @@
                 $(".toggle-menu").css("top",NBHH);
                 $(".header-v2 .toggle-menu").css("top",SHHH);
                 $(".header-v3 .toggle-menu").css("top",SHHH + THHH);
-                console.log('open');
+                //console.log('open');
                 return false;
             }
             if (mediaquery.matches) {
@@ -200,12 +200,12 @@
                 $(".toggle-menu").css("top",NBHH);
                 $(".header-v2 .toggle-menu").css("top",SHHH);
                 $(".header-v3 .toggle-menu").css("top",SHHH + THHH);
-                console.log('open');
-                console.log('mediaquery es 768px');
+                //console.log('open');
+                //console.log('mediaquery es 768px');
                 return false;
             } else {
               // mediaquery no es 768px
-              console.log('mediaquery no es 768px');
+              //console.log('mediaquery no es 768px');
             }
         },
         close_menu_toggle: function(event) {
@@ -214,16 +214,16 @@
             if ( IS_MOBILE == true ) {
                 $("#menu-toggle").removeClass('opened');
                 $(".toggle-menu").slideToggle();
-                console.log('responsive');
+                //console.log('responsive');
             }
             if (mediaquery.matches) {
                // mediaquery es 768px
                $("#menu-toggle").removeClass('opened');
                 $(".toggle-menu").slideToggle();
-               console.log('mediaquery es 768px');
+               //console.log('mediaquery es 768px');
             } else {
               // mediaquery no es 768px
-              console.log('mediaquery no es 768px');
+              //console.log('mediaquery no es 768px');
             }
         },
         has_menu_toggle: function() {
@@ -564,14 +564,14 @@
 
             url = urlsApi.getAgenciesNewsByTypeAgencie + agn_name_agencia;
             agnPrincipal = CAM.getInternalJSON(url);
-            console.log(agn_name_agencia);
+            //console.log(agn_name_agencia);
 
             campaAgnPrincipal = agnPrincipal.campa[0].agp_agencia;
             campaAgnPrincipal_Id = agnPrincipal.campa[0].agn_agp_id;
 
             CAM.loadTemplate(tempsNames.recurrent_agencies_news_by_agencies_start_utility_bar_breadcrumb, domEl._start_utility_bar_breadcrumb_name, agnPrincipal);
             viewSectionAgenciesNewsPrincipalMethod.loadBreadcrumbs_agnPrincipal(campaAgnPrincipal);
-            console.log(campaAgnPrincipal);
+            //console.log(campaAgnPrincipal);
 
             viewSectionAgenciesNewsMethod.loadTemplatesAgenciesNewsCategories(campaAgnPrincipal_Id);
         },
@@ -604,15 +604,15 @@
 
             url = urlsApi.getAgenciesNewsByAgencie + agn_url + '/' + agn_id;
             byAgencieNews = CAM.getInternalJSON(url);
-            console.log(url);
+            //console.log(url);
 
             campaAgpAgencie = byAgencieNews.campa[0].agpagencia;
             campaAgnNombre = byAgencieNews.campa[0].agnnombre;
 
             CAM.loadTemplate(tempsNames.recurrent_agencies_news_by_sub_agencies_start_utility_bar_breadcrumb, domEl._start_utility_bar_breadcrumb_name, byAgencieNews);
-            
+
             viewSectionAgenciesNewsBySubAgencieMethod.loadBreadcrumbs_subAgencie(campaAgpAgencie, campaAgnNombre);
-            console.log(campaAgpAgencie, campaAgnNombre);
+            //console.log(campaAgpAgencie, campaAgnNombre);
 
             viewSectionAgenciesNewsBySubAgencieMethod.recurrentSecionAgenciesNewsSubAgencie();
 
@@ -620,15 +620,243 @@
             CAM.loadTemplate(tempsNames.recurrent_agencies_news_start_address, domEl._start_agencies_news_address_name, byAgencieNews);
             CAM.loadTemplate(tempsNames.recurrent_agencies_news_start_map, domEl._start_agencies_news_map_name, byAgencieNews);
 
+            mapAgenciesNewsSubAgencieMethod.mapAgenciesNewsSubAgencie();
+            mapAgenciesNewsSubAgencieMethod.initMapAgenciesNewsSubAgencie();
+
             bgImageHolderMethods.appendBgImageHolder2();
+
+            if (byAgencieNews.campa[0].logotipos.agnlogo1 === '' && byAgencieNews.campa[0].logotipos.agnlogo2 === '') {
+                $('#content-section-agencies-news-address').remove();
+            }
+            if (byAgencieNews.campa[0].mapas.agngmapurl === '') {
+                $('#content-section-agencies-news-map').remove();
+                $('#map-canvas-news').remove();
+            }
         },
         recurrentSecionAgenciesNewsSubAgencie: function() {
             dataStarSiteAgenciesNewsSubAgencieAttributes = [
-                ['section', {'id':domEl._start_agencies_news_fachada, 'class':'double-pad about-content'}, '', 1],
-                ['div', {'id':domEl._start_agencies_news_address, 'class':''}, '', 1],
-                ['div', {'id':domEl._start_agencies_news_map, 'class':''}, '', 1]
+                ['div', {'id':domEl._start_agencies_news_fachada, 'class':'about-content'}, '', 1],
+                ['section', {'id':domEl._start_agencies_news_address, 'class':'no-data-adrress about-content', 'style':'padding: 35px 0 0 0;'}, '', 1],
+                ['section', {'id':domEl._start_agencies_news_map, 'class':'about-content', 'style':'padding: 0px 5px 15px 5px;'}, '', 1]
             ];
             CAM.appendMulti(domEl.div_recurrent, dataStarSiteAgenciesNewsSubAgencieAttributes);
+        }
+    }
+/* ------------------------------------------------------ *\
+    [Methods] mapAgenciesNewsSubAgencieMethod
+\* ------------------------------------------------------ */
+    var mapAgenciesNewsSubAgencieMethod = {
+        mapAgenciesNewsSubAgencie: function() {
+            var styles, mapNews, agn_latitud, agn_longitudl, agnId, agnLogo, agnName, agnAddress, agnFolder, dirNews, mapOpcNews, map, marker2, popup, location_center, main_color, saturation_value, brightness_value;
+
+            main_color = '#2d313f';
+            saturation_value = -20;
+            brightness_value = 5;
+
+            agnId = +CAM.getValue(domEl.input_hidden_mapa);
+            mapNews = CAM.getInternalJSON(urlsApi.getAgenciesNewsByMap + agnId);
+
+           agn_latitud = mapNews.campa[0].agnlatitud;
+           agn_longitud = mapNews.campa[0].agnlongitud;
+
+            location_center = new google.maps.LatLng(agn_latitud,agn_longitud);
+
+            style = [
+                { //set saturation for the labels on the map
+                    elementType: "labels",
+                    stylers: [ { saturation: saturation_value } ]
+                },
+                { //poi stands for point of interest - don't show these lables on the map
+                    featureType: "poi",
+                    elementType: "labels",
+                    stylers: [  { visibility: "off" } ]
+                },
+                { //don't show highways lables on the map
+                    featureType: 'road.highway',
+                    elementType: 'labels',
+                    stylers: [ { visibility: "off" } ]
+                },
+                {  //don't show local road lables on the map
+                    featureType: "road.local",
+                    elementType: "labels.icon",
+                    stylers: [ { visibility: "off" } ]
+                },
+                {  //don't show arterial road lables on the map
+                    featureType: "road.arterial",
+                    elementType: "labels.icon",
+                    stylers: [ { visibility: "off" } ]
+                },
+                { //don't show road lables on the map
+                    featureType: "road",
+                    elementType: "geometry.stroke",
+                    stylers: [ { visibility: "off" } ]
+                },
+                { //style different elements on the map
+                    featureType: "transit",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "poi",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "poi.government",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "poi.sport_complex",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "poi.attraction",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "poi.business",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "transit",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "transit.station",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "landscape",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+
+                },
+                {
+                    featureType: "road",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "road.highway",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "water",
+                    elementType: "geometry",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                }
+            ];
+
+            mapOpcNews = {
+                zoom: 16,
+                center: new google.maps.LatLng(agn_latitud,agn_longitud),
+                scrollwheel: false,
+                mapTypeControlOptions: {
+                    mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+                },
+                styles: style
+            }
+
+            map = new google.maps.Map(document.getElementById('map-canvas-news'),mapOpcNews);
+
+            marker2 = new google.maps.Marker({
+                position: map.getCenter(),
+                map: map,
+                title: 'CAMCAR',
+                icon: "../img/sitio/pin_camcar.png" //custom pin icon
+            });
+
+            dirNews = mapNews.campa[0].agnfolder;
+            agnFolder = '../../img/sitio/agencias/logos';
+            agnLogo = mapNews.campa[0].logo.agnlogo2;
+            agnName = mapNews.campa[0].agnnombre;
+            agnAddress = mapNews.campa[0].agndireccion;
+
+            popup = new google.maps.InfoWindow({
+                content:
+                    '<div class="marker-info-win" style="text-align: center;">'+
+                    '<div class="marker-inner-win"><span class="info-content">'+
+                    '<img src="img/'+agnFolder+'/'+agnLogo+'" alt="'+agnName+'" style="margin-botton: 10px;" width="150">'+
+                    '<h5 class="marker-heading" style="color:#000; padding: 0px; margin: 0px;">'+agnName+'</h5>'+
+                    '<span>'+agnAddress+'</span>' +
+                    '</span>'+
+                    '</div></div>'
+            });
+
+            attachInfoWindowToMarker(map, marker2, popup);
+
+            function attachInfoWindowToMarker( map, marker, infoWindow ) {
+                infoWindow.open(map, marker2, popup);
+            }
+        },
+        initMapAgenciesNewsSubAgencie: function() {
+            google.maps.event.addDomListener(window, 'load', mapAgenciesNewsSubAgencieMethod.mapAgenciesNewsSubAgencie());
         }
     }
 /* ------------------------------------------------------ *\
@@ -1027,7 +1255,7 @@
             var agnPrincipal, $element;
             $element = $(this);
             agnPrincipal = $element.data('agp_nombre');
-            $('body,html').animate({ scrollTop: "280" }, 999, 'easeOutExpo' );
+            $('body,html').animate({ scrollTop: "200" }, 999, 'easeOutExpo' );
 
             $(domEl.action_new_agn).children('.img-disable').removeClass('active');
             $element.children('.img-disable').addClass('active');
@@ -1044,9 +1272,9 @@
             agnId = $element.data('agn-news-id');
 
             //console.log(agpAgencia, agnNombre, agnUrl, agnId);
-            console.log($element.data());
-            
-            $('body,html').animate({ scrollTop: "280" }, 999, 'easeOutExpo' );
+            //console.log($element.data());
+
+            $('body,html').animate({ scrollTop: "200" }, 999, 'easeOutExpo' );
 
             Finch.navigate('/agencias/nuevos/'  + agpAgencia + '/' + agnUrl + '/' + agnId );
         },
@@ -1312,20 +1540,24 @@
     var bgImageHolderMethods = {
         appendBgImageHolder : function () {
             $('.background-image-holder').each(function() {
-                var imgSrc= $(this).children('img').attr('src');
-                $(this).css('background', 'url("' + imgSrc + '")');
-                $(this).children('img').hide();
-                $(this).css('background-position', '15% 65%');
+                var imgSrc, $element;
+                $element = $(this);
+                imgSrc= $element.children('img').attr('src');
+                $element.css('background', 'url("' + imgSrc + '")');
+                $element.children('img').hide();
+                $element.css('background-position', '15% 65%');
             });
             $('.background-image-holder').addClass('fadeIn');
         },
         appendBgImageHolder2 : function () {
             $('.background-image-holder').each(function() {
-                var imgSrc;
-                imgSrc = $(this).children('img').attr('src');
-                $(this).css('background', 'url("' + imgSrc + '")');
-                $(this).children('img').hide();
-                $(this).css('background-position', '50% 50%');
+                var imgSrc, $element;
+                $element = $(this);
+                imgSrc = $element.children('img').attr('src');
+                $element.css('background', 'url("' + imgSrc + '")');
+                $element.children('img').hide();
+                $element.css('background-position', '50% 50%');
+                $element.css('background-repeat', 'no-repeat');
             });
             $('.background-image-holder').addClass('fadeIn');
         }
