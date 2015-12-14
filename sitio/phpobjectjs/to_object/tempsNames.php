@@ -35,6 +35,12 @@ function tempsNames() {
         // AGENCIES NEWS VIDEO STRIP
         'recurrent_agencies_news_by_agencies_video_strip_agencies' => 'tmp_section_agencies_news_by_agencies_video_strip_agencies',
 
+        // AGENCIES PRE-OWNED
+        'recurrent_agencies_preowned_start_utility_bar_breadcrumb' => 'tmp_section_agencies_preowned_start_utility_bar_breadcreumb',
+        'recurrent_agencies_preowned_start_large_pad_land_mark' => 'tmp_section_agencies_preowned_start_large_pad_land_mark',
+        'recurrent_agencies_preowned_start_large_pad_small_screen' => 'tmp_section_agencies_preowned_start_large_pad_small_screen',
+        'recurrent_agencies_preowned_start_tabs_agencies' => 'tmp_section_agencies_preowned_start_tabs_agencies',
+
         // WORKSHOP
         'recurrent_workshop_start_utility_bar_breadcrumb' => 'tmp_section_workshop_start_utility_bar_breadcrumb',
         'recurrent_workshop_start_large_pad_land_mark' => 'tmp_section_workshop_start_large_pad_land_mark',

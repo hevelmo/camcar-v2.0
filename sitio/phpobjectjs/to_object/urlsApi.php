@@ -75,6 +75,11 @@ function urlsApi() {
         // AGENCIES NEWS BY AGENCIE
         'getAgenciesNewsByAgencie' => $root . '/' . $get . '/' . $agencie . '/' . $news . '/',
 
+        // AGENCIES PRE-OWNED
+        'getAgenciesPreOwned' => $root . '/' . $get . '/' . $agencie . '/' . $preowned,
+        'getAgenciesPreOwnedByMap' => $root . '/' . $get . '/' . $agencie . '/' . $preowned .'/mapas/',
+        'getAgenciesPreOwnedByAgencie' => $root . '/' . $get . '/' . $agencie . '/' . $preowned . '/',
+
         // AGNCIES WORKSHOP
         'getWorkshop' => $root . '/' . $get . '/talleres',
         'getWorkshopBrands' => $root . '/' . $get . '/talleres/logos',

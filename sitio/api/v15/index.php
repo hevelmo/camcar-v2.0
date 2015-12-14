@@ -74,6 +74,11 @@ $app->configureMode('development', function () use ($app) {
     // LOGOS AGENCIES NEWS PRINCIPAL
     $app->get('/get/logos/agencia/nuevos', /*'mw1',*/ 'getLogosAgenciesNews');
 
+    // AGENCIES PRE-OWNED
+    $app->get('/get/agencia/seminuevos', /*'mw1',*/ 'getAgenciesPreOwned');
+    $app->get('/get/agencia/seminuevos/mapas/:agn_id', /*'mw1',*/ 'getAgenciesPreOwnedByMap');
+    $app->get('/get/agencia/seminuevos/:agn_nombre/:agn_id', /*'mw1',*/ 'getAgenciesPreOwnedByAgencie');
+
     // SECTION WORKSHOP
     $app->get('/get/talleres', /*'mw1',*/ 'getWorkshop');
     $app->get('/get/talleres/logos', /*'mw1',*/ 'getWorkshopBrands');
@@ -260,7 +265,7 @@ $app->run();
                 ";
         getGroupCounterJSON($sql);
     }
-    // STRUCTURE MAP JSON
+    // STRUCTURE AGENTS MAP JSON
     function getMapaJSON($sql, $senId) {
         $structure = array(
             'sen_id' => 'SEN_Id',
@@ -278,7 +283,7 @@ $app->run();
         ($senId !== '') ? $params['senId'] = $senId : $params = $params;
         echo changeQueryIntoJSON('campa', $structure, getConnection(), $sql, $params, 0, PDO::FETCH_ASSOC);
     }
-    // MAP
+    // AGENTS MAP
     function getMapa() {
         $sql = "SELECT *
                 FROM (
@@ -295,7 +300,7 @@ $app->run();
                 GROUP BY AGN_Id";
         getMapaJSON($sql, '');
     }
-    // MAP BY ID
+    // AGENTS MAP BY ID
     function getMapaById($senId) {
         $sql = "SELECT *
                 FROM (
@@ -598,6 +603,135 @@ $app->run();
         ($agn_name_agencia !== '') ? $params['agn_name_agencia'] = $agn_name_agencia : $params = $params;
         //($agn_type !== '') ? $params['agn_type'] = $agn_type : $params = $params;
         echo changeQueryIntoJSON('campa', $structure, getConnection(), $sql, $params, 0, PDO::FETCH_ASSOC);
+    }
+
+    // AGENICES PRE-OWNED
+    function getAgenciesPreOwnedJSON($sql) {
+        $structure = array(
+            'agnid' => 'AGN_Id',
+            'agnnombre' => 'AGN_Nombre',
+            'agnurl' => 'AGN_Url',
+            'agnsmall' => 'AGN_Small',
+            'agnlatitud' => 'AGN_MLatitud',
+            'agnlongitud' => 'AGN_MLongitud',
+            'agngmapurl' => 'AGN_MUrl'
+        );
+        $params = array();
+        echo changeQueryIntoJSON('campa', $structure, getConnection(), $sql, $params, 0, PDO::FETCH_ASSOC);
+    }
+    function getAgenciesPreOwned() {
+        $sql = "SELECT *
+                FROM (
+                    SELECT *
+                    FROM camAgencias
+                    WHERE AGN_Tipo = 0
+                ) agn";
+        getAgenciesPreOwnedJSON($sql, '', '');
+    }
+    function getAgenciesPreOwnedByMapsJSON($sql, $agnid) {
+        $structure = array(
+            'agnid' => 'AGN_Id',
+            'agnnombre' => 'AGN_Nombre',
+            'agndireccion' => 'AGN_Dirección',
+            'agnfolder' => 'AGN_Folder',
+            'agnlogo' => 'AGN_Logo1',
+            'agnlatitud' => 'AGN_MLatitud',
+            'agnlongitud' => 'AGN_MLongitud',
+            'agngmapurl' => 'AGN_MUrl'
+        );
+        $params = array();
+        ($agnid !== '') ? $params['agnid'] = $agnid : $params = $params;
+        echo changeQueryIntoJSON('campa', $structure, getConnection(), $sql, $params, 0, PDO::FETCH_ASSOC);
+    }
+    function getAgenciesPreOwnedByMap($agnid) {
+        $sql = "SELECT *
+                FROM (
+                    SELECT *
+                    FROM camAgencias
+                    WHERE AGN_Tipo = 0
+                ) agn
+                INNER JOIN camTelefonos tel
+                ON agn.AGN_Id = tel.TEL_AGN_Id
+                INNER JOIN camHorarios hrs
+                ON agn.AGN_Id = hrs.HRS_AGN_Id
+                INNER JOIN camSociales soc
+                ON agn.AGN_Id = soc.SOC_AGN_Id
+                WHERE AGN_Id = :agnid";
+        getAgenciesPreOwnedByMapsJSON($sql, $agnid);
+    }
+    // AGENCIES PRE-OWNED BY AGENCIE
+    function getAgenciesPreOwnedByAgencieJSON($sql, $agn_nombre, $agn_id) {
+        $structure = array(
+            'agnid' => 'AGN_Id',
+            'agnnombre' => 'AGN_Nombre',
+            'agndireccion' => 'AGN_Dirección',
+            'telefonos' => array(
+                'ventas' => array(
+                    'agntelefonoventaslinea1' => 'TEL_Telefono_Ventas_linea1',
+                    'agntelefonoventaslinea2' => 'TEL_Telefono_Ventas_linea2',
+                    'agncallventaslinea1' => 'TEL_Call_Ventas_linea1',
+                    'agncallventaslinea2' => 'TEL_Call_Ventas_linea2'
+                ),
+                'servicios' => array(
+                    'agntelefonoserviciolinea1' => 'TEL_Telefono_Servicio_linea1',
+                    'agntelefonoserviciolinea2' => 'TEL_Telefono_Servicio_linea2',
+                    'agncallserviciolinea1' => 'TEL_Call_Servicio_linea1',
+                    'agncallserviciolinea2' => 'TEL_Call_Servicio_linea2'
+                )
+            ),
+            'agnurl' => 'AGN_Url',
+            'horarios' => array(
+                'agnhrventas' => 'HRS_HVentas',
+                'agnhrservicio' => 'HRS_HServicio',
+                'agnhrrefaccion' => 'HRS_HRefacciones'
+            ),
+            'agnfolder' => 'AGN_Folder',
+            'agnlogo' => 'AGN_Logo1',
+            'agnfachada' => 'AGN_Fachada',
+            'agnsmall' => 'AGN_Small',
+            'sociales' => array(
+                'sitio_web' => array(
+                    'agnwebsite' => 'SOC_WebSite'
+                ),
+                'facebook' => array(
+                    'agntitle_facebook_cta1' => 'SOC_Facebok_Nombre_Cta1',
+                    'agnfacebookcta1' => 'SOC_Facebook_Cta1',
+                    'agntitle_facebook_cta2' => 'SOC_Facebok_Nombre_Cta2',
+                    'agnfacebookcta2' => 'SOC_Facebook_Cta2'
+                ),
+                'twitter' => array(
+                    'agntitle_twitter' => 'SOC_Nombre_Twitter',
+                    'agntwitter' => 'SOC_Twitter'
+                )
+            ),
+            'mapas' => array(
+                'agnlatitud' => 'AGN_MLatitud',
+                'agnlongitud' => 'AGN_MLongitud',
+                'agngmapurl' => 'AGN_MUrl'
+            )
+        );
+        $params = array();
+        ($agn_nombre !== '') ? $params['agn_nombre'] = $agn_nombre : $params = $params;
+        ($agn_id !== '') ? $params['agn_id'] = $agn_id : $params = $params;
+        echo changeQueryIntoJSON('campa', $structure, getConnection(), $sql, $params, 0, PDO::FETCH_ASSOC);
+    }
+    function getAgenciesPreOwnedByAgencie($agn_nombre, $agn_id) {
+        $sql = "SELECT *
+                FROM (
+                    SELECT *
+                    FROM camAgencias
+                    WHERE AGN_Tipo = 0
+                ) agn
+                INNER JOIN camTelefonos tel
+                ON agn.AGN_Id = tel.TEL_AGN_Id
+                INNER JOIN camHorarios hrs
+                ON agn.AGN_Id = hrs.HRS_AGN_Id
+                INNER JOIN camSociales soc
+                ON agn.AGN_Id = soc.SOC_AGN_Id
+                WHERE AGN_Id = :agn_id
+                AND AGN_Url = :agn_nombre
+                ORDER BY AGN_Id";
+        getAgenciesPreOwnedByAgencieJSON($sql, $agn_nombre, $agn_id);
     }
 
     // WORKSHOP

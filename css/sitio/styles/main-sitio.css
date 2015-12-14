@@ -510,6 +510,9 @@ a.cur-hover,
       width: 100%;
       margin-bottom: 10px;
     }
+  #Search-Filters, .toggle-view, .results-sorter, #Search-tabs, #options{
+    display:none;
+  }
 }
 @media (max-width: 768px) {
   #stat .counter {
@@ -650,8 +653,11 @@ a.cur-hover,
     .large-pad.section-large-pad {
       padding: 15px 0;
     }
+    section.large-pad.agencies-preowned {
+      padding-bottom: 0;
+    }
     .sem-style-button-agencies-resp {
-      margin: 25px auto 0px;
+      margin: 0px auto 0px;
       width: 100%;
       border-radius: 0;
     }

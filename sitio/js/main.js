@@ -51,6 +51,11 @@ $(document).ready(function() {
     $(domEl.div_recurrent).on('click', domEl.action_new_agn, clikGoMethods.clikGo_agencies_news_principal);
     // AGENCIES PRE-OWNED
     $(domEl.navbar_recurrent).on('click', domEl.goSection_agencies_preowned, clikGoMethods.clickGo_agencies_preowned);
+    $(domEl.div_recurrent).on('click', "#Show-Agencies-Tabs", function(){
+        $("#Search-tabs").slideToggle();
+    });
+    $(domEl.div_recurrent).on('click', domEl.goBack_breadcrumb_agencies_preowned, clikGoMethods.clickGo_agencies_preowned);
+    $(domEl.div_recurrent).on('click', domEl.action_go_agencie_preowned, clikGoMethods.clickGo_agencies_preowned_by_agencie);
     // INVENTORIES PRE-OWNED
     $(domEl.navbar_recurrent).on('click', domEl.goSection_inventories_preowned, clikGoMethods.clickGo_inventories_preowned);
     // WORKSHOP

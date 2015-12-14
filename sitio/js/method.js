@@ -63,32 +63,50 @@
         // check block
         if(_cWidth < 1680) {
             _cText = 'desktop computer ' + _cWidth + 'px';
+            $('.client-section').removeClass('closeToggle');
             //console.log(_cText);
         }
         if(_cWidth < 1280) {
             _cText = 'desktop computer ' + _cWidth + 'px';
+            $('.client-section').removeClass('closeToggle');
             //console.log(_cText);
         }
         if(_cWidth < 1024) {
             _cText = 'ipad landscape ' + _cWidth + 'px';
+            $('.client-section').removeClass('closeToggle');
+            $('.client-section').removeClass('closeToggle');
             //console.log(_cText);
         }
         if(_cWidth < 768) {
             _cText = 'ipad portrait ' + _cWidth + 'px';
+            $('.client-section').addClass('closeToggle');
+            $('ul#filters > li a').removeClass('closeToggle');
             //console.log(_cText);
         }
         if(_cWidth < 480) {
             _cText = 'iphone landscape ' + _cWidth + 'px';
+            $('.client-section').addClass('closeToggle');
+            $('ul#filters > li a').addClass('closeToggle');
             //console.log(_cText);
         }
         if(_cWidth < 320) {
             _cText = 'iphone portrait ' + _cWidth + 'px';
+            $('.client-section').addClass('closeToggle');
+            $('ul#filters > li a').addClass('closeToggle');
             //console.log(_cText);
         }
         if(_cWidth < 240) {
             _cText = 'so small phones ' + _cWidth + 'px';
+            $('.client-section').addClass('closeToggle');
+            $('ul#filters > li a').addClass('closeToggle');
             //console.log(_cText);
         }
+        $(domEl.div_recurrent).on('click', ".agencia", function() {
+            $(".closeToggle").slideUp();
+        });
+        $(domEl.div_recurrent).on('click', ".closeToggle", function() {
+            $("#options").slideUp();
+        });
     }
 /* ------------------------------------------------------ *\
     [Methods] MATCHMEDIA
@@ -864,9 +882,36 @@
 \* ------------------------------------------------------ */
     var viewSectionAgenciesPreownedMethod = {
         viewSectionAgenciesPreowned: function() {
+            viewSectionAgenciesPreownedMethod.recurrentSecionAgenciesPreowned();
+            viewSectionAgenciesPreownedMethod.loadTemplatesUtilityBarBreadcrumb();
+            viewSectionAgenciesPreownedMethod.loadTemplatesBodyContent();
+            viewSectionAgenciesPreownedMethod.loadTemplatesSmallScreen();
+            viewSectionAgenciesPreownedMethod.loadUrlsApiAgencie_pre_owned();
+        },
+        loadTemplatesUtilityBarBreadcrumb: function() {
+            CAM.loadTemplate(tempsNames.recurrent_agencies_preowned_start_utility_bar_breadcrumb, domEl._start_utility_bar_breadcrumb_name);
+        },
+        loadTemplatesBodyContent: function() {
+            CAM.loadTemplate(tempsNames.recurrent_agencies_preowned_start_large_pad_land_mark, domEl._start_agencies_preowned_content_body_name);
+        },
+        loadTemplatesSmallScreen: function() {
+            CAM.loadTemplate(tempsNames.recurrent_agencies_preowned_start_large_pad_small_screen, domEl._start_agencies_preowned_small_screen_name);
+            dataStarSiteSectionTabsAttributes = [
+                ['div', {'id':domEl._start_agencies_preowned_section_tabs, 'class':'about-content'}, '', 1]
+            ];
+            CAM.appendMulti(domEl._start_agencies_preowned_small_screen_name, dataStarSiteSectionTabsAttributes);
+        },
+        loadUrlsApiAgencie_pre_owned : function () {
+            var agnPreOwnedData;
+            agnPreOwnedData = CAM.getInternalJSON(urlsApi.getAgenciesPreOwned);
+            CAM.loadTemplate(tempsNames.recurrent_agencies_preowned_start_tabs_agencies, domEl._start_agencies_preowned_section_tabs_name, agnPreOwnedData);
+            console.log(agnPreOwnedData);
         },
         recurrentSecionAgenciesPreowned: function() {
             dataStarSiteAgenciesPreownedAttributes = [
+                ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content'}, '', 1],
+                ['section', {'id':domEl._start_agencies_preowned_content_body, 'class':'large-pad text-hero-2 agencies-preowned about-content'}, '', 1],
+                ['section', {'id':domEl._start_agencies_preowned_small_screen, 'class':'large-pad about-content', 'style':'padding-top: 0px;'}, '', 1],
             ];
             CAM.appendMulti(domEl.div_recurrent, dataStarSiteAgenciesPreownedAttributes);
         }
@@ -1280,7 +1325,18 @@
         },
         clickGo_agencies_preowned: function(event) {
             $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );
-            Finch.navigate('/seminuevos');
+            Finch.navigate('/agencias/seminuevos');
+        },
+        clickGo_agencies_preowned_by_agencie: function(event) {
+            $('body,html').animate({ scrollTop: "280" }, 999, 'easeOutExpo' );
+
+            agnNombre = $(this).data('agn-preowned-name');
+            agnUrl = $(this).data('agn-preowned-url');
+            agnId = $(this).data('agn-preowned-id');
+
+            //console.log(agnNombre, agnId);
+            //console.log($(this).data());
+            Finch.navigate('/agencias/seminuevos/' + agnUrl + '/' + agnId);
         },
         clickGo_inventories_preowned: function(event){
             $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );
@@ -1387,6 +1443,7 @@
             removeRecurrentsMethod.removeRecurrent_navbar();
             removeRecurrentsMethod.removeRecurrents_home();
             removeRecurrentsMethod.removeRecurrents_agencies_news();
+            removeRecurrentsMethod.removeRecurrents_agencies_preonwed();
             removeRecurrentsMethod.removeRecurrents_workshop();
             removeRecurrentsMethod.removeRecurrents_rental();
             removeRecurrentsMethod.removeRecurrents_blog();
@@ -1413,6 +1470,11 @@
             $(domEl._start_agencies_news_fachada_name).remove();
             $(domEl._start_agencies_news_address_name).remove();
             $(domEl._start_agencies_news_map_name).remove();
+        },
+        removeRecurrents_agencies_preonwed: function() {
+            $(domEl._start_agencies_preowned_content_body_name).remove();
+            $(domEl._start_agencies_preowned_small_screen).remove();
+            $(domEl._start_agencies_preowned_small_screen_name).remove();
         },
         removeRecurrents_workshop: function() {
             $(domEl._start_workshop_content_body_name).remove();

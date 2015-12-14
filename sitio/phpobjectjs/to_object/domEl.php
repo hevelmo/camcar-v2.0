@@ -24,6 +24,10 @@ function domEl() {
     $start_agencies_news_fachada = 'content-start-agencies-news-fachada';
     $start_agencies_news_address = 'content-start-agencies-news-address';
     $start_agencies_news_map = 'content-start-agencies-news-map';
+    // AGENCIES PRE-OWNED
+    $start_agencies_preowned_content_body = 'content-start-agencies-preowned-body-main';
+    $start_agencies_preowned_small_screen = 'content-start-agencies-preowned-small-screen';
+    $start_agencies_preowned_section_tabs = 'content-start-agencies-preowned-section-tabs';
     // WORKSHOP
     $start_workshop_content_body = 'content-start-workshop-body-main';
     $start_workshop_content_brand = 'content-start-workshop-brand';
@@ -100,6 +104,21 @@ function domEl() {
         'action_go_agencie_news' => 'a.go-action-agencie-news',
         'action_go_agencie_news_id' => 'a#go-action-agencie-news-',
         'input_hidden_mapa' => 'input#hidden_mapa',
+        // AGENCIES PRE-OWNED
+        '_start_agencies_preowned_content_body' => $start_agencies_preowned_content_body,
+        '_start_agencies_preowned_content_body_name' => '#' . $start_agencies_preowned_content_body,
+        '_start_agencies_preowned_small_screen' => $start_agencies_preowned_small_screen,
+        '_start_agencies_preowned_small_screen_name' => '#' . $start_agencies_preowned_small_screen,
+        '_start_agencies_preowned_section_tabs' => $start_agencies_preowned_section_tabs,
+        '_start_agencies_preowned_section_tabs_name' => '#' . $start_agencies_preowned_section_tabs,
+        // BUTTON SHOW TABS AGENICES PRE-OWNED
+        'button_show_agencies_tabs' => '#Show-Agencies-Tabs',
+        'button_search_tabs' => '#Search-tabs',
+        'li_agencies' => '.agencia',
+        // GO ACTION AGENCIE PRE OWNED
+        'action_go_agencie_preowned' => 'a.go-action-agencie-preowned',
+        'action_go_agencie_preowned_id' => 'a#go-action-agencie-preowned-',
+
         // WORKSHOP
         '_start_workshop_content_body' => $start_workshop_content_body,
         '_start_workshop_content_body_name' => '#' . $start_workshop_content_body,
@@ -169,6 +188,7 @@ function domEl() {
         'goSection_breadcrumb_home' => '#go-breadcrumb-home',
         'goSection_breadcrumb_blog' => '#go-breadcrumb-blog',
         'goBack_breadcrumb_blog' => '#go-back-blog',
+        'goBack_breadcrumb_agencies_preowned' => '#go-back-agencies-preowned',
         'filter_breadcrumb_blog_agencie' => '#filter-blog-agencie',
         'filter_breadcrumb_blog_post' => '#filter-blog-post',
         // VALIDATION

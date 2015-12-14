@@ -107,23 +107,43 @@
 /* ----------------------------------- *\
  [Route] AGENCIES PREOWNED
 \* ----------------------------------- */
-    Finch.route('/seminuevos', {
+    Finch.route('/agencias/seminuevos/:preowned_agn_url/:preowned_agn_id', {
         setup: function(bindings) {
-            section = "agencies-preowned";
+            var ga_agn_url, ga_agn_id;
+            ga_agn_url = bindings.preowned_agn_url;
+            ga_agn_id = bindings.preowned_agn_id;
             // Add favicon
             window.onload = favicon.load_favicon();
+            if ( ga_agn_url === undefined && ga_agn_id === undefined ) {
+                ga('send', 'pageview', '/agencias/seminuevos');
+            } else if ( ga_agn_url !== undefined && ga_agn_id !== undefined ) {
+                ga('send', 'pageview', '/agencias/seminuevos/' + ga_agn_url + '/' + ga_agn_id);
+            }
         },
         load: function(bindings) {
+            var agn_url, agn_id;
+            agn_url = bindings.preowned_agn_url;
+            agn_id = bindings.preowned_agn_id;
+
             viewNavbarMethod.viewNavbar();
             sticky_wrapper_methods.sticky_wrapper();
 
             addAttrNavAgenciesNewsMethod.addAttrNavAgenciesNews();
             currentSectionMethod.currentSection_agencies_preowned();
 
-            viewSectionAgenciesPreownedMethod.viewSectionAgenciesPreowned();
+            if ( agn_url === undefined && agn_id === undefined ) {
+                section = "agencies-preowned";
+                viewSectionAgenciesPreownedMethod.viewSectionAgenciesPreowned();
+            } else if ( agn_url !== undefined && agn_id !== undefined ) {
+                section = "agencies_preowned_by_agencie";
+                CAM.setValue(domEl.input_hidden_mapa, bindings.agn_id);
+                //viewSectionAgenciesPreownedByAgencieMethod.viewSectionAgenciesPreownedByAgencie();
+            }
+
 
             $(window).resize(mobile_menu_methods.has_menu_toggle);
             backToTopMethod.init_window_scroll_top();
+            __sizeCheck($(window));
         },
         unload: function(bindings) {
             section = "";
