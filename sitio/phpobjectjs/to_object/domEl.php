@@ -85,6 +85,10 @@ function domEl() {
         '_start_agencies_news_video_strip_name' => '#' . $start_agencies_news_video_strip,
         // AGENCIES NEWS ACTION
         'action_new_agn' => '.action-new-agn',
+        // AGENCIES NEWS SUB AGENCIE
+        'action_go_agencie_news' => 'a.go-action-agencie-news',
+        'action_go_agencie_news_id' => 'a#go-action-agencie-news-',
+        'input_hidden_mapa' => 'input#hidden_mapa',
         // WORKSHOP
         '_start_workshop_content_body' => $start_workshop_content_body,
         '_start_workshop_content_body_name' => '#' . $start_workshop_content_body,

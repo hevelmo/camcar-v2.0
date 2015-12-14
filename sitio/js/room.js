@@ -83,6 +83,9 @@
             // SUB AGENCIA SELECCIONADA
             else if ( agn_name !== undefined && agn_url !== undefined && agn_id !== undefined ) {
                 section = "agencies-news-sub-agencie";
+                CAM.setValue(domEl.input_hidden_mapa, agn_id);
+                viewSectionAgenciesNewsBySubAgencieMethod.viewSectionAgenciesNewsBySubAgencie(agn_name, agn_url, agn_id);
+                activeLogAgenciesNewsMethod.activeLogAgenciesNews(agn_name, agn_url, agn_id);
             }
             // RUTA INVALIDA
             else {

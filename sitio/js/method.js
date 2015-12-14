@@ -394,7 +394,7 @@
                 'data-agp_id':'4',
                 'data-index':'1'
             });
-            console.log('data agp');
+            //console.log('data agp');
         }
     }
 /* ------------------------------------------------------ *\
@@ -580,6 +580,37 @@
                 ['section', {'id':domEl._start_agencies_news_video_strip, 'class':'action-strip-2 video-strip about-content'}, '', 1]
             ];
             CAM.appendMulti(domEl.div_recurrent, dataStarSiteAgenciesNews_agnPrincipal_attributes);
+        }
+    }
+/* ------------------------------------------------------ *\
+    [Methods] viewSectionAgenciesNewsBySubAgencieMethod
+\* ------------------------------------------------------ */
+    var viewSectionAgenciesNewsBySubAgencieMethod = {
+        viewSectionAgenciesNewsBySubAgencie: function(agn_name_agencia, agn_url, agn_id) {
+            viewSectionAgenciesNewsMethod.recurrentSecionAgenciesNews();
+            viewSectionAgenciesNewsBySubAgencieMethod.loadTemplatesUtilityBarBreadcrumb_subAgencie(agn_name_agencia, agn_url, agn_id);
+            viewSectionAgenciesNewsMethod.loadTemplatesBodyContent();
+            viewSectionAgenciesNewsMethod.loadTemplatesAgencesNewsBrands();
+        },
+        loadBreadcrumbs_subAgencie: function(agn_principal, agn_url) {
+            if ( section === 'agencies-news-sub-agencie' ) {
+                $('#filter-agencie-news-principal').html(agn_principal);
+                $('#filter-agencie-news-principal-type').html(agn_url);
+            }
+        },
+        loadTemplatesUtilityBarBreadcrumb_subAgencie : function (agn_principal, agn_url, agn_id) {
+            var url, byAgencieNews, campaAgpAgencie, campaAgnNombre;
+
+            url = urlsApi.getAgenciesNewsByAgencie + agn_url + '/' + agn_id;
+            byAgencieNews = CAM.getInternalJSON(url);
+            console.log(url);
+
+            campaAgpAgencie = byAgencieNews.campa[0].agpagencia;
+            campaAgnNombre = byAgencieNews.campa[0].agnnombre;
+
+            CAM.loadTemplate(tempsNames.recurrent_agencies_news_by_sub_agencies_start_utility_bar_breadcrumb, domEl._start_utility_bar_breadcrumb_name, byAgencieNews);
+            viewSectionAgenciesNewsBySubAgencieMethod.loadBreadcrumbs_subAgencie(campaAgpAgencie, campaAgnNombre);
+            console.log(campaAgpAgencie, campaAgnNombre);
         }
     }
 /* ------------------------------------------------------ *\
@@ -978,12 +1009,28 @@
             var agnPrincipal, $element;
             $element = $(this);
             agnPrincipal = $element.data('agp_nombre');
-            //$('body,html').animate({ scrollTop: "280" }, 999, 'easeOutExpo' );
+            $('body,html').animate({ scrollTop: "280" }, 999, 'easeOutExpo' );
 
             $(domEl.action_new_agn).children('.img-disable').removeClass('active');
             $element.children('.img-disable').addClass('active');
 
             Finch.navigate('/agencias/nuevos/' + agnPrincipal );
+        },
+        clikGo_agencies_news_sub_agencie: function(event) {
+            var agpAgencie, agnNombre, url, $element;
+            $element = $(this);
+
+            agpAgencia = $element.data('agn-news-agencie');
+            agnNombre = $element.data('agn-news-name');
+            agnUrl = $element.data('agn-news-url');
+            agnId = $element.data('agn-news-id');
+
+            //console.log(agpAgencia, agnNombre, agnUrl, agnId);
+            console.log($element.data());
+            
+            $('body,html').animate({ scrollTop: "280" }, 999, 'easeOutExpo' );
+
+            Finch.navigate('/agencias/nuevos/'  + agpAgencia + '/' + agnUrl + '/' + agnId );
         },
         clickGo_agencies_preowned: function(event) {
             $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );

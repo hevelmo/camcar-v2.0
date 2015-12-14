@@ -45,6 +45,8 @@ $(document).ready(function() {
     // VIDEO STRIP
     $(domEl.div_recurrent).on('click', '.video-strip .pre-video i', video_strip_methods.video_strip_pre_video);
     $(domEl.div_recurrent).on('click', '.video-strip .close-frame', video_strip_methods.video_strip_close_frame);
+    // AGENCIES NEWS SUB AGNECIES
+    $(domEl.div_recurrent).on('click', domEl.action_go_agencie_news, clikGoMethods.clikGo_agencies_news_sub_agencie);
     // AGENCIES NEWS ACTION
     $(domEl.div_recurrent).on('click', domEl.action_new_agn, clikGoMethods.clikGo_agencies_news_principal);
     // AGENCIES PRE-OWNED
