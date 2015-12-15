@@ -41,6 +41,9 @@ function tempsNames() {
         'recurrent_agencies_preowned_start_large_pad_land_mark' => 'tmp_section_agencies_preowned_start_large_pad_land_mark',
         'recurrent_agencies_preowned_start_large_pad_small_screen' => 'tmp_section_agencies_preowned_start_large_pad_small_screen',
         'recurrent_agencies_preowned_start_tabs_agencies' => 'tmp_section_agencies_preowned_start_tabs_agencies',
+        'recurrent_agencies_preowned_start_fachada' => 'tmp_section_agencies_preowned_start_fachada',
+        'recurrent_agencies_preowned_start_address' => 'tmp_section_agencies_preowned_start_address',
+        'recurrent_agencies_preowned_start_map' => 'tmp_section_agencies_preowned_start_map',
 
         // WORKSHOP
         'recurrent_workshop_start_utility_bar_breadcrumb' => 'tmp_section_workshop_start_utility_bar_breadcrumb',

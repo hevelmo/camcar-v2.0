@@ -28,6 +28,10 @@ function domEl() {
     $start_agencies_preowned_content_body = 'content-start-agencies-preowned-body-main';
     $start_agencies_preowned_small_screen = 'content-start-agencies-preowned-small-screen';
     $start_agencies_preowned_section_tabs = 'content-start-agencies-preowned-section-tabs';
+    $start_agencies_preowned_tab_content_by_agencie = 'content-start-tab-container-by-agencie';
+    $start_agencies_preowned_content_fachada = 'content-start-container-fachada';
+    $start_agencies_preowned_content_address = 'content-start-container-address';
+    $start_agencies_preowned_content_map = 'content-start-container-map';
     // WORKSHOP
     $start_workshop_content_body = 'content-start-workshop-body-main';
     $start_workshop_content_brand = 'content-start-workshop-brand';
@@ -111,6 +115,14 @@ function domEl() {
         '_start_agencies_preowned_small_screen_name' => '#' . $start_agencies_preowned_small_screen,
         '_start_agencies_preowned_section_tabs' => $start_agencies_preowned_section_tabs,
         '_start_agencies_preowned_section_tabs_name' => '#' . $start_agencies_preowned_section_tabs,
+        '_start_agencies_preowned_tab_content_by_agencie' => $start_agencies_preowned_tab_content_by_agencie,
+        '_start_agencies_preowned_tab_content_by_agencie_name' => '#' . $start_agencies_preowned_tab_content_by_agencie,
+        '_start_agencies_preowned_content_fachada' => $start_agencies_preowned_content_fachada,
+        '_start_agencies_preowned_content_fachada_name' => '#' . $start_agencies_preowned_content_fachada,
+        '_start_agencies_preowned_content_address' => $start_agencies_preowned_content_address,
+        '_start_agencies_preowned_content_address_name' => '#' . $start_agencies_preowned_content_address,
+        '_start_agencies_preowned_content_map' => $start_agencies_preowned_content_map,
+        '_start_agencies_preowned_content_map_name' => '#' . $start_agencies_preowned_content_map,
         // BUTTON SHOW TABS AGENICES PRE-OWNED
         'button_show_agencies_tabs' => '#Show-Agencies-Tabs',
         'button_search_tabs' => '#Search-tabs',

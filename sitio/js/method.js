@@ -2,8 +2,18 @@
     [Variables] 'Zone'
 \* ------------------------------------------------------ */
     var section;
-    var IS_MOBILE, mediaquery, mqMW320, mqMW360, mqMW375, mqMW384, mqMW400, mqMW412, mqMW414, mqMW480, mqMW600, mqMW640,  mqMW768,  mqMW800, mqMW1024,  mqMW1200,  mqMW1280,  mqMW1366, mqMW1440, mqMW1600, mqMW1601;
-    mediaquery = window.matchMedia("(max-width: 768px)");
+    var IS_MOBILE, mediaquery, mediaquery320, mediaquery360, mediaquery375, mediaquery384, mediaquery400, mediaquery412, mediaquery414, mediaquery480, mediaquery600, mediaquery640,  mediaquery768,  mediaquery800, mediaquery1024,  mediaquery1200,  mediaquery1280,  mediaquery1366, mediaquery1440, mediaquery1600, mediaquery1601;
+        mediaquery320 = window.matchMedia("(max-width: 320px)"); mediaquery360 = window.matchMedia("(max-width: 360px)");
+        mediaquery375 = window.matchMedia("(max-width: 375px)"); mediaquery384 = window.matchMedia("(max-width: 384px)");
+        mediaquery400 = window.matchMedia("(max-width: 400px)"); mediaquery412 = window.matchMedia("(max-width: 412px)");
+        mediaquery414 = window.matchMedia("(max-width: 414px)"); mediaquery480 = window.matchMedia("(max-width: 480px)");
+        mediaquery600 = window.matchMedia("(max-width: 600px)"); mediaquery640 = window.matchMedia("(max-width: 640px)");
+        mediaquery768 = window.matchMedia("(max-width: 768px)"); mediaquery800 = window.matchMedia("(max-width: 800px)");
+        mediaquery1024 = window.matchMedia("(max-width: 1024px)"); mediaquery1200 = window.matchMedia("(max-width: 1200px)");
+        mediaquery1280 = window.matchMedia("(max-width: 1280px)"); mediaquery1366 = window.matchMedia("(max-width: 1366px)");
+        mediaquery1440 = window.matchMedia("(max-width: 1440px)"); mediaquery1600 = window.matchMedia("(max-width: 1600px)");
+        mediaquery1601 = window.matchMedia("(max-width: 1601px)");
+        mediaquery = window.matchMedia("(max-width: 768px)");
     // Browser supports HTML5 multiple file?
     var multipleSupport, isIE;
     multipleSupport = typeof $('<input/>')[0].multiple !== 'undefined',
@@ -569,7 +579,7 @@
             ];
             CAM.appendMulti(domEl.div_recurrent, dataStarSiteAgenciesNews_agnPrincipal_attributes);
         }
-    }   
+    }
 /* ------------------------------------------------------ *\
     [Methods] viewSectionAgenciesNewsBySubAgencieMethod
 \* ------------------------------------------------------ */
@@ -890,6 +900,10 @@
             agnPreOwnedData = CAM.getInternalJSON(urlsApi.getAgenciesPreOwned);
             CAM.loadTemplate(tempsNames.recurrent_agencies_preowned_start_tabs_agencies, domEl._start_agencies_preowned_section_tabs_name, agnPreOwnedData);
             console.log(agnPreOwnedData);
+            dataStarSiteAgenciesPreownedByAgencieAttributes = [
+                ['div', {'id':domEl._start_agencies_preowned_tab_content_by_agencie, 'class':'tab_content_agencies about-content'}, '', 1]
+            ];
+            CAM.appendMulti(domEl._start_agencies_preowned_section_tabs_name, dataStarSiteAgenciesPreownedByAgencieAttributes);
         },
         recurrentSecionAgenciesPreowned: function() {
             dataStarSiteAgenciesPreownedAttributes = [
@@ -901,7 +915,7 @@
         }
     }
 /* ------------------------------------------------------ *\
-[Methods] viewSectionAgenciesPreownedByAgencieMethod
+    [Methods] viewSectionAgenciesPreownedByAgencieMethod
 \* ------------------------------------------------------ */
     var viewSectionAgenciesPreownedByAgencieMethod = {
         viewSectionAgenciesPreownedByAgencie: function(preowned_agn_url, preowned_agn_id) {
@@ -911,6 +925,8 @@
             viewSectionAgenciesPreownedMethod.loadTemplatesBodyContent();
             viewSectionAgenciesPreownedMethod.loadTemplatesSmallScreen();
             viewSectionAgenciesPreownedMethod.loadUrlsApiAgencie_pre_owned();
+            viewSectionAgenciesPreownedByAgencieMethod.recurrentSectionAgenciesPreownedByAgencie();
+            viewSectionAgenciesPreownedByAgencieMethod.loadTemplatesContainerByAgencie(preowned_agn_url, preowned_agn_id);
         },
         loadBreadcrumbsPreownedByAgencie: function(preowned_agn_url) {
             if ( section === 'agencies_preowned_by_agencie' ) {
@@ -929,11 +945,251 @@
             CAM.loadTemplate(tempsNames.recurrent_agencies_preowned_by_agencie_start_utility_bar_breadcreumb, domEl._start_utility_bar_breadcrumb_name, byAgencie);
             viewSectionAgenciesPreownedByAgencieMethod.loadBreadcrumbsPreownedByAgencie(campaAgnNombre);
         },
+        loadTemplatesContainerByAgencie: function(preowned_agn_url, preowned_agn_id) {
+            var agencie, byAgencie, campaAgnNombre;
+
+            agencie = urlsApi.getAgenciesPreOwnedByAgencie + preowned_agn_url + '/' + preowned_agn_id;
+            byAgencie = CAM.getInternalJSON(agencie);
+            console.log(agencie);
+
+            CAM.loadTemplate(tempsNames.recurrent_agencies_preowned_start_fachada, domEl._start_agencies_preowned_content_fachada_name, byAgencie);
+            CAM.loadTemplate(tempsNames.recurrent_agencies_preowned_start_address, domEl._start_agencies_preowned_content_address_name, byAgencie);
+            CAM.loadTemplate(tempsNames.recurrent_agencies_preowned_start_map, domEl._start_agencies_preowned_content_map_name, byAgencie);
+            bgImageHolderMethods.appendBgImageHolder2();
+
+            mapAgenciePreownedByAgencieMethod.mapAgenciePreownedByAgencie();
+            mapAgenciePreownedByAgencieMethod.initMapAgenciePreownedByAgencie();
+        },
         recurrentSecionAgenciesPreownedByAgencie: function() {
             dataStarSiteAgenciesPreownedAttributes = [
                 ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content'}, '', 1]
             ];
             CAM.appendMulti(domEl.div_recurrent, dataStarSiteAgenciesPreownedAttributes);
+        },
+        recurrentSectionAgenciesPreownedByAgencie: function() {
+            byAgencyAttributes = [
+                ['div', {'id':domEl._start_agencies_preowned_content_fachada, 'class':'about-content'}, '', 1],
+                ['div', {'id':domEl._start_agencies_preowned_content_address, 'class':'about-content'}, '', 1],
+                ['div', {'id':domEl._start_agencies_preowned_content_map, 'class':'about-content'}, '', 1]
+            ];
+            CAM.appendMulti(domEl._start_agencies_preowned_tab_content_by_agencie_name, byAgencyAttributes);
+        }
+    }
+/* ------------------------------------------------------ *\
+    [Methods] mapAgenciePreownedByAgencieMethod
+\* ------------------------------------------------------ */
+    var mapAgenciePreownedByAgencieMethod = {
+        mapAgenciePreownedByAgencie: function() {
+            var styles, mapNews, agn_latitud, agn_longitudl, agnId, agnLogo, agnName, agnAddress, agnFolder, dirNews, mapOpcNews, map, marker2, popup, location_center, main_color, saturation_value, brightness_value;
+
+            main_color = '#2d313f';
+            saturation_value = -20;
+            brightness_value = 5;
+
+            agnId = +CAM.getValue(domEl.input_hidden_mapa);
+            mapNews = CAM.getInternalJSON(urlsApi.getAgenciesPreOwnedByMap + agnId);
+
+           agn_latitud = mapNews.campa[0].agnlatitud;
+           agn_longitud = mapNews.campa[0].agnlongitud;
+
+            location_center = new google.maps.LatLng(agn_latitud,agn_longitud);
+
+            style = [
+                { //set saturation for the labels on the map
+                    elementType: "labels",
+                    stylers: [ { saturation: saturation_value } ]
+                },
+                { //poi stands for point of interest - don't show these lables on the map
+                    featureType: "poi",
+                    elementType: "labels",
+                    stylers: [  { visibility: "off" } ]
+                },
+                { //don't show highways lables on the map
+                    featureType: 'road.highway',
+                    elementType: 'labels',
+                    stylers: [ { visibility: "off" } ]
+                },
+                {  //don't show local road lables on the map
+                    featureType: "road.local",
+                    elementType: "labels.icon",
+                    stylers: [ { visibility: "off" } ]
+                },
+                {  //don't show arterial road lables on the map
+                    featureType: "road.arterial",
+                    elementType: "labels.icon",
+                    stylers: [ { visibility: "off" } ]
+                },
+                { //don't show road lables on the map
+                    featureType: "road",
+                    elementType: "geometry.stroke",
+                    stylers: [ { visibility: "off" } ]
+                },
+                { //style different elements on the map
+                    featureType: "transit",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "poi",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "poi.government",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "poi.sport_complex",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "poi.attraction",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "poi.business",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "transit",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "transit.station",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "landscape",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+
+                },
+                {
+                    featureType: "road",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "road.highway",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "water",
+                    elementType: "geometry",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                }
+            ];
+
+            mapOpcNews = {
+                zoom: 16,
+                center: new google.maps.LatLng(agn_latitud,agn_longitud),
+                scrollwheel: false,
+                mapTypeControlOptions: {
+                    mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+                },
+                styles: style
+            }
+
+            map = new google.maps.Map(document.getElementById('map-canvas'),mapOpcNews);
+
+            marker2 = new google.maps.Marker({
+                position: map.getCenter(),
+                map: map,
+                title: 'CAMCAR',
+                icon: "../img/sitio/pin_camcar.png" //custom pin icon
+            });
+
+            dirNews = mapNews.campa[0].agnfolder;
+            agnFolder = '../../img/sitio/agencias/logos';
+            agnLogo = mapNews.campa[0].agnlogo;
+            agnName = mapNews.campa[0].agnnombre;
+            agnAddress = mapNews.campa[0].agndireccion;
+
+            popup = new google.maps.InfoWindow({
+                content:
+                    '<div class="marker-info-win" style="text-align: center;">'+
+                    '<div class="marker-inner-win"><span class="info-content">'+
+                    '<img src="img/'+agnFolder+'/'+agnLogo+'" alt="'+agnName+'" style="margin-botton: 10px;" width="150">'+
+                    '<h5 class="marker-heading" style="color:#000; padding: 0px; margin: 0px;">'+agnName+'</h5>'+
+                    '<span>'+agnAddress+'</span>' +
+                    '</span>'+
+                    '</div></div>'
+            });
+
+            attachInfoWindowToMarker(map, marker2, popup);
+
+            function attachInfoWindowToMarker( map, marker, infoWindow ) {
+                infoWindow.open(map, marker2, popup);
+            }
+        },
+        initMapAgenciePreownedByAgencie: function() {
+            google.maps.event.addDomListener(window, 'load', mapAgenciePreownedByAgencieMethod.mapAgenciePreownedByAgencie());
         }
     }
 /* ------------------------------------------------------ *\
