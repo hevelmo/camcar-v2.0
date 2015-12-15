@@ -66,6 +66,7 @@ domEl = {
 	"action_go_agencie_preowned":"a.go-action-agencie-preowned",
 	"action_go_agencie_preowned_id":"a#go-action-agencie-preowned-",
 	"action_new_agn":".action-new-agn",
+	"action_preowned_agn":".action-preowned-agn",
 	"body_recurrent":"body",
 	"button_search_tabs":"#Search-tabs",
 	"button_show_agencies_tabs":"#Show-Agencies-Tabs",

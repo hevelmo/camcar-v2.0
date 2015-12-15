@@ -569,7 +569,7 @@
             ];
             CAM.appendMulti(domEl.div_recurrent, dataStarSiteAgenciesNews_agnPrincipal_attributes);
         }
-    }
+    }   
 /* ------------------------------------------------------ *\
     [Methods] viewSectionAgenciesNewsBySubAgencieMethod
 \* ------------------------------------------------------ */
@@ -848,6 +848,20 @@
         }
     }
 /* ------------------------------------------------------ *\
+    [Methods] activeLogAgenciesPreownedMethod
+\* ------------------------------------------------------ */
+    var activeLogAgenciesPreownedMethod = {
+        activeLogAgenciesPreowned: function(preowned_agn_url) {
+            $(domEl.action_preowned_agn).each(function() {
+                var preowned_agn_url_element;
+                preowned_agn_url_element = $(this).data('agn-preowned-name');
+                if(preowned_agn_url === preowned_agn_url_element) {
+                    $(this).children('.img-disable').addClass('active');
+                }
+            });
+        }
+    }
+/* ------------------------------------------------------ *\
     [Methods] viewSectionAgenciesPreownedMethod
 \* ------------------------------------------------------ */
     var viewSectionAgenciesPreownedMethod = {
@@ -891,6 +905,7 @@
 \* ------------------------------------------------------ */
     var viewSectionAgenciesPreownedByAgencieMethod = {
         viewSectionAgenciesPreownedByAgencie: function(preowned_agn_url, preowned_agn_id) {
+            viewSectionAgenciesPreownedMethod.recurrentSecionAgenciesPreowned();
             viewSectionAgenciesPreownedByAgencieMethod.recurrentSecionAgenciesPreownedByAgencie();
             viewSectionAgenciesPreownedByAgencieMethod.loadTemplatesUtilityBarBreadcrumbByAgencie(preowned_agn_url, preowned_agn_id);
             viewSectionAgenciesPreownedMethod.loadTemplatesBodyContent();
@@ -1333,14 +1348,19 @@
             Finch.navigate('/agencias/seminuevos');
         },
         clickGo_agencies_preowned_by_agencie: function(event) {
+            var $element;
+            $element = $(this);
             $('body,html').animate({ scrollTop: "280" }, 999, 'easeOutExpo' );
 
-            agnNombre = $(this).data('agn-preowned-name');
-            agnUrl = $(this).data('agn-preowned-url');
-            agnId = $(this).data('agn-preowned-id');
+            agnNombre = $element.data('agn-preowned-name');
+            agnUrl = $element.data('agn-preowned-url');
+            agnId = $element.data('agn-preowned-id');
+
+            $(domEl.action_preowned_agn).children('.img-disable').removeClass('active');
+            $element.children('.img-disable').addClass('active');
 
             //console.log(agnNombre, agnId);
-            //console.log($(this).data());
+            //console.log($element.data());
             Finch.navigate('/agencias/seminuevos/' + agnUrl + '/' + agnId);
         },
         clickGo_inventories_preowned: function(event){

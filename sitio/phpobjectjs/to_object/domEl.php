@@ -119,6 +119,8 @@ function domEl() {
         'action_go_agencie_preowned' => 'a.go-action-agencie-preowned',
         'action_go_agencie_preowned_id' => 'a#go-action-agencie-preowned-',
 
+        'action_preowned_agn' => '.action-preowned-agn',
+
         // WORKSHOP
         '_start_workshop_content_body' => $start_workshop_content_body,
         '_start_workshop_content_body_name' => '#' . $start_workshop_content_body,
