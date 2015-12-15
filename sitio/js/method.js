@@ -373,36 +373,6 @@
         }
     }
 /* ------------------------------------------------------ *\
-    [Methods] addAttrForSectionMethod
-\* ------------------------------------------------------ */
-    var addAttrForSectionMethod = {
-        addAttrForSection_home: function() {
-        }
-    }
-/* ------------------------------------------------------ *\
-    [Methods] removeAttrForSectionMethod
-\* ------------------------------------------------------ */
-    var removeAttrForSectionMethod = {
-        removeAttrForSection_home: function() {
-        }
-    }
-/* ------------------------------------------------------ *\
-    [Methods] addStylesForSectionMethod
-\* ------------------------------------------------------ */
-    var addStylesForSectionMethod = {
-        addStylesSection_home: function() {
-        }
-    }
-/* ------------------------------------------------------ *\
-    [Methods] cleanStylesForSectionMethod
-\* ------------------------------------------------------ */
-    var cleanStylesForSectionMethod = {
-        cleanStylesForSection: function() {
-        },
-        cleanStylesSection_home: function() {
-        }
-    }
-/* ------------------------------------------------------ *\
     [Metodos] addAttrNavAgenciesNewsMethod
 \* ------------------------------------------------------ */
     var addAttrNavAgenciesNewsMethod = {
@@ -912,6 +882,29 @@
                 ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content'}, '', 1],
                 ['section', {'id':domEl._start_agencies_preowned_content_body, 'class':'large-pad text-hero-2 agencies-preowned about-content'}, '', 1],
                 ['section', {'id':domEl._start_agencies_preowned_small_screen, 'class':'large-pad about-content', 'style':'padding-top: 0px;'}, '', 1],
+            ];
+            CAM.appendMulti(domEl.div_recurrent, dataStarSiteAgenciesPreownedAttributes);
+        }
+    }
+/* ------------------------------------------------------ *\
+[Methods] viewSectionAgenciesPreownedByAgencieMethod
+\* ------------------------------------------------------ */
+    var viewSectionAgenciesPreownedByAgencieMethod = {
+        viewSectionAgenciesPreownedByAgencie: function(preowned_agn_url, preowned_agn_id) {
+            viewSectionAgenciesPreownedByAgencieMethod.recurrentSecionAgenciesPreownedByAgencie();
+            viewSectionAgenciesPreownedByAgencieMethod.loadTemplatesUtilityBarBreadcrumb();
+        },
+        loadBreadcrumbs_agnPrincipal: function(preowned_agn_url) {
+            if ( section === 'agencies_preowned_by_agencie' ) {
+                $('#filter-agencie-preowned-principal').html(preowned_agn_url);
+            }
+        },
+        loadTemplatesUtilityBarBreadcrumb: function(preowned_agn_url, preowned_agn_id) {
+            CAM.loadTemplate(tempsNames.recurrent_agencies_preowned_by_agencie_start_utility_bar_breadcreumb, domEl._start_utility_bar_breadcrumb_name);
+        },
+        recurrentSecionAgenciesPreownedByAgencie: function() {
+            dataStarSiteAgenciesPreownedAttributes = [
+                ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content'}, '', 1]
             ];
             CAM.appendMulti(domEl.div_recurrent, dataStarSiteAgenciesPreownedAttributes);
         }

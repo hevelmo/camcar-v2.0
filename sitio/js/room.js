@@ -35,7 +35,6 @@
  [Route] AGENCIES NEWS
 \* ----------------------------------- */
     Finch.route('/agencias/nuevos/:agn_name_agencia/:agn_url/:agn_id', {
-    //Finch.route('/agencias/nuevos/:agn_name_agencia/:agn_url/:agn_id', {
         setup: function(bindings) {
             var agn_name, agn_url, agn_id;
             agn_name = bindings.agn_name_agencia;
@@ -137,7 +136,7 @@
             } else if ( agn_url !== undefined && agn_id !== undefined ) {
                 section = "agencies_preowned_by_agencie";
                 CAM.setValue(domEl.input_hidden_mapa, bindings.agn_id);
-                //viewSectionAgenciesPreownedByAgencieMethod.viewSectionAgenciesPreownedByAgencie();
+                viewSectionAgenciesPreownedByAgencieMethod.viewSectionAgenciesPreownedByAgencie();
             }
 
 
