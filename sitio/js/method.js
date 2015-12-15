@@ -893,6 +893,9 @@
         viewSectionAgenciesPreownedByAgencie: function(preowned_agn_url, preowned_agn_id) {
             viewSectionAgenciesPreownedByAgencieMethod.recurrentSecionAgenciesPreownedByAgencie();
             viewSectionAgenciesPreownedByAgencieMethod.loadTemplatesUtilityBarBreadcrumbByAgencie(preowned_agn_url, preowned_agn_id);
+            viewSectionAgenciesPreownedMethod.loadTemplatesBodyContent();
+            viewSectionAgenciesPreownedMethod.loadTemplatesSmallScreen();
+            viewSectionAgenciesPreownedMethod.loadUrlsApiAgencie_pre_owned();
         },
         loadBreadcrumbsPreownedByAgencie: function(preowned_agn_url) {
             if ( section === 'agencies_preowned_by_agencie' ) {
