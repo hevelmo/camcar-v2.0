@@ -180,6 +180,7 @@ $app->run();
             $result_link_container[$idx]['target_sitio'] = ($agn_type != 'sitio' ) ? '' : '_blank';
             $result_link_container[$idx]['target_agencia'] = ($agn_type != 'agencia' ) ? '' : '_self';
             $result_link_container[$idx]['target_agencias'] = ($agn_type != 'agencias' ) ? '' : '_self';
+            $result_link_container[$idx]['target_promo'] = ($agn_type != 'promo' ) ? '' : '_blank';
         }
         $json = changeArrayIntoJSON('campa', $result_link_container);
         echo $json;

@@ -567,6 +567,7 @@ templates['tmp_section_home_hero_slide_carousel'] = template({"1":function(conta
     + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.target_sitio : depth0),{"name":"if","hash":{},"fn":container.program(12, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.target_agencia : depth0),{"name":"if","hash":{},"fn":container.program(14, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.target_agencias : depth0),{"name":"if","hash":{},"fn":container.program(16, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.target_promo : depth0),{"name":"if","hash":{},"fn":container.program(18, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "                    </span>\n                    <span class=\"secondaryLinkContainer\"></span>\n                </div>\n            </div>\n        </div>\n";
 },"2":function(container,depth0,helpers,partials,data) {
     var stack1;
@@ -595,11 +596,11 @@ templates['tmp_section_home_hero_slide_carousel'] = template({"1":function(conta
 },"10":function(container,depth0,helpers,partials,data) {
     var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
 
-  return "                        <a class=\"primaryLinkWithStyle plwsLight TargetLinks\" \n                            href=\""
+  return "                        <a class=\"primaryLinkWithStyle plwsLight TargetLinks\"\n                            href=\""
     + alias4(((helper = (helper = helpers.primaryLinkurl || (depth0 != null ? depth0.primaryLinkurl : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"primaryLinkurl","hash":{},"data":data}) : helper)))
-    + "\" \n                            data-link-desktop=\""
+    + "\"\n                            data-link-desktop=\""
     + alias4(((helper = (helper = helpers.primaryLinkurl || (depth0 != null ? depth0.primaryLinkurl : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"primaryLinkurl","hash":{},"data":data}) : helper)))
-    + "\" \n                            data-target=\"current\" \n                            target=\""
+    + "\"\n                            data-target=\"current\"\n                            target=\""
     + alias4(((helper = (helper = helpers.target_noticia || (depth0 != null ? depth0.target_noticia : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"target_noticia","hash":{},"data":data}) : helper)))
     + "\">\n                            <span>"
     + alias4(((helper = (helper = helpers.primaryLinkTitle || (depth0 != null ? depth0.primaryLinkTitle : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"primaryLinkTitle","hash":{},"data":data}) : helper)))
@@ -607,11 +608,11 @@ templates['tmp_section_home_hero_slide_carousel'] = template({"1":function(conta
 },"12":function(container,depth0,helpers,partials,data) {
     var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
 
-  return "                        <a class=\"primaryLinkWithStyle plwsLight TargetLinks\" \n                            href=\""
+  return "                        <a class=\"primaryLinkWithStyle plwsLight TargetLinks\"\n                            href=\""
     + alias4(((helper = (helper = helpers.primaryLinkurl || (depth0 != null ? depth0.primaryLinkurl : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"primaryLinkurl","hash":{},"data":data}) : helper)))
-    + "\" \n                            data-link-desktop=\""
+    + "\"\n                            data-link-desktop=\""
     + alias4(((helper = (helper = helpers.primaryLinkurl || (depth0 != null ? depth0.primaryLinkurl : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"primaryLinkurl","hash":{},"data":data}) : helper)))
-    + "\" \n                            data-target=\"current\" \n                            target=\""
+    + "\"\n                            data-target=\"current\"\n                            target=\""
     + alias4(((helper = (helper = helpers.target_sitio || (depth0 != null ? depth0.target_sitio : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"target_sitio","hash":{},"data":data}) : helper)))
     + "\">\n                            <span>"
     + alias4(((helper = (helper = helpers.primaryLinkTitle || (depth0 != null ? depth0.primaryLinkTitle : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"primaryLinkTitle","hash":{},"data":data}) : helper)))
@@ -619,11 +620,11 @@ templates['tmp_section_home_hero_slide_carousel'] = template({"1":function(conta
 },"14":function(container,depth0,helpers,partials,data) {
     var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
 
-  return "                        <a class=\"primaryLinkWithStyle plwsLight TargetLinks\" \n                            href=\""
+  return "                        <a class=\"primaryLinkWithStyle plwsLight TargetLinks\"\n                            href=\""
     + alias4(((helper = (helper = helpers.primaryLinkurl || (depth0 != null ? depth0.primaryLinkurl : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"primaryLinkurl","hash":{},"data":data}) : helper)))
-    + "\" \n                            data-link-desktop=\""
+    + "\"\n                            data-link-desktop=\""
     + alias4(((helper = (helper = helpers.primaryLinkurl || (depth0 != null ? depth0.primaryLinkurl : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"primaryLinkurl","hash":{},"data":data}) : helper)))
-    + "\" \n                            data-target=\"current\" \n                            target=\""
+    + "\"\n                            data-target=\"current\"\n                            target=\""
     + alias4(((helper = (helper = helpers.target_agencia || (depth0 != null ? depth0.target_agencia : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"target_agencia","hash":{},"data":data}) : helper)))
     + "\">\n                            <span>"
     + alias4(((helper = (helper = helpers.primaryLinkTitle || (depth0 != null ? depth0.primaryLinkTitle : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"primaryLinkTitle","hash":{},"data":data}) : helper)))
@@ -631,19 +632,31 @@ templates['tmp_section_home_hero_slide_carousel'] = template({"1":function(conta
 },"16":function(container,depth0,helpers,partials,data) {
     var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
 
-  return "                        <a class=\"primaryLinkWithStyle plwsLight TargetLinks\" \n                            href=\""
+  return "                        <a class=\"primaryLinkWithStyle plwsLight TargetLinks\"\n                            href=\""
     + alias4(((helper = (helper = helpers.primaryLinkurl || (depth0 != null ? depth0.primaryLinkurl : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"primaryLinkurl","hash":{},"data":data}) : helper)))
-    + "\" \n                            data-link-desktop=\""
+    + "\"\n                            data-link-desktop=\""
     + alias4(((helper = (helper = helpers.primaryLinkurl || (depth0 != null ? depth0.primaryLinkurl : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"primaryLinkurl","hash":{},"data":data}) : helper)))
-    + "\" \n                            data-target=\"current\" \n                            target=\""
+    + "\"\n                            data-target=\"current\"\n                            target=\""
     + alias4(((helper = (helper = helpers.target_agencias || (depth0 != null ? depth0.target_agencias : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"target_agencias","hash":{},"data":data}) : helper)))
+    + "\">\n                            <span>"
+    + alias4(((helper = (helper = helpers.primaryLinkTitle || (depth0 != null ? depth0.primaryLinkTitle : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"primaryLinkTitle","hash":{},"data":data}) : helper)))
+    + "</span>\n                        </a>\n";
+},"18":function(container,depth0,helpers,partials,data) {
+    var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
+
+  return "                        <a class=\"primaryLinkWithStyle plwsLight TargetLinks\"\n                            href=\""
+    + alias4(((helper = (helper = helpers.primaryLinkurl || (depth0 != null ? depth0.primaryLinkurl : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"primaryLinkurl","hash":{},"data":data}) : helper)))
+    + "\"\n                            data-link-desktop=\""
+    + alias4(((helper = (helper = helpers.primaryLinkurl || (depth0 != null ? depth0.primaryLinkurl : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"primaryLinkurl","hash":{},"data":data}) : helper)))
+    + "\"\n                            data-target=\"current\"\n                            target=\""
+    + alias4(((helper = (helper = helpers.target_promo || (depth0 != null ? depth0.target_promo : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"target_promo","hash":{},"data":data}) : helper)))
     + "\">\n                            <span>"
     + alias4(((helper = (helper = helpers.primaryLinkTitle || (depth0 != null ? depth0.primaryLinkTitle : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"primaryLinkTitle","hash":{},"data":data}) : helper)))
     + "</span>\n                        </a>\n";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return "<!--googleon: all-->\n<div class=\"HeroCarousel inner fontSmooth\" data-total=\"10\" id=\"295-83457\">\n    <div class=\"carousel royalSlider\">\n"
+  return "<!--googleon: all-->\n<div class=\"HeroCarousel inner fontSmooth\" data-total=\"11\" id=\"295-83457\">\n    <div class=\"carousel royalSlider\">\n"
     + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.campa : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "    </div>\n    <!-- Copy this HTML where ever you need a scroll down button -->\n    <a class=\"ScrollDown\" href=\"#ScrollDown\" id=\"ScrollDown\">\n        <i class=\"fa fa-angle-double-down fa-5x animation-pulse\" style=\"margin: 7px;\"></i>\n    </a>\n</div>\n<!--googleoff: all-->\n<script src=\"../lib/site/herocarousel/lab.js\"></script>\n";
 },"useData":true});

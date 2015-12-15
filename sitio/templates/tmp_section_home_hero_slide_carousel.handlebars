@@ -1,5 +1,5 @@
 <!--googleon: all-->
-<div class="HeroCarousel inner fontSmooth" data-total="10" id="295-83457">
+<div class="HeroCarousel inner fontSmooth" data-total="11" id="295-83457">
     <div class="carousel royalSlider">
     {{#each campa}}
         <div class="heroItem alignedText left" data-audio="false" data-slideid="{{banId}}">
@@ -50,38 +50,47 @@
                 <div class="linkContainer">
                     <span class="primaryLinkContainer">
                         {{#if target_noticia}}
-                        <a class="primaryLinkWithStyle plwsLight TargetLinks" 
-                            href="{{primaryLinkurl}}" 
-                            data-link-desktop="{{primaryLinkurl}}" 
-                            data-target="current" 
+                        <a class="primaryLinkWithStyle plwsLight TargetLinks"
+                            href="{{primaryLinkurl}}"
+                            data-link-desktop="{{primaryLinkurl}}"
+                            data-target="current"
                             target="{{target_noticia}}">
                             <span>{{primaryLinkTitle}}</span>
                         </a>
                         {{/if}}
                         {{#if target_sitio}}
-                        <a class="primaryLinkWithStyle plwsLight TargetLinks" 
-                            href="{{primaryLinkurl}}" 
-                            data-link-desktop="{{primaryLinkurl}}" 
-                            data-target="current" 
+                        <a class="primaryLinkWithStyle plwsLight TargetLinks"
+                            href="{{primaryLinkurl}}"
+                            data-link-desktop="{{primaryLinkurl}}"
+                            data-target="current"
                             target="{{target_sitio}}">
                             <span>{{primaryLinkTitle}}</span>
                         </a>
                         {{/if}}
                         {{#if target_agencia}}
-                        <a class="primaryLinkWithStyle plwsLight TargetLinks" 
-                            href="{{primaryLinkurl}}" 
-                            data-link-desktop="{{primaryLinkurl}}" 
-                            data-target="current" 
+                        <a class="primaryLinkWithStyle plwsLight TargetLinks"
+                            href="{{primaryLinkurl}}"
+                            data-link-desktop="{{primaryLinkurl}}"
+                            data-target="current"
                             target="{{target_agencia}}">
                             <span>{{primaryLinkTitle}}</span>
                         </a>
                         {{/if}}
                         {{#if target_agencias}}
-                        <a class="primaryLinkWithStyle plwsLight TargetLinks" 
-                            href="{{primaryLinkurl}}" 
-                            data-link-desktop="{{primaryLinkurl}}" 
-                            data-target="current" 
+                        <a class="primaryLinkWithStyle plwsLight TargetLinks"
+                            href="{{primaryLinkurl}}"
+                            data-link-desktop="{{primaryLinkurl}}"
+                            data-target="current"
                             target="{{target_agencias}}">
+                            <span>{{primaryLinkTitle}}</span>
+                        </a>
+                        {{/if}}
+                        {{#if target_promo}}
+                        <a class="primaryLinkWithStyle plwsLight TargetLinks"
+                            href="{{primaryLinkurl}}"
+                            data-link-desktop="{{primaryLinkurl}}"
+                            data-target="current"
+                            target="{{target_promo}}">
                             <span>{{primaryLinkTitle}}</span>
                         </a>
                         {{/if}}
