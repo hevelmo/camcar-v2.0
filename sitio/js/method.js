@@ -892,15 +892,24 @@
     var viewSectionAgenciesPreownedByAgencieMethod = {
         viewSectionAgenciesPreownedByAgencie: function(preowned_agn_url, preowned_agn_id) {
             viewSectionAgenciesPreownedByAgencieMethod.recurrentSecionAgenciesPreownedByAgencie();
-            viewSectionAgenciesPreownedByAgencieMethod.loadTemplatesUtilityBarBreadcrumb();
+            viewSectionAgenciesPreownedByAgencieMethod.loadTemplatesUtilityBarBreadcrumbByAgencie(preowned_agn_url, preowned_agn_id);
         },
-        loadBreadcrumbs_agnPrincipal: function(preowned_agn_url) {
+        loadBreadcrumbsPreownedByAgencie: function(preowned_agn_url) {
             if ( section === 'agencies_preowned_by_agencie' ) {
                 $('#filter-agencie-preowned-principal').html(preowned_agn_url);
             }
         },
-        loadTemplatesUtilityBarBreadcrumb: function(preowned_agn_url, preowned_agn_id) {
-            CAM.loadTemplate(tempsNames.recurrent_agencies_preowned_by_agencie_start_utility_bar_breadcreumb, domEl._start_utility_bar_breadcrumb_name);
+        loadTemplatesUtilityBarBreadcrumbByAgencie: function(preowned_agn_url, preowned_agn_id) {
+            var agencie, byAgencie, campaAgnNombre;
+
+            agencie = urlsApi.getAgenciesPreOwnedByAgencie + preowned_agn_url + '/' + preowned_agn_id;
+            byAgencie = CAM.getInternalJSON(agencie);
+            console.log(agencie);
+
+            campaAgnNombre = byAgencie.campa[0].agnnombre;
+
+            CAM.loadTemplate(tempsNames.recurrent_agencies_preowned_by_agencie_start_utility_bar_breadcreumb, domEl._start_utility_bar_breadcrumb_name, byAgencie);
+            viewSectionAgenciesPreownedByAgencieMethod.loadBreadcrumbsPreownedByAgencie(campaAgnNombre);
         },
         recurrentSecionAgenciesPreownedByAgencie: function() {
             dataStarSiteAgenciesPreownedAttributes = [

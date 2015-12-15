@@ -77,7 +77,7 @@ $app->configureMode('development', function () use ($app) {
     // AGENCIES PRE-OWNED
     $app->get('/get/agencia/seminuevos', /*'mw1',*/ 'getAgenciesPreOwned');
     $app->get('/get/agencia/seminuevos/mapas/:agn_id', /*'mw1',*/ 'getAgenciesPreOwnedByMap');
-    $app->get('/get/agencia/seminuevos/:agn_nombre/:agn_id', /*'mw1',*/ 'getAgenciesPreOwnedByAgencie');
+    $app->get('/get/agencia/seminuevos/:preowned_agn_url/:preowned_agn_id', /*'mw1',*/ 'getAgenciesPreOwnedByAgencie');
 
     // SECTION WORKSHOP
     $app->get('/get/talleres', /*'mw1',*/ 'getWorkshop');
@@ -661,7 +661,7 @@ $app->run();
         getAgenciesPreOwnedByMapsJSON($sql, $agnid);
     }
     // AGENCIES PRE-OWNED BY AGENCIE
-    function getAgenciesPreOwnedByAgencieJSON($sql, $agn_nombre, $agn_id) {
+    function getAgenciesPreOwnedByAgencieJSON($sql, $preowned_agn_url, $preowned_agn_id) {
         $structure = array(
             'agnid' => 'AGN_Id',
             'agnnombre' => 'AGN_Nombre',
@@ -712,11 +712,11 @@ $app->run();
             )
         );
         $params = array();
-        ($agn_nombre !== '') ? $params['agn_nombre'] = $agn_nombre : $params = $params;
-        ($agn_id !== '') ? $params['agn_id'] = $agn_id : $params = $params;
+        ($preowned_agn_url !== '') ? $params['preowned_agn_url'] = $preowned_agn_url : $params = $params;
+        ($preowned_agn_id !== '') ? $params['preowned_agn_id'] = $preowned_agn_id : $params = $params;
         echo changeQueryIntoJSON('campa', $structure, getConnection(), $sql, $params, 0, PDO::FETCH_ASSOC);
     }
-    function getAgenciesPreOwnedByAgencie($agn_nombre, $agn_id) {
+    function getAgenciesPreOwnedByAgencie($preowned_agn_url, $preowned_agn_id) {
         $sql = "SELECT *
                 FROM (
                     SELECT *
@@ -729,10 +729,10 @@ $app->run();
                 ON agn.AGN_Id = hrs.HRS_AGN_Id
                 INNER JOIN camSociales soc
                 ON agn.AGN_Id = soc.SOC_AGN_Id
-                WHERE AGN_Id = :agn_id
-                AND AGN_Url = :agn_nombre
+                WHERE AGN_Id = :preowned_agn_id
+                AND AGN_Url = :preowned_agn_url
                 ORDER BY AGN_Id";
-        getAgenciesPreOwnedByAgencieJSON($sql, $agn_nombre, $agn_id);
+        getAgenciesPreOwnedByAgencieJSON($sql, $preowned_agn_url, $preowned_agn_id);
     }
 
     // WORKSHOP

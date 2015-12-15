@@ -135,10 +135,9 @@
                 viewSectionAgenciesPreownedMethod.viewSectionAgenciesPreowned();
             } else if ( agn_url !== undefined && agn_id !== undefined ) {
                 section = "agencies_preowned_by_agencie";
-                CAM.setValue(domEl.input_hidden_mapa, bindings.agn_id);
-                viewSectionAgenciesPreownedByAgencieMethod.viewSectionAgenciesPreownedByAgencie();
+                CAM.setValue(domEl.input_hidden_mapa, agn_id);
+                viewSectionAgenciesPreownedByAgencieMethod.viewSectionAgenciesPreownedByAgencie(agn_url, agn_id);
             }
-
 
             $(window).resize(mobile_menu_methods.has_menu_toggle);
             backToTopMethod.init_window_scroll_top();
