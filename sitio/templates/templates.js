@@ -302,11 +302,145 @@ templates['tmp_section_agencies_news_start_utility_bar_breadcrumb'] = template({
 templates['tmp_section_agencies_preowned_by_agencie_start_utility_bar_breadcreumb'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     return "<!-- Utiity Bar -->\n<div class=\"utility-bar\" id=\"start-utility-bar\">\n	<div class=\"container\">\n    	<div class=\"row\">\n        	<div class=\"col-md-12 col-sm-12 col-xs-12\">\n                <ol class=\"breadcrumb\">\n                    <li><a class=\"cur-hover\" id=\"go-breadcrumb-home\"><i class=\"fa fa-home fa-fw fa-lg\"></i> Inicio</a></li>\n                    <li><a id=\"go-back-agencies-preowned\" class=\"cur-hover\">Agencias</a></li>\n                    <li class=\"active\"><a class=\"cur-hover\">Seminuevos</a></li>\n                    <li class=\"active\"><a id=\"filter-agencie-preowned-principal\" class=\"cur-hover\"></a></li>\n                </ol>\n        	</div>\n        </div>\n  	</div>\n</div>\n";
 },"useData":true});
+templates['tmp_section_agencies_preowned_start_address'] = template({"1":function(container,depth0,helpers,partials,data) {
+    var stack1, alias1=depth0 != null ? depth0 : {};
+
+  return ((stack1 = helpers["if"].call(alias1,((stack1 = (depth0 != null ? depth0.telefonos : depth0)) != null ? stack1.ventas : stack1),{"name":"if","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers["if"].call(alias1,((stack1 = (depth0 != null ? depth0.telefonos : depth0)) != null ? stack1.servicios : stack1),{"name":"if","hash":{},"fn":container.program(7, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "");
+},"2":function(container,depth0,helpers,partials,data) {
+    var stack1, alias1=depth0 != null ? depth0 : {};
+
+  return "                                <span class=\"agn_span span_phone\">\n"
+    + ((stack1 = helpers["if"].call(alias1,((stack1 = ((stack1 = (depth0 != null ? depth0.telefonos : depth0)) != null ? stack1.ventas : stack1)) != null ? stack1.agntelefonoventaslinea1 : stack1),{"name":"if","hash":{},"fn":container.program(3, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers["if"].call(alias1,((stack1 = ((stack1 = (depth0 != null ? depth0.telefonos : depth0)) != null ? stack1.ventas : stack1)) != null ? stack1.agntelefonoventaslinea2 : stack1),{"name":"if","hash":{},"fn":container.program(5, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "                                </span>\n";
+},"3":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "                                        <strong>Ventas: </strong>\n                                        "
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? depth0.telefonos : depth0)) != null ? stack1.ventas : stack1)) != null ? stack1.agntelefonoventaslinea1 : stack1), depth0))
+    + "\n";
+},"5":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "                                        / "
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? depth0.telefonos : depth0)) != null ? stack1.ventas : stack1)) != null ? stack1.agntelefonoventaslinea2 : stack1), depth0))
+    + "\n";
+},"7":function(container,depth0,helpers,partials,data) {
+    var stack1, alias1=depth0 != null ? depth0 : {};
+
+  return "                                <span class=\"agn_span span_phone\">\n"
+    + ((stack1 = helpers["if"].call(alias1,((stack1 = ((stack1 = (depth0 != null ? depth0.telefonos : depth0)) != null ? stack1.servicios : stack1)) != null ? stack1.agntelefonoserviciolinea1 : stack1),{"name":"if","hash":{},"fn":container.program(8, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers["if"].call(alias1,((stack1 = ((stack1 = (depth0 != null ? depth0.telefonos : depth0)) != null ? stack1.servicios : stack1)) != null ? stack1.agntelefonoserviciolinea2 : stack1),{"name":"if","hash":{},"fn":container.program(10, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "                                </span>\n";
+},"8":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "                                        <strong>Servicio: </strong>\n                                        "
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? depth0.telefonos : depth0)) != null ? stack1.servicios : stack1)) != null ? stack1.agntelefonoserviciolinea1 : stack1), depth0))
+    + "\n";
+},"10":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "                                        / "
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? depth0.telefonos : depth0)) != null ? stack1.servicios : stack1)) != null ? stack1.agntelefonoserviciolinea2 : stack1), depth0))
+    + "\n";
+},"12":function(container,depth0,helpers,partials,data) {
+    var stack1, alias1=depth0 != null ? depth0 : {};
+
+  return "                    <div class=\"contact-method\">\n                        <div class=\"block-icon\">\n                            <i class=\"icon pe-7s-clock agn_icono\"></i>\n                        </div>\n                        <div class=\"block-description\">\n"
+    + ((stack1 = helpers["if"].call(alias1,((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.horarios : stack1)) != null ? stack1.agnhrventas : stack1),{"name":"if","hash":{},"fn":container.program(13, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers["if"].call(alias1,((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.horarios : stack1)) != null ? stack1.agnhrservicio : stack1),{"name":"if","hash":{},"fn":container.program(15, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers["if"].call(alias1,((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.horarios : stack1)) != null ? stack1.agnhrrefaccion : stack1),{"name":"if","hash":{},"fn":container.program(17, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "                        </div>\n                    </div>\n";
+},"13":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "                            <strong class=\"subStrong\">Ventas: </strong><span class=\"agn_span spanhr\">"
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.horarios : stack1)) != null ? stack1.agnhrventas : stack1), depth0))
+    + "</span>\n";
+},"15":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "                            <strong class=\"subStrong\">Servicio: </strong><span class=\"agn_span spanhr\">"
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.horarios : stack1)) != null ? stack1.agnhrservicio : stack1), depth0))
+    + "</span>\n";
+},"17":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "                            <strong class=\"subStrong\">Refacciones: </strong><span class=\"agn_span spanhr\">"
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.horarios : stack1)) != null ? stack1.agnhrrefaccion : stack1), depth0))
+    + "</span>\n";
+},"19":function(container,depth0,helpers,partials,data) {
+    var stack1, alias1=depth0 != null ? depth0 : {};
+
+  return "            <div class=\"row\">\n                <div class=\"col-md-12 text-center\" style=\"padding: 20px;\">\n"
+    + ((stack1 = helpers["if"].call(alias1,((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.sociales : stack1)) != null ? stack1.sitio_web : stack1)) != null ? stack1.agnwebsite : stack1),{"name":"if","hash":{},"fn":container.program(20, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.campa : depth0),{"name":"each","hash":{},"fn":container.program(22, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers["if"].call(alias1,((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.sociales : stack1)) != null ? stack1.twitter : stack1)) != null ? stack1.agntwitter : stack1),{"name":"if","hash":{},"fn":container.program(25, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "                </div>\n            </div>\n";
+},"20":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "                        <a href=\""
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.sociales : stack1)) != null ? stack1.sitio_web : stack1)) != null ? stack1.agnwebsite : stack1), depth0))
+    + "\" class=\"button py4 button-transparent bg-youtube resp-button\" target=\"_blank\">\n                            <i class=\"fa fa-globe fa-fw fa-lg\"></i> SITIO WEB\n                        </a>\n";
+},"22":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = ((stack1 = (depth0 != null ? depth0.sociales : depth0)) != null ? stack1.facebook : stack1)) != null ? stack1.agnfacebookcta1 : stack1),{"name":"if","hash":{},"fn":container.program(23, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "");
+},"23":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "                            <a href=\""
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? depth0.sociales : depth0)) != null ? stack1.facebook : stack1)) != null ? stack1.agnfacebookcta1 : stack1), depth0))
+    + "\" class=\"button py4 button-transparent bg-facebook resp-button\" target=\"_blank\">\n                                <i class=\"fa fa-facebook fa-fw fa-lg\"></i> FACEBOOK\n                            </a>\n";
+},"25":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "                        <a href=\""
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.sociales : stack1)) != null ? stack1.twitter : stack1)) != null ? stack1.agntwitter : stack1), depth0))
+    + "\" class=\"button py4 button-transparent bg-twitter resp-button\" target=\"_blank\">\n                            <i class=\"fa fa-twitter fa-fw fa-lg\"></i> TWITTER\n                        </a>\n";
+},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : {};
+
+  return "<div class=\"container\">\n    <div class=\"row\">\n        <section class=\"\" style=\"padding: 35px 15px 15px;\">\n            <div class=\"col-md-4 col-sm-4 text-center\">\n                <h5 style=\"color: #000; text-transform: uppercase;\">SEMINUEVOS <br> <span style=\"color:#7a7a7a;\">"
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.agnnombre : stack1), depth0))
+    + "</span></h5>\n                <img src=\"../img/sitio/agencias/logos/"
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.agnlogo : stack1), depth0))
+    + "\" alt=\""
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.agnnombre : stack1), depth0))
+    + "\" class=\"x-img x-img-none none agn_logo\">\n            </div>\n            <div class=\"col-md-8 col-sm-8 text-left\" style=\"font-size: 16px; padding: 20px 5px 0px;\">\n                <div class=\"contact-method\">\n                        <i class=\"icon pe-7s-phone agn_icono\"></i>\n"
+    + ((stack1 = helpers.each.call(alias3,(depth0 != null ? depth0.campa : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "                </div>\n                <div class=\"contact-method\">\n                    <i class=\"icon pe-7s-map-marker agn_icono\"></i>\n                    <span class=\"agn_span\">\n                        "
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.agndireccion : stack1), depth0))
+    + "\n                    </span>\n                </div>\n"
+    + ((stack1 = helpers["if"].call(alias3,((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.horarios : stack1),{"name":"if","hash":{},"fn":container.program(12, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "            </div>\n"
+    + ((stack1 = helpers["if"].call(alias3,((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.sociales : stack1),{"name":"if","hash":{},"fn":container.program(19, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "        </div>\n    </section>\n    </div>\n</div>\n";
+},"useData":true});
+templates['tmp_section_agencies_preowned_start_fachada'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
+
+  return "<div class=\"container\">\n	<div class=\"row\">\n		<section class=\"double-pad\">\n		    <div class=\"background-image-holder \">\n		        <img alt=\""
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.agnnombre : stack1), depth0))
+    + "\" class=\"background-image\" src=\"../img/sitio/agencias/fachadas-seminuevos/"
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.agnfachada : stack1), depth0))
+    + "\">\n		    </div>\n		</section>\n	</div>\n</div>\n";
+},"useData":true});
 templates['tmp_section_agencies_preowned_start_large_pad_land_mark'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     return "<div class=\"container\">\n	<div class=\"row\" id=\"header-block-first\">\n		<div class=\"col-md-12 col-sm-12 text-center\">\n			<h1 class=\"h-landmark\"><span>Seminuevos</span></h1>\n			<h5 style=\"padding-top: 25px;\"><strong>CAMCAR Grupo Automotriz.<strong><em style=\"padding: 0px 0px 0 10px;\">Ve por Más...</em></strong></strong></h5>\n			<p class=\"super-lead\" style=\"font-size: 115% !important;\">\n				8 pisos de exhibición con inventario certificado. <br>\n				Tenemos la <strong>MISION ES ACRECENTAR LA FUERZA DEL GRUPO</strong> cumpliendo con los altos estándares de calidad que nos imponen cada una de nuestras marcas. Para respaldar la promesa de atención y servicio a nuestros clientes. La asesoría de los expertos.\n			</p>\n			<p class=\"super-lead\" style=\"font-size: 115% !important;\">\n			</p>\n		</div>\n	</div><!--end of row-->\n</div><!--end of container-->\n";
 },"useData":true});
 templates['tmp_section_agencies_preowned_start_large_pad_small_screen'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     return "<div class=\"container\">\n	<div class=\"row\">\n		<!-- Small Screens Agencies Tabs Toggle Button -->\n        <button class=\"sem-style-button-agencies-resp button py4 button-transparent bg-facebook resp-button bg-black-camcar visible-sm visible-xs\" id=\"Show-Agencies-Tabs\" style=\"text-align: left;\"><i class=\"fa fa-eye fa-fw fa-lg\" style=\"padding-right: 30px;\"></i> <span>Agencias</span></button>\n	</div><!--end of row-->\n</div><!--end of container-->\n";
+},"useData":true});
+templates['tmp_section_agencies_preowned_start_map'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "<div class=\"container\">\n	<div class=\"row\">\n		<div id=\"map-canvas\" class=\"map-canvas h500\"></div>\n		<a  href=\""
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.mapas : stack1)) != null ? stack1.agngmapurl : stack1), depth0))
+    + "\" class=\"btn btn-default visible-xs\" title=\"VIEW MAP\" target=\"_blank\">\n		    <i class=\"icon icon-geolocalizator\"></i>\n		    <span>VER MAPA</span>\n		</a>\n	</div>\n</div>\n";
 },"useData":true});
 templates['tmp_section_agencies_preowned_start_tabs_agencies'] = template({"1":function(container,depth0,helpers,partials,data) {
     var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
@@ -520,7 +654,7 @@ templates['tmp_section_home_dealer_search_gmap'] = template({"compiler":[7,">= 4
     return "<div id=\"gmap\" style=\"height:500px;\"></div>";
 },"useData":true});
 templates['tmp_section_home_full_width_features'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<section class=\"fullwidth-features about-content\">\n	<div class=\"col-md-4 col-sm-6\">\n		<div class=\"fullwidth-feature cur-hover\" id=\"fullwidth-features-go-workshop\">\n			<div class=\"top bg-workshop animated hiding\" data-animation=\"fadeInLeft\" data-delay=\"500\">\n				<i class=\"feat-workshop-car feat-6x\"></i>\n				<h5>TALLERES</h5>\n				<div class=\"detail-line\"></div>\n				<p>\n					Con 6 talleres especializados, asesoría, refacciones y personal técnico especializado.\n				</p>\n				<a class=\"primaryLink withStyle fullwidth-feature-color-workshop\">\n					<span>Talleres</span>\n				</a>\n			</div>\n		</div><!--end of fullwidth feature-->\n	</div>\n	<div class=\"col-md-4 col-sm-6\">\n		<div class=\"fullwidth-feature cur-hover\" id=\"fullwidth-features-go-rental\">\n			<div class=\"top bg-rentails animated hiding\" data-animation=\"fadeInUp\" data-delay=\"500\">\n				<i class=\"feat-rent-car feat-6x\"></i>\n				<h5>U-Save car & Truck Rental</h5>\n				<div class=\"detail-line\"></div>\n				<p>\n					Es una marca especializada en renta de automóviles y camionetas a precios competitivos.\n				</p>\n				<a class=\"primaryLink withStyle fullwidth-feature-color-rentails\">\n					<span>Rentas</span>\n				</a>\n			</div>\n		</div><!--end of fullwidth feature-->\n	</div>\n	<div class=\"col-md-4 col-sm-6\">\n		<div class=\"fullwidth-feature cur-hover\" id=\"fullwidth-features-go-inventories-preowned\">\n			<div class=\"top bg-pre-owned animated hiding\" data-animation=\"fadeInRight\" data-delay=\"500\">\n				<i class=\"feat-seminuevos-car feat-6x\"></i>\n				<h5>SEMINUEVOS</h5>\n				<div class=\"detail-line\"></div>\n				<p>\n					9 Pisos de exhibición donde encontrara todas las marcas, asesoría y gama de opciones para apoyar su mejor selección.\n				</p>\n				<a class=\"primaryLink withStyle fullwidth-feature-color-pre-owned\">\n					<span>Seminuevos</span>\n				</a>\n			</div>\n		</div><!--end of fullwidth feature-->\n	</div>\n</section>\n";
+    return "<section class=\"fullwidth-features about-content\">\n	<div class=\"col-md-4 col-sm-6\">\n		<div class=\"fullwidth-feature cur-hover\" id=\"fullwidth-features-go-workshop\">\n			<div class=\"top bg-workshop animated hiding\" data-animation=\"fadeInLeft\" data-delay=\"500\">\n				<i class=\"feat-workshop-car feat-6x\"></i>\n				<h5>TALLERES</h5>\n				<div class=\"detail-line\"></div>\n				<p>\n					Con 6 talleres especializados, asesoría, refacciones y personal técnico especializado.\n				</p>\n				<a class=\"primaryLink withStyle fullwidth-feature-color-workshop\">\n					<span>Talleres</span>\n				</a>\n			</div>\n		</div><!--end of fullwidth feature-->\n	</div>\n	<div class=\"col-md-4 col-sm-6\">\n		<div class=\"fullwidth-feature cur-hover\" id=\"fullwidth-features-go-rental\" data-agencie-rental-name=\"U-SAVE Car &amp; Truck Rental\" data-agencie-rental-key=\"u-save-car-truck-rental\">\n			<div class=\"top bg-rentails animated hiding\" data-animation=\"fadeInUp\" data-delay=\"500\">\n				<i class=\"feat-rent-car feat-6x\"></i>\n				<h5>U-Save car & Truck Rental</h5>\n				<div class=\"detail-line\"></div>\n				<p>\n					Es una marca especializada en renta de automóviles y camionetas a precios competitivos.\n				</p>\n				<a class=\"primaryLink withStyle fullwidth-feature-color-rentails\">\n					<span>Rentas</span>\n				</a>\n			</div>\n		</div><!--end of fullwidth feature-->\n	</div>\n	<div class=\"col-md-4 col-sm-6\">\n		<div class=\"fullwidth-feature cur-hover\" id=\"fullwidth-features-go-inventories-preowned\">\n			<div class=\"top bg-pre-owned animated hiding\" data-animation=\"fadeInRight\" data-delay=\"500\">\n				<i class=\"feat-seminuevos-car feat-6x\"></i>\n				<h5>SEMINUEVOS</h5>\n				<div class=\"detail-line\"></div>\n				<p>\n					9 Pisos de exhibición donde encontrara todas las marcas, asesoría y gama de opciones para apoyar su mejor selección.\n				</p>\n				<a class=\"primaryLink withStyle fullwidth-feature-color-pre-owned\">\n					<span>Seminuevos</span>\n				</a>\n			</div>\n		</div><!--end of fullwidth feature-->\n	</div>\n</section>\n";
 },"useData":true});
 templates['tmp_section_home_group_counter'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=container.lambda, alias2=container.escapeExpression;
