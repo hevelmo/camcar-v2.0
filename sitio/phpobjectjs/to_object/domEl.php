@@ -67,6 +67,14 @@ function domEl() {
     	'div_hidden_inputs_session' => 'div#hidden-inputs-session',
     	'div_hidden_inputs_temporal' => 'div#hidden-inputs-temporal',
     	'div_recurrent' => 'div#content-temporal-interactive',
+        // FILTER INPUTS
+        'input_hidden_mapa' => 'input#hidden_mapa',
+        'input_current_hidden_category' => 'input#hidden_category',
+        'input_current_hidden_marc' => 'input#hidden_marc',
+        'input_current_hidden_model' => 'input#hidden_model',
+        'input_current_hidden_agen_pre_owned_name' => 'input#hidden_agen_pre_owned_name',
+        'input_current_hidden_agen_pre_owned_id' => 'input#hidden_agen_pre_owned_id',
+        'input_current_hidden_agen_news_name' => 'input#hidden_agen_news_name',
         // MAIN NAVIGATION
         '_start_site_navbar' => $start_site_navbar,
         '_start_site_navbar_name' => '#' . $start_site_navbar,
@@ -113,7 +121,6 @@ function domEl() {
         // AGENCIES NEWS SUB AGENCIE
         'action_go_agencie_news' => 'a.go-action-agencie-news',
         'action_go_agencie_news_id' => 'a#go-action-agencie-news-',
-        'input_hidden_mapa' => 'input#hidden_mapa',
         // AGENCIES PRE-OWNED
         '_start_agencies_preowned_content_body' => $start_agencies_preowned_content_body,
         '_start_agencies_preowned_content_body_name' => '#' . $start_agencies_preowned_content_body,

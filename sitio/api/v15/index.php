@@ -79,6 +79,24 @@ $app->configureMode('development', function () use ($app) {
     $app->get('/get/agencia/seminuevos/mapas/:agn_id', /*'mw1',*/ 'getAgenciesPreOwnedByMap');
     $app->get('/get/agencia/seminuevos/:preowned_agn_url/:preowned_agn_id', /*'mw1',*/ 'getAgenciesPreOwnedByAgencie');
 
+    // INVENTORIES PRE-OWNED
+    $app->get('/get/seminuevos', /*'mw1',*/ 'getSeminuevos');
+    $app->get('/get/seminuevos/:mrc_nombre_short/:mdo_nombre_short/:senId', /*'mw1',*/ 'getSeminuevosById');
+    // FILTERS
+    $app->get('/get/seminuevos/filtros/:category/:marca/:modelo', /*'mw1',*/ 'getSeminuevosByFilter');
+    // PICTURES
+    $app->get('/get/pictures/seminuevo', /*'mw1',*/ 'getPictures');
+    $app->get('/get/pictures/seminuevo/:picId', /*'mw1',*/ 'getPicturesById');
+    // CATEGORY
+    $app->get('/get/categoria', /*'mw1',*/ 'getCategory');
+    //$app->get('/get/categoria/:catId', /*'mw1',*/ 'getCategoryById');
+    // BRANDS
+    $app->get('/get/categoria/marcas/:idMrc', /*'mw1',*/ 'getCategoryByMarc');
+    // MODELS
+    $app->get('/get/categoria/modelos/:idCategory/:idMarc', /*'mw1',*/ 'getCategoryModelsByCategoryByMarc');
+    // CAROUSEL
+    $app->get('/get/catalogo/marcas/:marId', /*'mw1',*/ 'getCatalogoByMarc');
+
     // SECTION WORKSHOP
     $app->get('/get/talleres', /*'mw1',*/ 'getWorkshop');
     $app->get('/get/talleres/logos', /*'mw1',*/ 'getWorkshopBrands');
@@ -733,6 +751,395 @@ $app->run();
                 AND AGN_Url = :preowned_agn_url
                 ORDER BY AGN_Id";
         getAgenciesPreOwnedByAgencieJSON($sql, $preowned_agn_url, $preowned_agn_id);
+    }
+
+    // INVENTORIES PRE-OWNED
+    // STRUCTURE SMINUEVOS JSON
+    function getSeminuevosJSON($sql, $mrc_nombre_short, $mdo_nombre_short, $senId){//, $category, $marca, $modelo
+        $structure = array(
+            'id' => 'SEN_Id',
+            'id_marc' => 'MAR_Id',
+            'id_agencia' => 'AGN_Id',
+            'id_cat' => 'CAT_Id',
+            'id_model' => 'MDO_Id',
+            'year' => 'SEN_Year',
+            'precio' => 'SEN_Precio',
+            'cilindros' => 'SEN_Cilindros',
+            'transmision' => 'SEN_Transmision',
+            'color' => 'SEN_Color',
+            'interior' => 'SEN_Interior',
+            'descripcion' => 'SEN_Descripcion',
+            'agencia' => 'AGN_Nombre',
+            'agnAddress' => 'AGN_Dirección',
+            'email' => 'AGN_Mail',
+            'telefonos' => array(
+                'ventas' => array(
+                    'agntelefonoventaslinea1' => 'TEL_Telefono_Ventas_linea1',
+                    'agncallventaslinea1' => 'TEL_Call_Ventas_linea1'
+                )
+            ),
+            'folder' => 'AGN_Folder',
+            'logo' => 'AGN_Logo1',
+            'url' => 'AGN_Url',
+            'categoria' => 'CAT_Nombre',
+            'marca' => 'MAR_Nombre',
+            'mrc_nombre' => 'MAR_NombreShort',
+            'modelo' => 'MDO_Nombre',
+            'mdo_nombre' => 'MDO_NombreShort',
+            'directorio' => 'PIC_Folder',
+            'foto' => 'PIC_Nombre',
+            'pic_id' => 'PIC_Id',
+            'pic_nombre' => 'PIC_Nombre',
+            'pic_mdo_folder' => 'PIC_Folder',
+            'agencia_folder' => 'AGN_Folder',
+            'mar_nombreshort' => 'MAR_NombreShort',
+            'mdo_nombreshort' => 'MDO_NombreShort',
+            'map_url' => 'AGN_MUrl'
+        );
+        $params = array();
+
+        // PARAMS SEMINUEVOS BY ID
+        ($mrc_nombre_short !== '') ? $params['mrc_nombre_short'] = $mrc_nombre_short : $params = $params;
+        ($mdo_nombre_short !== '') ? $params['mdo_nombre_short'] = $mdo_nombre_short : $params = $params;
+        ($senId !== '') ? $params['senId'] = $senId : $params = $params;
+
+        // PARAMS BY FILTERS
+        /*($category !== '') ? $params['category'] = $category : $params = $params;
+        ($marca !== '') ? $params['marca'] = $marca : $params = $params;
+        ($modelo !== '') ? $params['modelo'] = $modelo : $params = $params;*/
+
+        echo changeQueryIntoJSON('campa', $structure, getConnection(), $sql, $params, 0, PDO::FETCH_ASSOC);
+    }
+    // STRUCTURE SMINUEVOS BY FILTERS JSON
+    function getSeminuevosByFilterJSON($sql, $category, $marca, $modelo){
+        $structure = array(
+            'id' => 'SEN_Id',
+            'id_marc' => 'MAR_Id',
+            'id_agencia' => 'AGN_Id',
+            'id_cat' => 'CAT_Id',
+            'id_model' => 'MDO_Id',
+            'year' => 'SEN_Year',
+            'precio' => 'SEN_Precio',
+            'cilindros' => 'SEN_Cilindros',
+            'transmision' => 'SEN_Transmision',
+            'color' => 'SEN_Color',
+            'interior' => 'SEN_Interior',
+            'descripcion' => 'SEN_Descripcion',
+            'telefonos' => array(
+                'ventas' => array(
+                    'agntelefonoventaslinea1' => 'TEL_Telefono_Ventas_linea1',
+                    'agncallventaslinea1' => 'TEL_Call_Ventas_linea1'
+                )
+            ),
+            'agencia' => 'AGN_Nombre',
+            'agnAddress' => 'AGN_Dirección',
+            'folder' => 'AGN_Folder',
+            'logo' => 'AGN_Logo1',
+            'categoria' => 'CAT_Nombre',
+            'marca' => 'MAR_Nombre',
+            'mrc_nombre' => 'MAR_NombreShort',
+            'modelo' => 'MDO_Nombre',
+            'mdo_nombre' => 'MDO_NombreShort',
+            'directorio' => 'PIC_Folder',
+            //'foto' => 'PIC_Nombre',
+            'thumb' => 'PIC_Nombre',
+            //'pic_id' => 'PIC_Id',
+            //'pic_nombre' => 'PIC_Nombre',
+            'pic_mdo_folder' => 'PIC_Folder',
+            'mar_nombreshort' => 'MAR_NombreShort',
+            'mdo_nombreshort' => 'MDO_NombreShort'
+        );
+        $params = array();
+
+        // PARAMS BY FILTERS
+        ($category !== '') ? $params['category'] = $category : $params = $params;
+        ($marca !== '') ? $params['marca'] = $marca : $params = $params;
+        ($modelo !== '') ? $params['modelo'] = $modelo : $params = $params;
+
+        $result = restructureQuery($structure, getConnection(), $sql, $params, 0, PDO::FETCH_ASSOC);
+
+        echo changeArrayIntoJSON('campa', $result);
+    }
+    // STRUCTURE PICTURES JSON
+    function getPicturesJSON($sql, $picId) {
+        $structure = array(
+            'sen_id' => 'SEN_Id',
+            'agn_folder' => 'AGN_Folder',
+            'pic_id' => 'PIC_Id',
+            'pic_nombre' => 'PIC_Nombre',
+            'pic_mdo_folder' => 'PIC_Folder',
+        );
+        $params = array();
+
+        // PARAMS PICTURES BY ID
+        ($picId !== '') ? $params['picId'] = $picId : $params = $params;
+
+        $result = restructureQuery($structure, getConnection(), $sql, $params, 0, PDO::FETCH_ASSOC);
+
+        echo changeArrayIntoJSON('campa', $result);
+    }
+    // STRUCTURE MAP JSON
+    function getMapaJSON($sql, $senId) {
+        $structure = array(
+            'sen_id' => 'SEN_Id',
+            'agn_nombre' => 'AGN_Nombre',
+            'agn_direccion' => 'AGN_Dirección',
+            'agn_folder' => 'AGN_Folder',
+            'agn_logo1' => 'AGN_Logo1',
+            'agn_logo2' => 'AGN_Logo2',
+            'agn_latitud' => 'AGN_MLatitud',
+            'agn_longitud' => 'AGN_MLongitud',
+            'map_url' => 'AGN_MUrl'
+        );
+        $params = array();
+
+        // PARAMS MAP BY ID
+        ($senId !== '') ? $params['senId'] = $senId : $params = $params;
+
+        echo changeQueryIntoJSON('campa', $structure, getConnection(), $sql, $params, 0, PDO::FETCH_ASSOC);
+    }
+    // STRUCTURE CATEGORY
+    function getCategoryJSON($sql) {
+        $structure = array(
+            'id_cat' => 'CAT_Id',
+            'categoria' => 'CAT_Nombre'
+        );
+        $params = array();
+        echo changeQueryIntoJSON('campa', $structure, getConnection(), $sql, $params, 0, PDO::FETCH_ASSOC);
+    }
+    // STRUCTURE MARC
+    function getCategoryByMarcJSON($sql, $idMrc) {
+        $structure = array(
+            'id_marc' => 'MAR_Id',
+            'marca' => 'MAR_Nombre'
+        );
+        $params = array();
+        ($idMrc !== '') ? $params['idMrc'] = $idMrc : $params = $params;
+        echo changeQueryIntoJSON('campa', $structure, getConnection(), $sql, $params, 0, PDO::FETCH_ASSOC);
+    }
+    // STRUCTURE MODEL
+    function getCategoryModelsByCategoryByMarcJSON($sql, $idCategory, $idMarc) {
+        $structure = array(
+            'id_model' => 'MDO_Id',
+            'modelo' => 'MDO_Nombre'
+        );
+        $params = array();
+        ($idCategory !== '') ? $params['idCategory'] = $idCategory : $params = $params;
+        ($idMarc !== '') ? $params['idMarc'] = $idMarc : $params = $params;
+        echo changeQueryIntoJSON('campa', $structure, getConnection(), $sql, $params, 0, PDO::FETCH_ASSOC);
+    }
+    // STRUCTURE CATALOGO BY ID MARC -> COROUSEL
+    function getCatalogoJSON($sql, $marId) {
+        $structure = array(
+            'id' => 'SEN_Id',
+            'id_marc' => 'MAR_Id',
+            'agencia' => 'AGN_Nombre',
+            'logo' => 'AGN_Logo1',
+            'marca' => 'MAR_Nombre',
+            'categoria' => 'CAT_Nombre',
+            'modelo' => 'MDO_Nombre',
+            'mrc_nombre' => 'MAR_NombreShort',
+            'mdo_nombre' => 'MDO_NombreShort',
+            'year' => 'SEN_Year',
+            'precio' => 'SEN_Precio',
+            'cilindros' => 'SEN_Cilindros',
+            'transmision' => 'SEN_Transmision',
+            'color' => 'SEN_Color',
+            'interior' => 'SEN_Interior',
+            'agencia' => 'AGN_Nombre',
+            'folder' => 'AGN_Folder',
+            'pic_folder' => 'PIC_Folder',
+            'thumb' => 'PIC_Nombre'
+        );
+        $params = array();
+        ($marId !== '') ? $params['marId'] = $marId : $params = $params;
+
+        $result = restructureQuery($structure, getConnection(), $sql, $params, 0, PDO::FETCH_ASSOC);
+
+        echo changeArrayIntoJSON('campa', $result);
+    }
+    // SEMINUEVOS
+    function getSeminuevos() {
+        $sql = "SELECT sen.*, tel.*, pic.PIC_Id,
+                       COALESCE(pic.PIC_Nombre, 'default_camcar.jpg') PIC_Nombre,
+                       COALESCE(pic.PIC_SEN_Id, 'default') PIC_Folder
+                FROM (
+                    SELECT *
+                    FROM v_camSeminuevos
+                    WHERE SEN_Status = 1
+                ) sen
+                INNER JOIN camTelefonos tel
+                ON sen.AGN_Id = tel.TEL_AGN_Id
+                LEFT JOIN camPictures pic
+                ON sen.SEN_Id = pic.PIC_SEN_Id";
+        getSeminuevosJSON($sql, '', '', '');
+    }
+    // SEMINUEVOS BY ID
+    function getSeminuevosById($mrc_nombre_short, $mdo_nombre_short, $senId) {
+        $sql = "SELECT sen.*, tel.*, hrs.*, soc.*,
+                       pic.PIC_Id,
+                       COALESCE(pic.PIC_Nombre, 'default_camcar.jpg') PIC_Nombre,
+                       COALESCE(pic.PIC_SEN_Id, 'default') PIC_Folder
+                FROM (
+                    SELECT *
+                    FROM v_camSeminuevos
+                    WHERE SEN_Status = 1
+                ) sen
+                INNER JOIN camTelefonos tel
+                ON sen.AGN_Id = tel.TEL_AGN_Id
+                INNER JOIN camHorarios hrs
+                ON sen.AGN_Id = hrs.HRS_AGN_Id
+                INNER JOIN camSociales soc
+                ON sen.AGN_Id = soc.SOC_AGN_Id
+                LEFT JOIN camPictures pic
+                ON sen.SEN_Id = pic.PIC_SEN_Id
+                WHERE MAR_NombreShort = :mrc_nombre_short
+                AND MDO_NombreShort = :mdo_nombre_short
+                AND SEN_Id = :senId
+                GROUP BY SEN_Id";
+        getSeminuevosJSON($sql, $mrc_nombre_short, $mdo_nombre_short, $senId);
+    }
+    // SEMINUEVOS BY FILTERS
+    function getSeminuevosByFilter($category, $marca, $modelo) {
+        $category = ($category) ? $category : '';
+        $marca = ($marca) ? $marca : '';
+        $modelo = ($modelo) ? $modelo : '';
+        $sql = "SELECT sen.*, tel.*,
+                       thm.PIC_Id,
+                       COALESCE(thm.PIC_Nombre, 'default_camcar.jpg') PIC_Nombre,
+                       COALESCE(thm.PIC_SEN_Id, 'default') PIC_Folder
+                FROM (
+                    SELECT *
+                    FROM v_camSeminuevos
+                    WHERE SEN_Status = 1
+                ) sen
+                INNER JOIN camTelefonos tel
+                ON sen.AGN_Id = tel.TEL_AGN_Id
+                LEFT JOIN (
+                    SELECT *
+                    FROM camPictures
+                    WHERE PIC_Thum = 1
+                ) thm
+                ON sen.SEN_Id = thm.PIC_SEN_Id
+                WHERE 1 = 1";
+        $params = array();
+
+        if ($category !== '') {
+            $sql.= " AND SEN_CAT_Id = :category";
+            $params["category"] = $category;
+        }
+        if ($marca !== '') {
+            $sql.= " AND SEN_MAR_Id = :marca";
+            $params["marca"] = $marca;
+        }
+        if ($modelo !== '') {
+            $sql.= " AND SEN_MDO_Id = :modelo";
+            $params["modelo"] = $modelo;
+        }
+        $sql.= " GROUP BY SEN_Id
+                ORDER BY SEN_Id DESC";
+        getSeminuevosByFilterJSON($sql, $category, $marca, $modelo);
+    }
+    // PICTURES
+    function getPictures() {
+        $sql = "SELECT sen.*, agn.*,
+                       pic.PIC_Id,
+                       COALESCE(pic.PIC_Nombre, 'default_camcar.jpg') PIC_Nombre,
+                       COALESCE(pic.PIC_SEN_Id, 'default') PIC_Folder
+                FROM (
+                    SELECT *
+                    FROM camSeminuevos
+                    WHERE SEN_Status = 1
+                ) sen
+                INNER JOIN (
+                    SELECT *
+                    FROM camAgencias
+                    WHERE AGN_Tipo = 0
+                ) agn
+                ON sen.SEN_AGN_Id = agn.AGN_Id
+                LEFT JOIN camPictures pic
+                ON sen.SEN_Id = pic.PIC_SEN_Id
+                GROUP BY PIC_Id";
+        getPicturesJSON($sql, '', '', '');
+    }
+    // PICTURES BY ID
+    function getPicturesById($picId) {
+        $sql = "SELECT sen.*, agn.*,
+                       pic.PIC_Id,
+                       COALESCE(pic.PIC_Nombre, 'default_camcar.jpg') PIC_Nombre,
+                       COALESCE(pic.PIC_SEN_Id, 'default') PIC_Folder
+                FROM (
+                    SELECT *
+                    FROM camSeminuevos
+                    WHERE SEN_Status = 1
+                ) sen
+                INNER JOIN (
+                    SELECT *
+                    FROM camAgencias
+                    WHERE AGN_Tipo = 0
+                ) agn
+                ON sen.SEN_AGN_Id = agn.AGN_Id
+                LEFT JOIN camPictures pic
+                ON sen.SEN_Id = pic.PIC_SEN_Id
+                WHERE SEN_Id = :picId";
+        getPicturesJSON($sql, $picId);
+    }
+    // CATEGORY
+    function getCategory() {
+        $sql = "SELECT *
+                FROM v_camSeminuevos
+                GROUP BY CAT_Id
+                ORDER BY CAT_Nombre ASC";
+        getCategoryJSON($sql, '');
+    }
+    // MARC BY ID
+    function getCategoryByMarc($idMrc) {
+        $sql = "SELECT MAR_Id, MAR_Nombre
+                FROM (
+                    SELECT *
+                    FROM v_camSeminuevos
+                    WHERE SEN_Status = 1
+                ) sen
+                WHERE  SEN_CAT_Id = :idMrc
+                GROUP BY SEN_MAR_Id
+                ORDER BY MAR_Id";
+        getCategoryByMarcJSON($sql, $idMrc);
+    }
+    // MODEL BY CATEGORY, BY MARC
+    function getCategoryModelsByCategoryByMarc($idCategory, $idMarc) {
+        $sql = "SELECT MDO_Id, MDO_Nombre
+                FROM (
+                    SELECT *
+                    FROM v_camSeminuevos
+                    WHERE SEN_Status = 1
+                ) sen
+                WHERE CAT_Id = :idCategory
+                AND MAR_Id = :idMarc
+                GROUP BY SEN_MDO_Id
+                ORDER BY CAT_Id, MAR_Id, MDO_Id";
+        getCategoryModelsByCategoryByMarcJSON($sql, $idCategory, $idMarc);
+    }
+    // CATALOGO BY ID MARC -> CAROUSEL
+    function getCatalogoByMarc($marId) {
+        $sql = "SELECT sen.*, tel.*, thm.PIC_Id,
+                       COALESCE(thm.PIC_Nombre, 'default_camcar.jpg') PIC_Nombre,
+                       COALESCE(thm.PIC_SEN_Id, 'default') PIC_Folder
+                       FROM (
+                        SELECT *
+                        FROM v_camSeminuevos
+                        WHERE SEN_Status = 1
+                    ) sen
+                INNER JOIN camTelefonos tel
+                ON sen.AGN_Id = tel.TEL_AGN_Id
+                LEFT JOIN (
+                    SELECT *
+                    FROM camPictures
+                    WHERE PIC_Thum = 1
+                ) thm
+                ON sen.SEN_Id = thm.PIC_SEN_Id
+                WHERE SEN_MAR_Id = :marId
+                ORDER BY MAR_Id";
+        getCatalogoJSON($sql, $marId);
     }
 
     // WORKSHOP

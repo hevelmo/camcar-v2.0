@@ -1254,7 +1254,19 @@
             CAM.appendMulti('#panel-filters-cateogories', fieldsFilters);
         },
         refreshFilters: function() {
-            var filModelsData, filBrandsData, filCategoryData, idAgencie, idCategory, idBrand, idModel;
+            var filModelsData, filBrandsData, filCategoryData, 
+                idAgencie, idCategory, idBrand, idModel;
+
+            idCategory = +CAM.getValue(domEl.input_current_hidden_category);
+            idBrand = +CAM.getValue(domEl.input_current_hidden_marc);
+            idModel = +CAM.getValue(domEl.input_current_hidden_model);
+            console.log(idCategory, idBrand, idModel);
+
+            filCategoryData = CAM.getInternalJSON(urlsApi.getCategory);
+            filBrandsData = (idCategory) ? CAM.getInternalJSON(urlsApi.getCategoryByMarc + idCategory) : {};
+            console.log(filBrandsData);
+            
+            filModelsData = (idCategory && idBrand) ? CAM.getInternalJSON(urlsApi.getCategoryModelsByCategoryByMarc + idCategory + '/' + idBrand) : {};
         }
     }
 /* ------------------------------------------------------ *\

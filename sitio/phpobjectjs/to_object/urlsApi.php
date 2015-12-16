@@ -63,8 +63,6 @@ function urlsApi() {
         'getAgenciesNewsByTypeAgencie' => $root . '/' . $get . '/' . $agencie . '/' . $news . '/principal/',
         // PRINCIPAL AGENCIE NEWS BY AGENCIE
         'getAgenciesNewsPrincipalesByAgencia' => $root . '/' . $get . '/agencias/' . $news. '/',
-
-
         'getAgenciesNews' => $root . '/' . $get . '/' . $agencie . '/' . $news,
         // Agencias Nuevos Fachada
         'getAgenciesNewsFachada' => $root . '/' . $get . '/' . $agencie . '/' . $news . '/' . $fachada,
@@ -79,6 +77,23 @@ function urlsApi() {
         'getAgenciesPreOwned' => $root . '/' . $get . '/' . $agencie . '/' . $preowned,
         'getAgenciesPreOwnedByMap' => $root . '/' . $get . '/' . $agencie . '/' . $preowned .'/mapas/',
         'getAgenciesPreOwnedByAgencie' => $root . '/' . $get . '/' . $agencie . '/' . $preowned . '/',
+
+        // INVENTORIES PRE-OWNED
+        'getSeminuevos' => $root . '/' . $get . '/' . $tab_seminuevos,
+        'getSeminuevosById' => $root . '/' . $get . '/' . $tab_seminuevos . '/',
+        // PICTURES
+        'getPictures' => $root . '/' . $get . '/' . $tab_pictures . '/' . $tab_seminuevo,
+        'getPicturesById' => $root . '/' . $get . '/' . $tab_pictures . '/' . $tab_seminuevo . '/',
+        // FILTERS
+        'getSeminuevosByFilter' => $root . '/' . $get . '/' . $tab_seminuevos . '/' . $tab_filtros . '/',
+        // CATEGORY
+        'getCategory' => $root . '/' . $get . '/' . $tab_categoria,
+        // BRANDS
+        'getCategoryByMarc' => $root . '/' . $get . '/' . $tab_categoria . '/' . $tab_marca . '/',
+        // MODELS
+        'getCategoryModelsByCategoryByMarc' => $root . '/' . $get . '/' . $tab_categoria . '/' . $tab_modelo . '/',
+        // CAROUSEL
+        'getCatalogoByMarc' => $root . '/' . $get . '/' . $tab_catalogo . '/' . $tab_marca . '/',
 
         // AGNCIES WORKSHOP
         'getWorkshop' => $root . '/' . $get . '/talleres',
