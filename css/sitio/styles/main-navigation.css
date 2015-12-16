@@ -1957,6 +1957,7 @@ h1.page-title{
 .recent-vehicles .action-icons{
 	margin-right:22px;
 }
+/*
 .vehicle-age, .premium-listing, .vehicle-sold{
 	position: absolute;
 	top:15px;
@@ -1965,7 +1966,7 @@ h1.page-title{
 }
 .premium-listing{
 	top:35px;
-}
+}*/
 .dark-bg .vehicle-block{
 	background:#fff;
 }
@@ -2551,14 +2552,6 @@ h1.page-title{
 .tool-box .tool-search-listing .link a{
 	text-decoration:underline;
 }
-.actions-bar{
-	width:100%;
-	z-index:998;
-	background:#eee;
-	border-bottom:1px solid #eee;
-	padding:15px 0;
-	display: none;
-}
 .listing-sort-btn{
 	font-weight:normal;
 	color:#555;
@@ -2585,6 +2578,7 @@ h1.page-title{
 	text-transform:uppercase;
 	margin-bottom:0;
 }
+/*
 .result-item{
 	position:relative;
 	border:1px solid #eee;
@@ -2760,6 +2754,7 @@ h1.page-title{
 	float:left;
 	margin-bottom:40px;
 }
+*/
 .search-filters{
 	position:relative;
 	top:-8px;

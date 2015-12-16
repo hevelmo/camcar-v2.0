@@ -193,6 +193,12 @@
                 wrapper: '<div class="sticky-wrapper" />',
                 stuckClass: 'sticky'
             });
+        },
+        sticky_wrapper_action_bar: function() {
+            $('.actions-bar').waypoint('sticky', {
+                wrapper: '<div class="sticky-wrapper-action-bar" />',
+                stuckClass: 'tsticky'
+            });
         }
     }
 /* ------------------------------------------------------ *\
@@ -1197,11 +1203,58 @@
 \* ------------------------------------------------------ */
     var viewSectionInventoriesPreownedMethod = {
         viewSectionInventoriesPreowned: function() {
+            viewSectionInventoriesPreownedMethod.recurrentSecionInventoriesPreowned();
+            viewSectionInventoriesPreownedMethod.loadTemplatesUtilityBarBreadcrumb();
+            viewSectionInventoriesPreownedMethod.loadTemplatesActionBar();
+            viewSectionInventoriesPreownedMethod.loadTemplatesFilterSection();
+            viewSectionInventoriesPreownedMethod.loadTemplatesListingResults();
+        },
+        loadTemplatesUtilityBarBreadcrumb: function() {
+            CAM.loadTemplate(tempsNames.recurrent_inventories_preowned_start_utility_bar_breadcreumb, domEl._start_utility_bar_breadcrumb_name);
+        },
+        loadTemplatesActionBar: function() {
+            CAM.loadTemplate(tempsNames.recurrent_inventories_preowned_start_action_bar, domEl._start_inventories_preowned_action_bar_name);
+            viewSectionInventoriesPreownedMethod.recurrentFilterSection();
+        },
+        loadTemplatesFilterSection: function() {
+            getFilterMethod.loadFiltersSection();
+        },
+        loadTemplatesListingResults: function() {
+            CAM.loadTemplate(tempsNames.recurrent_inventories_preowned_listing_results, domEl._start_body_content_main_name);
+        },
+        recurrentFilterSection: function() {
+            getFilterSection = [
+                ['div', {'id':domEl._start_inventories_preowned_filter_section, 'class':''}, '', 1]
+            ];
+            CAM.appendMulti(domEl.div_recurrent_start_small_screen_filters, getFilterSection);
         },
         recurrentSecionInventoriesPreowned: function() {
             dataStarSiteInventoriesPreownedAttributes = [
+                ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content'}, '', 1],
+                ['div', {'id':domEl._start_inventories_preowned_action_bar, 'class':'about-content'}, '', 1],
+                ['div', {'id':domEl._start_body_content_main, 'class':'about-content'}, '', 1]
             ];
             CAM.appendMulti(domEl.div_recurrent, dataStarSiteInventoriesPreownedAttributes);
+        }
+    }
+/* ------------------------------------------------------ *\
+    [Methods] getFilterMethod
+\* ------------------------------------------------------ */
+    var getFilterMethod = {
+        loadFiltersSection: function() {
+            CAM.loadTemplate(tempsNames.recurrent_inventories_preowned_start_panel_filters, domEl._start_inventories_preowned_filter_section_name);
+            getFilterMethod.recurrentFieldsFilterSection();
+        },
+        recurrentFieldsFilterSection: function() {
+            fieldsFilters = [
+                ['div', {'id':domEl._start_inventories_preowned_field_filter_category, 'class':''}, '', 1],
+                ['div', {'id':domEl._start_inventories_preowned_field_filter_brands, 'class':''}, '', 1],
+                ['div', {'id':domEl._start_inventories_preowned_field_filter_models, 'class':''}, '', 1]
+            ];
+            CAM.appendMulti('#panel-filters-cateogories', fieldsFilters);
+        },
+        refreshFilters: function() {
+            var filModelsData, filBrandsData, filCategoryData, idAgencie, idCategory, idBrand, idModel;
         }
     }
 /* ------------------------------------------------------ *\
@@ -1725,6 +1778,7 @@
             removeRecurrentsMethod.removeRecurrents_home();
             removeRecurrentsMethod.removeRecurrents_agencies_news();
             removeRecurrentsMethod.removeRecurrents_agencies_preonwed();
+            removeRecurrentsMethod.removeRecurrent_inventories_preowned();
             removeRecurrentsMethod.removeRecurrents_workshop();
             removeRecurrentsMethod.removeRecurrents_rental();
             removeRecurrentsMethod.removeRecurrents_blog();
@@ -1756,6 +1810,9 @@
             $(domEl._start_agencies_preowned_content_body_name).remove();
             $(domEl._start_agencies_preowned_small_screen).remove();
             $(domEl._start_agencies_preowned_small_screen_name).remove();
+        },
+        removeRecurrent_inventories_preowned: function() {
+            $(domEl._start_inventories_preowned_action_bar_name).remove();
         },
         removeRecurrents_workshop: function() {
             $(domEl._start_workshop_content_body_name).remove();

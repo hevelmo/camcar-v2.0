@@ -45,6 +45,13 @@ function tempsNames() {
         'recurrent_agencies_preowned_start_address' => 'tmp_section_agencies_preowned_start_address',
         'recurrent_agencies_preowned_start_map' => 'tmp_section_agencies_preowned_start_map',
 
+        // INVENTORIES PRE-OWNED
+        'recurrent_inventories_preowned_start_utility_bar_breadcreumb' => 'tmp_section_inventories_preowned_start_utility_bar_breadcreumb',
+        'recurrent_inventories_preowned_start_action_bar' => 'tmp_section_inventories_preowned_start_action_bar',
+        //'recurrent_inventories_preowned_start_filter_section' => 'tmp_section_inventories_preowned_start_filter_section',
+        'recurrent_inventories_preowned_start_panel_filters' => 'tmp_section_inventories_preowned_start_panel_filters',
+        'recurrent_inventories_preowned_listing_results' => 'tmp_section_inventories_preowned_listing_results',
+
         // WORKSHOP
         'recurrent_workshop_start_utility_bar_breadcrumb' => 'tmp_section_workshop_start_utility_bar_breadcrumb',
         'recurrent_workshop_start_large_pad_land_mark' => 'tmp_section_workshop_start_large_pad_land_mark',

@@ -32,6 +32,12 @@ function domEl() {
     $start_agencies_preowned_content_fachada = 'content-start-container-fachada';
     $start_agencies_preowned_content_address = 'content-start-container-address';
     $start_agencies_preowned_content_map = 'content-start-container-map';
+    // INVENTORIES PRE-OWNED
+    $start_inventories_preowned_action_bar = 'content-start-inventories-preowned-action-bar';
+    $start_inventories_preowned_filter_section = 'content-start-inventories-preowned-filter-section';
+    $start_inventories_preowned_field_filter_category = 'content-start-inventories-preowned-field-filter-category';
+    $start_inventories_preowned_field_filter_brands = 'content-start-inventories-preowned-field-filter-brands';
+    $start_inventories_preowned_field_filter_models = 'content-start-inventories-preowned-field-filter-models';
     // WORKSHOP
     $start_workshop_content_body = 'content-start-workshop-body-main';
     $start_workshop_content_brand = 'content-start-workshop-brand';
@@ -132,6 +138,23 @@ function domEl() {
         'action_go_agencie_preowned_id' => 'a#go-action-agencie-preowned-',
 
         'action_preowned_agn' => '.action-preowned-agn',
+
+        // INVENTORIES PRE-OWNED
+        '_start_inventories_preowned_action_bar' => $start_inventories_preowned_action_bar,
+        '_start_inventories_preowned_action_bar_name' => '#' . $start_inventories_preowned_action_bar,
+        // SMALL SCREEN FLITERS
+        'div_recurrent_start_small_screen_filters' => '#small-screen-filters',
+        // FILTER SECTION
+        '_start_inventories_preowned_filter_section' => $start_inventories_preowned_filter_section,
+        '_start_inventories_preowned_filter_section_name' => '#' . $start_inventories_preowned_filter_section,
+        // FIELDS FILTERS
+        '_start_inventories_preowned_field_filter_category' => $start_inventories_preowned_field_filter_category,
+        '_start_inventories_preowned_field_filter_category_name' => '#' . $start_inventories_preowned_field_filter_category,
+        '_start_inventories_preowned_field_filter_brands' => $start_inventories_preowned_field_filter_brands,
+        '_start_inventories_preowned_field_filter_brands_name' => '#' . $start_inventories_preowned_field_filter_brands,
+        '_start_inventories_preowned_field_filter_models' => $start_inventories_preowned_field_filter_models,
+        '_start_inventories_preowned_field_filter_models_name' => '#' . $start_inventories_preowned_field_filter_models,
+        'div_recurrent_start_fields_filters' => '#panel-filters-cateogories',
 
         // WORKSHOP
         '_start_workshop_content_body' => $start_workshop_content_body,
