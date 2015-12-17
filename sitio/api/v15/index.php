@@ -878,26 +878,6 @@ $app->run();
 
         echo changeArrayIntoJSON('campa', $result);
     }
-    // STRUCTURE MAP JSON
-    function getMapaJSON($sql, $senId) {
-        $structure = array(
-            'sen_id' => 'SEN_Id',
-            'agn_nombre' => 'AGN_Nombre',
-            'agn_direccion' => 'AGN_Dirección',
-            'agn_folder' => 'AGN_Folder',
-            'agn_logo1' => 'AGN_Logo1',
-            'agn_logo2' => 'AGN_Logo2',
-            'agn_latitud' => 'AGN_MLatitud',
-            'agn_longitud' => 'AGN_MLongitud',
-            'map_url' => 'AGN_MUrl'
-        );
-        $params = array();
-
-        // PARAMS MAP BY ID
-        ($senId !== '') ? $params['senId'] = $senId : $params = $params;
-
-        echo changeQueryIntoJSON('campa', $structure, getConnection(), $sql, $params, 0, PDO::FETCH_ASSOC);
-    }
     // STRUCTURE CATEGORY
     function getCategoryJSON($sql) {
         $structure = array(

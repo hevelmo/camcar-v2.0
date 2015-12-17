@@ -133,6 +133,9 @@ domEl = {
 	"input_hidden_mapa":"input#hidden_mapa",
 	"li_agencies":".agencia",
 	"navbar_recurrent":"#start-site-header",
+	"select_fil_brands":"#select-fil-brands",
+	"select_fil_category":"#select-fil-category",
+	"select_fil_models":"#select-fil-models",
 	"send_cam_contact_main_send":"#cam-contact-main-send",
 	"validate_required":".validate-required"
 };
@@ -172,6 +175,9 @@ tempsNames = {
 	"recurrent_home_hero_slide_carousel":"tmp_section_home_hero_slide_carousel",
 	"recurrent_home_our_brands":"tmp_section_home_our_brands",
 	"recurrent_inventories_preowned_listing_results":"tmp_section_inventories_preowned_listing_results",
+	"recurrent_inventories_preowned_select_filter_brands":"tmp_section_inventories_preowned_select_filter_brands",
+	"recurrent_inventories_preowned_select_filter_category":"tmp_section_inventories_preowned_select_filter_category",
+	"recurrent_inventories_preowned_select_filter_models":"tmp_section_inventories_preowned_select_filter_models",
 	"recurrent_inventories_preowned_start_action_bar":"tmp_section_inventories_preowned_start_action_bar",
 	"recurrent_inventories_preowned_start_panel_filters":"tmp_section_inventories_preowned_start_panel_filters",
 	"recurrent_inventories_preowned_start_utility_bar_breadcreumb":"tmp_section_inventories_preowned_start_utility_bar_breadcreumb",

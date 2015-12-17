@@ -1218,6 +1218,7 @@
         },
         loadTemplatesFilterSection: function() {
             getFilterMethod.loadFiltersSection();
+            getFilterMethod.refreshFilters();
         },
         loadTemplatesListingResults: function() {
             CAM.loadTemplate(tempsNames.recurrent_inventories_preowned_listing_results, domEl._start_body_content_main_name);
@@ -1247,9 +1248,9 @@
         },
         recurrentFieldsFilterSection: function() {
             fieldsFilters = [
-                ['div', {'id':domEl._start_inventories_preowned_field_filter_category, 'class':''}, '', 1],
-                ['div', {'id':domEl._start_inventories_preowned_field_filter_brands, 'class':''}, '', 1],
-                ['div', {'id':domEl._start_inventories_preowned_field_filter_models, 'class':''}, '', 1]
+                ['div', {'id':domEl._start_inventories_preowned_field_filter_category, 'class':'col-md-4'}, '', 1],
+                ['div', {'id':domEl._start_inventories_preowned_field_filter_brands, 'class':'col-md-4'}, '', 1],
+                ['div', {'id':domEl._start_inventories_preowned_field_filter_models, 'class':'col-md-4'}, '', 1]
             ];
             CAM.appendMulti('#panel-filters-cateogories', fieldsFilters);
         },
@@ -1267,6 +1268,32 @@
             console.log(filBrandsData);
             
             filModelsData = (idCategory && idBrand) ? CAM.getInternalJSON(urlsApi.getCategoryModelsByCategoryByMarc + idCategory + '/' + idBrand) : {};
+
+            CAM.loadTemplate(tempsNames.recurrent_inventories_preowned_select_filter_category, domEl._start_inventories_preowned_field_filter_category_name, filCategoryData);
+            CAM.loadTemplate(tempsNames.recurrent_inventories_preowned_select_filter_brands, domEl._start_inventories_preowned_field_filter_brands_name, filBrandsData);
+            CAM.loadTemplate(tempsNames.recurrent_inventories_preowned_select_filter_models, domEl._start_inventories_preowned_field_filter_models_name, filModelsData);
+
+            $(domEl.select_fil_category).val(idCategory);
+            $(domEl.select_fil_brands).val(idBrand);
+            $(domEl.select_fil_models).val(idModel);
+
+            if(idBrand === '0') {
+                $(domEl.select_fil_brands).attr( "disabled", true );
+                $('div.select-marca button').addClass( "disabled" );
+                $('div.select-marca ul.dropdown-menu.inner.selectpicker li').addClass( "disabled" );
+
+                $(domEl.select_fil_brands).attr( "disabled", true );
+                $('div.select-modelo button').addClass( "disabled" );
+                $('div.select-modelo ul.dropdown-menu.inner.selectpicker li').addClass( "disabled" );
+            } else {
+                $(domEl.select_fil_brands).attr( "disabled", false );
+                $('div.select-marca button').removeClass( "disabled" );
+                $('div.select-marca ul.dropdown-menu.inner.selectpicker li').removeClass( "disabled" );
+
+                $(domEl.select_fil_brands).attr( "disabled", false );
+                $('div.select-modelo button').removeClass( "disabled" );
+                $('div.select-modelo ul.dropdown-menu.inner.selectpicker li').removeClass( "disabled" );
+            }
         }
     }
 /* ------------------------------------------------------ *\

@@ -162,6 +162,12 @@ function domEl() {
         '_start_inventories_preowned_field_filter_models' => $start_inventories_preowned_field_filter_models,
         '_start_inventories_preowned_field_filter_models_name' => '#' . $start_inventories_preowned_field_filter_models,
         'div_recurrent_start_fields_filters' => '#panel-filters-cateogories',
+        // SELEC CATEGORY
+        'select_fil_category' => '#select-fil-category',
+        // SELECT BRANDS
+        'select_fil_brands' => '#select-fil-brands',
+        // SELECT MODELS
+        'select_fil_models' => '#select-fil-models',
 
         // WORKSHOP
         '_start_workshop_content_body' => $start_workshop_content_body,
