@@ -185,6 +185,39 @@
         }
     });
 /* ----------------------------------- *\
+ [Route] INVENTORIES PREOWNED DETAILS -> VEHICLES
+\* ----------------------------------- */
+    Finch.route('/seminuevos/vehiculos', {
+        setup: function(bindings) {
+            section = "inventories-preowned-details-vehicle";
+            // Add favicon
+            window.onload = favicon.load_favicon();
+            ga('send', 'pageview', '/seminuevos/vehiculos');
+        },
+        load: function(bindings) {
+            viewNavbarMethod.viewNavbar();
+            sticky_wrapper_methods.sticky_wrapper();
+
+            addAttrNavAgenciesNewsMethod.addAttrNavAgenciesNews();
+            currentSectionMethod.currentSection_inventories_preowned();
+
+            //viewSectionInventoriesPreownedMethod.viewSectionInventoriesPreownedDetails();
+
+            sticky_wrapper_methods.sticky_wrapper_action_bar();
+            $('.selectpicker').selectpicker();
+
+            $(window).resize(mobile_menu_methods.has_menu_toggle);
+            //$(window).load(equalHeightsMethods.equalHeightsLoad);
+            backToTopMethod.init_window_scroll_top();
+        },
+        unload: function(bindings) {
+            section = "";
+            CAM.setHTML(domEl.div_recurren, '');
+            removeRecurrentsMethod.removeRecurrents();
+            currentSectionMethod.remove_currentSection();
+        }
+    });
+/* ----------------------------------- *\
  [Route] WHORKSHOP
 \* ----------------------------------- */
     Finch.route('/talleres', {
