@@ -2559,7 +2559,7 @@ fieldset[disabled] .btn-pure.focus {
 }
 .dropdown-menu > li > a {
   padding: 8px 15px;
-  border-radius: 3px;
+  border-radius: 0px;
   -webkit-transition: background-color .25s;
        -o-transition: background-color .25s;
           transition: background-color .25s;
