@@ -58,6 +58,10 @@ $(document).ready(function() {
     $(domEl.div_recurrent).on('click', domEl.action_go_agencie_preowned, clikGoMethods.clickGo_agencies_preowned_by_agencie);
     // INVENTORIES PRE-OWNED
     $(domEl.navbar_recurrent).on('click', domEl.goSection_inventories_preowned, clikGoMethods.clickGo_inventories_preowned);
+    // CHANGE SELECT FILTERS
+    $(domEl.div_recurrent).on('change', domEl.select_fil_category, getFilterMethod.changeCategory);
+    $(domEl.div_recurrent).on('change', domEl.select_fil_brands, getFilterMethod.changeBrands);
+    $(domEl.div_recurrent).on('change', domEl.select_fil_models, getFilterMethod.changeModel);
     // WORKSHOP
     $(domEl.navbar_recurrent).on('click', domEl.goSection_workshop, clikGoMethods.clickGo_workshop);
     // RENTAL

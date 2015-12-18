@@ -1263,11 +1263,11 @@
             idCategory = +CAM.getValue(domEl.input_current_hidden_category);
             idBrand = +CAM.getValue(domEl.input_current_hidden_marc);
             idModel = +CAM.getValue(domEl.input_current_hidden_model);
-            console.log(idCategory, idBrand, idModel);
+            //console.log(idCategory, idBrand, idModel);
 
             filCategoryData = CAM.getInternalJSON(urlsApi.getCategory);
             filBrandsData = (idCategory) ? CAM.getInternalJSON(urlsApi.getCategoryByMarc + idCategory) : {};
-            console.log(filBrandsData);
+            //console.log(filBrandsData);
 
             filModelsData = (idCategory && idBrand) ? CAM.getInternalJSON(urlsApi.getCategoryModelsByCategoryByMarc + idCategory + '/' + idBrand) : {};
 
@@ -1312,6 +1312,101 @@
         },
         fillingControl: function() {
         },
+        changeCategory: function(event) {
+            var getCat, getBrd, getMdo, semBrandData;
+            getCat = $(domEl.select_fil_category).find(':selected').val();
+            getBrd = $(domEl.select_fil_brands).find(':selected').val();
+            getMdo = $(domEl.select_fil_models).find(':selected').val();
+
+            $(domEl.input_current_hidden_category).val(getCat);
+            $(domEl.input_current_hidden_marc).val(getBrd);
+            $(domEl.input_current_hidden_model).val(getMdo);
+
+            if ( section === 'inventories-preowned' ) {
+                if ( getCat !== '0' ) {
+                    semBrandData = CAM.getInternalJSON(urlsApi.getCategoryByMarc + getCat);
+                    CAM.loadTemplate(tempsNames.recurrent_inventories_preowned_select_filter_brands, domEl._start_inventories_preowned_field_filter_brands_name, semBrandData);
+
+                    $(domEl.select_fil_brands).attr( "disabled", true );
+                    $('div.select-marca button').addClass( "disabled" );
+                    $('div.select-marca ul.dropdown-menu.inner.selectpicker li').addClass( "disabled" );
+
+                    $(domEl.select_fil_models).attr( "disabled", true );
+                    $('div.select-modelo button').addClass( "disabled" );
+                    $('div.select-modelo ul.dropdown-menu.inner.selectpicker li').addClass( "disabled" );
+
+                    getFilterMethod.refreshFilters();
+                } else {
+                    $(domEl.select_fil_brands).attr( "disabled", false );
+                    $('div.select-marca button').removeClass( "disabled" );
+                    $('div.select-marca ul.dropdown-menu.inner.selectpicker li').removeClass( "disabled" );
+
+                    $(domEl.select_fil_models).attr( "disabled", false );
+                    $('div.select-modelo button').removeClass( "disabled" );
+                    $('div.select-modelo ul.dropdown-menu.inner.selectpicker li').removeClass( "disabled" );
+                    //console.log(semBrandData);
+                }
+                getFilterMethod.sortingGeneral();
+            } else {
+                Finch.navigate('/seminuevos/inventarios');
+            }
+        },
+        changeBrands: function(event) {
+            var getCat, getBrd, getMdo, semModelData;
+            getCat = $(domEl.select_fil_category).find(':selected').val();
+            getBrd = $(domEl.select_fil_brands).find(':selected').val();
+            getMdo = $(domEl.select_fil_models).find(':selected').val();
+
+            $(domEl.input_current_hidden_marc).val(getBrd);
+
+            if ( section === 'inventories-preowned' ) {
+                if ( getBrd !== '0' ) {
+                    $(domEl.select_fil_models).attr( "disabled", true );
+                    $('div.select-modelo button').addClass( "disabled" );
+                    $('div.select-modelo ul.dropdown-menu.inner.selectpicker li').addClass( "disabled" );
+                    getFilterMethod.refreshFilters();
+                } else {
+                    $(domEl.select_fil_models).attr( "disabled", false );
+                    $('div.select-modelo button').removeClass( "disabled" );
+                    $('div.select-modelo ul.dropdown-menu.inner.selectpicker li').removeClass( "disabled" );
+
+                    semModelData = CAM.getInternalJSON(urlsApi.getCategoryModelsByCategoryByMarc + getCat + '/' + getBrd);
+                    CAM.loadTemplate(tempsNames.recurrent_inventories_preowned_select_filter_models, domEl._start_inventories_preowned_field_filter_models_name, semModelData);
+                }
+                getFilterMethod.sortingGeneral();
+            } else {
+                Finch.navigate('/seminuevos/inventarios');
+            }
+        },
+        changeModel: function(event) {
+            var getBrd, getMdo;
+
+            getBrd = $(domEl.select_fil_brands).find(':selected').val();
+            getMdo = $(domEl.select_fil_models).find(':selected').val();
+
+            $(domEl.input_current_hidden_model).val(getMdo);
+
+            if ( section === 'inventories-preowned' ) {
+                CAM.loadTemplate(tempsNames.recurrent_inventories_preowned_views_results_list, domEl.div_recurrent_start_views_result_list, getMdo);
+                getFilterMethod.sortingGeneral();
+
+            } else {
+                Finch.navigate('/seminuevos/inventarios');
+            }
+        },
+        /*clickGoIndex : function(event) {
+            $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );
+            $(domEl.input_current_hidden_category).val('0');
+            $(domEl.input_current_hidden_marc).val('0');
+            $(domEl.input_current_hidden_model).val('0');
+            getfiltersMethod.refreshFilters();
+            getfiltersMethod.sortingGeneral();
+            Finch.navigate('/');
+            //console.log('return -> index');
+        },*/
+        resetForm: function () {
+            CAM.resetForm("#search-sem");
+        }
     }
 /* ------------------------------------------------------ *\
     [Methods] viewSectionWorkShopMethod
