@@ -298,6 +298,7 @@
         <script src="../lib/site/jquery.appear.js"></script>
         <script src="../lib/site/jquery.countTo.js"></script>
         <script src="../lib/site/matchMedia.js"></script>
+        <script src="../lib/site/jquery.currency.js"></script>
 
         <script src="../lib/site/herocarousel/jquery.herocarousel-plugins.js"></script>
         <script src="../lib/site/flexslider/jquery.flexslider.js"></script>

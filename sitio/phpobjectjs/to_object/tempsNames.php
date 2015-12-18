@@ -51,11 +51,12 @@ function tempsNames() {
         //'recurrent_inventories_preowned_start_filter_section' => 'tmp_section_inventories_preowned_start_filter_section',
         'recurrent_inventories_preowned_start_panel_filters' => 'tmp_section_inventories_preowned_start_panel_filters',
         'recurrent_inventories_preowned_listing_results' => 'tmp_section_inventories_preowned_listing_results',
-        // SELECT FILTER 
+        'recurrent_inventories_preowned_views_results_list' => 'tmp_section_inventories_preowned_views_results_list',
+        // SELECT FILTER
         'recurrent_inventories_preowned_select_filter_category' => 'tmp_section_inventories_preowned_select_filter_category',
         'recurrent_inventories_preowned_select_filter_brands' => 'tmp_section_inventories_preowned_select_filter_brands',
         'recurrent_inventories_preowned_select_filter_models' => 'tmp_section_inventories_preowned_select_filter_models',
-        
+
         // WORKSHOP
         'recurrent_workshop_start_utility_bar_breadcrumb' => 'tmp_section_workshop_start_utility_bar_breadcrumb',
         'recurrent_workshop_start_large_pad_land_mark' => 'tmp_section_workshop_start_large_pad_land_mark',

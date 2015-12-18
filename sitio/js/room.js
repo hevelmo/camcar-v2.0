@@ -173,6 +173,7 @@
             $('.selectpicker').selectpicker();
 
             $(window).resize(mobile_menu_methods.has_menu_toggle);
+            $(window).load(equalHeightsMethods.equalHeightsLoad);
             backToTopMethod.init_window_scroll_top();
         },
         unload: function(bindings) {

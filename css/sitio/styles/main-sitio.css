@@ -1000,7 +1000,7 @@ ul.inline{
   margin:10px 0;
 }
 ul.inline > li{
-  display: inline-block;
+  display: block;
   margin-right: 10px;
   color: #000;
   font-weight: 400;

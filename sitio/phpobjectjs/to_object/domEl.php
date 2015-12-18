@@ -168,6 +168,8 @@ function domEl() {
         'select_fil_brands' => '#select-fil-brands',
         // SELECT MODELS
         'select_fil_models' => '#select-fil-models',
+        // VIEWS RESULT LIST
+        'div_recurrent_start_views_result_list' => '#content-start-views-results-list',
 
         // WORKSHOP
         '_start_workshop_content_body' => $start_workshop_content_body,

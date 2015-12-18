@@ -3,16 +3,11 @@
 \* ------------------------------------------------------ */
     var section;
     var IS_MOBILE, mediaquery, mediaquery320, mediaquery360, mediaquery375, mediaquery384, mediaquery400, mediaquery412, mediaquery414, mediaquery480, mediaquery600, mediaquery640,  mediaquery768,  mediaquery800, mediaquery1024,  mediaquery1200,  mediaquery1280,  mediaquery1366, mediaquery1440, mediaquery1600, mediaquery1601;
-        mediaquery320 = window.matchMedia("(max-width: 320px)"); mediaquery360 = window.matchMedia("(max-width: 360px)");
-        mediaquery375 = window.matchMedia("(max-width: 375px)"); mediaquery384 = window.matchMedia("(max-width: 384px)");
-        mediaquery400 = window.matchMedia("(max-width: 400px)"); mediaquery412 = window.matchMedia("(max-width: 412px)");
-        mediaquery414 = window.matchMedia("(max-width: 414px)"); mediaquery480 = window.matchMedia("(max-width: 480px)");
-        mediaquery600 = window.matchMedia("(max-width: 600px)"); mediaquery640 = window.matchMedia("(max-width: 640px)");
-        mediaquery768 = window.matchMedia("(max-width: 768px)"); mediaquery800 = window.matchMedia("(max-width: 800px)");
-        mediaquery1024 = window.matchMedia("(max-width: 1024px)"); mediaquery1200 = window.matchMedia("(max-width: 1200px)");
-        mediaquery1280 = window.matchMedia("(max-width: 1280px)"); mediaquery1366 = window.matchMedia("(max-width: 1366px)");
-        mediaquery1440 = window.matchMedia("(max-width: 1440px)"); mediaquery1600 = window.matchMedia("(max-width: 1600px)");
-        mediaquery1601 = window.matchMedia("(max-width: 1601px)");
+        mediaquery320 = window.matchMedia("(max-width: 320px)"); mediaquery360 = window.matchMedia("(max-width: 360px)"); mediaquery375 = window.matchMedia("(max-width: 375px)"); mediaquery384 = window.matchMedia("(max-width: 384px)");
+        mediaquery400 = window.matchMedia("(max-width: 400px)"); mediaquery412 = window.matchMedia("(max-width: 412px)"); mediaquery414 = window.matchMedia("(max-width: 414px)"); mediaquery480 = window.matchMedia("(max-width: 480px)");
+        mediaquery600 = window.matchMedia("(max-width: 600px)"); mediaquery640 = window.matchMedia("(max-width: 640px)"); mediaquery768 = window.matchMedia("(max-width: 768px)"); mediaquery800 = window.matchMedia("(max-width: 800px)");
+        mediaquery1024 = window.matchMedia("(max-width: 1024px)"); mediaquery1200 = window.matchMedia("(max-width: 1200px)"); mediaquery1280 = window.matchMedia("(max-width: 1280px)"); mediaquery1366 = window.matchMedia("(max-width: 1366px)");
+        mediaquery1440 = window.matchMedia("(max-width: 1440px)"); mediaquery1600 = window.matchMedia("(max-width: 1600px)"); mediaquery1601 = window.matchMedia("(max-width: 1601px)");
         mediaquery = window.matchMedia("(max-width: 768px)");
     // Browser supports HTML5 multiple file?
     var multipleSupport, isIE;
@@ -1208,7 +1203,7 @@
             viewSectionInventoriesPreownedMethod.loadTemplatesActionBar();
             viewSectionInventoriesPreownedMethod.loadTemplatesFilterSection();
             viewSectionInventoriesPreownedMethod.loadTemplatesListingResults();
-            viewSectionInventoriesPreownedMethod.appendCaret();
+            viewSectionInventoriesPreownedMethod.prependCaret();
         },
         loadTemplatesUtilityBarBreadcrumb: function() {
             CAM.loadTemplate(tempsNames.recurrent_inventories_preowned_start_utility_bar_breadcreumb, domEl._start_utility_bar_breadcrumb_name);
@@ -1223,8 +1218,10 @@
         },
         loadTemplatesListingResults: function() {
             CAM.loadTemplate(tempsNames.recurrent_inventories_preowned_listing_results, domEl._start_body_content_main_name);
+            getFilterMethod.sortingGeneral();
+            equalHeightsMethods.equalHeightsLoad();
         },
-        appendCaret: function() {
+        prependCaret: function() {
             carretInlineAttributes = {'class': 'fa fa-caret-right'}
             CAM.prependOne('ul.inline li', 'i', carretInlineAttributes, '', 0);
         },
@@ -1260,7 +1257,7 @@
             CAM.appendMulti('#panel-filters-cateogories', fieldsFilters);
         },
         refreshFilters: function() {
-            var filModelsData, filBrandsData, filCategoryData, 
+            var filModelsData, filBrandsData, filCategoryData,
                 idAgencie, idCategory, idBrand, idModel;
 
             idCategory = +CAM.getValue(domEl.input_current_hidden_category);
@@ -1271,7 +1268,7 @@
             filCategoryData = CAM.getInternalJSON(urlsApi.getCategory);
             filBrandsData = (idCategory) ? CAM.getInternalJSON(urlsApi.getCategoryByMarc + idCategory) : {};
             console.log(filBrandsData);
-            
+
             filModelsData = (idCategory && idBrand) ? CAM.getInternalJSON(urlsApi.getCategoryModelsByCategoryByMarc + idCategory + '/' + idBrand) : {};
 
             CAM.loadTemplate(tempsNames.recurrent_inventories_preowned_select_filter_category, domEl._start_inventories_preowned_field_filter_category_name, filCategoryData);
@@ -1299,7 +1296,22 @@
                 $('div.select-modelo button').removeClass( "disabled" );
                 $('div.select-modelo ul.dropdown-menu.inner.selectpicker li').removeClass( "disabled" );
             }
-        }
+        },
+        sortingGeneral: function() {
+            var category, marca, modelo, yearStart, yearFinal, priceStart, priceFinal;
+
+            category = +CAM.getValue(domEl.select_fil_category);
+            marca = +CAM.getValue(domEl.select_fil_brands);
+            modelo = +CAM.getValue(domEl.select_fil_models);
+
+            url = urlsApi.getSeminuevosByFilter + category + '/' + marca + '/' + modelo;
+            byFilters = CAM.getInternalJSON(url);
+            //console.log(byFilters);
+            CAM.loadTemplate(tempsNames.recurrent_inventories_preowned_views_results_list, domEl.div_recurrent_start_views_result_list, byFilters);
+            $('.selectpicker').selectpicker();
+        },
+        fillingControl: function() {
+        },
     }
 /* ------------------------------------------------------ *\
     [Methods] viewSectionWorkShopMethod
