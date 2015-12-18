@@ -24,13 +24,14 @@
 }
 .views-details span {
     position: relative;
-    padding: 25px;
+    padding: 19px;
     text-align: center;
     display: block;
     font-size: 0em;
     font-family: 'Lato', sans-serif;
-    font-weight: 700;
+    font-weight: 900;
     text-indent: -9999px;
+    letter-spacing: 1px;
 }
 .result-item:hover .views-details {
     overflow: visible;
@@ -49,7 +50,7 @@
     overflow: visible;
     opacity: 1;
     text-indent: 0px;
-    font-size: 1em;
+    font-size: 16px;
     -webkit-transform-timing-function: ease-out;
     -moz-transform-timing-function: ease-out;
     -ms-transform-timing-function: ease-out;

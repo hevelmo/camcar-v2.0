@@ -170,6 +170,7 @@
             viewSectionInventoriesPreownedMethod.viewSectionInventoriesPreowned();
 
             sticky_wrapper_methods.sticky_wrapper_action_bar();
+            $('.selectpicker').selectpicker();
 
             $(window).resize(mobile_menu_methods.has_menu_toggle);
             backToTopMethod.init_window_scroll_top();

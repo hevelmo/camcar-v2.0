@@ -1000,8 +1000,10 @@ ul.inline{
   margin:10px 0;
 }
 ul.inline > li{
-  display:inline-block;
-  margin-right:10px;
+  display: inline-block;
+  margin-right: 10px;
+  color: #000;
+  font-weight: 400;
 }
 ul.inline > li i.fa{
   margin-right:2px;

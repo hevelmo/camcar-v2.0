@@ -688,7 +688,7 @@ p.meta-data{
 	padding-bottom:11px;
 }
 .bootstrap-select.form-control{
-	margin-bottom:20px!important;
+	margin-bottom:0px!important;
 }
 .action-icons{
 	list-style-type:none;

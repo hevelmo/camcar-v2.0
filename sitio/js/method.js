@@ -1208,6 +1208,7 @@
             viewSectionInventoriesPreownedMethod.loadTemplatesActionBar();
             viewSectionInventoriesPreownedMethod.loadTemplatesFilterSection();
             viewSectionInventoriesPreownedMethod.loadTemplatesListingResults();
+            viewSectionInventoriesPreownedMethod.appendCaret();
         },
         loadTemplatesUtilityBarBreadcrumb: function() {
             CAM.loadTemplate(tempsNames.recurrent_inventories_preowned_start_utility_bar_breadcreumb, domEl._start_utility_bar_breadcrumb_name);
@@ -1222,6 +1223,10 @@
         },
         loadTemplatesListingResults: function() {
             CAM.loadTemplate(tempsNames.recurrent_inventories_preowned_listing_results, domEl._start_body_content_main_name);
+        },
+        appendCaret: function() {
+            $('ul.checks li, .add-features-list li').prepend('<i class="fa fa-check"></i> ');
+            $('ul.carets li, ul.inline li, .filter-options-list li').prepend('<i class="fa fa-caret-right"></i> ');
         },
         recurrentFilterSection: function() {
             getFilterSection = [
