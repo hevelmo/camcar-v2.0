@@ -1225,8 +1225,8 @@
             CAM.loadTemplate(tempsNames.recurrent_inventories_preowned_listing_results, domEl._start_body_content_main_name);
         },
         appendCaret: function() {
-            $('ul.checks li, .add-features-list li').prepend('<i class="fa fa-check"></i> ');
-            $('ul.carets li, ul.inline li, .filter-options-list li').prepend('<i class="fa fa-caret-right"></i> ');
+            carretInlineAttributes = {'class': 'fa fa-caret-right'}
+            CAM.prependOne('ul.inline li', 'i', carretInlineAttributes, '', 0);
         },
         recurrentFilterSection: function() {
             getFilterSection = [

@@ -32,6 +32,7 @@
             [FUNCTION] setHTML(domElement, information)
             [FUNCTION] cryptElement(domElement)
             [FUNCTION] appendOne(domElement, new_el_type, new_el_attributes, new_el_content, hasClosingTag)
+            [FUNCTION] prependOne(domElement, new_el_type, new_el_attributes, new_el_content, hasClosingTag)
             [FUNCTION] appendMulti(domElement, elements)
         [MODELS] DATE TIME PICKER's Models
             [FUNCTION] setDateTPCalendar (wrapper, futureDays, hasMinDate)
@@ -304,6 +305,66 @@ CAM = (function() {
                     new_domElement += new_el_content;
                 }
                 $(domElement).append(new_domElement);
+            }
+        /*
+         *This function prepend one new element to an existent domElement
+         *
+         *PARAMS:
+         *   domElement: Is a string with the id or class ('#domElement', '.domElement')
+         *               of the element where we can't prepend the new element (mandatory).
+         *   new_el_type: Is a string with the html type (div, input, etc) of the element
+         *                be careful it's a correct one, because the method doesn't
+         *                doesn't distinguish is it's correct or not (mandatory).
+         *   new_el_attributes: Is an objetc with the attributes to the new element, they
+         *                      will be included in the exactly order they are in the object,
+         *                      be careful to use correct attributes because the method dosent
+         *                      distinguish if they are or not correct (mandatory).
+         *                      if you don't want atributes send an empty object {}
+         *   new_el_content: Is a string with the content of the element (mandatory).
+                             if you don't want content send an empty string.
+         *   hasClosingTag: Is an integer who idicates if the element has (1) or not(2) a
+         *                  closing tag.
+         *EXAMPLE:
+         *   Imagine we have the empty element <div id='my_div'></div>
+         *
+         *   new_el_attributes = {'id': 'myId', 'class': 'myClass', 'value' : '2'}
+         *   prependOne('div#my_div', 'div', new_el_attributes, 'Hello Div', 1);
+         *
+         *   The result is:
+         *
+         *   <div id='my_div'>
+         *       <div id='myId' class='myClass' value='2'>Hello Div</div>
+         *   </div>
+         *
+         *   Imagine the same empty element.
+         *
+         *   new_el_attributes = {'id': 'myId', 'class': 'myClass', 'value' : '2', 'data-my-data' : '2', 'name' : 'myName'}
+         *   prependOne('div#my_div', 'div', new_el_attributes, '', 0);
+         *
+         *   The result is:
+         *
+         *   <div id='my_div'>
+         *       <input id='myId' class='myClass' value='2' data-my-data='2' name='myName' />
+         *   </div>
+         *
+        **/
+            function prependOne(domElement, new_el_type, new_el_attributes, new_el_content, hasClosingTag) {
+                var new_domElement;
+                new_domElement = '<' + new_el_type;
+                for (var key in new_el_attributes) {
+                    new_domElement += (new_el_attributes.hasOwnProperty(key))
+                            ? ' ' + key + "='" + new_el_attributes[key] + "'"
+                            : '';
+                }
+                if(hasClosingTag) {
+                    new_domElement += '>';
+                    new_domElement += new_el_content;
+                    new_domElement += '</' + new_el_type + '>';
+                } else {
+                    new_domElement += ' >';
+                    new_domElement += new_el_content;
+                }
+                $(domElement).prepend(new_domElement);
             }
         /*
          *This function apend multiple new elements to an existent domElement.
@@ -893,6 +954,7 @@ CAM = (function() {
                     getHTML : getHTML,
                     setHTML : setHTML,
                   appendOne : appendOne,
+                 prependOne : prependOne,
                 appendMulti : appendMulti,
                   trimValue : trimValue,
                cryptElement : cryptElement,
