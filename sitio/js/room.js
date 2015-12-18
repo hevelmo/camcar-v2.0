@@ -159,6 +159,7 @@
             section = "inventories-preowned";
             // Add favicon
             window.onload = favicon.load_favicon();
+            ga('send', 'pageview', '/seminuevos/inventarios');
         },
         load: function(bindings) {
             viewNavbarMethod.viewNavbar();
