@@ -14,6 +14,9 @@
           				</h2>
         			</header>
         			<article class="post-content">
+                        {{#if campa.0.blogDescripcion}}
+                        <div class="to-html">{{campa.0.blogDescripcion}}</div>
+                        {{/if}}
         				{{#if campa.0.blogGaleria}}
         					<div class="featured-image">
                                 <a id="content-section-blog-galery">
@@ -48,9 +51,7 @@
                             </a>
                         </div>
         				{{/if}}
-        				{{#if campa.0.blogDescripcion}}
-        				<div class="to-html">{{campa.0.blogDescripcion}}</div>
-        				{{/if}}
+
         				{{#if campa.0.blogPostParrafo1}}
         				<div class="to-html">{{campa.0.blogPostParrafo1}}</div>
         				{{/if}}

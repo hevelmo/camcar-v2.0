@@ -2,13 +2,15 @@
     [Variables] 'Zone'
 \* ------------------------------------------------------ */
     var section;
-    var IS_MOBILE, mediaquery, mediaquery320, mediaquery360, mediaquery375, mediaquery384, mediaquery400, mediaquery412, mediaquery414, mediaquery480, mediaquery600, mediaquery640,  mediaquery768,  mediaquery800, mediaquery1024,  mediaquery1200,  mediaquery1280,  mediaquery1366, mediaquery1440, mediaquery1600, mediaquery1601;
+    var IS_MOBILE, mediaquery, mediaquery320, mediaquery360, mediaquery375, mediaquery384, mediaquery400, mediaquery412, mediaquery414, mediaquery480, mediaquery600, mediaquery640,  mediaquery768,  mediaquery800, mediaquery1024,  mediaquery1200,  mediaquery1280,  mediaquery1366, mediaquery1440, mediaquery1600, mediaquery1601,
+        $min_width_768;
         mediaquery320 = window.matchMedia("(max-width: 320px)"); mediaquery360 = window.matchMedia("(max-width: 360px)"); mediaquery375 = window.matchMedia("(max-width: 375px)"); mediaquery384 = window.matchMedia("(max-width: 384px)");
         mediaquery400 = window.matchMedia("(max-width: 400px)"); mediaquery412 = window.matchMedia("(max-width: 412px)"); mediaquery414 = window.matchMedia("(max-width: 414px)"); mediaquery480 = window.matchMedia("(max-width: 480px)");
         mediaquery600 = window.matchMedia("(max-width: 600px)"); mediaquery640 = window.matchMedia("(max-width: 640px)"); mediaquery768 = window.matchMedia("(max-width: 768px)"); mediaquery800 = window.matchMedia("(max-width: 800px)");
         mediaquery1024 = window.matchMedia("(max-width: 1024px)"); mediaquery1200 = window.matchMedia("(max-width: 1200px)"); mediaquery1280 = window.matchMedia("(max-width: 1280px)"); mediaquery1366 = window.matchMedia("(max-width: 1366px)");
         mediaquery1440 = window.matchMedia("(max-width: 1440px)"); mediaquery1600 = window.matchMedia("(max-width: 1600px)"); mediaquery1601 = window.matchMedia("(max-width: 1601px)");
         mediaquery = window.matchMedia("(max-width: 768px)");
+        $min_width_768 = window.matchMedia("(min-width: 768px)");
     // Browser supports HTML5 multiple file?
     var multipleSupport, isIE;
     multipleSupport = typeof $('<input/>')[0].multiple !== 'undefined',
@@ -119,9 +121,19 @@
     var matchMediaMethod = {
         mediaquery: function() {
             if (mediaquery.matches) {
-                // mediaquery es 768px
+                $('.results-grid-view div.result-item').each( function () {
+                    if ( $('div').hasClass('result-item') ) {
+                        $('.result-item').addClass('col-xs-6 col-sm-6');
+                    }
+                });
+                console.log('mediaquery es min 768px');
             } else {
-                // mediaquery no es 768px
+                $('.results-grid-view div.result-item').each( function () {
+                    if ( $('div').hasClass('result-item') ) {
+                        $('.result-item').removeClass('col-xs-6 col-sm-6');
+                    }
+                });
+                console.log('mediaquery no es min 768px');
             }
         }
     }
@@ -1296,6 +1308,7 @@
                 $('div.select-modelo button').removeClass( "disabled" );
                 $('div.select-modelo ul.dropdown-menu.inner.selectpicker li').removeClass( "disabled" );
             }
+            matchMediaMethod.mediaquery();
         },
         sortingGeneral: function() {
             var category, marca, modelo, yearStart, yearFinal, priceStart, priceFinal;

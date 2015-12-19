@@ -1370,6 +1370,7 @@ $app->run();
             'blogPrimaryLinkUrl' => 'BLG_PrimaryLinkUrl',
             'blogPrimaryLinkName' => 'BLG_PrimaryLinkName',
             'blogPublicacion' => 'BLG_Publicacion',
+            'blogSubFolder' => 'BLG_SubFolder',
             'blogGaleria' => 'GAL_Galeria',
             'blogVideo' => 'VDO_Video',
             'agencias' => array(
