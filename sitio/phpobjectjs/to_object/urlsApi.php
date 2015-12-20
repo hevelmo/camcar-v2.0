@@ -53,6 +53,8 @@ function urlsApi() {
         // AGENTS MAP
         'getMapa' => $root . '/' . $get . '/' . $tab_mapa . '/' . $tab_seminuevo,
         'getMapaById' => $root . '/' . $get . '/' . $tab_mapa . '/' . $tab_seminuevo . '/',
+        // AGENTS MAP AGENCIES
+        'getAgentsMapAgencies' => $root . '/' . $get . '/agencias/mapa',
 
         // AGENCIES NEWS
         // LOGOS AGENCIES NEWS PRINCIPAL

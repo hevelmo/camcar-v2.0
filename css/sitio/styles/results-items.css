@@ -50,6 +50,10 @@
     overflow: hidden;
     opacity: 0;
 }
+.views-details span:hover {
+    background: #fff;
+    color: #000;
+}
 .result-item:hover .views-details span {
     overflow: visible;
     opacity: 1;

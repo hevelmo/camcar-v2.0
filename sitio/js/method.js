@@ -1336,7 +1336,7 @@
             $(domEl.input_current_hidden_model).val(getMdo);
 
             if ( section === 'inventories-preowned' ) {
-                if ( getCat !== '0' ) {
+                if ( getCat !== '0' || getCat !== 'Categoría' ) {
                     semBrandData = CAM.getInternalJSON(urlsApi.getCategoryByMarc + getCat);
                     CAM.loadTemplate(tempsNames.recurrent_inventories_preowned_select_filter_brands, domEl._start_inventories_preowned_field_filter_brands_name, semBrandData);
 
@@ -1373,7 +1373,7 @@
             $(domEl.input_current_hidden_marc).val(getBrd);
 
             if ( section === 'inventories-preowned' ) {
-                if ( getBrd !== '0' ) {
+                if ( getBrd !== '0' || getBrd !== 'Marca' ) {
                     $(domEl.select_fil_models).attr( "disabled", true );
                     $('div.select-modelo button').addClass( "disabled" );
                     $('div.select-modelo ul.dropdown-menu.inner.selectpicker li').addClass( "disabled" );
@@ -1420,6 +1420,12 @@
         resetForm: function () {
             CAM.resetForm("#search-sem");
         }
+    }
+/* ------------------------------------------------------ *\
+    [Methods] viewSectionInventoriesPreownedMethod
+\* ------------------------------------------------------ */
+    var viewSectionInventoriesPreownedMethodDetails = {
+        viewSectionInventoriesPreownedDetails: function() {}        
     }
 /* ------------------------------------------------------ *\
     [Methods] viewSectionWorkShopMethod
@@ -2139,7 +2145,7 @@
             saturation_value = -20;
             brightness_value = 5;
 
-            mapData = CAM.getInternalJSON(urlsApi.getMapa);
+            mapData = CAM.getInternalJSON(urlsApi.getAgentsMapAgencies);
             agn_latitud = mapData.campa[0].agn_latitud;
             agn_longitud = mapData.campa[0].agn_longitud;
 

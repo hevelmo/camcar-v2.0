@@ -154,27 +154,46 @@
 /* ----------------------------------- *\
  [Route] INVENTORIES PREOWNED
 \* ----------------------------------- */
-    Finch.route('/seminuevos/inventarios', {
+    Finch.route('/seminuevos/inventarios/:mrcNombre/:mdoNombre/:senId', {
         setup: function(bindings) {
-            section = "inventories-preowned";
+            var $brandNameGA, $modelNameGA, $semIdGA;
+            $brandNameGA = bindings.mrcNombre;
+            $modelNameGA = bindings.mdoNombre;
+            $semIdGA = bindings.senId;
             // Add favicon
             window.onload = favicon.load_favicon();
-            ga('send', 'pageview', '/seminuevos/inventarios');
+
+            // GOOGLE ANALYTICS
+            if ( $brandNameGA === undefined && $modelNameGA === undefined && $semIdGA === undefined ) {
+                ga('send', 'pageview', '/seminuevos/inventarios');
+            } else if ( $brandNameGA !== undefined && $modelNameGA !== undefined && $semIdGA !== undefined ) {
+                ga('send', 'pageview', '/seminuevos/inventarios' + $brandNameGA + '/' + $modelNameGA );
+            }
         },
         load: function(bindings) {
+            var $brandName, $modelName,  $semId;
+            $brandName = bindings.mrcNombre;
+            $modelName = bindings.mdoNombre;
+            $semId = bindings.senId;
+
             viewNavbarMethod.viewNavbar();
             sticky_wrapper_methods.sticky_wrapper();
 
             addAttrNavAgenciesNewsMethod.addAttrNavAgenciesNews();
             currentSectionMethod.currentSection_inventories_preowned();
+            
 
-            viewSectionInventoriesPreownedMethod.viewSectionInventoriesPreowned();
-
+            if ( $brandName === undefined && $modelName === undefined && $semId === undefined ) {
+                section = "inventories-preowned";
+                viewSectionInventoriesPreownedMethod.viewSectionInventoriesPreowned();
+            } else if ( $brandName !== undefined && $modelName !== undefined && $semId !== undefined ) {
+                section = "inventories-preowned-details";
+                viewSectionInventoriesPreownedMethodDetails.viewSectionInventoriesPreownedDetails();
+            }
             sticky_wrapper_methods.sticky_wrapper_action_bar();
             $('.selectpicker').selectpicker();
 
             matchMediaMethod.mediaquery();
-
             $(window).resize(mobile_menu_methods.has_menu_toggle);
             $(window).load(equalHeightsMethods.equalHeightsLoad);
             backToTopMethod.init_window_scroll_top();
@@ -301,7 +320,6 @@
             } else if ( $dataAgencieGA !== undefined && $dataBlogGA !== undefined && $dataBlogIdGA !== undefined ) {
                 ga( 'send', 'pageview', '/noticias/' + $dataAgencieGA + '/' + $dataBlogGA );
             }
-
         },
         load: function(bindings) {
             var $dataAgencie, $dataBlog, $dataBlogId;

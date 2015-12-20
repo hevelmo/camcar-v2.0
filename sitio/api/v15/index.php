@@ -57,6 +57,8 @@ $app->configureMode('development', function () use ($app) {
     $app->get('/get/mapa/seminuevo', /*'mw1',*/ 'getMapa');
     // MAPA BY ID
     $app->get('/get/mapa/seminuevo/:senId', /*'mw1',*/ 'getMapaById');
+    // AGENTS MAP AGENCIES
+    $app->get('/get/agencias/mapa', /*'mw1',*/ 'getAgentsMapAgencies');
 
     // AGENCIES NEWS
     // HOME -> BRANDS AGENCIES
@@ -302,6 +304,22 @@ $app->run();
         ($senId !== '') ? $params['senId'] = $senId : $params = $params;
         echo changeQueryIntoJSON('campa', $structure, getConnection(), $sql, $params, 0, PDO::FETCH_ASSOC);
     }
+    // AGENCTS MAP AGENCIES JSON
+    function getAgentsMapAgenciesJSON($sql) {
+        $structure = array(
+            'agn_id' => 'AGN_Id',
+            'agn_nombre' => 'AGN_Nombre',
+            'agn_direccion' => 'AGN_Dirección',
+            'agn_folder' => 'AGN_Folder',
+            'agn_logo1' => 'AGN_Logo1',
+            'agn_logo2' => 'AGN_Logo2',
+            'agn_latitud' => 'AGN_MLatitud',
+            'agn_longitud' => 'AGN_MLongitud',
+            'map_url' => 'AGN_MUrl'
+        );
+        $params = array();
+        echo changeQueryIntoJSON('campa', $structure, getConnection(), $sql, $params, 0, PDO::FETCH_ASSOC);
+    }
     // AGENTS MAP
     function getMapa() {
         $sql = "SELECT *
@@ -312,13 +330,18 @@ $app->run();
                 INNER JOIN (
                     SELECT *
                     FROM camAgencias
-                    WHERE AGN_Tipo = 1
-                    AND AGN_Status = 1
+                    WHERE AGN_Status = 1
                     AND AGN_IsMap_Agencia = 1
                 ) agn
                 GROUP BY AGN_Id";
         getMapaJSON($sql, '');
     }
+    // AGENCTS MAP AGENCIES
+    function getAgentsMapAgencies() {
+        $sql = "SELECT * FROM camAgencias WHERE AGN_Status = 1 AND AGN_isMap_Agencia = 1";
+        getAgentsMapAgenciesJSON($sql);
+    }
+
     // AGENTS MAP BY ID
     function getMapaById($senId) {
         $sql = "SELECT *

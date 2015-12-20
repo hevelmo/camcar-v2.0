@@ -170,6 +170,20 @@ function domEl() {
         'select_fil_models' => '#select-fil-models',
         // VIEWS RESULT LIST
         'div_recurrent_start_views_result_list' => '#content-start-views-results-list',
+        // GO DETAILS
+        // FILTER SELECT ACTION
+        "select_filter_action_cat" => 'select.filter-action-cat',
+        "select_filter_action_cat_id" => 'select#filter-action-cat-',
+        "select_filter_action_mrc" => 'select.filter-action-mrc',
+        "select_filter_action_mrc_id" => 'select#filter-action-mrc-',
+        "select_filter_action_mdo" => 'select.filter-action-mdo',
+        "select_filter_action_mdo_id" => 'select#filter-action-mdo-',
+        // BUTTON FOUND
+        'button_sem_search_action' => 'a.sem-search-action',
+        'button_sem_search_action_id' => 'a#sem-search-action-',
+        // VIEW DETAILS
+        'link_sem_action' => 'a.sem-action',
+        'link_sem_action_id' => 'a#sem-action-',
 
         // WORKSHOP
         '_start_workshop_content_body' => $start_workshop_content_body,
