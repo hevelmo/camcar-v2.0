@@ -184,6 +184,12 @@ function domEl() {
         // VIEW DETAILS
         'link_sem_action' => 'a.sem-action',
         'link_sem_action_id' => 'a#sem-action-',
+        // CONTENT TABLE SPECIFICATIONS
+        'div_recurrent_table_specifications' => '#content_specifications',
+        // CONTENT VEHICLE SLIDERç
+        'div_recurrent_vehicle_slider_details' => '#content-vehicle-slider-details',
+        // CONTETNE CAROUSEL
+        'div_recurrent_corousel_vehicles' => '#content_carousel_vehicles',
 
         // WORKSHOP
         '_start_workshop_content_body' => $start_workshop_content_body,

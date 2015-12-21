@@ -1426,30 +1426,63 @@
 \* ------------------------------------------------------ */
     var viewSectionInventoriesPreownedMethodDetails = {
         viewSectionInventoriesPreownedDetails: function(brandName, modelName, semId) {
-            viewSectionInventoriesPreownedMethod.recurrentSecionInventoriesPreowned();
-            viewSectionInventoriesPreownedMethodDetails.loadTemplatesUtilityBarBreadcrumb(semId);
+            viewSectionInventoriesPreownedMethodDetails.recurrentSecionInventoriesPreownedDetails();
+            viewSectionInventoriesPreownedMethodDetails.loadTemplatesUtilityBarBreadcrumb(brandName, modelName, semId);
+            viewSectionInventoriesPreownedMethod.loadTemplatesActionBar();
+            viewSectionInventoriesPreownedMethod.loadTemplatesFilterSection();
         },
-        loadBreadcrumbs_blogByPost: function(semId) {
+        loadBreadcrumbs_inventoriesPreownedDetails: function(brand, model, year) {
             if ( section === 'inventories-preowned-details' ) {
-                $('#filter-inventories-preowned-detail-semid').html(semId);
+                $('#filter-inventories-preowned-detail-brand').html(brand);
+                $('#filter-inventories-preowned-detail-model').html(model);
+                $('#filter-inventories-preowned-detail-year').html(year);
             }
         },
         loadTemplatesUtilityBarBreadcrumb: function(brandName, modelName, semId) {
-            var semIdData, idBrand, pictureData, idPicture, url, byDetail, brandName, modelName, semId
+            var semIdData, idBrand, pictureData, idPicture, byDetail,
                 campaDetailBrand, campaDetailModel, campaDetailYear, campaDataSemId;
 
             semIdData = urlsApi.getSeminuevosById + brandName + '/' + modelName + '/' + semId;
-            byDetail = CAM.getInternalJSON(url);
+            byDetail = CAM.getInternalJSON(semIdData);
 
             campaDetailBrand = byDetail.campa[0].marca;
             campaDetailModel = byDetail.campa[0].modelo;
             campaDetailYear = byDetail.campa[0].year;
-            campaDataSemId = byDetail.campa[0].id;
+            //campaDataSemId = byDetail.campa[0].id;
 
-            CAM.loadTemplate(tempsNames.recurrent_inventories_preowned_details_start_utility_bar_breadcreumb, domEl._start_utility_bar_breadcrumb_name, byDetail);
+            pictureData = CAM.getInternalJSON(urlsApi.getPicturesById + semId);
 
-            viewSectionInventoriesPreownedMethodDetails.loadBreadcrumbs_blogByPost(campaDetailBrand, campaDetailModel, campaDetailYear, campaDataSemId);
+            // COROUSEL
+            idMarca = byDetail.campa[0].id_marc;
+            semMarcaData = CAM.getInternalJSON(urlsApi.getCatalogoByMarc + idMarca);
+
+            if ( byDetail.campa.length === 0 ) {
+                CAM.setValue('#hidden_mapa', "");
+                Finch.navigate('/');
+            } else {
+                CAM.setValue('#hidden_mapa', semId);
+                CAM.loadTemplate(tempsNames.recurrent_inventories_preowned_details_start_utility_bar_breadcreumb, domEl._start_utility_bar_breadcrumb_name, byDetail);
+                viewSectionInventoriesPreownedMethodDetails.loadBreadcrumbs_inventoriesPreownedDetails(campaDetailBrand, campaDetailModel, campaDetailYear);
+
+                getFilterMethod.loadFiltersSection();
+                getFilterMethod.refreshFilters();
+
+                CAM.loadTemplate(tempsNames.recurrent_inventories_preowned_details_single_vehicle_details, domEl._start_body_content_main_name, byDetail);
+                CAM.loadTemplate(tempsNames.recurrent_inventories_preowned_details_table_striped_specification, domEl.div_recurrent_table_specifications, byDetail);
+                
+                CAM.loadTemplate(tempsNames.recurrent_inventories_preowned_detalis_vehicle_slider_details, domEl.div_recurrent_vehicle_slider_details, pictureData);
+
+                CAM.loadTemplate(tempsNames.recurrent_inventories_preowned_details_carousel_vehicles, domEl.div_recurrent_corousel_vehicles, semMarcaData);
+            }
         },
+        recurrentSecionInventoriesPreownedDetails: function() {
+            dataStarSiteInventoriesPreownedAttributes = [
+                ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content'}, '', 1],
+                ['div', {'id':domEl._start_inventories_preowned_action_bar, 'class':'about-content'}, '', 1],
+                ['div', {'id':domEl._start_body_content_main, 'class':'about-content'}, '', 1]
+            ];
+            CAM.appendMulti(domEl.div_recurrent, dataStarSiteInventoriesPreownedAttributes);
+        }
     }
 /* ------------------------------------------------------ *\
     [Methods] viewSectionWorkShopMethod
@@ -1869,6 +1902,19 @@
         clickGo_inventories_preowned: function(event){
             $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );
             Finch.navigate('/seminuevos/inventarios');
+        },
+        clickGo_inventories_preowned_details: function(event) {
+            var $nameBrand, $nameModel, $semId;
+            var $element;
+            $element = $(this);
+            $nameBrand = $element.data('sem-mrc-nombre-short');
+            $nameModel = $element.data('sem-mdo-nombre-short');
+            $semId = $element.data('sem-id');
+
+            $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );
+
+            console.log($element);
+            Finch.navigate('/seminuevos/inventarios/' + $nameBrand + '/' + $nameModel + '/' + $semId);
         },
         clickGo_workshop: function(event) {
             $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );

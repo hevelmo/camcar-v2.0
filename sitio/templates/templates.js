@@ -882,6 +882,173 @@ templates['tmp_section_home_our_brands'] = template({"1":function(container,dept
     + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.campa : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "			</div>\n			<div class=\"col-md-12 col-sm-12\">\n				<div class=\"row\">\n					<a class=\"ScrollDown\" href=\"#ScrollDown\" id=\"ScrollDown\" style=\"bottom: -25px; left: 47%;\">\n			            <i class=\"fa fa-angle-double-down fa-5x animation-pulse\" style=\"margin: 7px;\"></i>\n			        </a>\n				</div>\n			</div>\n		</div>\n	</div>\n</section>\n";
 },"useData":true});
+templates['tmp_section_inventories_preowned_details_carousel_vehicles'] = template({"1":function(container,depth0,helpers,partials,data) {
+    var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
+
+  return "                <li class=\"item\" id=\""
+    + alias4(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data}) : helper)))
+    + "\">\n                    <div class=\"vehicle-block format-standard\">\n                        <a class=\"media-box sem-action\" id='sem-action-"
+    + alias4(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data}) : helper)))
+    + "' data-sem-mrc-nombre-short='"
+    + alias4(((helper = (helper = helpers.mrc_nombre || (depth0 != null ? depth0.mrc_nombre : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"mrc_nombre","hash":{},"data":data}) : helper)))
+    + "' data-sem-mdo-nombre-short='"
+    + alias4(((helper = (helper = helpers.mdo_nombre || (depth0 != null ? depth0.mdo_nombre : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"mdo_nombre","hash":{},"data":data}) : helper)))
+    + "' data-sem-id='"
+    + alias4(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data}) : helper)))
+    + "'>\n                            <img src=\"../intranet/admin/cdn/img/seminuevos/"
+    + alias4(((helper = (helper = helpers.pic_folder || (depth0 != null ? depth0.pic_folder : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"pic_folder","hash":{},"data":data}) : helper)))
+    + "/"
+    + alias4(((helper = (helper = helpers.thumb || (depth0 != null ? depth0.thumb : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"thumb","hash":{},"data":data}) : helper)))
+    + "\" alt=\""
+    + alias4(((helper = (helper = helpers.modelo || (depth0 != null ? depth0.modelo : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"modelo","hash":{},"data":data}) : helper)))
+    + "\">\n                        </a>\n                        <span class=\"label label-default vehicle-age\" id=\"sem_year\">"
+    + alias4(((helper = (helper = helpers.year || (depth0 != null ? depth0.year : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"year","hash":{},"data":data}) : helper)))
+    + "</span>\n                        <span class=\"label label-success premium-listing\">"
+    + alias4(((helper = (helper = helpers.agencia || (depth0 != null ? depth0.agencia : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"agencia","hash":{},"data":data}) : helper)))
+    + "</span>\n                        <h5 class=\"vehicle-title\">\n                            <a class=\"sem-action\" id='sem-action-"
+    + alias4(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data}) : helper)))
+    + "' data-sem-mrc-nombre-short='"
+    + alias4(((helper = (helper = helpers.mrc_nombre || (depth0 != null ? depth0.mrc_nombre : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"mrc_nombre","hash":{},"data":data}) : helper)))
+    + "' data-sem-mdo-nombre-short='"
+    + alias4(((helper = (helper = helpers.mdo_nombre || (depth0 != null ? depth0.mdo_nombre : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"mdo_nombre","hash":{},"data":data}) : helper)))
+    + "' data-sem-id='"
+    + alias4(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data}) : helper)))
+    + "'>"
+    + alias4(((helper = (helper = helpers.marca || (depth0 != null ? depth0.marca : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"marca","hash":{},"data":data}) : helper)))
+    + " "
+    + alias4(((helper = (helper = helpers.modelo || (depth0 != null ? depth0.modelo : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"modelo","hash":{},"data":data}) : helper)))
+    + " "
+    + alias4(((helper = (helper = helpers.cilindros || (depth0 != null ? depth0.cilindros : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"cilindros","hash":{},"data":data}) : helper)))
+    + "</a>\n                        </h5>\n                        <span class=\"vehicle-meta\">"
+    + alias4(((helper = (helper = helpers.modelo || (depth0 != null ? depth0.modelo : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"modelo","hash":{},"data":data}) : helper)))
+    + ", "
+    + alias4(((helper = (helper = helpers.interior || (depth0 != null ? depth0.interior : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"interior","hash":{},"data":data}) : helper)))
+    + ", "
+    + alias4(((helper = (helper = helpers.color || (depth0 != null ? depth0.color : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"color","hash":{},"data":data}) : helper)))
+    + "</span>\n                        <span class=\"vehicle-cost multiple\">"
+    + alias4(((helper = (helper = helpers.precio || (depth0 != null ? depth0.precio : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"precio","hash":{},"data":data}) : helper)))
+    + "</span>\n                    </div>\n                </li>\n";
+},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "<div class=\"listing-container\">\n    <div class=\"carousel-wrapper\">\n        <div class=\"row\">\n            <ul class=\"owl-carousel carousel-fw\" id=\"vehicle-slider\" data-columns=\"3\" data-autoplay=\"\" data-pagination=\"yes\" data-arrows=\"no\" data-single-item=\"no\" data-items-desktop=\"3\" data-items-desktop-small=\"3\" data-items-tablet=\"2\" data-items-mobile=\"1\">\n"
+    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.campa : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "            </ul>\n        </div>\n    </div>\n</div>\n<script>\n\n    $(document).ready(function() {\n        $(\"#sem-basic-price\").currency();\n        $(\"#basic\").currency();\n        $(\"#input\").currency();\n        $(\"#advanced\").currency({ region: \"GBP\", thousands: \",\", decimal: \",\", decimals: 3 });\n        $(\".multiple\").currency();\n        $(\"#convert\").currency({ region: \"GBP\", convertFrom: \"EUR\", convertLocation: \"../convert.php\" });\n    });\n\n</script>\n";
+},"useData":true});
+templates['tmp_section_inventories_preowned_details_single_vehicle_details'] = template({"1":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.telefonos : stack1)) != null ? stack1.ventas : stack1)) != null ? stack1.agntelefonoventaslinea1 : stack1),{"name":"if","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "");
+},"2":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "                        <div class=\"btn btn-info phone hidden-movil\">\n                            <i class=\"fa fa-phone\"></i>\n                            <span class=\"\">"
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.telefonos : stack1)) != null ? stack1.ventas : stack1)) != null ? stack1.agntelefonoventaslinea1 : stack1), depth0))
+    + "</span>\n                        </div>\n";
+},"4":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.telefonos : stack1)) != null ? stack1.ventas : stack1)) != null ? stack1.agncallventaslinea1 : stack1),{"name":"if","hash":{},"fn":container.program(5, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "");
+},"5":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "                            <div class=\"btn btn-info phone visible-xs\">\n                                <a href=\"tel:"
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.telefonos : stack1)) != null ? stack1.ventas : stack1)) != null ? stack1.agncallventaslinea1 : stack1), depth0))
+    + "\">\n                                    <i class=\"fa fa-phone\"></i>\n                                    <span class=\"\">Llamanos</span>\n                                </a>\n                            </div>\n";
+},"7":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.telefonos : stack1)) != null ? stack1.ventas : stack1)) != null ? stack1.agntelefonoventaslinea1 : stack1),{"name":"if","hash":{},"fn":container.program(8, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "");
+},"8":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "                                        <span class=\"vehicle-enquiry-foot-ico\"><i class=\"fa fa-phone\"></i></span>\n                                        <strong class=\"address\">"
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.telefonos : stack1)) != null ? stack1.ventas : stack1)) != null ? stack1.agntelefonoventaslinea1 : stack1), depth0))
+    + "</strong>\n";
+},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : {};
+
+  return "<!-- Start Body Content -->\n<div class=\"main\" role=\"main\">\n    <div id=\"content\" class=\"content full\">\n        <div class=\"container\">\n            <!-- Vehicle Details -->\n            <article class=\"single-vehicle-details\">\n                <div id=\"content_single_vehicle\"></div>\n                <div class=\"single-vehicle-title\">\n                    <span class=\"badge-premium-listing\" data-id-sem=\""
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.id : stack1), depth0))
+    + "\">"
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.agencia : stack1), depth0))
+    + "</span>\n                    <h2 class=\"post-title\" data-id-sem=\""
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.id : stack1), depth0))
+    + "\">"
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.marca : stack1), depth0))
+    + " - "
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.modelo : stack1), depth0))
+    + " - "
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.year : stack1), depth0))
+    + "</h2>\n                </div>\n                <div class=\"single-listing-actions\">\n                    <div class=\"btn-group pull-right\" role=\"group\">\n                        <a  href=\"javascript:void(0)\" onclick=\"window.print();\" class=\"btn btn-default btn_print\" title=\"Print\"><i class=\"fa fa-print\"></i> <span>Imprimir</span></a>\n                        <a class=\"btn btn-default btn_return\" title=\"Regresar\" id=\"back\"><i class=\"fa fa-arrow-left\"></i> <span>Regresar</span></a>\n                    </div>\n                    <div class=\"btn btn-info price\" data-id-sem=\""
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.id : stack1), depth0))
+    + "\"><span class=\"multiple\">"
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.precio : stack1), depth0))
+    + "</span></div>\n"
+    + ((stack1 = helpers["if"].call(alias3,((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.telefonos : stack1)) != null ? stack1.ventas : stack1),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "                    <span class=\"badge-premium-listing\" data-id-sem=\""
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.id : stack1), depth0))
+    + "\">"
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.agencia : stack1), depth0))
+    + "</span>\n"
+    + ((stack1 = helpers["if"].call(alias3,((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.telefonos : stack1)) != null ? stack1.ventas : stack1),{"name":"if","hash":{},"fn":container.program(4, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "                </div>\n                <div class=\"row\">\n                    <div class=\"col-md-8\">\n                        <div class=\"single-listing-images\" id=\"content-vehicle-slider-details\"></div>\n                    </div>\n                    <div class=\"col-md-4\">\n                        <div class=\"sidebar-widget widget\">\n                            <div id=\"content_specifications\"></div>\n                            <div class=\"vehicle-enquiry-foot pull-left\" style=\"display: inline-block; width: 100%;\">\n                                <h6 class=\"widgettitle\">DESCRIPCIÓN</h6>\n                                <strong class=\"address-description to_print\">\n                                    "
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.descripcion : stack1), depth0))
+    + "\n                                </strong>\n                            </div>\n                            <div class=\"vehicle-enquiry-foot pull-left\" style=\"display: inline-block; width: 100%;\">\n                                <h6 class=\"widgettitle\">"
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.agencia : stack1), depth0))
+    + "</h6>\n                                <span class=\"vehicle-enquiry-foot-ico\"><i class=\"fa fa-location-arrow\"></i></span>\n                                <strong class=\"address\">\n                                    "
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.agnAddress : stack1), depth0))
+    + "\n                                </strong>\n                                <br>\n"
+    + ((stack1 = helpers["if"].call(alias3,((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.telefonos : stack1)) != null ? stack1.ventas : stack1),{"name":"if","hash":{},"fn":container.program(7, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "                            </div>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-md-8\">\n                        <div class=\"tabs vehicle-details-tabs\">\n                            <div class=\"tab-content\">\n                                <div id=\"vehicle-location\" class=\"tab-pane fade in active no_print\">\n                                    <div id=\"content_wrapper_map\"></div>\n                                </div>\n                                <a  href=\""
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.map_url : stack1), depth0))
+    + "\" class=\"btn btn-default btn_default visible-xs\" title=\"VIEW MAP\" target=\"_blank\">\n                                    <i class=\"icon icon-geolocalizator\"></i>\n                                    <span>VER MAPA</span>\n                                </a>\n\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-md-4\">\n                        <div id=\"content_form_contact_by_model\"></div>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-md-8\">\n                        <div class=\"spacer-50\"></div>\n                        <!-- Recently Listed Vehicles -->\n                        <section class=\"listing-block recent-vehicles\">\n                            <div class=\"listing-header\">\n                                <h3>Vehículos relacionados</h3>\n                            </div>\n                            <div id=\"content_carousel_vehicles\"></div>\n                        </section>\n                    </div>\n                    <div class=\"col-md-4\">\n                    </div>\n                </div>\n            </article>\n            <div class=\"clearfix\"></div>\n        </div>\n    </div>\n<!-- End Body Content -->\n<script>\n\n    $(document).ready(function() {\n        $(\"#sem-basic-price\").currency();\n        $(\"#basic\").currency();\n        $(\"#input\").currency();\n        $(\"#advanced\").currency({ region: \"GBP\", thousands: \",\", decimal: \",\", decimals: 3 });\n        $(\".multiple\").currency();\n        $(\"#convert\").currency({ region: \"GBP\", convertFrom: \"EUR\", convertLocation: \"../convert.php\" });\n    });\n\n</script>";
+},"useData":true});
+templates['tmp_section_inventories_preowned_details_start_utility_bar_breadcreumb'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    return "<!-- Utiity Bar -->\n<div class=\"utility-bar\" id=\"start-utility-bar\">\n	<div class=\"container\">\n    	<div class=\"row\">\n        	<div class=\"col-md-12 col-sm-12 col-xs-12\">\n                <ol class=\"breadcrumb\">\n                    <li><a class=\"cur-hover\" id=\"go-breadcrumb-home\"><i class=\"fa fa-home fa-fw fa-lg\"></i> Inicio</a></li>\n                    <li><a class=\"cur-hover\">Seminuevos</a></li>\n                    <li class=\"active\"><a class=\"cur-hover\">Inventarios</a></li>\n                    <li class=\"active\"><a id=\"filter-inventories-preowned-detail-brand\" class=\"cur-hover\"></a></li>\n                    <li class=\"active\"><a id=\"filter-inventories-preowned-detail-model\" class=\"cur-hover\"></a></li>\n                    <li class=\"active\"><a id=\"filter-inventories-preowned-detail-year\" class=\"cur-hover\"></a></li>\n                </ol>\n        	</div>\n        </div>\n  	</div>\n</div>\n";
+},"useData":true});
+templates['tmp_section_inventories_preowned_details_table_striped_specification'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
+
+  return "<table class=\"table-specifications table table-striped table-hover\">\n    <tbody>\n        <tr>\n            <td><span class=\"arrow_badge\">Marca</span></td>\n            <td>"
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.marca : stack1), depth0))
+    + "</td>\n        </tr>\n        <tr>\n            <td><span class=\"arrow_badge\">Modelo</span></td>\n            <td>"
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.modelo : stack1), depth0))
+    + "</td>\n        </tr>\n        <tr>\n            <td><span class=\"arrow_badge\">Cilindros</span></td>\n            <td>"
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.cilindros : stack1), depth0))
+    + "</td>\n        </tr>\n        <tr>\n            <td><span class=\"arrow_badge\">Año</span></td>\n            <td>"
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.year : stack1), depth0))
+    + "</td>\n        </tr>\n        <tr>\n            <td><span class=\"arrow_badge\">Interior</span></td>\n            <td>"
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.interior : stack1), depth0))
+    + "</td>\n        </tr>\n        <tr>\n            <td><span class=\"arrow_badge\">Color</span></td>\n            <td>"
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.color : stack1), depth0))
+    + "</td>\n        </tr>\n    </tbody>\n</table>";
+},"useData":true});
+templates['tmp_section_inventories_preowned_detalis_vehicle_slider_details'] = template({"1":function(container,depth0,helpers,partials,data) {
+    var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
+
+  return "            <li data-thumb=\"../intranet/admin/cdn/img/seminuevos/"
+    + alias4(((helper = (helper = helpers.pic_mdo_folder || (depth0 != null ? depth0.pic_mdo_folder : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"pic_mdo_folder","hash":{},"data":data}) : helper)))
+    + "/"
+    + alias4(((helper = (helper = helpers.pic_nombre || (depth0 != null ? depth0.pic_nombre : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"pic_nombre","hash":{},"data":data}) : helper)))
+    + "\"\n                data-slider-pic_id=\""
+    + alias4(((helper = (helper = helpers.pic_id || (depth0 != null ? depth0.pic_id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"pic_id","hash":{},"data":data}) : helper)))
+    + "\">\n                <img src=\"../intranet/admin/cdn/img/seminuevos/"
+    + alias4(((helper = (helper = helpers.pic_mdo_folder || (depth0 != null ? depth0.pic_mdo_folder : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"pic_mdo_folder","hash":{},"data":data}) : helper)))
+    + "/"
+    + alias4(((helper = (helper = helpers.pic_nombre || (depth0 != null ? depth0.pic_nombre : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"pic_nombre","hash":{},"data":data}) : helper)))
+    + "\"\n                     data-slider-pic_id=\""
+    + alias4(((helper = (helper = helpers.pic_id || (depth0 != null ? depth0.pic_id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"pic_id","hash":{},"data":data}) : helper)))
+    + "\">\n            </li>\n";
+},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "<section class=\"slider\" data-slider-id=\""
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.pic_mdo_folder : stack1), depth0))
+    + "\">\n    <div class=\"flexslider\">\n          <ul class=\"slides\">\n"
+    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.campa : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "          </ul>\n    </div>\n</section>\n";
+},"useData":true});
 templates['tmp_section_inventories_preowned_listing_results'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     return "<div class=\"main\" role=\"main\">\n    <div id=\"content\" class=\"content-results full\">\n        <div class=\"container\">\n            <div class=\"row\">\n                <!-- Listing Results -->\n                <div class=\"col-md-12 results-container\">\n                    <div class=\"results-container-in\">\n                        <div class=\"view-results-list\" id=\"content-start-views-results-list\">\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n";
 },"useData":true});

@@ -188,7 +188,7 @@
                 viewSectionInventoriesPreownedMethod.viewSectionInventoriesPreowned();
             } else if ( $brandName !== undefined && $modelName !== undefined && $semId !== undefined ) {
                 section = "inventories-preowned-details";
-                viewSectionInventoriesPreownedMethodDetails.viewSectionInventoriesPreownedDetails();
+                viewSectionInventoriesPreownedMethodDetails.viewSectionInventoriesPreownedDetails($brandName, $modelName, $semId);
             }
             sticky_wrapper_methods.sticky_wrapper_action_bar();
             $('.selectpicker').selectpicker();
@@ -197,6 +197,7 @@
             $(window).resize(mobile_menu_methods.has_menu_toggle);
             $(window).load(equalHeightsMethods.equalHeightsLoad);
             backToTopMethod.init_window_scroll_top();
+            loadSlider();
         },
         unload: function(bindings) {
             section = "";

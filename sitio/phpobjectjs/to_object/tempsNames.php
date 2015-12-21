@@ -58,7 +58,11 @@ function tempsNames() {
         'recurrent_inventories_preowned_select_filter_models' => 'tmp_section_inventories_preowned_select_filter_models',
 
         // INVENTORIES PRE-OWNED DETAILS
-        'recurrent_inventories_preowned_details_start_utility_bar_breadcreumb' => 'tmp_section_inventories_preowned_details_start_utility_bar_breadcreumb',       
+        'recurrent_inventories_preowned_details_start_utility_bar_breadcreumb' => 'tmp_section_inventories_preowned_details_start_utility_bar_breadcreumb',
+        'recurrent_inventories_preowned_details_single_vehicle_details' => 'tmp_section_inventories_preowned_details_single_vehicle_details',
+        'recurrent_inventories_preowned_details_table_striped_specification' => 'tmp_section_inventories_preowned_details_table_striped_specification',
+        'recurrent_inventories_preowned_detalis_vehicle_slider_details' => 'tmp_section_inventories_preowned_detalis_vehicle_slider_details',
+        'recurrent_inventories_preowned_details_carousel_vehicles' => 'tmp_section_inventories_preowned_details_carousel_vehicles',
 
         // WORKSHOP
         'recurrent_workshop_start_utility_bar_breadcrumb' => 'tmp_section_workshop_start_utility_bar_breadcrumb',

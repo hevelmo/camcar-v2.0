@@ -62,6 +62,8 @@ $(document).ready(function() {
     $(domEl.div_recurrent).on('change', domEl.select_fil_category, getFilterMethod.changeCategory);
     $(domEl.div_recurrent).on('change', domEl.select_fil_brands, getFilterMethod.changeBrands);
     $(domEl.div_recurrent).on('change', domEl.select_fil_models, getFilterMethod.changeModel);
+    //
+    $(domEl.div_recurrent).on('click', domEl.link_sem_action, clikGoMethods.clickGo_inventories_preowned_details);
     // WORKSHOP
     $(domEl.navbar_recurrent).on('click', domEl.goSection_workshop, clikGoMethods.clickGo_workshop);
     // RENTAL

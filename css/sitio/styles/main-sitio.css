@@ -2524,3 +2524,42 @@ li.grid-item {
 .button-label-icon {
 
 }
+
+.arrow_badge {
+  padding: 7px 10px 0px 15px;
+  width: 95%;
+  height: 30px;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: inherit;
+  letter-spacing: 1px;
+  font-weight: 700;
+  font-size: 12px;
+  float: left;
+  position: relative;
+  background-color: #999;
+  top: 0;
+  border-radius: 3px 0 0 3px;
+}
+.arrow_badge:after {
+  border-bottom: 15px transparent solid;
+  border-left: 12px #999 solid;
+  border-top: 15px transparent solid;
+  content: '';
+  height: 0;
+  right: -12px;
+  position: absolute;
+  top: 0;
+  width: 0;
+}
+.arrow_badge:before {
+  background: rgba(255, 255, 255, 1);
+  border: 2px rgba(153, 153, 153, 0.5) solid;
+  border-radius: 50%;
+  content: '';
+  height: 10px;
+  right: 0;
+  position: absolute;
+  width: 10px;
+  top: 10px;
+}
