@@ -79,6 +79,21 @@ function urlsApi() {
         // AGENCIES TRUCKS
         // LOGOS AGENCIES TRUCKS PRINCIPAL
         'getLogosAgenciesTrucks' => $root . '/' . $get . '/logos/' . $agencie . '/' . $trucks,
+        // PRINCIPAL AGENCIE NEWS
+        'getAgenciesTrucksPrincipales' => $root . '/' . $get . '/' . $agencie . '/' . $trucks,
+        // AGENCIES NEWS -> PRINCIPAL AGENCIES NEWS
+        'getAgenciesTrucksByTypeAgencie' => $root . '/' . $get . '/' . $agencie . '/' . $trucks . '/principal/',
+        // PRINCIPAL AGENCIE NEWS BY AGENCIE
+        'getAgenciesTrucksPrincipalesByAgencia' => $root . '/' . $get . '/agencias/' . $trucks. '/',
+        'getAgenciesTrucks' => $root . '/' . $get . '/' . $agencie . '/' . $trucks,
+        // Agencias Nuevos Fachada
+        'getAgenciesTrucksFachada' => $root . '/' . $get . '/' . $agencie . '/' . $trucks . '/' . $fachada,
+        'getAgenciesTrucksAddress' => $root . '/' . $get . '/' . $agencie . '/' . $trucks . '/' . $address,
+        'getAgenciesTrucksMap' => $root . '/' . $get . '/' . $agencie . '/' . $trucks . '/' . $map,
+        // AGENCIES NEWS BY MAP
+        'getAgenciesTrucksByMap' => $root . '/' . $get . '/' . $agencie . '/' . $trucks .'/mapas/',
+        // AGENCIES NEWS BY AGENCIE
+        'getAgenciesTrucksByAgencie' => $root . '/' . $get . '/' . $agencie . '/' . $trucks . '/',
 
         // AGENCIES PRE-OWNED
         'getAgenciesPreOwned' => $root . '/' . $get . '/' . $agencie . '/' . $preowned,

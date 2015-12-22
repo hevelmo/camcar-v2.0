@@ -105,29 +105,62 @@
 /* ----------------------------------- *\
  [Route] AGENCIES TRUCKS
 \* ----------------------------------- */
-    Finch.route('/agencias/camiones', {
+    Finch.route('/agencias/camiones/:agn_name_agencia/:agn_url/:agn_id', {
         setup: function(bindings) {
-            section = "trucks";
+            var agn_name, agn_url, agn_id;
+            agn_name = bindings.agn_name_agencia;
+            agn_url = bindings.agn_url;
+            agn_id = bindings.agn_id;
             // Add favicon
             window.onload = favicon.load_favicon();
+            // GOOGLE ANALYTICS
+            if ( agn_name === undefined && agn_url === undefined && agn_id === undefined ) {
+                ga('send', 'pageview', '/agencias/camiones');
+            } else if ( agn_name !== undefined && agn_url === undefined && agn_id === undefined ) {
+                ga('send', 'pageview', '/agencias/camiones/' + agn_name);
+            } else if ( agn_name !== undefined && agn_url !== undefined && agn_id !== undefined ) {
+                ga('send', 'pageview', '/agencias/camiones/' + agn_name + '/' + agn_url + '/' + agn_id);
+            }
         },
         load: function(bindings) {
+            var agn_name, agn_url, agn_id;
+            agn_name = bindings.agn_name_agencia;
+            agn_url = bindings.agn_url;
+            agn_id = bindings.agn_id;
+
             viewNavbarMethod.viewNavbar();
             sticky_wrapper_methods.sticky_wrapper();
 
             addAttrNavAgenciesNewsMethod.addAttrNavAgenciesNews();
             currentSectionMethod.currentSection_agencies_trucks();
-            viewSectionAgenciesTrucksMethod.viewSectionAgenciesTrucks();
+            // TODAS LAS AGENCIAS NUEVOS
+            if ( agn_name === undefined && agn_url === undefined && agn_id === undefined ) {
+                section = "agencies-trucks";
+                viewSectionAgenciesTrucksMethod.viewSectionAgenciesTrucks();
+            }
+            // AGENCIA PRINCIPAL SELECCIONADA
+            else if ( agn_name !== undefined && agn_url === undefined && agn_id === undefined ) {
+                section = "agencies-trucks-principal";
+            }
+            // SUB AGENCIA SELECCIONADA
+            else if ( agn_name !== undefined && agn_url !== undefined && agn_id !== undefined ) {
+                section = "agencies-trucks-sub-agencie";
+            }
+            // RUTA INVALIDA
+            else {
+                Finch.navigate('/agencias/camiones');
+            }
 
+            animatedMethods.animated();
             $(window).resize(mobile_menu_methods.has_menu_toggle);
             backToTopMethod.init_window_scroll_top();
-            __sizeCheck($(window));
         },
         unload: function(bindings) {
             section = "";
             CAM.setHTML(domEl.div_recurren, '');
             removeRecurrentsMethod.removeRecurrents();
             currentSectionMethod.remove_currentSection();
+            CAM.setValue('#hidden_brand', '0');
         }
     });
 /* ----------------------------------- *\

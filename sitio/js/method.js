@@ -916,21 +916,30 @@
     var viewSectionAgenciesTrucksMethod = {
         viewSectionAgenciesTrucks: function(agpid) {
             viewSectionAgenciesTrucksMethod.recurrentSecionAgenciesTrucks();
-
-
+            viewSectionAgenciesTrucksMethod.loadTemplatesUtilityBarBreadcrumb();
+            viewSectionAgenciesTrucksMethod.loadTemplatesBodyContent();
             viewSectionAgenciesTrucksMethod.loadTemplatesAgencesTrucksBrands();
+            viewSectionAgenciesTrucksMethod.loadTemplatesAgenciesTrucksCategories(agpid);
         },
         loadTemplatesUtilityBarBreadcrumb: function() {
-            CAM.loadTemplate(tempsNames.recurrent_agencies_news_start_utility_bar_breadcrumb, domEl._start_utility_bar_breadcrumb_name);
+            CAM.loadTemplate(tempsNames.recurrent_agencies_trucks_start_utility_bar_breadcrumb, domEl._start_utility_bar_breadcrumb_name);
         },
         loadTemplatesBodyContent: function() {
-            CAM.loadTemplate(tempsNames.recurrent_agencies_news_start_large_pad_land_mark, domEl._start_agencies_news_content_body_name);
+            CAM.loadTemplate(tempsNames.recurrent_agencies_trucks_start_large_pad_land_mark, domEl._start_agencies_trucks_content_body_name);
         },
         loadTemplatesAgencesTrucksBrands: function() {
             var logosData;
             logosData = CAM.getInternalJSON(urlsApi.getLogosAgenciesTrucks);
-            //CAM.loadTemplate(tempsNames.recurrent_agencies_news_start_large_pad_brands, domEl._start_agencies_news_large_pad_brands_name, logosData);
-            console.log(urlsApi.getLogosAgenciesTrucks);
+            CAM.loadTemplate(tempsNames.recurrent_agencies_trucks_start_large_pad_brands, domEl._start_agencies_trucks_large_pad_brands_name, logosData);
+        },
+        loadTemplatesAgenciesTrucksCategories: function(agpid) {
+            var url, agnTrucksData;
+            agpid = +agpid;
+            url = (!agpid)
+                ? urlsApi.getAgenciesTrucks
+                : urlsApi.getAgenciesTrucks + '/' + agpid;
+            agnTrucksData = CAM.getInternalJSON(url);
+            CAM.loadTemplate(tempsNames.recurrent_agencies_trucks_start_categories, domEl._start_agencies_trucks_midpadding_work_name, agnTrucksData);
         },
         recurrentSecionAgenciesTrucks: function() {
             dataStarSiteAgenciesTrucksAttributes = [
@@ -2311,11 +2320,22 @@
             $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );
             Finch.navigate('/agencias/camiones');
         },
+        clikGo_agencies_trucks_principal: function(event) {
+            var agnPrincipal, $element;
+            $element = $(this);
+            agnPrincipal = $element.data('agp_nombre');
+            $('body,html').animate({ scrollTop: "150" }, 999, 'easeOutExpo' );
+
+            $(domEl.action_new_agn).children('.img-disable').removeClass('active');
+            $element.children('.img-disable').addClass('active');
+
+            Finch.navigate('/agencias/camiones/' + agnPrincipal );
+        },
         clikGo_agencies_news_principal: function(event) {
             var agnPrincipal, $element;
             $element = $(this);
             agnPrincipal = $element.data('agp_nombre');
-            $('body,html').animate({ scrollTop: "220" }, 999, 'easeOutExpo' );
+            $('body,html').animate({ scrollTop: "150" }, 999, 'easeOutExpo' );
 
             $(domEl.action_new_agn).children('.img-disable').removeClass('active');
             $element.children('.img-disable').addClass('active');

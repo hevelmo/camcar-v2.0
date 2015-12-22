@@ -76,7 +76,16 @@ $app->configureMode('development', function () use ($app) {
     // LOGOS AGENCIES NEWS PRINCIPAL
     $app->get('/get/logos/agencia/nuevos', /*'mw1',*/ 'getLogosAgenciesNews');
 
+    // AGENCIES NEWS -> PRINCIPAL AGENCIE
+    $app->get('/get/agencia/camiones/principal/:agn_name_agencia', /*'mw1',*/ 'getAgenciesTrucksByTypeAgencie');
     // AGENCIES TRUCKS
+    $app->get('/get/agencia/camiones', /*'mw1',*/ 'getAgenciesTrucks');
+    $app->get('/get/agencia/camiones/:agpid', /*'mw1',*/ 'getAgenciesTrucksById');
+    $app->get('/get/agencia/camiones/mapas/:agn_id', /*'mw1',*/ 'getAgenciesTrucksByMap');
+    $app->get('/get/agencia/camiones/:agn_nombre/:agn_id', /*'mw1',*/ 'getAgenciesTrucksByAgencie');
+    // PRINCIPAL AGENCIE TRUCKS
+    $app->get('/get/agencias/camiones', /*'mw1',*/ 'getAgenciesTrucksPrincipales');
+    $app->get('/get/agencias/camiones/:nombre', /*'mw1',*/ 'getAgenciesTrucksPrincipalesByAgencia');
     // LOGOS AGENCIES TRUCKS PRINCIPAL
     $app->get('/get/logos/agencia/camiones', /*'mw1',*/ 'getLogosAgenciesTrucks');
 
@@ -653,6 +662,165 @@ $app->run();
     }
 
     // AGENCIES TRUCKS
+    function getAgenciesTrucksJSON($sql, $agpid) {
+        $structure = array(
+            'agnid' => 'AGN_Id',
+            'agpagencia' => 'AGP_Agencia',
+            'agpshort' => 'AGP_Short',
+            'agnnombre' => 'AGN_Nombre',
+            'agnurl' => 'AGN_Url',
+            'agnsmall' => 'AGN_Small',
+            'agnlatitud' => 'AGN_MLatitud',
+            'agnlongitud' => 'AGN_MLongitud',
+            'agngmapurl' => 'AGN_MUrl'
+        );
+        $params = array();
+        ($agpid !== '') ? $params['agpid'] = $agpid : $params = $params;
+        echo changeQueryIntoJSON('campa', $structure, getConnection(), $sql, $params, 0, PDO::FETCH_ASSOC);
+    }
+    function getAgenciesTrucksByMapsJSON($sql, $agn_id) {
+        $structure = array(
+            'agnid' => 'AGN_Id',
+            'agnnombre' => 'AGN_Nombre',
+            'agndireccion' => 'AGN_Dirección',
+            'agnfolder' => 'AGN_Folder',
+            'logo' => array(
+                'agnlogo1' => 'AGN_Logo1',
+                'agnlogo2' => 'AGN_Logo2'
+            ),
+            'agnlatitud' => 'AGN_MLatitud',
+            'agnlongitud' => 'AGN_MLongitud'
+        );
+        $params = array();
+        ($agn_id !== '') ? $params['agn_id'] = $agn_id : $params = $params;
+        echo changeQueryIntoJSON('campa', $structure, getConnection(), $sql, $params, 0, PDO::FETCH_ASSOC);
+    }
+    function getAgenciesTrucksByAgencieJSON($sql, $agn_nombre, $agn_id) {
+        $structure = array(
+            'agnid' => 'AGN_Id',
+            'agpagencia' => 'AGP_Agencia',
+            'agpshort' => 'AGP_Short',
+            'agnnombre' => 'AGN_Nombre',
+            'agndireccion' => 'AGN_Dirección',
+            'telefonos' => array(
+                'ventas' => array(
+                    'agntelefonoventaslinea1' => 'TEL_Telefono_Ventas_linea1',
+                    'agntelefonoventaslinea2' => 'TEL_Telefono_Ventas_linea2',
+                    'agncallventaslinea1' => 'TEL_Call_Ventas_linea1',
+                    'agncallventaslinea2' => 'TEL_Call_Ventas_linea2'
+                ),
+                'servicios' => array(
+                    'agntelefonoserviciolinea1' => 'TEL_Telefono_Servicio_linea1',
+                    'agntelefonoserviciolinea2' => 'TEL_Telefono_Servicio_linea2',
+                    'agncallserviciolinea1' => 'TEL_Call_Servicio_linea1',
+                    'agncallserviciolinea2' => 'TEL_Call_Servicio_linea2'
+                )
+            ),
+            'agnurl' => 'AGN_Url',
+            'horarios' => array(
+                'ventas' => array(
+                    'agnhrventas' => 'HRS_HVentas'
+                ),
+                'servicios' => array(
+                    'agnhrservicio' => 'HRS_HServicio'
+                ),
+                'refacciones' => array(
+                    'agnhrrefaccion' => 'HRS_HRefacciones'
+                )
+            ),
+            'agnfolder' => 'AGN_Folder',
+            'logotipos' => array(
+                'agnlogo1' => 'AGN_Logo1',
+                'agnlogo2' => 'AGN_Logo2'
+            ),
+            'agnfachada' => 'AGN_Fachada',
+            'agnsmall' => 'AGN_Small',
+            'sociales' => array(
+                'sitio_web' => array(
+                    'agnwebsite' => 'SOC_WebSite'
+                ),
+                'facebook' => array(
+                    'agntitle_facebook_cta1' => 'SOC_Facebok_Nombre_Cta1',
+                    'agnfacebookcta1' => 'SOC_Facebook_Cta1',
+                    'agntitle_facebook_cta2' => 'SOC_Facebok_Nombre_Cta2',
+                    'agnfacebookcta2' => 'SOC_Facebook_Cta2'
+                ),
+                'twitter' => array(
+                    'agntitle_twitter' => 'SOC_Nombre_Twitter',
+                    'agntwitter' => 'SOC_Twitter'
+                )
+            ),
+            'mapas' => array(
+                'agnlatitud' => 'AGN_MLatitud',
+                'agnlongitud' => 'AGN_MLongitud',
+                'agngmapurl' => 'AGN_MUrl'
+            )
+        );
+        $params = array();
+        ($agn_nombre !== '') ? $params['agn_nombre'] = $agn_nombre : $params = $params;
+        ($agn_id !== '') ? $params['agn_id'] = $agn_id : $params = $params;
+        echo changeQueryIntoJSON('campa', $structure, getConnection(), $sql, $params, 0, PDO::FETCH_ASSOC);
+    }
+    function getAgenciesTrucks() {
+        $sql = "SELECT *
+                FROM (
+                    SELECT *
+                    FROM camAgencias
+                    WHERE AGN_Tipo = 1
+                    AND AGN_IsAgencieTrucks = 1
+                ) agn
+                INNER JOIN camAgenciasPrincipales agp
+                ON agn.AGN_AGP_Id = agp.AGP_Id
+                ";
+
+        getAgenciesTrucksJSON($sql, '');
+    }
+    function getAgenciesTrucksById($agpid) {
+        $sql = "SELECT *
+                FROM (
+                    SELECT *
+                    FROM camAgencias
+                    WHERE AGN_Tipo = 1
+                    AND AGN_AGP_Id = :agpid
+                    AND AGN_IsAgencieTrucks = 1
+                ) agn
+                INNER JOIN camAgenciasPrincipales agp
+                ON agn.AGN_AGP_Id = agp.AGP_Id
+                ";
+
+        getAgenciesTrucksJSON($sql, $agpid);
+    }
+    function getAgenciesTrucksByMap($agn_id) {
+        $sql = "SELECT *
+                FROM (
+                    SELECT *
+                    FROM camAgencias
+                    WHERE AGN_Tipo = 1
+                    AND AGN_IsAgencieTrucks = 1
+                ) agn
+                WHERE AGN_Id = :agn_id
+                ";
+        getAgenciesTrucksByMapsJSON($sql, $agn_id);
+    }
+    function getAgenciesTrucksPrincipales() {
+        $sql = "SELECT *
+                FROM (
+                    SELECT *
+                    FROM camAgencias
+                    WHERE AGN_Tipo = 1
+                    AND AGN_IsAgencieTrucks = 1
+                ) agn
+                INNER JOIN (
+                    SELECT *
+                    FROM camAgenciasPrincipales
+                 ) agp
+                 INNER JOIN (
+                    SELECT *
+                    FROM camBrandsLogos
+                 ) brd
+                 ORDER BY AGN_AGP_Id";
+        getAgenciasLogosJSON($sql);
+    }
     // LOGO BRANDS AGENCIES TRUCKS
     function getLogosAgenciesTrucks() {
         $sql = "SELECT *
@@ -668,9 +836,9 @@ $app->run();
                 INNER JOIN (
                     SELECT *
                     FROM camMarcasLogosAgencias
+                    WHERE MLA_IsTrucks = 1
                 ) mla
                 ON agp.AGP_Id = mla.MLA_AGP_Id
-                GROUP BY AGP_Id
                 ORDER BY AGP_Index
                 ";
         $params = array();
@@ -680,11 +848,11 @@ $app->run();
                 'agpindex' => 'AGP_Index',
                 'agpnombre' => 'AGP_Agencia',
                 'agpshort' => 'AGP_Short',
-                'logo' => 'AGP_Logo'
+                'logo' => 'AGN_Logo1'
             ),
             'marcas' => array(
                 'mlaid' => 'MLA_Id',
-                'brand' => 'AGN_Logo1',
+                'brand' => 'MLA_Logo',
                 'mlastatus' => 'MLA_Status'
             )
         );
@@ -695,10 +863,10 @@ $app->run();
         $counter = 1;
 
         for ($i=0; $i < count($result); $i++) {
-            $tltip = ($counter <= 2) ? 'top' : 'down';
+            $tltip = ($counter <= 1) ? 'top' : 'none';
             $result[$i]['tltip'] = $tltip;
 
-            $animate = ($counter <= 2) ? 'animation-slideUp' : 'animation-slideDown';
+            $animate = ($counter <= 1) ? 'animation-slideUp' : 'animation-none';
             $result[$i]['animate'] = $animate;
 
             $longmarcas = count($result[$i]['marcas']);
@@ -717,6 +885,74 @@ $app->run();
         }
 
         echo changeArrayIntoJSON('campa', $result);
+    }
+    // AGENCIES TRUCKS BY AGENCIES
+    function getAgenciesTrucksByAgencie($agn_nombre, $agn_id) {
+        $sql = "SELECT *
+                FROM (
+                    SELECT *
+                    FROM camAgencias
+                    WHERE AGN_Tipo = 1
+                    AND AGN_IsAgencieTrucks = 1
+                ) agn
+                INNER JOIN camTelefonos tel
+                ON agn.AGN_Id = tel.TEL_AGN_Id
+                INNER JOIN camHorarios hrs
+                ON agn.AGN_Id = hrs.HRS_AGN_Id
+                INNER JOIN camSociales soc
+                ON agn.AGN_Id = soc.SOC_AGN_Id
+                INNER JOIN camAgenciasPrincipales agp
+                ON agn.AGN_AGP_Id = agp.AGP_Id
+                WHERE AGN_Id = :agn_id
+                AND AGN_Url = :agn_nombre
+                ORDER BY AGN_Id";
+        getAgenciesTrucksByAgencieJSON($sql, $agn_nombre, $agn_id);
+    }
+    // BRANDS AGENCIES TRUCKS BY NAME AGENCIE
+    function getAgenciesTrucksPrincipalesByAgencia($nombre) {
+        $sql = "SELECT *
+                FROM camAgenciasPrincipales agp
+                INNER JOIN (
+                    SELECT *
+                    FROM camMarcasLogosAgencias
+                ) mla
+                ON agp.AGP_Id = mla.MLA_AGP_Id
+                WHERE AGP_Agencia = :nombre
+                ORDER BY AGP_Id, MLA_Logo
+                ";
+        $params = array();
+        $structure = array(
+            'agpid' => 'AGP_Id',
+            'agpnombre' => 'AGP_Short'
+        );
+        ($nombre !== '') ? $params['nombre'] = $nombre : $params = $params;
+        echo changeQueryIntoJSON('campa', $structure, getConnection(), $sql, $params, 0, PDO::FETCH_ASSOC);
+    }
+    // EVENT ALL AGENCIES BY TYPE AGENCIE
+    function getAgenciesTrucksByTypeAgencie($agn_name_agencia) {
+        $sql = "SELECT *
+                FROM camAgencias agn
+                LEFT JOIN (
+                    SELECT *
+                    FROM camAgenciasPrincipales
+                ) agp
+                ON agn.AGN_AGP_Id = agp.AGP_Id
+                WHERE AGP_Short = :agn_name_agencia
+                AND AGN_Tipo = 1
+                AND AGN_IsAgencieTrucks = 1
+                ";
+        $params = array();
+        $structure = array(
+            'agn_id' => 'AGN_Id',
+            'agp_id' => 'AGP_Id',
+            'agn_agp_id' => 'AGN_AGP_Id',
+            'agp_agencia' => 'AGP_Agencia',
+            'agp_short' => 'AGP_Short',
+            'tipo' => 'AGN_Tipo'
+        );
+        ($agn_name_agencia !== '') ? $params['agn_name_agencia'] = $agn_name_agencia : $params = $params;
+        //($agn_type !== '') ? $params['agn_type'] = $agn_type : $params = $params;
+        echo changeQueryIntoJSON('campa', $structure, getConnection(), $sql, $params, 0, PDO::FETCH_ASSOC);
     }
 
     // AGENICES PRE-OWNED

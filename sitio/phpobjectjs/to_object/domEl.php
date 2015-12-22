@@ -24,6 +24,14 @@ function domEl() {
     $start_agencies_news_fachada = 'content-start-agencies-news-fachada';
     $start_agencies_news_address = 'content-start-agencies-news-address';
     $start_agencies_news_map = 'content-start-agencies-news-map';
+    // AGENCIES TRUCKS
+    $start_agencies_trucks_content_body = 'content-start-agencies-trucks-body-main';
+    $start_agencies_trucks_large_pad_brands = 'content-start-agencies-trucks-large-pad-brands';
+    $start_agencies_trucks_midpadding_work = 'content-start-agencies-trucks-midpadding-work';
+    // AGENCIES TRUCKS SUB AGENCIE
+    $start_agencies_trucks_fachada = 'content-start-agencies-trucks-fachada';
+    $start_agencies_trucks_address = 'content-start-agencies-trucks-address';
+    $start_agencies_trucks_map = 'content-start-agencies-trucks-map';
     // AGENCIES PRE-OWNED
     $start_agencies_preowned_content_body = 'content-start-agencies-preowned-body-main';
     $start_agencies_preowned_small_screen = 'content-start-agencies-preowned-small-screen';
@@ -32,10 +40,14 @@ function domEl() {
     $start_agencies_preowned_content_fachada = 'content-start-container-fachada';
     $start_agencies_preowned_content_address = 'content-start-container-address';
     $start_agencies_preowned_content_map = 'content-start-container-map';
-    // AGENCIES TRUCKS
-    $start_agencies_trucks_content_body = 'content-start-agencies-trucks-body-main';
-    $start_agencies_trucks_large_pad_brands = 'content-start-agencies-trucks-large-pad-brands';
-    $start_agencies_trucks_midpadding_work = 'content-start-agencies-trucks-midpadding-work';
+    // AGENCIES PRE-OWNED
+    $start_agencies_preowned_content_body = 'content-start-agencies-preowned-body-main';
+    $start_agencies_preowned_small_screen = 'content-start-agencies-preowned-small-screen';
+    $start_agencies_preowned_section_tabs = 'content-start-agencies-preowned-section-tabs';
+    $start_agencies_preowned_tab_content_by_agencie = 'content-start-tab-container-by-agencie';
+    $start_agencies_preowned_content_fachada = 'content-start-container-fachada';
+    $start_agencies_preowned_content_address = 'content-start-container-address';
+    $start_agencies_preowned_content_map = 'content-start-container-map';
     // INVENTORIES PRE-OWNED
     $start_inventories_preowned_action_bar = 'content-start-inventories-preowned-action-bar';
     $start_inventories_preowned_filter_section = 'content-start-inventories-preowned-filter-section';
@@ -126,15 +138,28 @@ function domEl() {
         'action_go_agencie_news' => 'a.go-action-agencie-news',
         'action_go_agencie_news_id' => 'a#go-action-agencie-news-',
         // AGENCIES TRUCKS
-        // AGNCIES NEWS
+        // AGNCIES TRUCKS
         '_start_agencies_trucks_content_body' => $start_agencies_trucks_content_body,
         '_start_agencies_trucks_content_body_name' => '#' . $start_agencies_trucks_content_body,
-        // AGENCIES NEWS BRANDS
+        // AGENCIES TRUCKS BRANDS
         '_start_agencies_trucks_large_pad_brands' => $start_agencies_trucks_large_pad_brands,
         '_start_agencies_trucks_large_pad_brands_name' => '#' . $start_agencies_trucks_large_pad_brands,
-        // AGENCIES NEWS CATEGORIES
+        // AGENCIES TRUCKS CATEGORIES
         '_start_agencies_trucks_midpadding_work' => $start_agencies_trucks_midpadding_work,
         '_start_agencies_trucks_midpadding_work_name' => '#' . $start_agencies_trucks_midpadding_work,
+        // AGENCIES TRUCKS SUB AGENCIE
+        '_start_agencies_trucks_fachada' => $start_agencies_trucks_fachada,
+        '_start_agencies_trucks_fachada_name' => '#' . $start_agencies_trucks_fachada,
+        '_start_agencies_trucks_address' => $start_agencies_trucks_address,
+        '_start_agencies_trucks_address_name' => '#' . $start_agencies_trucks_address,
+        '_start_agencies_trucks_map' => $start_agencies_trucks_map,
+        '_start_agencies_trucks_map_name' => '#' . $start_agencies_trucks_map,
+        // AGENCIES TRUCKS ACTION
+        'action_truck_agn' => '.action-truck-agn',
+        // AGENCIES TRUCKS SUB AGENCIE
+        'action_go_agencie_trucks' => 'a.go-action-agencie-trucks',
+        'action_go_agencie_trucks_id' => 'a#go-action-agencie-trucks-',
+
         // AGENCIES PRE-OWNED
         '_start_agencies_preowned_content_body' => $start_agencies_preowned_content_body,
         '_start_agencies_preowned_content_body_name' => '#' . $start_agencies_preowned_content_body,

@@ -1635,10 +1635,26 @@ img.post-img {
     text-indent: -9999px;
     display: inline-block;
   }*/
+  .x-content-band.x-content-band-trucks .x-column.x-column-brand-agencie-trucks .x-img.x-img-logo-agencie-trucks {
+    width: 250px;
+    margin-left: 25%;
+  }
 }
-@media (max-width: 640px) {}
-@media (max-width: 480px) {}
+@media (max-width: 640px) {
+  .x-content-band.x-content-band-trucks .x-column.x-column-brand-agencie-trucks .x-img.x-img-logo-agencie-trucks {
+    width: 230px;
+    margin-left: 30%;
+  }
+}
+@media (max-width: 480px) {
+  .x-content-band.x-content-band-trucks .x-column.x-column-brand-agencie-trucks {
+    width: 225px;
+  }
+}
 @media (min-width: 320px) and (max-width: 479px) {
+  .x-content-band.x-content-band-trucks .x-column.x-column-brand-agencie-trucks {
+    width: 177px;
+  }
   .x-column.one-sixth {
     width: 109px;
     display: inline-block;
@@ -2127,6 +2143,9 @@ a.ttip_top_action_brand span.ttip_top_brands > .ttip_callout {
   -webkit-transform: rotate(-90deg);
   -webkit-transition-duration: 2s;
 }
+a.ttip_none_action_brand span.ttip_none_brands {
+ display: none;
+}
 /*
 a.ttip_top_action_brand span.ttip_top_brands:before {
   bottom: -10px;
@@ -2161,6 +2180,7 @@ a.ttip_down_action_brand:hover span.ttip_down_brands {
 .x-img.x-img-margin {
   margin: 1em 18px 1em 18px;
 }
+
 
 
 
