@@ -90,7 +90,6 @@
             else {
                 Finch.navigate('/agencias/nuevos');
             }
-
             animatedMethods.animated();
             $(window).resize(mobile_menu_methods.has_menu_toggle);
             backToTopMethod.init_window_scroll_top();
@@ -101,6 +100,34 @@
             removeRecurrentsMethod.removeRecurrents();
             currentSectionMethod.remove_currentSection();
             CAM.setValue('#hidden_brand', '0');
+        }
+    });
+/* ----------------------------------- *\
+ [Route] AGENCIES TRUCKS
+\* ----------------------------------- */
+    Finch.route('/agencias/camiones', {
+        setup: function(bindings) {
+            section = "trucks";
+            // Add favicon
+            window.onload = favicon.load_favicon();
+        },
+        load: function(bindings) {
+            viewNavbarMethod.viewNavbar();
+            sticky_wrapper_methods.sticky_wrapper();
+
+            addAttrNavAgenciesNewsMethod.addAttrNavAgenciesNews();
+            currentSectionMethod.currentSection_agencies_trucks();
+            viewSectionAgenciesTrucksMethod.viewSectionAgenciesTrucks();
+
+            $(window).resize(mobile_menu_methods.has_menu_toggle);
+            backToTopMethod.init_window_scroll_top();
+            __sizeCheck($(window));
+        },
+        unload: function(bindings) {
+            section = "";
+            CAM.setHTML(domEl.div_recurren, '');
+            removeRecurrentsMethod.removeRecurrents();
+            currentSectionMethod.remove_currentSection();
         }
     });
 /* ----------------------------------- *\
@@ -195,45 +222,11 @@
             sticky_wrapper_methods.sticky_wrapper_action_bar();
             $('.selectpicker').selectpicker();
 
-            matchMediaMethod.mediaquery();
             $(window).resize(mobile_menu_methods.has_menu_toggle);
             $(window).load(equalHeightsMethods.equalHeightsLoad);
 
             backToTopMethod.init_window_scroll_top();
             loadSlider();
-        },
-        unload: function(bindings) {
-            section = "";
-            CAM.setHTML(domEl.div_recurren, '');
-            removeRecurrentsMethod.removeRecurrents();
-            currentSectionMethod.remove_currentSection();
-        }
-    });
-/* ----------------------------------- *\
- [Route] INVENTORIES PREOWNED DETAILS -> VEHICLES
-\* ----------------------------------- */
-    Finch.route('/seminuevos/vehiculos', {
-        setup: function(bindings) {
-            section = "inventories-preowned-details-vehicle";
-            // Add favicon
-            window.onload = favicon.load_favicon();
-            ga('send', 'pageview', '/seminuevos/vehiculos');
-        },
-        load: function(bindings) {
-            viewNavbarMethod.viewNavbar();
-            sticky_wrapper_methods.sticky_wrapper();
-
-            addAttrNavAgenciesNewsMethod.addAttrNavAgenciesNews();
-            currentSectionMethod.currentSection_inventories_preowned();
-
-            //viewSectionInventoriesPreownedMethod.viewSectionInventoriesPreownedDetails();
-
-            sticky_wrapper_methods.sticky_wrapper_action_bar();
-            $('.selectpicker').selectpicker();
-
-            $(window).resize(mobile_menu_methods.has_menu_toggle);
-            //$(window).load(equalHeightsMethods.equalHeightsLoad);
-            backToTopMethod.init_window_scroll_top();
         },
         unload: function(bindings) {
             section = "";

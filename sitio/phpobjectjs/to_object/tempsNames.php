@@ -35,6 +35,21 @@ function tempsNames() {
         // AGENCIES NEWS VIDEO STRIP
         'recurrent_agencies_news_by_agencies_video_strip_agencies' => 'tmp_section_agencies_news_by_agencies_video_strip_agencies',
 
+        // AGENCIES TRUCKS
+        // UTILITY BAR BREADCRUMB
+        'recurrent_agencies_trucks_start_utility_bar_breadcrumb' => 'tmp_section_agencies_trucks_start_utility_bar_breadcrumb',
+        'recurrent_agencies_trucks_by_agencies_start_utility_bar_breadcrumb' => 'tmp_section_agencies_trucks_by_agencies_start_utility_bar_breadcrumb',
+        'recurrent_agencies_trucks_by_agencies_start_utility_bar_breadcrumb' => 'tmp_section_agencies_trucks_by_agencies_start_utility_bar_breadcrumb',
+
+        'recurrent_agencies_trucks_start_large_pad_land_mark' => 'tmp_section_agencies_trucks_start_large_pad_land_mark',
+        'recurrent_agencies_trucks_start_large_pad_brands' => 'tmp_section_agencies_trucks_start_large_pad_brands',
+        'recurrent_agencies_trucks_start_categories' => 'tmp_section_agencies_trucks_start_categories',
+
+        // AGENCIES TRUCKS SUB AGENCIE
+        'recurrent_agencies_trucks_start_fachada' => 'tmp_section_agencies_trucks_fachada',
+        'recurrent_agencies_trucks_start_address' => 'tmp_section_agencies_trucks_address',
+        'recurrent_agencies_trucks_start_map' => 'tmp_section_agencies_trucks_map',
+
         // AGENCIES PRE-OWNED
         'recurrent_agencies_preowned_start_utility_bar_breadcrumb' => 'tmp_section_agencies_preowned_start_utility_bar_breadcreumb',
         'recurrent_agencies_preowned_by_agencie_start_utility_bar_breadcreumb' => 'tmp_section_agencies_preowned_by_agencie_start_utility_bar_breadcreumb',

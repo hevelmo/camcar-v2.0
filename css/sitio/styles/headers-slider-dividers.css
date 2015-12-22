@@ -458,8 +458,8 @@
 .text-hero-2.agencies-news h1.h-landmark {
   margin-bottom: 0px;
   margin-top: 0;
-  padding-top: 20px;
-  padding-bottom: 10px;
+  padding-top: 25px;
+  padding-bottom: 25px;
 }
 .text-hero-2.agencies-news h5.h5-landmark {
   display: none;
@@ -470,7 +470,8 @@
   line-height: 40px;
 }
 .text-hero-2.agencies-news p.super-lead {
-  display: none;
+  /*display: none;*/
+  padding: 0;
 }
 @media all and (max-width: 767px) {
   .text-hero-2 h1 {

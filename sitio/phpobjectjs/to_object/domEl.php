@@ -32,6 +32,10 @@ function domEl() {
     $start_agencies_preowned_content_fachada = 'content-start-container-fachada';
     $start_agencies_preowned_content_address = 'content-start-container-address';
     $start_agencies_preowned_content_map = 'content-start-container-map';
+    // AGENCIES TRUCKS
+    $start_agencies_trucks_content_body = 'content-start-agencies-trucks-body-main';
+    $start_agencies_trucks_large_pad_brands = 'content-start-agencies-trucks-large-pad-brands';
+    $start_agencies_trucks_midpadding_work = 'content-start-agencies-trucks-midpadding-work';
     // INVENTORIES PRE-OWNED
     $start_inventories_preowned_action_bar = 'content-start-inventories-preowned-action-bar';
     $start_inventories_preowned_filter_section = 'content-start-inventories-preowned-filter-section';
@@ -121,6 +125,16 @@ function domEl() {
         // AGENCIES NEWS SUB AGENCIE
         'action_go_agencie_news' => 'a.go-action-agencie-news',
         'action_go_agencie_news_id' => 'a#go-action-agencie-news-',
+        // AGENCIES TRUCKS
+        // AGNCIES NEWS
+        '_start_agencies_trucks_content_body' => $start_agencies_trucks_content_body,
+        '_start_agencies_trucks_content_body_name' => '#' . $start_agencies_trucks_content_body,
+        // AGENCIES NEWS BRANDS
+        '_start_agencies_trucks_large_pad_brands' => $start_agencies_trucks_large_pad_brands,
+        '_start_agencies_trucks_large_pad_brands_name' => '#' . $start_agencies_trucks_large_pad_brands,
+        // AGENCIES NEWS CATEGORIES
+        '_start_agencies_trucks_midpadding_work' => $start_agencies_trucks_midpadding_work,
+        '_start_agencies_trucks_midpadding_work_name' => '#' . $start_agencies_trucks_midpadding_work,
         // AGENCIES PRE-OWNED
         '_start_agencies_preowned_content_body' => $start_agencies_preowned_content_body,
         '_start_agencies_preowned_content_body_name' => '#' . $start_agencies_preowned_content_body,
@@ -151,6 +165,9 @@ function domEl() {
         '_start_inventories_preowned_action_bar_name' => '#' . $start_inventories_preowned_action_bar,
         // SMALL SCREEN FLITERS
         'div_recurrent_start_small_screen_filters' => '#small-screen-filters',
+        // BUTTON SOW FILTER
+        'button_show_filters' => '#Show-Filters',
+        'button_search_filters' => '#Search-Filters',
         // FILTER SECTION
         '_start_inventories_preowned_filter_section' => $start_inventories_preowned_filter_section,
         '_start_inventories_preowned_filter_section_name' => '#' . $start_inventories_preowned_filter_section,
@@ -251,6 +268,7 @@ function domEl() {
         'goSection_index_logo_resp' => '#go-home-logo-resp',
         'goSection_index_logo' => '#go-home-logo',
         'goSection_agencies_news' => '#go-agencies-news',
+        'goSection_agencies_trucks' => '#go-agencies-trucks',
         'goSection_agencies_preowned' => '#go-agencies-preowned',
         'goSection_inventories_preowned' => '#go-inventories-preowned',
         'goSection_workshop' => '#go-workshop',

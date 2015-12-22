@@ -3,7 +3,7 @@
     {{#each campa}}
     <!-- Result Item -->
     <div class="result-item format-standard equal-height" id="result-item-col" data-sem-car="{{id}}">
-        <a class="views-details views-details-size bg-views-details views-details-transition sem-action"
+        <a class="views-details views-details-size bg-views-details views-details-transition visible-lg-block sem-action"
             id='sem-action-{{id}}'
             data-sem-mrc-nombre-short='{{mrc_nombre}}'
             data-sem-mdo-nombre-short='{{mdo_nombre}}'
@@ -21,6 +21,15 @@
             <div class="result-item-labels clearfix">
                 <span class="label label-default vehicle-age" id="sem_year">{{year}}</span>
                 <span class="label label-success premium-listing">{{agencia}}</span>
+            </div>
+            <div class="result-item-view-details-resp visible-xs clearfix">
+                <a class="view-details-resp col-md-12 col-xs-12 sem-action"
+                    id='sem-action-{{id}}'
+                    data-sem-mrc-nombre-short='{{mrc_nombre}}'
+                    data-sem-mdo-nombre-short='{{mdo_nombre}}'
+                    data-sem-id='{{id}}'>
+                    ver detalles
+                </a>
             </div>
         </div>
         <div class="result-item-in">

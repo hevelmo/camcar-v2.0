@@ -76,6 +76,10 @@ $app->configureMode('development', function () use ($app) {
     // LOGOS AGENCIES NEWS PRINCIPAL
     $app->get('/get/logos/agencia/nuevos', /*'mw1',*/ 'getLogosAgenciesNews');
 
+    // AGENCIES TRUCKS
+    // LOGOS AGENCIES TRUCKS PRINCIPAL
+    $app->get('/get/logos/agencia/camiones', /*'mw1',*/ 'getLogosAgenciesTrucks');
+
     // AGENCIES PRE-OWNED
     $app->get('/get/agencia/seminuevos', /*'mw1',*/ 'getAgenciesPreOwned');
     $app->get('/get/agencia/seminuevos/mapas/:agn_id', /*'mw1',*/ 'getAgenciesPreOwnedByMap');
@@ -646,6 +650,73 @@ $app->run();
         ($agn_name_agencia !== '') ? $params['agn_name_agencia'] = $agn_name_agencia : $params = $params;
         //($agn_type !== '') ? $params['agn_type'] = $agn_type : $params = $params;
         echo changeQueryIntoJSON('campa', $structure, getConnection(), $sql, $params, 0, PDO::FETCH_ASSOC);
+    }
+
+    // AGENCIES TRUCKS
+    // LOGO BRANDS AGENCIES TRUCKS
+    function getLogosAgenciesTrucks() {
+        $sql = "SELECT *
+                FROM camAgenciasPrincipales agp
+                INNER JOIN (
+                    SELECT *
+                    FROM camAgencias
+                    WHERE AGN_IsAgencieTrucks = 1
+                    AND AGN_Tipo = 1
+                    AND AGN_Status = 1
+                ) agn
+                ON agp.AGP_Id = agn.AGN_AGP_Id
+                INNER JOIN (
+                    SELECT *
+                    FROM camMarcasLogosAgencias
+                ) mla
+                ON agp.AGP_Id = mla.MLA_AGP_Id
+                GROUP BY AGP_Id
+                ORDER BY AGP_Index
+                ";
+        $params = array();
+        $structure = array(
+            'agencia_principal' => array(
+                'agpid' => 'AGP_Id',
+                'agpindex' => 'AGP_Index',
+                'agpnombre' => 'AGP_Agencia',
+                'agpshort' => 'AGP_Short',
+                'logo' => 'AGP_Logo'
+            ),
+            'marcas' => array(
+                'mlaid' => 'MLA_Id',
+                'brand' => 'AGN_Logo1',
+                'mlastatus' => 'MLA_Status'
+            )
+        );
+        $orderBy = array();
+        $result = generalQuery(getConnection(), $sql, $params, 0, PDO::FETCH_ASSOC);
+        $result = multiLevelJSON($result, $structure, $orderBy);
+
+        $counter = 1;
+
+        for ($i=0; $i < count($result); $i++) {
+            $tltip = ($counter <= 2) ? 'top' : 'down';
+            $result[$i]['tltip'] = $tltip;
+
+            $animate = ($counter <= 2) ? 'animation-slideUp' : 'animation-slideDown';
+            $result[$i]['animate'] = $animate;
+
+            $longmarcas = count($result[$i]['marcas']);
+            $longcount = 0;
+
+            foreach ($result[$i]['marcas'] as $marca) {
+                if ($marca['mlastatus'] == 0) {
+                    $longcount++;
+                }
+            }
+            if ($longcount == $longmarcas) {
+                $result[$i]['marcas'] = array();
+            }
+
+            $counter++;
+        }
+
+        echo changeArrayIntoJSON('campa', $result);
     }
 
     // AGENICES PRE-OWNED

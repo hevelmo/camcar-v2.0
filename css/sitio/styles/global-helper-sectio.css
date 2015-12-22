@@ -38,9 +38,12 @@
   }
   section.large-pad {
     padding: 50px 0 25px;
-    z-index: 2;
+    /*z-index: 2;*/
   }
   section.large-pad.agencies-news {
+    padding-top: 25px; padding-bottom: 0px;
+  }
+  section.large-pad.agencies-news:last-child {
     padding-top: 25px; padding-bottom: 25px;
   }
   .no-pad {

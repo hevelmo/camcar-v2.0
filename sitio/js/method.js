@@ -58,56 +58,6 @@
       });
     }
 /* ------------------------------------------------------ *\
-    [functions] owlCarousel
-\* ------------------------------------------------------ */
-    var owlCarouselMethods = {
-        owlCarousel : function () {
-            $('.owl-carousel').each(function() {
-                var carouselInstance, carouselColumns, carouselitemsDesktop, carouselitemsDesktopSmall,
-                    carouselitemsTablet, carouselitemsMobile, carouselAutoplay, carouselPagination,
-                    carouselArrows, carouselSingle, carouselStyle;
-
-                carouselInstance = $(this);
-                carouselColumns = carouselInstance.attr("data-columns")
-                    ? carouselInstance.attr("data-columns") : "1";
-                carouselitemsDesktop = carouselInstance.attr("data-items-desktop")
-                    ? carouselInstance.attr("data-items-desktop") : "4";
-                carouselitemsDesktopSmall = carouselInstance.attr("data-items-desktop-small")
-                    ? carouselInstance.attr("data-items-desktop-small") : "3";
-                carouselitemsTablet = carouselInstance.attr("data-items-tablet")
-                    ? carouselInstance.attr("data-items-tablet") : "2";
-                carouselitemsMobile = carouselInstance.attr("data-items-mobile")
-                    ? carouselInstance.attr("data-items-mobile") : "1";
-                carouselAutoplay = carouselInstance.attr("data-autoplay")
-                    ? carouselInstance.attr("data-autoplay") : false;
-                carouselPagination = carouselInstance.attr("data-pagination") == 'yes'
-                    ? true : false;
-                carouselArrows = carouselInstance.attr("data-arrows") == 'yes'
-                    ? true : false;
-                carouselSingle = carouselInstance.attr("data-single-item") == 'yes'
-                    ? true : false;
-                carouselStyle = carouselInstance.attr("data-style")
-                    ? carouselInstance.attr("data-style") : "fade";
-
-                carouselInstance.owlCarousel({
-                    items: carouselColumns,
-                    autoPlay : carouselAutoplay,
-                    navigation : carouselArrows,
-                    pagination : carouselPagination,
-                    itemsDesktop : [1199, carouselitemsDesktop],
-                    itemsDesktopSmall : [979, carouselitemsDesktopSmall],
-                    itemsTablet : [768, carouselitemsTablet],
-                    itemsMobile : [479, carouselitemsMobile],
-                    singleItem : carouselSingle,
-                    navigationText : ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
-                    stopOnHover : true,
-                    lazyLoad : true,
-                    transitionStyle: 'carouselStyle'
-                });
-            });
-        }
-    }
-/* ------------------------------------------------------ *\
     [functions] __sizeCheck
 \* ------------------------------------------------------ */
     function __sizeCheck(element) {
@@ -166,24 +116,64 @@
         });
     }
 /* ------------------------------------------------------ *\
+    [Methods] owlCarousel
+\* ------------------------------------------------------ */
+    var owlCarouselMethods = {
+        owlCarousel : function () {
+            $('.owl-carousel').each(function() {
+                var carouselInstance, carouselColumns, carouselitemsDesktop, carouselitemsDesktopSmall,
+                    carouselitemsTablet, carouselitemsMobile, carouselAutoplay, carouselPagination,
+                    carouselArrows, carouselSingle, carouselStyle;
+
+                carouselInstance = $(this);
+                carouselColumns = carouselInstance.attr("data-columns")
+                    ? carouselInstance.attr("data-columns") : "1";
+                carouselitemsDesktop = carouselInstance.attr("data-items-desktop")
+                    ? carouselInstance.attr("data-items-desktop") : "4";
+                carouselitemsDesktopSmall = carouselInstance.attr("data-items-desktop-small")
+                    ? carouselInstance.attr("data-items-desktop-small") : "3";
+                carouselitemsTablet = carouselInstance.attr("data-items-tablet")
+                    ? carouselInstance.attr("data-items-tablet") : "2";
+                carouselitemsMobile = carouselInstance.attr("data-items-mobile")
+                    ? carouselInstance.attr("data-items-mobile") : "1";
+                carouselAutoplay = carouselInstance.attr("data-autoplay")
+                    ? carouselInstance.attr("data-autoplay") : false;
+                carouselPagination = carouselInstance.attr("data-pagination") == 'yes'
+                    ? true : false;
+                carouselArrows = carouselInstance.attr("data-arrows") == 'yes'
+                    ? true : false;
+                carouselSingle = carouselInstance.attr("data-single-item") == 'yes'
+                    ? true : false;
+                carouselStyle = carouselInstance.attr("data-style")
+                    ? carouselInstance.attr("data-style") : "fade";
+
+                carouselInstance.owlCarousel({
+                    items: carouselColumns,
+                    autoPlay : carouselAutoplay,
+                    navigation : carouselArrows,
+                    pagination : carouselPagination,
+                    itemsDesktop : [1199, carouselitemsDesktop],
+                    itemsDesktopSmall : [979, carouselitemsDesktopSmall],
+                    itemsTablet : [768, carouselitemsTablet],
+                    itemsMobile : [479, carouselitemsMobile],
+                    singleItem : carouselSingle,
+                    navigationText : ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
+                    stopOnHover : true,
+                    lazyLoad : true,
+                    transitionStyle: 'carouselStyle'
+                });
+            });
+        }
+    }
+/* ------------------------------------------------------ *\
     [Methods] MATCHMEDIA
 \* ------------------------------------------------------ */
     var matchMediaMethod = {
         mediaquery: function() {
             if (mediaquery.matches) {
-                $('.results-grid-view div.result-item').each( function () {
-                    if ( $('div').hasClass('result-item') ) {
-                        $('.result-item').addClass('col-xs-6 col-sm-6');
-                    }
-                });
-                console.log('mediaquery es min 768px');
+                //console.log('mediaquery es min 768px');
             } else {
-                $('.results-grid-view div.result-item').each( function () {
-                    if ( $('div').hasClass('result-item') ) {
-                        $('.result-item').removeClass('col-xs-6 col-sm-6');
-                    }
-                });
-                console.log('mediaquery no es min 768px');
+                //console.log('mediaquery no es min 768px');
             }
         }
     }
@@ -596,10 +586,10 @@
         },
         recurrentSecionAgenciesNews: function() {
             dataStarSiteAgenciesNewsAttributes = [
-                ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content'}, '', 1],
+                ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content', 'style':'display: none;'}, '', 1],
                 ['section', {'id':domEl._start_agencies_news_content_body, 'class':'large-pad text-hero-2 agencies-news about-content'}, '', 1],
                 ['section', {'id':domEl._start_agencies_news_large_pad_brands, 'class':'large-pad agencies-news about-content', 'style':'overflow: visible;'}, '', 1],
-                ['section', {'id':domEl._start_agencies_news_midpadding_work, 'class':'midpadding work white about-content', 'style':'overflow: visible; padding-top: 20px; padding-bottom: 20px;'}, '', 1]
+                ['section', {'id':domEl._start_agencies_news_midpadding_work, 'class':'large-pad agencies-news about-content', 'style':'overflow: visible;'}, '', 1]
             ];
             CAM.appendMulti(domEl.div_recurrent, dataStarSiteAgenciesNewsAttributes);
         }
@@ -918,6 +908,38 @@
         },
         initMapAgenciesNewsSubAgencie: function() {
             google.maps.event.addDomListener(window, 'load', mapAgenciesNewsSubAgencieMethod.mapAgenciesNewsSubAgencie());
+        }
+    }
+/* ------------------------------------------------------ *\
+    [Methods] viewSectionAgenciesTrucksMethod
+\* ------------------------------------------------------ */
+    var viewSectionAgenciesTrucksMethod = {
+        viewSectionAgenciesTrucks: function(agpid) {
+            viewSectionAgenciesTrucksMethod.recurrentSecionAgenciesTrucks();
+
+
+            viewSectionAgenciesTrucksMethod.loadTemplatesAgencesTrucksBrands();
+        },
+        loadTemplatesUtilityBarBreadcrumb: function() {
+            CAM.loadTemplate(tempsNames.recurrent_agencies_news_start_utility_bar_breadcrumb, domEl._start_utility_bar_breadcrumb_name);
+        },
+        loadTemplatesBodyContent: function() {
+            CAM.loadTemplate(tempsNames.recurrent_agencies_news_start_large_pad_land_mark, domEl._start_agencies_news_content_body_name);
+        },
+        loadTemplatesAgencesTrucksBrands: function() {
+            var logosData;
+            logosData = CAM.getInternalJSON(urlsApi.getLogosAgenciesTrucks);
+            //CAM.loadTemplate(tempsNames.recurrent_agencies_news_start_large_pad_brands, domEl._start_agencies_news_large_pad_brands_name, logosData);
+            console.log(urlsApi.getLogosAgenciesTrucks);
+        },
+        recurrentSecionAgenciesTrucks: function() {
+            dataStarSiteAgenciesTrucksAttributes = [
+                ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content', 'style':'display: none;'}, '', 1],
+                ['section', {'id':domEl._start_agencies_trucks_content_body, 'class':'large-pad text-hero-2 agencies-trucks about-content'}, '', 1],
+                ['section', {'id':domEl._start_agencies_trucks_large_pad_brands, 'class':'large-pad agencies-trucks about-content', 'style':'overflow: visible;'}, '', 1],
+                ['section', {'id':domEl._start_agencies_trucks_midpadding_work, 'class':'large-pad agencies-trucks about-content', 'style':'overflow: visible;'}, '', 1]
+            ];
+            CAM.appendMulti(domEl.div_recurrent, dataStarSiteAgenciesTrucksAttributes);
         }
     }
 /* ------------------------------------------------------ *\
@@ -1312,9 +1334,9 @@
         },
         recurrentFieldsFilterSection: function() {
             fieldsFilters = [
-                ['div', {'id':domEl._start_inventories_preowned_field_filter_category, 'class':'col-md-4'}, '', 1],
-                ['div', {'id':domEl._start_inventories_preowned_field_filter_brands, 'class':'col-md-4'}, '', 1],
-                ['div', {'id':domEl._start_inventories_preowned_field_filter_models, 'class':'col-md-4'}, '', 1]
+                ['div', {'id':domEl._start_inventories_preowned_field_filter_category, 'class':'col-md-4 field-filter-resp'}, '', 1],
+                ['div', {'id':domEl._start_inventories_preowned_field_filter_brands, 'class':'col-md-4 field-filter-resp'}, '', 1],
+                ['div', {'id':domEl._start_inventories_preowned_field_filter_models, 'class':'col-md-4 field-filter-resp'}, '', 1]
             ];
             CAM.appendMulti('#panel-filters-cateogories', fieldsFilters);
         },
@@ -2285,11 +2307,15 @@
             $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );
             Finch.navigate('/agencias/nuevos');
         },
+        clikGo_agencies_trucks: function(event) {
+            $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );
+            Finch.navigate('/agencias/camiones');
+        },
         clikGo_agencies_news_principal: function(event) {
             var agnPrincipal, $element;
             $element = $(this);
             agnPrincipal = $element.data('agp_nombre');
-            $('body,html').animate({ scrollTop: "200" }, 999, 'easeOutExpo' );
+            $('body,html').animate({ scrollTop: "220" }, 999, 'easeOutExpo' );
 
             $(domEl.action_new_agn).children('.img-disable').removeClass('active');
             $element.children('.img-disable').addClass('active');
@@ -2419,6 +2445,12 @@
         clickGo_privacy_notice: function(event) {
             $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );
             Finch.navigate('/aviso-de-privacidad');
+        },
+        showAgenciesTabs: function(event) {
+            $(domEl.button_search_tabs).slideToggle();
+        },
+        showFilters: function(event) {
+            $(domEl.button_search_filters).slideToggle();
         }
     }
 /* ------------------------------------------------------ *\
@@ -2450,6 +2482,7 @@
             removeRecurrentsMethod.removeRecurrent_navbar();
             removeRecurrentsMethod.removeRecurrents_home();
             removeRecurrentsMethod.removeRecurrents_agencies_news();
+            removeRecurrentsMethod.removeRecurrents_agencies_trucks();
             removeRecurrentsMethod.removeRecurrents_agencies_preonwed();
             removeRecurrentsMethod.removeRecurrent_inventories_preowned();
             removeRecurrentsMethod.removeRecurrents_workshop();
@@ -2478,6 +2511,15 @@
             $(domEl._start_agencies_news_fachada_name).remove();
             $(domEl._start_agencies_news_address_name).remove();
             $(domEl._start_agencies_news_map_name).remove();
+        },
+        removeRecurrents_agencies_trucks: function() {
+            $(domEl._start_utility_bar_breadcrumb_name).remove();
+            $(domEl._start_agencies_trucks_content_body_name).remove();
+            $(domEl._start_agencies_trucks_large_pad_brands_name).remove();
+            $(domEl._start_agencies_trucks_midpadding_work_name).remove();
+            //$(domEl._start_agencies_trucks_fachada_name).remove();
+            //$(domEl._start_agencies_trucks_address_name).remove();
+            //$(domEl._start_agencies_trucks_map_name).remove();
         },
         removeRecurrents_agencies_preonwed: function() {
             $(domEl._start_agencies_preowned_content_body_name).remove();
@@ -2518,13 +2560,14 @@
         currentSection_home: function() {
             $('head title#head-change-section-title').html('CAMCAR Grupo Automotriz');
             $(domEl.goSection_index).addClass('current');
-            if ( $('#gmap div').hasClass('gm-style') ) {
-                $('.gm-style').addClass('gm-agents');
-            }
         },
         currentSection_agencies_news: function() {
             $('head title#head-change-section-title').html('CAMCAR Agencias Nuevos');
             $(domEl.goSection_agencies_news).addClass('current');
+        },
+        currentSection_agencies_trucks: function() {
+            $('head title#head-change-section-title').html('CAMCAR Camiones');
+            $(domEl.goSection_agencies_trucks).addClass('current');
         },
         currentSection_agencies_preowned: function() {
             $('head title#head-change-section-title').html('CAMCAR Seminuevos');
@@ -2809,8 +2852,8 @@
             ];
 
             mapOptions = {
-                zoom: 10,
-                center: new google.maps.LatLng(agn_latitud,agn_longitud),
+                zoom: 11,
+                center: new google.maps.LatLng(mapData.campa[0].agn_latitud,mapData.campa[0].agn_longitud),
                 scrollwheel: false,
                 mapTypeControlOptions: {
                     mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
@@ -2844,7 +2887,7 @@
                                       '</div>';
 
                 markers[i] = new google.maps.Marker({
-                    position: new google.maps.LatLng(agn_latitud,agn_longitud),
+                    position: new google.maps.LatLng(mapData.campa[i].agn_latitud,mapData.campa[i].agn_longitud),
                     map: map,
                     icon: '../img/sitio/pin_camcar.png',
                     title: agn_name,
@@ -2876,6 +2919,7 @@
                 //infoWindow.open(map, marker);
                 google.maps.event.addListener( marker, 'click', function() {
                     infoWindow.open( map, marker );
+                    map.panTo(marker.getLatLng());
                 });
                 //console.log(infoWindow);
                 // Event that closes the Info Window with a click on the map

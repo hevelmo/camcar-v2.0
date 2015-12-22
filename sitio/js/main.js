@@ -49,15 +49,17 @@ $(document).ready(function() {
     $(domEl.div_recurrent).on('click', domEl.action_go_agencie_news, clikGoMethods.clikGo_agencies_news_sub_agencie);
     // AGENCIES NEWS ACTION
     $(domEl.div_recurrent).on('click', domEl.action_new_agn, clikGoMethods.clikGo_agencies_news_principal);
+    // AGENCIES TRUCKS
+    $(domEl.navbar_recurrent).on('click', domEl.goSection_agencies_trucks, clikGoMethods.clikGo_agencies_trucks);
     // AGENCIES PRE-OWNED
     $(domEl.navbar_recurrent).on('click', domEl.goSection_agencies_preowned, clikGoMethods.clickGo_agencies_preowned);
-    $(domEl.div_recurrent).on('click', "#Show-Agencies-Tabs", function(){
-        $("#Search-tabs").slideToggle();
-    });
+    $(domEl.div_recurrent).on('click', domEl.button_show_agencies_tabs, clikGoMethods.showAgenciesTabs);
     $(domEl.div_recurrent).on('click', domEl.goBack_breadcrumb_agencies_preowned, clikGoMethods.clickGo_agencies_preowned);
     $(domEl.div_recurrent).on('click', domEl.action_go_agencie_preowned, clikGoMethods.clickGo_agencies_preowned_by_agencie);
     // INVENTORIES PRE-OWNED
     $(domEl.navbar_recurrent).on('click', domEl.goSection_inventories_preowned, clikGoMethods.clickGo_inventories_preowned);
+    // SLIDETOGGLE BUTTON FILTROS
+    $(domEl.div_recurrent).on('click', domEl.button_show_filters, clikGoMethods.showFilters);
     // CHANGE SELECT FILTERS
     $(domEl.div_recurrent).on('change', domEl.select_fil_category, getFilterMethod.changeCategory);
     $(domEl.div_recurrent).on('change', domEl.select_fil_brands, getFilterMethod.changeBrands);
