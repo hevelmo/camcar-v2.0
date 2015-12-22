@@ -35,6 +35,8 @@
 	/* ------------------------------------------------------ *\
 		[styles] remark extras
 	\* ------------------------------------------------------ */
+
+		@import url(sitio/styles/media-print.css);
 		@import url(styles/basscss.css);
 		@import url(sitio/styles/global-helper-sectio.css);
 		@import url(sitio/styles/integrity-light.css);
@@ -47,7 +49,6 @@
 		@import url(sitio/herocarousel/herocarousel.css);
 		@import url(sitio/styles/media-box.css);
 		@import url(sitio/flexslider/flexslidernew.css);
-
 		/*
 
 		@import url(sitio/herocarousel/hero-carousel-animation.css);
@@ -68,6 +69,9 @@
 		@import url(sitio/styles/results-items.css);
 		@import url(corp-medigraf.css);
 		@import url(styles/hint.css);
+		@import url(sitio/owl-carousel/owl.carousel.css);
+		@import url(sitio/owl-carousel/owl.theme.css);
+		@import url(sitio/owl-carousel/owl.transitions.css);
 /* ################################################################################################### *\
 	END CONTENT
 \* ################################################################################################### */

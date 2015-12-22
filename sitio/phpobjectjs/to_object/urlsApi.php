@@ -111,6 +111,7 @@ function urlsApi() {
 
         // ABOUT US FORM CONTACT MAIN
         'post_form_contact_main' => $root . '/contacto',
+        'post_form_contact_main_by_model' => $root . '/contacto/modelo',
 
     );
 }

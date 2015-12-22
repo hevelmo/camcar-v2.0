@@ -188,8 +188,19 @@ function domEl() {
         'div_recurrent_table_specifications' => '#content_specifications',
         // CONTENT VEHICLE SLIDERç
         'div_recurrent_vehicle_slider_details' => '#content-vehicle-slider-details',
+        // CONTENT WRAPPER MAP
+        'div_recurrent_wrapper_map' => '#content_wrapper_map',
         // CONTETNE CAROUSEL
         'div_recurrent_corousel_vehicles' => '#content_carousel_vehicles',
+        'div_recurrent_form_contact_by_model' => '#content_form_contact_by_model',
+        // FORM COMTACT BY MODEL
+        'div_recurrent_form_contact_by_model' => '#content_form_contact_by_model',
+        'form_recurrent_contact_by_model_pre_owned' => '#form_sem_premium_contact_by_model',
+        'input_contact_by_model_pre_owned_name' => '#sem_premium_by_model_contact_name',
+        'input_contact_by_model_pre_owned_email' => '#sem_premium_by_model_contact_email',
+        'input_contact_by_model_pre_owned_phone' => '#sem_premium_by_model_contact_phone',
+        'input_contact_by_model_pre_owned_message' => '#sem_premium_by_model_contact_message',
+        'send_contact_by_model_pre_owned' => '#sem_premium_contact_send_by_model',
 
         // WORKSHOP
         '_start_workshop_content_body' => $start_workshop_content_body,
@@ -265,5 +276,10 @@ function domEl() {
         'filter_breadcrumb_blog_post' => '#filter-blog-post',
         // VALIDATION
         'validate_required' => '.validate-required',
+        'email_from' => '#email-from',
+        'form_wrapper' => '#form-wrapper',
+        'form_thanks' => '.form-thanks',
+        'form_error' => '.form-error',
+        'form_loader' => '.form-loader',
     );
 }

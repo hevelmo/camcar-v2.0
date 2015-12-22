@@ -58,6 +58,56 @@
       });
     }
 /* ------------------------------------------------------ *\
+    [functions] owlCarousel
+\* ------------------------------------------------------ */
+    var owlCarouselMethods = {
+        owlCarousel : function () {
+            $('.owl-carousel').each(function() {
+                var carouselInstance, carouselColumns, carouselitemsDesktop, carouselitemsDesktopSmall,
+                    carouselitemsTablet, carouselitemsMobile, carouselAutoplay, carouselPagination,
+                    carouselArrows, carouselSingle, carouselStyle;
+
+                carouselInstance = $(this);
+                carouselColumns = carouselInstance.attr("data-columns")
+                    ? carouselInstance.attr("data-columns") : "1";
+                carouselitemsDesktop = carouselInstance.attr("data-items-desktop")
+                    ? carouselInstance.attr("data-items-desktop") : "4";
+                carouselitemsDesktopSmall = carouselInstance.attr("data-items-desktop-small")
+                    ? carouselInstance.attr("data-items-desktop-small") : "3";
+                carouselitemsTablet = carouselInstance.attr("data-items-tablet")
+                    ? carouselInstance.attr("data-items-tablet") : "2";
+                carouselitemsMobile = carouselInstance.attr("data-items-mobile")
+                    ? carouselInstance.attr("data-items-mobile") : "1";
+                carouselAutoplay = carouselInstance.attr("data-autoplay")
+                    ? carouselInstance.attr("data-autoplay") : false;
+                carouselPagination = carouselInstance.attr("data-pagination") == 'yes'
+                    ? true : false;
+                carouselArrows = carouselInstance.attr("data-arrows") == 'yes'
+                    ? true : false;
+                carouselSingle = carouselInstance.attr("data-single-item") == 'yes'
+                    ? true : false;
+                carouselStyle = carouselInstance.attr("data-style")
+                    ? carouselInstance.attr("data-style") : "fade";
+
+                carouselInstance.owlCarousel({
+                    items: carouselColumns,
+                    autoPlay : carouselAutoplay,
+                    navigation : carouselArrows,
+                    pagination : carouselPagination,
+                    itemsDesktop : [1199, carouselitemsDesktop],
+                    itemsDesktopSmall : [979, carouselitemsDesktopSmall],
+                    itemsTablet : [768, carouselitemsTablet],
+                    itemsMobile : [479, carouselitemsMobile],
+                    singleItem : carouselSingle,
+                    navigationText : ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
+                    stopOnHover : true,
+                    lazyLoad : true,
+                    transitionStyle: 'carouselStyle'
+                });
+            });
+        }
+    }
+/* ------------------------------------------------------ *\
     [functions] __sizeCheck
 \* ------------------------------------------------------ */
     function __sizeCheck(element) {
@@ -1469,10 +1519,17 @@
 
                 CAM.loadTemplate(tempsNames.recurrent_inventories_preowned_details_single_vehicle_details, domEl._start_body_content_main_name, byDetail);
                 CAM.loadTemplate(tempsNames.recurrent_inventories_preowned_details_table_striped_specification, domEl.div_recurrent_table_specifications, byDetail);
-                
+
                 CAM.loadTemplate(tempsNames.recurrent_inventories_preowned_detalis_vehicle_slider_details, domEl.div_recurrent_vehicle_slider_details, pictureData);
 
+                CAM.loadTemplate(tempsNames.recurrent_inventories_preowned_detalis_wrapper_map, domEl.div_recurrent_wrapper_map);
+                mapRecurrentInventoriesPreownedDetalisMethod.mapRecurrentInventoriesPreownedDetalis();
+                mapRecurrentInventoriesPreownedDetalisMethod.mapRecurrentInventoriesPreownedDetalisLoad();
+
+                contactMethods_sem_premium_by_model.refreshForm(brandName, modelName, semId);
+
                 CAM.loadTemplate(tempsNames.recurrent_inventories_preowned_details_carousel_vehicles, domEl.div_recurrent_corousel_vehicles, semMarcaData);
+                equalHeightsMethods.equalHeightsLoad
             }
         },
         recurrentSecionInventoriesPreownedDetails: function() {
@@ -1482,6 +1539,382 @@
                 ['div', {'id':domEl._start_body_content_main, 'class':'about-content'}, '', 1]
             ];
             CAM.appendMulti(domEl.div_recurrent, dataStarSiteInventoriesPreownedAttributes);
+        }
+    }
+/* ------------------------------------------------------ *\
+    [Methods] mapRecurrentInventoriesPreownedDetalisMethod
+\* ------------------------------------------------------ */
+    var mapRecurrentInventoriesPreownedDetalisMethod = {
+        mapRecurrentInventoriesPreownedDetalis: function(data) {
+            var styles, mapaData, agn_latitud, agn_longitudl, senId, directorio, agn_folder_agencia, agn_img, agn_name, agn_address, mapOpcNews, map, marker2, popup, location_center, main_color, saturation_value, brightness_value;
+
+            main_color = '#2d313f';
+            saturation_value = -20;
+            brightness_value = 5;
+
+            senId = +CAM.getValue("#hidden_mapa");
+            mapaData = CAM.getInternalJSON(urlsApi.getMapaById + senId);
+
+            agn_latitud = mapaData.campa[0].agnlatitud;
+            agn_longitud = mapaData.campa[0].agnlongitud;
+
+            location_center = new google.maps.LatLng(mapaData.campa[0].agn_latitud,mapaData.campa[0].agn_longitud);
+
+            style = [
+                { //set saturation for the labels on the map
+                    elementType: "labels",
+                    stylers: [ { saturation: saturation_value } ]
+                },
+                { //poi stands for point of interest - don't show these lables on the map
+                    featureType: "poi",
+                    elementType: "labels",
+                    stylers: [  { visibility: "off" } ]
+                },
+                { //don't show highways lables on the map
+                    featureType: 'road.highway',
+                    elementType: 'labels',
+                    stylers: [ { visibility: "off" } ]
+                },
+                {  //don't show local road lables on the map
+                    featureType: "road.local",
+                    elementType: "labels.icon",
+                    stylers: [ { visibility: "off" } ]
+                },
+                {  //don't show arterial road lables on the map
+                    featureType: "road.arterial",
+                    elementType: "labels.icon",
+                    stylers: [ { visibility: "off" } ]
+                },
+                { //don't show road lables on the map
+                    featureType: "road",
+                    elementType: "geometry.stroke",
+                    stylers: [ { visibility: "off" } ]
+                },
+                { //style different elements on the map
+                    featureType: "transit",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "poi",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "poi.government",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "poi.sport_complex",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "poi.attraction",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "poi.business",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "transit",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "transit.station",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "landscape",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+
+                },
+                {
+                    featureType: "road",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "road.highway",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "water",
+                    elementType: "geometry",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                }
+            ];
+
+            mapOpcNews = {
+                zoom: 16,
+                center: new google.maps.LatLng(mapaData.campa[0].agn_latitud,mapaData.campa[0].agn_longitud),
+                scrollwheel: false,
+                mapTypeControlOptions: {
+                    mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+                },
+                styles: style
+            }
+
+            map = new google.maps.Map(document.getElementById('map-canvas'),mapOpcNews);
+
+            marker2 = new google.maps.Marker({
+                position: map.getCenter(),
+                map: map,
+                title: 'CAMCAR',
+                icon: "../img/sitio/pin_camcar.png" //custom pin icon
+            });
+
+            directorio = mapaData.campa[0].agn_folder;
+            agn_folder_agencia = '../../img/sitio/agencias/logos';
+            agn_img = mapaData.campa[0].agn_logo1;
+            agn_name = mapaData.campa[0].agn_nombre;
+            agn_address = mapaData.campa[0].agn_direccion;
+
+            popup = new google.maps.InfoWindow({
+                content:
+                    '<div class="marker-info-win" style="text-align: center;">'+
+                    '<div class="marker-inner-win"><span class="info-content">'+
+                    '<img src="img/'+agn_folder_agencia+'/'+agn_img+'" alt="'+agn_name+'" style="margin-botton: 10px;" width="150">'+
+                    '<h5 class="marker-heading" style="color:#000; padding: 0px; margin: 0px;">'+agn_name+'</h5>'+
+                    '<span>'+agn_address+'</span>' +
+                    '</span>'+
+                    '</div></div>'
+            });
+
+            attachInfoWindowToMarker(map, marker2, popup);
+
+            function attachInfoWindowToMarker( map, marker, infoWindow ) {
+                infoWindow.open(map, marker2, popup);
+            }
+        },
+        mapRecurrentInventoriesPreownedDetalisLoad: function(data) {
+            google.maps.event.addDomListener(window, 'load', mapRecurrentInventoriesPreownedDetalisMethod.mapRecurrentInventoriesPreownedDetalis(data));
+        }
+    }
+/* ------------------------------------------------------ *\
+    [Methods] Contacto Modelo
+\* ------------------------------------------------------ */
+    var contactMethods_sem_premium_by_model = {
+        add_formContact_byModel: function() {
+            var dataFormContact_byModel;
+
+            dataFormContact_byModel = $(domEl.form_recurrent_contact_by_model_pre_owned).serializeFormJSON();
+            console.log(dataFormContact_byModel);
+
+            return CAM.postalService(urlsApi.post_form_contact_main_by_model, dataFormContact_byModel);
+        },
+        fillingControl: function() {
+            var validFieldsItems, dataFormContact_byModel, isFull, isNoEmpty;
+            validFieldsItems = [ 'sem_premium_by_model_contact_name', 'sem_premium_by_model_contact_email', 'sem_premium_by_model_contact_phone', 'sem_premium_by_model_contact_message' ];
+
+            dataFormContact_byModel = $(domEl.form_recurrent_contact_by_model_pre_owned).serializeFormJSON();
+            console.log(dataFormContact_byModel);
+
+            isFull = CAM.validFormFull(dataFormContact_byModel, validFieldsItems);
+            $(domEl.send_contact_by_model_pre_owned).attr('disabled', !isFull);
+
+            isEmpty = CAM.validFormFull(dataFormContact_byModel, validFieldsItems);
+            $(domEl.send_contact_by_model_pre_owned).attr('disabled', !isEmpty);
+
+            console.log(dataFormContact_byModel);
+        },
+        refreshForm: function(mrcNombre, mdoNombre, senId) {
+            var semIdData;
+
+            semIdData = CAM.getInternalJSON(urlsApi.getSeminuevosById + mrcNombre + '/' + mdoNombre + '/' + senId);
+
+            CAM.loadTemplate(tempsNames.recurrent_inventories_preowned_details_formsem_contact_by_model, domEl.div_recurrent_form_contact_by_model, semIdData);
+            $(domEl.send_contact_by_model_pre_owned).attr('disabled', true);
+            console.log(tempsNames.recurrent_inventories_preowned_details_formsem_contact_by_model, domEl.div_recurrent_form_contact_by_model);
+        },
+        resetForm: function() {
+            CAM.resetForm(domEl.form_recurrent_contact_by_model_pre_owned);
+            $(domEl.send_contact_by_model_pre_owned).attr('disabled', true);
+        },
+        resetLoader: function() {
+            $(domEl.form_loader).css('display','none');
+        },
+        /*finchNavigateReturn: function() {
+            $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );
+            Finch.navigate('/inventarios');
+        },*/
+        validate_fields_keyup: function() {
+            contactMethods_sem_premium_by_model.fillingControl();
+        },
+        sendContactForm_byModel: function(event) {
+            contactMethods_sem_premium_by_model.fillingControl();
+            var $contact_by_model_pre_owned_name = $(domEl.input_contact_by_model_pre_owned_name),
+                $contact_by_model_pre_owned_email = $(domEl.input_contact_by_model_pre_owned_email),
+                $contact_by_model_pre_owned_phone = $(domEl.input_contact_by_model_pre_owned_phone),
+                $contact_by_model_pre_owned_message = $(domEl.input_contact_by_model_pre_owned_message);
+
+            var form_errors = 0;
+            if( validateMethods.validate_input( $contact_by_model_pre_owned_name ) ){
+                form_errors++;
+                $contact_by_model_pre_owned_name.focusout();
+            }
+            if( validateMethods.validate_input( $contact_by_model_pre_owned_email ) ){
+                form_errors++;
+                $contact_by_model_pre_owned_email.change();
+            }
+            if( validateMethods.validate_input( $contact_by_model_pre_owned_phone ) ){
+                form_errors++;
+                $contact_by_model_pre_owned_phone.change();
+            }
+            if( validateMethods.validate_input( $contact_by_model_pre_owned_message ) ){
+                form_errors++;
+                $contact_by_model_pre_owned_message.change();
+            }
+            if( form_errors != 0 ){
+                var data = {
+                    contact_name : $contact_by_model_pre_owned_name,
+                    contact_email : $contact_by_model_pre_owned_email,
+                    contact_phone : $contact_by_model_pre_owned_phone,
+                    contact_message : $contact_by_model_pre_owned_message,
+                    source : 'Contacto'
+                }
+                var contact_by_model_pre_owned_promise = contactMethods_sem_premium_by_model.add_formContact_byModel();
+
+                contact_by_model_pre_owned_promise.success(function ( data ) {
+                    console.log(data);
+                    //ga('send', 'event', 'Contacto', news_srt, departamento, news_val + car_val );
+                    setTimeout(function() {
+                        //console.log('Espera');
+                        setTimeout(function () {
+                            $(domEl.form_wrapper).fadeOut( 300 , function(){
+                                setTimeout(function () {
+                                    $(domEl.form_loader).fadeIn();
+                                }, 300);
+                            });
+                            setTimeout(function () {
+                                //console.log("Correo Enviado...");
+                                setTimeout(function () {
+                                    $(domEl.form_wrapper).fadeOut( 300 , function(){
+                                        var correo = $(domEl.input_contact_by_model_pre_owned_email).val();
+                                        $(domEl.email_from).text(correo);
+                                        setTimeout(function () {
+                                            $(domEl.form_thanks).fadeIn();
+                                            console.log(correo);
+                                        }, 1800);
+                                    });
+                                    setTimeout(function () {
+                                        $(domEl.form_loader).fadeOut();
+                                        contactMethods_sem_premium_by_model.resetForm();
+                                        setTimeout(function () {
+                                            $(domEl.form_wrapper).fadeIn( 300 , function(){
+                                                var correo = $(domEl.input_contact_by_model_pre_owned_email).val();
+                                                $(domEl.email_from).text(correo);
+                                                $(domEl.form_thanks).fadeOut();
+                                            });
+                                        }, 3400);
+                                    }, 1800);
+                                }, 1800);
+                            }, 1400);
+                        }, 300);
+                    }, 500);
+                });
+                contact_by_model_pre_owned_promise.error(function ( data ) {
+                    console.log(data);
+                    setTimeout(function() {
+                        //console.log('Espera');
+                        setTimeout(function () {
+                                $(domEl.form_wrapper).fadeOut( 300 , function(){
+                                    setTimeout(function () {
+                                        $(domEl.form_loader).fadeIn();
+                                    }, 900);
+                                });
+                            setTimeout(function () {
+                                //console.log("Correo Enviado...");
+                                setTimeout(function () {
+                                    $(domEl.form_wrapper).fadeOut( 300 , function(){
+                                        setTimeout(function () {
+                                            $(domEl.form_error).fadeIn();
+                                        }, 300);
+                                    });
+                                    setTimeout(function () {
+                                        contactMethods_sem_premium_by_model.resetForm();
+                                        setTimeout(function () {
+                                            $(domEl.form_wrapper).fadeIn( 300 , function(){
+                                                $(domEl.form_error).fadeOut();
+                                            });
+                                            setTimeout(function () {
+                                                contactMethods_sem_premium_by_model.resetForm();
+                                            }, 1000);
+                                        }, 1200);
+                                    }, 800);
+                                }, 900);
+                            }, 400);
+                        }, 800);
+                    }, 500);
+                });
+            }
         }
     }
 /* ------------------------------------------------------ *\
@@ -2085,6 +2518,9 @@
         currentSection_home: function() {
             $('head title#head-change-section-title').html('CAMCAR Grupo Automotriz');
             $(domEl.goSection_index).addClass('current');
+            if ( $('#gmap div').hasClass('gm-style') ) {
+                $('.gm-style').addClass('gm-agents');
+            }
         },
         currentSection_agencies_news: function() {
             $('head title#head-change-section-title').html('CAMCAR Agencias Nuevos');
@@ -2209,7 +2645,7 @@
         AgentsMap : function () {
             var styles, mapData, agn_name, agn_address, agn_latitud, agn_longitudl,
                 directorio, agn_folder_agencia, agn_img, location_center, mapOptions,
-                map, markers, bounds, info_windows, main_color, saturation_value, brightness_value;
+                map, markers, bounds, info_windows, main_color, saturation_value, brightness_value, content_infoWindow;
 
             main_color = '#2d313f';
             saturation_value = -20;
@@ -2219,12 +2655,7 @@
             agn_latitud = mapData.campa[0].agn_latitud;
             agn_longitud = mapData.campa[0].agn_longitud;
 
-            // Map Center Location - From Theme Options
-            //location_center = new google.maps.LatLng(Agents[0].lat,Agents[0].lng);
-            location_center = new google.maps.LatLng(agn_latitud,agn_longitud);
-
             // Create an array of styles.
-
             style = [
                 { //set saturation for the labels on the map
                     elementType: "labels",
@@ -2377,10 +2808,6 @@
                 }
             ];
 
-            // Create a new StyledMapType object, passing it the array of styles,
-            // as well as the name to be displayed on the map type control.
-            //var styledMap = new google.maps.StyledMapType(styles, {name: "GrayScale"});
-
             mapOptions = {
                 zoom: 10,
                 center: new google.maps.LatLng(agn_latitud,agn_longitud),
@@ -2392,9 +2819,6 @@
             }
 
             map = new google.maps.Map(document.getElementById("gmap"), mapOptions);
-
-            //map.mapTypes.set('map_style', styledMap);
-            //map.setMapTypeId('map_style');
 
             markers = new Array();
             bounds = new google.maps.LatLngBounds();
@@ -2409,6 +2833,15 @@
                 agn_img = mapData.campa[i].agn_logo2;
                 agn_latitud = mapData.campa[i].agn_latitud;
                 agn_longitud = mapData.campa[i].agn_longitud;
+                // InfoWindow content
+                content_infoWindow = '<div id="iw-container">' +
+                                        '<div class="iw-title">'+agn_name+'</div>' +
+                                        '<div class="iw-content">' +
+                                          '<img src="../img/'+agn_folder_agencia+'/'+agn_img+'" alt="'+agn_name+'" width="100">' +
+                                          '<p>'+agn_address+'</p>' +
+                                        '</div>' +
+                                        '<div class="iw-bottom-gradient"></div>' +
+                                      '</div>';
 
                 markers[i] = new google.maps.Marker({
                     position: new google.maps.LatLng(agn_latitud,agn_longitud),
@@ -2421,6 +2854,7 @@
                 bounds.extend(markers[i].getPosition());
 
                 info_windows[i] = new google.maps.InfoWindow({
+                    //content: content_infoWindow,
                     content:
                         '<div class="marker-info-win" style="text-align: center;">'+
                         '<div class="marker-inner-win"><span class="info-content">'+
@@ -2428,7 +2862,8 @@
                         '<h5 class="marker-heading" style="color:#000; padding: 0px; margin: 0px;">'+agn_name+'</h5>'+
                         '<span>'+agn_address+'</span>' +
                         '</span>'+
-                        '</div></div>'
+                        '</div></div>',
+                    maxWidth: 350
                 });
 
                 attachInfoWindowToMarker(map, markers[i], info_windows[i]);
@@ -2443,6 +2878,30 @@
                     infoWindow.open( map, marker );
                 });
                 //console.log(infoWindow);
+                // Event that closes the Info Window with a click on the map
+                /*google.maps.event.addListener(map, 'click', function() {
+                    infoWindow.close();
+                });*/
+                /*google.maps.event.addListener(infoWindow, 'domready', function() {
+                    var iwOuter = $('.gm-style-iw');
+                    var iwBackground = iwOuter.prev();
+                    iwBackground.children(':nth-child(2)').css({'display' : 'none'});
+                    iwBackground.children(':nth-child(4)').css({'display' : 'none'});
+                    iwOuter.parent().parent().css({left: '115px'});
+                    iwBackground.children(':nth-child(1)').attr('style', function(i,s){ return s + 'left: 76px;'});
+                    iwBackground.children(':nth-child(3)').attr('style', function(i,s){ return s + 'left: 76px;'});
+                    iwBackground.children(':nth-child(3)').find('div').children().css({'box-shadow': 'rgba(72, 181, 233, 0) 0px 1px 6px', 'z-index' : '1'});
+                    console.log(iwBackground);
+                    var iwCloseBtn = iwOuter.next();
+                    iwCloseBtn.addClass('closeButton');
+                    iwCloseBtn.css({opacity: '1', right: '67px', top: '25px'});
+                    if($('.iw-content').height() < 140){
+                      $('.iw-bottom-gradient').css({display: 'none'});
+                    }
+                    iwCloseBtn.mouseout(function(){
+                      $(this).css({opacity: '1'});
+                    });
+                });*/
             }
         },
         loadAgentsMap : function () {

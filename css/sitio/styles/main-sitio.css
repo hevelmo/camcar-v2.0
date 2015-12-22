@@ -1,11 +1,21 @@
 body {
   font-family: Helvetica, Arial, sans-serif;
 }
+img {
+  height: auto;
+}
+.carousel-media-box {
+  height: 117px !important;
+}
+.carousel-media-box-img {
+  height: auto;
+}
 .hiding { opacity: 0; }
 .visible { opacity: 1; }
 .img-disable {
   opacity: 0.4;
 }
+
 .img-disable.active {
   opacity: 1;
 }
@@ -969,6 +979,9 @@ a.cur-hover,
 }
 .text-primary, .btn-primary .badge, .btn-link,a.list-group-item.active > .badge,.nav-pills > .active > a > .badge, p.drop-caps:first-child:first-letter, .accent-color, .nav-np .next:hover, .nav-np .prev:hover, .basic-link, .pagination > li > a:hover,.pagination > li > span:hover,.pagination > li > a:focus,.pagination > li > span:focus, .accordion-heading:hover .accordion-toggle, .accordion-heading:hover .accordion-toggle.inactive, .accordion-heading:hover .accordion-toggle i, .accordion-heading .accordion-toggle.active, .accordion-heading .accordion-toggle.active, .accordion-heading .accordion-toggle.active i, .main-navigation > ul > li > ul > li a:hover, .main-navigation > ul > li:hover > a, .main-navigation > ul > li:hover > a > i, .top-navigation li a:hover, .search-form h3, .featured-block h4, .vehicle-cost, .icon-box-inline span, .post-title a, .post-review-block h3.post-title a:hover, .review-status strong, .testimonial-block blockquote:before, .testimonial-info span, .additional-images .owl-carousel .item-video i, .vehicle-enquiry-foot i, .vehicle-enquiry-head h4, .add-features-list li i, .comparision-table .price, .search-filters .accordion-heading.accordionize .accordion-toggle.active, .search-filters .accordion-heading.togglize .accordion-toggle.active, .search-filters .accordion-heading .accordion-toggle.active, .search-filters .accordion-heading:hover .accordion-toggle.active, .search-filters .accordion-heading:hover .accordion-toggle.active:hover, .search-filters .accordion-heading.accordionize .accordion-toggle.active i, .search-filters .accordion-heading.togglize .accordion-toggle.active i, .filter-options-list li a:hover, .calculator-widget .loan-amount, .map-agent h4 a, .pricing-column h3, .listing-form-steps li.active a .step-state, .listing-form-steps li:hover a .step-state, .result-item-pricing .price, .result-item-features li i, .users-sidebar .list-group li a:hover > i, .saved-cars-table .price, .post .post-title a:hover, a, .post-actions .comment-count a:hover, .pricing-column .features a:hover, a:hover, .service-block h4 a:hover, .saved-cars-table .search-find-results a:hover, .widget a:hover, .nav-tabs > li > a:hover, .list-group-item a:hover, .icon-box.ibox-plain .ibox-icon i,.icon-box.ibox-plain .ibox-icon img, .icon-box.ibox-border .ibox-icon i,.icon-box.ibox-border .ibox-icon img, .top-header .sf-menu > li:hover > a, .header-v2 .topnav > ul > li:hover > a, .header-v4 .search-function .search-trigger, .additional-triggers > li > a:hover{
   color:rgba(0, 0, 0, 1);
+}
+.hidden-movil {
+    display: inline-block;
 }
 a{
   color:#5e5e5e;
@@ -2563,3 +2576,126 @@ li.grid-item {
   width: 10px;
   top: 10px;
 }
+section.listing-block .listing-header h3 {
+      color: #000;
+}
+
+.single-listing-actions .price {
+    padding: 0px 35px !important;
+    background: #000;
+    color: #fff;
+}
+.single-listing-actions .phone {
+  background: #000;
+  color: #fff;
+  font-size: 21px;
+  padding: 0px 35px;
+}
+.single-listing-actions .price:hover,
+.single-listing-actions .phone:hover {
+  background: rgba(0,0,0,0.6);
+  border: 1px solid transparent;
+}
+.vehicle-enquiry-foot .vehicle-enquiry-foot-ico,
+.vehicle-enquiry-foot .address {
+  display: inline-block;
+  vertical-align: top;
+}
+.vehicle-enquiry-foot .vehicle-enquiry-foot-ico {
+  width: 20px;
+}
+.vehicle-enquiry-foot .vehicle-enquiry-foot-ico i {
+  display: -webkit-inline-flex;
+  display: -moz-inline-flex;
+  display: -ms-inline-flex;
+  display: -o-inline-flex;
+  display: inline-flex;
+  padding: 0;
+  margin: 0;
+  font-size: 20px;
+}
+.vehicle-enquiry-foot .address {
+  width: 92%;
+  margin: 0 0 10px;
+}
+#form-wrapper > .linkContainer.ctaContainer {
+  margin-top: 0;
+}
+.vehicle-enquiry-in > .form-thanks,
+.vehicle-enquiry-in > .form-error {
+  width: 100%;
+}
+.vehicle-enquiry-in > .form-loader .loader {
+  width: 100%;
+}
+.vehicle-enquiry-in > .form-loader .loader {
+  padding: 30px;
+}
+.vehicle-enquiry-in > .form-loader .loader .loader-wrap {
+  -webkit-transform: translate(150%,20%);
+  -ms-transform: translate(150%,20%);
+  -o-transform: translate(150%,20%);
+  transform: translate(150%,20%);
+}
+
+/*
+.gm-style-iw {
+  width: 350px !important;
+  top: 15px !important;
+  left: 0px !important;
+  background-color: #fff;
+  box-shadow: 0 1px 6px rgba(178, 178, 178, 0.6);
+  border: 1px solid rgba(255, 255, 255, 1);
+  border-radius: 0;
+}
+.gm-style .gm-style-iw div {
+  margin: -1px -1px -9px -1px;
+}
+#iw-container {
+  margin-bottom: 6px;
+}
+#iw-container .iw-title {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  padding: 10px;
+  background-color: #fff;
+  color: #000;
+  margin: 0;
+  border-radius: 0;
+}
+#iw-container .iw-content {
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 400;
+  margin-right: 1px;
+  padding: 15px 5px 20px 15px;
+  max-height: 140px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.iw-content img {
+  float: right;
+  margin: 0 5px 5px 10px;
+}
+.iw-subTitle {
+  font-size: 16px;
+  font-weight: 700;
+  padding: 5px 0;
+}
+.iw-bottom-gradient {
+  position: absolute;
+  width: 326px;
+  height: 25px;
+  bottom: 10px;
+  right: 18px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+  background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+  background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+  background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+}
+.closeButton {
+
+}
+*/
+

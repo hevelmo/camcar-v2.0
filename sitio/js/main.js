@@ -64,6 +64,15 @@ $(document).ready(function() {
     $(domEl.div_recurrent).on('change', domEl.select_fil_models, getFilterMethod.changeModel);
     //
     $(domEl.div_recurrent).on('click', domEl.link_sem_action, clikGoMethods.clickGo_inventories_preowned_details);
+    // CONTACT MAIN BY MODEL
+    // FORM CONTACT BY MODEL
+    $(domEl.div_recurrent).on('keyup', domEl.input_contact_by_model_pre_owned_name, contactMethods_sem_premium_by_model.validate_fields_keyup);
+    $(domEl.div_recurrent).on('keyup', domEl.input_contact_by_model_pre_owned_email, contactMethods_sem_premium_by_model.validate_fields_keyup);
+    $(domEl.div_recurrent).on('keyup', domEl.input_contact_by_model_pre_owned_phone, contactMethods_sem_premium_by_model.validate_fields_keyup);
+    $(domEl.div_recurrent).on('keyup', domEl.input_contact_by_model_pre_owned_message, contactMethods_sem_premium_by_model.validate_fields_keyup);
+    $(domEl.div_recurrent).on('keypress', domEl.input_contact_by_model_pre_owned_phone, inputValMetdods.isIntegerKP);
+
+    $(domEl.div_recurrent).on('click', domEl.send_contact_by_model_pre_owned, contactMethods_sem_premium_by_model.sendContactForm_byModel);
     // WORKSHOP
     $(domEl.navbar_recurrent).on('click', domEl.goSection_workshop, clikGoMethods.clickGo_workshop);
     // RENTAL

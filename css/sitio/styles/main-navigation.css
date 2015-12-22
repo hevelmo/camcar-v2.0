@@ -739,10 +739,10 @@ p.meta-data{
 .dgray-bg .icon-box-inline p{
 	color:rgba(255,255,255,.4);
 }
-.carousel-wrapper{
+/*.carousel-wrapper{
 	overflow:hidden;
 	width:100%;
-}
+}*/
 .btn-rounded{
 	border-radius:30px;
 }
@@ -2993,7 +2993,7 @@ h1.page-title{
 	top:5px;
 }
 .vehicle-enquiry-foot strong{
-	font-size:21px;
+	font-size:13px;
 	line-height:21px;
 	display:block;
 }
@@ -3020,13 +3020,13 @@ h1.page-title{
 	font-size:12px;
 	float:right;
 	position:relative;
-	background-color:#5cb85c;
+	background-color:#b21117;
 	top:10px;
 	border-radius:0 3px 3px 0;
 }
 .single-vehicle-details .badge-premium-listing:before {
   border-bottom: 12px transparent solid;
-  border-right: 12px #5cb85c solid;
+  border-right: 12px #b21117 solid;
   border-top: 12px transparent solid;
   content: '';
   height: 0;
@@ -3036,8 +3036,8 @@ h1.page-title{
   width: 0;
 }
 .single-vehicle-details .badge-premium-listing:after {
-  background: white;
-  border: 2px #6fc76f solid;
+  background: #0c121c;
+  border: 2px #F3F7F9 solid;
   border-radius: 50%;
   content: '';
   height: 6px;
@@ -3919,7 +3919,7 @@ h1.page-title{
    6.2. Widgets Styling
 ================================================== */
 .widget.sidebar-widget{
-	margin-bottom:35px;
+	margin-bottom:0px;
 }
 .widget.sidebar-widget .listing-container{
 	padding-top:20px;

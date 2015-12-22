@@ -1,15 +1,25 @@
 <div class="listing-container">
     <div class="carousel-wrapper">
         <div class="row">
-            <ul class="owl-carousel carousel-fw" id="vehicle-slider" data-columns="3" data-autoplay="" data-pagination="yes" data-arrows="no" data-single-item="no" data-items-desktop="3" data-items-desktop-small="3" data-items-tablet="2" data-items-mobile="1">
+
+            <div class="owl-carousel carousel-fw" id="vehicle-slider" data-columns="3" data-autoplay="" data-pagination="yes" data-arrows="no" data-single-item="no" data-items-desktop="3" data-items-desktop-small="3" data-items-tablet="2" data-items-mobile="1">
             {{#each campa}}
-                <li class="item" id="{{id}}">
+                <div class="item equal-height" id="{{id}}">
+                    <a class="views-details views-details-size bg-views-details views-details-transition sem-action"
+                        id='sem-action-{{id}}'
+                        data-sem-mrc-nombre-short='{{mrc_nombre}}'
+                        data-sem-mdo-nombre-short='{{mdo_nombre}}'
+                        data-sem-id='{{id}}'>
+                        <span class="">ver detalles</span>
+                    </a>
                     <div class="vehicle-block format-standard">
-                        <a class="media-box sem-action" id='sem-action-{{id}}' data-sem-mrc-nombre-short='{{mrc_nombre}}' data-sem-mdo-nombre-short='{{mdo_nombre}}' data-sem-id='{{id}}'>
-                            <img src="../intranet/admin/cdn/img/seminuevos/{{pic_folder}}/{{thumb}}" alt="{{modelo}}">
+                        <a class="media-box sem-action carousel-media-box" id='sem-action-{{id}}' data-sem-mrc-nombre-short='{{mrc_nombre}}' data-sem-mdo-nombre-short='{{mdo_nombre}}' data-sem-id='{{id}}'>
+                            <img src="../intranet/admin/cdn/img/seminuevos/{{pic_folder}}/{{thumb}}" class="carousel-media-box-img" alt="{{modelo}}">
                         </a>
-                        <span class="label label-default vehicle-age" id="sem_year">{{year}}</span>
-                        <span class="label label-success premium-listing">{{agencia}}</span>
+                        <div class="owl-item-labels clearfix">
+                            <span class="label label-default vehicle-age" id="sem_year">{{year}}</span>
+                            <span class="label label-success premium-listing">{{agencia}}</span>
+                        </div>
                         <h5 class="vehicle-title">
                             <a class="sem-action" id='sem-action-{{id}}' data-sem-mrc-nombre-short='{{mrc_nombre}}' data-sem-mdo-nombre-short='{{mdo_nombre}}' data-sem-id='{{id}}'>{{marca}} {{modelo}} {{cilindros}}</a>
                         </h5>
@@ -17,9 +27,9 @@
                         {{!--<a href="#" title="View all Sedans" class="vehicle-body-type"><img src="img/body-types/sedan.png" width="30" alt=""></a>--}}
                         <span class="vehicle-cost multiple">{{precio}}</span>
                     </div>
-                </li>
+                </div>
             {{/each}}
-            </ul>
+            </div>
         </div>
     </div>
 </div>
