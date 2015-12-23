@@ -546,10 +546,10 @@ a.cur-hover,
   }
 }
 @media (min-width: 320px) {
-  .field-filter-resp {
+  /*.field-filter-resp {
     margin-left: -15px;
     margin-right: -15px;
-  }
+  }*/
   .bootstrap-select.form-control.sel-categoria:not([class*="span"]),
   .bootstrap-select.form-control.sel-marca:not([class*="span"]),
   .bootstrap-select.form-control.sel-modelo:not([class*="span"]) {

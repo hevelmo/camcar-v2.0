@@ -2,7 +2,15 @@
     [Variables] 'Zone'
 \* ------------------------------------------------------ */
     var section;
-    var IS_MOBILE;
+    var IS_MOBILE, mediaquery, mediaquery320, mediaquery360, mediaquery375, mediaquery384, mediaquery400, mediaquery412, mediaquery414, mediaquery480, mediaquery600, mediaquery640,  mediaquery768,  mediaquery800, mediaquery1024,  mediaquery1200,  mediaquery1280,  mediaquery1366, mediaquery1440, mediaquery1600, mediaquery1601,
+        $min_width_768;
+    mediaquery320 = window.matchMedia("(max-width: 320px)"); mediaquery360 = window.matchMedia("(max-width: 360px)"); mediaquery375 = window.matchMedia("(max-width: 375px)"); mediaquery384 = window.matchMedia("(max-width: 384px)");
+    mediaquery400 = window.matchMedia("(max-width: 400px)"); mediaquery412 = window.matchMedia("(max-width: 412px)"); mediaquery414 = window.matchMedia("(max-width: 414px)"); mediaquery480 = window.matchMedia("(max-width: 480px)");
+    mediaquery600 = window.matchMedia("(max-width: 600px)"); mediaquery640 = window.matchMedia("(max-width: 640px)"); mediaquery768 = window.matchMedia("(max-width: 768px)"); mediaquery800 = window.matchMedia("(max-width: 800px)");
+    mediaquery1024 = window.matchMedia("(max-width: 1024px)"); mediaquery1200 = window.matchMedia("(max-width: 1200px)"); mediaquery1280 = window.matchMedia("(max-width: 1280px)"); mediaquery1366 = window.matchMedia("(max-width: 1366px)");
+    mediaquery1440 = window.matchMedia("(max-width: 1440px)"); mediaquery1600 = window.matchMedia("(max-width: 1600px)"); mediaquery1601 = window.matchMedia("(max-width: 1601px)");
+    mediaquery = window.matchMedia("(max-width: 768px)");
+    $min_width_768 = window.matchMedia("(min-width: 768px)");
     // Browser supports HTML5 multiple file?
     var multipleSupport, isIE;
     multipleSupport = typeof $('<input/>')[0].multiple !== 'undefined',
@@ -1623,6 +1631,7 @@
             viewSectionInventoriesPreownedMethod.loadTemplatesFilterSection();
             viewSectionInventoriesPreownedMethod.loadTemplatesListingResults();
             viewSectionInventoriesPreownedMethod.prependCaret();
+            viewSectionInventoriesPreownedMethod.gridItemMediaquery();
         },
         loadTemplatesUtilityBarBreadcrumb: function() {
             CAM.loadTemplate(tempsNames.recurrent_inventories_preowned_start_utility_bar_breadcreumb, domEl._start_utility_bar_breadcrumb_name);
@@ -1643,6 +1652,16 @@
         prependCaret: function() {
             carretInlineAttributes = {'class': 'fa fa-caret-right'}
             CAM.prependOne('ul.inline li', 'i', carretInlineAttributes, '', 0);
+        },
+        gridItemMediaquery: function() {
+            mediaquery = window.matchMedia("(max-width: 768px)");
+            if (mediaquery.matches) {
+                $('.field-filter-resp').attr('style','margin-left: -15px; margin-right: -15px;');
+                console.log('mediaquery es min 768px');
+            } else {
+                $('.field-filter-resp').attr('style','');
+                console.log('mediaquery no es min 768px');
+            }
         },
         recurrentFilterSection: function() {
             getFilterSection = [
@@ -1837,6 +1856,7 @@
             viewSectionInventoriesPreownedMethodDetails.loadTemplatesUtilityBarBreadcrumb(brandName, modelName, semId);
             viewSectionInventoriesPreownedMethod.loadTemplatesActionBar();
             viewSectionInventoriesPreownedMethod.loadTemplatesFilterSection();
+            viewSectionInventoriesPreownedMethod.gridItemMediaquery();
         },
         loadBreadcrumbs_inventoriesPreownedDetails: function(brand, model, year) {
             if ( section === 'inventories-preowned-details' ) {
