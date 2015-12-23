@@ -10,9 +10,9 @@
                     <h2 class="post-title" data-id-sem="{{campa.0.id}}">{{campa.0.marca}} - {{campa.0.modelo}} - {{campa.0.year}}</h2>
                 </div>
                 <div class="single-listing-actions">
-                    <div class="btn-group pull-right" role="group">
-                        <a  href="javascript:void(0)" onclick="window.print();" class="btn btn-default btn_print" title="Print"><i class="fa fa-print"></i> <span>Imprimir</span></a>
-                        <a class="btn btn-default btn_return" title="Regresar" id="back"><i class="fa fa-arrow-left"></i> <span>Regresar</span></a>
+                    <div class="btn-group single-listing-actions-group pull-right" role="group">
+                        <a  href="javascript:void(0)" onclick="window.print();" class="btn btn-default btn_print single-listing-actions-print-resp" title="Print"><i class="fa fa-print"></i> <span>Imprimir</span></a>
+                        <a class="btn btn-default btn_return single-listing-actions-back-resp" title="Regresar" id="back"><i class="fa fa-arrow-left"></i> <span>Regresar</span></a>
                     </div>
                     <div class="btn btn-info price" data-id-sem="{{campa.0.id}}"><span class="multiple">{{campa.0.precio}}</span></div>
                     {{#if campa.0.telefonos.ventas}}

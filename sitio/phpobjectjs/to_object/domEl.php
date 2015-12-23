@@ -79,6 +79,7 @@ function domEl() {
         'navbar_recurrent' => '#start-site-header',
     	// BACK TO TOP
     	'_back_to_top' => '.back-to-top',
+        'ide_return_button' => '#back',
     	//GENERAL HI DIVS
     	'div_hidden_inputs_session' => 'div#hidden-inputs-session',
     	'div_hidden_inputs_temporal' => 'div#hidden-inputs-temporal',

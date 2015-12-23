@@ -73,13 +73,13 @@
 	font-size:12px;
 	float:right;
 	position:relative;
-	background-color:#5cb85c;
+	background-color:#b21117;
 	top:10px;
 	border-radius:0 3px 3px 0;
 }
 .single-vehicle-details .badge-premium-listing:before {
   border-bottom: 12px transparent solid;
-  border-right: 12px #5cb85c solid;
+  border-right: 12px #b21117 solid;
   border-top: 12px transparent solid;
   content: '';
   height: 0;
@@ -89,8 +89,8 @@
   width: 0;
 }
 .single-vehicle-details .badge-premium-listing:after {
-  background: white;
-  border: 2px #6fc76f solid;
+  background: #b21117;
+  border: 2px #fff solid;
   border-radius: 50%;
   content: '';
   height: 6px;
@@ -206,7 +206,7 @@
 
 @media only screen and (max-width: 992px) {
 	.single-listing-actions .btn-group > .btn > span{
-		display:none;
+		/*display:none;*/
 	}
 	.single-listing-images{
 		margin-bottom:30px;

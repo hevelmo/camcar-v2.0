@@ -5035,7 +5035,7 @@ body{
 		display:none;
 	}
 	.single-listing-actions .btn-group > .btn > span{
-		display:none;
+		/*display:none;*/
 	}
 	.single-listing-images{
 		margin-bottom:30px;

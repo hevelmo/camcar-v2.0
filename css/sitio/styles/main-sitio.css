@@ -2616,7 +2616,6 @@ section.listing-block .listing-header h3 {
 }
 
 .single-listing-actions .price {
-    padding: 0px 35px !important;
     background: #000;
     color: #fff;
 }
@@ -2733,4 +2732,40 @@ section.listing-block .listing-header h3 {
 
 }
 */
+@media only screen and (max-width: 767px) {
+  .hero-area, .page-header{
+    top:0;
+    margin-bottom:0;
+  }
+  .body{
+    padding-top:0!important;
+  }
+  .page-header{
+    min-height:100px;
+    margin-top: 60px;
+  }
+  .page-header h1.page-title{
+    padding:32px 0 0;
+    font-size:22px;
+  }
+  .utility-icons.tools-bar{
+    display:none;
+  }
+  #Search-Filters, .toggle-view, .results-sorter, #Search-tabs, #options{
+    display:none;
+  }
+  .btn_print {
+    display: none;
+  }
+  .single-listing-actions .btn-group > .btn > span { display: inline-block; padding-left: 20px;}
+}
+@media only screen and (min-width: 768px) {
+  .actions-bar .toggle-view label {
+    margin-right: 10px;
+  }
+  .actions-bar .toggle-view {
+    margin-right: 6px;
+  }
+
+}
 

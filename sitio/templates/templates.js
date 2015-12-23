@@ -438,9 +438,9 @@ templates['tmp_section_agencies_preowned_start_large_pad_small_screen'] = templa
 templates['tmp_section_agencies_preowned_start_map'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return "<div class=\"container\">\n	<div class=\"row\">\n		<div id=\"map-canvas\" class=\"map-canvas h500\"></div>\n		<a  href=\""
+  return "<div class=\"container\">\n	<div class=\"row\">\n	    <div class=\"col-md-12 text-center\">\n			<div id=\"map-canvas\" class=\"map-canvas h500 none-visible-xs\"></div>\n		</div>\n	</div>\n	<div class=\"row\">\n	    <div class=\"col-md-12 text-center\">\n			<a href=\""
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.mapas : stack1)) != null ? stack1.agngmapurl : stack1), depth0))
-    + "\" class=\"btn btn-default visible-xs\" title=\"VIEW MAP\" target=\"_blank\">\n		    <i class=\"icon icon-geolocalizator\"></i>\n		    <span>VER MAPA</span>\n		</a>\n	</div>\n</div>\n";
+    + "\" class=\"button py4 button-transparent bg-facebook resp-button bg-black-camcar visible-sm visible-xs no-data-mapa\" title=\"VIEW MAP\" target=\"_blank\">\n			    <i class=\"ion-map fs-fw fa-lg\"></i>\n			    <span>VER MAPA</span>\n			</a>\n		</div>\n	</div>\n</div>\n\n";
 },"useData":true});
 templates['tmp_section_agencies_preowned_start_tabs_agencies'] = template({"1":function(container,depth0,helpers,partials,data) {
     var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
@@ -1165,7 +1165,7 @@ templates['tmp_section_inventories_preowned_details_carousel_vehicles'] = templa
 
   return "                <div class=\"item equal-height\" id=\""
     + alias4(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data}) : helper)))
-    + "\">\n                    <a class=\"views-details views-details-size bg-views-details views-details-transition sem-action\"\n                        id='sem-action-"
+    + "\">\n                    <a class=\"views-details views-details-size bg-views-details views-details-transition visible-lg-block sem-action\"\n                        id='sem-action-"
     + alias4(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data}) : helper)))
     + "'\n                        data-sem-mrc-nombre-short='"
     + alias4(((helper = (helper = helpers.mrc_nombre || (depth0 != null ? depth0.mrc_nombre : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"mrc_nombre","hash":{},"data":data}) : helper)))
@@ -1191,7 +1191,15 @@ templates['tmp_section_inventories_preowned_details_carousel_vehicles'] = templa
     + alias4(((helper = (helper = helpers.year || (depth0 != null ? depth0.year : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"year","hash":{},"data":data}) : helper)))
     + "</span>\n                            <span class=\"label label-success premium-listing\">"
     + alias4(((helper = (helper = helpers.agencia || (depth0 != null ? depth0.agencia : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"agencia","hash":{},"data":data}) : helper)))
-    + "</span>\n                        </div>\n                        <h5 class=\"vehicle-title\">\n                            <a class=\"sem-action\" id='sem-action-"
+    + "</span>\n                        </div>\n                        <div class=\"result-item-view-details-resp visible-xs clearfix\">\n                            <a class=\"view-details-resp col-md-12 col-xs-12 sem-action\"\n                                id='sem-action-"
+    + alias4(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data}) : helper)))
+    + "'\n                                data-sem-mrc-nombre-short='"
+    + alias4(((helper = (helper = helpers.mrc_nombre || (depth0 != null ? depth0.mrc_nombre : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"mrc_nombre","hash":{},"data":data}) : helper)))
+    + "'\n                                data-sem-mdo-nombre-short='"
+    + alias4(((helper = (helper = helpers.mdo_nombre || (depth0 != null ? depth0.mdo_nombre : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"mdo_nombre","hash":{},"data":data}) : helper)))
+    + "'\n                                data-sem-id='"
+    + alias4(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data}) : helper)))
+    + "'>\n                                ver detalles\n                            </a>\n                        </div>\n                        <h5 class=\"vehicle-title\">\n                            <a class=\"sem-action\" id='sem-action-"
     + alias4(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data}) : helper)))
     + "' data-sem-mrc-nombre-short='"
     + alias4(((helper = (helper = helpers.mrc_nombre || (depth0 != null ? depth0.mrc_nombre : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"mrc_nombre","hash":{},"data":data}) : helper)))
@@ -1287,7 +1295,7 @@ templates['tmp_section_inventories_preowned_details_single_vehicle_details'] = t
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.modelo : stack1), depth0))
     + " - "
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.year : stack1), depth0))
-    + "</h2>\n                </div>\n                <div class=\"single-listing-actions\">\n                    <div class=\"btn-group pull-right\" role=\"group\">\n                        <a  href=\"javascript:void(0)\" onclick=\"window.print();\" class=\"btn btn-default btn_print\" title=\"Print\"><i class=\"fa fa-print\"></i> <span>Imprimir</span></a>\n                        <a class=\"btn btn-default btn_return\" title=\"Regresar\" id=\"back\"><i class=\"fa fa-arrow-left\"></i> <span>Regresar</span></a>\n                    </div>\n                    <div class=\"btn btn-info price\" data-id-sem=\""
+    + "</h2>\n                </div>\n                <div class=\"single-listing-actions\">\n                    <div class=\"btn-group single-listing-actions-group pull-right\" role=\"group\">\n                        <a  href=\"javascript:void(0)\" onclick=\"window.print();\" class=\"btn btn-default btn_print single-listing-actions-print-resp\" title=\"Print\"><i class=\"fa fa-print\"></i> <span>Imprimir</span></a>\n                        <a class=\"btn btn-default btn_return single-listing-actions-back-resp\" title=\"Regresar\" id=\"back\"><i class=\"fa fa-arrow-left\"></i> <span>Regresar</span></a>\n                    </div>\n                    <div class=\"btn btn-info price\" data-id-sem=\""
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.id : stack1), depth0))
     + "\"><span class=\"multiple\">"
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.precio : stack1), depth0))

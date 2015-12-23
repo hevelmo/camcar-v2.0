@@ -64,6 +64,7 @@ $(document).ready(function() {
     $(domEl.div_recurrent).on('click', domEl.goBack_breadcrumb_agencies_preowned, clikGoMethods.clickGo_agencies_preowned);
     $(domEl.div_recurrent).on('click', domEl.action_go_agencie_preowned, clikGoMethods.clickGo_agencies_preowned_by_agencie);
     // INVENTORIES PRE-OWNED
+    $(domEl.div_recurrent).on('click', "#back", clikGoMethods.clickGo_inventories_preowned);
     $(domEl.navbar_recurrent).on('click', domEl.goSection_inventories_preowned, clikGoMethods.clickGo_inventories_preowned);
     // SLIDETOGGLE BUTTON FILTROS
     $(domEl.div_recurrent).on('click', domEl.button_show_filters, clikGoMethods.showFilters);

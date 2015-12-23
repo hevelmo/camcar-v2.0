@@ -254,8 +254,6 @@
             } else if ( $brandName !== undefined && $modelName !== undefined && $semId !== undefined ) {
                 section = "inventories-preowned-details";
                 viewSectionInventoriesPreownedMethodDetails.viewSectionInventoriesPreownedDetails($brandName, $modelName, $semId);
-                owlCarouselMethods.owlCarousel();
-                $("#vehicle-slider").owlCarousel();
             }
             sticky_wrapper_methods.sticky_wrapper_action_bar();
             $('.selectpicker').selectpicker();

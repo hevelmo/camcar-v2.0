@@ -153,6 +153,7 @@ domEl = {
 	"goSection_rental":"#go-rental",
 	"goSection_workshop":"#go-workshop",
 	"head_recurrent":"head",
+	"ide_return_button":"#back",
 	"input_cam_contact_main_email":"#cam-contact-main-email",
 	"input_cam_contact_main_message":"#cam-contact-main-message",
 	"input_cam_contact_main_name":"#cam-contact-main-name",

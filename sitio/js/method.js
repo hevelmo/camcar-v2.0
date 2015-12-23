@@ -1335,7 +1335,7 @@
         },
         recurrentSecionAgenciesPreowned: function() {
             dataStarSiteAgenciesPreownedAttributes = [
-                ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content'}, '', 1],
+                ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content', 'style':'display: none;'}, '', 1],
                 ['section', {'id':domEl._start_agencies_preowned_content_body, 'class':'large-pad text-hero-2 agencies-preowned about-content'}, '', 1],
                 ['section', {'id':domEl._start_agencies_preowned_small_screen, 'class':'large-pad about-content', 'style':'padding-top: 0px;'}, '', 1],
             ];
@@ -1671,7 +1671,7 @@
         },
         recurrentSecionInventoriesPreowned: function() {
             dataStarSiteInventoriesPreownedAttributes = [
-                ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content'}, '', 1],
+                ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content', 'style':'display: none;'}, '', 1],
                 ['div', {'id':domEl._start_inventories_preowned_action_bar, 'class':'about-content'}, '', 1],
                 ['div', {'id':domEl._start_body_content_main, 'class':'about-content'}, '', 1]
             ];
@@ -1906,12 +1906,30 @@
                 contactMethods_sem_premium_by_model.refreshForm(brandName, modelName, semId);
 
                 CAM.loadTemplate(tempsNames.recurrent_inventories_preowned_details_carousel_vehicles, domEl.div_recurrent_corousel_vehicles, semMarcaData);
-                equalHeightsMethods.equalHeightsLoad
+                owlCarouselMethods.owlCarousel();
+                $("#vehicle-slider").owlCarousel();
+                equalHeightsMethods.equalHeightsLoad();
+                viewSectionInventoriesPreownedMethodDetails.gridItemMediaquery();
+            }
+        },
+        gridItemMediaquery: function() {
+            mediaquery = window.matchMedia("screen and (min-width: 414px) and (max-width: 736px)");
+            if (mediaquery.matches) {
+                $('.owl-carousel .item').attr('style','margin-left: 55px; margin-right: 55px;');
+                $('.media-box').attr('style','height: 160px !important;');
+                //$('.single-listing-actions .single-listing-actions-group .single-listing-actions-print-resp, .single-listing-actions .single-listing-actions-group .single-listing-actions-back-resp').css('width: 50%');
+
+                console.log('mediaquery es min 414px');
+            } else {
+                $('.owl-carousel .item').attr('style','');
+                $('.media-box').attr('style','');
+
+                console.log('mediaquery no es min 414px');
             }
         },
         recurrentSecionInventoriesPreownedDetails: function() {
             dataStarSiteInventoriesPreownedAttributes = [
-                ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content'}, '', 1],
+                ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content', 'style':'display: none;'}, '', 1],
                 ['div', {'id':domEl._start_inventories_preowned_action_bar, 'class':'about-content'}, '', 1],
                 ['div', {'id':domEl._start_body_content_main, 'class':'about-content'}, '', 1]
             ];
@@ -2327,7 +2345,7 @@
         },
         recurrentSecionWorkShop: function() {
             dataStarSiteWorkShopAttributes = [
-                ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content'}, '', 1],
+                ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content', 'style':'display: none;'}, '', 1],
                 ['section', {'id':domEl._start_workshop_content_body, 'class':'large-pad text-hero-2 about-content'}, '', 1],
                 ['section', {'id':domEl._start_workshop_content_brand, 'class':'large-pad text-hero-2 about-content'}, '', 1],
                 ['div', {'id':domEl._start_workshop_content_agencies, 'class':'about-content', 'style':'background-color: #f9f9f9; padding-top: 20px; padding-bottom: 60px;'}, '', 1]
@@ -2374,7 +2392,7 @@
         },
         recurrentSecionRental: function() {
             dataStarSiteRentalAttributes = [
-                ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content'}, '', 1],
+                ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content', 'style':'display: none;'}, '', 1],
                 ['section', {'id':domEl._start_rental_content_body, 'class':'large-pad text-hero-2 about-content'}, '', 1],
                 ['div', {'id':domEl._start_rental_content_agencies, 'class':'about-content', 'style':'background-color: #f9f9f9; padding-top: 20px; padding-bottom: 60px;'}, '', 1]
             ];
@@ -3339,7 +3357,22 @@
 \* ------------------------------------------------------ */
     var inputValMetdods = {
         isIntegerKP: function (event) {
-            return /\d/.test(String.fromCharCode(event.keyCode));
+            var key, numeros, teclado, especiales, teclado_especial, i;
+
+            key = event.keyCode || event.which;
+            teclado = String.fromCharCode(key);
+            numeros = '0123456789';
+            especiales = [8,9,37,38,39,40,46]; // array
+            teclado_especial = false;
+
+            for ( i in especiales ) {
+                if ( key == especiales[i] ) {
+                    teclado_especial = true;
+                }
+            }
+            if ( numeros.indexOf(teclado) == -1 && !teclado_especial ) {
+                return false;
+            }
         },
         //http://www.lawebdelprogramador.com/foros/JavaScript/1074741-introducir_solo_numero_dos_decimales.html
         isDecimalKP: function(event) {
