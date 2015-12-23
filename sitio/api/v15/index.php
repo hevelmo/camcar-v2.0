@@ -78,6 +78,7 @@ $app->configureMode('development', function () use ($app) {
 
     // AGENCIES NEWS -> PRINCIPAL AGENCIE
     $app->get('/get/agencia/camiones/principal/:agn_name_agencia', /*'mw1',*/ 'getAgenciesTrucksByTypeAgencie');
+    
     // AGENCIES TRUCKS
     $app->get('/get/agencia/camiones', /*'mw1',*/ 'getAgenciesTrucks');
     $app->get('/get/agencia/camiones/:agpid', /*'mw1',*/ 'getAgenciesTrucksById');
