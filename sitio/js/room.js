@@ -141,10 +141,15 @@
             // AGENCIA PRINCIPAL SELECCIONADA
             else if ( agn_name !== undefined && agn_url === undefined && agn_id === undefined ) {
                 section = "agencies-trucks-principal";
+                viewSectionAgenciesTrucksPrincipalMethod.viewSectionAgenciesTrucksPrincipal(agn_name, agn_url, agn_id);
+                activeLogAgencieTrucksMethod.activeLogAgencieTrucks(agn_name, agn_url, agn_id);
             }
             // SUB AGENCIA SELECCIONADA
             else if ( agn_name !== undefined && agn_url !== undefined && agn_id !== undefined ) {
                 section = "agencies-trucks-sub-agencie";
+                CAM.setValue(domEl.input_hidden_mapa, agn_id);
+                viewSectionAgenciesTrucksBySubAgencieMethod.viewSectionAgenciesTrucksBySubAgencie(agn_name, agn_url, agn_id);
+                activeLogAgencieTrucksMethod.activeLogAgencieTrucks(agn_name, agn_url, agn_id);
             }
             // RUTA INVALIDA
             else {

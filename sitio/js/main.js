@@ -49,11 +49,15 @@ $(document).ready(function() {
     $(domEl.div_recurrent).on('click', domEl.action_go_agencie_news, clikGoMethods.clikGo_agencies_news_sub_agencie);
     // AGENCIES NEWS ACTION
     $(domEl.div_recurrent).on('click', domEl.action_new_agn, clikGoMethods.clikGo_agencies_news_principal);
+
     // AGENCIES TRUCKS
     $(domEl.navbar_recurrent).on('click', domEl.goSection_agencies_trucks, clikGoMethods.clikGo_agencies_trucks);
     $(domEl.div_recurrent).on('click', '#go-back-agencies-trucks', clikGoMethods.clikGo_agencies_trucks);
+    // AGENCIES NEWS SUB AGNECIES
+    $(domEl.div_recurrent).on('click', domEl.action_go_agencie_trucks, clikGoMethods.clikGo_agencies_trucks_sub_agencie);
     // AGENCIES TRUCKS ACTION
     $(domEl.div_recurrent).on('click', domEl.action_truck_agn, clikGoMethods.clikGo_agencies_trucks_principal);
+
     // AGENCIES PRE-OWNED
     $(domEl.navbar_recurrent).on('click', domEl.goSection_agencies_preowned, clikGoMethods.clickGo_agencies_preowned);
     $(domEl.div_recurrent).on('click', domEl.button_show_agencies_tabs, clikGoMethods.showAgenciesTabs);

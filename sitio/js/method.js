@@ -2,15 +2,7 @@
     [Variables] 'Zone'
 \* ------------------------------------------------------ */
     var section;
-    var IS_MOBILE, mediaquery, mediaquery320, mediaquery360, mediaquery375, mediaquery384, mediaquery400, mediaquery412, mediaquery414, mediaquery480, mediaquery600, mediaquery640,  mediaquery768,  mediaquery800, mediaquery1024,  mediaquery1200,  mediaquery1280,  mediaquery1366, mediaquery1440, mediaquery1600, mediaquery1601,
-        $min_width_768;
-        mediaquery320 = window.matchMedia("(max-width: 320px)"); mediaquery360 = window.matchMedia("(max-width: 360px)"); mediaquery375 = window.matchMedia("(max-width: 375px)"); mediaquery384 = window.matchMedia("(max-width: 384px)");
-        mediaquery400 = window.matchMedia("(max-width: 400px)"); mediaquery412 = window.matchMedia("(max-width: 412px)"); mediaquery414 = window.matchMedia("(max-width: 414px)"); mediaquery480 = window.matchMedia("(max-width: 480px)");
-        mediaquery600 = window.matchMedia("(max-width: 600px)"); mediaquery640 = window.matchMedia("(max-width: 640px)"); mediaquery768 = window.matchMedia("(max-width: 768px)"); mediaquery800 = window.matchMedia("(max-width: 800px)");
-        mediaquery1024 = window.matchMedia("(max-width: 1024px)"); mediaquery1200 = window.matchMedia("(max-width: 1200px)"); mediaquery1280 = window.matchMedia("(max-width: 1280px)"); mediaquery1366 = window.matchMedia("(max-width: 1366px)");
-        mediaquery1440 = window.matchMedia("(max-width: 1440px)"); mediaquery1600 = window.matchMedia("(max-width: 1600px)"); mediaquery1601 = window.matchMedia("(max-width: 1601px)");
-        mediaquery = window.matchMedia("(max-width: 768px)");
-        $min_width_768 = window.matchMedia("(min-width: 768px)");
+    var IS_MOBILE;
     // Browser supports HTML5 multiple file?
     var multipleSupport, isIE;
     multipleSupport = typeof $('<input/>')[0].multiple !== 'undefined',
@@ -911,6 +903,20 @@
         }
     }
 /* ------------------------------------------------------ *\
+    [Methods] activeLogAgencieTrucksMethod
+\* ------------------------------------------------------ */
+    var activeLogAgencieTrucksMethod = {
+        activeLogAgencieTrucks: function(agn_name) {
+            $(domEl.action_truck_agn).each(function() {
+                var agp_nombre_element;
+                agp_nombre_element = $(this).data('agp_nombre');
+                if(agn_name === agp_nombre_element) {
+                    $(this).children('.img-disable').addClass('active');
+                }
+            });
+        }
+    }
+/* ------------------------------------------------------ *\
     [Methods] viewSectionAgenciesTrucksMethod
 \* ------------------------------------------------------ */
     var viewSectionAgenciesTrucksMethod = {
@@ -940,6 +946,17 @@
                 : urlsApi.getAgenciesTrucks + '/' + agpid;
             agnTrucksData = CAM.getInternalJSON(url);
             CAM.loadTemplate(tempsNames.recurrent_agencies_trucks_start_categories, domEl._start_agencies_trucks_midpadding_work_name, agnTrucksData);
+            viewSectionAgenciesTrucksMethod.gridItemMediaquery();
+        },
+        gridItemMediaquery: function() {
+            mediaquery = window.matchMedia("(max-width: 768px)");
+            if (mediaquery.matches) {
+                $('.grid li.grid-item:nth-child(odd)').attr('style','');
+                console.log('mediaquery es min 768px');
+            } else {
+                $('.grid li.grid-item:nth-child(odd)').attr('style','margin-left: 16%;');
+                console.log('mediaquery no es min 768px');
+            }
         },
         recurrentSecionAgenciesTrucks: function() {
             dataStarSiteAgenciesTrucksAttributes = [
@@ -949,6 +966,315 @@
                 ['section', {'id':domEl._start_agencies_trucks_midpadding_work, 'class':'large-pad agencies-trucks about-content', 'style':'overflow: visible;'}, '', 1]
             ];
             CAM.appendMulti(domEl.div_recurrent, dataStarSiteAgenciesTrucksAttributes);
+        }
+    }
+/* ------------------------------------------------------ *\
+    [Methods] viewSectionAgenciesTrucksPrincipalMethod
+\* ------------------------------------------------------ */
+    var viewSectionAgenciesTrucksPrincipalMethod = {
+        viewSectionAgenciesTrucksPrincipal: function(agn_name_agencia, agn_url, agn_id) {
+            viewSectionAgenciesTrucksMethod.recurrentSecionAgenciesTrucks();
+            viewSectionAgenciesTrucksPrincipalMethod.loadTemplatesUtilityBarBreadcrumb_agnPrincipal(agn_name_agencia);
+            viewSectionAgenciesTrucksMethod.loadTemplatesBodyContent();
+            viewSectionAgenciesTrucksMethod.loadTemplatesAgencesTrucksBrands();
+        },
+        loadBreadcrumbs_agnPrincipal: function(agn_name_agencia) {
+            if ( section === 'agencies-trucks-principal' ) {
+                $('#filter-agencie-trucks-principal').html(agn_name_agencia);
+            }
+        },
+        loadTemplatesUtilityBarBreadcrumb_agnPrincipal: function(agn_name_agencia) {
+            var agnPrincipal, url, campa_agnPrincipal, campaAgnPrincipal, campaAgnPrincipal_Id;
+
+            url = urlsApi.getAgenciesTrucksByTypeAgencie + agn_name_agencia;
+            agnPrincipal = CAM.getInternalJSON(url);
+            //console.log(agn_name_agencia);
+
+            campaAgnPrincipal = agnPrincipal.campa[0].agp_agencia;
+            campaAgnPrincipal_Id = agnPrincipal.campa[0].agn_agp_id;
+
+            CAM.loadTemplate(tempsNames.recurrent_agencies_trucks_by_agencies_start_utility_bar_breadcrumb, domEl._start_utility_bar_breadcrumb_name, agnPrincipal);
+            viewSectionAgenciesNewsPrincipalMethod.loadBreadcrumbs_agnPrincipal(campaAgnPrincipal);
+            //console.log(campaAgnPrincipal);
+
+            viewSectionAgenciesTrucksMethod.loadTemplatesAgenciesTrucksCategories(campaAgnPrincipal_Id);
+        }
+    }
+/* ------------------------------------------------------ *\
+    [Methods] viewSectionAgenciesTrucksBySubAgencieMethod
+\* ------------------------------------------------------ */
+    var viewSectionAgenciesTrucksBySubAgencieMethod = {
+        viewSectionAgenciesTrucksBySubAgencie: function(agn_name_agencia, agn_url, agn_id) {
+            viewSectionAgenciesTrucksMethod.recurrentSecionAgenciesTrucks();
+            viewSectionAgenciesTrucksBySubAgencieMethod.loadTemplatesUtilityBarBreadcrumb_subAgencie(agn_name_agencia, agn_url, agn_id);
+            viewSectionAgenciesTrucksMethod.loadTemplatesBodyContent();
+            viewSectionAgenciesTrucksMethod.loadTemplatesAgencesTrucksBrands();
+        },
+        loadBreadcrumbs_subAgencie: function(agn_principal, agn_url) {
+            if ( section === 'agencies-trucks-sub-agencie' ) {
+                $('#filter-agencie-trucks-principal').html(agn_principal);
+                $('#filter-agencie-trucks-principal-type').html(agn_url);
+                $(domEl._start_agencies_trucks_midpadding_work_name).remove();
+            }
+        },
+        loadTemplatesUtilityBarBreadcrumb_subAgencie : function (agn_principal, agn_url, agn_id) {
+            var url, byAgencieTrucks, campaAgpAgencie, campaAgnNombre;
+
+            url = urlsApi.getAgenciesTrucksByAgencie + agn_url + '/' + agn_id;
+            byAgencieTrucks = CAM.getInternalJSON(url);
+            //console.log(url);
+
+            campaAgpAgencie = byAgencieTrucks.campa[0].agpagencia;
+            campaAgnNombre = byAgencieTrucks.campa[0].agnnombre;
+
+            CAM.loadTemplate(tempsNames.recurrent_agencies_trucks_by_sub_agencies_start_utility_bar_breadcrumb, domEl._start_utility_bar_breadcrumb_name, byAgencieTrucks);
+
+            viewSectionAgenciesTrucksBySubAgencieMethod.loadBreadcrumbs_subAgencie(campaAgpAgencie, campaAgnNombre);
+            //console.log(campaAgpAgencie, campaAgnNombre);
+
+            viewSectionAgenciesTrucksBySubAgencieMethod.recurrentSecionAgenciesTrucksSubAgencie();
+
+            CAM.loadTemplate(tempsNames.recurrent_agencies_trucks_start_fachada, domEl._start_agencies_trucks_fachada_name, byAgencieTrucks);
+            CAM.loadTemplate(tempsNames.recurrent_agencies_trucks_start_address, domEl._start_agencies_trucks_address_name, byAgencieTrucks);
+            CAM.loadTemplate(tempsNames.recurrent_agencies_trucks_start_map, domEl._start_agencies_trucks_map_name, byAgencieTrucks);
+
+            mapAgenciesTrucksSubAgencieMethod.mapAgenciesTrucksSubAgencie();
+            mapAgenciesTrucksSubAgencieMethod.initMapAgenciesTrucksSubAgencie();
+
+            bgImageHolderMethods.appendBgImageHolder2();
+
+            if (byAgencieTrucks.campa[0].logotipos.agnlogo1 === '' && byAgencieTrucks.campa[0].logotipos.agnlogo2 === '') {
+                $('#content-section-agencies-trucks-address').remove();
+            }
+            if (byAgencieTrucks.campa[0].mapas.agngmapurl === '') {
+                $('#content-section-agencies-trucks-map').remove();
+                $('#map-canvas-trucks').remove();
+            }
+        },
+        recurrentSecionAgenciesTrucksSubAgencie: function() {
+            dataStarSiteAgenciesTrucksSubAgencieAttributes = [
+                ['div', {'id':domEl._start_agencies_trucks_fachada, 'class':'about-content', 'style':'background-color: #f9f9f9;'}, '', 1],
+                ['section', {'id':domEl._start_agencies_trucks_address, 'class':'no-data-adrress about-content', 'style':'padding: 35px 0 0 0;'}, '', 1],
+                ['section', {'id':domEl._start_agencies_trucks_map, 'class':'about-content', 'style':'padding: 25px 5px 25px 5px;'}, '', 1]
+            ];
+            CAM.appendMulti(domEl.div_recurrent, dataStarSiteAgenciesTrucksSubAgencieAttributes);
+        }
+    }
+/* ------------------------------------------------------ *\
+    [Methods] mapAgenciesTrucksSubAgencieMethod
+\* ------------------------------------------------------ */
+    var mapAgenciesTrucksSubAgencieMethod = {
+        mapAgenciesTrucksSubAgencie: function() {
+            var styles, mapTrucks, agn_latitud, agn_longitudl, agnId, agnLogo, agnName, agnAddress, agnFolder, dirTrucks, mapOpcNews, map, marker2, popup, location_center, main_color, saturation_value, brightness_value;
+
+            main_color = '#2d313f';
+            saturation_value = -20;
+            brightness_value = 5;
+
+            agnId = +CAM.getValue(domEl.input_hidden_mapa);
+            mapTrucks = CAM.getInternalJSON(urlsApi.getAgenciesTrucksByMap + agnId);
+
+           agn_latitud = mapTrucks.campa[0].agnlatitud;
+           agn_longitud = mapTrucks.campa[0].agnlongitud;
+
+            location_center = new google.maps.LatLng(agn_latitud,agn_longitud);
+
+            style = [
+                { //set saturation for the labels on the map
+                    elementType: "labels",
+                    stylers: [ { saturation: saturation_value } ]
+                },
+                { //poi stands for point of interest - don't show these lables on the map
+                    featureType: "poi",
+                    elementType: "labels",
+                    stylers: [  { visibility: "off" } ]
+                },
+                { //don't show highways lables on the map
+                    featureType: 'road.highway',
+                    elementType: 'labels',
+                    stylers: [ { visibility: "off" } ]
+                },
+                {  //don't show local road lables on the map
+                    featureType: "road.local",
+                    elementType: "labels.icon",
+                    stylers: [ { visibility: "off" } ]
+                },
+                {  //don't show arterial road lables on the map
+                    featureType: "road.arterial",
+                    elementType: "labels.icon",
+                    stylers: [ { visibility: "off" } ]
+                },
+                { //don't show road lables on the map
+                    featureType: "road",
+                    elementType: "geometry.stroke",
+                    stylers: [ { visibility: "off" } ]
+                },
+                { //style different elements on the map
+                    featureType: "transit",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "poi",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "poi.government",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "poi.sport_complex",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "poi.attraction",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "poi.business",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "transit",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "transit.station",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "landscape",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+
+                },
+                {
+                    featureType: "road",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "road.highway",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "water",
+                    elementType: "geometry",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                }
+            ];
+
+            mapOpcNews = {
+                zoom: 16,
+                center: new google.maps.LatLng(agn_latitud,agn_longitud),
+                scrollwheel: false,
+                mapTypeControlOptions: {
+                    mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+                },
+                styles: style
+            }
+
+            map = new google.maps.Map(document.getElementById('map-canvas-truck'),mapOpcNews);
+
+            marker2 = new google.maps.Marker({
+                position: map.getCenter(),
+                map: map,
+                title: 'CAMCAR',
+                icon: "../img/sitio/pin_camcar.png" //custom pin icon
+            });
+
+            dirTrucks = mapTrucks.campa[0].agnfolder;
+            agnFolder = '../../img/sitio/agencias/logos';
+            agnLogo = mapTrucks.campa[0].logo.agnlogo2;
+            agnName = mapTrucks.campa[0].agnnombre;
+            agnAddress = mapTrucks.campa[0].agndireccion;
+
+            popup = new google.maps.InfoWindow({
+                content:
+                    '<div class="marker-info-win" style="text-align: center;">'+
+                    '<div class="marker-inner-win"><span class="info-content">'+
+                    '<img src="img/'+agnFolder+'/'+agnLogo+'" alt="'+agnName+'" style="margin-botton: 10px;" width="150">'+
+                    '<h5 class="marker-heading" style="color:#000; padding: 0px; margin: 0px;">'+agnName+'</h5>'+
+                    '<span>'+agnAddress+'</span>' +
+                    '</span>'+
+                    '</div></div>'
+            });
+
+            attachInfoWindowToMarker(map, marker2, popup);
+
+            function attachInfoWindowToMarker( map, marker, infoWindow ) {
+                infoWindow.open(map, marker2, popup);
+            }
+        },
+        initMapAgenciesTrucksSubAgencie: function() {
+            google.maps.event.addDomListener(window, 'load', mapAgenciesTrucksSubAgencieMethod.mapAgenciesTrucksSubAgencie());
         }
     }
 /* ------------------------------------------------------ *\
@@ -2316,21 +2642,6 @@
             $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );
             Finch.navigate('/agencias/nuevos');
         },
-        clikGo_agencies_trucks: function(event) {
-            $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );
-            Finch.navigate('/agencias/camiones');
-        },
-        clikGo_agencies_trucks_principal: function(event) {
-            var agnPrincipal, $element;
-            $element = $(this);
-            agnPrincipal = $element.data('agp_nombre');
-            $('body,html').animate({ scrollTop: "150" }, 999, 'easeOutExpo' );
-
-            $(domEl.action_new_agn).children('.img-disable').removeClass('active');
-            $element.children('.img-disable').addClass('active');
-
-            Finch.navigate('/agencias/camiones/' + agnPrincipal );
-        },
         clikGo_agencies_news_principal: function(event) {
             var agnPrincipal, $element;
             $element = $(this);
@@ -2357,6 +2668,37 @@
             $('body,html').animate({ scrollTop: "200" }, 999, 'easeOutExpo' );
 
             Finch.navigate('/agencias/nuevos/'  + agpAgencia + '/' + agnUrl + '/' + agnId );
+        },
+        clikGo_agencies_trucks: function(event) {
+            $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );
+            Finch.navigate('/agencias/camiones');
+        },
+        clikGo_agencies_trucks_principal: function(event) {
+            var agnPrincipal, $element;
+            $element = $(this);
+            agnPrincipal = $element.data('agp_nombre');
+            $('body,html').animate({ scrollTop: "150" }, 999, 'easeOutExpo' );
+
+            $(domEl.action_new_agn).children('.img-disable').removeClass('active');
+            $element.children('.img-disable').addClass('active');
+
+            Finch.navigate('/agencias/camiones/' + agnPrincipal );
+        },
+        clikGo_agencies_trucks_sub_agencie: function(event) {
+            var agpAgencie, agnNombre, url, $element;
+            $element = $(this);
+
+            agpAgencia = $element.data('agn-trucks-agencie');
+            agnNombre = $element.data('agn-trucks-name');
+            agnUrl = $element.data('agn-trucks-url');
+            agnId = $element.data('agn-trucks-id');
+
+            //console.log(agpAgencia, agnNombre, agnUrl, agnId);
+            //console.log($element.data());
+
+            $('body,html').animate({ scrollTop: "200" }, 999, 'easeOutExpo' );
+
+            Finch.navigate('/agencias/camiones/'  + agpAgencia + '/' + agnUrl + '/' + agnId );
         },
         clickGo_agencies_preowned: function(event) {
             $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );
@@ -2537,9 +2879,9 @@
             $(domEl._start_agencies_trucks_content_body_name).remove();
             $(domEl._start_agencies_trucks_large_pad_brands_name).remove();
             $(domEl._start_agencies_trucks_midpadding_work_name).remove();
-            //$(domEl._start_agencies_trucks_fachada_name).remove();
-            //$(domEl._start_agencies_trucks_address_name).remove();
-            //$(domEl._start_agencies_trucks_map_name).remove();
+            $(domEl._start_agencies_trucks_fachada_name).remove();
+            $(domEl._start_agencies_trucks_address_name).remove();
+            $(domEl._start_agencies_trucks_map_name).remove();
         },
         removeRecurrents_agencies_preonwed: function() {
             $(domEl._start_agencies_preowned_content_body_name).remove();

@@ -664,7 +664,7 @@ templates['tmp_section_agencies_trucks_fachada'] = template({"compiler":[7,">= 4
 templates['tmp_section_agencies_trucks_map'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return "<div class=\"container\">\n	<div class=\"row\">\n	    <div class=\"col-md-12 text-center\">\n			<div id=\"map-canvas-news\" class=\"map-canvas h500 none-visible-xs\"></div>\n		</div>\n	</div>\n	<div class=\"row\">\n	    <div class=\"col-md-12 text-center\">\n			<a href=\""
+  return "<div class=\"container\">\n	<div class=\"row\">\n	    <div class=\"col-md-12 text-center\">\n			<div id=\"map-canvas-truck\" class=\"map-canvas h500 none-visible-xs\"></div>\n		</div>\n	</div>\n	<div class=\"row\">\n	    <div class=\"col-md-12 text-center\">\n			<a href=\""
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.mapas : stack1)) != null ? stack1.agngmapurl : stack1), depth0))
     + "\" class=\"button py4 button-transparent bg-facebook resp-button bg-black-camcar visible-sm visible-xs no-data-mapa\" title=\"VIEW MAP\" target=\"_blank\">\n			    <i class=\"ion-map fs-fw fa-lg\"></i>\n			    <span>VER MAPA</span>\n			</a>\n		</div>\n	</div>\n</div>\n";
 },"useData":true});
@@ -677,15 +677,15 @@ templates['tmp_section_agencies_trucks_start_categories'] = template({"1":functi
     + alias4(((helper = (helper = helpers.agnid || (depth0 != null ? depth0.agnid : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"agnid","hash":{},"data":data}) : helper)))
     + "\">\n			<div class=\"grid-project\" title=\""
     + alias4(((helper = (helper = helpers.agnnombre || (depth0 != null ? depth0.agnnombre : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"agnnombre","hash":{},"data":data}) : helper)))
-    + "\">\n				<!-- project image -->\n				<a class=\"go-action-agencie-news\" id=\"go-action-agencie-news-"
+    + "\">\n				<!-- project image -->\n				<a class=\"go-action-agencie-trucks\" id=\"go-action-agencie-trucks-"
     + alias4(((helper = (helper = helpers.agnid || (depth0 != null ? depth0.agnid : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"agnid","hash":{},"data":data}) : helper)))
-    + "\" data-agn-news-agencie='"
+    + "\" data-agn-trucks-agencie='"
     + alias4(((helper = (helper = helpers.agpshort || (depth0 != null ? depth0.agpshort : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"agpshort","hash":{},"data":data}) : helper)))
-    + "' data-agn-news-name='"
+    + "' data-agn-trucks-name='"
     + alias4(((helper = (helper = helpers.agnnombre || (depth0 != null ? depth0.agnnombre : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"agnnombre","hash":{},"data":data}) : helper)))
-    + "' data-agn-news-url='"
+    + "' data-agn-trucks-url='"
     + alias4(((helper = (helper = helpers.agnurl || (depth0 != null ? depth0.agnurl : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"agnurl","hash":{},"data":data}) : helper)))
-    + "' data-agn-news-id='"
+    + "' data-agn-trucks-id='"
     + alias4(((helper = (helper = helpers.agnid || (depth0 != null ? depth0.agnid : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"agnid","hash":{},"data":data}) : helper)))
     + "' title=\""
     + alias4(((helper = (helper = helpers.agnnombre || (depth0 != null ? depth0.agnnombre : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"agnnombre","hash":{},"data":data}) : helper)))
