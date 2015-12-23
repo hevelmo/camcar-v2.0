@@ -480,7 +480,7 @@ templates['tmp_section_agencies_trucks_address'] = template({"1":function(contai
 },"2":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=container.lambda, alias2=container.escapeExpression;
 
-  return "                    <img src=\"../img/sitio/agencias/logos/"
+  return "                    <img src=\"../img/sitio/agencias/brands/"
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.logotipos : stack1)) != null ? stack1.agnlogo1 : stack1), depth0))
     + "\" alt=\""
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.campa : depth0)) != null ? stack1["0"] : stack1)) != null ? stack1.agnnombre : stack1), depth0))
