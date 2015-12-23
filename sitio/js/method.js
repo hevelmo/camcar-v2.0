@@ -1917,13 +1917,10 @@
             if (mediaquery.matches) {
                 $('.owl-carousel .item').attr('style','margin-left: 55px; margin-right: 55px;');
                 $('.media-box').attr('style','height: 160px !important;');
-                //$('.single-listing-actions .single-listing-actions-group .single-listing-actions-print-resp, .single-listing-actions .single-listing-actions-group .single-listing-actions-back-resp').css('width: 50%');
-
                 console.log('mediaquery es min 414px');
             } else {
                 $('.owl-carousel .item').attr('style','');
                 $('.media-box').attr('style','');
-
                 console.log('mediaquery no es min 414px');
             }
         },
@@ -2772,7 +2769,7 @@
 
             $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );
 
-            console.log($element);
+            //console.log($element);
             Finch.navigate('/seminuevos/inventarios/' + $nameBrand + '/' + $nameModel + '/' + $semId);
         },
         clickGo_workshop: function(event) {

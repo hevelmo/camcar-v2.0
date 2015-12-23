@@ -471,7 +471,9 @@
   font-size: 22px;
   line-height: 40px;
 }
-.text-hero-2.agencies-news p.super-lead,
+.text-hero-2.agencies-news p.super-lead {
+
+}
 .text-hero-2.agencies-trucks p.super-lead {
   display: none;
   padding: 0;
