@@ -72,6 +72,8 @@ function domEl() {
     $start_contact_main = 'content-start-contact-main';
     // SECTION SEPARATOR
     $start_section_separator = 'content-section-separator';
+    // PRIVACY NOTICE
+    $start_article_wrapper = 'content-article-wrapper';
     return array(
     	'head_recurrent' => 'head',
     	'body_recurrent' => 'body',
@@ -286,6 +288,9 @@ function domEl() {
         // SECTION SEPARATOR
         '_start_section_separator' => $start_section_separator,
         '_start_section_separator_name' => '#' . $start_section_separator,
+        // PRIVACY NOTICE
+        '_start_article_wrapper' => $start_article_wrapper,
+        '_start_article_wrapper_name' => '#' . $start_article_wrapper,
         // MOBILE MENU TOGGLE
         '_menu_toogle' => '#menu-toggle',
         '_menu_toogle_close' => '.menu-toggle-close',
@@ -302,6 +307,7 @@ function domEl() {
         'goSection_blog' => '#go-blog',
         'goSection_blog_by_news' => '#go-blog-item-by-news',
         'goSection_about_us' => '#go-about-us',
+        'goSection_privacy_notice' => '#go-section-privacy-notice',
         // FULLWIDTH FEATURES CLIGO GO SECTION
         'goSection_fullwidth_features_workshop' => '#fullwidth-features-go-workshop',
         'goSection_fullwidth_features_rental' => '#fullwidth-features-go-rental',

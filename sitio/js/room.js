@@ -11,7 +11,7 @@
             viewNavbarMethod.viewNavbar();
             sticky_wrapper_methods.sticky_wrapper();
 
-            addAttrNavAgenciesNewsMethod.addAttrNavAgenciesNews();
+            addAttrNavAgenciesMethod.addAttrNav();
             currentSectionMethod.currentSection_home();
             viewSectionHomeMethod.viewSectionHome();
 
@@ -40,8 +40,6 @@
             agn_name = bindings.agn_name_agencia;
             agn_url = bindings.agn_url;
             agn_id = bindings.agn_id;
-            // Add favicon
-            window.onload = favicon.load_favicon();
             // GOOGLE ANALYTICS
             if ( agn_name === undefined && agn_url === undefined && agn_id === undefined ) {
                 ga('send', 'pageview', '/agencias/nuevos');
@@ -50,6 +48,8 @@
             } else if ( agn_name !== undefined && agn_url !== undefined && agn_id !== undefined ) {
                 ga('send', 'pageview', '/agencias/nuevos/' + agn_name + '/' + agn_url + '/' + agn_id);
             }
+            // Add favicon
+            window.onload = favicon.load_favicon();
         },
         load: function(bindings) {
             var agn_name, agn_url, agn_id;
@@ -60,7 +60,7 @@
             viewNavbarMethod.viewNavbar();
             sticky_wrapper_methods.sticky_wrapper();
 
-            addAttrNavAgenciesNewsMethod.addAttrNavAgenciesNews();
+            addAttrNavAgenciesMethod.addAttrNav();
             currentSectionMethod.currentSection_agencies_news();
             // TODAS LAS AGENCIAS NUEVOS
             if ( agn_name === undefined && agn_url === undefined && agn_id === undefined ) {
@@ -111,8 +111,6 @@
             agn_name = bindings.agn_name_agencia;
             agn_url = bindings.agn_url;
             agn_id = bindings.agn_id;
-            // Add favicon
-            window.onload = favicon.load_favicon();
             // GOOGLE ANALYTICS
             if ( agn_name === undefined && agn_url === undefined && agn_id === undefined ) {
                 ga('send', 'pageview', '/agencias/camiones');
@@ -121,6 +119,8 @@
             } else if ( agn_name !== undefined && agn_url !== undefined && agn_id !== undefined ) {
                 ga('send', 'pageview', '/agencias/camiones/' + agn_name + '/' + agn_url + '/' + agn_id);
             }
+            // Add favicon
+            window.onload = favicon.load_favicon();
         },
         load: function(bindings) {
             var agn_name, agn_url, agn_id;
@@ -131,7 +131,7 @@
             viewNavbarMethod.viewNavbar();
             sticky_wrapper_methods.sticky_wrapper();
 
-            addAttrNavAgenciesNewsMethod.addAttrNavAgenciesNews();
+            addAttrNavAgenciesMethod.addAttrNav();
             currentSectionMethod.currentSection_agencies_trucks();
             // TODAS LAS AGENCIAS NUEVOS
             if ( agn_name === undefined && agn_url === undefined && agn_id === undefined ) {
@@ -176,13 +176,14 @@
             var ga_agn_url, ga_agn_id;
             ga_agn_url = bindings.preowned_agn_url;
             ga_agn_id = bindings.preowned_agn_id;
-            // Add favicon
-            window.onload = favicon.load_favicon();
+            // GOOGLE ANALYTICS
             if ( ga_agn_url === undefined && ga_agn_id === undefined ) {
                 ga('send', 'pageview', '/agencias/seminuevos');
             } else if ( ga_agn_url !== undefined && ga_agn_id !== undefined ) {
                 ga('send', 'pageview', '/agencias/seminuevos/' + ga_agn_url + '/' + ga_agn_id);
             }
+            // Add favicon
+            window.onload = favicon.load_favicon();
         },
         load: function(bindings) {
             var agn_url, agn_id;
@@ -192,7 +193,7 @@
             viewNavbarMethod.viewNavbar();
             sticky_wrapper_methods.sticky_wrapper();
 
-            addAttrNavAgenciesNewsMethod.addAttrNavAgenciesNews();
+            addAttrNavAgenciesMethod.addAttrNav();
             currentSectionMethod.currentSection_agencies_preowned();
 
             if ( agn_url === undefined && agn_id === undefined ) {
@@ -225,15 +226,14 @@
             $brandNameGA = bindings.mrcNombre;
             $modelNameGA = bindings.mdoNombre;
             $semIdGA = bindings.senId;
-            // Add favicon
-            window.onload = favicon.load_favicon();
-
             // GOOGLE ANALYTICS
             if ( $brandNameGA === undefined && $modelNameGA === undefined && $semIdGA === undefined ) {
                 ga('send', 'pageview', '/seminuevos/inventarios');
             } else if ( $brandNameGA !== undefined && $modelNameGA !== undefined && $semIdGA !== undefined ) {
-                ga('send', 'pageview', '/seminuevos/inventarios' + $brandNameGA + '/' + $modelNameGA );
+                ga('send', 'pageview', '/seminuevos/inventarios/' + $brandNameGA + '/' + $modelNameGA );
             }
+            // Add favicon
+            window.onload = favicon.load_favicon();
         },
         load: function(bindings) {
             var $brandName, $modelName,  $semId;
@@ -244,7 +244,7 @@
             viewNavbarMethod.viewNavbar();
             sticky_wrapper_methods.sticky_wrapper();
 
-            addAttrNavAgenciesNewsMethod.addAttrNavAgenciesNews();
+            addAttrNavAgenciesMethod.addAttrNav();
             currentSectionMethod.currentSection_inventories_preowned();
 
 
@@ -285,7 +285,7 @@
             viewNavbarMethod.viewNavbar();
             sticky_wrapper_methods.sticky_wrapper();
 
-            addAttrNavAgenciesNewsMethod.addAttrNavAgenciesNews();
+            addAttrNavAgenciesMethod.addAttrNav();
             currentSectionMethod.currentSection_workshop();
 
             viewSectionWorkShopMethod.viewSectionWorkShop();
@@ -320,7 +320,7 @@
             viewNavbarMethod.viewNavbar();
             sticky_wrapper_methods.sticky_wrapper();
 
-            addAttrNavAgenciesNewsMethod.addAttrNavAgenciesNews();
+            addAttrNavAgenciesMethod.addAttrNav();
             currentSectionMethod.currentSection_rental();
 
             viewSectionRentalMethod.viewSectionRental($agnRenta);
@@ -342,8 +342,6 @@
     Finch.route('/noticias/:blogAgencie/:blog/:blogId', {
         setup: function(bindings) {
             var $dataAgencieGA, $dataBlogGA, $dataBlogIdGA;
-            // Add favicon
-            window.onload = favicon.load_favicon();
             $dataAgencieGA = bindings.blogAgencie;
             $dataBlogGA = bindings.blog;
             $dataBlogIdGA = bindings.blogId;
@@ -353,6 +351,8 @@
             } else if ( $dataAgencieGA !== undefined && $dataBlogGA !== undefined && $dataBlogIdGA !== undefined ) {
                 ga( 'send', 'pageview', '/noticias/' + $dataAgencieGA + '/' + $dataBlogGA );
             }
+            // Add favicon
+            window.onload = favicon.load_favicon();
         },
         load: function(bindings) {
             var $dataAgencie, $dataBlog, $dataBlogId;
@@ -363,7 +363,7 @@
             viewNavbarMethod.viewNavbar();
             sticky_wrapper_methods.sticky_wrapper();
 
-            addAttrNavAgenciesNewsMethod.addAttrNavAgenciesNews();
+            addAttrNavAgenciesMethod.addAttrNav();
             currentSectionMethod.currentSection_blog();
             if ( $dataAgencie === undefined && $dataBlog === undefined && $dataBlogId === undefined ) {
                 section = "blog";
@@ -401,7 +401,7 @@
             viewNavbarMethod.viewNavbar();
             sticky_wrapper_methods.sticky_wrapper();
 
-            addAttrNavAgenciesNewsMethod.addAttrNavAgenciesNews();
+            addAttrNavAgenciesMethod.addAttrNav();
             currentSectionMethod.currentSection_about_us();
 
             viewSectionAboutUsMethod.viewSectionAboutUs();
@@ -423,6 +423,7 @@
     Finch.route('/aviso-de-privacidad', {
         setup: function(bindings) {
             section = "privacy-notice";
+            ga('send', 'pageview', '/aviso_de_privacidad');
             // Add favicon
             window.onload = favicon.load_favicon();
         },
@@ -430,7 +431,7 @@
             viewNavbarMethod.viewNavbar();
             sticky_wrapper_methods.sticky_wrapper();
 
-            addAttrNavAgenciesNewsMethod.addAttrNavAgenciesNews();
+            addAttrNavAgenciesMethod.addAttrNav();
             viewSectionPrivacyNoticeMethod.viewSectionPrivacyNotice();
 
             $(window).resize(mobile_menu_methods.has_menu_toggle);

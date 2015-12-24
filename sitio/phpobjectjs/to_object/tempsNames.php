@@ -113,5 +113,9 @@ function tempsNames() {
         'recurrent_about_us_start_large_pad_contact_form' => 'tmp_section_about_us_start_large_pad_contact_form',
         'recurrent_about_us_start_contact_main' => 'tmp_section_about_us_start_contact_main',
         'recurrent_about_us_start_form_contact_main' => 'tmp_section_about_us_start_form_contact_main',
+
+        // PRIVACY NOTICE
+        'recurrent_privacy_notice_start_utility_bar_breadcreumb' => 'tmp_section_privacy_notice_start_utility_bar_breadcrumb',
+        'recurrent_privacy_notice_start_article_wrapper' => 'tmp_section_privacy_notice_start_article_wrapper',
     );
 }

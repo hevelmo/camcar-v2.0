@@ -474,6 +474,17 @@ img {
         float:none!important;
         margin-bottom:20px!important;
     }
+    .result-item:hover .result-item-image,
+    .result-item:hover .result-item-in {
+        -webkit-transition: all 0.2s ease-in-out;
+        -moz-transition: all 0.2s ease-in-out;
+        -o-transition: all 0.2s ease-in-out;
+        -ms-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+        -webkit-filter: blur(0px);
+        filter: blur(0px);
+        -moz-filter: blur(0px);
+    }
 }
 @media (min-width: 320px) and (max-width: 479px) {
     /*.results-grid-view .result-item-image .media-box {

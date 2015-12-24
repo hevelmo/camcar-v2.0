@@ -436,9 +436,13 @@
         }
     }
 /* ------------------------------------------------------ *\
-    [Metodos] addAttrNavAgenciesNewsMethod
+    [Metodos] addAttrNavAgenciesMethod
 \* ------------------------------------------------------ */
-    var addAttrNavAgenciesNewsMethod = {
+    var addAttrNavAgenciesMethod = {
+        addAttrNav: function() {
+            addAttrNavAgenciesMethod.addAttrNavAgenciesNews();
+            addAttrNavAgenciesMethod.addAttrNavAgenciesTrucks();
+        },
         addAttrNavAgenciesNews: function() {
             $('#go-agencies-news').attr({
                 'data-agp_nombre':'ford-cavsa',
@@ -446,6 +450,14 @@
                 'data-index':'1'
             });
             //console.log('data agp');
+        },
+        addAttrNavAgenciesTrucks: function() {
+            $('#go-agencies-trucks').attr({
+                'data-agn-trucks-agencie':'eurostern',
+                'data-agn-trucks-name':'Eurostern Sprinter',
+                'data-agn-trucks-url':'eurostern-sprinter',
+                'data-agn-trucks-id':'53'
+            });
         }
     }
 /* ------------------------------------------------------ *\
@@ -2658,11 +2670,26 @@
 \* ------------------------------------------------------ */
     var viewSectionPrivacyNoticeMethod = {
         viewSectionPrivacyNotice: function() {
+            viewSectionPrivacyNoticeMethod.recurrentSecionPrivacyNotice();
+            viewSectionPrivacyNoticeMethod.loadTemplatesUtilityBarBreadcrumb();
+            viewSectionPrivacyNoticeMethod.loadTemplatesPrivacyNotice();
+        },
+        loadTemplatesUtilityBarBreadcrumb: function() {
+            CAM.loadTemplate(tempsNames.recurrent_privacy_notice_start_utility_bar_breadcreumb, domEl._start_utility_bar_breadcrumb_name);
+        },
+        loadTemplatesPrivacyNotice: function() {
+            CAM.loadTemplate(tempsNames.recurrent_privacy_notice_start_article_wrapper, domEl._start_article_wrapper_name);
         },
         recurrentSecionPrivacyNotice: function() {
             dataStarSitePrivacyNoticeAttributes = [
+                ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content'}, '', 1],
+                ['div', {'id':domEl._start_body_content_main, 'class':'about-content'}, '', 1]
             ];
             CAM.appendMulti(domEl.div_recurrent, dataStarSitePrivacyNoticeAttributes);
+            dataArticleWrapper = [
+                ['section', {'id':domEl._start_article_wrapper, 'class':'article-wrapper'}, '', 1]
+            ];
+            CAM.appendMulti(domEl._start_body_content_main_name, dataArticleWrapper);
         }
     }
 /* ------------------------------------------------------ *\
@@ -2995,6 +3022,7 @@
         remove_currentSection: function() {
             $(domEl.goSection_index).removeClass('current');
             $(domEl.goSection_agencies_news).removeClass('current');
+            $(domEl.goSection_agencies_trucks).removeClass('current');
             $(domEl.goSection_agencies_preowned).removeClass('current');
             $(domEl.goSection_inventories_preowned).removeClass('current');
             $(domEl.goSection_workshop).removeClass('current');

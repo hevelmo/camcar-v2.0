@@ -2616,7 +2616,7 @@ section.listing-block .listing-header h3 {
 }
 
 .single-listing-actions .price {
-    background: #000;
+    background: #b21117;
     color: #fff;
 }
 .single-listing-actions .phone {
@@ -2769,3 +2769,53 @@ section.listing-block .listing-header h3 {
 
 }
 
+.footer-lower > span span a {
+  font-family: "ProximaNovaRegular",Arial,Helvetica,Sans-Serif;
+  font-weight: normal;
+  display: inline-block: ;
+  line-height: 32px;
+  font-size: 0.9em;
+  letter-spacing: 1px;
+  color: #656461;
+  padding: 10px 10px 10px;
+  border-bottom: 2px solid transparent;
+  margin: 0;
+  text-transform: uppercase;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  opacity: 0.7;
+}
+.footer-lower > span span a:hover {
+  color: #666;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  border-bottom: 2px solid #ccd5db;
+  opacity: 1;
+  text-decoration: none;
+  padding: 10px 10px 10px;
+}
+
+
+section.article-wrapper {
+    background-color: #fff;
+    background-image: none;
+}
+.article-single h4, .article-single p {
+    color: #777;
+}
+.article-single h4, .article-single p {
+    color: #777;
+}
+.article-single h3 {
+    font-size: 16px;
+    color: #333333;
+    margin-top: 0;
+    margin-bottom: 24px;
+}
+.alt-font {
+    font-family: 'font_name_landrover_demi', 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+}

@@ -117,4 +117,6 @@ $(document).ready(function() {
     $(domEl.div_recurrent).on('click', domEl.goSection_ourBrand_rental, clikGoMethods.clickGo_rental);
     // FORMS
     $(domEl.body_recurrent).on('focusout', domEl.validate_required, validateMethods.validate_input);
+    // PRIVACY NOTICE
+    $(domEl.body_recurrent).on('click', domEl.goSection_privacy_notice, clikGoMethods.clickGo_privacy_notice);
 });

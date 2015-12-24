@@ -240,7 +240,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="footer-lower">
-                            <span>© Copyright 2015 Camcar<span><a id="go-privacy">Aviso de Privacidad</a></span></span>
+                            <span>© Copyright 2015 Camcar<span><a id="go-section-privacy-notice" class="cur-hover">Aviso de Privacidad</a></span></span>
                             <ul class="social-links">
                                 <!--<li><a href="https://www.facebook.com/LandroverGDL" target="_blank"><i class="social_facebook"></i></a></li>
                                 <li><a href="https://twitter.com/lrcarsgdl" target="_blank"><i class="social_twitter"></i></a></li>
@@ -310,14 +310,14 @@
         <script src="../lib/sha512.js"></script>
 		<!-- PLUGINS -->
         <!-- CORE JS -->
-		<script src='js/min/core.min.js'></script>
         <?php /*
+		<script src='js/min/core.min.js'></script>
+        */ ?>
 	    <script src='js/objects.js'></script>
 	    <script src='js/method.js'></script>
 	    <script src='js/model.js'></script>
 	    <script src='js/room.js'></script>
 	    <script src='js/main.js'></script>
-        */ ?>
 	</body>
 </html>
 
