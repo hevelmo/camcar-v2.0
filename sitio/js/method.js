@@ -1347,7 +1347,7 @@
         },
         recurrentSecionAgenciesPreowned: function() {
             dataStarSiteAgenciesPreownedAttributes = [
-                ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content'}, '', 1],
+                ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content', 'style':'display: none;'}, '', 1],
                 ['section', {'id':domEl._start_agencies_preowned_content_body, 'class':'large-pad text-hero-2 agencies-preowned about-content'}, '', 1],
                 ['section', {'id':domEl._start_agencies_preowned_small_screen, 'class':'large-pad about-content', 'style':'padding-top: 0px;'}, '', 1],
             ];
@@ -1683,7 +1683,7 @@
         },
         recurrentSecionInventoriesPreowned: function() {
             dataStarSiteInventoriesPreownedAttributes = [
-                ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content'}, '', 1],
+                ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content', 'style':'display: none;'}, '', 1],
                 ['div', {'id':domEl._start_inventories_preowned_action_bar, 'class':'about-content'}, '', 1],
                 ['div', {'id':domEl._start_body_content_main, 'class':'about-content'}, '', 1]
             ];
@@ -1923,7 +1923,7 @@
         },
         recurrentSecionInventoriesPreownedDetails: function() {
             dataStarSiteInventoriesPreownedAttributes = [
-                ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content'}, '', 1],
+                ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content', 'style':'display: none;'}, '', 1],
                 ['div', {'id':domEl._start_inventories_preowned_action_bar, 'class':'about-content'}, '', 1],
                 ['div', {'id':domEl._start_body_content_main, 'class':'about-content'}, '', 1]
             ];
@@ -3367,7 +3367,22 @@
 \* ------------------------------------------------------ */
     var inputValMetdods = {
         isIntegerKP: function (event) {
-            return /\d/.test(String.fromCharCode(event.keyCode));
+            var key, numeros, teclado, especiales, teclado_especial, i;
+
+            key = event.keyCode || event.which;
+            teclado = String.fromCharCode(key);
+            numeros = '0123456789';
+            especiales = [8,9,37,38,39,40,46]; // array
+            teclado_especial = false;
+
+            for ( i in especiales ) {
+                if ( key == especiales[i] ) {
+                    teclado_especial = true;
+                }
+            }
+            if ( numeros.indexOf(teclado) == -1 && !teclado_especial ) {
+                return false;
+            }
         },
         //http://www.lawebdelprogramador.com/foros/JavaScript/1074741-introducir_solo_numero_dos_decimales.html
         isDecimalKP: function(event) {
