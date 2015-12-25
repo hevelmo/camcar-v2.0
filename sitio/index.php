@@ -264,12 +264,10 @@
             <!--<i class="fa fa-angle-double-up fa-3x animation-pulse" style=""></i>-->
         </a>
 
-		<!-- MAIN -->
-		<script src="../lib/site/jquery-1.11.2.js"></script>
-
         <!-- GOOGLE API -->
-        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
-
+        <script src="http://maps.google.com/maps/api/js?v=3&amp;sensor=false" type="text/javascript"></script>
+        <!-- MAIN -->
+        <script src="../lib/site/jquery-1.11.2.js"></script>
         <!--<script src="../lib/modernizr.js"></script>-->
         <script src="../lib/site/bootstrap.js"></script>
         <!-- CORE -->
