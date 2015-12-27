@@ -114,7 +114,7 @@
     	<div class="wrapper_content_interactive" id='content-temporal-interactive'></div>
 
         <!-- Begin: Footer News -->
-        <section class="footer-news footer-content" style="background-color: #b21117 !important;">
+        <section class="footer-news footer-content no-print" style="background-color: #b21117 !important;">
             <div class="container">
                 <div class="row">
                     <div class="col-md-1 col-md-1"></div>
@@ -207,7 +207,7 @@
         <!-- End: Footer News -->
 
         <!-- Begin: Footer container -->
-        <footer class="footer-6 footer-content" style="padding-top: 35px;">
+        <footer class="footer-6 footer-content no-print" style="padding-top: 35px;">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 col-md-12">
@@ -259,13 +259,11 @@
         <!--   End: Footer container -->
 
         <!-- back to top -->
-        <a href="#0" class="back-to-top cd-top">
+        <a href="#0" class="back-to-top cd-top no-print">
             top
             <!--<i class="fa fa-angle-double-up fa-3x animation-pulse" style=""></i>-->
         </a>
 
-        <!-- GOOGLE API -->
-        <script src="http://maps.google.com/maps/api/js?v=3&amp;sensor=false" type="text/javascript"></script>
         <!-- MAIN -->
         <script src="../lib/site/jquery-1.11.2.js"></script>
         <!--<script src="../lib/modernizr.js"></script>-->
@@ -306,7 +304,16 @@
         <!-- FORMS -->
         <script src="../lib/forms.js"></script>
         <script src="../lib/sha512.js"></script>
-		<!-- PLUGINS -->
+        <!-- GOOGLE API -->
+        <script src="http://maps.google.com/maps/api/js?v=3&amp;sensor=false" type="text/javascript"></script>
+        <!--
+        <script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAZBe7uHI90ESk2XAmWRL3RxR6u04U0tImA3bfwZ3-HKdEno7z2xRk2YE6OkudtBX5qy0vLrgbf1DUCg"></script>
+        <script type="text/javascript">
+        //google.load("jquery", '1.3');
+        google.load("maps", "2.x");
+        </script>
+        -->
+        <!-- PLUGINS -->
         <!-- CORE JS -->
         <?php /*
 		<script src='js/min/core.min.js'></script>

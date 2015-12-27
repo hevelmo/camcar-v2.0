@@ -1302,6 +1302,7 @@ input[type=text].input-newsletter:focus {
   color: #2c3f4c;
   font-weight: 400;
 }
+/*
 #cd-zoom-in, #cd-zoom-out {
   height: 32px;
   width: 32px;
@@ -1337,7 +1338,7 @@ input[type=text].input-newsletter:focus {
 }
 .gmnoprint .gmnoprint div[title="Zoom in"] img,
 .gmnoprint .gmnoprint div[title="Zoom out"] img {
-  -webkit-filter: brightness(1); /* Blanco */
+  -webkit-filter: brightness(1); 
 }
 .gmnoprint .gmnoprint div[title="Zoom in"] img {
     left: -70px !important;
@@ -1355,7 +1356,7 @@ input[type=text].input-newsletter:focus {
   color: rgb(255,255,255) !important;
   font-weight: bold !important;
 }
-
+*/
 /* NEWS */
 img.post-img {
   max-width: 100%;

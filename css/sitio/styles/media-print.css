@@ -1,4 +1,15 @@
 @media print {
+	.no-print {
+		display: none;
+	}
+	.navbar,
+	.actions-bar {
+		border-bottom: none;
+		box-shadow: none;
+	}
+	.flexslider .flex-viewport .slides li img {
+		width: 350px;
+	}
 	.nav-1 {
 		background: rgba(255,255,255,0);
 	}
@@ -18,7 +29,7 @@
 	.breadcrumb {
 		display: none;
 	}
-	.flex-control-thumbs {
+	.flex-control-thumbs li img {
 		display: none;
 	}
 	.single-vehicle-details .single-vehicle-title > h2 {

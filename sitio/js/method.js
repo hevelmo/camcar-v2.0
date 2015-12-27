@@ -2760,8 +2760,8 @@
             agnUrl = $element.data('agn-preowned-url');
             agnId = $element.data('agn-preowned-id');
 
-            $(domEl.action_preowned_agn).children('.img-disable').removeClass('active');
-            $element.children('.img-disable').addClass('active');
+            //$(domEl.action_preowned_agn).children('.img-disable').removeClass('active');
+            //$element.children('.img-disable').addClass('active');
 
             //console.log(agnNombre, agnId);
             //console.log($element.data());
@@ -3094,10 +3094,65 @@
 /* ------------------------------------------------------ *\
     [Methods] agentMapMethod
 \* ------------------------------------------------------ */
-    var agentMapMethod = {
+    /*var agentMapMethod = {
         agentMap: function() {
+            var mapData, agn_latitud, agn_longitudl;
+
+            mapData = CAM.getInternalJSON(urlsApi.getAgentsMapAgencies);
+            agn_latitud = mapData.campa[0].agn_latitud;
+            agn_longitud = mapData.campa[0].agn_longitud;
+
+            console.log(mapData, agn_latitud, agn_longitud);
+
+            var map = new GMap2($("#map").get(0));
+            var burnsvilleMN = new GLatLng(agn_latitud, agn_longitud);
+            map.setCenter(burnsvilleMN, 8);
+            
+            // setup 10 random points
+            var bounds = map.getBounds();
+            var southWest = bounds.getSouthWest();
+            var northEast = bounds.getNorthEast();
+            var lngSpan = northEast.lng(agn_longitud) - southWest.lng(agn_longitud);
+            var latSpan = northEast.lat(agn_latitud) - southWest.lat(agn_latitud);
+            var markers = [];
+            for (var i = 0; i < mapData.campa.length; i++) {
+                var point = new GLatLng(southWest.lat(agn_longitud) + latSpan * Math.random(),
+                    southWest.lng(agn_longitud) + lngSpan * Math.random());
+                marker = new GMarker(point);
+                map.addOverlay(marker);
+                markers[i] = marker;
+            }
+            
+            $(markers).each(function(i,marker){
+                $("<li />")
+                    .html("Point "+i)
+                    .click(function(){
+                        displayPoint(marker, i);
+                    })
+                    .appendTo("#list");
+                
+                GEvent.addListener(marker, "click", function(){
+                    displayPoint(marker, i);
+                });
+            });
+            
+            $("#message").appendTo(map.getPane(G_MAP_FLOAT_SHADOW_PANE));
+            
+            function displayPoint(marker, index){
+                $("#message").hide();
+                
+                var moveEnd = GEvent.addListener(map, "moveend", function(){
+                    var markerOffset = map.fromLatLngToDivPixel(marker.getLatLng());
+                    $("#message")
+                        .fadeIn()
+                        .css({ top:markerOffset.y, left:markerOffset.x });
+                
+                    GEvent.removeListener(moveEnd);
+                });
+                map.panTo(marker.getLatLng());
+            }
         }
-    }
+    }*/
 /* ------------------------------------------------------ *\
     [Methods] Google Maps -> agentsMap
 \* ------------------------------------------------------ */
