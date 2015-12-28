@@ -2,13 +2,33 @@
 	.no-print {
 		display: none;
 	}
+	.sticky-wrapper > .navbar {
+		border-bottom: 0;
+	}
+	.sticky-wrapper > .navbar .sp-cont a#go-home-logo-resp img {
+		margin-top: 30px;
+		margin-bottom: 0;
+	}
 	.navbar,
 	.actions-bar {
-		border-bottom: none;
-		box-shadow: none;
+		display: none;
 	}
+	/*.content_specifications {
+		border: 1px solid red;
+	}
+	.table {
+		width: 25%;
+	}
+	.vehicle-enquiry-foot {
+		width: 50%;
+	}
+	.print-specifications,
+	.print-enquery-foot {
+		display: inline-block;
+	}*/
 	.flexslider .flex-viewport .slides li img {
-		width: 350px;
+		width: 480px;
+		margin-left: 8%;
 	}
 	.nav-1 {
 		background: rgba(255,255,255,0);

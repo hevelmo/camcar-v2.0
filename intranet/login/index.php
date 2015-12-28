@@ -1,10 +1,10 @@
 <?php
 
-	include '../../../incorporate/db_connect.php';
+	include '../../incorporate/db_connect.php';
     include '../../incorporate/functions.php';
     sec_session_start();
     if (login_check($mysqli) == true) {
-        header('Location: ../../intranet/welcome');
+        header('Location: ../../intranet/admin');
     }
 
 ?>

@@ -456,14 +456,18 @@
   margin-bottom: 40px;
 }
 .text-hero-2.agencies-news h1.h-landmark,
-.text-hero-2.agencies-trucks h1.h-landmark {
+.text-hero-2.agencies-trucks h1.h-landmark,
+.text-hero-2.agencies-preowned  h1.h-landmark,
+.text-hero-2.agencies-workshop  h1.h-landmark {
   margin-bottom: 0px;
   margin-top: 0;
   padding-top: 25px;
   padding-bottom: 25px;
 }
 .text-hero-2.agencies-news h5.h5-landmark,
-.text-hero-2.agencies-trucks h5.h5-landmark {
+.text-hero-2.agencies-trucks h5.h5-landmark,
+.text-hero-2.agencies-preowned h5.h5-landmark,
+.text-hero-2.agencies-workshop h5.h5-landmark {
   display: none;
 }
 .text-hero-2 p.super-lead {

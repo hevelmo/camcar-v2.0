@@ -204,7 +204,7 @@
                 section = "agencies_preowned_by_agencie";
                 CAM.setValue(domEl.input_hidden_mapa, agn_id);
                 viewSectionAgenciesPreownedByAgencieMethod.viewSectionAgenciesPreownedByAgencie(agn_url, agn_id);
-                activeLogAgenciesPreownedMethod.activeLogAgenciesPreowned(agn_url);
+                activeLogAgenciesPreownedMethod.activeLogAgenciesPreowned(agn_url, agn_id);
             }
 
             $(window).resize(mobile_menu_methods.has_menu_toggle);

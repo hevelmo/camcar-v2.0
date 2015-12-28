@@ -204,12 +204,13 @@
     var favicon = {
         load_favicon: function() {
             favicon.change("../img/ico/camcaricon.ico");
+            favicon.change("camcaricon.ico");
         },
         change: function(iconURL, optionalDocTitle) {
             if (arguments.length == 2) {
               document.title =  optionamDocTitle;
             }
-            this.addLink(iconURL, "shortcur icon");
+            this.addLink(iconURL, "shortcut icon");
         },
         addLink: function(iconURL, relValue) {
             var link = document.createElement("link");
@@ -442,6 +443,7 @@
         addAttrNav: function() {
             addAttrNavAgenciesMethod.addAttrNavAgenciesNews();
             addAttrNavAgenciesMethod.addAttrNavAgenciesTrucks();
+            addAttrNavAgenciesMethod.addAttrNavAgenciesPreowned();
         },
         addAttrNavAgenciesNews: function() {
             $('#go-agencies-news').attr({
@@ -457,6 +459,14 @@
                 'data-agn-trucks-name':'Eurostern Sprinter',
                 'data-agn-trucks-url':'eurostern-sprinter',
                 'data-agn-trucks-id':'53'
+            });
+        },
+        addAttrNavAgenciesPreowned: function() {
+            $('#go-agencies-preowned').attr({
+                'data-agn-preowned-name':'Premium by JLR',
+                'data-agn-preowned-url':'premium-by-jlr',
+                'data-agn-preowned-id':'1',
+                'data-agn-preowned-maps':'1'
             });
         }
     }
@@ -1042,7 +1052,7 @@
 
             url = urlsApi.getAgenciesTrucksByAgencie + agn_url + '/' + agn_id;
             byAgencieTrucks = CAM.getInternalJSON(url);
-            //console.log(url);
+            console.log(url);
 
             campaAgpAgencie = byAgencieTrucks.campa[0].agpagencia;
             campaAgnNombre = byAgencieTrucks.campa[0].agnnombre;
@@ -2339,8 +2349,8 @@
         },
         recurrentSecionWorkShop: function() {
             dataStarSiteWorkShopAttributes = [
-                ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content'}, '', 1],
-                ['section', {'id':domEl._start_workshop_content_body, 'class':'large-pad text-hero-2 about-content'}, '', 1],
+                ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content', 'style':'display: none;'}, '', 1],
+                ['section', {'id':domEl._start_workshop_content_body, 'class':'large-pad agencies-workshop text-hero-2 about-content'}, '', 1],
                 ['section', {'id':domEl._start_workshop_content_brand, 'class':'large-pad text-hero-2 about-content'}, '', 1],
                 ['div', {'id':domEl._start_workshop_content_agencies, 'class':'about-content', 'style':'background-color: #f9f9f9; padding-top: 20px; padding-bottom: 60px;'}, '', 1]
             ];
@@ -2386,7 +2396,7 @@
         },
         recurrentSecionRental: function() {
             dataStarSiteRentalAttributes = [
-                ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content'}, '', 1],
+                ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content', 'style':'display: none;'}, '', 1],
                 ['section', {'id':domEl._start_rental_content_body, 'class':'large-pad text-hero-2 about-content'}, '', 1],
                 ['div', {'id':domEl._start_rental_content_agencies, 'class':'about-content', 'style':'background-color: #f9f9f9; padding-top: 20px; padding-bottom: 60px;'}, '', 1]
             ];
@@ -2501,7 +2511,7 @@
         },
         recurrentSecionAboutUs: function() {
             dataStarSiteAboutUsAttributes = [
-                ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content'}, '', 1],
+                ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content', 'style':'display: none;'}, '', 1],
                 ['section', {'id':domEl._start_large_pad_land_mark, 'class':'large-pad text-hero-2 about-content'}, '', 1],
                 ['section', {'id':domEl._start_large_pad_feature_list, 'class':'large-pad feature-lists red-bg about-content'}, '', 1],
                 ['section', {'id':domEl._start_large_pad_contact_form, 'class':'large-pad text-hero-2 about-content', 'style':'padding-botto: 0;'}, '', 1],
@@ -2760,8 +2770,8 @@
             agnUrl = $element.data('agn-preowned-url');
             agnId = $element.data('agn-preowned-id');
 
-            //$(domEl.action_preowned_agn).children('.img-disable').removeClass('active');
-            //$element.children('.img-disable').addClass('active');
+            $(domEl.action_preowned_agn).children('.img-disable').removeClass('active');
+            $element.children('.img-disable').addClass('active');
 
             //console.log(agnNombre, agnId);
             //console.log($element.data());
@@ -3107,7 +3117,7 @@
             var map = new GMap2($("#map").get(0));
             var burnsvilleMN = new GLatLng(agn_latitud, agn_longitud);
             map.setCenter(burnsvilleMN, 8);
-            
+
             // setup 10 random points
             var bounds = map.getBounds();
             var southWest = bounds.getSouthWest();
@@ -3122,7 +3132,7 @@
                 map.addOverlay(marker);
                 markers[i] = marker;
             }
-            
+
             $(markers).each(function(i,marker){
                 $("<li />")
                     .html("Point "+i)
@@ -3130,23 +3140,23 @@
                         displayPoint(marker, i);
                     })
                     .appendTo("#list");
-                
+
                 GEvent.addListener(marker, "click", function(){
                     displayPoint(marker, i);
                 });
             });
-            
+
             $("#message").appendTo(map.getPane(G_MAP_FLOAT_SHADOW_PANE));
-            
+
             function displayPoint(marker, index){
                 $("#message").hide();
-                
+
                 var moveEnd = GEvent.addListener(map, "moveend", function(){
                     var markerOffset = map.fromLatLngToDivPixel(marker.getLatLng());
                     $("#message")
                         .fadeIn()
                         .css({ top:markerOffset.y, left:markerOffset.x });
-                
+
                     GEvent.removeListener(moveEnd);
                 });
                 map.panTo(marker.getLatLng());

@@ -1116,8 +1116,10 @@ button.secondary:visited,
 .secondary-arrow,
 .secondary-arrow:link,
 .secondary-arrow:visited {
-  background: #000;
-  border: 1px solid #000;
+  color: #b21117;
+  background: rgba(255, 255, 255, 1);
+  background-color: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(255,255,255,0.9);
   line-height: 1.4em;
   font-weight: bold;
   display: inline-block;
@@ -1143,15 +1145,13 @@ button.secondary:visited,
   overflow: hidden;
   overflow: visible;
   font-size: 0.8em;
-  color: rgba(255,255,255,1);
   font-weight: bold;
 }
 button:hover.secondary,
 a.secondary:hover {
-  color: #b21117;
-  background: rgba(255, 255, 255, 1);
-  background-color: rgba(255, 255, 255, 1);
-  border: 1px solid rgba(255,255,255,0.9);
+  background: #999;
+  border: 1px solid #999;
+  color: rgba(255,255,255,1);
 }
 /* FORM NEWSLETTER */
 .h-widget {
@@ -1338,7 +1338,7 @@ input[type=text].input-newsletter:focus {
 }
 .gmnoprint .gmnoprint div[title="Zoom in"] img,
 .gmnoprint .gmnoprint div[title="Zoom out"] img {
-  -webkit-filter: brightness(1); 
+  -webkit-filter: brightness(1);
 }
 .gmnoprint .gmnoprint div[title="Zoom in"] img {
     left: -70px !important;

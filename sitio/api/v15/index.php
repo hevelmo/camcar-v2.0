@@ -844,11 +844,16 @@ $app->run();
         $params = array();
         $structure = array(
             'agencia_principal' => array(
+                'agnid' => 'AGN_Id',
                 'agpid' => 'AGP_Id',
                 'agpindex' => 'AGP_Index',
                 'agpnombre' => 'AGP_Agencia',
                 'agpshort' => 'AGP_Short',
-                'logo' => 'AGN_Logo1'
+                'logo' => 'AGN_Logo1',
+                'agpagencia' => 'AGP_Agencia',
+                'agpshort' => 'AGP_Short',
+                'agnnombre' => 'AGN_Nombre',
+                'agnurl' => 'AGN_Url'
             ),
             'marcas' => array(
                 'mlaid' => 'MLA_Id',
