@@ -958,7 +958,7 @@ CAM = (function() {
                 appendMulti : appendMulti,
                   trimValue : trimValue,
                cryptElement : cryptElement,
-            setDateTPCalendar : setDateTPCalendar,
+          setDateTPCalendar : setDateTPCalendar,
               validFormFull : validFormFull,
              validFormEmpty : validFormEmpty,
                   resetForm : resetForm,
