@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.5.34)
 # Database: camcardb
-# Generation Time: 2016-01-05 16:43:27 +0000
+# Generation Time: 2016-01-05 22:53:46 +0000
 # ************************************************************
 
 
@@ -203,17 +203,17 @@ LOCK TABLES `camBanners` WRITE;
 
 INSERT INTO `camBanners` (`BAN_Id`, `BAN_AGN_Nombre`, `BAN_SRC650x277`, `BAN_SRC900x586`, `BAN_SRC1600x900`, `BAN_Title`, `BAN_Subtitle01`, `BAN_Subtitle02`, `BAN_Subtitle03`, `BAN_Subtitle04`, `BAN_PrimaryLinkUrl`, `BAN_PrimaryLinkSub`, `BAN_SecondaryLinkUrl`, `BAN_SecondaryLinkSub`, `BAN_Tipo`, `BAN_Status`)
 VALUES
-	(1,'Peugeot León','banner_peugeot_650x277.jpg','banner_peugeot_900x586.jpg','banner_peugeot_1600x900.jpg','PEUGEOT LEÓN','PRÓXIMAMENTE','','','','#/agencias/nuevos/peugeot/peugeot-leon/23','VER AGENCIA','','','agencia',1),
-	(2,'Ford Cavsa','banner_ford_650x277.jpg','banner_ford_900x586.jpg','banner_ford_1600x900.jpg','FORD CAVSA','FORD ECOSPORT','DESDE $3,639 MENSUALES','UN AÑO DE SEGURO SIN COSTO. ','','http://www.fordcavsa.com.mx/Cotizador/','COTIZACIÓN','','','sitio',1),
+	(1,'Peugeot León','banner_peugeot_650x277.jpg','banner_peugeot_900x586.jpg','banner_peugeot_1600x900.jpg','PEUGEOT LEÓN','INAUGURACIÓN PEUGEOT LEÓN','','','','#/noticias/peugeot-leon/el-leon-vuelve-a-rugir-en-guanajuato/12','VER NOTICIA','','','noticia',1),
+	(2,'Ford Cavsa','banner_ford_650x277.jpg','banner_ford_900x586.jpg','banner_ford_1600x900.jpg','FORD CAVSA','FORD ECOSPORT','DESDE $3,639 MENSUALES','UN AÑO DE SEGURO SIN COSTO. ','','http://www.fordcavsa.com.mx/Cotizador/','COTIZACIÓN','','','sitio',0),
 	(3,'Mitsubishi','banner_mitsubishi_650x277.jpg','banner_mitsubishi_900x586.jpg','banner_mitsubishi_1600x900.jpg','MITSUBISHI','COMPRA UN MITSUBISHI 2015-2016','¡Y OBTÉN 7 AÑOS DE GARANTÍA!','','','http://mitsubishicentrogdl.com.mx/','IR AL SITIO','','','sitio',1),
 	(4,'Mercedes Benz','banner_mercedes_650x277.jpg','banner_mercedes_900x586.jpg','banner_mercedes_1600x900.jpg','MERCEDES BENZ.','PARA QUE A TU ESTRELLA NUNCA LE FALTE BRILLO.','SERVICIOS A CLASE C, SMART Y SPRINTER.','','','../resources/public/files/Promo-aviso-MB_C.pdf','PROMOCIÓN','','','promo',1),
 	(5,'SYC Motors','banner_syc_650x277.jpg','banner_syc_900x586.jpg','banner_syc_1600x900.jpg','JOURNEY 2016','HASTA 72 MESES DE FINANCIAMIENTO, ENGANCHE 10%,','DESDE $340,900 Y BONO POR PRUEBA DE MANEJO POR $3,000.','','','http://www.syc-motors.com.mx/','IR AL SITIO','','','sitio',1),
-	(6,'Lincoln','banner_lincoln_650x277.jpg','banner_lincoln_900x586.jpg','banner_lincoln_1600x900.jpg','LINCOLN CHRISTMAS FEST','30 MIL PESOS PARA CAMBIAR TU AUTO','Y LA APERTURA DE CRÉDITO SIN COSTO.','','','http://lincolngdl.com.mx/','IR AL SITIO','','','sitio',1),
-	(7,'Volvo','banner_volvo_650x277.jpg','banner_volvo_900x586.jpg','banner_volvo_1600x900.jpg','VOLVO','BONOS DE HASTA $80,000','+ TASA DEL 8.5%','Ó 36 MESES SIN INTERESES.','','#/agencias/nuevos/volvo','VER AGENCIA','','','agencias',1),
-	(8,'VW Euroalemana','banner_vw_650x277.jpg','banner_vw_900x586.jpg','banner_vw_1600x900.jpg','VW GOLF 2016','DESDE $259,900','MÁS SEGURO GRATIS POR EL PRIMER AÑO.','','','http://www.vw-euroalemana.com.mx/Promociones/','IR AL SITIO','','','sitio',1),
-	(9,'Jaguar Land Rover','banner_jaguar_650x277.jpg','banner_jaguar_900x586.jpg','banner_jaguar_1600x900.jpg','NUEVO JAGUAR XE','TIPO DE CAMBIO PREFERENCIAL DE $15.40','Y MENSUALIDADES DESDE $10,500 MX.','','','http://jaguargdl.com/','IR AL SITIO','','','sitio',1),
-	(10,'Jaguar Land Rover','banner_landrover_650x277.jpg','banner_landrover_900x586.jpg','banner_landrover_1600x900.jpg','DISCOVERY SPORT','TIPO DE CAMBIO PREFERENCIAL DE $13.50','Y MENSUALIDADES DESDE $10,100 MX.','','','http://landrovergdl.com.mx/','IR AL SITIO','','','sitio',1),
-	(11,'Suzuki','banner_suzuki_650x277.jpg','banner_suzuki_900x586.jpg','banner_suzuki_1600x900.jpg','SUZUKI','TE DESEA UNA FELIZ NAVIDAD','Y UN PROSPERO 2016.','','','http://suzukigdl.com.mx/','IR AL SITIO','','','sitio',1);
+	(6,'Lincoln','banner_lincoln_650x277.jpg','banner_lincoln_900x586.jpg','banner_lincoln_1600x900.jpg','LINCOLN CHRISTMAS FEST','30 MIL PESOS PARA CAMBIAR TU AUTO','Y LA APERTURA DE CRÉDITO SIN COSTO.','','','http://lincolngdl.com.mx/','IR AL SITIO','','','sitio',0),
+	(7,'Volvo','banner_volvo_650x277.jpg','banner_volvo_900x586.jpg','banner_volvo_1600x900.jpg','VOLVO','BONOS DE HASTA $80,000','+ TASA DEL 8.5%','Ó 36 MESES SIN INTERESES.','','#/agencias/nuevos/volvo','VER AGENCIA','','','agencias',0),
+	(8,'VW Euroalemana','banner_vw_650x277.jpg','banner_vw_900x586.jpg','banner_vw_1600x900.jpg','JETTA 2016','DESDE $219,000 + SEGURO GRATIS.','*APLICAN RESTRICCIONES.','','','http://www.vw-euroalemana.com.mx/Promociones/','IR AL SITIO','','','sitio',1),
+	(9,'Jaguar Land Rover','banner_jaguar_650x277.jpg','banner_jaguar_900x586.jpg','banner_jaguar_1600x900.jpg','NUEVO JAGUAR XE','TIPO DE CAMBIO PREFERENCIAL DE $15.40','Y MENSUALIDADES DESDE $10,500 MX.','','','http://jaguargdl.com/','IR AL SITIO','','','sitio',0),
+	(10,'Jaguar Land Rover','banner_landrover_650x277.jpg','banner_landrover_900x586.jpg','banner_landrover_1600x900.jpg','DISCOVERY SPORT','TIPO DE CAMBIO PREFERENCIAL DE $13.50','Y MENSUALIDADES DESDE $10,100 MX.','','','http://landrovergdl.com.mx/','IR AL SITIO','','','sitio',0),
+	(11,'Suzuki','banner_suzuki_650x277.jpg','banner_suzuki_900x586.jpg','banner_suzuki_1600x900.jpg','SUZUKI','CIAZ 2016','CON UN BONO DE $5,000.','','','http://suzukigdl.com.mx/','IR AL SITIO','','','sitio',1);
 
 /*!40000 ALTER TABLE `camBanners` ENABLE KEYS */;
 UNLOCK TABLES;
