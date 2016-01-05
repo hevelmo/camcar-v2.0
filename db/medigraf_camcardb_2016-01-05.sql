@@ -7,7 +7,7 @@
 #
 # Host: 50.63.156.22 (MySQL 5.5.46-cll)
 # Database: medigraf_camcardb
-# Generation Time: 2015-12-30 00:25:24 +0000
+# Generation Time: 2016-01-05 16:44:23 +0000
 # ************************************************************
 
 
@@ -22,6 +22,8 @@
 
 # Dump of table camAgencias
 # ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `camAgencias`;
 
 CREATE TABLE `camAgencias` (
   `AGN_Id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -116,6 +118,8 @@ UNLOCK TABLES;
 # Dump of table camAgenciasPrincipales
 # ------------------------------------------------------------
 
+DROP TABLE IF EXISTS `camAgenciasPrincipales`;
+
 CREATE TABLE `camAgenciasPrincipales` (
   `AGP_Id` bigint(20) NOT NULL AUTO_INCREMENT,
   `AGP_Logo` varchar(300) NOT NULL DEFAULT '',
@@ -155,6 +159,8 @@ UNLOCK TABLES;
 # Dump of table camAttempts
 # ------------------------------------------------------------
 
+DROP TABLE IF EXISTS `camAttempts`;
+
 CREATE TABLE `camAttempts` (
   `ATT_Id` bigint(20) NOT NULL AUTO_INCREMENT,
   `ATT_USR_Id` bigint(20) NOT NULL,
@@ -177,6 +183,8 @@ UNLOCK TABLES;
 
 # Dump of table camBanners
 # ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `camBanners`;
 
 CREATE TABLE `camBanners` (
   `BAN_Id` bigint(100) NOT NULL AUTO_INCREMENT,
@@ -222,6 +230,8 @@ UNLOCK TABLES;
 # Dump of table camBlog
 # ------------------------------------------------------------
 
+DROP TABLE IF EXISTS `camBlog`;
+
 CREATE TABLE `camBlog` (
   `BLG_Id` bigint(11) NOT NULL AUTO_INCREMENT,
   `BLG_AGN_Id` bigint(20) NOT NULL,
@@ -247,7 +257,7 @@ CREATE TABLE `camBlog` (
   `BLG_Address` text NOT NULL,
   `BLG_SubFolder` varchar(200) NOT NULL DEFAULT '',
   PRIMARY KEY (`BLG_Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 LOCK TABLES `camBlog` WRITE;
 /*!40000 ALTER TABLE `camBlog` DISABLE KEYS */;
@@ -264,7 +274,8 @@ VALUES
 	(8,16,'Gira Nacional Sibarita','gira-nacional-sibarita','<h3 class=\"post-subtitle\">Regístrate al teléfono <a href=\"tel:+36290100\">3629-0100</a>.</h3>','','<a id=\"content-title\">Gira Nacional Sibarita<br><br></a>','<p class=\"post-paragraph\" id=\"container-paragraph\">\n                            Club 21Chefs y Jaguar Land Rover Guadalajara tienen el honor de invitarle a disfrutar una experiencia para todos sus sentidos. Jueves 12 de Noviembre de 2015 a las 20:00 hrs.\n                        </p>','','','','ES_invitacion_jaguar.png','ES_savethedate_jaguar.png','','','Jaguar Land Rover Guadalajara y Country','jaguar-land-rover-guadalajara-y-country','sibarita_600x400.jpg','','','05 de Noviembre de 2015','<section class=\"\" style=\"padding: 35px 15px 15px;\">\n                                <div class=\"row\">\n\n                                    <div class=\"col-md-4 col-sm-4 text-center\">\n                                        <h5 style=\"color: #000; text-transform: uppercase;\"><span style=\"color:#7a7a7a;\">LAND ROVER GUADALAJARA</span></h5>\n                                        <img src=\"../img/sitio/agencias/logos/logo_jaguar_land_rover.png\" alt=\"LANDOR ROVER\" class=\"x-img x-img-none none agn_logo\">\n                                    </div>\n                                    <div class=\"col-md-8 col-sm-8 text-center\" style=\"font-size: 16px; padding: 20px 5px 0px;\">\n                                        <a href=\"http://landrovergdl.com.mx/\" class=\"button py4 button-transparent bg-youtube resp-button\" target=\"_blank\">\n                                            <i class=\"fa fa-globe fa-fw fa-lg\"></i> SITIO WEB\n                                        </a>\n                                        <a href=\"https://www.facebook.com/LandroverGDL\" class=\"button py4 button-transparent bg-facebook resp-button\" target=\"_blank\">\n                                            <i class=\"fa fa-facebook fa-fw fa-lg\"></i> FACEBOOK\n                                        </a>\n                                    </div>\n                                </div>\n                            </section>',''),
 	(9,32,'Lanzamiento Suzuki Nueva Vitara','lanzamiento-suzuki-nueva-vitara','','','<a id=\"content-title\">Lanzamiento Suzuki Nueva Vitara<br><br></a>','<p class=\"post-paragraph\" id=\"container-paragraph\">\n                            Suzuki Camcar ofrece durante el mes de noviembre atractivos planes de financiamiento para estrenar la nueva Suzuki Vitara 2016. <br><br>\n                        </p>','','','','','','','<p>\n                                Suzuki Camcar ofrece durante el mes de noviembre atractivos planes de financiamiento para estrenar la nueva Suzuki Vitara 2016.\n                            </p>\n                            <p>\n                                Suzuki Camcar invita a conocer y estrenar la nueva Suzuki Vitara 2016, una autentica joya automotriz que conjuga lo mejor de la tecnología y diseño, con el respaldo de la prestigiada marca automotriz SUZUKI.\n                            </p>\n                            <p>\n                                La presentación se llevó a cabo el pasado 5 de Noviembre en “Eria Green City”, dónde se dieron cita clientes e invitados especiales, a quienes se les dio la bienvenida con una elegante recepción, amenizada con sonidos de bossa nova, jazz fusión y saxofón en vivo.\n                            </p>\n                            <p>\n                                Carlos O´connor, gerente comercial de Suzuki Camcar, se encargó de dar la bienvenida  a todos los invityados y, más tarde, Circo Dragón ofreció un espectáculo con fuego, junto a la proyección de un video maping, como preámbulo para la develación de la estrella de la noche: Vitara 2016, la nueva integrante de la familia Suzuki.\n                            </p>\n                            <p>\n                                Directivos de Suzuki CAMCAR explicaron que este nuevo modelo es una fusión entre una SUV y un Crossover, resaltando elementos distintivos tales como las líneas aerodinámicas que la hacen más ligera y, sus dimensiones especiales, únicas con respecto a sus competidores. Elementos distintivos que a su vez se traducen en un mayor ahorro de combustible, además de contar con el diseño bi-tono, una aportación estética nueva, a los vehículos del segmento en México.\n                            </p>\n                            <p>\n                                Entre sus ventajas tecnológicas destaca su motor 1.6 litros y 4 cilindros con una potencia de 118 hp, acoplado en una trasmisión manual de 5 cambios , o bien,  a una totalmente nueva transmisión automática de 6 cambios. Por otra parte, cuenta con rínes de 17” de diseños de vanguardistas.\n                            </p>\n                            <p>\n                                En lo que respectivo a la seguridad, está provista con frenos de disco en las cuatro ruedas y hasta siete bolsas de aire, control de tracción y estabilidad, así como un chasis diseñado para ser ligero y con la capacidad de absorber impactos. No por nada fue premiada por Euro NCAP como el auto más seguro.\n                            </p>\n                            <p>\n                                Por lanzamiento Suzuki CAMCAR contará con excelentes planes de financiamiento que se mantendrán solo el mes de noviembre.\n                            </p>\n                            <p>\n                                Suzuki Vitara. “La vida tiene más de un tono”.\n                            </p>\n                            <p>\n                                Saludos.\n                            </p>','Suzuki Camcar','suzuki-camcar','nueva_vitara_600x400.jpg','','','12 de Noviembre de 2015','<section class=\"\" style=\"padding: 35px 15px 15px;\">\n                                <div class=\"row\">\n\n                                    <div class=\"col-md-4 col-sm-4 text-center\">\n                                        <h5 style=\"color: #000; text-transform: uppercase;\"><span style=\"color:#7a7a7a;\">SUZUKI GDL</span></h5>\n                                        <img src=\"../img/sitio/agencias/logos/logo_suzuki.png\" alt=\"SUZUKI\" class=\"x-img x-img-none none agn_logo\">\n                                    </div>\n                                    <div class=\"col-md-8 col-sm-8 text-center\" style=\"font-size: 16px; padding: 20px 5px 0px;\">\n                                        <a href=\"http://suzukigdl.com.mx/\" class=\"button py4 button-transparent bg-youtube resp-button\" target=\"_blank\">\n                                            <i class=\"fa fa-globe fa-fw fa-lg\"></i> SITIO WEB\n                                        </a>\n                                        <a href=\"http://facebook.com/SuzukiGuadalajaraLopezMateosYAvVallarta\" class=\"button py4 button-transparent bg-facebook resp-button\" target=\"_blank\">\n                                            <i class=\"fa fa-facebook fa-fw fa-lg\"></i> FACEBOOK\n                                        </a>\n                                        <a href=\"http://twitter.com/Suzuki_Gdl\" class=\"button py4 button-transparent bg-twitter resp-button\" target=\"_blank\">\n                                            <i class=\"fa fa-facebook fa-fw fa-lg\"></i> TWITTER\n                                        </a>\n                                    </div>\n                                </div>\n                            </section>','nueva-vitara-2016'),
 	(10,11,'Nueva agencia Sprinter en Guadalajara','nueva-agencia-sprinter-en-gdl','','','<a id=\"content-title\">Nueva agencia Sprinter en Guadalajara<br></a>','<p class=\"post-paragraph\" id=\"container-paragraph\">\n                            Contando con la presencia de altos directivos de Mercedes-Benz y grupo CAMCAR, se celebró en la ciudad de Guadalajara el cóctel inaugural de la primera agencia Sprinter en Jalisco.\n                        </p>','','','','','','','<p>Contando con la presencia de altos directivos de Mercedes-Benz y grupo CAMCAR, se celebró en la ciudad de Guadalajara el cóctel inaugural de la primera agencia Sprinter en Jalisco. Durante el evento se presentaron los modelos de la nueva Classe V de las vans más reconocidas en la industria del transporte. Con esto Mercedes-Benz se reafirma una vez más, como una de las marcas más influyentes del mercado</p>','Mercedes Benz','mercedes-benz','news_mercedes_benz_new_agencie_sprinter_600x400.jpg','','','04 de Diciembre de 2015','<section id=\"content-section-agencies-news-address\" class=\"no-data-adrress\" style=\"padding: 35px 15px 15px;\"><div class=\"row\">\n                                <div class=\"col-md-4 col-sm-4 text-center\" data-id=\"53\">\n                                    <h5 style=\"color: #000; text-transform: uppercase;\"><span style=\"color:#7a7a7a;\">Eurostern Sprinter</span></h5>\n                                            <img src=\"../img/sitio/agencias/logos/logo_eurostern_sprinter.png\" alt=\"Eurostern Sprinter\" class=\"x-img x-img-none none agn_logo\">\n                                </div>\n                                <div class=\"col-md-8 col-sm-8 text-left\" style=\"font-size: 16px; padding: 20px 5px 0px;\">\n                                        <div class=\"contact-method\">\n                                            <i class=\"icon pe-7s-phone agn_icono\"></i>\n                                                <span class=\"agn_span\">\n                                                        <strong>Ventas: </strong>\n                                                        01 (33) 3134-5680\n                                                </span>\n                                                <span class=\"agn_span\">\n                                                </span>\n                                        </div>\n\n                                    <div class=\"contact-method\">\n                                        <i class=\"icon pe-7s-map-marker agn_icono\"></i>\n                                        <span class=\"agn_span\">\n                                            Av. López Mateos Sur #4095 Col. Loma Bonita CP 45087. Zapopan, Jalisco.\n                                        </span>\n                                    </div>\n                                    <div class=\"contact-method\">\n                                    </div>\n                                </div>\n                            </div>\n                            <div class=\"row\">\n                                <div class=\"col-md-12 text-center\" style=\"padding: 20px;\">\n                                        <a href=\"http://www.eurostern.com.mx/sprinter\" class=\"button py4 button-transparent bg-youtube resp-button\" target=\"_blank\">\n                                            <i class=\"fa fa-globe fa-fw fa-lg\"></i> SITIO WEB\n                                        </a>\n                                            <a href=\"https://www.facebook.com/eurostern\" class=\"button py4 button-transparent bg-facebook resp-button\" target=\"_blank\">\n                                                    <i class=\"fa fa-facebook fa-fw fa-lg\"></i> Facebook\n                                            </a>\n                                        <a href=\"https://twitter.com/mb_eurostern\" class=\"button py4 button-transparent bg-twitter resp-button\" target=\"_blank\">\n                                                <i class=\"fa fa-twitter fa-fw fa-lg\"></i> Twitter\n                                        </a>\n                                </div>\n                            </div>\n                            </section>',''),
-	(11,35,'Segunda edición escala Expo Car Show','segunda-edicion-escala-expo-car-show','','','<a  id=\"content-title\">segunda edición de escala expo car show</a>','<p class=\"post-paragraph\" id=\"container-paragraph\">Dentro de un ambiente sano y familiar, con un aproximado de 500 asistentes, se celebró este domingo 13 de diciembre en las instalaciones de SyC Motors y Mitsubishi Centro</p>','','','','','','','<p>\n                                Dentro de un ambiente sano y familiar, con un aproximado de 500 asistentes, se celebró este domingo 13 de diciembre en las instalaciones de SyC Motors y Mitsubishi Centro, la tercera edición de la Expo Escala Car Show. 58 expositores, 5,000 autos de diversas escalas, concurso de autos custom, ademas de una concurrida subasta hicieron posible que este evento fuera de nuevo un gran éxito.\n                            </p>\n                            <p>\n                                Café la selva, El Barezzito, Bepensa, LO/Jack y Riquisimas Aguas Frescas, estuvieron presentes compartiendo un maravilloso domingo con todos nosotros.\n                            </p>','SYC Motors','syc-motors','portada-noticia-800x600.jpg','','','18 de Diciembre de 2015','<section class=\"\" style=\"padding: 35px 15px 15px;\">\n        <div class=\"row\">\n\n            <div class=\"col-md-4 col-sm-4 text-center\" style=\"padding: 30px 5px 0px;\">\n                <div class=\"col-md-12 col-sm-12 text-center\">\n                    <img src=\"../img/sitio/agencias/logos/logo_syc_motors_centro.png\" alt=\"LOGO SYC MOTORS\" class=\"x-img x-img-none none agn_logo\">\n                </div>\n            </div>\n            <div class=\"col-md-8 col-sm-8 text-left\" style=\"font-size: 16px; padding: 20px 5px 0px;\">\n                <div class=\"contact-method\">\n                    <i class=\"icon pe-7s-phone agn_icono\"></i>\n                    <span class=\"agn_span\">\n                        <strong>Ventas:</strong> (33) 3770-0400\n                    </span>\n                </div>\n\n                <div class=\"contact-method\">\n                    <i class=\"icon pe-7s-map-marker agn_icono\"></i>\n                    <span class=\"agn_span\">\n                        Av. 16 de Septiembre No. 651 Col. Centro, Guadalajara, Jalisco, C.P. 44180\n                    </span>\n                </div>\n\n                <div class=\"contact-method\">\n                    <i class=\"icon pe-7s-clock agn_icono\"></i>\n                    <span class=\"agn_span\">\n                        <strong>Ventas:</strong> Lunes a sábado de 9am a 7pm / Domingos de 10am a 6pm. <br>\n                        <strong>Servicio:</strong> Lunes a viernes de 8am a 7pm / Sábados de 8am a 2pm. <br>\n                        <strong>Refacciones:</strong> Lunes a viernes de 9am a 7pm / Sábados de 9am a 2pm.\n                    </span>\n                </div>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-md-12 text-center\" style=\"padding: 20px;\">\n                <a href=\"http://www.syc-motors.com.mx/\" class=\"button py4 button-transparent bg-youtube resp-button\" target=\"_blank\">\n                    <i class=\"fa fa-globe fa-fw fa-lg\"></i> SITIO WEB\n                </a>\n                <a href=\"https://www.facebook.com/SyCMotorsGdl\" class=\"button py4 button-transparent bg-facebook resp-button\" target=\"_blank\">\n                    <i class=\"fa fa-facebook fa-fw fa-lg\"></i> Facebook\n                </a>\n                <a href=\"https://twitter.com/sycmotors\" class=\"button py4 button-transparent bg-twitter resp-button\" target=\"_blank\">\n                    <i class=\"fa fa-twitter fa-fw fa-lg\"></i> Twitter\n                </a>\n            </div>\n        </div>\n    </section>','expo-car-show-2da-evento');
+	(11,35,'Segunda edición escala Expo Car Show','segunda-edicion-escala-expo-car-show','','','<a  id=\"content-title\">segunda edición de escala expo car show</a>','<p class=\"post-paragraph\" id=\"container-paragraph\">Dentro de un ambiente sano y familiar, con un aproximado de 500 asistentes, se celebró este domingo 13 de diciembre en las instalaciones de SyC Motors y Mitsubishi Centro</p>','','','','','','','<p>\n                                Dentro de un ambiente sano y familiar, con un aproximado de 500 asistentes, se celebró este domingo 13 de diciembre en las instalaciones de SyC Motors y Mitsubishi Centro, la tercera edición de la Expo Escala Car Show. 58 expositores, 5,000 autos de diversas escalas, concurso de autos custom, ademas de una concurrida subasta hicieron posible que este evento fuera de nuevo un gran éxito.\n                            </p>\n                            <p>\n                                Café la selva, El Barezzito, Bepensa, LO/Jack y Riquisimas Aguas Frescas, estuvieron presentes compartiendo un maravilloso domingo con todos nosotros.\n                            </p>','SYC Motors','syc-motors','portada-noticia-800x600.jpg','','','18 de Diciembre de 2015','<section class=\"\" style=\"padding: 35px 15px 15px;\">\n        <div class=\"row\">\n\n            <div class=\"col-md-4 col-sm-4 text-center\" style=\"padding: 30px 5px 0px;\">\n                <div class=\"col-md-12 col-sm-12 text-center\">\n                    <img src=\"../img/sitio/agencias/logos/logo_syc_motors_centro.png\" alt=\"LOGO SYC MOTORS\" class=\"x-img x-img-none none agn_logo\">\n                </div>\n            </div>\n            <div class=\"col-md-8 col-sm-8 text-left\" style=\"font-size: 16px; padding: 20px 5px 0px;\">\n                <div class=\"contact-method\">\n                    <i class=\"icon pe-7s-phone agn_icono\"></i>\n                    <span class=\"agn_span\">\n                        <strong>Ventas:</strong> (33) 3770-0400\n                    </span>\n                </div>\n\n                <div class=\"contact-method\">\n                    <i class=\"icon pe-7s-map-marker agn_icono\"></i>\n                    <span class=\"agn_span\">\n                        Av. 16 de Septiembre No. 651 Col. Centro, Guadalajara, Jalisco, C.P. 44180\n                    </span>\n                </div>\n\n                <div class=\"contact-method\">\n                    <i class=\"icon pe-7s-clock agn_icono\"></i>\n                    <span class=\"agn_span\">\n                        <strong>Ventas:</strong> Lunes a sábado de 9am a 7pm / Domingos de 10am a 6pm. <br>\n                        <strong>Servicio:</strong> Lunes a viernes de 8am a 7pm / Sábados de 8am a 2pm. <br>\n                        <strong>Refacciones:</strong> Lunes a viernes de 9am a 7pm / Sábados de 9am a 2pm.\n                    </span>\n                </div>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-md-12 text-center\" style=\"padding: 20px;\">\n                <a href=\"http://www.syc-motors.com.mx/\" class=\"button py4 button-transparent bg-youtube resp-button\" target=\"_blank\">\n                    <i class=\"fa fa-globe fa-fw fa-lg\"></i> SITIO WEB\n                </a>\n                <a href=\"https://www.facebook.com/SyCMotorsGdl\" class=\"button py4 button-transparent bg-facebook resp-button\" target=\"_blank\">\n                    <i class=\"fa fa-facebook fa-fw fa-lg\"></i> Facebook\n                </a>\n                <a href=\"https://twitter.com/sycmotors\" class=\"button py4 button-transparent bg-twitter resp-button\" target=\"_blank\">\n                    <i class=\"fa fa-twitter fa-fw fa-lg\"></i> Twitter\n                </a>\n            </div>\n        </div>\n    </section>','expo-car-show-2da-evento'),
+	(12,23,'El León vuelve a rugir en Guanajuato','el-leon-vuelve-a-rugir-en-guanajuato','','','<a  id=\"content-title\">el león vuelve a rugir en Guanajuato.</a>','<p class=\"post-paragraph\" id=\"container-paragraph\">El Grupo Automotriz CAMCAR inauguró en la ciudad la agencia Peugeot León, cuyas instalaciones garantizan al cliente la más alta calidad de servicio.</p>','','','','','','','<p>A partir de este mes, la marca Peugeot vuelve a tener presencia en la ciudad de León Guanajuato.</p>\n\n<p>El Grupo Automotriz CAMCAR inauguró en la ciudad la agencia Peugeot León, cuyas instalaciones garantizan al cliente la más alta calidad de servicio.</p>\n\n<p><strong>PEUGEOT LEÓN</strong> se convierte en la distribuidora número 33 de la marca, la cual estará ubicada en Blvd. Cerro Gordo 101k. Valle del Campestre, una de las zonas más exclusivas de la ciudad. El grupo CAMCAR es reconocido por sus 25 años de experiencia en la industria automotriz, compuesto por 7 grandes grupos que lo respaldan.</p>\n\n<p>En la nueva distribuidora de PEUGEOT, el público podrá encontrar un showroom con los más recientes lanzamientos de la marca, así como los modelos ganadores del Master Test: PEUGEOT 208 y PEUGEOT 308. Estos autos han sido galardonados por su excelente desempeño, seguridad y performance, los cuales los convierten en la mejor opción del mercado.</p>\n\n<p><strong>PEUGEOT LEÓN</strong> cuenta con profesionistas calificados y con todo lo necesario para atender con la excelencia que exige la marca en la satisfacción a sus clientes tanto en venta como en el área de postventa.</p>\n\n<p>Con la inauguración de este nuevo distribuidor, PEUGEOT continúa con su plan de expansión de su Red propuesto en 2014, este año consolida su presencia en México con un crecimiento del 20% en ventas en lo que va del 2015.</p>\n\n<p>El Señor Carlos Martín del Campo, presidente del Grupo, acompañado de Raúl Peñafiel y Jame Olivares, director general y director de Calidad y Desarrollo de la red respectivamente, de Peugeot de México, señaló que “la inauguración de esta agencia permitirá sentir a nuestros clientes una experiencia única; que sientan que ingresan a un lugar exclusivo, en el que podrán apreciar nuestros extraordinarios vehículos en un ambiente único de diseño, calidad y tecnología. Quienes se acerquen a nosotros vivirán una experiencia inolvidable, pues contamos con un extraordinario equipo técnico y humano que los atenderán como se merecen”.</p>\n\n<p>En el evento, Raul Peñafiel agradeció a la Familia Martín del Campo y a aquellos inversores que han tenido fe en ella por “su tenacidad y visión para lograr que ahora podamos decir con placer y orgullo que Peugeot México está más fuerte que nunca. Me siento afortunado de mencionar que tenemos el mejor equipo de México, entre ellos Peugeot León. Hoy estamos con uno de los mejores concesionarios de todo el mundo”. Aprovechó su visita para hacer la primera entrega oficial de la agencia.</p>\n','Peugeot León','peugeot-leon','apertura_peugeot_leon_600x400.jpg','','','30 de Diciembre de 2015','<section id=\"content-start-agencies-news-address\" class=\"no-data-adrress about-content\" style=\"padding: 35px 0 0 0;\"><div class=\"container\">\n    <div class=\"row\">\n        <div class=\"col-md-4 col-sm-4 text-center\" data-id=\"23\">\n            <h5 style=\"color: #000; text-transform: uppercase;\"><span style=\"color:#7a7a7a;\">Peugeot León</span></h5>\n                    <img src=\"../img/sitio/agencias/logos/logo_peugeot.png\" alt=\"Peugeot León\" class=\"x-img x-img-none none agn_logo\">\n        </div>\n        <div class=\"col-md-8 col-sm-8 text-left\" style=\"font-size: 16px; padding: 20px 5px 0px;\">\n                <div class=\"contact-method\">\n                    <i class=\"icon pe-7s-phone agn_icono\"></i>\n                        <span class=\"agn_span\">\n                                <strong>Ventas: </strong>\n                                477-4360904\n                        </span>\n                        <span class=\"agn_span\">\n                        </span>\n                </div>\n\n            <div class=\"contact-method\">\n                <i class=\"icon pe-7s-map-marker agn_icono\"></i>\n                <span class=\"agn_span\">\n                    Av. Cerro Gordo 101-k Colonia Valle del Campestre,  León Gto., C.P. 37150\n                </span>\n            </div>\n            <div class=\"contact-method\">\n                <i class=\"icon pe-7s-clock agn_icono\"></i>\n                <span class=\"agn_span\">\n                    <strong>Ventas:</strong> lunes a viernes de 9 a 21 hrs. Sábado de 9 a 19 hrs. Domingo de 11 a 17 hrs <br>\n                    <strong>Servicio:</strong> Taller: lunes a viernes de 8:30 a 19 hrs. Sábado de 8:30 a 14 hrs. <br>\n                    <strong>Refacciones:</strong> lunes a viernes de 9 a 14 y de 16 a 19 hrs. Sábado de 9 a 13:30 hrs.\n                </span>\n            </div>\n        </div>\n    </div>\n    <div class=\"row\">\n        <div class=\"col-md-12 text-center\" style=\"padding: 20px 20px 0;\">\n                <a href=\"http://www.peugeotleon.com.mx/peugeot-leon/\" class=\"button py4 button-transparent bg-youtube resp-button\" target=\"_blank\">\n                    <i class=\"fa fa-globe fa-fw fa-lg\"></i> SITIO WEB\n                </a>\n                    <a href=\"https://www.facebook.com/Peugeot-LEON-529840677173455/?fref=ts\" class=\"button py4 button-transparent bg-facebook resp-button\" target=\"_blank\">\n                            <i class=\"fa fa-facebook fa-fw fa-lg\"></i> Facebook\n                    </a>\n        </div>\n    </div>\n</div>\n</section>','apertura-peugeot-leon');
 
 /*!40000 ALTER TABLE `camBlog` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -273,12 +284,14 @@ UNLOCK TABLES;
 # Dump of table camBlogGaleria
 # ------------------------------------------------------------
 
+DROP TABLE IF EXISTS `camBlogGaleria`;
+
 CREATE TABLE `camBlogGaleria` (
   `GAL_Id` bigint(11) NOT NULL AUTO_INCREMENT,
   `GAL_BLG_Id` bigint(11) NOT NULL,
   `GAL_Galeria` varchar(200) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`GAL_Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 LOCK TABLES `camBlogGaleria` WRITE;
 /*!40000 ALTER TABLE `camBlogGaleria` DISABLE KEYS */;
@@ -329,7 +342,22 @@ VALUES
 	(42,11,'galery_syc_motors_2ed_foto12.jpg'),
 	(43,11,'galery_syc_motors_2ed_foto13.jpg'),
 	(44,11,'galery_syc_motors_2ed_foto14.jpg'),
-	(45,11,'galery_syc_motors_2ed_foto15.jpg');
+	(45,11,'galery_syc_motors_2ed_foto15.jpg'),
+	(46,12,'galery_peugeot_leon_foto1.jpg'),
+	(47,12,'galery_peugeot_leon_foto2.jpg'),
+	(48,12,'galery_peugeot_leon_foto3.jpg'),
+	(49,12,'galery_peugeot_leon_foto4.jpg'),
+	(50,12,'galery_peugeot_leon_foto5.jpg'),
+	(51,12,'galery_peugeot_leon_foto6.jpg'),
+	(52,12,'galery_peugeot_leon_foto7.jpg'),
+	(53,12,'galery_peugeot_leon_foto8.jpg'),
+	(54,12,'galery_peugeot_leon_foto9.jpg'),
+	(55,12,'galery_peugeot_leon_foto10.jpg'),
+	(56,12,'galery_peugeot_leon_foto11.jpg'),
+	(57,12,'galery_peugeot_leon_foto12.jpg'),
+	(58,12,'galery_peugeot_leon_foto13.jpg'),
+	(59,12,'galery_peugeot_leon_foto14.jpg'),
+	(60,12,'galery_peugeot_leon_foto15.jpg');
 
 /*!40000 ALTER TABLE `camBlogGaleria` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -337,6 +365,8 @@ UNLOCK TABLES;
 
 # Dump of table camBlogVideos
 # ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `camBlogVideos`;
 
 CREATE TABLE `camBlogVideos` (
   `VDO_Id` bigint(11) NOT NULL AUTO_INCREMENT,
@@ -360,6 +390,8 @@ UNLOCK TABLES;
 
 # Dump of table camBrandsLogos
 # ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `camBrandsLogos`;
 
 CREATE TABLE `camBrandsLogos` (
   `BRD_Id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -410,6 +442,8 @@ UNLOCK TABLES;
 # Dump of table camCategorias
 # ------------------------------------------------------------
 
+DROP TABLE IF EXISTS `camCategorias`;
+
 CREATE TABLE `camCategorias` (
   `CAT_Id` bigint(20) NOT NULL AUTO_INCREMENT,
   `CAT_Nombre` varchar(30) NOT NULL DEFAULT '',
@@ -434,6 +468,8 @@ UNLOCK TABLES;
 # Dump of table camGrupoCamcar
 # ------------------------------------------------------------
 
+DROP TABLE IF EXISTS `camGrupoCamcar`;
+
 CREATE TABLE `camGrupoCamcar` (
   `GRU_Marcas` bigint(50) NOT NULL,
   `GRU_Agencias` bigint(100) NOT NULL,
@@ -454,6 +490,8 @@ UNLOCK TABLES;
 
 # Dump of table camHorarios
 # ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `camHorarios`;
 
 CREATE TABLE `camHorarios` (
   `HRS_Id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -526,6 +564,8 @@ UNLOCK TABLES;
 
 # Dump of table camMarcas
 # ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `camMarcas`;
 
 CREATE TABLE `camMarcas` (
   `MAR_Id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -633,6 +673,8 @@ UNLOCK TABLES;
 # Dump of table camMarcasLogosAgencias
 # ------------------------------------------------------------
 
+DROP TABLE IF EXISTS `camMarcasLogosAgencias`;
+
 CREATE TABLE `camMarcasLogosAgencias` (
   `MLA_Id` bigint(20) NOT NULL AUTO_INCREMENT,
   `MLA_AGP_Id` bigint(20) NOT NULL,
@@ -677,13 +719,15 @@ UNLOCK TABLES;
 # Dump of table camModelos
 # ------------------------------------------------------------
 
+DROP TABLE IF EXISTS `camModelos`;
+
 CREATE TABLE `camModelos` (
   `MDO_Id` bigint(20) NOT NULL AUTO_INCREMENT,
   `MDO_Nombre` varchar(100) NOT NULL DEFAULT '',
   `MDO_NombreShort` varchar(100) NOT NULL DEFAULT '',
   `MDO_Status` int(11) NOT NULL,
   PRIMARY KEY (`MDO_Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1197 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1199 DEFAULT CHARSET=utf8;
 
 LOCK TABLES `camModelos` WRITE;
 /*!40000 ALTER TABLE `camModelos` DISABLE KEYS */;
@@ -1885,7 +1929,9 @@ VALUES
 	(1193,'MKZ','mkz',1),
 	(1194,'MKX','mkx',1),
 	(1195,'RANGE ROVER SPORT SC DYNAMIC','range-rover-sport-sc-dynamic',1),
-	(1196,'NAVIGATOR SELECT','navigator-select',1);
+	(1196,'NAVIGATOR SELECT','navigator-select',1),
+	(1197,'DISCOVERY SPORT HSE LUXURI','discovery-sport-hse-luxuri',1),
+	(1198,'EXPLORER SPORT TRAC','explorer-sport-trac',1);
 
 /*!40000 ALTER TABLE `camModelos` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -1894,12 +1940,14 @@ UNLOCK TABLES;
 # Dump of table camModelosMarcas
 # ------------------------------------------------------------
 
+DROP TABLE IF EXISTS `camModelosMarcas`;
+
 CREATE TABLE `camModelosMarcas` (
   `MRM_Id` bigint(20) NOT NULL AUTO_INCREMENT,
   `MRM_MAR_Id` bigint(20) NOT NULL,
   `MRM_MDO_Id` bigint(20) NOT NULL,
   PRIMARY KEY (`MRM_Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1232 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1234 DEFAULT CHARSET=utf8;
 
 LOCK TABLES `camModelosMarcas` WRITE;
 /*!40000 ALTER TABLE `camModelosMarcas` DISABLE KEYS */;
@@ -3136,7 +3184,9 @@ VALUES
 	(1228,17,1194),
 	(1229,16,1195),
 	(1230,7,95),
-	(1231,17,1196);
+	(1231,17,1196),
+	(1232,16,1197),
+	(1233,10,1198);
 
 /*!40000 ALTER TABLE `camModelosMarcas` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -3145,6 +3195,8 @@ UNLOCK TABLES;
 # Dump of table camPictures
 # ------------------------------------------------------------
 
+DROP TABLE IF EXISTS `camPictures`;
+
 CREATE TABLE `camPictures` (
   `PIC_Id` bigint(20) NOT NULL AUTO_INCREMENT,
   `PIC_SEN_Id` bigint(20) NOT NULL,
@@ -3152,7 +3204,7 @@ CREATE TABLE `camPictures` (
   `PIC_Thum` int(11) NOT NULL,
   `PIC_Status` int(11) NOT NULL,
   PRIMARY KEY (`PIC_Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3394 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3454 DEFAULT CHARSET=utf8;
 
 LOCK TABLES `camPictures` WRITE;
 /*!40000 ALTER TABLE `camPictures` DISABLE KEYS */;
@@ -4072,20 +4124,6 @@ VALUES
 	(2813,501,'1448043352895830558.jpg',0,1),
 	(2814,501,'14480433651858902179.jpg',0,1),
 	(2815,501,'1448043366363459651.jpg',0,1),
-	(2816,502,'14480444971710881032.jpg',0,1),
-	(2817,502,'1448044497366929662.jpg',0,1),
-	(2818,502,'144804449788396917.jpg',0,1),
-	(2819,502,'14480444971083493292.jpg',0,1),
-	(2820,502,'1448044497686876672.jpg',1,1),
-	(2821,502,'14480444971491550114.jpg',0,1),
-	(2822,502,'14480445051680985630.jpg',0,1),
-	(2823,502,'1448044648855388126.jpg',0,1),
-	(2824,502,'1448044648550172436.jpg',0,1),
-	(2825,502,'14480446481927759630.jpg',0,1),
-	(2826,502,'1448044648750956049.jpg',0,1),
-	(2827,502,'14480446517976949.jpg',0,1),
-	(2828,502,'14480446511842215155.jpg',0,1),
-	(2829,502,'14480446641508513027.jpg',0,1),
 	(2853,506,'1448306165248072318.jpg',0,1),
 	(2854,506,'14483061651736539204.jpg',0,1),
 	(2855,506,'14483061651659120437.jpg',0,1),
@@ -4362,16 +4400,6 @@ VALUES
 	(3331,560,'1451403689676112340.jpg',0,1),
 	(3332,560,'14514036901668025215.jpg',1,1),
 	(3333,560,'14514036931834224322.jpg',0,1),
-	(3334,561,'1451428568890334206.jpg',0,1),
-	(3335,561,'14514285691183885010.jpg',1,1),
-	(3336,561,'14514285701702447043.jpg',0,1),
-	(3337,561,'14514285711346107736.jpg',0,1),
-	(3338,561,'14514285721159768186.jpg',0,1),
-	(3339,561,'1451428573272579412.jpg',0,1),
-	(3340,561,'145142858624898699.jpg',0,1),
-	(3341,561,'14514285871109936851.jpg',0,1),
-	(3342,561,'1451428590169775380.jpg',0,1),
-	(3343,561,'1451428629694954041.jpg',0,1),
 	(3352,562,'14514301911637477864.jpg',0,1),
 	(3353,562,'1451430192447169557.jpg',0,1),
 	(3354,562,'14514301931779468355.jpg',0,1),
@@ -4381,15 +4409,6 @@ VALUES
 	(3358,562,'14514302091859788303.jpg',0,1),
 	(3359,562,'14514302111579437618.jpg',0,1),
 	(3360,562,'14514302121133611580.jpg',0,1),
-	(3361,563,'14514333981465466491.jpg',0,1),
-	(3362,563,'14514333991844333420.jpg',0,1),
-	(3363,563,'1451433400354684384.jpg',0,1),
-	(3364,563,'14514334021723388332.jpg',1,1),
-	(3365,563,'14514334032085846962.jpg',0,1),
-	(3366,563,'14514334151692990294.jpg',0,1),
-	(3367,563,'14514334161696439437.jpg',0,1),
-	(3368,563,'1451433417402602128.jpg',0,1),
-	(3369,563,'145143341825896527.jpg',0,1),
 	(3378,564,'14514337931606176752.jpg',0,1),
 	(3379,564,'14514337941310052155.jpg',0,1),
 	(3380,564,'14514337941516776613.jpg',0,1),
@@ -4405,7 +4424,67 @@ VALUES
 	(3390,565,'14514342381192006288.jpg',0,1),
 	(3391,565,'145143423895157730.jpg',0,1),
 	(3392,565,'14514342391591769601.jpg',0,1),
-	(3393,565,'145143423950585498.jpg',0,1);
+	(3393,565,'145143423950585498.jpg',0,1),
+	(3394,566,'14515052931154038640.jpg',0,1),
+	(3395,566,'1451505293838178192.jpg',1,1),
+	(3396,566,'14515052931162083752.jpg',0,1),
+	(3397,566,'1451505294680406169.jpg',0,1),
+	(3398,566,'1451505294664001357.jpg',0,1),
+	(3399,567,'145193261767689069.jpg',1,1),
+	(3400,567,'145193263421262075.jpg',0,1),
+	(3401,567,'1451932639512210389.jpg',0,1),
+	(3402,567,'14519326431562858709.jpg',0,1),
+	(3403,567,'14519326471364365115.jpg',0,1),
+	(3404,567,'14519326591617786469.jpg',0,1),
+	(3405,567,'14519326631474754446.jpg',0,1),
+	(3406,567,'14519326651048750530.jpg',0,1),
+	(3407,567,'145193267180728131.jpg',0,1),
+	(3408,567,'14519326741084520266.jpg',0,1),
+	(3409,567,'14519326761553451108.jpg',0,1),
+	(3410,567,'14519326791992213396.jpg',0,1),
+	(3411,567,'14519326821779996078.jpg',0,1),
+	(3412,567,'14519326852087882553.jpg',0,1),
+	(3413,568,'14519338391598350843.jpg',0,1),
+	(3414,568,'1451933841165572104.jpg',0,1),
+	(3415,568,'14519338422003893448.jpg',0,1),
+	(3416,568,'14519338431140147937.jpg',0,1),
+	(3417,568,'1451933844859329924.jpg',1,1),
+	(3418,568,'1451933844174143853.jpg',0,1),
+	(3419,568,'1451933856420505626.jpg',0,1),
+	(3420,568,'14519338581117037177.jpg',0,1),
+	(3421,568,'14519338581036071574.jpg',0,1),
+	(3422,568,'14519338611649473840.jpg',0,1),
+	(3423,569,'14519340671111452552.jpg',0,1),
+	(3424,569,'145193406819212767.jpg',1,1),
+	(3425,569,'1451934069590711736.jpg',0,1),
+	(3426,569,'14519340701874435614.jpg',0,1),
+	(3427,569,'14519340711147913384.jpg',0,1),
+	(3428,569,'14519340721502311041.jpg',0,1),
+	(3429,569,'14519340821679836474.jpg',0,1),
+	(3430,569,'14519340831806489738.jpg',0,1),
+	(3431,569,'14519340851756829003.jpg',0,1),
+	(3432,569,'1451934086889878433.jpg',0,1),
+	(3433,570,'1451935091734433531.jpg',0,1),
+	(3434,570,'1451935092637644144.jpg',1,1),
+	(3435,570,'14519350931828637754.jpg',0,1),
+	(3436,570,'1451935094415603614.jpg',0,1),
+	(3437,570,'1451935095722736792.jpg',0,1),
+	(3438,570,'1451935096832301266.jpg',0,1),
+	(3439,570,'1451935111730537818.jpg',0,1),
+	(3440,570,'1451935112807595002.jpg',0,1),
+	(3441,570,'145193511372320002.jpg',0,1),
+	(3442,570,'1451935114794256883.jpg',0,1),
+	(3443,571,'14519452671383525162.jpg',0,1),
+	(3444,571,'1451945269606166018.jpg',0,1),
+	(3445,571,'1451945272967938669.jpg',1,1),
+	(3446,571,'1451945273445189290.jpg',0,1),
+	(3447,571,'1451945275560602649.jpg',0,1),
+	(3448,571,'14519452761778480595.jpg',0,1),
+	(3449,571,'14519452961660550802.jpg',0,1),
+	(3450,571,'14519452991520275117.jpg',0,1),
+	(3451,571,'14519453001047906025.jpg',0,1),
+	(3452,571,'14519453011411514268.jpg',0,1),
+	(3453,571,'1451945302721858215.jpg',0,1);
 
 /*!40000 ALTER TABLE `camPictures` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -4413,6 +4492,8 @@ UNLOCK TABLES;
 
 # Dump of table camSeminuevos
 # ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `camSeminuevos`;
 
 CREATE TABLE `camSeminuevos` (
   `SEN_Id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -4429,7 +4510,7 @@ CREATE TABLE `camSeminuevos` (
   `SEN_Descripcion` text NOT NULL,
   `SEN_Status` int(11) NOT NULL,
   PRIMARY KEY (`SEN_Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=566 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=572 DEFAULT CHARSET=latin1;
 
 LOCK TABLES `camSeminuevos` WRITE;
 /*!40000 ALTER TABLE `camSeminuevos` DISABLE KEYS */;
@@ -4812,7 +4893,7 @@ VALUES
 	(374,1,2,16,1195,2014,1550000.00,'8','AUTOMATICA','BLANCO','PIEL','V8 SC 510 HP AUTOMATICO 8 VEL, RIN 21”, FRENOS BREMBO, ASIENTOS DE PIEL, TECHO PANORAMICO, CAMARA DE REVERSA, PORTON TRASERO ELECTRICO, 4X4, GPS, SE FACTURA COMO UNIDAD NUEVA DEMOSTRADORA, IVA 100%.\r\nPrecio $1,550,000 pesos',0),
 	(500,1,2,16,1195,2014,1550000.00,'8','AUTOMATICA','BLANCO','PIEL','V8 SC 510 HP, 8 VEL, RIN 21”, FRENOS BREMBO, TECHO PANORAMICO, CAMARA DE REVERSA, PORTON TRASERO ELECTRICO, 4X4, GPS, SE FACTURA COMO UNIDAD NUEVA DEMOSTRADORA Y IVA 100%.',0),
 	(501,1,1,5,418,2013,419000.00,'6','AUTOMATICA','PLATA','PIEL','5 PASAJEROS, RIN 19\", GPS, 3.6 LTS, 304 HP, FAROS XENON, QUEMACOCOS Y VIDRIOS ELECTRICOS.',1),
-	(502,1,2,16,106,2010,635000.00,'8','AUTOMATICA','BLANCO','PIEL','5 PASAJEROS, RIN 20\", 4X4, 5.0LTS, 510 HP, QUEMACOCOS Y VIDRIOS ELECTRICOS.',1),
+	(502,1,2,16,106,2010,635000.00,'8','AUTOMATICA','BLANCO','PIEL','5 PASAJEROS, RIN 20\", 4X4, 5.0LTS, 510 HP, QUEMACOCOS Y VIDRIOS ELECTRICOS.',0),
 	(503,5,1,3,388,2010,50000.00,'8','MANUAL','ALUMINIO','PIEL','hggjg',0),
 	(504,5,1,10,1104,2012,109000.00,'4','MANUAL','ROJO','TELA','Vestiduras de tela Estándar Aire Acondicionado Inyección electrónica multipunto Estándar Dirección asistida hidráulica Bolsas de aire\r\nRevisado con 80 puntos de seguridad',0),
 	(505,5,2,10,469,2010,229000.00,'8','AUTOMATICA','NEGRO','PIEL','Inyección Eléctrica Secuencial multipunto Tracción delantera Asiento con ajuste eléctrico Frenos ABS Control de estabilidad Control de tracción Revisado con 80 puntos de seguridad',0),
@@ -4871,11 +4952,17 @@ VALUES
 	(558,5,2,10,1046,2014,249000.00,'4','AUTOMATICA','PLATA','TELA','Vestiduras de tela\r\nAutomatico\r\nElectrica\r\nRevisada con 80 puntos de seguridad',1),
 	(559,5,3,10,1113,2012,349000.00,'8','AUTOMATICA','ROJO','PIEL','8 Cilindros\r\nDireccion ekectrica\r\nAire Acondicionado\r\nComputadora de abordo\r\nBolsas de aire\r\nFrenos ABS\r\nRevisado con 80 puntos de seguridad',0),
 	(560,7,1,22,92,2011,96000.00,'4','MANUAL','BLANCO','TELA','aire acondicionado , electrico',1),
-	(561,5,2,18,421,2015,329000.00,'4','AUTOMATICA','ROJO','PIEL','Vestiduras de piel\r\nAutomática\r\nEléctrica\r\nQuema cocos',1),
+	(561,5,2,18,421,2015,329000.00,'4','AUTOMATICA','ROJO','PIEL','Vestiduras de piel\r\nAutomática\r\nEléctrica\r\nQuema cocos',0),
 	(562,5,1,10,43,2011,125000.00,'4','AUTOMATICA','BLANCO','TELA','VESTIDURAS DE TELA, AUTOMÁTICO, 4 CILINDROS INYECCIÓN MULTIPUNTO',1),
-	(563,5,3,10,78,2015,329000.00,'4','MANUAL','ROJO','TELA','ELECTRICA, FAROS DE NIEBLA, 16 VALVULAS, SISTEMA SYNC',1),
+	(563,5,3,10,78,2015,329000.00,'4','MANUAL','ROJO','TELA','ELECTRICA, FAROS DE NIEBLA, 16 VALVULAS, SISTEMA SYNC',0),
 	(564,1,2,16,79,2015,780000.00,'4','AUTOMATICA','ROJO','PIEL','Un solo dueño, servicios realizados en agencia, cuenta con duplicidad de llaves, 5 puertas, Versión: Dynamic, Motor: 2.0L Si4, Cámara de visión trasera (8), Faros antiniebla delanteros, Llantas de aleación 20\", Techo en color carrocería, cristales oscurecidos \"Privacy\", Techo panorámico fijo (incl. Panel interior eléctrico) (12), Apertura y cierre eléctrico del maletero, 4WD, control de descenso HDC.',1),
-	(565,1,2,17,1041,2015,515000.00,'4','AUTOMATICA','AZUL','PIEL','5 pasajeros, rin 19\" / AWD 2.3Lts / 285 HP, faros xenon, quemacocos, vidrios eléctricos',1);
+	(565,1,2,17,1041,2015,515000.00,'4','AUTOMATICA','AZUL','PIEL','5 pasajeros, rin 19\" / AWD 2.3Lts / 285 HP, faros xenon, quemacocos, vidrios eléctricos',1),
+	(566,1,2,16,57,2013,415000.00,'4','AUTOMATICA','BLANCO','PIEL','Blanco con Negro, 4 cil 2.0 turbo 240 HP, Automatico, Asientos de piel, quemacocos, Rin 18”, Faros de Xenón, 4x4, Pantalla touch.',1),
+	(567,1,2,16,1197,2015,975000.00,'4','AUTOMATICA','BLANCO','PIEL','4 cil Turbo 2.0 lts 240HP, 4X4, Asientos de piel, Techo panorámico, GPS, Portón trasero eléctrico, Rin 19”, Camara de reversa, 7 pasajeros, faros de Xenón, IVA 100%',1),
+	(568,5,2,10,1045,2013,275000.00,'4','AUTOMATICA','ROJO','PIEL','SUSPENSIÓN INDEPENDIENTE,  DIRECCION ASISTIDA ELECTRICA,  BOLSAS DE AIRE, FRENOS ABS, CONTROL DE ESTABILIDAD',1),
+	(569,5,2,10,1045,2014,329000.00,'4','AUTOMATICA','ROJO','PIEL','ELÉCTRICA, SISTEMA SYNC, QUEMA COCOS,  SISTEMA DE NAVEGACIÓN,  REVISADA CON 80 PUNTOS DE SEGURIDAD',1),
+	(570,5,1,10,43,2016,185000.00,'4','AUTOMATICA','PLATA','TELA','VESTIDURAS DE TELA, AUTOMATICO, MANUAL,, RE VISADO CON 80 PUNTOS DE SEGURIDAD',1),
+	(571,5,2,25,590,2013,190000.00,'4','AUTOMATICA','PLATA','TELA','ELÉCTRICA, INYECCIÓN MULTIPUNTO, FRENOS ABS, REVISADA CON 8 0 PUNTOS DE SEGURIDAD',1);
 
 /*!40000 ALTER TABLE `camSeminuevos` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -4883,6 +4970,8 @@ UNLOCK TABLES;
 
 # Dump of table camSociales
 # ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `camSociales`;
 
 CREATE TABLE `camSociales` (
   `SOC_Id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -4959,6 +5048,8 @@ UNLOCK TABLES;
 
 # Dump of table camTelefonos
 # ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `camTelefonos`;
 
 CREATE TABLE `camTelefonos` (
   `TEL_Id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -5039,6 +5130,8 @@ UNLOCK TABLES;
 
 # Dump of table camUsuarios
 # ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `camUsuarios`;
 
 CREATE TABLE `camUsuarios` (
   `USR_Id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -6708,6 +6801,8 @@ UNLOCK TABLES;
 # Dump of table v_camModelosMarcas
 # ------------------------------------------------------------
 
+DROP VIEW IF EXISTS `v_camModelosMarcas`;
+
 CREATE TABLE `v_camModelosMarcas` (
    `MRM_Id` BIGINT(20) NOT NULL DEFAULT '0',
    `MRM_MAR_Id` BIGINT(20) NOT NULL,
@@ -6726,6 +6821,8 @@ CREATE TABLE `v_camModelosMarcas` (
 
 # Dump of table v_camSeminuevos
 # ------------------------------------------------------------
+
+DROP VIEW IF EXISTS `v_camSeminuevos`;
 
 CREATE TABLE `v_camSeminuevos` (
    `SEN_Id` BIGINT(20) UNSIGNED NOT NULL DEFAULT '0',
