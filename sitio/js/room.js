@@ -393,6 +393,38 @@
 /* ----------------------------------- *\
  [Route] ABOUT US
 \* ----------------------------------- */
+    Finch.route('/nosotros', {
+        setup: function(bindings) {
+            section = "about-us";
+            ga('send', 'pageview', '/nosotros');
+            // Add favicon
+            window.onload = favicon.load_favicon();
+        },
+        load: function(bindings) {
+            viewNavbarMethod.viewNavbar();
+            sticky_wrapper_methods.sticky_wrapper();
+
+            viewHeroSliderMethod.viewHeroSlider();
+
+            addAttrNavAgenciesMethod.addAttrNav();
+            currentSectionMethod.currentSection_about_us();
+
+            viewSectionAboutUsMethod.viewSectionAboutUs();
+
+            animatedMethods.animated();
+            $(window).resize(mobile_menu_methods.has_menu_toggle);
+            backToTopMethod.init_window_scroll_top();
+        },
+        unload: function(bindings) {
+            section = "";
+            CAM.setHTML(domEl.div_recurren, '');
+            removeRecurrentsMethod.removeRecurrents();
+            currentSectionMethod.remove_currentSection();
+        }
+    });
+/* ----------------------------------- *\
+ [Route] CONTACT
+\* ----------------------------------- */
     Finch.route('/contacto', {
         setup: function(bindings) {
             section = "about-us";
@@ -405,9 +437,9 @@
             sticky_wrapper_methods.sticky_wrapper();
 
             addAttrNavAgenciesMethod.addAttrNav();
-            currentSectionMethod.currentSection_about_us();
+            currentSectionMethod.currentSection_contact();
 
-            viewSectionAboutUsMethod.viewSectionAboutUs();
+            viewSectionContactMethod.viewSectionContact();
 
             animatedMethods.animated();
             $(window).resize(mobile_menu_methods.has_menu_toggle);

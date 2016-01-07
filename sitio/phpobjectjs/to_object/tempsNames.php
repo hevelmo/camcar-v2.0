@@ -106,13 +106,18 @@ function tempsNames() {
         'recurrent_blog_by_news_start_single_post_galery' => 'tmp_section_blog_by_news_start_single_post_galery',
 
         // ABOUT US
-        // UTILITY BAR BREACRUMB
-        'recurrent_about_us_start_utility_bar_breadcrumb' => 'tmp_section_about_us_start_utility_bar_breadcrumb',
-        'recurrent_about_us_start_large_pad_land_mark' => 'tmp_section_about_us_start_large_pad_land_mark',
+        'recurrent_about_us_start_hero_slider' => 'tmp_section_about_us_start_hero_slider',
+        'recurrent_about_us_start_duplicatable_content' => 'tmp_section_about_us_start_duplicatable_content',
         'recurrent_about_us_start_large_pad_feature_list' => 'tmp_section_about_us_start_large_pad_feature_list',
-        'recurrent_about_us_start_large_pad_contact_form' => 'tmp_section_about_us_start_large_pad_contact_form',
-        'recurrent_about_us_start_contact_main' => 'tmp_section_about_us_start_contact_main',
-        'recurrent_about_us_start_form_contact_main' => 'tmp_section_about_us_start_form_contact_main',
+
+        // CONTACT
+        // UTILITY BAR BREACRUMB
+        'recurrent_contact_start_utility_bar_breadcrumb' => 'tmp_section_contact_start_utility_bar_breadcrumb',
+        'recurrent_contact_start_large_pad_land_mark' => 'tmp_section_contact_start_large_pad_land_mark',
+        'recurrent_contact_start_large_pad_feature_list' => 'tmp_section_contact_start_large_pad_feature_list',
+        'recurrent_contact_start_large_pad_contact_form' => 'tmp_section_contact_start_large_pad_contact_form',
+        'recurrent_contact_start_contact_main' => 'tmp_section_contact_start_contact_main',
+        'recurrent_contact_start_form_contact_main' => 'tmp_section_contact_start_form_contact_main',
 
         // PRIVACY NOTICE
         'recurrent_privacy_notice_start_utility_bar_breadcreumb' => 'tmp_section_privacy_notice_start_utility_bar_breadcrumb',

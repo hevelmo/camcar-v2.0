@@ -110,6 +110,9 @@
         <!--Template navbar-->
         <div class="wrapper_content_navbar" id='start-site-header'></div>
 
+        <!--Template hero-slider-parallax-->
+        <div class="wrapper_content_hero_lider fixed-header" id='start-site-hero-slider'></div>
+
     	<!--Templates's DIV-->
     	<div class="wrapper_content_interactive" id='content-temporal-interactive'></div>
 
@@ -300,6 +303,7 @@
         <script src="../lib/site/flexslider/jquery.flexslider.js"></script>
         <script src='../lib/site/owl-carousel/owl.carousel.js'></script>
         <script src="../lib/site/jquery.smooth-scroll.js"></script>
+        <script src="../lib/site/skrollr.js"></script>
 
         <!-- FORMS -->
         <script src="../lib/forms.js"></script>
@@ -315,14 +319,14 @@
         -->
         <!-- PLUGINS -->
         <!-- CORE JS -->
-		<script src='js/min/core.min.js'></script>
         <?php /*
+		<script src='js/min/core.min.js'></script>
+        */ ?>
 	    <script src='js/objects.js'></script>
 	    <script src='js/method.js'></script>
 	    <script src='js/model.js'></script>
 	    <script src='js/room.js'></script>
 	    <script src='js/main.js'></script>
-        */ ?>
 	</body>
 </html>
 

@@ -547,6 +547,71 @@
         }
     }
 /* ------------------------------------------------------ *\
+    [Methods] viewHeroSliderMethod
+\* ------------------------------------------------------ */
+    var viewHeroSliderMethod = {
+        viewHeroSlider: function() {
+            viewHeroSliderMethod.recurrentHeroSlider();
+            viewHeroSliderMethod.loadTemplatesHeroSlider();
+            heroSliderMobileMethod.heroSliderMobile();
+        },
+        loadTemplatesHeroSlider: function() {
+            CAM.loadTemplate(tempsNames.recurrent_about_us_start_hero_slider, domEl._start_section_hero_slider_name);
+            bgImageHolderMethods.background_image_holder();
+            bgImageHolderMethods.foreground_image_holder();
+            heroSliderMobileMethod.showBackgroundsImages();
+            heroSliderMobileMethod.sliders();
+        },
+        recurrentHeroSlider: function() {
+            dataStartHeroSliderAttributes = [
+                ['section', {'id':domEl._start_section_hero_slider, 'class':'hero-slider large-image about-content'}, '', 1],
+            ];
+            CAM.appendMulti(domEl.hero_slider_recurrent, dataStartHeroSliderAttributes);
+        }
+    }
+/* ------------------------------------------------------ *\
+    [Methods] heroSliderMobileMethod
+\* ------------------------------------------------------ */
+    var heroSliderMobileMethod = {
+        heroSliderMobile: function() {
+            if ( !(/Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/i).test(navigator.userAgent || navigator.vendor || window.opera) ) {
+                heroSliderMobileMethod.forceHeight_init();
+                $(window).scroll(heroSliderMobileMethod.fixedHeaderScrolling);
+                heroSliderMobileMethod.hoverBGEffect();
+            }
+        },
+        forceHeight_init: function() {
+            skrollr.init({
+                forceHeight: false
+            });
+        },
+        fixedHeaderScrolling: function() {
+            if($(window).scrollTop() < $('.fixed-header').outerHeight()){
+                var scroll = $(window).scrollTop();
+                $('.fixed-header').css({transform: 'translateY('+scroll/1.2+'px)'});
+                $('.fixed-header .container').css('opacity',(1-(scroll/400)));
+            }
+        },
+        hoverBGEffect: function() {
+            $('.hover-background').each(function(){
+                var $element;
+                $element = $(this);
+                $element.mousemove(function( event ) {
+                    $element.find('.background-image-holder').css('transform', 'translate(' + -event.pageX /18 + 'px,' + -(event.pageY-($(window).scrollTop())) /50+ 'px)');
+                    $element.find('.layer-1').css('transform', 'translate(' + -event.pageX /30 + 'px,' + -event.pageY /30+ 'px)');
+                    $element.find('.layer-2').css('transform', 'translate(' + -event.pageX /20 + 'px,' + -event.pageY /20+ 'px)');
+                });
+            });
+        },
+        sliders: function() {
+            $('.hero-slider').flexslider({ directionNav: false });
+        },
+        showBackgroundsImages: function() {
+            $('.background-image-holder').addClass('fadeIn');
+            $('.foreground-image-holder').addClass('fadeIn');
+        }
+    }
+/* ------------------------------------------------------ *\
     [Methods] viewSectionHomeMethod
 \* ------------------------------------------------------ */
     var viewSectionHomeMethod = {
@@ -2514,34 +2579,58 @@
         viewSectionAboutUs: function() {
             viewSectionAboutUsMethod.recurrentSecionAboutUs();
             viewSectionAboutUsMethod.loadTemplatesUtilityBarBreadcrumb();
+            viewSectionAboutUsMethod.loadTemplatesDuplicatableContent();
+            viewSectionAboutUsMethod.loadTemplatesLargePadFeatureList();
+            /*
             viewSectionAboutUsMethod.loadTemplatesLArgePadLandMark();
             viewSectionAboutUsMethod.loadTemplatesLArgePadFeatureList();
             viewSectionAboutUsMethod.loadTemplatesLArgePadContactForm();
-            formContactMainMethod.refreshFrom();
+            formContactMainMethod.refreshFrom();*/
         },
         loadTemplatesUtilityBarBreadcrumb: function() {
             CAM.loadTemplate(tempsNames.recurrent_about_us_start_utility_bar_breadcrumb, domEl._start_utility_bar_breadcrumb_name);
         },
-        loadTemplatesLArgePadLandMark: function() {
-            CAM.loadTemplate(tempsNames.recurrent_about_us_start_large_pad_land_mark, domEl._start_large_pad_land_mark_name);
+        loadTemplatesDuplicatableContent: function() {
+            CAM.loadTemplate(tempsNames.recurrent_about_us_start_duplicatable_content, domEl._start_duplicatable_table_name);
         },
-        loadTemplatesLArgePadFeatureList: function() {
+        loadTemplatesLargePadFeatureList: function() {
             CAM.loadTemplate(tempsNames.recurrent_about_us_start_large_pad_feature_list, domEl._start_large_pad_feature_list_name);
-        },
-        loadTemplatesLArgePadContactForm: function() {
-            CAM.loadTemplate(tempsNames.recurrent_about_us_start_large_pad_contact_form, domEl._start_large_pad_contact_form_name);
-            CAM.loadTemplate(tempsNames.recurrent_about_us_start_contact_main, domEl._start_contact_main_name);
         },
         recurrentSecionAboutUs: function() {
             dataStarSiteAboutUsAttributes = [
                 ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content', 'style':'display: none;'}, '', 1],
-                ['section', {'id':domEl._start_large_pad_land_mark, 'class':'large-pad text-hero-2 about-content'}, '', 1],
-                ['section', {'id':domEl._start_large_pad_feature_list, 'class':'large-pad feature-lists red-bg about-content'}, '', 1],
+                ['section', {'id':domEl._start_duplicatable_table, 'class':'duplicatable-content about-content'}, '', 1],
+                ['section', {'id':domEl._start_large_pad_feature_list, 'class':'large-pad feature-lists white-bg about-content'}, '', 1],
+                ['section', {'id':domEl._start_large_pad_land_mark, 'class':'large-pad about-content'}, '', 1]
+            ];
+            CAM.appendMulti(domEl.div_recurrent, dataStarSiteAboutUsAttributes);
+        }
+    }
+/* ------------------------------------------------------ *\
+    [Methods] viewSectionContactMethod
+\* ------------------------------------------------------ */
+    var viewSectionContactMethod = {
+        viewSectionContact: function() {
+            viewSectionContactMethod.recurrentSecionContact();
+            viewSectionContactMethod.loadTemplatesUtilityBarBreadcrumb();
+            viewSectionContactMethod.loadTemplatesLArgePadContactForm();
+            formContactMainMethod.refreshFrom();
+        },
+        loadTemplatesUtilityBarBreadcrumb: function() {
+            CAM.loadTemplate(tempsNames.recurrent_contact_start_utility_bar_breadcrumb, domEl._start_utility_bar_breadcrumb_name);
+        },
+        loadTemplatesLArgePadContactForm: function() {
+            CAM.loadTemplate(tempsNames.recurrent_contact_start_large_pad_contact_form, domEl._start_large_pad_contact_form_name);
+            CAM.loadTemplate(tempsNames.recurrent_contact_start_contact_main, domEl._start_contact_main_name);
+        },
+        recurrentSecionContact: function() {
+            dataStarSiteContactAttributes = [
+                ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content', 'style':'display: none;'}, '', 1],
                 ['section', {'id':domEl._start_large_pad_contact_form, 'class':'large-pad text-hero-2 about-content', 'style':'padding-botto: 0;'}, '', 1],
                 ['section', {'id':domEl._start_section_separator, 'class':'section-separator about-content', 'style':'padding: 0px; height: 0px; background-color: #fff; clear: both;'}, '', 1],
                 ['section', {'id':domEl._start_contact_main, 'class':'contact-2 about-content'}, '', 1]
             ];
-            CAM.appendMulti(domEl.div_recurrent, dataStarSiteAboutUsAttributes);
+            CAM.appendMulti(domEl.div_recurrent, dataStarSiteContactAttributes);
         }
     }
 /* ------------------------------------------------------ *\
@@ -2569,7 +2658,7 @@
             console.log(dataFormContact);
         },
         refreshFrom: function() {
-            CAM.loadTemplate(tempsNames.recurrent_about_us_start_form_contact_main, domEl.div_recurrent_form_contact);
+            CAM.loadTemplate(tempsNames.recurrent_contact_start_form_contact_main, domEl.div_recurrent_form_contact);
             $(domEl.send_cam_contact_main_send).attr('disabled', true);
         },
         resetForm: function() {
@@ -2882,6 +2971,10 @@
         },
         clickGo_about_us: function(event) {
             $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );
+            Finch.navigate('/nosotros');
+        },
+        clickGo_contact: function(event) {
+            $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );
             Finch.navigate('/contacto');
         },
         clickGo_privacy_notice: function(event) {
@@ -2932,6 +3025,7 @@
             removeRecurrentsMethod.removeRecurrents_blog();
             removeRecurrentsMethod.removeRecurrents_blog_by_news();
             removeRecurrentsMethod.removeRecurrents_about_us();
+            removeRecurrentsMethod.removeRecurrents_contact();
         },
         removeRecurrent_navbar: function() {
             $(domEl._start_site_navbar_name).remove();
@@ -2988,11 +3082,16 @@
             $(domEl._start_utility_bar_breadcrumb_name).remove();
         },
         removeRecurrents_about_us: function() {
-            $(domEl._start_large_pad_land_mark_name).remove();
+            $(domEl._start_section_hero_slider_name).remove();
+            $(domEl._start_duplicatable_table_name).remove();
             $(domEl._start_large_pad_feature_list_name).remove();
+            $(domEl._start_large_pad_land_mark_name).remove();
+        },
+        removeRecurrents_contact: function() {
             $(domEl._start_large_pad_contact_form_name).remove();
             $(domEl._start_section_separator_name).remove();
             $(domEl._start_contact_main_name).remove();
+
         }
     }
 /* ------------------------------------------------------ *\
@@ -3036,6 +3135,13 @@
         currentSection_about_us: function() {
             $('head title#head-change-section-title').html('CAMCAR Nosotros');
             $(domEl.goSection_about_us).addClass('current');
+            //$('#start-site-hero-slider').attr('style','top: -66px;');
+            //$('#content-start-hero-slider').attr('style','top: -66px;');
+        },
+        currentSection_contact: function() {
+            $('head title#head-change-section-title').html('CAMCAR Contacto');
+            $(domEl.goSection_about_us).addClass('current');
+            $(domEl.goSection_contact).addClass('current');
         },
         remove_currentSection: function() {
             $(domEl.goSection_index).removeClass('current');
@@ -3047,6 +3153,7 @@
             $(domEl.goSection_rental).removeClass('current');
             $(domEl.goSection_blog).removeClass('current');
             $(domEl.goSection_about_us).removeClass('current');
+            $(domEl.goSection_contact).removeClass('current');
         }
     }
 /* ------------------------------------------------------ *\
@@ -3122,6 +3229,28 @@
                 $element.css('background-repeat', 'no-repeat');
             });
             $('.background-image-holder').addClass('fadeIn');
+        },
+        background_image_holder: function() {
+            $('.background-image-holder').each(function(){
+                var $element, ingSrc;
+                $element = $(this);
+                imgSrc= $element.children('img').attr('src');
+
+                $element.css('background', 'url("' + imgSrc + '")');
+                $element.children('img').hide();
+                $element.css('background-position', '50% 50%');
+            });
+        },
+        foreground_image_holder: function() {
+            $('.foreground-image-holder').each(function(){
+                var $element, ingSrc;
+                $element = $(this);
+                imgSrc= $element.children('img').attr('src');
+
+                $element.css('background', 'url("' + imgSrc + '")');
+                $element.children('img').hide();
+                $element.css('background-position', '50% 50%');
+            });
         }
     }
 /* ------------------------------------------------------ *\

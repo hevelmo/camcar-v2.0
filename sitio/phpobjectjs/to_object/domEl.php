@@ -72,6 +72,10 @@ function domEl() {
     $start_contact_main = 'content-start-contact-main';
     // SECTION SEPARATOR
     $start_section_separator = 'content-section-separator';
+    // SECTION CONTACT
+    $start_section_hero_slider = 'content-start-hero-slider';
+    $start_duplicatable_table = 'content-start-duplicatable-table';
+
     // PRIVACY NOTICE
     $start_article_wrapper = 'content-article-wrapper';
     return array(
@@ -79,13 +83,15 @@ function domEl() {
     	'body_recurrent' => 'body',
         // NAVBAR WRAPPER
         'navbar_recurrent' => '#start-site-header',
-    	// BACK TO TOP
-    	'_back_to_top' => '.back-to-top',
+        // HERO SLIDER PARALLAX
+        'hero_slider_recurrent' => '#start-site-hero-slider',
+        // BACK TO TOP
+        '_back_to_top' => '.back-to-top',
         'ide_return_button' => '#back',
-    	//GENERAL HI DIVS
-    	'div_hidden_inputs_session' => 'div#hidden-inputs-session',
-    	'div_hidden_inputs_temporal' => 'div#hidden-inputs-temporal',
-    	'div_recurrent' => 'div#content-temporal-interactive',
+        //GENERAL HI DIVS
+        'div_hidden_inputs_session' => 'div#hidden-inputs-session',
+        'div_hidden_inputs_temporal' => 'div#hidden-inputs-temporal',
+        'div_recurrent' => 'div#content-temporal-interactive',
         // FILTER INPUTS
         'input_hidden_mapa' => 'input#hidden_mapa',
         'input_current_hidden_category' => 'input#hidden_category',
@@ -267,10 +273,17 @@ function domEl() {
         '_start_flexslider_name' => '#' . $start_flexslider,
         'div_recurrent_blog_galery' => '#content-section-blog-galery',
         // ABOUT US
+        '_start_section_hero_slider' => $start_section_hero_slider,
+        '_start_section_hero_slider_name' => '#' . $start_section_hero_slider,
+        '_start_duplicatable_table' => $start_duplicatable_table,
+        '_start_duplicatable_table_name' => '#' . $start_duplicatable_table,
+
         '_start_large_pad_land_mark' => $start_large_pad_land_mark,
         '_start_large_pad_land_mark_name' => '#' . $start_large_pad_land_mark,
         '_start_large_pad_feature_list' => $start_large_pad_feature_list,
         '_start_large_pad_feature_list_name' => '#' . $start_large_pad_feature_list,
+
+        // CONTACT
         // FORM CONTACT MAIN
         '_start_large_pad_contact_form' => $start_large_pad_contact_form,
         '_start_large_pad_contact_form_name' => '#' . $start_large_pad_contact_form,
@@ -307,6 +320,7 @@ function domEl() {
         'goSection_blog' => '#go-blog',
         'goSection_blog_by_news' => '#go-blog-item-by-news',
         'goSection_about_us' => '#go-about-us',
+        'goSection_contact' => '#go-contact',
         'goSection_privacy_notice' => '#go-section-privacy-notice',
         // FULLWIDTH FEATURES CLIGO GO SECTION
         'goSection_fullwidth_features_workshop' => '#fullwidth-features-go-workshop',
