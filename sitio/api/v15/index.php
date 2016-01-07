@@ -210,7 +210,7 @@ $app->run();
         $result_link_container = restructureQuery($structure, getConnection(), $sql, $params, 0, PDO::FETCH_ASSOC);
         for ($idx=0; $idx < count($result_link_container); $idx++) {
             $ban_target = $agn_type = $result_link_container[$idx]['banner_tipo'];
-            $result_link_container[$idx]['target_blog'] = ($agn_type != 'blog' ) ? '' : '_self';
+            $result_link_container[$idx]['target_noticia'] = ($agn_type != 'noticia' ) ? '' : '_self';
             $result_link_container[$idx]['target_sitio'] = ($agn_type != 'sitio' ) ? '' : '_blank';
             $result_link_container[$idx]['target_agencia'] = ($agn_type != 'agencia' ) ? '' : '_self';
             $result_link_container[$idx]['target_agencias'] = ($agn_type != 'agencias' ) ? '' : '_self';

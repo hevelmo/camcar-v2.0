@@ -109,6 +109,7 @@ function tempsNames() {
         'recurrent_about_us_start_hero_slider' => 'tmp_section_about_us_start_hero_slider',
         'recurrent_about_us_start_duplicatable_content' => 'tmp_section_about_us_start_duplicatable_content',
         'recurrent_about_us_start_large_pad_feature_list' => 'tmp_section_about_us_start_large_pad_feature_list',
+        'recurrent_about_us_start_large_pad' => 'tmp_section_about_us_start_large_pad',
 
         // CONTACT
         // UTILITY BAR BREACRUMB

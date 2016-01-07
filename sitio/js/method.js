@@ -990,7 +990,7 @@
                 position: map.getCenter(),
                 map: map,
                 title: 'CAMCAR',
-                icon: "../img/sitio/pin_camcar.png" //custom pin icon
+                icon: "../img/sitio/pin_camcar_2.png" //custom pin icon
             });
 
             dirNews = mapNews.campa[0].agnfolder;
@@ -1365,7 +1365,7 @@
                 position: map.getCenter(),
                 map: map,
                 title: 'CAMCAR',
-                icon: "../img/sitio/pin_camcar.png" //custom pin icon
+                icon: "../img/sitio/pin_camcar_2.png" //custom pin icon
             });
 
             dirTrucks = mapTrucks.campa[0].agnfolder;
@@ -1518,7 +1518,8 @@
 \* ------------------------------------------------------ */
     var mapAgenciePreownedByAgencieMethod = {
         mapAgenciePreownedByAgencie: function() {
-            var styles, mapNews, agn_latitud, agn_longitudl, agnId, agnLogo, agnName, agnAddress, agnFolder, dirNews, mapOpcNews, map, marker2, popup, location_center, main_color, saturation_value, brightness_value;
+            var styles, mapNews, agn_latitud, agn_longitudl, agnId, agnLogo, agnName, agnAddress, agnFolder, dirNews, mapOpcNews, map, marker2, popup,
+                location_center, main_color, saturation_value, brightness_value;
 
             main_color = '#2d313f';
             saturation_value = -20;
@@ -1700,7 +1701,7 @@
                 position: map.getCenter(),
                 map: map,
                 title: 'CAMCAR',
-                icon: "../img/sitio/pin_camcar.png" //custom pin icon
+                icon: "../img/sitio/pin_camcar_2.png" //custom pin icon
             });
 
             dirNews = mapNews.campa[0].agnfolder;
@@ -1711,6 +1712,23 @@
 
             popup = new google.maps.InfoWindow({
                 content:
+                      /*'<div class="infobox"><div class="infobox-inner">'+
+                      '<div class="infobox-image" style="background-image: url("http://preview.byaviators.com/theme/superlist/wp-content/uploads/2015/09/yjA2So4sRtmdLFRSkD5t_moulin-fisk.jpg");">'+
+                      '<a href="#" class="inventor-favorites-btn-toggle heart" data-listing-id="627" data-ajax-url="http://preview.byaviators.com/theme/superlist/wp-admin/admin-ajax.php">'+
+                      '<i class="fa fa-heart-o"></i> <span data-toggle="I Love It">Add to favorites</span>'+
+                      '</a>'+
+                      '<!-- /.inventor-favorites-btn-toggle -->'+
+                      '</div>'+
+                      '<div class="infobox-title">'+
+                      '<h2><a href="http://preview.byaviators.com/theme/superlist/events/sunbathing/">Sunbathing</a></h2>'+
+                      '<div class="infobox-category">'+
+                      '<a href="http://preview.byaviators.com/theme/superlist/listing-category/greenpeace/">Greenpeace</a>'+
+                      '</div>'+
+                      '<!-- /.infobox-category -->'+
+                      '</div>'+
+                      '<!-- /.infobox-title-->'+
+                      '<a class="close">x</a></div>'+
+                      '</div>'*/
                     '<div class="marker-info-win" style="text-align: center;">'+
                     '<div class="marker-inner-win"><span class="info-content">'+
                     '<img src="img/'+agnFolder+'/'+agnLogo+'" alt="'+agnName+'" style="margin-botton: 10px;" width="150">'+
@@ -2215,7 +2233,7 @@
                 position: map.getCenter(),
                 map: map,
                 title: 'CAMCAR',
-                icon: "../img/sitio/pin_camcar.png" //custom pin icon
+                icon: "../img/sitio/pin_camcar_2.png" //custom pin icon
             });
 
             directorio = mapaData.campa[0].agn_folder;
@@ -2581,8 +2599,8 @@
             viewSectionAboutUsMethod.loadTemplatesUtilityBarBreadcrumb();
             viewSectionAboutUsMethod.loadTemplatesDuplicatableContent();
             viewSectionAboutUsMethod.loadTemplatesLargePadFeatureList();
+            viewSectionAboutUsMethod.loadTemplatesLargePadLandMark();
             /*
-            viewSectionAboutUsMethod.loadTemplatesLArgePadLandMark();
             viewSectionAboutUsMethod.loadTemplatesLArgePadFeatureList();
             viewSectionAboutUsMethod.loadTemplatesLArgePadContactForm();
             formContactMainMethod.refreshFrom();*/
@@ -2596,12 +2614,15 @@
         loadTemplatesLargePadFeatureList: function() {
             CAM.loadTemplate(tempsNames.recurrent_about_us_start_large_pad_feature_list, domEl._start_large_pad_feature_list_name);
         },
+        loadTemplatesLargePadLandMark: function() {
+            CAM.loadTemplate(tempsNames.recurrent_about_us_start_large_pad, domEl._start_large_pad_land_mark_name);
+        },
         recurrentSecionAboutUs: function() {
             dataStarSiteAboutUsAttributes = [
                 ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content', 'style':'display: none;'}, '', 1],
                 ['section', {'id':domEl._start_duplicatable_table, 'class':'duplicatable-content about-content'}, '', 1],
                 ['section', {'id':domEl._start_large_pad_feature_list, 'class':'large-pad feature-lists white-bg about-content'}, '', 1],
-                ['section', {'id':domEl._start_large_pad_land_mark, 'class':'large-pad about-content'}, '', 1]
+                ['section', {'id':domEl._start_large_pad_land_mark, 'class':'large-pad about-content', 'style':'padding-bottom: 50px;'}, '', 1]
             ];
             CAM.appendMulti(domEl.div_recurrent, dataStarSiteAboutUsAttributes);
         }
@@ -3101,36 +3122,44 @@
         currentSection_home: function() {
             $('head title#head-change-section-title').html('CAMCAR Grupo Automotriz');
             $(domEl.goSection_index).addClass('current');
+            $('#start-site-hero-slider').attr('style','');
         },
         currentSection_agencies_news: function() {
             $('head title#head-change-section-title').html('CAMCAR Agencias Nuevos');
             $(domEl.goSection_agencies_news).addClass('current');
+            $('#start-site-hero-slider').attr('style','');
         },
         currentSection_agencies_trucks: function() {
             $('head title#head-change-section-title').html('CAMCAR Camiones');
             $(domEl.goSection_agencies_trucks).addClass('current');
+            $('#start-site-hero-slider').attr('style','');
         },
         currentSection_agencies_preowned: function() {
             $('head title#head-change-section-title').html('CAMCAR Seminuevos');
             $('#dropdown-nav-preowuned').addClass('current');
             $(domEl.goSection_agencies_preowned).addClass('current');
+            $('#start-site-hero-slider').attr('style','');
         },
         currentSection_inventories_preowned: function() {
             $('head title#head-change-section-title').html('CAMCAR Inventarios');
             $('#dropdown-nav-preowuned').addClass('current');
             $(domEl.goSection_inventories_preowned).addClass('current');
+            $('#start-site-hero-slider').attr('style','');
         },
         currentSection_workshop: function() {
             $('head title#head-change-section-title').html('CAMCAR Talleres');
             $(domEl.goSection_workshop).addClass('current');
+            $('#start-site-hero-slider').attr('style','');
         },
         currentSection_rental: function() {
             $('head title#head-change-section-title').html('CAMCAR Rentas');
             $(domEl.goSection_rental).addClass('current');
+            $('#start-site-hero-slider').attr('style','');
         },
         currentSection_blog: function() {
             $('head title#head-change-section-title').html('CAMCAR Noticias');
             $(domEl.goSection_blog).addClass('current');
+            $('#start-site-hero-slider').attr('style','');
         },
         currentSection_about_us: function() {
             $('head title#head-change-section-title').html('CAMCAR Nosotros');
@@ -3142,6 +3171,7 @@
             $('head title#head-change-section-title').html('CAMCAR Contacto');
             $(domEl.goSection_about_us).addClass('current');
             $(domEl.goSection_contact).addClass('current');
+            $('#start-site-hero-slider').attr('style','');
         },
         remove_currentSection: function() {
             $(domEl.goSection_index).removeClass('current');
@@ -3486,7 +3516,7 @@
             ];
 
             mapOptions = {
-                zoom: 11,
+                zoom: 17,
                 center: new google.maps.LatLng(mapData.campa[0].agn_latitud,mapData.campa[0].agn_longitud),
                 scrollwheel: false,
                 mapTypeControlOptions: {
@@ -3523,7 +3553,7 @@
                 markers[i] = new google.maps.Marker({
                     position: new google.maps.LatLng(mapData.campa[i].agn_latitud,mapData.campa[i].agn_longitud),
                     map: map,
-                    icon: '../img/sitio/pin_camcar.png',
+                    icon: '../img/sitio/pin_camcar_2.png',
                     title: agn_name,
                     animation: google.maps.Animation.DROP
                 });
