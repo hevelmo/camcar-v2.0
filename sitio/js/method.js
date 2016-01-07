@@ -3135,7 +3135,7 @@
         currentSection_about_us: function() {
             $('head title#head-change-section-title').html('CAMCAR Nosotros');
             $(domEl.goSection_about_us).addClass('current');
-            //$('#start-site-hero-slider').attr('style','top: -66px;');
+            $('#start-site-hero-slider').attr('style','position: relative; top: -66px; margin-bottom: -66px;');
             //$('#content-start-hero-slider').attr('style','top: -66px;');
         },
         currentSection_contact: function() {
