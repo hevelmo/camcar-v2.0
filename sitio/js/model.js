@@ -8,7 +8,7 @@
 
     For the correct performance of almost all of the methods
     it's necesary to includ JQuery library
- **/
+**/
 /* ################################################################################################### *\
 
     Project Name: core models
@@ -25,25 +25,28 @@
             [FUNCTION] loadTemplate(name, wrapper, filler)
         [MODELS] DOM's Models
             [FUNCTION] getValue(domElement)
-            [FUNCTION] setValue(domElement, new_value)
+            [FUNCTION] setValue(domElement, newValue)
             [FUNCTION] exist(domElement)
+            [FUNCTION] existInDOM(domElement)
             [FUNCTION] trimValue(domElement)
             [FUNCTION] getHTML(domElement)
             [FUNCTION] setHTML(domElement, information)
             [FUNCTION] cryptElement(domElement)
-            [FUNCTION] appendOne(domElement, new_el_type, new_el_attributes, new_el_content, hasClosingTag)
-            [FUNCTION] prependOne(domElement, new_el_type, new_el_attributes, new_el_content, hasClosingTag)
+            [FUNCTION] appendOne(domElement, newElType, newElAttributes, newElContent, hasClosingTag)
             [FUNCTION] appendMulti(domElement, elements)
+            [FUNCTION] prependOne(domElement, newElType, newElAttributes, newElContent, hasClosingTag)
+            [FUNCTION] prependMulti(domElement, elements)
         [MODELS] DATE TIME PICKER's Models
-            [FUNCTION] setDateTPCalendar (wrapper, futureDays, hasMinDate)
+            [FUNCTION] setDateTPCalendar(wrapper, futureDays, setterMode)
         [MODELS] FORMS's Models
-            [FUNCTION] validFormFull(entered_inputs, required_inputs_names)
-            [FUNCTION] validFormEmpty(entered_inputs, required_inputs_names)
+            [FUNCTION] validFormFull(enteredInputs, requiredInputsNames)
+            [FUNCTION] validFormEmpty(enteredInputs, requiredInputsNames)
             [FUNCTION] resetForm(form)
         [MODELS] AJAX's Models
-            [FUNCTION] postalService(custom_url, json)
+            [FUNCTION] postalService(customUrl, json)
             [FUNCTION] getInternalJSON(url)
         [MODELS] OBJECTS's Models
+            [FUNCTION] hasOwnPropertyOptimized(obj, property)
             [FUNCTION] filterArrayObjByKey(arrayObj, key, value, equal)
             [FUNCTION] sumArrayObjByKey(arrayObj, numKey)
             [FUNCTION] renameArrayObjKeys(arrayObj, renameKeys)
@@ -53,8 +56,10 @@
             [FUNCTION] currencyFormat(number)
             [FUNCTION] roundNDecimalFormat(number, nDecimals)
         [MODELS] STRING Models
+            [FUNCTION] advancedTrim(string)
             [FUNCTION] replaceAll(string, found, replace)
         [MODELS] OTHER Models
+            [FUNCTION] picturesLoader(domElement, barElement, urlHandler, urlApi)
             [FUNCTION] randomString(name)
         [MODELS] Returning all Models
 
@@ -193,6 +198,20 @@ CAM = (function() {
                 return ($(domElement).val()) ? true : false;
             }
         /*
+         *This function detects if elemnt defined by id or class, exist in DOM
+         *
+         *PARAMS:
+         *   domElement: Is a string with the id or class ('#domElement', '.domElement')
+                         Is going to look for in the DOM.
+         *
+         *RETURN: boolean
+         *   true: if element exist in DOM
+         *   false: if element doesn't exist in DOM
+        **/
+            function existInDOM(domElement) {
+                return ($(domElement).length > 0) ? true : false;
+            }
+        /*
          *This function trims the value from an especific DOM element
          *
          *PARAMS:
@@ -247,28 +266,28 @@ CAM = (function() {
                 $(domElement).val(pass_sha);
             }
         /*
-         *This function apend one new element to an existent domElement
+         *This function appends one new element to an existent domElement
          *
          *PARAMS:
          *   domElement: Is a string with the id or class ('#domElement', '.domElement')
-         *               of the element where we can't append the new element (mandatory).
-         *   new_el_type: Is a string with the html type (div, input, etc) of the element
-         *                be careful it's a correct one, because the method doesn't
-         *                doesn't distinguish is it's correct or not (mandatory).
-         *   new_el_attributes: Is an objetc with the attributes to the new element, they
-         *                      will be included in the exactly order they are in the object,
-         *                      be careful to use correct attributes because the method dosent
-         *                      distinguish if they are or not correct (mandatory).
-         *                      if you don't want atributes send an empty object {}
-         *   new_el_content: Is a string with the content of the element (mandatory).
+         *               of the element where we can append the new element (mandatory).
+         *   newElType: Is a string with the html type (div, input, etc) of the element
+         *              be careful it's a correct one, because the method doesn't
+         *              doesn't distinguish is it's correct or not (mandatory).
+         *   newElAttributes: Is an objetc with the attributes to the new element, they
+         *                    will be included in the exactly order they are in the object,
+         *                    be careful to use correct attributes because the method dosen't
+         *                    distinguish if they are or not correct (mandatory).
+         *                    if you don't want atributes, send an empty object {}
+         *   newElContent: Is a string with the content of the element (mandatory).
                              if you don't want content send an empty string.
-         *   hasClosingTag: Is an integer who idicates if the element has (1) or not(2) a
+         *   hasClosingTag: Is an integer who idicates if the element has (1) or not(0) a
          *                  closing tag.
          *EXAMPLE:
          *   Imagine we have the empty element <div id='my_div'></div>
          *
-         *   new_el_attributes = {'id': 'myId', 'class': 'myClass', 'value' : '2'}
-         *   appendOne('div#my_div', 'div', new_el_attributes, 'Hello Div', 1);
+         *   newElAttributes = {'id': 'myId', 'class': 'myClass', 'value' : '2'}
+         *   appendOne('div#my_div', 'div', newElAttributes, 'Hello Div', 1);
          *
          *   The result is:
          *
@@ -278,8 +297,8 @@ CAM = (function() {
          *
          *   Imagine the same empty element.
          *
-         *   new_el_attributes = {'id': 'myId', 'class': 'myClass', 'value' : '2', 'data-my-data' : '2', 'name' : 'myName'}
-         *   appendOne('div#my_div', 'div', new_el_attributes, '', 0);
+         *   newElAttributes = {'id': 'myId', 'class': 'myClass', 'value' : '2', 'data-my-data' : '2', 'name' : 'myName'}
+         *   appendOne('div#my_div', 'div', newElAttributes, '', 0);
          *
          *   The result is:
          *
@@ -288,93 +307,33 @@ CAM = (function() {
          *   </div>
          *
         **/
-            function appendOne(domElement, new_el_type, new_el_attributes, new_el_content, hasClosingTag) {
-                var new_domElement;
-                new_domElement = '<' + new_el_type;
-                for (var key in new_el_attributes) {
-                    new_domElement += (new_el_attributes.hasOwnProperty(key))
-                            ? ' ' + key + "='" + new_el_attributes[key] + "'"
+            function appendOne(domElement, newElType, newElAttributes, newElContent, hasClosingTag) {
+                var newDomElement;
+                newDomElement = '<' + newElType;
+                for(var key in newElAttributes) {
+                    newDomElement += (newElAttributes.hasOwnProperty(key))
+                            ? ' ' + key + "='" + newElAttributes[key] + "'"
                             : '';
                 }
                 if(hasClosingTag) {
-                    new_domElement += '>';
-                    new_domElement += new_el_content;
-                    new_domElement += '</' + new_el_type + '>';
+                    newDomElement += '>';
+                    newDomElement += newElContent;
+                    newDomElement += '</' + newElType + '>';
                 } else {
-                    new_domElement += ' >';
-                    new_domElement += new_el_content;
+                    newDomElement += ' />';
+                    newDomElement += newElContent;
                 }
-                $(domElement).append(new_domElement);
+                $(domElement).append(newDomElement);
             }
         /*
-         *This function prepend one new element to an existent domElement
-         *
-         *PARAMS:
-         *   domElement: Is a string with the id or class ('#domElement', '.domElement')
-         *               of the element where we can't prepend the new element (mandatory).
-         *   new_el_type: Is a string with the html type (div, input, etc) of the element
-         *                be careful it's a correct one, because the method doesn't
-         *                doesn't distinguish is it's correct or not (mandatory).
-         *   new_el_attributes: Is an objetc with the attributes to the new element, they
-         *                      will be included in the exactly order they are in the object,
-         *                      be careful to use correct attributes because the method dosent
-         *                      distinguish if they are or not correct (mandatory).
-         *                      if you don't want atributes send an empty object {}
-         *   new_el_content: Is a string with the content of the element (mandatory).
-                             if you don't want content send an empty string.
-         *   hasClosingTag: Is an integer who idicates if the element has (1) or not(2) a
-         *                  closing tag.
-         *EXAMPLE:
-         *   Imagine we have the empty element <div id='my_div'></div>
-         *
-         *   new_el_attributes = {'id': 'myId', 'class': 'myClass', 'value' : '2'}
-         *   prependOne('div#my_div', 'div', new_el_attributes, 'Hello Div', 1);
-         *
-         *   The result is:
-         *
-         *   <div id='my_div'>
-         *       <div id='myId' class='myClass' value='2'>Hello Div</div>
-         *   </div>
-         *
-         *   Imagine the same empty element.
-         *
-         *   new_el_attributes = {'id': 'myId', 'class': 'myClass', 'value' : '2', 'data-my-data' : '2', 'name' : 'myName'}
-         *   prependOne('div#my_div', 'div', new_el_attributes, '', 0);
-         *
-         *   The result is:
-         *
-         *   <div id='my_div'>
-         *       <input id='myId' class='myClass' value='2' data-my-data='2' name='myName' />
-         *   </div>
-         *
-        **/
-            function prependOne(domElement, new_el_type, new_el_attributes, new_el_content, hasClosingTag) {
-                var new_domElement;
-                new_domElement = '<' + new_el_type;
-                for (var key in new_el_attributes) {
-                    new_domElement += (new_el_attributes.hasOwnProperty(key))
-                            ? ' ' + key + "='" + new_el_attributes[key] + "'"
-                            : '';
-                }
-                if(hasClosingTag) {
-                    new_domElement += '>';
-                    new_domElement += new_el_content;
-                    new_domElement += '</' + new_el_type + '>';
-                } else {
-                    new_domElement += ' >';
-                    new_domElement += new_el_content;
-                }
-                $(domElement).prepend(new_domElement);
-            }
-        /*
-         *This function apend multiple new elements to an existent domElement.
+         *This function appends multiple new elements to an existent domElement.
          *It uses de performance of the appenOne method. The elements are appended
          *in the exact order they are declared.
          *
          *PARAMS:
          *   domElement: Is a string with the id or class ('#domElement', '.domElement')
-         *               of the element where we can't append the new elements (mandatory).
-         *   elements: is an array of type [new_el_type, new_el_attributes, new_el_content, hasClosingTag]
+         *               of the element where we can append the new elements (mandatory).
+         *   elements: is an array of type [newElType, newElAttributes, newElContent, hasClosingTag]
          *             each one of this elements are explained in the appendOne method.
          *
          *EXAMPLE:
@@ -400,11 +359,114 @@ CAM = (function() {
          *
         **/
             function appendMulti(domElement, elements) {
-                for (var i = 0; i < elements.length; i++) {
+                for(var i = 0; i < elements.length; i++) {
                     appendOne(domElement,
-                        elements[i][0], //new_el_type
-                        elements[i][1], //new_el_attributes
-                        elements[i][2], //new_el_content
+                        elements[i][0], //newElType
+                        elements[i][1], //newElAttributes
+                        elements[i][2], //newElContent
+                        elements[i][3]  //hasClosingTag
+                    );
+                }
+            }
+        /*
+         *This function prepends one new element to an existent domElement
+         *
+         *PARAMS:
+         *   domElement: Is a string with the id or class ('#domElement', '.domElement')
+         *               of the element where we can append the new element (mandatory).
+         *   newElType: Is a string with the html type (div, input, etc) of the element
+         *              be careful it's a correct one, because the method doesn't
+         *              doesn't distinguish is it's correct or not (mandatory).
+         *   newElAttributes: Is an objetc with the attributes to the new element, they
+         *                    will be included in the exactly order they are in the object,
+         *                    be careful to use correct attributes because the method dosen't
+         *                    distinguish if they are or not correct (mandatory).
+         *                    if you don't want atributes, send an empty object {}
+         *   newElContent: Is a string with the content of the element (mandatory).
+                             if you don't want content send an empty string.
+         *   hasClosingTag: Is an integer who idicates if the element has (1) or not(0) a
+         *                  closing tag.
+         *EXAMPLE:
+         *   Imagine we have the empty element <div id='my_div'></div>
+         *
+         *   newElAttributes = {'id': 'myId', 'class': 'myClass', 'value' : '2'}
+         *   prependOne('div#my_div', 'div', newElAttributes, 'Hello Div', 1);
+         *
+         *   The result is:
+         *
+         *   <div id='my_div'>
+         *       <div id='myId' class='myClass' value='2'>Hello Div</div>
+         *   </div>
+         *
+         *   Imagine the same empty element.
+         *
+         *   newElAttributes = {'id': 'myId', 'class': 'myClass', 'value' : '2', 'data-my-data' : '2', 'name' : 'myName'}
+         *   prependOne('div#my_div', 'div', newElAttributes, '', 0);
+         *
+         *   The result is:
+         *
+         *   <div id='my_div'>
+         *       <input id='myId' class='myClass' value='2' data-my-data='2' name='myName' />
+         *   </div>
+         *
+        **/
+            function prependOne(domElement, newElType, newElAttributes, newElContent, hasClosingTag) {
+                var newDomElement;
+                newDomElement = '<' + newElType;
+                for(var key in newElAttributes) {
+                    newDomElement += (newElAttributes.hasOwnProperty(key))
+                            ? ' ' + key + "='" + newElAttributes[key] + "'"
+                            : '';
+                }
+                if(hasClosingTag) {
+                    newDomElement += '>';
+                    newDomElement += newElContent;
+                    newDomElement += '</' + newElType + '>';
+                } else {
+                    newDomElement += ' />';
+                    newDomElement += newElContent;
+                }
+                $(domElement).prepend(newDomElement);
+            }
+        /*
+         *This function prepends multiple new elements to an existent domElement.
+         *It uses de performance of the appenOne method. The elements are prepended
+         *in the exact order they are declared.
+         *
+         *PARAMS:
+         *   domElement: Is a string with the id or class ('#domElement', '.domElement')
+         *               of the element where we can prepend the new elements (mandatory).
+         *   elements: is an array of type [newElType, newElAttributes, newElContent, hasClosingTag]
+         *             each one of this elements are explained in the prependOne method.
+         *
+         *EXAMPLE:
+         *   <div id='my_div'></div>
+         *
+         *   elements = [
+         *       ['div', {'id' : 'element1', 'class':'multiDiv'}, 'Hello element 1', 1],
+         *       ['input', {'id' : 'element2', 'class':'inputDiv', 'value' : 1, 'name' : 'input_1'}, 'Text input', 0],
+         *       ['input', {'id' : 'element3', 'class':'inputDiv', 'value' : 3, 'name' : 'input_2'}, '', 0],
+         *       ['div', {'id' : 'element4', 'class':'multiDiv'}, 'Hello element 4', 1]
+         *   ];
+         *
+         *   prependMulti(''div#my_div', elements);
+         *
+         *   The result is:
+         *
+         *   <div id='my_div'>
+         *       <div id='element1' class='multiDiv'>Hello element 1</div>
+         *       <input id='element2' class='inputDiv' value='1' name='input_1' />Text input
+         *       <input id='element3' class='inputDiv' value='3' name='input_2' />
+         *       <div id='element4' class='multiDiv'>Hello element 4</div>
+         *   </div>
+         *
+        **/
+            function prependMulti(domElement, elements) {
+                for(var i = 0; i < elements.length; i++) {
+                    prependOne(domElement,
+                        elements[i][0], //newElType
+                        elements[i][1], //newElAttributes
+                        elements[i][2], //newElContent
                         elements[i][3]  //hasClosingTag
                     );
                 }
@@ -549,6 +611,21 @@ CAM = (function() {
      ###################################################################################################
     */
         /*
+         *This function is an optimization of the 'hasOwnProperty', a native JavaScript method.
+         *This optimization validates if the variable, in which the property will be sought is an object.
+         *
+         *PARAMS:
+         *   obj: Is an expected variable to be an object, in which the property will be sought.
+         *   property: Is a string variable with the name of the property it's necessary
+                       to look for in obj, in case obj is an objet.
+         *RETURN: boolean
+         *   true: In case obj is an objet, and property is inside it.
+         *   false: In case obj is not an objet, or in case obj is an objtect but property is not inside it.
+        **/
+            function hasOwnPropertyOptimized(obj, property) {
+                return ((typeof(obj) === 'object')) ? obj.hasOwnProperty(property) : false;
+            }
+        /*
          *This function look for all the values from an array object while the especific
          *key has the same or difrent value (it depends on de condition) that the value
          *searched.
@@ -671,7 +748,6 @@ CAM = (function() {
                 }
                 return newArrayObj;
             }
-
         /*
          *This function removes from an array of objects, the objects
          *whose key values are the same to the specified in withoutObj
@@ -886,6 +962,28 @@ CAM = (function() {
                 expReg = new RegExp(found, 'g');
                 return string.replace(expReg, replace);
             }
+        /*
+         *This function trims a string, also eliminates
+         *all intermediate spaces between words, converting them into one.
+         *
+         *PARAMS:
+         *   string: The string with the original value.
+         *
+         *RETURN: string
+         *   With the trimed content
+         *
+         *SPECIAL REQUIREMENTS:
+         *   It's necesary to include 'underscore.js' or 'underscore-min.js' library before including 'model.js'
+        **/
+            function advancedTrim(string) {
+                var newString, newStringElements;
+                newString = $.trim(string);
+                newStringElements = newString.split(' ');
+                newStringElements = _.without(newStringElements, '');
+                newString = newStringElements.join(' ');
+                newString = $.trim(newString);
+                return newString;
+            }
     /*
      ###################################################################################################
      OTHER Models
@@ -945,34 +1043,38 @@ CAM = (function() {
      ###################################################################################################
     */
     return {
-              momentToHuman : momentToHuman,
-              momentToRoman : momentToRoman,
-               loadTemplate : loadTemplate,
-                   getValue : getValue,
-                   setValue : setValue,
-                      exist : exist,
-                    getHTML : getHTML,
-                    setHTML : setHTML,
-                  appendOne : appendOne,
-                 prependOne : prependOne,
-                appendMulti : appendMulti,
-                  trimValue : trimValue,
-               cryptElement : cryptElement,
-          setDateTPCalendar : setDateTPCalendar,
-              validFormFull : validFormFull,
-             validFormEmpty : validFormEmpty,
-                  resetForm : resetForm,
-              postalService : postalService,
-            getInternalJSON : getInternalJSON,
-        filterArrayObjByKey : filterArrayObjByKey,
-           sumArrayObjByKey : sumArrayObjByKey,
-         renameArrayObjKeys : renameArrayObjKeys,
-         withoutArrayObjAND : withoutArrayObjAND,
-          withoutArrayObjOR : withoutArrayObjOR,
-             currencyFormat : currencyFormat,
-        roundNDecimalFormat : roundNDecimalFormat,
-                 replaceAll : replaceAll,
-               randomString : randomString,
-             picturesLoader : picturesLoader
+                  momentToHuman : momentToHuman,
+                  momentToRoman : momentToRoman,
+                   loadTemplate : loadTemplate,
+                       getValue : getValue,
+                       setValue : setValue,
+                          exist : exist,
+                     existInDOM : existInDOM,
+                        getHTML : getHTML,
+                        setHTML : setHTML,
+                      appendOne : appendOne,
+                    appendMulti : appendMulti,
+                     prependOne : prependOne,
+                   prependMulti : prependMulti,
+                      trimValue : trimValue,
+                   cryptElement : cryptElement,
+              setDateTPCalendar : setDateTPCalendar,
+                  validFormFull : validFormFull,
+                 validFormEmpty : validFormEmpty,
+                      resetForm : resetForm,
+                  postalService : postalService,
+                getInternalJSON : getInternalJSON,
+        hasOwnPropertyOptimized : hasOwnPropertyOptimized,
+            filterArrayObjByKey : filterArrayObjByKey,
+               sumArrayObjByKey : sumArrayObjByKey,
+             renameArrayObjKeys : renameArrayObjKeys,
+             withoutArrayObjAND : withoutArrayObjAND,
+              withoutArrayObjOR : withoutArrayObjOR,
+                 currencyFormat : currencyFormat,
+            roundNDecimalFormat : roundNDecimalFormat,
+                   advancedTrim : advancedTrim,
+                     replaceAll : replaceAll,
+                   randomString : randomString,
+                 picturesLoader : picturesLoader
     }
 }());
