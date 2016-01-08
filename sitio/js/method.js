@@ -2602,6 +2602,7 @@
 /* ------------------------------------------------------ *\
     [Methods] viewSectionAboutUsMethod
 \* ------------------------------------------------------ */
+    /*
     var viewSectionAboutUsMethod = {
         viewSectionAboutUs: function() {
             viewSectionAboutUsMethod.recurrentSecionAboutUs();
@@ -2609,10 +2610,9 @@
             viewSectionAboutUsMethod.loadTemplatesDuplicatableContent();
             viewSectionAboutUsMethod.loadTemplatesLargePadFeatureList();
             viewSectionAboutUsMethod.loadTemplatesLargePadLandMark();
-            /*
-            viewSectionAboutUsMethod.loadTemplatesLArgePadFeatureList();
-            viewSectionAboutUsMethod.loadTemplatesLArgePadContactForm();
-            formContactMainMethod.refreshFrom();*/
+            //viewSectionAboutUsMethod.loadTemplatesLArgePadFeatureList();
+            //viewSectionAboutUsMethod.loadTemplatesLArgePadContactForm();
+            //formContactMainMethod.refreshFrom();*
         },
         loadTemplatesUtilityBarBreadcrumb: function() {
             CAM.loadTemplate(tempsNames.recurrent_about_us_start_utility_bar_breadcrumb, domEl._start_utility_bar_breadcrumb_name);
@@ -2632,6 +2632,44 @@
                 ['section', {'id':domEl._start_duplicatable_table, 'class':'duplicatable-content about-content'}, '', 1],
                 ['section', {'id':domEl._start_large_pad_feature_list, 'class':'large-pad feature-lists white-bg about-content'}, '', 1],
                 ['section', {'id':domEl._start_large_pad_land_mark, 'class':'large-pad about-content', 'style':'padding-bottom: 50px;'}, '', 1]
+            ];
+            CAM.appendMulti(domEl.div_recurrent, dataStarSiteAboutUsAttributes);
+        }
+    }
+    */
+/* ------------------------------------------------------ *\
+    [Methods] viewSectionAboutUsMethod
+\* ------------------------------------------------------ */
+    var viewSectionAboutUsMethod = {
+        viewSectionAboutUs: function() {
+            viewSectionAboutUsMethod.recurrentSecionAboutUs();
+            viewSectionAboutUsMethod.loadTemplatesUtilityBarBreadcrumb();
+            viewSectionAboutUsMethod.loadTemplatesLArgePadLandMark();
+            viewSectionAboutUsMethod.loadTemplatesLArgePadFeatureList();
+            viewSectionAboutUsMethod.loadTemplatesLArgePadContactForm();
+            formContactMainMethod.refreshFrom();
+        },
+        loadTemplatesUtilityBarBreadcrumb: function() {
+            CAM.loadTemplate(tempsNames.recurrent_aboutus_start_utility_bar_breadcrumb, domEl._start_utility_bar_breadcrumb_name);
+        },
+        loadTemplatesLArgePadLandMark: function() {
+            CAM.loadTemplate(tempsNames.recurrent_aboutus_start_large_pad_land_mark, domEl._start_large_pad_land_mark_name);
+        },
+        loadTemplatesLArgePadFeatureList: function() {
+            CAM.loadTemplate(tempsNames.recurrent_aboutus_start_large_pad_feature_list, domEl._start_large_pad_feature_list_name);
+        },
+        loadTemplatesLArgePadContactForm: function() {
+            CAM.loadTemplate(tempsNames.recurrent_aboutus_start_large_pad_contact_form, domEl._start_large_pad_contact_form_name);
+            CAM.loadTemplate(tempsNames.recurrent_aboutus_start_contact_main, domEl._start_contact_main_name);
+        },
+        recurrentSecionAboutUs: function() {
+            dataStarSiteAboutUsAttributes = [
+                ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content', 'style':'display: none;'}, '', 1],
+                ['section', {'id':domEl._start_large_pad_land_mark, 'class':'large-pad text-hero-2 about-content'}, '', 1],
+                ['section', {'id':domEl._start_large_pad_feature_list, 'class':'large-pad feature-lists red-bg about-content'}, '', 1],
+                ['section', {'id':domEl._start_large_pad_contact_form, 'class':'large-pad text-hero-2 about-content', 'style':'padding-botto: 0;'}, '', 1],
+                ['section', {'id':domEl._start_section_separator, 'class':'section-separator about-content', 'style':'padding: 0px; height: 0px; background-color: #fff; clear: both;'}, '', 1],
+                ['section', {'id':domEl._start_contact_main, 'class':'contact-2 about-content'}, '', 1]
             ];
             CAM.appendMulti(domEl.div_recurrent, dataStarSiteAboutUsAttributes);
         }
@@ -3181,10 +3219,8 @@
         currentSection_about_us: function() {
             $('head title#head-change-section-title').html('CAMCAR Nosotros');
             $(domEl.goSection_about_us).addClass('current');
-            //$('#start-site-hero-slider').attr('style','position: relative; top: 0px; margin-bottom: 0px;');
-            $('#start-site-hero-slider').attr('style','position: relative; top: -86px; margin-bottom: -86px;');
-            //$('#content-start-hero-slider').attr('style','top: -66px;');
-            $('#hero-slider-scroll-down').attr('style','position: absolute; left: 50%;');
+            //$('#start-site-hero-slider').attr('style','position: relative; top: -86px; margin-bottom: -86px;');
+            //$('#hero-slider-scroll-down').attr('style','position: absolute; left: 50%;');
         },
         currentSection_contact: function() {
             $('head title#head-change-section-title').html('CAMCAR Contacto');
@@ -3203,8 +3239,8 @@
             $(domEl.goSection_rental).removeClass('current');
             $(domEl.goSection_blog).removeClass('current');
             $(domEl.goSection_about_us).removeClass('current');
-            CAM.setHTML('#hero-slider-scroll-down', '');
-            $(domEl.goSection_contact).removeClass('current');
+            //CAM.setHTML('#hero-slider-scroll-down', '');
+            //$(domEl.goSection_contact).removeClass('current');
         }
     }
 /* ------------------------------------------------------ *\

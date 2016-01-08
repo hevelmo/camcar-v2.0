@@ -21,8 +21,8 @@
         <link href="http://fonts.googleapis.com/css?family=Roboto:100,400,300,700,400italic,500%7CMontserrat:400,700" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="../css/import-sitio.css">
 
-        <!--<link rel="apple-touch-icon" href="../img/ico/apple-touch-icon.png">
-        <link rel="shortcut icon" href="../img/ico/camcaricon.ico">-->
+        <?php /*<!--<link rel="apple-touch-icon" href="../img/ico/apple-touch-icon.png">
+        <link rel="shortcut icon" href="../img/ico/camcaricon.ico">-->*/ ?>
 
         <!--[if lt IE 9]>
             <script src="../../lib/assets/plugins/html5shiv/html5shiv.min.js"></script>
@@ -111,8 +111,10 @@
         <div class="wrapper_content_navbar" id='start-site-header'></div>
 
         <!--Template hero-slider-parallax-->
+        <?php /*
         <div class="wrapper_content_hero_lider fixed-header" id='start-site-hero-slider'></div>
         <div id="hero-slider-scroll-down"></div>
+        */ ?>
 
     	<!--Templates's DIV-->
     	<div class="wrapper_content_interactive" id='content-temporal-interactive'></div>
@@ -265,7 +267,7 @@
         <!-- back to top -->
         <a href="#0" class="back-to-top cd-top no-print">
             top
-            <!--<i class="fa fa-angle-double-up fa-3x animation-pulse" style=""></i>-->
+            <?php /*<!--<i class="fa fa-angle-double-up fa-3x animation-pulse" style=""></i>--> */ ?>
         </a>
 
         <!-- MAIN -->
@@ -311,23 +313,23 @@
         <script src="../lib/sha512.js"></script>
         <!-- GOOGLE API -->
         <script src="http://maps.google.com/maps/api/js?v=3&amp;sensor=false" type="text/javascript"></script>
-        <!--
+         <?php /*<!--
         <script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAZBe7uHI90ESk2XAmWRL3RxR6u04U0tImA3bfwZ3-HKdEno7z2xRk2YE6OkudtBX5qy0vLrgbf1DUCg"></script>
         <script type="text/javascript">
         //google.load("jquery", '1.3');
         google.load("maps", "2.x");
         </script>
-        -->
+        --> */ ?>
         <!-- PLUGINS -->
         <!-- CORE JS -->
-        <?php /*
 		<script src='js/min/core.min.js'></script>
-        */ ?>
+        <?php /*
 	    <script src='js/objects.js'></script>
 	    <script src='js/method.js'></script>
 	    <script src='js/model.js'></script>
 	    <script src='js/room.js'></script>
 	    <script src='js/main.js'></script>
+        */ ?>
 	</body>
 </html>
 
