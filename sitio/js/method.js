@@ -1032,7 +1032,7 @@
 /* ------------------------------------------------------ *\
     [Methods] activeLogAgencieTrucksMethod
 \* ------------------------------------------------------ */
-    var activeLogAgencieTrucksMethod = {
+    /*var activeLogAgencieTrucksMethod = {
         activeLogAgencieTrucks: function(agn_name) {
             $(domEl.action_truck_agn).each(function() {
                 var agp_nombre_element;
@@ -1042,11 +1042,11 @@
                 }
             });
         }
-    }
+    }*/
 /* ------------------------------------------------------ *\
     [Methods] viewSectionAgenciesTrucksMethod
 \* ------------------------------------------------------ */
-    var viewSectionAgenciesTrucksMethod = {
+    /*var viewSectionAgenciesTrucksMethod = {
         viewSectionAgenciesTrucks: function(agpid) {
             viewSectionAgenciesTrucksMethod.recurrentSecionAgenciesTrucks();
             viewSectionAgenciesTrucksMethod.loadTemplatesUtilityBarBreadcrumb();
@@ -1094,11 +1094,11 @@
             ];
             CAM.appendMulti(domEl.div_recurrent, dataStarSiteAgenciesTrucksAttributes);
         }
-    }
+    }*/
 /* ------------------------------------------------------ *\
     [Methods] viewSectionAgenciesTrucksPrincipalMethod
 \* ------------------------------------------------------ */
-    var viewSectionAgenciesTrucksPrincipalMethod = {
+    /*var viewSectionAgenciesTrucksPrincipalMethod = {
         viewSectionAgenciesTrucksPrincipal: function(agn_name_agencia, agn_url, agn_id) {
             viewSectionAgenciesTrucksMethod.recurrentSecionAgenciesTrucks();
             viewSectionAgenciesTrucksPrincipalMethod.loadTemplatesUtilityBarBreadcrumb_agnPrincipal(agn_name_agencia);
@@ -1126,11 +1126,11 @@
 
             viewSectionAgenciesTrucksMethod.loadTemplatesAgenciesTrucksCategories(campaAgnPrincipal_Id);
         }
-    }
+    }*/
 /* ------------------------------------------------------ *\
     [Methods] viewSectionAgenciesTrucksBySubAgencieMethod
 \* ------------------------------------------------------ */
-    var viewSectionAgenciesTrucksBySubAgencieMethod = {
+    /*var viewSectionAgenciesTrucksBySubAgencieMethod = {
         viewSectionAgenciesTrucksBySubAgencie: function(agn_name_agencia, agn_url, agn_id) {
             viewSectionAgenciesTrucksMethod.recurrentSecionAgenciesTrucks();
             viewSectionAgenciesTrucksBySubAgencieMethod.loadTemplatesUtilityBarBreadcrumb_subAgencie(agn_name_agencia, agn_url, agn_id);
@@ -1186,11 +1186,11 @@
             ];
             CAM.appendMulti(domEl.div_recurrent, dataStarSiteAgenciesTrucksSubAgencieAttributes);
         }
-    }
+    }*/
 /* ------------------------------------------------------ *\
     [Methods] mapAgenciesTrucksSubAgencieMethod
 \* ------------------------------------------------------ */
-    var mapAgenciesTrucksSubAgencieMethod = {
+    /*var mapAgenciesTrucksSubAgencieMethod = {
         mapAgenciesTrucksSubAgencie: function() {
             var styles, mapTrucks, agn_latitud, agn_longitudl, agnId, agnLogo, agnName, agnAddress, agnFolder, dirTrucks, mapOpcNews, map, marker2, popup, location_center, main_color, saturation_value, brightness_value;
 
@@ -1403,7 +1403,7 @@
         initMapAgenciesTrucksSubAgencie: function() {
             google.maps.event.addDomListener(window, 'load', mapAgenciesTrucksSubAgencieMethod.mapAgenciesTrucksSubAgencie());
         }
-    }
+    }*/
 /* ------------------------------------------------------ *\
     [Methods] activeLogAgenciesPreownedMethod
 \* ------------------------------------------------------ */
