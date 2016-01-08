@@ -554,6 +554,7 @@
             viewHeroSliderMethod.recurrentHeroSlider();
             viewHeroSliderMethod.loadTemplatesHeroSlider();
             heroSliderMobileMethod.heroSliderMobile();
+            viewHeroSliderMethod.loadTemplateScrollDown();
         },
         loadTemplatesHeroSlider: function() {
             CAM.loadTemplate(tempsNames.recurrent_about_us_start_hero_slider, domEl._start_section_hero_slider_name);
@@ -562,9 +563,12 @@
             heroSliderMobileMethod.showBackgroundsImages();
             heroSliderMobileMethod.sliders();
         },
+        loadTemplateScrollDown: function() {
+            CAM.loadTemplate(tempsNames.recurrent_start_scroll_down, '#hero-slider-scroll-down');
+        },
         recurrentHeroSlider: function() {
             dataStartHeroSliderAttributes = [
-                ['section', {'id':domEl._start_section_hero_slider, 'class':'hero-slider large-image about-content'}, '', 1],
+                ['section', {'id':domEl._start_section_hero_slider, 'class':'hero-slider large-image about-content'}, '', 1]
             ];
             CAM.appendMulti(domEl.hero_slider_recurrent, dataStartHeroSliderAttributes);
         }
@@ -599,7 +603,12 @@
                 $element.mousemove(function( event ) {
                     $element.find('.background-image-holder').css('transform', 'translate(' + -event.pageX /18 + 'px,' + -(event.pageY-($(window).scrollTop())) /50+ 'px)');
                     $element.find('.layer-1').css('transform', 'translate(' + -event.pageX /30 + 'px,' + -event.pageY /30+ 'px)');
+                    //$element.find('.layer-2').css('transform', 'translate(' + -event.pageX /20 + 'px,' + -event.pageY /20+ 'px)');
+                    /*
+                    $element.find('.background-image-holder').css('transform', 'translate(' + -event.pageX /18 + 'px,' + -(event.pageY-($(window).scrollTop())) /50+ 'px)');
+                    $element.find('.layer-1').css('transform', 'translate(' + -event.pageX /30 + 'px,' + -event.pageY /30+ 'px)');
                     $element.find('.layer-2').css('transform', 'translate(' + -event.pageX /20 + 'px,' + -event.pageY /20+ 'px)');
+                    */
                 });
             });
         },
@@ -3123,55 +3132,65 @@
             $('head title#head-change-section-title').html('CAMCAR Grupo Automotriz');
             $(domEl.goSection_index).addClass('current');
             $('#start-site-hero-slider').attr('style','');
+            $('#hero-slider-scroll-down').attr('style','');
         },
         currentSection_agencies_news: function() {
             $('head title#head-change-section-title').html('CAMCAR Agencias Nuevos');
             $(domEl.goSection_agencies_news).addClass('current');
             $('#start-site-hero-slider').attr('style','');
+            $('#hero-slider-scroll-down').attr('style','');
         },
         currentSection_agencies_trucks: function() {
             $('head title#head-change-section-title').html('CAMCAR Camiones');
             $(domEl.goSection_agencies_trucks).addClass('current');
             $('#start-site-hero-slider').attr('style','');
+            $('#hero-slider-scroll-down').attr('style','');
         },
         currentSection_agencies_preowned: function() {
             $('head title#head-change-section-title').html('CAMCAR Seminuevos');
             $('#dropdown-nav-preowuned').addClass('current');
             $(domEl.goSection_agencies_preowned).addClass('current');
             $('#start-site-hero-slider').attr('style','');
+            $('#hero-slider-scroll-down').attr('style','');
         },
         currentSection_inventories_preowned: function() {
             $('head title#head-change-section-title').html('CAMCAR Inventarios');
             $('#dropdown-nav-preowuned').addClass('current');
             $(domEl.goSection_inventories_preowned).addClass('current');
             $('#start-site-hero-slider').attr('style','');
+            $('#hero-slider-scroll-down').attr('style','');
         },
         currentSection_workshop: function() {
             $('head title#head-change-section-title').html('CAMCAR Talleres');
             $(domEl.goSection_workshop).addClass('current');
             $('#start-site-hero-slider').attr('style','');
+            $('#hero-slider-scroll-down').attr('style','');
         },
         currentSection_rental: function() {
             $('head title#head-change-section-title').html('CAMCAR Rentas');
             $(domEl.goSection_rental).addClass('current');
             $('#start-site-hero-slider').attr('style','');
+            $('#hero-slider-scroll-down').attr('style','');
         },
         currentSection_blog: function() {
             $('head title#head-change-section-title').html('CAMCAR Noticias');
             $(domEl.goSection_blog).addClass('current');
             $('#start-site-hero-slider').attr('style','');
+            $('#hero-slider-scroll-down').attr('style','');
         },
         currentSection_about_us: function() {
             $('head title#head-change-section-title').html('CAMCAR Nosotros');
             $(domEl.goSection_about_us).addClass('current');
             $('#start-site-hero-slider').attr('style','position: relative; top: -66px; margin-bottom: -66px;');
             //$('#content-start-hero-slider').attr('style','top: -66px;');
+            $('#hero-slider-scroll-down').attr('style','position: absolute; left: 50%;');
         },
         currentSection_contact: function() {
             $('head title#head-change-section-title').html('CAMCAR Contacto');
             $(domEl.goSection_about_us).addClass('current');
             $(domEl.goSection_contact).addClass('current');
             $('#start-site-hero-slider').attr('style','');
+            $('#hero-slider-scroll-down').attr('style','');
         },
         remove_currentSection: function() {
             $(domEl.goSection_index).removeClass('current');
@@ -3183,6 +3202,7 @@
             $(domEl.goSection_rental).removeClass('current');
             $(domEl.goSection_blog).removeClass('current');
             $(domEl.goSection_about_us).removeClass('current');
+            CAM.setHTML('#hero-slider-scroll-down', '');
             $(domEl.goSection_contact).removeClass('current');
         }
     }

@@ -5,6 +5,9 @@ function tempsNames() {
     	// NAVBAR
     	'recurrent_start_site_navbar' => 'tmp_start_site_navbar',
 
+        // SCROLDOWN
+        'recurrent_start_scroll_down' => 'tmp_scroll_down',
+
         // SECTION HOME
         // HERO CAROUSEL
         'recurrent_home_hero_slide_carousel' => 'tmp_section_home_hero_slide_carousel',

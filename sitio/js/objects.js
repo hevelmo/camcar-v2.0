@@ -262,6 +262,7 @@ tempsNames = {
 	"recurrent_rental_start_image_block":"tmp_section_rental_start_image_block",
 	"recurrent_rental_start_large_pad_land_mark":"tmp_section_rental_start_large_pad_land_mark",
 	"recurrent_rental_start_utility_bar_breadcrumb":"tmp_section_rental_start_utility_bar_breadcrumb",
+	"recurrent_start_scroll_down":"tmp_scroll_down",
 	"recurrent_start_site_navbar":"tmp_start_site_navbar",
 	"recurrent_workshop_start_image_block":"tmp_section_workshop_start_image_block",
 	"recurrent_workshop_start_large_pad_brand":"tmp_section_workshop_start_large_pad_brand",
