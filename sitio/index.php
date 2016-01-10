@@ -264,11 +264,7 @@
         </footer>
         <!--   End: Footer container -->
 
-        <!-- back to top -->
-        <a href="#0" class="back-to-top cd-top no-print">
-            top
-            <?php /*<!--<i class="fa fa-angle-double-up fa-3x animation-pulse" style=""></i>--> */ ?>
-        </a>
+        <a href="#0" class="back-to-top cd-top no-print">top</a>
 
         <!-- MAIN -->
         <script src="../lib/site/jquery-1.11.2.js"></script>
