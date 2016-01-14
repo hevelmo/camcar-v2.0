@@ -111,9 +111,9 @@
         <div class="wrapper_content_navbar" id='start-site-header'></div>
 
         <!--Template hero-slider-parallax-->
-        <?php /*
         <div class="wrapper_content_hero_lider fixed-header" id='start-site-hero-slider'></div>
         <div id="hero-slider-scroll-down"></div>
+        <?php /*
         */ ?>
 
     	<!--Templates's DIV-->

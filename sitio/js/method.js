@@ -2602,7 +2602,6 @@
 /* ------------------------------------------------------ *\
     [Methods] viewSectionAboutUsMethod
 \* ------------------------------------------------------ */
-    /*
     var viewSectionAboutUsMethod = {
         viewSectionAboutUs: function() {
             viewSectionAboutUsMethod.recurrentSecionAboutUs();
@@ -2630,16 +2629,18 @@
             dataStarSiteAboutUsAttributes = [
                 ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content', 'style':'display: none;'}, '', 1],
                 ['section', {'id':domEl._start_duplicatable_table, 'class':'duplicatable-content about-content'}, '', 1],
-                ['section', {'id':domEl._start_large_pad_feature_list, 'class':'large-pad feature-lists white-bg about-content'}, '', 1],
-                ['section', {'id':domEl._start_large_pad_land_mark, 'class':'large-pad about-content', 'style':'padding-bottom: 50px;'}, '', 1]
+                ['section', {'id':domEl._start_large_pad_feature_list, 'class':'large-pad feature-lists white-bg about-content', 'style':'padding-top: 50px; padding-bottom: 50px;'}, '', 1],
+                ['section', {'id':domEl._start_large_pad_land_mark, 'class':'large-pad about-content white-bg', 'style':'padding-top: 0px; padding-bottom: 50px;'}, '', 1]
             ];
             CAM.appendMulti(domEl.div_recurrent, dataStarSiteAboutUsAttributes);
         }
     }
+    /*
     */
 /* ------------------------------------------------------ *\
     [Methods] viewSectionAboutUsMethod
 \* ------------------------------------------------------ */
+    /*
     var viewSectionAboutUsMethod = {
         viewSectionAboutUs: function() {
             viewSectionAboutUsMethod.recurrentSecionAboutUs();
@@ -2674,6 +2675,7 @@
             CAM.appendMulti(domEl.div_recurrent, dataStarSiteAboutUsAttributes);
         }
     }
+    */
 /* ------------------------------------------------------ *\
     [Methods] viewSectionContactMethod
 \* ------------------------------------------------------ */
@@ -3219,8 +3221,8 @@
         currentSection_about_us: function() {
             $('head title#head-change-section-title').html('CAMCAR Nosotros');
             $(domEl.goSection_about_us).addClass('current');
-            //$('#start-site-hero-slider').attr('style','position: relative; top: -86px; margin-bottom: -86px;');
-            //$('#hero-slider-scroll-down').attr('style','position: absolute; left: 50%;');
+            $('#start-site-hero-slider').attr('style','position: relative; top: -86px; margin-bottom: -86px;');
+            $('#hero-slider-scroll-down').attr('style','position: absolute; left: 50%;');
         },
         currentSection_contact: function() {
             $('head title#head-change-section-title').html('CAMCAR Contacto');

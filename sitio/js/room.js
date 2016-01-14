@@ -404,7 +404,7 @@
             viewNavbarMethod.viewNavbar();
             sticky_wrapper_methods.sticky_wrapper();
 
-            //viewHeroSliderMethod.viewHeroSlider();
+            viewHeroSliderMethod.viewHeroSlider();
 
             addAttrNavAgenciesMethod.addAttrNav();
             currentSectionMethod.currentSection_about_us();
