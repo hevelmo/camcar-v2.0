@@ -149,6 +149,10 @@
     margin-left: 50px;
     margin-top: 30px !important;
 }
+.HeroCarousel.inner .carousel .heroItem.center .heroContent {
+    margin-top: -250px !important;
+    margin-left: -13%;
+}
 .HeroCarousel.inner .carousel .heroItem.left .heroContent .heading {
     text-align: left;
 }
@@ -682,5 +686,5 @@ html.no-js .HeroCarousel.inner .carousel .heroItem .heroContent {
     }
 }
 @media screen and (min-width: 1px) and (max-width: 640px) {
-    
+
 }

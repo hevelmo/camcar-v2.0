@@ -272,7 +272,9 @@ function domEl() {
         '_start_flexslider' => $start_flexslider,
         '_start_flexslider_name' => '#' . $start_flexslider,
         'div_recurrent_blog_galery' => '#content-section-blog-galery',
+
         // ABOUT US
+        'div_recurrent_hs_scroll_down' => '#hero-slider-scroll-down',
         '_start_section_hero_slider' => $start_section_hero_slider,
         '_start_section_hero_slider_name' => '#' . $start_section_hero_slider,
         '_start_duplicatable_table' => $start_duplicatable_table,

@@ -48,9 +48,9 @@
         IS_MOBILE = false;
         if( isMobile.any() ){
             IS_MOBILE = true;
-            console.log(IS_MOBILE);
+            //console.log(IS_MOBILE);
         } else {
-            console.log(IS_MOBILE);
+            //console.log(IS_MOBILE);
         }
         return IS_MOBILE;
     };
@@ -549,7 +549,7 @@
 /* ------------------------------------------------------ *\
     [Methods] viewHeroSliderMethod
 \* ------------------------------------------------------ */
-    var viewHeroSliderMethod = {
+    /*var viewHeroSliderMethod = {
         viewHeroSlider: function() {
             viewHeroSliderMethod.recurrentHeroSlider();
             viewHeroSliderMethod.loadTemplatesHeroSlider();
@@ -572,7 +572,7 @@
             ];
             CAM.appendMulti(domEl.hero_slider_recurrent, dataStartHeroSliderAttributes);
         }
-    }
+    }*/
 /* ------------------------------------------------------ *\
     [Methods] heroSliderMobileMethod
 \* ------------------------------------------------------ */
@@ -1079,10 +1079,10 @@
             mediaquery = window.matchMedia("(max-width: 768px)");
             if (mediaquery.matches) {
                 $('.grid li.grid-item:nth-child(odd)').attr('style','');
-                console.log('mediaquery es min 768px');
+                //console.log('mediaquery es min 768px');
             } else {
                 $('.grid li.grid-item:nth-child(odd)').attr('style','margin-left: 16%;');
-                console.log('mediaquery no es min 768px');
+                //console.log('mediaquery no es min 768px');
             }
         },
         recurrentSecionAgenciesTrucks: function() {
@@ -1149,7 +1149,7 @@
 
             url = urlsApi.getAgenciesTrucksByAgencie + agn_url + '/' + agn_id;
             byAgencieTrucks = CAM.getInternalJSON(url);
-            console.log(url);
+            //console.log(url);
 
             campaAgpAgencie = byAgencieTrucks.campa[0].agpagencia;
             campaAgnNombre = byAgencieTrucks.campa[0].agnnombre;
@@ -1446,7 +1446,7 @@
             var agnPreOwnedData;
             agnPreOwnedData = CAM.getInternalJSON(urlsApi.getAgenciesPreOwned);
             CAM.loadTemplate(tempsNames.recurrent_agencies_preowned_start_tabs_agencies, domEl._start_agencies_preowned_section_tabs_name, agnPreOwnedData);
-            console.log(agnPreOwnedData);
+            //console.log(agnPreOwnedData);
             dataStarSiteAgenciesPreownedByAgencieAttributes = [
                 ['div', {'id':domEl._start_agencies_preowned_tab_content_by_agencie, 'class':'tab_content_agencies about-content'}, '', 1]
             ];
@@ -1485,7 +1485,7 @@
 
             agencie = urlsApi.getAgenciesPreOwnedByAgencie + preowned_agn_url + '/' + preowned_agn_id;
             byAgencie = CAM.getInternalJSON(agencie);
-            console.log(agencie);
+            //console.log(agencie);
 
             campaAgnNombre = byAgencie.campa[0].agnnombre;
 
@@ -1497,7 +1497,7 @@
 
             agencie = urlsApi.getAgenciesPreOwnedByAgencie + preowned_agn_url + '/' + preowned_agn_id;
             byAgencie = CAM.getInternalJSON(agencie);
-            console.log(agencie);
+            //console.log(agencie);
 
             CAM.loadTemplate(tempsNames.recurrent_agencies_preowned_start_fachada, domEl._start_agencies_preowned_content_fachada_name, byAgencie);
             CAM.loadTemplate(tempsNames.recurrent_agencies_preowned_start_address, domEl._start_agencies_preowned_content_address_name, byAgencie);
@@ -1794,10 +1794,10 @@
             mediaquery = window.matchMedia("(max-width: 768px)");
             if (mediaquery.matches) {
                 $('.field-filter-resp').attr('style','margin-left: -15px; margin-right: -15px;');
-                console.log('mediaquery es min 768px');
+                //console.log('mediaquery es min 768px');
             } else {
                 $('.field-filter-resp').attr('style','');
-                console.log('mediaquery no es min 768px');
+                //console.log('mediaquery no es min 768px');
             }
         },
         recurrentFilterSection: function() {
@@ -2280,7 +2280,7 @@
             var dataFormContact_byModel;
 
             dataFormContact_byModel = $(domEl.form_recurrent_contact_by_model_pre_owned).serializeFormJSON();
-            console.log(dataFormContact_byModel);
+            //console.log(dataFormContact_byModel);
 
             return CAM.postalService(urlsApi.post_form_contact_main_by_model, dataFormContact_byModel);
         },
@@ -2289,7 +2289,7 @@
             validFieldsItems = [ 'sem_premium_by_model_contact_name', 'sem_premium_by_model_contact_email', 'sem_premium_by_model_contact_phone', 'sem_premium_by_model_contact_message' ];
 
             dataFormContact_byModel = $(domEl.form_recurrent_contact_by_model_pre_owned).serializeFormJSON();
-            console.log(dataFormContact_byModel);
+            //console.log(dataFormContact_byModel);
 
             isFull = CAM.validFormFull(dataFormContact_byModel, validFieldsItems);
             $(domEl.send_contact_by_model_pre_owned).attr('disabled', !isFull);
@@ -2297,7 +2297,7 @@
             isEmpty = CAM.validFormFull(dataFormContact_byModel, validFieldsItems);
             $(domEl.send_contact_by_model_pre_owned).attr('disabled', !isEmpty);
 
-            console.log(dataFormContact_byModel);
+            //console.log(dataFormContact_byModel);
         },
         refreshForm: function(mrcNombre, mdoNombre, senId) {
             var semIdData;
@@ -2306,7 +2306,7 @@
 
             CAM.loadTemplate(tempsNames.recurrent_inventories_preowned_details_formsem_contact_by_model, domEl.div_recurrent_form_contact_by_model, semIdData);
             $(domEl.send_contact_by_model_pre_owned).attr('disabled', true);
-            console.log(tempsNames.recurrent_inventories_preowned_details_formsem_contact_by_model, domEl.div_recurrent_form_contact_by_model);
+            //console.log(tempsNames.recurrent_inventories_preowned_details_formsem_contact_by_model, domEl.div_recurrent_form_contact_by_model);
         },
         resetForm: function() {
             CAM.resetForm(domEl.form_recurrent_contact_by_model_pre_owned);
@@ -2357,7 +2357,7 @@
                 var contact_by_model_pre_owned_promise = contactMethods_sem_premium_by_model.add_formContact_byModel();
 
                 contact_by_model_pre_owned_promise.success(function ( data ) {
-                    console.log(data);
+                    //console.log(data);
                     //ga('send', 'event', 'Contacto', news_srt, departamento, news_val + car_val );
                     setTimeout(function() {
                         //console.log('Espera');
@@ -2375,7 +2375,7 @@
                                         $(domEl.email_from).text(correo);
                                         setTimeout(function () {
                                             $(domEl.form_thanks).fadeIn();
-                                            console.log(correo);
+                                            //console.log(correo);
                                         }, 1800);
                                     });
                                     setTimeout(function () {
@@ -2395,7 +2395,7 @@
                     }, 500);
                 });
                 contact_by_model_pre_owned_promise.error(function ( data ) {
-                    console.log(data);
+                    //console.log(data);
                     setTimeout(function() {
                         //console.log('Espera');
                         setTimeout(function () {
@@ -2605,13 +2605,16 @@
     var viewSectionAboutUsMethod = {
         viewSectionAboutUs: function() {
             viewSectionAboutUsMethod.recurrentSecionAboutUs();
-            viewSectionAboutUsMethod.loadTemplatesUtilityBarBreadcrumb();
+            viewSectionAboutUsMethod.loadTemplatesHeroSlider();
             viewSectionAboutUsMethod.loadTemplatesDuplicatableContent();
             viewSectionAboutUsMethod.loadTemplatesLargePadFeatureList();
             viewSectionAboutUsMethod.loadTemplatesLargePadLandMark();
             //viewSectionAboutUsMethod.loadTemplatesLArgePadFeatureList();
             //viewSectionAboutUsMethod.loadTemplatesLArgePadContactForm();
             //formContactMainMethod.refreshFrom();*
+        },
+        loadTemplatesHeroSlider: function() {
+            CAM.loadTemplate(tempsNames.recurrent_about_us_start_hero_slider, domEl._start_hero_carousel_name);
         },
         loadTemplatesUtilityBarBreadcrumb: function() {
             CAM.loadTemplate(tempsNames.recurrent_about_us_start_utility_bar_breadcrumb, domEl._start_utility_bar_breadcrumb_name);
@@ -2627,7 +2630,7 @@
         },
         recurrentSecionAboutUs: function() {
             dataStarSiteAboutUsAttributes = [
-                ['div', {'id':domEl._start_utility_bar_breadcrumb, 'class':'about-content', 'style':'display: none;'}, '', 1],
+                ['div', {'id':domEl._start_hero_carousel, 'class':'about-content'}, '', 1],
                 ['section', {'id':domEl._start_duplicatable_table, 'class':'duplicatable-content about-content'}, '', 1],
                 ['section', {'id':domEl._start_large_pad_feature_list, 'class':'large-pad feature-lists white-bg about-content', 'style':'padding-top: 50px; padding-bottom: 50px;'}, '', 1],
                 ['section', {'id':domEl._start_large_pad_land_mark, 'class':'large-pad about-content white-bg', 'style':'padding-top: 0px; padding-bottom: 50px;'}, '', 1]
@@ -2725,7 +2728,7 @@
             isEmpty = CAM.validFormFull(dataFormContact, validFieldsItems);
             $(domEl.send_cam_contact_main_send).attr('disabled', !isEmpty);
 
-            console.log(dataFormContact);
+            //console.log(dataFormContact);
         },
         refreshFrom: function() {
             CAM.loadTemplate(tempsNames.recurrent_contact_start_form_contact_main, domEl.div_recurrent_form_contact);
@@ -2769,10 +2772,10 @@
                 }
                 var contact_main_promise = formContactMainMethod.addData_formContactMain();
                 contact_main_promise.success(function ( data ) {
-                    console.log(data);
+                    //console.log(data);
                     //ga('send', 'event', 'Contacto', news_srt, departamento, news_val + car_val );
                     setTimeout(function() {
-                        console.log('Espera');
+                        //console.log('Espera');
                         setTimeout(function () {
                             $('#form-wrapper').fadeOut( 300 , function(){
                                 setTimeout(function () {
@@ -2780,7 +2783,7 @@
                                 }, 300);
                             });
                             setTimeout(function () {
-                                console.log("Correo Enviado...");
+                                //console.log("Correo Enviado...");
                                 setTimeout(function () {
                                     $('#form-wrapper').fadeOut( 300 , function(){
                                         var correo = $('#cam-contact-main-email').val();
@@ -2875,10 +2878,14 @@
     var clikGoMethods = {
         clikGo_home: function(event) {
             $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );
+            ga('send', 'event', 'navigation_bar', 'Menu_Inicio', 'go_index', 'Inicio');
+            //console.log("ga('send', 'event', 'navigation_bar', 'Menu_Inicio', 'go_index', 'Inicio');");
             Finch.navigate('/');
         },
         clikGo_agencies_news: function(event) {
             $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );
+            ga('send', 'event', 'navigation_bar', 'Menu_Agencias_Nuevos', 'go_agencies_news', 'Agencias nuevos');
+            //console.log("ga('send', 'event', 'navigation_bar', 'Menu_Agencias_Nuevos', 'go_agencies_news', 'Agencias nuevos');");
             Finch.navigate('/agencias/nuevos');
         },
         clikGo_agencies_news_principal: function(event) {
@@ -2886,6 +2893,9 @@
             $element = $(this);
             agnPrincipal = $element.data('agp_nombre');
             $('body,html').animate({ scrollTop: "150" }, 999, 'easeOutExpo' );
+
+            ga('send', 'event', 'navigation_bar_and_filters', 'Menu_Agencias_Nuevos_Principal', 'go_agencies_news', 'Agencia: ' + agnPrincipal);
+            //console.log("ga('send', 'event', 'navigation_bar_and_filters', 'Menu_Agencias_Nuevos_Principal', 'go_agencies_news', 'Agencia: '"+ agnPrincipal +"');");
 
             $(domEl.action_new_agn).children('.img-disable').removeClass('active');
             $element.children('.img-disable').addClass('active');
@@ -2903,6 +2913,8 @@
 
             //console.log(agpAgencia, agnNombre, agnUrl, agnId);
             //console.log($element.data());
+            ga('send', 'event', 'grid_item_filter', 'sub_agencies', 'go_agencies_news_sub_agencies', 'Sub Agencia: ' + agnNombre);
+            //console.log("ga('send', 'event', 'grid_item_filter', 'sub_agencies', 'go_agencies_news_sub_agencies', 'Sub Agencia: '"+ agnNombre +"');");
 
             $('body,html').animate({ scrollTop: "200" }, 999, 'easeOutExpo' );
 
@@ -2934,6 +2946,8 @@
 
             //console.log(agpAgencia, agnNombre, agnUrl, agnId);
             //console.log($element.data());
+            ga('send', 'event', 'grid_item_filter', 'sub_agencies', 'go_agencies_trucks_sub_agencies', 'Sub Agencia: ' + agnNombre);
+            //console.log("ga('send', 'event', 'grid_item_filter', 'sub_agencies', 'go_agencies_trucks_sub_agencies', 'Sub Agencia: '"+ agnNombre +"');");
 
             $('body,html').animate({ scrollTop: "200" }, 999, 'easeOutExpo' );
 
@@ -2941,6 +2955,8 @@
         },
         clickGo_agencies_preowned: function(event) {
             $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );
+            ga('send', 'event', 'navigation_bar', 'Menu_Agencias_Seminuevos', 'go_agencies_pre-owned', 'Agencias Seminuevos');
+            //console.log("ga('send', 'event', 'navigation_bar', 'Menu_Agencias_Seminuevos', 'go_agencies_pre-owned', 'Agencias Seminuevos');");
             Finch.navigate('/agencias/seminuevos');
         },
         clickGo_agencies_preowned_by_agencie: function(event) {
@@ -2955,12 +2971,17 @@
             $(domEl.action_preowned_agn).children('.img-disable').removeClass('active');
             $element.children('.img-disable').addClass('active');
 
+            ga('send', 'event', 'grid_item_filter', 'sub_agencies', 'go_agencies_preo_owned_sub_agencies', 'Sub Agencia: ' + agnNombre);
+            //console.log("ga('send', 'event', 'grid_item_filter', 'sub_agencies', 'go_agencies_preo_owned_sub_agencies', 'Sub Agencia: '"+ agnNombre +"');");
+
             //console.log(agnNombre, agnId);
             //console.log($element.data());
             Finch.navigate('/agencias/seminuevos/' + agnUrl + '/' + agnId);
         },
         clickGo_inventories_preowned: function(event){
             $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );
+            ga('send', 'event', 'navigation_bar', 'Menu_Seminuevos_Inventarios', 'go_inventories_preowned', 'Inventarios Seminuevos');
+            //console.log("ga('send', 'event', 'navigation_bar', 'Menu_Seminuevos_Inventarios', 'go_inventories_preowned', 'Inventarios Seminuevos');");
             Finch.navigate('/seminuevos/inventarios');
         },
         clickGo_inventories_preowned_details: function(event) {
@@ -2972,12 +2993,16 @@
             $semId = $element.data('sem-id');
 
             $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );
+            ga('send', 'event', 'result_item', 'inventories_preowned_details', 'go_details_inventories_preowned', 'Modelo: ' +$nameBrand, + $nameModel);
+            //console.log("ga('send', 'event', 'result_item', 'inventories_preowned_details', 'go_details_inventories_preowned', 'Modelo: '"+ $nameBrand, $nameModel +"');");
 
-            console.log($element);
+            //console.log($element);
             Finch.navigate('/seminuevos/inventarios/' + $nameBrand + '/' + $nameModel + '/' + $semId);
         },
         clickGo_workshop: function(event) {
             $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );
+            ga('send', 'event', 'navigation_bar', 'Menu_Talleres', 'go_workshop', 'Talleres');
+            //console.log("ga('send', 'event', 'navigation_bar', 'Menu_Talleres', 'go_workshop', 'Talleres');");
             Finch.navigate('/talleres');
         },
         clickGo_rental: function(event) {
@@ -2992,11 +3017,18 @@
 
             $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );
 
+            ga('send', 'event', 'navigation_bar', 'Menu_Rentas', 'go_rentals', 'Rentas' + $agn_rental_name);
+            //console.log("ga('send', 'event', 'navigation_bar', 'Menu_Rentas', 'go_rentals', 'Rentas'" + $agn_rental_name + "');");
+
             Finch.navigate('/rentas/' + $agn_rental_key);
         },
         clickGo_blog: function(event) {
             $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );
             $('.input-hidden').val('');
+
+            ga('send', 'event', 'navigation_bar', 'Menu_Noticias', 'go_blog', 'Noticias');
+            //console.log("ga('send', 'event', 'navigation_bar', 'Menu_Noticias', 'go_blog', 'Noticias');");
+
             Finch.navigate('/noticias');
         },
         clickGo_blogByNotice: function(event) {
@@ -3010,6 +3042,9 @@
             $setBlog_key = $element.data('new-key');
 
             $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );
+
+            ga('send', 'event', 'grid_item_by_blog', 'blog_by_post', 'go_details_blog', 'Agencia: ' +$setAgencieBlog_name + ', Noticia: ' + $setBlog_name);
+            //console.log("ga('send', 'event', 'grid_item_by_blog', 'blog_by_post', 'go_details_blog', 'Agencia: '"+ $setAgencieBlog_name + "', Noticia: '" + $setBlog_name +"');");
 
             CAM.setValue('#hidden-blog-id', $setBlog_id);
             CAM.setValue('#hidden-agencie-name', $setAgencieBlog_name);
@@ -3031,6 +3066,9 @@
 
             $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );
 
+            ga('send', 'event', 'slider_item_by_blog', 'blog_by_post', 'go_slider_details_blog', 'Agencia: ' +$setAgencieBlog_name + ', Noticia: ' + $setBlog_name);
+            //console.log("ga('send', 'event', 'slider_item_by_blog', 'blog_by_post', 'go_slider_details_blog', 'Agencia: '"+ $setAgencieBlog_name + "', Noticia: '" + $setBlog_name +"');");
+
             CAM.setValue('#hidden-blog-id', $setBlog_id);
             CAM.setValue('#hidden-agencie-name', $setAgencieBlog_name);
             CAM.setValue('#hidden-agencie-key', $setAgencieBlog_key);
@@ -3041,14 +3079,20 @@
         },
         clickGo_about_us: function(event) {
             $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );
+            ga('send', 'event', 'navigation_bar', 'Menu_Nosotros', 'go_about_us', 'Nosotros');
+            //console.log("ga('send', 'event', 'navigation_bar', 'Menu_Nosotros', 'go_about_us', 'Nosotros');");
             Finch.navigate('/nosotros');
         },
         clickGo_contact: function(event) {
             $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );
+            ga('send', 'event', 'navigation_bar', 'Menu_Contacto', 'go_contact', 'Contacto');
+            //console.log("ga('send', 'event', 'navigation_bar', 'Menu_Contacto', 'go_contact', 'Contacto');");
             Finch.navigate('/contacto');
         },
         clickGo_privacy_notice: function(event) {
             $('body,html').animate({ scrollTop: "0" }, 999, 'easeOutExpo' );
+            ga('send', 'event', 'go_privacy_notice', 'Aviso de Privacidad', 'go_privacy_notice', 'Aviso de Privacidad');
+            //console.log("ga('send', 'event', 'go_privacy_notice', 'Aviso de Privacidad', 'go_privacy_notice', 'Aviso de Privacidad');");
             Finch.navigate('/aviso-de-privacidad');
         },
         showAgenciesTabs: function(event) {
@@ -3156,6 +3200,7 @@
             $(domEl._start_duplicatable_table_name).remove();
             $(domEl._start_large_pad_feature_list_name).remove();
             $(domEl._start_large_pad_land_mark_name).remove();
+            //CAM.setHTML('#hero-slider-scroll-down', '');
         },
         removeRecurrents_contact: function() {
             $(domEl._start_large_pad_contact_form_name).remove();
@@ -3221,8 +3266,8 @@
         currentSection_about_us: function() {
             $('head title#head-change-section-title').html('CAMCAR Nosotros');
             $(domEl.goSection_about_us).addClass('current');
-            $('#start-site-hero-slider').attr('style','position: relative; top: -86px; margin-bottom: -86px;');
-            $('#hero-slider-scroll-down').attr('style','position: absolute; left: 50%;');
+            //$('#start-site-hero-slider').attr('style','position: relative; top: -86px; margin-bottom: -86px;');
+            //$('#hero-slider-scroll-down').attr('style','position: absolute; left: 50%;');
         },
         currentSection_contact: function() {
             $('head title#head-change-section-title').html('CAMCAR Contacto');
@@ -3241,8 +3286,8 @@
             $(domEl.goSection_rental).removeClass('current');
             $(domEl.goSection_blog).removeClass('current');
             $(domEl.goSection_about_us).removeClass('current');
-            //CAM.setHTML('#hero-slider-scroll-down', '');
-            //$(domEl.goSection_contact).removeClass('current');
+            CAM.setHTML('#hero-slider-scroll-down', '');
+            $(domEl.goSection_contact).removeClass('current');
         }
     }
 /* ------------------------------------------------------ *\
@@ -3353,7 +3398,7 @@
             agn_latitud = mapData.campa[0].agn_latitud;
             agn_longitud = mapData.campa[0].agn_longitud;
 
-            console.log(mapData, agn_latitud, agn_longitud);
+            //console.log(mapData, agn_latitud, agn_longitud);
 
             var map = new GMap2($("#map").get(0));
             var burnsvilleMN = new GLatLng(agn_latitud, agn_longitud);
@@ -3658,7 +3703,7 @@
                     iwBackground.children(':nth-child(1)').attr('style', function(i,s){ return s + 'left: 76px;'});
                     iwBackground.children(':nth-child(3)').attr('style', function(i,s){ return s + 'left: 76px;'});
                     iwBackground.children(':nth-child(3)').find('div').children().css({'box-shadow': 'rgba(72, 181, 233, 0) 0px 1px 6px', 'z-index' : '1'});
-                    console.log(iwBackground);
+                    //console.log(iwBackground);
                     var iwCloseBtn = iwOuter.next();
                     iwCloseBtn.addClass('closeButton');
                     iwCloseBtn.css({opacity: '1', right: '67px', top: '25px'});

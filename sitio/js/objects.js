@@ -120,6 +120,7 @@ domEl = {
 	"div_recurrent_corousel_vehicles":"#content_carousel_vehicles",
 	"div_recurrent_form_contact":"#container-form-contact",
 	"div_recurrent_form_contact_by_model":"#content_form_contact_by_model",
+	"div_recurrent_hs_scroll_down":"#hero-slider-scroll-down",
 	"div_recurrent_start_fields_filters":"#panel-filters-cateogories",
 	"div_recurrent_start_small_screen_filters":"#small-screen-filters",
 	"div_recurrent_start_views_result_list":"#content-start-views-results-list",
