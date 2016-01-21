@@ -96,6 +96,7 @@ $(document).ready(function() {
     $(domEl.div_recurrent).on('click', domEl.goSection_blog_by_news, clikGoMethods.clickGo_blogByNotice);
     // ABOUT US
     $(domEl.navbar_recurrent).on('click', domEl.goSection_about_us, clikGoMethods.clickGo_about_us);
+    $(domEl.div_recurrent).on('click', '#stop-video', video_strip_methods.stop_video);
     // CONTACT
     $(domEl.navbar_recurrent).on('click', domEl.goSection_contact, clikGoMethods.clickGo_contact);
     // ABOUT US FORM CONTACT MAIN

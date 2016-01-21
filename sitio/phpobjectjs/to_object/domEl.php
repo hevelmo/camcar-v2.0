@@ -1,5 +1,7 @@
 <?php
 function domEl() {
+    // SCROLL DOWN
+    $start_scroll_down = 'hero-slider-scroll-down';
     // NAVBAR
     $start_site_navbar = 'content-start-site-navbar';
     // HOME SECTION
@@ -79,6 +81,9 @@ function domEl() {
     // PRIVACY NOTICE
     $start_article_wrapper = 'content-article-wrapper';
     return array(
+        // SCROLL DOWN
+        'scroll_down' => '#hero-slider-scroll-down',
+
     	'head_recurrent' => 'head',
     	'body_recurrent' => 'body',
         // NAVBAR WRAPPER
@@ -274,7 +279,9 @@ function domEl() {
         'div_recurrent_blog_galery' => '#content-section-blog-galery',
 
         // ABOUT US
-        'div_recurrent_hs_scroll_down' => '#hero-slider-scroll-down',
+        '_start_scroll_down' => $start_scroll_down,
+        '_start_scroll_down_name' => '#' . $start_scroll_down,
+
         '_start_section_hero_slider' => $start_section_hero_slider,
         '_start_section_hero_slider_name' => '#' . $start_section_hero_slider,
         '_start_duplicatable_table' => $start_duplicatable_table,

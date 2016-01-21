@@ -267,7 +267,8 @@
         <a href="#0" class="back-to-top cd-top no-print">top</a>
 
         <!-- MAIN -->
-        <script src="../lib/site/jquery-1.11.2.js"></script>
+        <!--<script src="../lib/site/jquery-1.11.2.js"></script>-->
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
         <!--<script src="../lib/modernizr.js"></script>-->
         <script src="../lib/site/bootstrap.js"></script>
         <!-- CORE -->
@@ -318,14 +319,14 @@
         --> */ ?>
         <!-- PLUGINS -->
         <!-- CORE JS -->
-        <?php /*
 		<script src='js/min/core.min.js'></script>
-        */ ?>
+        <?php /*
 	    <script src='js/objects.js'></script>
 	    <script src='js/method.js'></script>
 	    <script src='js/model.js'></script>
 	    <script src='js/room.js'></script>
 	    <script src='js/main.js'></script>
+        */ ?>
 	</body>
 </html>
 
