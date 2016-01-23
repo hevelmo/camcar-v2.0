@@ -6,14 +6,14 @@
 <html class="no-js" lang="es">
 	<head>
         <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <meta http-equiv='cache-control' content='no-cache' />
-        <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+        <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
         <meta name='viewport' content='width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0' />
 
-		<meta class="temp" name="description" content="Grupo Automotriz, 31 Agencias, 14 Marcas, 13 Ciudades, Seminuevos, Talleres, Contacto, Suscríbete, © Copyright 2015 Camcar, Aviso de Privacidad."/>
-        <meta class="temp" name="copyright"content="© Copyright 2015 Camcar">
-        <meta class="temp" name="robots" content="index, follow">
+		<meta class="temp" name="description" content="Grupo Automotriz, 31 Agencias, 14 Marcas, 13 Ciudades, Seminuevos, Talleres, Contacto, Suscríbete, © Copyright 2015 Camcar, Aviso de Privacidad." />
+        <meta class="temp" name="copyright" content="© Copyright 2015 Camcar" />
+        <meta class="temp" name="robots" content="index, follow" />
         <link class="temp" rel="alternate" hreflang="es-MX" href="http://camcar.mx/sitio" />
 
 		<title id="head-change-section-title">Camcar Grupo Automotriz</title>
@@ -146,11 +146,10 @@
                                                     class="input-newsletter validate-required"
                                                     type="email"
                                                     name="EMAIL"
-                                                    class=""
                                                     id="mce-EMAIL"
                                                     placeholder="Correo Electrónico"
                                                     data-validation-data="required|email">
-                                                <p class="invalid-message" id="error_mensaje">Este campo es obligatorio<span>&nbsp;</span></p>
+                                                <p class="invalid-message" id="error_mensaje_email">Este campo es obligatorio<span>&nbsp;</span></p>
                                             </fieldset>
                                         </div>
                                     </div>
@@ -162,11 +161,10 @@
                                                     class="input-newsletter validate-required"
                                                     type="text"
                                                     name="FNAME"
-                                                    class=""
                                                     id="mce-FNAME"
                                                     placeholder="Nombre(s)"
                                                     data-validation-data="required|name">
-                                                <p class="invalid-message" id="error_mensaje">Este campo es obligatorio<span>&nbsp;</span></p>
+                                                <p class="invalid-message" id="error_mensaje_name">Este campo es obligatorio<span>&nbsp;</span></p>
                                             </fieldset>
                                         </div>
                                     </div>
@@ -178,11 +176,10 @@
                                                     class="input-newsletter validate-required"
                                                     type="text"
                                                     name="LNAME"
-                                                    class=""
                                                     id="mce-LNAME"
                                                     placeholder="Apellido(s)"
                                                     data-validation-data="required|name">
-                                                <p class="invalid-message" id="error_mensaje">Este campo es obligatorio<span>&nbsp;</span></p>
+                                                <p class="invalid-message" id="error_mensaje_lastname">Este campo es obligatorio<span>&nbsp;</span></p>
                                             </fieldset>
                                         </div>
                                     </div>
