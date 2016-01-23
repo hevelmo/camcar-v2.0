@@ -245,12 +245,12 @@
                         <div class="footer-lower">
                             <span>© Copyright 2015 Camcar<span><a id="go-section-privacy-notice" class="cur-hover">Aviso de Privacidad</a></span></span>
                             <ul class="social-links">
-                                <!--<li><a href="https://www.facebook.com/LandroverGDL" target="_blank"><i class="social_facebook"></i></a></li>
+                                <?php /*<!--<li><a href="https://www.facebook.com/LandroverGDL" target="_blank"><i class="social_facebook"></i></a></li>
                                 <li><a href="https://twitter.com/lrcarsgdl" target="_blank"><i class="social_twitter"></i></a></li>
                                 <li><a href="https://www.youtube.com/user/LandRoverMx" target="_blank"><i class="social_youtube"></i></a></li>
                                 <li><a href="http://instagram.com/LandRoverGuadalajara" target="_blank"><i class="social_instagram"></i></a></li>
                                 <ul class="social-links">
-                                <li><a href="https://www.facebook.com/SeminuevosPremiumGDL" target="_blank"><i class="social_facebook"></i></a></li>-->
+                                <li><a href="https://www.facebook.com/SeminuevosPremiumGDL" target="_blank"><i class="social_facebook"></i></a></li>--> */ ?>
                                 <li><div class="log-medigraf" style="margin-top: 10px;"><a href="http://medigraf.com.mx" target="_blank"><div class="medigraf"></div></a></div></li>
                             </ul>
                         </div>
@@ -264,9 +264,10 @@
         <a href="#0" class="back-to-top cd-top no-print">top</a>
 
         <!-- MAIN -->
-        <!--<script src="../lib/site/jquery-1.11.2.js"></script>-->
-        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script src="../lib/site/jquery-1.11.2.js"></script>
+        <?php /*
         <!--<script src="../lib/modernizr.js"></script>-->
+        */ ?>
         <script src="../lib/site/bootstrap.js"></script>
         <!-- CORE -->
         <script src="../lib/jquery.gdb.js"></script>
