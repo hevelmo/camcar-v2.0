@@ -2637,9 +2637,9 @@
                 ['section', {'id':domEl._start_hero_carousel, 'class':'hero-slider large-image fixed-header about-content'}, '', 1],
                 ['div', {'id':domEl._start_scroll_down, 'class':'about-content', 'style':'position: absolute; left: 50%;'}, '', 1],
                 ['section', {'id':domEl._start_duplicatable_table, 'class':'duplicatable-content about-content'}, '', 1],
-                ['section', {'id':domEl._start_large_pad_feature_list, 'class':'action-strip-2 video-strip about-content'}, '', 1],
+                ['section', {'id':domEl._start_large_pad_feature_list, 'class':'action-strip-2 video-strip about-content', 'style':'background: rgb(238, 238, 238);'}, '', 1],
                 //['section', {'id':domEl._start_large_pad_feature_list, 'class':'large-pad feature-lists white-bg about-content', 'style':'padding-top: 50px; padding-bottom: 50px;'}, '', 1],
-                ['section', {'id':domEl._start_large_pad_land_mark, 'class':'large-pad about-content white-bg'}, '', 1]
+                ['section', {'id':domEl._start_large_pad_land_mark, 'class':'large-pad about-content'}, '', 1]
                 //['section', {'id':domEl._start_large_pad_land_mark, 'class':'large-pad about-content white-bg', 'style':'padding-top: 0px; padding-bottom: 50px;'}, '', 1]
             ];
             CAM.appendMulti(domEl.div_recurrent, dataStarSiteAboutUsAttributes);
