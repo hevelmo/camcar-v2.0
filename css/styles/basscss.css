@@ -1,3 +1,29 @@
+.mt-15 {
+  margin-top: 15px;
+}
+.p-15 {
+  padding: 15px;
+}
+.pt-15 {
+  padding-top: 15px;
+}
+.pr-15 {
+  padding-right: 15px;
+}
+.pb-15 {
+  padding-bottom: 15px;
+}
+.pl-15 {
+  padding-left: 15px;
+}
+.ptb-15 {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.plr-15 {
+  padding-left: 15px;
+  padding-right: 15px;
+}
 /* MARGIN & PADDING */
 .m0  { margin:        0 }
 .mt0 { margin-top:    0 }
@@ -337,6 +363,10 @@ button::before,
   color: #030303 !important;
 }
 /* COLOR RED */
+.bg-green-success-camcar {
+  background-color: #08633D !important;
+  color: #fcfbfb !important;
+}
 .bg-red-camcar {
   background-color: #b21117 !important;
   color: #fcfbfb !important;

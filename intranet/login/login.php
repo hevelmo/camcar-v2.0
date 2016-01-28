@@ -74,62 +74,53 @@
 			Breakpoints();
 		</script>
 	</head>
-	<body class="page-login-v3 layout-full">
+	<body class="page-login-v2 layout-full page-dark">
 		<!--[if lt IE 8]>
         	<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     	<![endif]-->
     	<!-- Page -->
-		<div class="page animsition vertical-align text-center" data-animsition-in="fade-in" data-animsition-out="fade-out">
-			<div class="page-content vertical-align-middle">
-                <div class="panel panel-shadow">
-                    <div class="panel-body">
-                        <img class="brand-img brand-img-resp brand-img-login-v3" src="../../img/logos/logo-camcar-hor-black@2x.png" alt="Camcar Grupo Automotriz, ve por más...">
-                        <form method="post" action="#">
-                            <div class="form-group">
-                                <label class="sr-only" for="inputEmail">Usuario</label>
-                                <input type="email" class="form-control camcar-remark-input" id="inputEmail" name="email" placeholder="Usuario">
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="inputPassword">Contraseña</label>
-                                <input type="password" class="form-control camcar-remark-input" id="inputPassword" name="password" placeholder="Contraseña">
-                            </div>
-                            <button type="submit" class="form__submit button button-outline bg-red-camcar white-camcar button-resp col-sm-6 col-md-12" style="padding: 1em; margin: 0 auto;" onclick="formhash(this.form, this.form.password);">
-                                <i class="fa fa-user fa-lg fa-fw"></i> Ingresar
-                            </button>
-                        </form>
-                        <div class="clearfix"></div>
-                        <button type="submit" class="form__submit button button-outline bg-green-success-camcar white-camcar button-resp col-sm-6 col-md-12" style="padding: 1em; margin: 0 auto;" onclick="formhash(this.form, this.form.password);">
-                            <i class="fa fa-user fa-lg fa-fw"></i> Usuario nuevo
-                        </button>
-                        <div class="clearfix"></div>
-                        <p class="ptb-15">
-                            <a class="form__link" href="../../sitio">
-                                <i class="fa fa-chevron-left"></i> Regresar
-                            </a>
-                        </p>
-                        <!--
-                        <p>Still no account? Please go to <a href="register-v3.html">Sign up</a></p>
-                        -->
-                    </div>
-                </div>
-            </div>
-            <footer class="page-copyright page-copyright-inverse">
-                <p>WEBSITE BY amazingSurge</p>
-                <p>© 2015. All RIGHT RESERVED.</p>
-                <div class="social">
-                    <a class="btn btn-icon btn-pure" href="javascript:void(0)">
-                        <i class="icon bd-twitter" aria-hidden="true"></i>
-                    </a>
-                    <a class="btn btn-icon btn-pure" href="javascript:void(0)">
-                        <i class="icon bd-facebook" aria-hidden="true"></i>
-                    </a>
-                    <a class="btn btn-icon btn-pure" href="javascript:void(0)">
-                        <i class="icon bd-google-plus" aria-hidden="true"></i>
-                    </a>
-                </div>
-            </footer>
-        </div>
-        <!-- End Page -->
+		<div class="page animsition" data-animsition-in="fade-in" data-animsition-out="fade-out">
+			<div class="page-content">
+				<div class="page-brand-info">
+					<div class="brand">
+						<img class="brand-img brand-img-resp" src="../../img/logos/logo-camcar-ver-white@2x.png" alt="Camcar Grupo Automotriz, ve por más...">
+					</div>
+				</div>
+				<!-- Page Login Main -->
+				<div class="page-login-main">
+					<div class="brand visible-xs">
+						<img class="brand-img brand-img-visible-xs-resp" src="../../img/logos/logo-camcar-hor-white@2x.png" alt="Camcar Grupo Automotriz, ve por más...">
+					</div>
+					<h3 class="font-size-24">Ingresar</h3>
+					<!-- Form -->
+					<form method="post" action="process_login.php">
+						<div class="form-group">
+							<label class="sr-only" for="inputEmail">Usuario</label>
+							<input type="email" class="form-control camcar-remark-input" id="inputEmail" name="email" placeholder="Usuario">
+						</div>
+						<div class="form-group">
+							<label class="sr-only" for="inputPassword">Contraseña</label>
+							<input type="password" class="form-control camcar-remark-input" id="inputPassword" name="password" placeholder="Contraseña">
+						</div>
+						<div class="form-group text-center  clearfix">
+							<a class="form__link" href="../../sitio">
+								<i class="fa fa-chevron-left"></i> Regresar
+							</a>
+						</div>
+						<button type="submit" class="form__submit button button-outline bg-red-camcar white-camcar button-resp col-sm-6 col-md-12" style="padding: 1em; margin: 0 auto;" onclick="formhash(this.form, this.form.password);">
+							<i class="fa fa-user fa-lg fa-fw"></i> Ingresar
+						</button>
+					</form>
+					<!-- End Form -->
+
+					<footer class="page-copyright">
+						<p>© 2015. CAMCAR.</p>
+					</footer>
+				</div>
+				<!-- End Page Login Main -->
+			</div>
+		</div>
+		<!-- End Page -->
 
 		<!-- MAIN -->
 		<script src="../../lib/jquery.js"></script>
@@ -208,6 +199,5 @@
 		      });
 		    })(document, window, jQuery);
 		</script>
-
 	</body>
 </html>

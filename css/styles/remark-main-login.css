@@ -1,3 +1,15 @@
+/* Login v3 */
+.brand-img-login-v3 {
+  width: 100%;
+}
+.page-login-v3 .panel.panel-shadow {
+  -webkit-box-shadow: 0 0px 5px rgba(0, 0, 0, .15);
+  box-shadow: 0 0px 5px rgba(0, 0, 0, .15);
+}
+/* */
+
+
+
 .camcar-remark-input {
 	border: 1px solid rgba(3, 3, 3, 0.5);
 	border-radius: 0px;
