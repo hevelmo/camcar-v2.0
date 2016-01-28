@@ -1,11 +1,13 @@
 <?php
 
-	include '../../incorporate/db_connect.php';
-    include '../../incorporate/functions.php';
-    sec_session_start();
-    if (login_check($mysqli) == true) {
-        header('Location: ../../intranet/admin');
-    }
+/*
+include '../../incorporate/db_connect.php';
+include '../../incorporate/functions.php';
+sec_session_start();
+if(login_check() == true) {
+	header('Location: ../welcome');
+}
+*/
 
 ?>
 <!DOCTYPE html>
@@ -39,14 +41,14 @@
             var nav = navigator.appName;
 
             if(nav == "Microsoft Internet Explorer"){
-                // Detectamos si nos visitan desde IE
+                //Detectamos si nos visitan desde IE
                 if(nav == "Microsoft Internet Explorer"){
-                    // Convertimos en minusculas la cadena que devuelve userAgent
+                    //Convertimos en minusculas la cadena que devuelve userAgent
                     var ie = navigator.userAgent.toLowerCase();
-                    // Extraemos de la cadena la version de IE
+                    //Extraemos de la cadena la version de IE
                     var version = parseInt(ie.split('msie')[1]);
 
-                    // Dependiendo de la version mostramos un resultado
+                    //Dependiendo de la version mostramos un resultado
                     switch(version){
                         case 6:
                             alert("Estas usando IE 6, es obsoleto. \n Para una visualización optima del sitio, te recomendamos utilizar \n lo más nuevo en navegadores Google Chrome, Mozilla FireFox, Internet Explorer a partir de las versiones v9, v10 y v11 ");
@@ -57,10 +59,12 @@
                         case 8:
                             alert("Estas usando IE 8, es obsoleto \n Para una visualización optima del sitio, te recomendamos utilizar \n lo más nuevo en navegadores Google Chrome, Mozilla FireFox, Internet Explorer a partir de las versiones v9, v10 y v11 ");
                             break;
-                        /*case 9:
+                        /*
+                        case 9:
                             alert("Para una visualización optima del sitio, te recomendamos utilizar \n lo más nuevo en navegadores Google Chrome, Mozilla FireFox, Internet Explorer a partir de las versiones v10 y v11 ");
                             console.log("Estas usando IE 9, mas o menos compatible");
-                            break;*/
+                            break;
+                        */
                         default:
                             console.log("Usas una version compatible");
                             break;
@@ -74,62 +78,59 @@
 			Breakpoints();
 		</script>
 	</head>
-	<body class="page-login-v3 layout-full">
+	<body class="page-login-v2 layout-full page-dark">
 		<!--[if lt IE 8]>
         	<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     	<![endif]-->
     	<!-- Page -->
-		<div class="page animsition vertical-align text-center" data-animsition-in="fade-in" data-animsition-out="fade-out">
-			<div class="page-content vertical-align-middle">
-                <div class="panel panel-shadow">
-                    <div class="panel-body">
-                        <img class="brand-img brand-img-resp brand-img-login-v3" src="../../img/logos/logo-camcar-hor-black@2x.png" alt="Camcar Grupo Automotriz, ve por más...">
-                        <form method="post" action="#">
-                            <div class="form-group">
-                                <label class="sr-only" for="inputEmail">Usuario</label>
-                                <input type="email" class="form-control camcar-remark-input" id="inputEmail" name="email" placeholder="Usuario">
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="inputPassword">Contraseña</label>
-                                <input type="password" class="form-control camcar-remark-input" id="inputPassword" name="password" placeholder="Contraseña">
-                            </div>
-                            <button type="submit" class="form__submit button button-outline bg-red-camcar white-camcar button-resp col-sm-6 col-md-12" style="padding: 1em; margin: 0 auto;" onclick="formhash(this.form, this.form.password);">
-                                <i class="fa fa-user fa-lg fa-fw"></i> Ingresar
-                            </button>
-                        </form>
-                        <div class="clearfix"></div>
-                        <a id="go-new-user" href="../new/" class="form__submit button button-outline bg-green-success-camcar white-camcar button-resp col-sm-6 col-md-12" style="padding: 1em; margin: 0 auto;">
-                            <i class="fa fa-user fa-lg fa-fw"></i> Usuario nuevo
-                        </a>
-                        <div class="clearfix"></div>
-                        <p class="ptb-15">
-                            <a class="form__link" href="../../sitio">
-                                <i class="fa fa-chevron-left"></i> Regresar
-                            </a>
-                        </p>
-                        <!--
-                        <p>Still no account? Please go to <a href="register-v3.html">Sign up</a></p>
-                        -->
-                    </div>
-                </div>
-            </div>
-            <footer class="page-copyright page-copyright-inverse">
-                <p>WEBSITE BY amazingSurge</p>
-                <p>© 2015. All RIGHT RESERVED.</p>
-                <div class="social">
-                    <a class="btn btn-icon btn-pure" href="javascript:void(0)">
-                        <i class="icon bd-twitter" aria-hidden="true"></i>
-                    </a>
-                    <a class="btn btn-icon btn-pure" href="javascript:void(0)">
-                        <i class="icon bd-facebook" aria-hidden="true"></i>
-                    </a>
-                    <a class="btn btn-icon btn-pure" href="javascript:void(0)">
-                        <i class="icon bd-google-plus" aria-hidden="true"></i>
-                    </a>
-                </div>
-            </footer>
-        </div>
-        <!-- End Page -->
+		<div class="page animsition" data-animsition-in="fade-in" data-animsition-out="fade-out">
+			<div class="page-content">
+				<div class="page-brand-info">
+					<div class="brand">
+						<img class="brand-img brand-img-resp" src="../../img/logos/logo-camcar-ver-white@2x.png" alt="Camcar Grupo Automotriz, ve por más...">
+					</div>
+				</div>
+				<!-- Page Password Main -->
+				<div class="page-login-main">
+					<div class="brand visible-xs">
+						<img class="brand-img brand-img-visible-xs-resp" src="../../img/logos/logo-camcar-hor-white@2x.png" alt="Camcar Grupo Automotriz, ve por más...">
+					</div>
+					<h3 class="font-size-24">Ingresar</h3>
+					<!-- Form -->
+					<!--
+					<form method="post" action="process_password.php">
+					-->
+					<form method="post" action="#">
+						<div class="form-group">
+							<label class="sr-only" for="inputPassword">Contraseña Nueva</label>
+							<input type="password" class="form-control camcar-remark-input" id="inputPasswordNew" name="password_new" placeholder="Contraseña Nueva">
+						</div>
+						<div class="form-group">
+							<label class="sr-only" for="inputPassword">Confirmar Contraseña</label>
+							<input type="password" class="form-control camcar-remark-input" id="inputPasswordNewConfirm" name="password_confirm" placeholder="Confirmar Contraseña">
+						</div>
+						<div class="form-group text-center  clearfix">
+							<a class="form__link" href="../sitio">
+								<i class="fa fa-chevron-left"></i> Regresar
+							</a>
+						</div>
+						<!--
+						<button type="submit" class="form__submit button button-outline bg-red-camcar white-camcar button-resp col-sm-6 col-md-12" style="padding: 1em; margin: 0 auto;" onclick="formhash(this.form, this.form.password);">
+						-->
+						<button type="submit" class="form__submit button button-outline bg-red-camcar white-camcar button-resp col-sm-6 col-md-12" style="padding: 1em; margin: 0 auto;">
+							<i class="fa fa-user fa-lg fa-fw"></i> Aceptar
+						</button>
+					</form>
+					<!-- End Form -->
+
+					<footer class="page-copyright">
+						<p>© 2015. CAMCAR.</p>
+					</footer>
+				</div>
+				<!-- End Page Password Main -->
+			</div>
+		</div>
+		<!-- End Page -->
 
 		<!-- MAIN -->
 		<script src="../../lib/jquery.js"></script>
@@ -162,7 +163,7 @@
 		<script src="../../lib/assets/plugins/screenfull/screenfull.js"></script>
 		<script src="../../lib/assets/plugins/slidepanel/jquery-slidePanel.js"></script>
 
-		<!--Plugins For This Page Login -->
+		<!--Plugins For This Page Password -->
 		<script src="../../lib/assets/plugins/jquery-placeholder/jquery.placeholder.js"></script>
 
 		<!--SCRIPTS -->
@@ -182,21 +183,8 @@
 		<script src="../../lib/assets/run/components/slidepanel.js"></script>
 		<script src="../../lib/assets/run/components/switchery.js"></script>
 
-		<!--Scripts For This Page Login -->
+		<!-- Scripts For This Page Password -->
 		<script src="../../lib/assets/run/components/jquery-placeholder.js"></script>
-
-
-		<?php /*
-		<!-- TEMPLATES -->
-		<script src='templates/min/templates.min.js'></script>
-		<!-- CORE JS -->
-		<script src='js/min/core.min.js'></script>
-	    <script src='js/objects.js'></script>
-	    <script src='js/method.js'></script>
-	    <script src='js/model.js'></script>
-	    <script src='js/room.js'></script>
-	    <script src='js/main.js'></script>
-		*/ ?>
 
 		<script>
 		    (function(document, window, $) {
