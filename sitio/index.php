@@ -31,7 +31,7 @@
             <script src="../../lib/assets/plugins/media-match/media.match.min.js"></script>
             <script src="../../lib/assets/plugins/respond/respond.min.js"></script>
         <![endif]-->
-
+        <?php /*
         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -41,6 +41,7 @@
             ga('create', 'UA-60582942-1', 'auto');
             ga('send', 'pageview');
         </script>
+        */ ?>
 
         <script>
             var nav = navigator.appName;

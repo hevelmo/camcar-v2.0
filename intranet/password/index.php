@@ -103,6 +103,12 @@
                                 <i class="fa fa-user fa-lg fa-fw"></i> Aceptar
                             </button>
                         </form>
+                        <div class="clearfix"></div>
+                        <p class="ptb-15">
+                            <a class="form__link" href="../new/">
+                                <i class="fa fa-chevron-left"></i> Regresar
+                            </a>
+                        </p>
                         <!--
                         <p>Still no account? Please go to <a href="register-v3.html">Sign up</a></p>
                         -->

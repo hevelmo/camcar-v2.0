@@ -140,10 +140,22 @@
                                 <input type="email" class="form-control camcar-remark-input" id="inputEmail" name="email" placeholder="Correo Electrónico">
                             </div>
                             <!--<button type="submit" class="form__submit button button-outline bg-red-camcar white-camcar button-resp col-sm-6 col-md-12" style="padding: 1em; margin: 0 auto;" onclick="formhash(this.form, this.form.password);">-->
-                            <button type="submit" class="form__submit button button-outline bg-red-camcar white-camcar button-resp col-sm-6 col-md-12" style="padding: 1em; margin: 0 auto;">
+                            <!--<button type="submit" class="form__submit button button-outline bg-red-camcar white-camcar button-resp col-sm-6 col-md-12" style="padding: 1em; margin: 0 auto;">
                                 <i class="fa fa-user fa-lg fa-fw"></i> Enviar
-                            </button>
+                            </button>-->
+                            <a href="../password/" class="form__submit button button-outline bg-red-camcar white-camcar button-resp col-sm-6 col-md-12" style="padding: 1em; margin: 0 auto;">
+                                <i class="fa fa-user fa-lg fa-fw"></i> Enviar
+                            </a>
                         </form>
+                        <div class="clearfix"></div>
+                        <p class="ptb-15">
+                            <a class="form__link" href="../login/">
+                                <i class="fa fa-chevron-left"></i> Regresar
+                            </a>
+                        </p>
+                        <!--
+                        <p>Still no account? Please go to <a href="register-v3.html">Sign up</a></p>
+                        -->
                     </div>
                 </div>
             </div>
