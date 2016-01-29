@@ -84,7 +84,12 @@
                 <div class="panel panel-shadow">
                     <div class="panel-body">
                         <img class="brand-img brand-img-resp brand-img-login-v3" src="../../img/logos/logo-camcar-hor-black@2x.png" alt="Camcar Grupo Automotriz, ve por más...">
-                        <form method="post" action="#">
+                        <div class="welcome">
+                            <strong style="font-size: 18px;">Bienvenido</strong>
+                            <p class="pt-5 pb-0 m-0">Marina Reyes</p>
+                            <p class="pt-5 pb-0 m-0">Ingresa la que será tu contraseña</p>
+                        </div>
+                        <form method="post" action="#" class="mt-10">
                             <div class="form-group">
                                 <label class="sr-only" for="inputPassword">Contraseña Nueva</label>
                                 <input type="password" class="form-control camcar-remark-input" id="inputPasswordNew" name="password_new" placeholder="Contraseña Nueva">
