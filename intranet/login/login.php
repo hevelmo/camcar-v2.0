@@ -1,11 +1,13 @@
 <?php
 
-	include '../../incorporate/db_connect.php';
-    include '../../incorporate/functions.php';
-    sec_session_start();
-    if (login_check($mysqli) == true) {
-        header('Location: ../../intranet/admin');
-    }
+include '../../incorporate/db_connect.php';
+include '../../incorporate/functions.php';
+
+sec_session_start();
+
+if(login_check() == true) {
+	header('Location: ../welcome');
+}
 
 ?>
 <!DOCTYPE html>
@@ -39,14 +41,14 @@
             var nav = navigator.appName;
 
             if(nav == "Microsoft Internet Explorer"){
-                // Detectamos si nos visitan desde IE
+                //Detectamos si nos visitan desde IE
                 if(nav == "Microsoft Internet Explorer"){
-                    // Convertimos en minusculas la cadena que devuelve userAgent
+                    //Convertimos en minusculas la cadena que devuelve userAgent
                     var ie = navigator.userAgent.toLowerCase();
-                    // Extraemos de la cadena la version de IE
+                    //Extraemos de la cadena la version de IE
                     var version = parseInt(ie.split('msie')[1]);
 
-                    // Dependiendo de la version mostramos un resultado
+                    //Dependiendo de la version mostramos un resultado
                     switch(version){
                         case 6:
                             alert("Estas usando IE 6, es obsoleto. \n Para una visualización optima del sitio, te recomendamos utilizar \n lo más nuevo en navegadores Google Chrome, Mozilla FireFox, Internet Explorer a partir de las versiones v9, v10 y v11 ");
@@ -57,10 +59,12 @@
                         case 8:
                             alert("Estas usando IE 8, es obsoleto \n Para una visualización optima del sitio, te recomendamos utilizar \n lo más nuevo en navegadores Google Chrome, Mozilla FireFox, Internet Explorer a partir de las versiones v9, v10 y v11 ");
                             break;
-                        /*case 9:
+                        /*
+                        case 9:
                             alert("Para una visualización optima del sitio, te recomendamos utilizar \n lo más nuevo en navegadores Google Chrome, Mozilla FireFox, Internet Explorer a partir de las versiones v10 y v11 ");
                             console.log("Estas usando IE 9, mas o menos compatible");
-                            break;*/
+                            break;
+                        */
                         default:
                             console.log("Usas una version compatible");
                             break;
@@ -103,7 +107,7 @@
 							<input type="password" class="form-control camcar-remark-input" id="inputPassword" name="password" placeholder="Contraseña">
 						</div>
 						<div class="form-group text-center  clearfix">
-							<a class="form__link" href="../../sitio">
+							<a class="form__link" href="../sitio">
 								<i class="fa fa-chevron-left"></i> Regresar
 							</a>
 						</div>
@@ -176,19 +180,6 @@
 		<!--Scripts For This Page Login -->
 		<script src="../../lib/assets/run/components/jquery-placeholder.js"></script>
 
-
-		<?php /*
-		<!-- TEMPLATES -->
-		<script src='templates/min/templates.min.js'></script>
-		<!-- CORE JS -->
-		<script src='js/min/core.min.js'></script>
-	    <script src='js/objects.js'></script>
-	    <script src='js/method.js'></script>
-	    <script src='js/model.js'></script>
-	    <script src='js/room.js'></script>
-	    <script src='js/main.js'></script>
-		*/ ?>
-
 		<script>
 		    (function(document, window, $) {
 		      'use strict';
@@ -199,5 +190,6 @@
 		      });
 		    })(document, window, jQuery);
 		</script>
+
 	</body>
 </html>
