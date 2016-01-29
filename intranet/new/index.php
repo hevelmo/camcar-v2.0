@@ -107,7 +107,7 @@
                                             </num>
                                         </div>
                                         <div class="carbon-description">
-                                            Te llegará una notificación a tu correo con un enlace para ingresar tu nueva contraseña.
+                                            Te llegará una notificación a tu correo con un enlace para ingresar tu contraseña de acceso.
                                         </div>
                                     </div>
                                     <div class="block-detail ptb-10 plr-10">
