@@ -6,6 +6,15 @@
   -webkit-box-shadow: 0 0px 5px rgba(0, 0, 0, .15);
   box-shadow: 0 0px 5px rgba(0, 0, 0, .15);
 }
+.page-copyright.login {
+    margin-top: -100px;
+}
+.page-copyright.new {
+  margin-top: -200px
+}
+.page-copyright.recovery {
+ margin-top: -200px
+}
 /* */
 
 
@@ -14,12 +23,40 @@
 -------------------------------- */
 #carbonads-container,
 #ui8ads-container {
-  position: fixed;
+  position: relative;
   top: 40px;
-  left: 5%;
+  /* left: 5%; */
   width: 30%;
   display: none;
   z-index: 100;
+  margin: 40px auto -15%;
+}
+@media (max-width: 1366px) {
+  #carbonads-container,
+  #ui8ads-container {
+    position: relative;
+    top: 0;
+    /* left: 3%; */
+    width: 40%;
+    z-index: 100;
+    margin: 40px auto -20%;
+  }
+}
+@media only screen and (min-width: 1100px) {
+  #carbonads-container,
+  #ui8ads-container {
+    margin: 40px auto -10%;
+  }
+}
+@media (max-width: 1024px) {
+  #carbonads-container,
+  #ui8ads-container {
+    display: block;
+    width: 45%;
+    /* left: 17%; */
+    position: relative;
+    margin-bottom: -15%;
+  }
 }
 @media (max-width: 767px) {
   #carbonads-container,
@@ -36,13 +73,25 @@
 @media (min-width: 768px) and (max-width: 991px) {
   #carbonads-container,
   #ui8ads-container {
-    position: relative;
+    /* position: relative; */
     top: 0;
-    left: 0;
-    width: 100%;
+    /* left: 15%; */
+    width: 70%;
     display: block;
     margin-bottom: -35%;
     z-index: 100;
+  }
+}
+@media (max-width: 640px) {
+  #carbonads-container,
+  #ui8ads-container {
+    width: 70%;
+  }
+}
+@media (max-width: 480px) {
+  #carbonads-container,
+  #ui8ads-container {
+    width: 95%;
   }
 }
 @media only screen and (max-width : 414px) {
@@ -226,7 +275,23 @@
   width: 85%;
   word-wrap: break-word;
 }
-@media only screen and (max-width : 414px) {
+@media (max-width: 1366px) {
+  #carbonads-container .carbonad .carbon-wrap-body div .block-detail .carbon-description,
+  #carbonads-container .ui8ad .carbon-wrap-body div .block-detail .carbon-description,
+  #ui8ads-container .carbonad .carbon-wrap-body div .block-detail .carbon-description,
+  #ui8ads-container .ui8ad .carbon-wrap-body div .block-detail .carbon-description {
+    width: 82%;
+  }
+}
+@media only screen and (min-width: 1100px) {
+  #carbonads-container .carbonad .carbon-wrap-body div .block-detail .carbon-description,
+  #carbonads-container .ui8ad .carbon-wrap-body div .block-detail .carbon-description,
+  #ui8ads-container .carbonad .carbon-wrap-body div .block-detail .carbon-description,
+  #ui8ads-container .ui8ad .carbon-wrap-body div .block-detail .carbon-description {
+    width: 80%;
+  }
+}
+@media (max-width: 1024px) {
 }
 @media (max-width: 767px) {
   #carbonads-container .carbonad .carbon-wrap-body div .block-detail .carbon-description,
@@ -243,6 +308,16 @@
   #ui8ads-container .ui8ad .carbon-wrap-body div .block-detail .carbon-description {
     width: 82%;
   }
+}
+@media (max-width: 480px) {
+  #carbonads-container .carbonad .carbon-wrap-body div .block-detail .carbon-description,
+  #carbonads-container .ui8ad .carbon-wrap-body div .block-detail .carbon-description,
+  #ui8ads-container .carbonad .carbon-wrap-body div .block-detail .carbon-description,
+  #ui8ads-container .ui8ad .carbon-wrap-body div .block-detail .carbon-description {
+    width: 80%;
+  }
+}
+@media only screen and (max-width : 414px) {
 }
 @media (max-width: 400px) {
   #carbonads-container .carbonad .carbon-wrap-body div .block-detail .carbon-description,

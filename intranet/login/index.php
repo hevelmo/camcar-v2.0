@@ -113,20 +113,8 @@
                     </div>
                 </div>
             </div>
-            <footer class="page-copyright page-copyright-inverse">
-                <p>WEBSITE BY amazingSurge</p>
-                <p>© 2015. All RIGHT RESERVED.</p>
-                <div class="social">
-                    <a class="btn btn-icon btn-pure" href="javascript:void(0)">
-                        <i class="icon bd-twitter" aria-hidden="true"></i>
-                    </a>
-                    <a class="btn btn-icon btn-pure" href="javascript:void(0)">
-                        <i class="icon bd-facebook" aria-hidden="true"></i>
-                    </a>
-                    <a class="btn btn-icon btn-pure" href="javascript:void(0)">
-                        <i class="icon bd-google-plus" aria-hidden="true"></i>
-                    </a>
-                </div>
+            <footer class="page-copyright login">
+                <p>© 2016. CAMCAR GRUPO AUTOMOTRIZ.</p>
             </footer>
         </div>
         <!-- End Page -->

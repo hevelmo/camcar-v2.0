@@ -134,9 +134,6 @@
                 <div class="panel panel-shadow">
                     <div class="panel-body">
                         <img class="brand-img brand-img-resp brand-img-login-v3" src="../../img/logos/logo-camcar-hor-black@2x.png" alt="Camcar Grupo Automotriz, ve por más...">
-                        <div class="details-activate-login">
-                            <label class="mt-15">¿Cómo activar mi usuario?</label>
-                        </div>
                         <form method="post" action="#" class="mtb-15">
                             <div class="form-group">
                                 <label class="sr-only" for="inputEmail">Correo Electrónico</label>
@@ -150,8 +147,8 @@
                     </div>
                 </div>
             </div>
-            <footer class="page-copyright page-copyright-inverse">
-                <p>© 2016. GRUPO AUTOMOTRIZ CAMCAR.</p>
+            <footer class="page-copyright new">
+                <p>© 2016. CAMCAR GRUPO AUTOMOTRIZ.</p>
             </footer>
         </div>
         <!-- End Page -->
