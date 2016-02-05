@@ -21,8 +21,10 @@
         <link href="http://fonts.googleapis.com/css?family=Roboto:100,400,300,700,400italic,500%7CMontserrat:400,700" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="../css/import-sitio.css">
 
-        <?php /*<!--<link rel="apple-touch-icon" href="../img/ico/apple-touch-icon.png">
-        <link rel="shortcut icon" href="../img/ico/camcaricon.ico">-->*/ ?>
+        <?php /*
+        <!--<link rel="apple-touch-icon" href="../img/ico/apple-touch-icon.png">
+        <link rel="shortcut icon" href="../img/ico/camcaricon.ico">-->
+        */ ?>
 
         <!--[if lt IE 9]>
             <script src="../../lib/assets/plugins/html5shiv/html5shiv.min.js"></script>
@@ -31,7 +33,6 @@
             <script src="../../lib/assets/plugins/media-match/media.match.min.js"></script>
             <script src="../../lib/assets/plugins/respond/respond.min.js"></script>
         <![endif]-->
-        <?php /*
         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -41,7 +42,6 @@
             ga('create', 'UA-60582942-1', 'auto');
             ga('send', 'pageview');
         </script>
-        */ ?>
 
         <script>
             var nav = navigator.appName;
