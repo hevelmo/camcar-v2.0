@@ -1,0 +1,167 @@
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1 col-sm-12">
+                <div class="col-md-12 col-sm-12 text-center">
+                    <h1 class="h-landmark">
+                        <span>¡Estamos buscando un talento como tú!</span>
+                    </h1>
+                </div>
+            </div>
+        </div><!--end of row-->
+        <div class="row contact_main">
+
+            <div class="col-md-6 col-sm-12 contact_content">
+                <div id="form-wrapper">
+                    <form class="email-form-job-board" id="form_job_board" enctype="multipart/form-data">
+                        <div class="contact_elements">
+                            <div class="contact_element a">
+                                <fieldset>
+                                    <input class="input-standard input-standard-job-board validate-required" type="text"
+                                        name="job_board_first_name"
+                                        id="job_board_first_name"
+                                        placeholder="Nombre"
+                                        data-validation-data="required|name">
+                                    <p class="invalid-message" id="error_nombre">Este campo es obligatorio<span>&nbsp;</span></p>
+                                </fieldset>
+                            </div>
+                            <div class="contact_element b">
+                                <fieldset>
+                                    <input class="input-standard input-standard-job-board validate-required" type="text"
+                                        name="job_board_last_name"
+                                        id="job_board_last_name"
+                                        placeholder="Apellidos"
+                                        data-validation-data="required|name">
+                                    <p class="invalid-message" id="error_nombre">Este campo es obligatorio<span>&nbsp;</span></p>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="contact_elements">
+                            <div class="contact_element a">
+                                <fieldset>
+                                    <input class="input-standard input-standard-job-board validate-required validate-email" type="text"
+                                        name="job_board_email"
+                                        id="job_board_email"
+                                        placeholder="Correo"
+                                        data-validation-data="required|email">
+                                    <p class="invalid-message" id="error_correo">Este campo es obligatorio<span>&nbsp;</span></p>
+                                </fieldset>
+                            </div>
+                            <div class="contact_element b">
+                                <fieldset>
+                                    <input class="input-standard input-standard-job-board validate-required validate-email" type="text"
+                                        name="job_board_phone"
+                                        id="job_board_phone"
+                                        placeholder="Teléfono"
+                                        maxlength="10"
+                                        data-validation-data="required|phone">
+                                    <p class="invalid-message" id="error_phone">Este campo es obligatorio<span>&nbsp;</span></p>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="contact_elements">
+                            <div class="contact_element ab">
+                                <fieldset>
+                                    <select
+                                        name="job_board_interest_area"
+                                        id="job_board_interest_area"
+                                        class="selectpicker btn-default form-control sel-job-board-interest-area validate-required"
+                                        data-validation-data="required">
+                                            <option value='' class="" id="">Área de Interés</option>
+                                            <option value='mercadotecnia' class="" id="">Mercadotecnia</option>
+                                            <option value='ventas' class="" id="">Ventas</option>
+                                            <option value='administrativo' class="" id="">Administrativo</option>
+                                            <option value='seminuevos' class="" id="">Seminuevos</option>
+                                            <option value='taller' class="" id="">Taller</option>
+                                            <option value='otros' class="" id="">Otros</option>
+                                    </select>
+                                    <p class="invalid-message" id="error_select_area">Este campo es obligatorio<span>&nbsp;</span></p>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="contact_elements">
+                            <div class="contact_element ab">
+                                <fieldset class="custom-file-upload" id="content_custom_file_upluad"></fieldset>
+                            </div>
+                        </div>
+                        <div class="contact_elements">
+                            <div class="contact_element ab">
+                                <fieldset>
+                                    <textarea class="input-standard input-standard-job-board validate-required"
+                                        name="job_board_message"
+                                        id="job_board_message"
+                                        placeholder="Comentarios" rows="4"
+                                        data-validation-data="required|address"></textarea>
+                                    <p class="invalid-message" id="error_mensaje">Este campo es obligatorio<span>&nbsp;</span></p>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <input type="hidden"
+                            name="job_board_concessionary"
+                            id="job_board_concessionary"
+                            value="CAMCAR">
+                        <input type="hidden"
+                            name="job_board_logo"
+                            id="job_board_logo"
+                            value="camcar.png">
+
+                    </form>
+                    <div class="linkContainer ctaContainer text-right">
+                        <button type="button" name="job_board_send" style="font-size: 1.3em;" class="submit_contact" id="job_board_send">Enviar</button>
+                    </div>
+                </div>
+                <div class="form-thanks" style="display: none;">
+                    <p class="agradecimiento_titulo">Mensaje enviado</p>
+                    <hr>
+                    <p class="agradecimiento_titulo2">En breve responderemos tu mensaje al siguiente correo:<br /><span id="email-from">-</span></p>
+                </div>
+                <div class="form-error" style="display: none;">
+                    <p class="agradecimiento_titulo">Hubo un error</p>
+                    <hr>
+                    <p class="agradecimiento_titulo2">Intentalo nuevamente<br /><span id="email-from">-</span></p>
+                </div>
+                <div class="form-loader" style="display: none;">
+                    <div class="loader">
+                        <div class="loader-wrap">
+                            <div class="loader-item"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-1 col-sm-6"></div>
+
+            <div class="col-md-5 col-sm-6">
+                <div class="contact-method">
+                    <i class="icon pe-7s-clock"></i>
+                    <span>
+                        <b>HORARIOS DE LUNES A VIERNES</b> <br>
+                        DE 9:00 A 2:00 P.M. Y DE 4:00 A 7:00 P.M. <br>
+                        Y <b>SÁBADOS</b> DE 9:00 A 2:00 P.M.
+                    </span>
+                </div>
+
+                <div class="contact-method">
+                    <i class="icon pe-7s-phone"></i>
+                    <span>
+                        <b>TELÉFONO DIRECTO: </b> 3818 7569 <br>
+                        <b>CONMUTADOR: </b> 38187500 <b>EXT.</b> 1317 <br>
+                        <b>CELULAR: </b> 331895 5463
+                    </span>
+                </div>
+
+                <div class="contact-method">
+                    <i class="icon pe-7s-mail"></i>
+                    <span>
+                        <a href="mailto:marina.reyes@camcar.mx?subject=feedback" "Contactanos">MARINA.REYES@CAMCAR.MX</a>
+                    </span>
+                </div>
+
+            </div>
+
+
+            {{!--<div class="col-md-5 col-sm-6 col-md-offset-1">
+                <img class="x-img x-img-none none contact-image" src="../resources/public/img/contacto/contacto.png">
+            </div>--}}
+
+        </div><!--end of row-->
+    </div><!--end of container-->

@@ -17,6 +17,12 @@
 		@import url(styles/assets/main/bootstrap-theme.css);
 		@import url(styles/assets/main/bootstrap-extend.css);
 	/* ------------------------------------------------------ *\
+		[styles] alertify
+	\* ------------------------------------------------------ */
+		@import url(sitio/styles/alertify.boostrap-dist.css);
+		@import url(sitio/styles/alertify.boostrap.css);
+		@import url(sitio/styles/alertify.core.css);
+	/* ------------------------------------------------------ *\
 		[styles] remark webfont
 	\* ------------------------------------------------------ */
 		@import url(webfonts/ionicons/ionicons.css);
@@ -28,6 +34,7 @@
 		@import url(webfonts/avenir/avenir.css);
 		@import url(webfonts/elegant-icons/elegant-icons.css);
 		@import url(webfonts/font-flexslider.css);
+		@import url(webfonts/type-file/type-file.css);
 	/* ------------------------------------------------------ *\
 		[styles] remark fonts.googleApis
 	\* ------------------------------------------------------ */
@@ -74,6 +81,7 @@
 		@import url(sitio/owl-carousel/owl.carousel.css);
 		@import url(sitio/owl-carousel/owl.theme.css);
 		@import url(sitio/owl-carousel/owl.transitions.css);
+		@import url(sitio/styles/fileupload.css);
 /* ################################################################################################### *\
 	END CONTENT
 \* ################################################################################################### */

@@ -2610,9 +2610,7 @@
             viewSectionAboutUsMethod.loadTemplatesDuplicatableContent();
             viewSectionAboutUsMethod.loadTemplatesLargePadFeatureList();
             viewSectionAboutUsMethod.loadTemplatesLargePadLandMark();
-            //viewSectionAboutUsMethod.loadTemplatesLArgePadFeatureList();
-            //viewSectionAboutUsMethod.loadTemplatesLArgePadContactForm();
-            //formContactMainMethod.refreshFrom();*
+            viewSectionAboutUsMethod.loadTemplatesLargePadJobOpportinuties();
         },
         loadTemplatesHeroSlider: function() {
             CAM.loadTemplate(tempsNames.recurrent_about_us_start_hero_slider, domEl._start_hero_carousel_name);
@@ -2632,21 +2630,182 @@
         loadTemplatesLargePadLandMark: function() {
             CAM.loadTemplate(tempsNames.recurrent_about_us_start_large_pad, domEl._start_large_pad_land_mark_name);
         },
+        loadTemplatesLargePadJobOpportinuties: function() {
+            CAM.loadTemplate(tempsNames.recurrent_about_us_start_jop_opportunities, domEl._start_large_pad_job_opportunities_name);
+            uploadFileMethod.fileLoader();
+        },
         recurrentSecionAboutUs: function() {
             dataStarSiteAboutUsAttributes = [
                 ['section', {'id':domEl._start_hero_carousel, 'class':'hero-slider large-image fixed-header about-content'}, '', 1],
-                ['div', {'id':domEl._start_scroll_down, 'class':'about-content', 'style':'position: absolute; left: 50%;'}, '', 1],
+                ['div', {'id':domEl._start_scroll_down, 'class':'about-content', 'style':'position: absolute; left: 45%; right: 45%; width: 4.2%;'}, '', 1],
                 ['section', {'id':domEl._start_duplicatable_table, 'class':'duplicatable-content about-content'}, '', 1],
                 ['section', {'id':domEl._start_large_pad_feature_list, 'class':'action-strip-2 video-strip about-content', 'style':'background: rgb(238, 238, 238);'}, '', 1],
-                //['section', {'id':domEl._start_large_pad_feature_list, 'class':'large-pad feature-lists white-bg about-content', 'style':'padding-top: 50px; padding-bottom: 50px;'}, '', 1],
-                ['section', {'id':domEl._start_large_pad_land_mark, 'class':'large-pad about-content'}, '', 1]
-                //['section', {'id':domEl._start_large_pad_land_mark, 'class':'large-pad about-content white-bg', 'style':'padding-top: 0px; padding-bottom: 50px;'}, '', 1]
+                ['section', {'id':domEl._start_large_pad_land_mark, 'class':'large-pad about-content'}, '', 1],
+                ['section', {'id':domEl._start_large_pad_job_opportunities, 'class':'large-pad text-hero-2 about-content', 'style':'background: rgb(238, 238, 238);'}, '', 1]
             ];
             CAM.appendMulti(domEl.div_recurrent, dataStarSiteAboutUsAttributes);
         }
     }
-    /*
-    */
+/* ------------------------------------------------------ *\
+    [Methods] CUSTOM FILE
+\* ------------------------------------------------------ */
+    $.fn.customFile = function() {
+        return this.each(function() {
+            var $file = $(this).addClass('custom-file-upload-hidden'), // the original file input
+                $wrap = $('<div class="file-upload-wrapper">'),
+                $input = $('<input type="text" class="file-upload-input validate-required" placeholder="Ningún archivo seleccionado..." id="job_board_upload_file_input" name="job_board_upload_file_input" data-validation-data="required|upload" />'),
+                // Button that will be used in non-IE browsers
+                $button = $('<button type="button" class="file-upload-button" id="job_board_upload_file_button" name="job_board_upload_file_button"><i class="fa fa-cloud-upload fa-lg fa-fw" style="padding-right: 35px;"></i> Cargar</button>'),
+                // Hack for IE
+                $label = $('<label class="file-upload-button" for="'+ $file[0].id +'" id="job_board_upload_file_label" name="job_board_upload_file_label"><i class="fa fa-cloud-upload fa-lg fa-fw" style="padding-right: 35px;"></i> Cargar</label>'),
+                // Icons type-file
+                $icons = $('<span class="file-upload-allowed-extensions button py4 button-transparent bg-red-camcar col-md-12 col-xs-12"><div class="file-upload-legend">Solo se pueden adjuntar archivos en pdf.</div><div class="file-upload-icons"><i class="tyf-ico-type-file-pdf fa-4x"></i></div></span>')
+
+            // Hide by shifting to the left so we
+            // can still trigger events
+            $file.css({
+                position: 'absolute',
+                left: '-9999px'
+            });
+
+            $wrap.insertAfter( $file )
+            .append( $file, $input, ( isIE ? $label : $button ), $icons );
+
+            // Prevent focus
+            $file.attr('tabIndex', -1);
+            $button.attr('tabIndex', -1);
+
+            $button.click(function () {
+                $file.focus().click(); // Open dialog
+            });
+
+            $file.change(function() {
+                var files = [], fileArr, filename;
+                // If multiple is supported then extract
+                // all filenames from the file array
+                if ( multipleSupport ) {
+                    fileArr = $file[0].files;
+                    for ( var i = 0, len = fileArr.length; i < len; i++ ) {
+                        files.push( fileArr[i].name );
+                    }
+                    filename = files.join(', ');
+                    // If not supported then just take the value
+                    // and remove the path to just show the filename
+                } else {
+                    filename = $file.val().split('\\').pop();
+                }
+                $input.val( filename ) // Set the value
+                .attr('value', filename) // Show filename in title tootlip
+                .focus(); // Regain focus
+            });
+
+            $input.on({
+                blur: function() { $file.trigger('blur'); },
+                keydown: function( e ) {
+                    if ( e.which === 13 ) { // Enter
+                    if ( !isIE ) { $file.trigger('click'); }
+                    } else if ( e.which === 8 || e.which === 46 ) { // Backspace & Del
+                            // inputted file path is not an image of one of the above types
+                            alert("inputted file path is not an image!");
+                            // On some browsers the value is read-only
+                            // with this trick we remove the old input and add
+                            // a clean clone with all the original events attached
+                            $file.replaceWith( $file = $file.clone( true ) );
+                            $file.trigger('change');
+                            $input.val('');
+                    } else if ( e.which === 9 ){ // TAB
+                        return;
+                    } else { // All other keys
+                        return false;
+                    }
+                }
+            });
+        });
+    };
+    var customFileMethods = {
+        customFile : function() {
+            // Old browser fallback
+            if ( !multipleSupport ) {
+                $( document ).on('change', 'input.customfile', function() {
+
+                    var $this = $(this),
+                        // Create a unique ID so we
+                        // can attach the label to the input
+                        uniqId = 'customfile_'+ (new Date()).getTime(),
+                        $wrap = $this.parent(),
+
+                        // Filter empty input
+                        $inputs = $wrap.siblings().find('.file-upload-input')
+                        .filter(function(){ return !this.value }),
+
+                        $file = $('<input type="file" id="'+ uniqId +'" name="'+ $this.attr('name') +'"/>');
+
+                    // 1ms timeout so it runs after all other events
+                    // that modify the value have triggered
+                    setTimeout(function() {
+                        // Add a new input
+                        if ( $this.val() ) {
+                            // Check for empty fields to prevent
+                            // creating new inputs when changing files
+                            if ( !$inputs.length ) {
+                                $wrap.after( $file );
+                                $file.customFile();
+                            }
+                        // Remove and reorganize inputs
+                        } else {
+                            $inputs.parent().remove();
+                            // Move the input so it's always last on the list
+                            $wrap.appendTo( $wrap.parent() );
+                            $wrap.find('input').focus();
+                        }
+                    }, 1);
+
+                });
+            }
+        },
+        init_customFile : function() {
+            $('input[type=file]').customFile();
+        }
+    }
+/* ------------------------------------------------------ *\
+    [Methods] uploadFileMethod
+\* ------------------------------------------------------ */
+    var uploadFileMethod = {
+        fileLoader: function() {
+            CAM.loadTemplate(tempsNames.recurrent_about_us_start_input_file_upload, domEl.div_recurrent_content_input_file);
+            'use strict';
+            $('input#job_board_upload_file').fileupload({
+                url: '../resources/public/cv/index.php',
+                dataType: 'json',
+                done: uploadFileMethod.done(),
+                progressall: uploadFileMethod.progressall()
+            });
+        },
+        done: function() {
+            return function (e, data) {
+                var file_promise, file;
+                resetAlert();
+                alertify.set({
+                    labels: {
+                        ok: 'Aceptar',
+                        cancel: 'Cancelar'
+                    }
+                });
+                files = data.result.files;
+                console.log(files);
+                alertify.success('Archivo Cargado');
+            }
+        },
+        progressall: function() {
+            return function (e, data) {
+                var progress  = parseInt(data.loaded / data.total * 100, 10);
+                $('#progress .progress-bar').css(
+                    'width', progress + '%',
+                    'background-color', '#5cb85c'
+                );
+            }
+        }
+    }
 /* ------------------------------------------------------ *\
     [Methods] viewSectionAboutUsMethod
 \* ------------------------------------------------------ */
@@ -3710,6 +3869,55 @@
         }
     }
 /* ------------------------------------------------------ *\
+    [Methods] valid extension file
+\* ------------------------------------------------------ */
+    function valid_extension_file(formulario, archivo) {
+        extensiones_permitidas = new Array('.doc', '.pdf');
+
+        mierror = "";
+        success = "";
+        if (!archivo) {
+            //Si no tengo archivo, es que no se ha seleccionado un archivo en el formulario
+            mierror = "No has seleccionado ningún archivo";
+            $('.file-upload-allowed-extensions').css('display', 'block');
+            $('.custom-file-upload .invalid-message').css('display', 'block');
+            $('.custom-file-upload .invalid-message').html(mierror);
+            $('input[type="text"]#job_board_upload_file').attr('value','');
+            $('input[type="text"]#job_board_upload_file').val('');
+        } else {
+            //recupero la extensión de este nombre de archivo
+            extension = (archivo.substring(archivo.lastIndexOf("."))).toLowerCase();
+            //alert (extension);
+            //compruebo si la extensión está entre las permitidas
+            permitida = false;
+            for (var i = 0; i < extensiones_permitidas.length; i++) {
+                if (extensiones_permitidas[i] == extension) {
+                    permitida = true;
+                    break;
+                }
+            }
+            if (!permitida) {
+                mierror = "Comprueba la extensión de los archivos a subir";
+                //mierror = "Comprueba la extensión de los archivos a subir. \nSólo se pueden subir archivos con extensiones: " + extensiones_permitidas.join();
+                $('.file-upload-allowed-extensions').css('display', 'block');
+                $('.custom-file-upload .invalid-message').css('display', 'block');
+                $('.custom-file-upload .invalid-message').html(mierror);
+                $('input[type="text"]#job_board_upload_file').attr('value','');
+                $('input[type="text"]#job_board_upload_file').val('');
+            }else{
+                //submito!
+                //console.log("Todo correcto. Voy a submitir el formulario.");
+                $('.file-upload-allowed-extensions').css('display', 'none');
+                $('.custom-file-upload .invalid-message').css('display', 'none');
+                //formulario.submit();
+                return 1;
+            }
+        }
+        //si estoy aqui es que no se ha podido submitir
+        //console.log(mierror);
+        return 0;
+    }
+/* ------------------------------------------------------ *\
     [Methods] inputVal
 \* ------------------------------------------------------ */
     var inputValMetdods = {
@@ -3791,7 +3999,7 @@
         phone           : 'Verifica que tu número sea de 10 dígitos',
         required        : 'Campo requerido',
         empty           : 'Campo vacío',
-        upload          : 'Archivos validos: PDF, DOC, DOCX'
+        upload          : 'Comprueba la extensión del archivo a subir'
     }
 /* ------------------------------------------------------ *\
     [Methods] validate
@@ -3836,11 +4044,11 @@
                                 r.message = validation_messages.phone;
                             }
                             break;
-                        case 'area':
+                        /*case 'area':
                             if(  !is_model_name( value ) ){
                                 r.message = validation_messages.general;
                             }
-                            break;
+                            break;*/
                         case 'upload':
                             if( !valid_extension_file( formulario, value ) ){
                                 r.message = validation_messages.upload;

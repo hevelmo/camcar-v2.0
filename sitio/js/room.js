@@ -411,6 +411,9 @@
 
             viewSectionAboutUsMethod.viewSectionAboutUs();
 
+            customFileMethods.customFile();
+            customFileMethods.init_customFile();
+
             animatedMethods.animated();
             $(window).resize(mobile_menu_methods.has_menu_toggle);
             backToTopMethod.init_window_scroll_top();

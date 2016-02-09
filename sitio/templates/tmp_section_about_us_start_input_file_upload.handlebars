@@ -1,0 +1,23 @@
+<label for="file">Adjunta tu CV</label>
+<input type="file"
+    class="input-standard validate-required validate-upload"
+    id="job_board_upload_file"
+    {{!--name="job_board_upload_file"--}}
+    {{!--name="job_board_upload_file[]"--}}
+    name="files[]"
+    data-validation-data="required|upload">
+    <p class="invalid-message" id="error_upload">Este campo es obligatorio<span>&nbsp;</span></p>
+    <!-- The global progress bar -->
+    <div id='progress' class='progress progress-striped progress-mini active ' style="margin: 15px auto 0;">
+        <div class='progress-bar progress-bar-color-camcar'></div>
+    </div>
+{{!--
+<span class="file-upload-allowed-extensions button py4 button-transparent bg-red-camcar col-md-12 col-xs-12">
+    <div class="file-upload-legend">
+        Solo se pueden adjuntar archivos en pdf.
+    </div>
+    <div class="file-upload-icons">
+        <i class="tyf-ico-type-file-pdf fa-4x"></i>
+    </div>
+</span>
+--}}

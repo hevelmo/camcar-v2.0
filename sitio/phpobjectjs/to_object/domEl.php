@@ -72,6 +72,9 @@ function domEl() {
     $start_large_pad_feature_list = 'content-start-large-pag-feature-list';
     $start_large_pad_contact_form = 'content-start-large-pag-contact-form';
     $start_contact_main = 'content-start-contact-main';
+    // JOB OPPORTUNITIES
+    $start_large_pad_job_opportunities = 'content-start-large-pad-job-opportunities';
+
     // SECTION SEPARATOR
     $start_section_separator = 'content-section-separator';
     // SECTION CONTACT
@@ -291,6 +294,23 @@ function domEl() {
         '_start_large_pad_land_mark_name' => '#' . $start_large_pad_land_mark,
         '_start_large_pad_feature_list' => $start_large_pad_feature_list,
         '_start_large_pad_feature_list_name' => '#' . $start_large_pad_feature_list,
+
+        // JOB OPPORTUNITIES
+        '_start_large_pad_job_opportunities' => $start_large_pad_job_opportunities,
+        '_start_large_pad_job_opportunities_name' => '#' . $start_large_pad_job_opportunities,
+
+        // FORM JOB OPPRTUNITIES
+        'div_recurrent_content_job_board' => '#content_form_job_board',
+        'div_recurrent_content_input_file' => '#content_custom_file_upluad',
+        'form_recurrent_form_job_board' => '#form_job_board',
+        'input_job_board_first_name' => '#job_board_first_name',
+        'input_job_board_last_name' => '#job_board_last_name',
+        'input_job_board_email' => '#job_board_email',
+        'input_job_board_phone' => '#job_board_phone',
+        'input_job_board_interest_area' => '#job_board_interest_area',
+        'input_job_board_message' => '#job_board_message',
+        'input_job_board_upload_file' => 'input#job_board_upload_file',
+        'send_btn_job_board' => '#job_board_send',
 
         // CONTACT
         // FORM CONTACT MAIN
