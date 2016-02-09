@@ -2060,7 +2060,7 @@ $app->run();
                 'return_path_domain' => null,
                 'merge' => true,
 
-                'tags' => array('orden-new-notificacion'),
+                'tags' => array('orden-new-notificacion-camcar-sitio'),
                 'google_analytics_domains' => array('http://camcar.mx/'),
                 'google_analytics_campaign' => 'marina.reyes@camcar.mx',
                 'metadata' => array('website' => 'http://camcar.mx/'),
@@ -2268,7 +2268,7 @@ $app->run();
                 'return_path_domain' => null,
                 'merge' => true,
 
-                'tags' => array('orden-new-notificacion'),
+                'tags' => array('orden-new-notificacion-camcar-sitio'),
                 'google_analytics_domains' => array('http://camcar.mx/'),
                 'google_analytics_campaign' => 'marina.reyes@camcar.mx',
                 'metadata' => array('website' => 'http://camcar.mx/'),
