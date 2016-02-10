@@ -3419,6 +3419,11 @@
         currentSection_about_us: function() {
             $('head title#head-change-section-title').html('CAMCAR Nosotros');
             $(domEl.goSection_about_us).addClass('current');
+            $('.sel-job-board-interest-area > button').attr('data-validation-data','required|upload');
+            $('.sel-job-board-interest-area').attr('id','job_board_interest_area');
+            $('.sel-job-board-interest-area').attr('name','job_board_interest_area');
+            $('.sel-job-board-interest-area > button').addClass('sel-job-board-interest-area-btn');
+            $('.sel-job-board-interest-area > div').addClass('sel-job-board-interest-area-div');
         },
         currentSection_contact: function() {
             $('head title#head-change-section-title').html('CAMCAR Contacto');
