@@ -86,6 +86,7 @@ img {
   margin: 6px auto;
   max-width: 100%;
 }
+.cur-hover,
 a.cur-hover,
 .main-navigation > ul li a.cur-hover {
   cursor: pointer;
@@ -2830,3 +2831,10 @@ section.article-wrapper {
 }
 
 /* FORM JOB OPPORTUNITIES */
+ul.ul-found-job-opportunities {
+  padding: 25px 0 20px;
+}
+ul.ul-found-job-opportunities li.li-found-job-opportunities {
+  display: inline-block;
+  padding: 10px;
+}

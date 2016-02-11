@@ -1196,7 +1196,7 @@ body.boxed .body{
   border: none;
 }
 .main-navigation ul ul li a {
-    padding: 0px 0px 0px 20px;
+    padding: 0px 0px 0px 0px;
     padding-right: 0px !important;
     line-height: 32px;
     width: 100%;
@@ -1229,26 +1229,26 @@ body.boxed .body{
 	-moz-transition: all 0.5s ease;
 }
 .main-navigation ul li > ul {
-  max-height: 0;
-  opacity: 0;
-  visibility: hidden;
-  min-width: 100%;
-	margin-top: 0px;
-	margin-bottom: 0px;
-  /*left: -570px;*/
-  /*display: none;*/
-	padding: 0;
-	list-style-type: none;
+    padding: 0;
+    list-style-type: none;
+    max-height: 0px;
+    opacity: 0;
+    visibility: hidden;
+    min-width: 150%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    left: -30px;
+    text-align: center;
 }
 .main-navigation ul li:hover > ul {
-  max-height: 400px;
-  opacity: 1;
-  visibility: visible;
-  min-width: 100%;
-	margin-top: 10px;
-	margin-bottom: 10px;
-  /*left: -570px;*/
-  /*display: block;*/
+    max-height: 400px;
+    opacity: 1;
+    visibility: visible;
+    min-width: 150%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    left: -30px;
+    text-align: center;
 }
 .main-navigation ul ul ul {
   position: absolute;

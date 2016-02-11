@@ -160,6 +160,7 @@ domEl = {
 	"goSection_index_logo":"#go-home-logo",
 	"goSection_index_logo_resp":"#go-home-logo-resp",
 	"goSection_inventories_preowned":"#go-inventories-preowned",
+	"goSection_job_opportunities":"#go-job-opportunities",
 	"goSection_ourBrand_agencies_news":".act-agn-nuevo",
 	"goSection_ourBrand_agencies_preowned":".act-agn-seminuevo",
 	"goSection_ourBrand_rental":".act-agn-rentas",

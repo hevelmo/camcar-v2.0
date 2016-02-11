@@ -350,6 +350,7 @@ function domEl() {
         'goSection_blog_by_news' => '#go-blog-item-by-news',
         'goSection_about_us' => '#go-about-us',
         'goSection_contact' => '#go-contact',
+        'goSection_job_opportunities' => '#go-job-opportunities',
         'goSection_privacy_notice' => '#go-section-privacy-notice',
         // FULLWIDTH FEATURES CLIGO GO SECTION
         'goSection_fullwidth_features_workshop' => '#fullwidth-features-go-workshop',

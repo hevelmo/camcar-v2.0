@@ -411,9 +411,6 @@
 
             viewSectionAboutUsMethod.viewSectionAboutUs();
 
-            customFileMethods.customFile();
-            customFileMethods.init_customFile();
-
             animatedMethods.animated();
             $(window).resize(mobile_menu_methods.has_menu_toggle);
             backToTopMethod.init_window_scroll_top();
@@ -443,6 +440,39 @@
             currentSectionMethod.currentSection_contact();
 
             viewSectionContactMethod.viewSectionContact();
+
+            animatedMethods.animated();
+            $(window).resize(mobile_menu_methods.has_menu_toggle);
+            backToTopMethod.init_window_scroll_top();
+        },
+        unload: function(bindings) {
+            section = "";
+            CAM.setHTML(domEl.div_recurren, '');
+            removeRecurrentsMethod.removeRecurrents();
+            currentSectionMethod.remove_currentSection();
+        }
+    });
+/* ----------------------------------- *\
+ [Route] CONTACT
+\* ----------------------------------- */
+    Finch.route('/bolsa-de-trabajo', {
+        setup: function(bindings) {
+            section = "job-opportunities";
+            ga('send', 'pageview', '/bolsa-de-trabajo');
+            // Add favicon
+            window.onload = favicon.load_favicon();
+        },
+        load: function(bindings) {
+            viewNavbarMethod.viewNavbar();
+            sticky_wrapper_methods.sticky_wrapper();
+
+            addAttrNavAgenciesMethod.addAttrNav();
+            currentSectionMethod.currentSection_job_opportunites();
+
+            viewSectionJobOpportunitiesMethod.viewSectionJobOpportunities();
+
+            customFileMethods.customFile();
+            customFileMethods.init_customFile();
 
             animatedMethods.animated();
             $(window).resize(mobile_menu_methods.has_menu_toggle);

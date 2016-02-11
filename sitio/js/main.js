@@ -99,6 +99,8 @@ $(document).ready(function() {
     $(domEl.div_recurrent).on('click', '#stop-video', video_strip_methods.stop_video);
     // CONTACT
     $(domEl.navbar_recurrent).on('click', domEl.goSection_contact, clikGoMethods.clickGo_contact);
+    // JOB OPPORTUNITIES
+    $(domEl.navbar_recurrent).on('click', domEl.goSection_job_opportunities, clikGoMethods.clickGo_job_opportunities);
     // ABOUT US FORM CONTACT MAIN
     $(domEl.div_recurrent).on('keyup', domEl.input_cam_contact_main_name, formContactMainMethod.validate_fields_keyup);
     $(domEl.div_recurrent).on('keyup', domEl.input_cam_contact_main_email, formContactMainMethod.validate_fields_keyup);
