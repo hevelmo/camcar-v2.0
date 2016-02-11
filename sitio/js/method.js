@@ -139,6 +139,55 @@
         });
     }
 /* ------------------------------------------------------ *\
+    [function] valid extension file
+\* ------------------------------------------------------ */
+    function valid_extension_file(formulario, archivo) {
+        extensiones_permitidas = new Array('.pdf');
+
+        mierror = "";
+        success = "";
+        if (!archivo) {
+            //Si no tengo archivo, es que no se ha seleccionado un archivo en el formulario
+            mierror = "No has seleccionado ningún archivo";
+            $('.file-upload-allowed-extensions').css('display', 'block');
+            $('.custom-file-upload .invalid-message').css('display', 'block');
+            $('.custom-file-upload .invalid-message').html(mierror);
+            $('input[type="text"]#job_opportunities_upload_file').attr('value','');
+            $('input[type="text"]#job_opportunities_upload_file').val('');
+        } else {
+            //recupero la extensión de este nombre de archivo
+            extension = (archivo.substring(archivo.lastIndexOf("."))).toLowerCase();
+            //alert (extension);
+            //compruebo si la extensión está entre las permitidas
+            permitida = false;
+            for (var i = 0; i < extensiones_permitidas.length; i++) {
+                if (extensiones_permitidas[i] == extension) {
+                    permitida = true;
+                    break;
+                }
+            }
+            if (!permitida) {
+                mierror = "Comprueba la extensión de los archivos a subir";
+                //mierror = "Comprueba la extensión de los archivos a subir. \nSólo se pueden subir archivos con extensiones: " + extensiones_permitidas.join();
+                $('.file-upload-allowed-extensions').css('display', 'block');
+                $('.custom-file-upload .invalid-message').css('display', 'block');
+                $('.custom-file-upload .invalid-message').html(mierror);
+                $('input[type="text"]#job_opportunities_upload_file').attr('value','');
+                $('input[type="text"]#job_opportunities_upload_file').val('');
+            }else{
+                //submito!
+                //console.log("Todo correcto. Voy a submitir el formulario.");
+                $('.file-upload-allowed-extensions').css('display', 'none');
+                $('.custom-file-upload .invalid-message').css('display', 'none');
+                //formulario.submit();
+                return 1;
+            }
+        }
+        //si estoy aqui es que no se ha podido submitir
+        //console.log(mierror);
+        return 0;
+    }
+/* ------------------------------------------------------ *\
     [Methods] owlCarousel
 \* ------------------------------------------------------ */
     var owlCarouselMethods = {
@@ -3002,6 +3051,45 @@
         }
     }
 /* ------------------------------------------------------ *\
+    [Methods] uploadFileMethod
+\* ------------------------------------------------------ */
+    var uploadFileMethod = {
+        fileLoader: function() {
+            CAM.loadTemplate(tempsNames.recurrent_about_us_start_input_file_upload, domEl.div_recurrent_content_input_file);
+            'use strict';
+            $('input#job_board_upload_file').fileupload({
+                url: '../resources/public/cv/index.php',
+                dataType: 'json',
+                done: uploadFileMethod.done(),
+                progressall: uploadFileMethod.progressall()
+            });
+        },
+        done: function() {
+            return function (e, data) {
+                var file_promise, file;
+                resetAlert();
+                alertify.set({
+                    labels: {
+                        ok: 'Aceptar',
+                        cancel: 'Cancelar'
+                    }
+                });
+                files = data.result.files;
+                console.log(files);
+                alertify.success('Archivo Cargado');
+            }
+        },
+        progressall: function() {
+            return function (e, data) {
+                var progress  = parseInt(data.loaded / data.total * 100, 10);
+                $('#progress .progress-bar').css(
+                    'width', progress + '%',
+                    'background-color', '#5cb85c'
+                );
+            }
+        }
+    }
+/* ------------------------------------------------------ *\
     [Methods] viewSectionPrivacyNoticeMethod
 \* ------------------------------------------------------ */
     var viewSectionPrivacyNoticeMethod = {
@@ -3877,55 +3965,6 @@
         loadAgentsMap : function () {
             google.maps.event.addDomListener(window, 'load', agentsMap.AgentsMap());
         }
-    }
-/* ------------------------------------------------------ *\
-    [Methods] valid extension file
-\* ------------------------------------------------------ */
-    function valid_extension_file(formulario, archivo) {
-        extensiones_permitidas = new Array('.pdf');
-
-        mierror = "";
-        success = "";
-        if (!archivo) {
-            //Si no tengo archivo, es que no se ha seleccionado un archivo en el formulario
-            mierror = "No has seleccionado ningún archivo";
-            $('.file-upload-allowed-extensions').css('display', 'block');
-            $('.custom-file-upload .invalid-message').css('display', 'block');
-            $('.custom-file-upload .invalid-message').html(mierror);
-            $('input[type="text"]#job_opportunities_upload_file').attr('value','');
-            $('input[type="text"]#job_opportunities_upload_file').val('');
-        } else {
-            //recupero la extensión de este nombre de archivo
-            extension = (archivo.substring(archivo.lastIndexOf("."))).toLowerCase();
-            //alert (extension);
-            //compruebo si la extensión está entre las permitidas
-            permitida = false;
-            for (var i = 0; i < extensiones_permitidas.length; i++) {
-                if (extensiones_permitidas[i] == extension) {
-                    permitida = true;
-                    break;
-                }
-            }
-            if (!permitida) {
-                mierror = "Comprueba la extensión de los archivos a subir";
-                //mierror = "Comprueba la extensión de los archivos a subir. \nSólo se pueden subir archivos con extensiones: " + extensiones_permitidas.join();
-                $('.file-upload-allowed-extensions').css('display', 'block');
-                $('.custom-file-upload .invalid-message').css('display', 'block');
-                $('.custom-file-upload .invalid-message').html(mierror);
-                $('input[type="text"]#job_opportunities_upload_file').attr('value','');
-                $('input[type="text"]#job_opportunities_upload_file').val('');
-            }else{
-                //submito!
-                //console.log("Todo correcto. Voy a submitir el formulario.");
-                $('.file-upload-allowed-extensions').css('display', 'none');
-                $('.custom-file-upload .invalid-message').css('display', 'none');
-                //formulario.submit();
-                return 1;
-            }
-        }
-        //si estoy aqui es que no se ha podido submitir
-        //console.log(mierror);
-        return 0;
     }
 /* ------------------------------------------------------ *\
     [Methods] inputVal
