@@ -128,6 +128,9 @@ $app->configureMode('development', function () use ($app) {
     $app->post('/contacto', /*'mw1',*/ 'post_form_contact_main');
     $app->post('/contacto/modelo', /*'mw1',*/ 'post_form_contact_main_by_model');
 
+    // JOB OPPORTUNITIES
+    $app->post('/post/bolsa-de-trabajo', /*'mw1',*/ 'postJobOpportunities');
+
 // DELETE
 //$app->get('/del/table/:idTable', /*'mw1',*/ 'delTable');
 $app->run();
@@ -1794,6 +1797,23 @@ $app->run();
         contact_main_by_model($sem_con_sp_bm_name, $sem_con_sp_bm_email, $sem_con_sp_bm_phone, $sem_con_sp_bm_message, $sem_con_sp_bm_sen_email, $sem_con_sp_bm_concessionary, $sem_con_sp_bm_logo_seminuevos, $sem_con_sp_bm_logo_agencia, $sem_con_sp_bm_marc, $sem_con_sp_bm_model, $sem_con_sp_bm_picture);
 
         echo changeArrayIntoJSON("campa", array('process'=>'ok'));
+    }
+
+    // JOB OPPRTUNITIES
+    function postJobOpportunities() {
+        $property = requestBody();
+        $job_opportunities_first_name = $property->job_opportunities_first_name;
+        $job_opportunities_last_name = $property->job_opportunities_last_name;
+        $job_opportunities_email = $property->job_opportunities_email;
+        $job_opportunities_phone = $property->job_opportunities_phone;
+        $job_opportunities_message = $property->job_opportunities_message;
+        $job_opportunities_concessionary = $property->job_opportunities_concessionary;
+        $job_opportunities_logo = $property->job_opportunities_logo;
+        $job_opportunities_upload_file = $property->job_opportunities_upload_file;
+        $job_opportunities_upload_file_input = $property->job_opportunities_upload_file_input;
+        //jobOpportunities();
+
+        echo changeArrayIntoJSON("campa", array('process'=>'ok', $property));
     }
 /*
   ----------------------------------------------------------------------------

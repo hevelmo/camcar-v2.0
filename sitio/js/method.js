@@ -2867,7 +2867,29 @@
             CAM.appendMulti(domEl.div_recurrent, dataStarSiteJobOpportunitiesAttributes);
         }
     }
-
+/* ------------------------------------------------------ *\
+    [Methods] formJobOpportunitiesMethod
+\* ------------------------------------------------------ */
+    var formJobOpportunitiesMethod = {
+        dataFormJobOpportunities: function() {
+            var dataFormJobOpportunities;
+            dataFormJobOpportunities = $(domEl.recurrent_form_job_opportunities).serializeFormJSON();
+            console.log(dataFormJobOpportunities);
+            return CAM.postalService(urlsApi.postJobOpportunities, dataFormJobOpportunities);
+        },
+        fillingControl: function() {
+        },
+        refreshForm: function() {
+        },
+        resetForm: function() {
+        },
+        resetLoader: function() {
+        },
+        validateFieldsKeyup: function() {
+        },
+        sendJobOpportunities: function() {
+        }
+    }
 /* ------------------------------------------------------ *\
     [Methods] CUSTOM FILE
 \* ------------------------------------------------------ */
@@ -2875,11 +2897,11 @@
         return this.each(function() {
             var $file = $(this).addClass('custom-file-upload-hidden'), // the original file input
                 $wrap = $('<div class="file-upload-wrapper">'),
-                $input = $('<input type="text" class="cur-hover file-upload-input validate-required" placeholder="Ningún archivo seleccionado..." id="job_board_upload_file_input" name="job_board_upload_file_input" data-validation-data="required|upload" />'),
+                $input = $('<input type="text" class="cur-hover file-upload-input validate-required" placeholder="Ningún archivo seleccionado..." id="job_opportunities_upload_file_input" name="job_opportunities_upload_file_input" data-validation-data="required|upload" />'),
                 // Button that will be used in non-IE browsers
-                $button = $('<button type="button" class="file-upload-button" id="job_board_upload_file_button" name="job_board_upload_file_button"><i class="fa fa-cloud-upload fa-lg fa-fw" style="padding-right: 35px;"></i> Adjuntar</button>'),
+                $button = $('<button type="button" class="file-upload-button" id="job_opportunities_upload_file_button" name="job_opportunities_upload_file_button"><i class="fa fa-cloud-upload fa-lg fa-fw" style="padding-right: 35px;"></i> Adjuntar</button>'),
                 // Hack for IE
-                $label = $('<label class="file-upload-button" for="'+ $file[0].id +'" id="job_board_upload_file_label" name="job_board_upload_file_label"><i class="fa fa-cloud-upload fa-lg fa-fw" style="padding-right: 35px;"></i> Adjuntar</label>'),
+                $label = $('<label class="file-upload-button" for="'+ $file[0].id +'" id="job_opportunities_upload_file_label" name="job_opportunities_upload_file_label"><i class="fa fa-cloud-upload fa-lg fa-fw" style="padding-right: 35px;"></i> Adjuntar</label>'),
                 // Icons type-file
                 $icons = $('<span class="file-upload-allowed-extensions button py4 button-transparent col-md-12 col-xs-12"><div class="file-upload-legend">Solo se pueden adjuntar archivos en pdf.</div><div class="file-upload-icons"><i class="tyf-ico-type-file-pdf fa-4x"></i></div></span>')
 
@@ -2987,45 +3009,6 @@
         },
         init_customFile : function() {
             $('input[type=file]').customFile();
-        }
-    }
-/* ------------------------------------------------------ *\
-    [Methods] uploadFileMethod
-\* ------------------------------------------------------ */
-    var uploadFileMethod = {
-        fileLoader: function() {
-            CAM.loadTemplate(tempsNames.recurrent_about_us_start_input_file_upload, domEl.div_recurrent_content_input_file);
-            'use strict';
-            $('input#job_board_upload_file').fileupload({
-                url: '../resources/public/cv/index.php',
-                dataType: 'json',
-                done: uploadFileMethod.done(),
-                progressall: uploadFileMethod.progressall()
-            });
-        },
-        done: function() {
-            return function (e, data) {
-                var file_promise, file;
-                resetAlert();
-                alertify.set({
-                    labels: {
-                        ok: 'Aceptar',
-                        cancel: 'Cancelar'
-                    }
-                });
-                files = data.result.files;
-                console.log(files);
-                alertify.success('Archivo Cargado');
-            }
-        },
-        progressall: function() {
-            return function (e, data) {
-                var progress  = parseInt(data.loaded / data.total * 100, 10);
-                $('#progress .progress-bar').css(
-                    'width', progress + '%',
-                    'background-color', '#5cb85c'
-                );
-            }
         }
     }
 /* ------------------------------------------------------ *\
@@ -3446,8 +3429,8 @@
             $('head title#head-change-section-title').html('CAMCAR Nosotros');
             $(domEl.goSection_about_us).addClass('current');
             $('.sel-job-board-interest-area > button').attr('data-validation-data','required|upload');
-            $('.sel-job-board-interest-area').attr('id','job_board_interest_area');
-            $('.sel-job-board-interest-area').attr('name','job_board_interest_area');
+            $('.sel-job-board-interest-area').attr('id','job_opportunities_interest_area');
+            $('.sel-job-board-interest-area').attr('name','job_opportunities_interest_area');
             $('.sel-job-board-interest-area > button').addClass('sel-job-board-interest-area-btn');
             $('.sel-job-board-interest-area > div').addClass('sel-job-board-interest-area-div');
         },
@@ -3919,8 +3902,8 @@
             $('.file-upload-allowed-extensions').css('display', 'block');
             $('.custom-file-upload .invalid-message').css('display', 'block');
             $('.custom-file-upload .invalid-message').html(mierror);
-            $('input[type="text"]#job_board_upload_file').attr('value','');
-            $('input[type="text"]#job_board_upload_file').val('');
+            $('input[type="text"]#job_opportunities_upload_file').attr('value','');
+            $('input[type="text"]#job_opportunities_upload_file').val('');
         } else {
             //recupero la extensión de este nombre de archivo
             extension = (archivo.substring(archivo.lastIndexOf("."))).toLowerCase();
@@ -3939,8 +3922,8 @@
                 $('.file-upload-allowed-extensions').css('display', 'block');
                 $('.custom-file-upload .invalid-message').css('display', 'block');
                 $('.custom-file-upload .invalid-message').html(mierror);
-                $('input[type="text"]#job_board_upload_file').attr('value','');
-                $('input[type="text"]#job_board_upload_file').val('');
+                $('input[type="text"]#job_opportunities_upload_file').attr('value','');
+                $('input[type="text"]#job_opportunities_upload_file').val('');
             }else{
                 //submito!
                 //console.log("Todo correcto. Voy a submitir el formulario.");

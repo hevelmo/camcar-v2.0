@@ -302,15 +302,15 @@ function domEl() {
         // FORM JOB OPPRTUNITIES
         'div_recurrent_content_job_board' => '#content_form_job_board',
         'div_recurrent_content_input_file' => '#content_custom_file_upluad',
-        'form_recurrent_form_job_board' => '#form_job_board',
-        'input_job_board_first_name' => '#job_board_first_name',
-        'input_job_board_last_name' => '#job_board_last_name',
-        'input_job_board_email' => '#job_board_email',
-        'input_job_board_phone' => '#job_board_phone',
-        'input_job_board_interest_area' => '#job_board_interest_area',
-        'input_job_board_message' => '#job_board_message',
-        'input_job_board_upload_file' => 'input#job_board_upload_file',
-        'send_btn_job_board' => '#job_board_send',
+        'recurrent_form_job_opportunities' => '#form-job-opportunities',
+        'input_job_opportunities_first_name' => '#job_opportunities_first_name',
+        'input_job_opportunities_last_name' => '#job_opportunities_last_name',
+        'input_job_opportunities_email' => '#job_opportunities_email',
+        'input_job_opportunities_phone' => '#job_opportunities_phone',
+        'input_job_opportunities_interest_area' => '#job_opportunities_interest_area',
+        'input_job_opportunities_message' => '#job_opportunities_message',
+        'input_job_opportunities_upload_file' => 'input#job_opportunities_upload_file',
+        'send_btn_job_opportunities' => '#job_opportunities_send',
 
         // CONTACT
         // FORM CONTACT MAIN
