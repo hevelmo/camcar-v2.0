@@ -2895,18 +2895,18 @@
 \* ------------------------------------------------------ */
     $.fn.customFile = function() {
         return this.each(function() {
-            var $file = $(this).addClass('custom-file-upload-hidden'), // the original file input
-                $wrap = $('<div class="file-upload-wrapper">'),
-                $input = $('<input type="text" class="cur-hover file-upload-input validate-required" placeholder="Ningún archivo seleccionado..." id="job_opportunities_upload_file_input" name="job_opportunities_upload_file_input" data-validation-data="required|upload" />'),
-                // Button that will be used in non-IE browsers
-                $button = $('<button type="button" class="file-upload-button" id="job_opportunities_upload_file_button" name="job_opportunities_upload_file_button"><i class="fa fa-cloud-upload fa-lg fa-fw" style="padding-right: 35px;"></i> Adjuntar</button>'),
-                // Hack for IE
-                $label = $('<label class="file-upload-button" for="'+ $file[0].id +'" id="job_opportunities_upload_file_label" name="job_opportunities_upload_file_label"><i class="fa fa-cloud-upload fa-lg fa-fw" style="padding-right: 35px;"></i> Adjuntar</label>'),
-                // Icons type-file
-                $icons = $('<span class="file-upload-allowed-extensions button py4 button-transparent col-md-12 col-xs-12"><div class="file-upload-legend">Solo se pueden adjuntar archivos en pdf.</div><div class="file-upload-icons"><i class="tyf-ico-type-file-pdf fa-4x"></i></div></span>')
+            var $file, $wrap, $inputs, $button, $label, $icons;
+            $file = $(this).addClass('custom-file-upload-hidden'); // the original file input
+            $wrap = $('<div class="file-upload-wrapper">');
+            $input = $('<input type="text" class="cur-hover file-upload-input validate-required" placeholder="Ningún archivo seleccionado..." id="job_opportunities_upload_file_input" name="job_opportunities_upload_file_input" data-validation-data="required|upload" />');
+            // Button that will be used in non-IE browsers
+            $button = $('<button type="button" class="file-upload-button" id="job_opportunities_upload_file_button" name="job_opportunities_upload_file_button"><i class="fa fa-cloud-upload fa-lg fa-fw" style="padding-right: 35px;"></i> Adjuntar</button>');
+            // Hack for IE
+            $label = $('<label class="file-upload-button" for="'+ $file[0].id +'" id="job_opportunities_upload_file_label" name="job_opportunities_upload_file_label"><i class="fa fa-cloud-upload fa-lg fa-fw" style="padding-right: 35px;"></i> Adjuntar</label>');
+            // Icons type-file
+            $icons = $('<span class="file-upload-allowed-extensions button py4 button-transparent col-md-12 col-xs-12"><div class="file-upload-legend">Solo se pueden adjuntar archivos en pdf.</div><div class="file-upload-icons"><i class="tyf-ico-type-file-pdf fa-4x"></i></div></span>');
 
-            // Hide by shifting to the left so we
-            // can still trigger events
+            // Hide by shifting to the left so we can still trigger events
             $file.css({
                 position: 'absolute',
                 left: '-9999px'
@@ -2925,16 +2925,14 @@
 
             $file.change(function() {
                 var files = [], fileArr, filename;
-                // If multiple is supported then extract
-                // all filenames from the file array
+                // If multiple is supported then extract all filenames from the file array
                 if ( multipleSupport ) {
                     fileArr = $file[0].files;
                     for ( var i = 0, len = fileArr.length; i < len; i++ ) {
                         files.push( fileArr[i].name );
                     }
                     filename = files.join(', ');
-                    // If not supported then just take the value
-                    // and remove the path to just show the filename
+                    // If not supported then just take the value and remove the path to just show the filename
                 } else {
                     filename = $file.val().split('\\').pop();
                 }
@@ -2951,9 +2949,7 @@
                     } else if ( e.which === 8 || e.which === 46 ) { // Backspace & Del
                             // inputted file path is not an image of one of the above types
                             alert("inputted file path is not an image!");
-                            // On some browsers the value is read-only
-                            // with this trick we remove the old input and add
-                            // a clean clone with all the original events attached
+                            // On some browsers the value is read-only with this trick we remove the old input and add a clean clone with all the original events attached
                             $file.replaceWith( $file = $file.clone( true ) );
                             $file.trigger('change');
                             $input.val('');
@@ -2971,26 +2967,20 @@
             // Old browser fallback
             if ( !multipleSupport ) {
                 $( document ).on('change', 'input.customfile', function() {
+                    var $this, uniqId, $wrap, $inputs, $file;
+                    $this = $(this);
+                    // Create a unique ID so we can attach the label to the input
+                    uniqId = 'customfile_'+ (new Date()).getTime();
+                    $wrap = $this.parent();
+                    // Filter empty input
+                    $inputs = $wrap.siblings().find('.file-upload-input').filter(function(){ return !this.value });
+                    $file = $('<input type="file" id="'+ uniqId +'" name="'+ $this.attr('name') +'"/>');
 
-                    var $this = $(this),
-                        // Create a unique ID so we
-                        // can attach the label to the input
-                        uniqId = 'customfile_'+ (new Date()).getTime(),
-                        $wrap = $this.parent(),
-
-                        // Filter empty input
-                        $inputs = $wrap.siblings().find('.file-upload-input')
-                        .filter(function(){ return !this.value }),
-
-                        $file = $('<input type="file" id="'+ uniqId +'" name="'+ $this.attr('name') +'"/>');
-
-                    // 1ms timeout so it runs after all other events
-                    // that modify the value have triggered
+                    // 1ms timeout so it runs after all other events that modify the value have triggered
                     setTimeout(function() {
                         // Add a new input
                         if ( $this.val() ) {
-                            // Check for empty fields to prevent
-                            // creating new inputs when changing files
+                            // Check for empty fields to prevent creating new inputs when changing files
                             if ( !$inputs.length ) {
                                 $wrap.after( $file );
                                 $file.customFile();
