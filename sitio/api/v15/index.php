@@ -1807,11 +1807,22 @@ $app->run();
         $job_opportunities_email = $property->job_opportunities_email;
         $job_opportunities_phone = $property->job_opportunities_phone;
         $job_opportunities_message = $property->job_opportunities_message;
+        $job_opportunities_date = $property->job_opportunities_date;
+        $job_opportunities_file_name = $property->job_opportunities_file_name;
+        $job_opportunities_mime = $property->job_opportunities_mime;
+        $job_opportunities_file_content = $property->job_opportunities_file_content;
         $job_opportunities_concessionary = $property->job_opportunities_concessionary;
         $job_opportunities_logo = $property->job_opportunities_logo;
-        $job_opportunities_upload_file = $property->job_opportunities_upload_file;
-        $job_opportunities_upload_file_input = $property->job_opportunities_upload_file_input;
-        //jobOpportunities();
+
+        $attachments = array(
+            array(
+                'type' => $job_opportunities_mime,
+                'name' => $job_opportunities_file_name,
+                'content' => $job_opportunities_file_content
+            )
+        );
+
+        jobOpportunities($job_opportunities_first_name, $job_opportunities_last_name, $job_opportunities_email, $job_opportunities_phone, $job_opportunities_message, $job_opportunities_date, $attachments, $job_opportunities_concessionary, $job_opportunities_logo);
 
         echo changeArrayIntoJSON("campa", array('process'=>'ok', $property));
     }
@@ -1892,7 +1903,7 @@ $app->run();
                                                         <table width="540" border="0" cellpadding="0" cellspacing="0" align="center" style="text-align: center; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="fullCenter2">
                                                             <tr>
                                                                 <td valign="middle" width="100%" style="text-align: left; font-family: Helvetica, Arial, sans-serif; font-size: 23px; color: rgb(63, 67, 69); line-height: 30px; font-weight: 100;">
-                                                                    <!--[if !mso]><!--><span style="font-family: Helvetica; font-weight: normal; text-align: center; display: block;"><!--<![endif]-->Contacto <!--[if !mso]><!--></span><!--<![endif]-->
+                                                                    <!--[if !mso]><!--><span style="font-family: Helvetica; font-weight: normal; text-align: center; display: block;"><!--<![endif]-->Bolsa de Trabajo <!--[if !mso]><!--></span><!--<![endif]-->
                                                                 </td>
                                                             </tr>
                                                         </table>
@@ -2023,7 +2034,7 @@ $app->run();
                                             <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile2" object="drag-module-small">
                                                 <tr>
                                                     <td valign="middle" width="100%" style="text-align: left; font-family: Helvetica, Arial, sans-serif; font-size: 15px; color: rgba(255, 255, 255, 1); line-height: 15px; text-align: center">
-                                                       <!--[if !mso]><!--><span style="font-family: Helvetica; font-weight: normal;"><!--<![endif]-->&copy; 2015 Camcar Grupo Automotriz <!--<![endif]--></span><!--[if !mso]><!-->
+                                                       <!--[if !mso]><!--><span style="font-family: Helvetica; font-weight: normal;"><!--<![endif]-->&copy; 2016 Camcar Grupo Automotriz <!--<![endif]--></span><!--[if !mso]><!-->
                                                     </td>
                                                 </tr>
                                             </table>
@@ -2300,6 +2311,293 @@ $app->run();
             $result = $mandrill->messages->send($message, $async, $ip_pool, $send_at);
             //print_r($result);
 
+        } catch(Mandrill_Error $e) {
+            // Mandrill errors are thrown as exceptions
+            echo 'A mandrill error occurred: ' . get_class($e) . ' - ' . $e->getMessage();
+            // A mandrill error occurred: Mandrill_Unknown_Subaccount - No subaccount exists with the id 'customer-123'
+            throw $e;
+        }
+    }
+
+    // JOP OPPORTUNITIES
+    function jobOpportunities($job_opportunities_first_name, $job_opportunities_last_name, $job_opportunities_email, $job_opportunities_phone, $job_opportunities_message, $job_opportunities_date, $attachments, $job_opportunities_concessionary, $job_opportunities_logo) {
+        try {
+            $mandrill = new Mandrill('V6ypCDEnJAgL9FsOyyDxAw');
+            $message = array(
+                'html' => '
+                    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+                    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+                    <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full2"  bgcolor="#ffffff"style="background-color: rgb(255, 255, 255);">
+                        <tr>
+                            <td style="background-color: rgba(0,161,220,0.3); -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; background-position: -120px -15px; background-attachment: fixed; background-repeat: no-repeat;" id="not6">
+
+                                                    <!-- Mobile Wrapper -->
+                                <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile2" style="background: rgb(178, 17, 23);">
+                                    <tr>
+                                        <td width="100%" align="center">
+
+                                            <div class="sortable_inner ui-sortable">
+                                            <!-- Space -->
+                                            <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" class="full" object="drag-module-small">
+                                                <tr>
+                                                    <td width="100%" height="50"></td>
+                                                </tr>
+                                            </table><!-- End Space -->
+
+                                            <!-- Space -->
+                                            <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" class="full" object="drag-module-small">
+                                                <tr>
+                                                    <td width="100%" height="50"></td>
+                                                </tr>
+                                            </table><!-- End Space -->
+
+                                            <!-- Start Top -->
+                                            <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile2" bgcolor="#4edeb5" style="border-top-left-radius: 5px; border-top-right-radius: 5px; background-color: rgba(255,255,255,0.85);" object="drag-module-small">
+                                                <tr>
+                                                    <td width="100%" valign="middle" align="center" class="logo">
+
+                                                        <!-- Header Text -->
+                                                        <table width="540" border="0" cellpadding="0" cellspacing="0" align="center" style="text-align: center; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="fullCenter2">
+                                                            <tr>
+                                                                <td width="100%" height="30"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="100%"><span ><img src="http://camcar.mx/img/logos/logo_camcar.png" width="225" alt="" border="0" ></span></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="100%" height="30"></td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                            <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile2" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgba(255, 255, 255, 1);">
+                                                <tr>
+                                                    <td width="100%" valign="middle" align="center">
+
+                                                        <table width="540" border="0" cellpadding="0" cellspacing="0" align="center" style="text-align: center; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="fullCenter2">
+                                                            <tr>
+                                                                <td width="100%" height="30"></td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                            <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile2" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgba(255, 255, 255, 1);">
+                                                <tr>
+                                                    <td width="100%" valign="middle" align="center">
+
+                                                        <table width="540" border="0" cellpadding="0" cellspacing="0" align="center" style="text-align: center; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="fullCenter2">
+                                                            <tr>
+                                                                <td valign="middle" width="100%" style="text-align: left; font-family: Helvetica, Arial, sans-serif; font-size: 23px; color: rgb(63, 67, 69); line-height: 30px; font-weight: 100;">
+                                                                    <!--[if !mso]><!--><span style="font-family: Helvetica; font-weight: normal; text-align: center; display: block;"><!--<![endif]-->Contacto <!--[if !mso]><!--></span><!--<![endif]-->
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                            <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile2" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgba(255, 255, 255, 1);">
+                                                <tr>
+                                                    <td width="100%" valign="middle" align="center">
+
+                                                        <table width="540" border="0" cellpadding="0" cellspacing="0" align="center" style="text-align: center; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="fullCenter2">
+                                                            <tr>
+                                                                <td width="100%" height="30"></td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                            <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile2" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgba(255, 255, 255, 1);">
+                                                <tr>
+                                                    <td width="100%" valign="middle" align="center">
+
+                                                        <table width="540" border="0" cellpadding="0" cellspacing="0" align="center" style="text-align: center; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="fullCenter2">
+                                                            <tr>
+                                                                <td valign="middle" width="100%" style="text-align: left; font-family: Helvetica, Arial, sans-serif; font-size: 14px; color: rgb(63, 67, 69); line-height: 24px;">
+                                                                    <!--[if !mso]><!--><span style="font-family: Helvetica; font-weight: normal;"><!--<![endif]-->
+                                                                        <hr style="border: 0; border-top: 1px solid #00a1dc; display: block; width: 100%; margin-top: 0%;">
+                                                                        <ol type="1">
+                                                                            <li style="list-style-type: disc;">
+                                                                                <b>Nombre: </b>
+                                                                                <ul>
+                                                                                    <li>
+                                                                                         <i>' . $job_opportunities_first_name . ' '. $job_opportunities_last_name .'</i>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </li>
+                                                                            <li style="list-style-type: disc;">
+                                                                                <b>Email:</b>
+                                                                                <ul>
+                                                                                    <li>
+                                                                                         <i>' . $job_opportunities_email . '</i>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </li>
+                                                                            <li style="list-style-type: disc;">
+                                                                                <b>Email:</b>
+                                                                                <ul>
+                                                                                    <li>
+                                                                                         <i>' . $job_opportunities_phone . '</i>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </li>
+                                                                        </ol>
+                                                                        <hr style="border: 0; border-top: 1px solid #00a1dc; display: block; width: 100%; margin-bottom: 2%;">
+
+                                                                <!--[if !mso]><!--></span><!--<![endif]-->
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                            <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile2" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgba(255, 255, 255, 1);">
+                                                <tr>
+                                                    <td width="100%" valign="middle" align="center">
+
+                                                        <table width="540" border="0" cellpadding="0" cellspacing="0" align="center" style="text-align: center; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="fullCenter2">
+                                                            <tr>
+                                                                <td width="100%" height="10"></td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                            <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile2" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgba(255, 255, 255, 1);">
+                                                <tr>
+                                                    <td width="100%" valign="middle" align="center">
+
+                                                        <table width="540" border="0" cellpadding="0" cellspacing="0" align="center" style="text-align: center; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="fullCenter2">
+                                                            <tr>
+                                                                <td valign="middle" width="100%" style="text-align: left; font-family: Helvetica, Arial, sans-serif; font-size: 19px; color: rgb(63, 67, 69); line-height: 30px; font-weight: bold;">
+                                                                    <!--[if !mso]><!--><span style="font-family: Helvetica; font-weight: normal; text-align: left; display: block; margin-bottom: 20px;"><!--<![endif]-->Mensaje. <!--[if !mso]><!--></span><!--<![endif]-->
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td valign="middle" width="100%" style="text-align: left; font-family: Helvetica, Arial, sans-serif; font-size: 14px; color: rgb(63, 67, 69); line-height: 24px;">
+                                                                    <!--[if !mso]><!--><span style="font-family: Helvetica; font-weight: normal; word-break: break-all;"><!--<![endif]-->
+                                                                    ' . $job_opportunities_message . '
+                                                                    <!--[if !mso]><!--></span><!--<![endif]-->
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                            <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile2" bgcolor="#ffffff"object="drag-module-small" style="background-color: rgba(255, 255, 255, 1);">
+                                                <tr>
+                                                    <td width="100%" valign="middle" align="center">
+
+                                                        <table width="540" border="0" cellpadding="0" cellspacing="0" align="center" style="text-align: center; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="fullCenter2">
+                                                            <tr>
+                                                                <td width="100%" height="10"></td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+
+
+                                            <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile2" bgcolor="#ffffff"style="border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; background-color: rgba(255, 255, 255, 1);" object="drag-module-small">
+                                                <tr>
+                                                    <td width="100%" valign="middle" align="center">
+
+                                                        <table width="540" border="0" cellpadding="0" cellspacing="0" align="center" style="text-align: center; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="fullCenter2">
+                                                            <tr>
+                                                                <td width="100%" height="10"></td>
+                                                            </tr>
+                                                        </table>
+
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                            <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" class="full2" object="drag-module-small">
+                                                <tr>
+                                                    <td width="100%" height="30"></td>
+                                                </tr>
+                                            </table>
+
+                                            <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile2" object="drag-module-small">
+                                                <tr>
+                                                    <td valign="middle" width="100%" style="text-align: left; font-family: Helvetica, Arial, sans-serif; font-size: 15px; color: rgba(255, 255, 255, 1); line-height: 15px; text-align: center">
+                                                       <!--[if !mso]><!--><span style="font-family: Helvetica; font-weight: normal;"><!--<![endif]-->&copy; 2016 Camcar Grupo Automotriz <!--<![endif]--></span><!--[if !mso]><!-->
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                            <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile2" object="drag-module-small">
+                                                <tr>
+                                                    <td width="100%" height="30"></td>
+                                                </tr>
+                                            </table>
+
+                                            <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile2" object="drag-module-small">
+                                                <tr>
+                                                    <td width="100%" height="29"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="100%" height="1"></td>
+                                                </tr>
+                                            </table>
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                </table>
+
+                            </div>
+                            </td>
+                        </tr>
+                    </table>
+                ',
+                'subject' => 'Bolsa de Trabajo',
+                'from_email' => $job_opportunities_email,
+                'from_name' => $job_opportunities_first_name . ' '. $job_opportunities_last_name,
+                'to' => array(
+                    array(
+                        'email' => 'reclutamiento@camcar.mx',
+                        //'email' => 'hevelmo060683@gmail.com',
+                        'name' => 'Bolsa de Trabajo Camcar',
+                        'type' => 'to'
+                    )
+                ),
+                'headers' => array('Reply-To' => 'reclutamiento@camcar.mx'),
+                'important' => false,
+                'track_opens' => true,
+                'track_clicks' => true,
+                'auto_text' => null,
+                'auto_html' => null,
+                'inline_css' => null,
+                'url_strip_qs' => null,
+                'preserve_recipients' => null,
+                'view_content_link' => null,
+                'bcc_address' => null,
+                'tracking_domain' => null,
+                'signing_domain' => null,
+                'return_path_domain' => null,
+                'merge' => true,
+                "attachments" => $attachments,
+                'tags' => array('orden-new-notificacion-camcar-sitio'),
+                'google_analytics_domains' => array('http://camcar.mx/'),
+                'google_analytics_campaign' => 'reclutamiento@camcar.mx',
+                'metadata' => array('website' => 'http://camcar.mx/'),
+            );
+            $async = false;
+            $ip_pool = 'Main Pool';
+            $send_at = '';
+            $result = $mandrill->messages->send($message, $async, $ip_pool, $send_at);
+            //print_r($result);
         } catch(Mandrill_Error $e) {
             // Mandrill errors are thrown as exceptions
             echo 'A mandrill error occurred: ' . get_class($e) . ' - ' . $e->getMessage();

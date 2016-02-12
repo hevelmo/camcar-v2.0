@@ -164,6 +164,7 @@
                 if (extensiones_permitidas[i] == extension) {
                     permitida = true;
                     break;
+                    //CAM.setHTML('div.message_type_file_ok', '');
                 }
             }
             if (!permitida) {
@@ -2922,7 +2923,7 @@
         dataFormJobOpportunities: function() {
             var dataFormJobOpportunities;
             dataFormJobOpportunities = $(domEl.form_job_opportunities).serializeFormJSON();
-            console.log(domEl.form_job_opportunities);
+            //console.log(domEl.form_job_opportunities);
             return CAM.postalService(urlsApi.postJobOpportunities, dataFormJobOpportunities);
         },
         fillingControl: function() {
@@ -2935,7 +2936,7 @@
                 'job_opportunities_message'
             ];
             dataFormJobOpportunities = $(domEl.form_job_opportunities).serializeFormJSON();
-            console.log(dataFormJobOpportunities);
+            //console.log(dataFormJobOpportunities);
 
             isFull = CAM.validFormFull(dataFormJobOpportunities, validFieldsItems);
             $(domEl.send_btn_job_opportunities).attr('disabled', !isFull);
@@ -2952,16 +2953,148 @@
         },
         resetForm: function() {
             CAM.resetForm(domEl.form_job_opportunities);
+            $('#job_opportunities_upload_file_input').attr('value', '');
             $(domEl.send_btn_job_opportunities).attr('disabled', true);
         },
         resetLoader: function() {
-            CAM.setHTML('.form-loader', '');
+            $(domEl.form_loader).css('display','none');
         },
         validateFieldsKeyup: function() {
             formJobOpportunitiesMethod.fillingControl();
         },
         sendJobOpportunities: function() {
             formJobOpportunitiesMethod.fillingControl();
+            var $date, $file, $logo, $email, $phone, $message, $file_name, $last_name, $mime_type, $first_name, $file_content, $concessionaire, form_errors;
+            $date           = $(domEl.input_job_opportunities_date);
+            $file           = $(domEl.input_file_job_opportunities_upload_file);
+            $logo           = $(domEl.input_job_opportunities_logo);
+            $email          = $(domEl.input_job_opportunities_email);
+            $phone          = $(domEl.input_job_opportunities_phone);
+            $message        = $(domEl.input_job_opportunities_message);
+            $file_name      = $(domEl.input_job_opportunities_file_name);
+            $last_name      = $(domEl.input_job_opportunities_last_name);
+            $mime_type      = $(domEl.input_job_opportunities_mime);
+            $first_name     = $(domEl.input_job_opportunities_first_name);
+            $file_content   = $(domEl.input_job_opportunities_file_content);
+            $concessionaire = $(domEl.input_job_opportunities_concessionary);
+            //console.log($first_name, $last_name, $email, $phone, $message, $file_name, $mime_type, $file_content);
+
+             form_errors = 0;
+             if( validateMethods.validate_input( $file ) ){
+                form_errors++;
+                $file.change();
+            }
+             if( validateMethods.validate_input( $first_name ) ){
+                form_errors++;
+                $first_name.focusout();
+            }
+            if( validateMethods.validate_input( $last_name ) ){
+                form_errors++;
+                $last_name.focusout();
+            }
+            if( validateMethods.validate_input( $email ) ){
+                form_errors++;
+                $email.focusout();
+            }
+            if( validateMethods.validate_input( $phone ) ){
+                form_errors++;
+                $phone.focusout();
+            }
+            if( validateMethods.validate_input( $message ) ){
+                form_errors++;
+                $message.focusout();
+            }
+            if ( form_errors != 0 ) {
+                var data, job_opportunities_promise;
+                data = {
+                    date : $date.val(),
+                    logo : $logo.val(),
+                    email : $email.val(),
+                    phone : $phone.val(),
+                    message : $message.val(),
+                    file_name : $file_name.val(),
+                    last_name : $last_name.val(),
+                    mime_type : $mime_type.val(),
+                    first_name : $first_name.val(),
+                    file_content : $file_content.val(),
+                    concessionaire : $concessionaire.val(),
+                    source : 'Bolsa de Trabajo'
+                };
+                //console.log(data);
+                ga('send', 'event', 'Bottom', 'Bolsa de trabajo', 'Envio de CV Adjunto');
+                //console.log('ga("send", "event", "Bottom", "Bolsa de trabajo", "Envio de CV Adjunto")');
+                job_opportunities_promise = formJobOpportunitiesMethod.dataFormJobOpportunities();
+                console.log(job_opportunities_promise);
+                job_opportunities_promise.success( function ( data ) {
+                    setTimeout(function() {
+                        //console.log('Espera');
+                        setTimeout(function () {
+                            $(domEl.form_wrapper).fadeOut( 300 , function(){
+                                setTimeout(function () {
+                                    $(domEl.form_loader).fadeIn();
+                                }, 300);
+                            });
+                            setTimeout(function () {
+                                //console.log("Correo Enviado...");
+                                setTimeout(function () {
+                                    $(domEl.form_wrapper).fadeOut( 300 , function(){
+                                        var correo = $email.val();
+                                        $(domEl.email_from).text(correo);
+                                        setTimeout(function () {
+                                            $(domEl.form_thanks).fadeIn();
+                                            console.log(correo);
+                                        }, 1800);
+                                    });
+                                    setTimeout(function () {
+                                        $(domEl.form_loader).fadeOut();
+                                        formJobOpportunitiesMethod.resetForm();
+                                        setTimeout(function () {
+                                            $(domEl.form_wrapper).fadeIn( 300 , function(){
+                                                var correo = $email.val();
+                                                $(domEl.email_from).text(correo);
+                                                $(domEl.form_thanks).fadeOut();
+                                            });
+                                        }, 3400);
+                                    }, 1800);
+                                }, 1800);
+                            }, 1400);
+                        }, 300);
+                    }, 500);
+                });
+                job_opportunities_promise.error( function ( data ) {
+                    setTimeout(function() {
+                        console.log('Espera');
+                        setTimeout(function () {
+                                $(domEl.form_wrapper).fadeOut( 300 , function(){
+                                    setTimeout(function () {
+                                        $(domEl.form_loader).fadeIn();
+                                    }, 900);
+                                });
+                            setTimeout(function () {
+                                console.log("Correo no enviado...");
+                                setTimeout(function () {
+                                    $(domEl.form_wrapper).fadeOut( 300 , function(){
+                                        setTimeout(function () {
+                                            $(domEl.form_error).fadeIn();
+                                        }, 300);
+                                    });
+                                    setTimeout(function () {
+                                        formJobOpportunitiesMethod.resetForm();
+                                        setTimeout(function () {
+                                            $(domEl.form_wrapper).fadeIn( 300 , function(){
+                                                $(domEl.form_error).fadeOut();
+                                            });
+                                            setTimeout(function () {
+                                                formJobOpportunitiesMethod.resetForm();
+                                            }, 1000);
+                                        }, 1200);
+                                    }, 800);
+                                }, 900);
+                            }, 400);
+                        }, 800);
+                    }, 500);
+                });
+            }
         }
     }
 /* ------------------------------------------------------ *\
@@ -2972,7 +3105,7 @@
             var $file, $wrap, $inputs, $button, $label, $icons;
             $file = $(this).addClass('custom-file-upload-hidden'); // the original file input
             $wrap = $('<div class="file-upload-wrapper">');
-            $input = $('<input type="text" class="cur-hover file-upload-input validate-required" placeholder="Ningún archivo seleccionado..." id="job_opportunities_upload_file_input" name="job_opportunities_upload_file_input" data-validation-data="required|upload" />');
+            $input = $('<input type="text" class="cur-hover file-upload-input file-upload-input-resp validate-required" placeholder="Ningún archivo seleccionado..." id="job_opportunities_upload_file_input" name="job_opportunities_upload_file_input" data-validation-data="required|upload" />');
             // Button that will be used in non-IE browsers
             $button = $('<button type="button" class="file-upload-button" id="job_opportunities_upload_file_button" name="job_opportunities_upload_file_button"><i class="fa fa-cloud-upload fa-lg fa-fw" style="padding-right: 35px;"></i> Adjuntar</button>');
             // Hack for IE
@@ -3606,7 +3739,7 @@
             $(domEl.goSection_contact).addClass('current');
         },
         currentSection_job_opportunites: function() {
-            $('head title#head-change-section-title').html('CAMCAR Contacto');
+            $('head title#head-change-section-title').html('CAMCAR Bolsa de trabajo');
             $(domEl.goSection_about_us).addClass('current');
             $(domEl.goSection_job_opportunities).addClass('current');
         },
@@ -4220,21 +4353,27 @@
             }
         },
         validate_input : function(event) {
-            var target = $(event.target);
+            var target, isInput, isTextarea, isInputFile;
+            target = $(event.target);
+            isInput = target.is('input');
+            isTextarea = target.is('textarea');
+            isInputFile = target.is('input[type="file"]');
             //console.log(target);
-            if( target.is('input') || target.is('textarea') || target.is('input[type="file"]') ){
-                var valid_data = target.data('validation-data');
-                var val_data    = valid_data.split('|'),
-                    required    = val_data.indexOf('required');
+            if( isInput || isTextarea || isInputFile ){
+                var valid_data, val_data, required, value, validation;
+                valid_data = target.data('validation-data');
+                val_data   = valid_data.split('|');
+                required   = val_data.indexOf('required');
                 if( required >= 0 ){
                     val_data.splice(required, 1);
                 }
-                var value = target.val(),
-                    validation = validateMethods.validate( value, val_data, ( required >= 0 )  );
+                value = target.val();
+                validation = validateMethods.validate( value, val_data, ( required >= 0 )  );
                 validateMethods.error_bubble( target, !validation.valid, validation.message );
                 return validation.valid;
             }else{
-                var is_valid = !( target.val() === null );
+                var is_valid;
+                is_valid = !( target.val() === null );
                 validateMethods.error_bubble( target, !is_valid, validation_messages.required );
                 return is_valid;
             }

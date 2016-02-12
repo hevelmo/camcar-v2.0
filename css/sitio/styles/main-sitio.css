@@ -542,6 +542,9 @@ a.cur-hover,
     font-size: 40pt;
     line-height: 70px;
     }
+    .file-upload-input-resp {
+      max-width: 529px !important;
+    }
 }
 @media (width: 1024px) {
     #stat .stat {
@@ -744,6 +747,9 @@ a.cur-hover,
       padding: 140px;
     }
     .agn_logo {
+    }
+    .file-upload-input-resp {
+      max-width: 419px !important;
     }
   /* END TABS AGENCIES */
   #vehicle-location, .agentia-location { display: none; }
@@ -1624,7 +1630,11 @@ img.post-img {
 }
 
 
-@media (max-width: 1024px) {}
+@media (max-width: 1024px) {
+  .file-upload-input-resp {
+    max-width: 100% !important;
+  }
+}
 @media (max-width: 768px) {
   .featured-image-mobile {
     display: none;
@@ -1659,6 +1669,14 @@ img.post-img {
 @media (max-width: 480px) {
   .x-content-band.x-content-band-trucks .x-column.x-column-brand-agencie-trucks {
     width: 225px;
+  }
+  .file-upload-input-resp {
+    max-width: 100% !important;
+  }
+}
+@media (max-width: 400px) {
+  .file-upload-input-resp {
+    max-width: 419px !important;
   }
 }
 @media (min-width: 320px) and (max-width: 479px) {

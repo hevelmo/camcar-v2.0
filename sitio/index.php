@@ -314,23 +314,13 @@
         <script src="http://maps.google.com/maps/api/js?v=3&amp;sensor=false" type="text/javascript"></script>
         <!-- PLUGINS -->
         <!-- CORE JS -->
-        <?php /*
 		<script src='js/min/core.min.js'></script>
-        */ ?>
+        <?php /*
 	    <script src='js/objects.js'></script>
 	    <script src='js/method.js'></script>
 	    <script src='js/model.js'></script>
 	    <script src='js/room.js'></script>
 	    <script src='js/main.js'></script>
-
-        <script>
-            // Check for the various File API support.
-            if (window.File && window.FileReader && window.FileList && window.Blob) {
-              // Great success! All the File APIs are supported.
-              console.log('Great success! All the File APIs are supported.');
-            } else {
-              alert('The File APIs are not fully supported in this browser.');
-            }
-        </script>
+        */ ?>
 	</body>
 </html>

@@ -303,13 +303,19 @@ function domEl() {
         'div_recurrent_content_job_opportunities' => '#content-form-job-opportunities',
         'div_recurrent_content_input_file' => '#content_custom_file_upluad',
         'form_job_opportunities' => '#form-job-opportunities',
+        'input_file_job_opportunities_upload_file' => 'input[type=file]#job_opportunities_upload_file',
         'input_job_opportunities_first_name' => '#job_opportunities_first_name',
         'input_job_opportunities_last_name' => '#job_opportunities_last_name',
         'input_job_opportunities_email' => '#job_opportunities_email',
         'input_job_opportunities_phone' => '#job_opportunities_phone',
-        'input_job_opportunities_interest_area' => '#job_opportunities_interest_area',
+        //'input_job_opportunities_interest_area' => '#job_opportunities_interest_area',
         'input_job_opportunities_message' => '#job_opportunities_message',
-        'input_job_opportunities_upload_file' => 'input#job_opportunities_upload_file',
+        'input_job_opportunities_date' => '#job_opportunities_date',
+        'input_job_opportunities_file_name' => '#job_opportunities_file_name',
+        'input_job_opportunities_mime' => '#job_opportunities_mime',
+        'input_job_opportunities_file_content' => '#job_opportunities_file_content',
+        'input_job_opportunities_concessionary' => '#job_opportunities_concessionary',
+        'input_job_opportunities_logo' => '#job_opportunities_logo',
         'send_btn_job_opportunities' => '#job_opportunities_send',
 
         // CONTACT
@@ -373,7 +379,8 @@ function domEl() {
         'email_from' => '#email-from',
         'form_wrapper' => '#form-wrapper',
         'form_thanks' => '.form-thanks',
-        'form_error' => '.form-error',
+        'form_error' => '.form-error-message',
         'form_loader' => '.form-loader',
+
     );
 }
