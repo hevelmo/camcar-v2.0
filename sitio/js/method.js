@@ -3045,6 +3045,7 @@
                     $this = $(this);
                     // Create a unique ID so we can attach the label to the input
                     uniqId = 'customfile_'+ (new Date()).getTime();
+                    console.log(uniqId);
                     $wrap = $this.parent();
                     // Filter empty input
                     $inputs = $wrap.siblings().find('.file-upload-input').filter(function(){ return !this.value });
@@ -3074,11 +3075,13 @@
             $('input[type=file]').customFile();
         },
         handleFileSelect: function() {
-            var file, fileReader, fileList, blob, getFile, reader, name, conten, type, getName, getContent, getType, j, files, output, i, f;
+            var file, fileReader, fileList, blob, getFile, reader, name, conten, type, getName, getContent, getType, j, files, output, i, f,
+                day, date, month, hour;
             file = window.File;
             fileReader = window.FileReader;
             fileList = window.FileList;
             blob = window.Blob;
+
 
             if (file && fileReader && fileList && blob) {
                 function handleFileSelect(evt) {
@@ -3097,11 +3100,20 @@
                                 getName = name;
                                 getContent = content;
                                 getType = type;
+                                day = new Array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
+                                f = new Date();
+                                month = new Array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+                                //hour = (new Date()).getTime();
 
-                                $('#params .file').html(getName);
+                                CAM.setValue('#job_opportunities_date', day[f.getDay()] + ", " + f.getDate() + " de " + month[f.getMonth()] + " de " + f.getFullYear()/* + ", " + hour*/);
 
-                                $('#params .mime_type').html(getType);
-                                $('#params .file_content').html(getContent);
+                                //$('#params .file').html(getName);
+                                CAM.setValue('#job_opportunities_file_name', getName);
+                                //$('#params .mime_type').html(getType);
+                                CAM.setValue('#job_opportunities_mime', getType);
+
+                                //$('#params .file_content').html(getContent);
+                                CAM.setValue('#job_opportunities_file_content', getContent);
 
                                 //console.log(getName); console.log(getType); console.log(getContent);
                             }

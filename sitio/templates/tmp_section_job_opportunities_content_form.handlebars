@@ -1,5 +1,10 @@
 <form class="email-form-job-board" id="form-job-opportunities" enctype="multipart/form-data">
     <div class="contact_elements">
+        <div class="contact_element ab">
+            <fieldset class="custom-file-upload" id="content_custom_file_upluad"></fieldset>
+        </div>
+    </div>
+    <div class="contact_elements">
         <div class="contact_element a">
             <fieldset>
                 <input class="input-standard input-standard-job-board validate-required" type="text"
@@ -76,22 +81,21 @@
             </fieldset>
         </div>
     </div>
-    <div class="contact_elements">
-        <div class="contact_element ab">
-            <fieldset class="custom-file-upload" id="content_custom_file_upluad"></fieldset>
-        </div>
-    </div>
     <input type="hidden"
         name="job_opportunities_date"
         id="job_opportunities_date"
         value="">
     <input type="hidden"
-        name="job_opportunities_file_content"
-        id="job_opportunities_file_content"
+        name="job_opportunities_file_name"
+        id="job_opportunities_file_name"
         value="">
     <input type="hidden"
         name="job_opportunities_mime"
         id="job_opportunities_mime"
+        value="">
+    <input type="hidden"
+        name="job_opportunities_file_content"
+        id="job_opportunities_file_content"
         value="">
     <input type="hidden"
         name="job_opportunities_concessionary"
