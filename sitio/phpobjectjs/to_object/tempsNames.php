@@ -117,6 +117,7 @@ function tempsNames() {
         // JOB OPPORTUNITIES
         'recurrent_about_us_start_jop_opportunities' => 'tmp_section_about_us_start_jop_opportunities',
         'recurrent_about_us_start_input_file_upload' => 'tmp_section_about_us_start_input_file_upload',
+        'recurrent_job_opportunities_content_form' => 'tmp_section_job_opportunities_content_form',
 
         // UTILITY BAR BREACRUMB
         'recurrent_aboutus_start_utility_bar_breadcrumb' => 'tmp_section_aboutus_start_utility_bar_breadcrumb',

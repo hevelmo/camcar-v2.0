@@ -470,9 +470,8 @@
             currentSectionMethod.currentSection_job_opportunites();
 
             viewSectionJobOpportunitiesMethod.viewSectionJobOpportunities();
-
-            customFileMethods.customFile();
-            customFileMethods.init_customFile();
+            formJobOpportunitiesMethod.refreshForm();
+            customFileMethods.handleFileSelect();
 
             animatedMethods.animated();
             $(window).resize(mobile_menu_methods.has_menu_toggle);

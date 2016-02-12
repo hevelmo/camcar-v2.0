@@ -2901,7 +2901,6 @@
         viewSectionJobOpportunities: function() {
             viewSectionJobOpportunitiesMethod.recurrentSectionJobOpportunities();
             viewSectionJobOpportunitiesMethod.loadTemplatesLargePadJobOpportinuties();
-            viewSectionJobOpportunitiesMethod.loadTemplateInputFileUpload();
         },
         loadTemplatesLargePadJobOpportinuties: function() {
             CAM.loadTemplate(tempsNames.recurrent_about_us_start_jop_opportunities, domEl._start_large_pad_job_opportunities_name);
@@ -2922,21 +2921,47 @@
     var formJobOpportunitiesMethod = {
         dataFormJobOpportunities: function() {
             var dataFormJobOpportunities;
-            dataFormJobOpportunities = $(domEl.recurrent_form_job_opportunities).serializeFormJSON();
-            console.log(dataFormJobOpportunities);
+            dataFormJobOpportunities = $(domEl.form_job_opportunities).serializeFormJSON();
+            console.log(domEl.form_job_opportunities);
             return CAM.postalService(urlsApi.postJobOpportunities, dataFormJobOpportunities);
         },
         fillingControl: function() {
+            var validFieldItems, dataFormJobOpportunities, isFull, isEmpty;
+            validFieldsItems = [
+                'job_opportunities_first_name',
+                'job_opportunities_last_name',
+                'job_opportunities_email',
+                'job_opportunities_phone',
+                'job_opportunities_message'
+            ];
+            dataFormJobOpportunities = $(domEl.form_job_opportunities).serializeFormJSON();
+            console.log(dataFormJobOpportunities);
+
+            isFull = CAM.validFormFull(dataFormJobOpportunities, validFieldsItems);
+            $(domEl.send_btn_job_opportunities).attr('disabled', !isFull);
+
+            /*isEmpty = CAM.validFormFull(dataFormJobOpportunities, validFieldsItems);
+            $(domEl.send_btn_job_opportunities).attr('disabled', !isFull);*/
         },
         refreshForm: function() {
+            CAM.loadTemplate(tempsNames.recurrent_job_opportunities_content_form, domEl.div_recurrent_content_job_opportunities);
+            viewSectionJobOpportunitiesMethod.loadTemplateInputFileUpload();
+            customFileMethods.customFile();
+            customFileMethods.init_customFile();
+            $(domEl.send_btn_job_opportunities).attr('disabled', true);
         },
         resetForm: function() {
+            CAM.resetForm(domEl.form_job_opportunities);
+            $(domEl.send_btn_job_opportunities).attr('disabled', true);
         },
         resetLoader: function() {
+            CAM.setHTML('.form-loader', '');
         },
         validateFieldsKeyup: function() {
+            formJobOpportunitiesMethod.fillingControl();
         },
         sendJobOpportunities: function() {
+            formJobOpportunitiesMethod.fillingControl();
         }
     }
 /* ------------------------------------------------------ *\
@@ -3042,12 +3067,63 @@
                             $wrap.find('input').focus();
                         }
                     }, 1);
-
                 });
             }
         },
         init_customFile : function() {
             $('input[type=file]').customFile();
+        },
+        handleFileSelect: function() {
+            var file, fileReader, fileList, blob, getFile, reader, name, conten, type, getName, getContent, getType, j, files, output, i, f;
+            file = window.File;
+            fileReader = window.FileReader;
+            fileList = window.FileList;
+            blob = window.Blob;
+
+            if (file && fileReader && fileList && blob) {
+                function handleFileSelect(evt) {
+                    files = evt.target.files;
+
+                    getFile = document.getElementById('job_opportunities_upload_file');
+
+                    for( j=0;j<getFile.files.length;j++){reader = new FileReader();//instanciamos FileReader
+                        reader.onloadend = (function(f){//creamos la función que recogerá los datos
+                            return function(e){
+                                //console.log(f);
+                                name = f.name;
+                                content = e.target.result.split(",",2)[1];//obtenemos el contenido del archivo, estará codificado en Base64
+                                type = f.type;
+
+                                getName = name;
+                                getContent = content;
+                                getType = type;
+
+                                $('#params .file').html(getName);
+
+                                $('#params .mime_type').html(getType);
+                                $('#params .file_content').html(getContent);
+
+                                //console.log(getName); console.log(getType); console.log(getContent);
+                            }
+                        })(getFile.files[j]);
+                        reader.readAsDataURL(getFile.files[j]);//
+                    }
+                    /*output = [];//Creamos un arreglo para guardar todos los archivos datos en diferentes posiciones.
+                    for (i = 0, f; f = files[i]; i++) {//Recorremos el objeto files para obtener los datos de cada archivo y guardarlos en el arreglo.
+                        output.push('<div id="params"><div class="file"></div><div class="file_content"></div><div class="mime_type"></div></div><li><strong>',
+                            f.name, '</strong> (', f.type || 'n/a', ') - ',
+                            f.size, ' bytes, ultima modificacion: ',
+                            f.lastModifiedDate.toLocaleDateString(), '</li>');
+                        console.log(output);
+                    }*/
+                    //document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';//Introducimos la lista de archivos entre las etiquetas <ul></ul>
+                    //console.log(output);
+                }
+                document.getElementById('job_opportunities_upload_file').addEventListener('change', handleFileSelect, false);//Ponemos un listener para escuchar cuando el evento Change del input file se ejecute, quiere decir cuando se de click en "Abrir"
+            } else {
+              //alert();
+              console.log('Tu navegador no tiene soporte para estas funciones.');
+            }
         }
     }
 /* ------------------------------------------------------ *\

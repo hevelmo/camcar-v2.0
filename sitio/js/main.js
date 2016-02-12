@@ -97,6 +97,16 @@ $(document).ready(function() {
     // ABOUT US
     $(domEl.navbar_recurrent).on('click', domEl.goSection_about_us, clikGoMethods.clickGo_about_us);
     $(domEl.div_recurrent).on('click', '#stop-video', video_strip_methods.stop_video);
+    // JOB OPPORTUNITIES
+    $(domEl.div_recurrent).on('keyup', domEl.input_job_opportunities_first_name, formJobOpportunitiesMethod.validateFieldsKeyup);
+    $(domEl.div_recurrent).on('keyup', domEl.input_job_opportunities_last_name, formJobOpportunitiesMethod.validateFieldsKeyup);
+    $(domEl.div_recurrent).on('keyup', domEl.input_job_opportunities_email, formJobOpportunitiesMethod.validateFieldsKeyup);
+    $(domEl.div_recurrent).on('keyup', domEl.input_job_opportunities_phone, formJobOpportunitiesMethod.validateFieldsKeyup);
+    $(domEl.div_recurrent).on('keyup', domEl.input_job_opportunities_message, formJobOpportunitiesMethod.validateFieldsKeyup);
+
+    $(domEl.div_recurrent).on('keypress', domEl.input_job_opportunities_phone, inputValMetdods.isIntegerKP);
+
+    $(domEl.div_recurrent).on('click', domEl.send_btn_job_opportunities, formJobOpportunitiesMethod.sendJobOpportunities);;
     // CONTACT
     $(domEl.navbar_recurrent).on('click', domEl.goSection_contact, clikGoMethods.clickGo_contact);
     // JOB OPPORTUNITIES

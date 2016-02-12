@@ -300,9 +300,9 @@ function domEl() {
         '_start_large_pad_job_opportunities_name' => '#' . $start_large_pad_job_opportunities,
 
         // FORM JOB OPPRTUNITIES
-        'div_recurrent_content_job_board' => '#content_form_job_board',
+        'div_recurrent_content_job_opportunities' => '#content-form-job-opportunities',
         'div_recurrent_content_input_file' => '#content_custom_file_upluad',
-        'recurrent_form_job_opportunities' => '#form-job-opportunities',
+        'form_job_opportunities' => '#form-job-opportunities',
         'input_job_opportunities_first_name' => '#job_opportunities_first_name',
         'input_job_opportunities_last_name' => '#job_opportunities_last_name',
         'input_job_opportunities_email' => '#job_opportunities_email',
