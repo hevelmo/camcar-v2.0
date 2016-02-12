@@ -453,7 +453,7 @@
         }
     });
 /* ----------------------------------- *\
- [Route] CONTACT
+ [Route] JOB OPPORTUNITIES
 \* ----------------------------------- */
     Finch.route('/bolsa-de-trabajo', {
         setup: function(bindings) {
