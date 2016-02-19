@@ -1,22 +1,30 @@
 /* ------------------------------------------------------ *\
     [Variables] 'Zone'
 \* ------------------------------------------------------ */
-    // GLOBAL USER
-    var //GLOBALUsrUserName = $(domEl.input_session_usr_username).val(),
-        GLOBALUsrId = +$(domEl.input_session_usr_id).val(),
-        GLOABALUsrType = +$(domEl.input_session_usr_type).val(),
-        GLOBALUsrEmail = $(domEl.input_session_usr_email).val(),
-        GLOBALUsrAgnId = +$(domEl.input_session_usr_agn_id).val(),
-        GLOBALUsrAgnName = $(domEl.input_session_usr_agn_name).val(),
-        GLOBALUsrAgnLogo1 = $(domEl.input_session_usr_agn_logo1).val(),
-        GLOBALUsrAgnLogo2 = $(domEl.input_session_usr_agn_logo2).val(),
-        GLOBALUsrAgnHeader = $(domEl.input_session_usr_agn_header).val();
+    var /*GLOBALUsrUserName,*/ GLOBALUsrFullname, GLOBALUsrId, GLOBALEmployeeNumber,
+        GLOABALUsrType, LOBALUsrEmail, GLOBALUsrAgnId, GLOBALUsrAgnName,
+        GLOBALUsrAgnLogo1, GLOBALUsrAgnLogo2, GLOBALUsrAgnHeader;
+
+    //GLOBALUsrUserName = $(domEl.input_session_usr_username).val(),
+    GLOBALUsrFullname = $(domEl.input_session_usr_fullname).val(),
+    GLOBALUsrId = +$(domEl.input_session_usr_id).val(),
+    GLOBALEmployeeNumber = $(domEl.input_session_usr_no_employee).val(),
+    GLOABALUsrType = +$(domEl.input_session_usr_type).val(),
+    GLOBALUsrEmail = $(domEl.input_session_usr_email).val(),
+    GLOBALUsrAgnId = +$(domEl.input_session_usr_agn_id).val(),
+    GLOBALUsrAgnName = $(domEl.input_session_usr_agn_name).val(),
+    GLOBALUsrAgnLogo1 = $(domEl.input_session_usr_agn_logo1).val(),
+    GLOBALUsrAgnLogo2 = $(domEl.input_session_usr_agn_logo2).val(),
+    GLOBALUsrAgnHeader = $(domEl.input_session_usr_agn_header).val();
+
+    var GLOBALSorter, GLOBALSort, GLOBALLastUrlEpy;
 
     var section, today;
     var IS_MOBILE, mediaquery;
-    // Browser supports HTML5 multiple file?
+
+    //Browser supports HTML5 multiple file?
     var multipleSupport = typeof $('<input/>')[0].multiple !== 'undefined',
-        isIE = /msie/i.test( navigator.userAgent );
+        isIE = /msie/i.test(navigator.userAgent);
     var classes, direction, duration, easing;
     classes = {
         base: 'slidePanel',
@@ -28,11 +36,11 @@
         dragging: 'slidePanel-dragging',
         willClose: 'slidePanel-will-close'
     };
-    direction = 'right'; // top, bottom, left, right
+    direction = 'right'; //top, bottom, left, right
     duration = '500ms';
     easing = 'ease';
 /* ------------------------------------------------------ *\
-    [functions] DETEC MOBILE
+    [functions] detectmobile
 \* ------------------------------------------------------ */
     /* Detect Mobile Browser : http://detectmobilebrowsers.com/ */
     function detectmobile(a){
@@ -66,7 +74,7 @@
         });
      }
 /* ------------------------------------------------------ *\
-    [Methods] MATCHMEDIA
+    [Methods] matchMediaMethod
 \* ------------------------------------------------------ */
     var matchMediaMethod = {
         mediaquery: function() {
@@ -118,7 +126,7 @@
         }
     }
 /* ------------------------------------------------------ *\
-    [Metodos] Favicon
+    [Metodos] favicon
 \* ------------------------------------------------------ */
     var favicon = {
         load_favicon: function() {
@@ -184,6 +192,9 @@
             Finch.navigate('/directorio');
         }
     }
+/* ------------------------------------------------------ *\
+    [Methods] toggleMenuBarMethod
+\* ------------------------------------------------------ */
     var toggleMenuBarMethod = {
         toggleMenuBar: function(event) {
             //$('#menubar').addClass('collapsed');
@@ -269,7 +280,7 @@
     var createModalOverlayMethod = {
         createModalOverlay: function() {
             modalOverlayAttributes = [
-            ['div', {'id' : 'content-temporal-modal-overlay', 'class':'wrapper_content_interactive'}, '', 1],
+            ['div', {'id' : 'content-temporal-modal-overlay', 'class':'wrapper_content_interactive_modal_overlay'}, '', 1],
             ];
             CAMIN.appendMulti('body', modalOverlayAttributes);
         }
@@ -337,8 +348,17 @@
 \* ------------------------------------------------------ */
     var loadSiteNavigationMethods = {
         loadSiteNavigation: function() {
-            CAMIN.loadTemplate(tempsNames.recurrent_site_navbar, domEl.site_navbar);
+            var data, adminAcces, fullname, epyData;
+            fullname = GLOBALUsrFullname;
+            epyData = {'webservice': [{'fullname' : fullname}]};
+            CAMIN.loadTemplate(tempsNames.recurrent_site_navbar, domEl.site_navbar, epyData);
             CAMIN.loadTemplate(tempsNames.recurrent_site_menubar, domEl.site_menubar);
+            $(domEl._dd_menu_description).data('hint', fullname);
+            data = CAMIN.getInternalJSON(urlsApi.ssn_get_admin_access);
+            adminAcces = +data.caminpa.usr_adm_access;
+            if(!adminAcces) {
+                $('#site-section-preowned').remove();
+            }
         }
     }
 /* ------------------------------------------------------ *\
@@ -438,12 +458,15 @@
         globalUserPromise: function() {
             if(+GLOBALUsrId === 1 || +GLOBALUsrId === 2 || +GLOBALUsrId === 3) {
                 promise = CAMIN.postalService(urlsApi.wse_set_epy, {});
-                promise.success( function (data) {
+                    promise.success( function (data) {
                 });
             }
         },
         loadTemplatesWindow_panelPerfil: function() {
-            CAMIN.loadTemplate(tempsNames.home_window_perfil, domEl._home_panel_perfil);
+            var empNumber, epyData;
+            empNumber = GLOBALEmployeeNumber;
+            epyData = CAMIN.getInternalJSON(urlsApi.wse_get_epy_nep + empNumber);
+            CAMIN.loadTemplate(tempsNames.home_window_perfil, domEl._home_panel_perfil, epyData);
         },
         loadTemplatesWindow_todayBirthday: function() {
             //Get today date in format yyyy-mm-dd
@@ -451,6 +474,8 @@
             //Get today's birthdays
             dataBirthday = CAMIN.getInternalJSON(urlsApi.wse_get_epy_cum + today);
             CAMIN.loadTemplate(tempsNames.home_window_birthday, domEl._home_today_birthday, dataBirthday);
+            //domElementsFormatMethods.htmlDateRoman(domEl._date_roman_h);
+            //domElementsFormatMethods.htmlDateHuman(domEl._date_human_h);
         },
         loadTemplatesWindow_todayAniversary: function() {
             //Get today date in format yyyy-mm-dd
@@ -460,7 +485,9 @@
             CAMIN.loadTemplate(tempsNames.home_window_aniversary, domEl._home_today_aniversary, dataAniversary);
         },
         loadTemplatesWindow_agreements: function() {
-            CAMIN.loadTemplate(tempsNames.home_window_agreements, domEl._home_today_agreements);
+            var conData;
+            conData = CAMIN.getInternalJSON(urlsApi.get_con);
+            CAMIN.loadTemplate(tempsNames.home_window_agreements, domEl._home_today_agreements, conData);
         }
     }
 /* ------------------------------------------------------ *\
@@ -481,18 +508,20 @@
             $(domEl.div_recurrent).attr('style','animation-duration: 0.8s; opacity: 1;');
         },
         loadTemplatesAgreement: function() {
-            CAMIN.loadTemplate(tempsNames.recurrent_agreement_masonry_items, domEl._agreement_page_content_name);
+            var conData;
+            conData = CAMIN.getInternalJSON(urlsApi.get_con);
+            CAMIN.loadTemplate(tempsNames.recurrent_agreement_masonry_items, domEl._agreement_page_content_name, conData);
         }
     }
 /* ------------------------------------------------------ *\
     [Metodos] viewSectionWelcomeDirectoryMethods
 \* ------------------------------------------------------ */
     var viewSectionWelcomeDirectoryMethods = {
-        viewSectionWelcomeDirectory : function() {
-            viewSectionWelcomeDirectoryMethods.recurrent_welcome_directory();
+        viewSectionWelcomeDirectory: function() {
+            viewSectionWelcomeDirectoryMethods.recurrentWelcomeDirectory();
             viewSectionWelcomeDirectoryMethods.loadTemplatesDirectory();
         },
-        recurrent_welcome_directory : function() {
+        recurrentWelcomeDirectory: function() {
             directoryPageContentAttributes = [
                 ['div', {'id' : domEl._directory_page_aside, 'class':'page-aside'}, '', 1],
                 ['div', {'id' : domEl._directory_page_main, 'class':'page-main'}, '', 1]
@@ -506,7 +535,64 @@
             CAMIN.loadTemplate(tempsNames.recurrent_directory_contacts_sidebar, domEl._directory_page_aside_name);
             CAMIN.loadTemplate(tempsNames.recurrent_directory_contacts_content_header, domEl._directory_page_main_name);
             CAMIN.loadTemplate(tempsNames.recurrent_directory_contacts_site_action, domEl.div_recurrent_site_action);
-        }
+            viewSectionWelcomeDirectoryMethods.sortingFilters();
+        },
+        refreshFilters: function() {
+        },
+        sortingFilters: function() {
+            var epyData, epyNumber, url,
+                sorter, sort, mystery, mysteryElements, epyLength;
+
+            sorter = GLOBALSorter;
+            sort = GLOBALSort;
+
+            mystery = CAMIN.getValue(domEl.input_directory_search);
+            mystery = CAMIN.advancedTrim(mystery);
+            mystery = CAMIN.replaceAll(mystery, '/', '**47**');
+
+            url = urlsApi.wse_get_epy_filters + sorter + '/' + sort;
+            url += (mystery !== '') ? '/' + mystery : '';
+
+            if(url !== GLOBALLastUrlEpy) {
+                //
+                epyData = CAMIN.getInternalJSON(url);
+                CAMIN.loadTemplate(tempsNames.recurrent_directory_contacts_content_list, domEl._directory_employees_list, epyData);
+                //
+                epyNumber = (CAMIN.hasOwnPropertyOptimized(epyData, 'webservice')) ? epyData['webservice'].length : 0;
+                CAMIN.setHTML(domEl._directory_employees_number, epyNumber);
+                //
+                GLOBALLastUrlEpy = url;
+            }
+        },
+        fillingControl: function() {
+        },
+        keyupSearch: function(event) {
+            viewSectionWelcomeDirectoryMethods.sortingFilters();
+        },
+        blurSearch: function(event) {
+            var mystery, mysteryElements;
+            mystery = CAMIN.getValue($(this));
+            mystery = CAMIN.advancedTrim(mystery);
+            CAMIN.setValue($(this), mystery);
+        },
+        clickSorter: function (event) {
+            var element, sorter, sort, newSort;
+            //Get element reference
+            element = $(this);
+            //Get sort and sorter from data of current element
+            sorter = element.data('sorter');
+            sort = element.data('sort');
+            //Change all sorter to ASC sort
+            $(domEl._epy_sorter).data('sort', 'ASC');
+            //Switch the current element sort
+            newSort = (sort === 'ASC') ? 'DESC' : 'ASC';
+            element.data('sort', newSort);
+            //Asign values to global sort and sorter
+            GLOBALSorter = sorter;
+            GLOBALSort = sort;
+            //Sort template
+            viewSectionWelcomeDirectoryMethods.sortingFilters();
+        },
     }
 /* ------------------------------------------------------ *\
     [Methods] currentSectionMethod
@@ -639,3 +725,327 @@
         }
         */
     }
+/* ------------------------------------------------------ *\
+ [Methods] DOM Elements Format
+\* ------------------------------------------------------ */
+    var domElementsFormatMethods = {
+        //-------------------- Real Number --------------------
+        numberReal: function(number) {
+            var real, elements;
+            real = +number;
+            real = real.toFixed(2);
+            elements = real.split('.');
+            (elements.length === 1) ? elements[1] = '00' : elements = elements;
+            real = elements.join('.');
+            real = +real;
+            real = real.toFixed(2);
+            return real;
+        },
+        valueNumberReal: function(element) {
+            $(element).each(function(idx) {
+                var value, real;
+                value = CAMIN.getValue($(this));
+                real = domElementsFormatMethods.numberReal(value);
+                CAMIN.setValue($(this), real);
+            });
+        },
+        htmlNumberReal: function(element) {
+            $(element).each(function(idx) {
+                var html, real;
+                html = CAMIN.getHTML($(this));
+                real = domElementsFormatMethods.numberReal(html);
+                CAMIN.setHTML($(this), real);
+            });
+        },
+        //-------------------- Real Number --------------------
+        currency: function(number) {
+            var currency;
+            currency = number;
+            currency = CAMIN.currencyFormat(currency);
+            return currency;
+        },
+        valueCurrency: function(element) {
+            $(element).each(function(idx) {
+                var value, currency;
+                value = CAMIN.getValue($(this));
+                currency = domElementsFormatMethods.currency(value);
+                CAMIN.setValue($(this), currency);
+            });
+        },
+        htmlCurrency: function(element) {
+            $(element).each(function(idx) {
+                var html, currency;
+                html = CAMIN.getHTML($(this));
+                currency = domElementsFormatMethods.currency(html);
+                CAMIN.setHTML($(this), currency);
+            });
+        },
+        //-------------------- Percentage Decimal --------------------
+        percentageDecimal: function(number) {
+            var percentage;
+            percentage = +number;
+            percentage *= 100;
+            percentage = percentage.toFixed(2);
+            percentage += '%';
+            return percentage;
+        },
+        valuePercentageDecimal: function(element) {
+            $(element).each(function(idx) {
+                var value, percentage;
+                value = CAMIN.getValue($(this));
+                percentage = domElementsFormatMethods.percentageDecimal(value);
+                CAMIN.setValue($(this), percentage);
+            });
+        },
+        htmlPercentageDecimal: function(element) {
+            $(element).each(function(idx) {
+                var html, percentage;
+                html = CAMIN.getHTML($(this));
+                percentage = domElementsFormatMethods.percentageDecimal(html);
+                CAMIN.setHTML($(this), percentage);
+            });
+        },
+        //-------------------- Date Roman --------------------
+        dateRoman: function(date, language) {
+            var dateFormat, elements;
+            dateFormat = CAMIN.momentToRoman(date, language);
+            elements = dateFormat.split(',');
+            dateFormat = elements[1];
+            dateFormat = $.trim(dateFormat);
+            elements = dateFormat.split(' ');
+            elements.splice(2,1);
+            dateFormat = elements.join(' de ');
+            return dateFormat;
+        },
+        valueDateRoman: function(element) {
+            $(element).each(function(idx) {
+                var value, dateFormat;
+                value = CAMIN.getValue($(this));
+                dateFormat = domElementsFormatMethods.dateRoman(value, 'es');
+                CAMIN.setValue($(this), dateFormat);
+            });
+        },
+        htmlDateRoman: function(element) {
+            $(element).each(function(idx) {
+                var html, dateFormat;
+                html = CAMIN.getHTML($(this));
+                dateFormat = domElementsFormatMethods.dateRoman(html, 'es');
+                CAMIN.setHTML($(this), dateFormat);
+            });
+        },
+        //-------------------- Date Human --------------------
+        dateHuman: function(date, language) {
+            var dateFormat;
+            dateFormat = CAMIN.momentToHuman(date, language);
+            return dateFormat;
+        },
+        valueDateHuman: function(element) {
+            $(element).each(function(idx) {
+                var value, dateFormat;
+                value = CAMIN.getValue($(this));
+                dateFormat = domElementsFormatMethods.dateHuman(value, 'es');
+                CAMIN.setValue($(this), dateFormat);
+            });
+        },
+        htmlDateHuman: function(element) {
+            $(element).each(function(idx) {
+                var html, dateFormat;
+                html = CAMIN.getHTML($(this));
+                dateFormat = domElementsFormatMethods.dateHuman(html, 'es');
+                CAMIN.setHTML($(this), dateFormat);
+            });
+        }
+    }
+/* ------------------------------------------------------ *\
+    [Methods] inputVal
+\* ------------------------------------------------------ */
+    var inputValMetdods = {
+        isIntegerKP: function (event) {
+            var key, numeros, teclado, especiales, teclado_especial, i;
+
+            key = event.keyCode || event.which;
+            teclado = String.fromCharCode(key);
+            numeros = '0123456789';
+            especiales = [8,9,37,38,39,40,46]; // array
+            teclado_especial = false;
+
+            for ( i in especiales ) {
+                if ( key == especiales[i] ) {
+                    teclado_especial = true;
+                }
+            }
+            if ( numeros.indexOf(teclado) == -1 && !teclado_especial ) {
+                return false;
+            }
+        },
+        //http://www.lawebdelprogramador.com/foros/JavaScript/1074741-introducir_solo_numero_dos_decimales.html
+        isDecimalKP: function(event) {
+            var key, value;
+            value = $(this).val();
+            key = event.keyCode ? event.keyCode : event.which;
+
+            // backspace
+            if(key == 8) {
+                return true;
+            }
+            // 0-9
+            if(key > 47 && key < 58) {
+                if(value == '') {
+                    return true;
+                }
+                regexp = /.[0-9]{15}$/;
+                return !(regexp.test(value));
+            }
+            // .
+            if(key == 46) {
+                if(value == '') {
+                    return false;
+                }
+                regexp = /^[0-9]+$/;
+                return regexp.test(value);
+            }
+            // other key
+            return false;
+        },
+        roundDecimalBlur: function(event) {
+            var value;
+            value = $(this).val();
+            value = CAMAD.roundNDecimalFormat(value, 2);
+            $(this).val(value);
+        }
+    }
+/* ------------------------------------------------------ *\
+    [Methods] validations_regexp
+\* ------------------------------------------------------ */
+    var validations_regexp = {
+        address : new RegExp( /^[a-zá-úüñ,#0-9. -]{2,}$/i ),
+        date    : new RegExp( /^(\d{4})-(\d{1,2})-(\d{1,2})$/ ),
+        email   : new RegExp( /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ ),
+        name    : new RegExp( /^[a-zá-úüñ. ]{2,}$/i ),
+        phone   : new RegExp( /^[0-9\s\-]{7,13}$/ ),
+        upload  : new RegExp( /^[\w+\/]+\.\w{3}$/ )
+    }
+/* ------------------------------------------------------ *\
+    [Methods] validation_messages
+\* ------------------------------------------------------ */
+    var validation_messages = {
+        date            : 'Debe ser aaaa-mm-dd',
+        date_tomorrow   : 'Sólo a partir de mañana',
+        email           : 'Verifica tu correo',
+        general         : 'Campo no válido',
+        not_config      : 'Tipo desconocido',
+        not_null        : 'No puede ser nulo',
+        phone           : 'Verifica que tu número sea de 10 dígitos',
+        required        : 'Campo requerido',
+        empty           : 'Campo vacío',
+        upload          : 'Comprueba la extensión del archivo a subir'
+    }
+/* ------------------------------------------------------ *\
+    [Methods] validate
+\* ------------------------------------------------------ */
+    var validateMethods = {
+        validate : function(value, rules, required, custom_message, formulario, archivo) {
+            var r = { valid : false, message : '' },
+            null_value = value == undefined || value === '' || value === $("#user_profile_pic").val() ,
+            ii, rule;
+            required = required === true ? true: false;
+            if( required ){
+                if( null_value ){
+                    r.message = validation_messages.required;
+                }
+            }else{
+                if( null_value ){
+                    r.valid = true;
+                }
+            }
+            if( !r.valid && r.message === '' ){
+                ii = rules.length;
+                while( ii-- ){
+                    rule = rules[ii];
+                    switch( rule ){
+                        case 'email':
+                            if( !validations_regexp.email.test( value ) ){
+                                r.message = validation_messages.email;
+                            }
+                            break;
+                        case 'name':
+                            if( !validations_regexp.name.exec( value ) ){
+                                r.message = validation_messages.general;
+                            }
+                            break;
+                        case 'address':
+                            if( !validations_regexp.address.exec( value ) ){
+                                r.message = validation_messages.general;
+                            }
+                            break;
+                        case 'phone':
+                            if( !validations_regexp.phone.exec( value ) ){
+                                r.message = validation_messages.phone;
+                            }
+                            break;
+                        /*case 'area':
+                            if(  !is_model_name( value ) ){
+                                r.message = validation_messages.general;
+                            }
+                            break;*/
+                        case 'upload':
+                            if( !valid_extension_file( formulario, value ) ){
+                                r.message = validation_messages.upload;
+                                //console.log(r.message);
+                            }
+                            break;
+                        default:
+                            r.message = validations_regexp.not_config;
+                            break;
+                    }
+                }
+                if( r.message === '' ){
+                    r.valid = true;
+                }
+            }
+            if( custom_message && !r.valid ){
+                r.message = custom_message;
+            }
+            return r;
+        },
+        //Display Input errors
+        error_bubble : function( $label, show, message ){
+            var $p = $label.parent().children('p.invalid-message');
+            if( show ){
+                if( message ){
+                    $p.html( message + '<span>&nbsp;</span>' ).stop().hide().fadeIn();
+                }else{
+                    $p.stop().hide().fadeIn();
+                }
+            }else{
+                $p.hide();
+            }
+        },
+        validate_input : function(event) {
+            var target, isInput, isTextarea, isInputFile;
+            target = $(event.target);
+            isInput = target.is('input');
+            isTextarea = target.is('textarea');
+            isInputFile = target.is('input[type="file"]');
+            //console.log(target);
+            if( isInput || isTextarea || isInputFile ){
+                var valid_data, val_data, required, value, validation;
+                valid_data = target.data('validation-data');
+                val_data   = valid_data.split('|');
+                required   = val_data.indexOf('required');
+                if( required >= 0 ){
+                    val_data.splice(required, 1);
+                }
+                value = target.val();
+                validation = validateMethods.validate( value, val_data, ( required >= 0 )  );
+                validateMethods.error_bubble( target, !validation.valid, validation.message );
+                return validation.valid;
+            }else{
+                var is_valid;
+                is_valid = !( target.val() === null );
+                validateMethods.error_bubble( target, !is_valid, validation_messages.required );
+                return is_valid;
+            }
+        }
+    }
+

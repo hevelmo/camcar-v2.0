@@ -57,7 +57,6 @@
 		[styles] remark extras
 	\* ------------------------------------------------------ */
 		/*
-		@import url(styles/assets/);
 		*/
 		@import url(main.css);
 		@import url(styles/remark-main-intranet.css);

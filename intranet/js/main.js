@@ -43,6 +43,11 @@ $(document).ready(function() {
     $(domEl.recurrent_body).on('click', domEl.go_section_agreement, goSectionMethods.goSection_agreement);
     $(domEl.recurrent_body).on('click', domEl.go_section_directory, goSectionMethods.goSection_directory);
 
+    //DIRECTORY
+    $(domEl.div_recurrent).on('keyup', domEl.input_directory_search, viewSectionWelcomeDirectoryMethods.keyupSearch);
+    $(domEl.div_recurrent).on('blur', domEl.input_directory_search, viewSectionWelcomeDirectoryMethods.blurSearch);
+    $(domEl.div_recurrent).on('click', domEl._epy_sorter, viewSectionWelcomeDirectoryMethods.clickSorter)
+
     // CALL MODAL OVERLAY
     $(domEl.div_recurrent).on('click', '.call-modal-ovarlay.birthday', callModalOverlayMethod.callModalOverlay);
 });

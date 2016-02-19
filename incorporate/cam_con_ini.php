@@ -18,4 +18,4 @@ if(!in_array($_SERVER['SERVER_NAME'], $devserverlist)){
 	define("DATABASE", "camcardb");
 }
 
-define("SECURE", FALSE);    // FOR DEVELOPMENT ONLY!!!!
+define("SECURE", FALSE);//FOR DEVELOPMENT ONLY!!!!

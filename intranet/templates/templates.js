@@ -64,7 +64,7 @@ templates['tmp_home_window_birthday'] = template({"1":function(container,depth0,
     + alias4(((helper = (helper = helpers.edad || (depth0 != null ? depth0.edad : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"edad","hash":{},"data":data}) : helper)))
     + " años</small>\n                    </div>\n                </div>\n            </li>\n";
 },"4":function(container,depth0,helpers,partials,data) {
-    return "            <h4 class=\"panel-body-title\">NO HAY COMPLEAÑOS EL DÍA DE HOY</h4>\n";
+    return "            <h4 class=\"panel-body-title panel-body-title-else\">NO HAY COMPLEAÑOS EL DÍA DE HOY</h4>\n";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 

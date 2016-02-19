@@ -70,7 +70,6 @@ class Mandrill {
         curl_setopt($this->ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($this->ch, CURLOPT_CONNECTTIMEOUT, 30);
         curl_setopt($this->ch, CURLOPT_TIMEOUT, 600);
-        curl_setopt($this->ch, CURLOPT_SSL_VERIFYPEER, false);
 
         $this->root = rtrim($this->root, '/') . '/';
 

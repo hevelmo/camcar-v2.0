@@ -21,6 +21,7 @@ function domEl() {
     	// NAVIGATION
 		'site_navbar' => '#content-site-navbar-interactive',
 		'site_menubar' => '#content-site-menubar-interactive',
+        '_dd_menu_description' => '#dd-menu-description',
     	//GENERAL HI DIVS
     	'div_hidden_inputs_session' => 'div#hidden-inputs-session',
     	'div_hidden_inputs_temporal' => 'div#hidden-inputs-temporal',
@@ -43,6 +44,10 @@ function domEl() {
     	'_directory_page_main' => $directory_page_main,
     	'_directory_page_main_name' => '#' . $directory_page_main,
     	'div_recurrent_site_action' => '#content-site-action',
+        '_directory_employees_list' => '#directory-employees-list',
+        '_directory_employees_number' => '#directory-employees-number',
+        'input_directory_search' => 'input#directory-search',
+        '_epy_sorter' => '.epy-sorter',
     	// SLIDEPANEL
     	'div_recurrent_slidepanel' => '#content-slide-panel',
     	// EVENTS SECTION
@@ -61,11 +66,19 @@ function domEl() {
 	    'input_session_usr_agn_header' => 'input#session-usr-agn-header',
 	    //AUXILIAR FORMAT CLASSES
 	    '_percentage_d' => '.percentage-d',
-	    '_currency_h' => '.currency-h',
-	    '_real_v' => '.real-v',
+        '_currency_h' => '.currency-h',
+        '_real_v' => '.real-v',
+        '_date_roman_h' => '.date-roman-h',
+        '_date_roman_v' => '.date-roman-v',
+        '_date_human_h' => '.date-human-h',
+        '_date_human_v' => '.date-human-v',
 	    //HOME
 	    '_home_panel_perfil_name' => $panel_perfil,
 	    '_home_panel_perfil' => '#' . $panel_perfil,
+
+        '_profile_emp_name' => '#profile-emp-name',
+        '_profile_emp_job' => '#profile-emp-job',
+        '_profile_emp_agency' => '#profile-emp-agency',
 
 	    '_home_today_birthday_name' => $today_birthday,
 	    '_home_today_birthday' => '#' . $today_birthday,

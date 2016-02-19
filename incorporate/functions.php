@@ -2,7 +2,7 @@
 /*
  * Copyright (C) 2015 Medigraf
  * Waxtotem, 2015.10.02
- *
+ * 
  */
 
 include_once 'cam_con_ini.php';
@@ -17,27 +17,30 @@ function getConnection() {
 }
 
 function sec_session_start() {
-    $sessionName = 'CAMCRM';   // Set a custom session name
+    //Set a custom session name
+    $sessionName = 'CAMCRM';
     $secure = SECURE;
 
-    // This stops JavaScript being able to access the session id.
+    //This stops JavaScript being able to access the session id.
     $httponly = true;
 
-    // Forces sessions to only use cookies.
+    //Forces sessions to only use cookies.
     if(ini_set('session.use_only_cookies', 1) === FALSE) {
         header("Location: ../error.php?err=Could not initiate a safe session (ini_set)");
         exit();
     }
 
-    // Gets current cookies params.
+    //Gets current cookies params.
     $cookieParams = session_get_cookie_params();
     session_set_cookie_params($cookieParams["lifetime"], $cookieParams["path"], $cookieParams["domain"], $secure, $httponly);
 
-    // Sets the session name to the one set above.
+    //Sets the session name to the one set above.
     session_name($sessionName);
 
-    session_start();            // Start the PHP session
-    session_regenerate_id();    // regenerated the session, delete the old one.
+    //Start the PHP session
+    session_start();
+    //regenerated the session, delete the old one.
+    session_regenerate_id();
 
 }
 
@@ -45,7 +48,9 @@ function login($mail, $password) {
     $mail = trim($mail);
 
     $sql = "SELECT usr.USR_Id,
+                   usr.USR_NumeroEmpleado,
                    usr.USR_Username,
+                   CONCAT(USR_ApellidoPaterno, ' ', USR_ApellidoMaterno, ' ', USR_Nombres) USR_NombreCompleto,
                    usr.USR_Mail,
                    usr.USR_AGN_Id,
                    COALESCE(agn.AGN_Nombre, 'Administrador') AGN_Nombre,
@@ -65,7 +70,9 @@ function login($mail, $password) {
 
     $structure = array(
         'usr_id' => 'USR_Id',
+        'usr_no_empleado' => 'USR_NumeroEmpleado',
         'usr_username' => 'USR_Username',
+        'usr_nombre_completo' => 'USR_NombreCompleto',
         'usr_mail' => 'USR_Mail',
         'usr_agn_id' => 'USR_AGN_Id',
         'usr_agn_name' => 'AGN_Nombre',
@@ -88,7 +95,9 @@ function login($mail, $password) {
     if(count($result)) {
         if(rightResult($result)) {
             $userId = $result[0]['usr_id'];
+            $noEmpleado = $result[0]['usr_no_empleado'];
             $username = $result[0]['usr_username'];
+            $nombreCompleto = $result[0]['usr_nombre_completo'];
             $email = $result[0]['usr_mail'];
             $agnId = $result[0]['usr_agn_id'];
             $agency = $result[0]['usr_agn_name'];
@@ -137,24 +146,26 @@ function login($mail, $password) {
                     //XSS protection as we might print this value
                     $adminAccess = preg_replace("/[^0-9]+/", "", $adminAccess);
                     $_SESSION['usr_adm_access'] = $adminAccess;
-
+                    
                     //---------- UTF8 STRINGS ----------
 
                     $agency = utf8_encode($agency);
                     $_SESSION['usr_agn_nombre'] = $agency;
 
                     //---------- EMAIL ----------
-
-                   $_SESSION['email'] = $email;
+                    
+                    $_SESSION['email'] = $email;
 
                     //------------- STRINGS -------------
 
+                    $_SESSION['usr_no_empleado'] = $noEmpleado;
                     $_SESSION['usr_agn_logo1'] = $agnLogo1;
                     $_SESSION['usr_agn_logo2'] = $agnLogo2;
                     $_SESSION['usr_agn_header'] = $agnHeader;
+                    $_SESSION['usr_nombre_completo'] = $nombreCompleto;
 
                     //---------- LOGIN STRINGS ----------
-
+                    
                     $_SESSION['login_string'] = hash('sha512', $passwordFinal . $userBrowser);
 
                     //Login successful.
@@ -163,7 +174,7 @@ function login($mail, $password) {
                     //Password is not correct
                     //We record this attempt in the database
                     $now = time();
-                    $sql_i =
+                    $sql_i = 
                         "INSERT INTO camAttempts(
                             ATT_USR_Id,
                             ATT_Time
@@ -194,7 +205,9 @@ function login($mail, $password) {
 function login_check() {
     if(isset(
             $_SESSION['user_id'],
+            $_SESSION['usr_no_empleado'],
             //$_SESSION['username'],
+            $_SESSION['usr_nombre_completo'],
             $_SESSION['email'],
             $_SESSION['usr_agn_id'],
             $_SESSION['usr_agn_nombre'],
@@ -207,7 +220,9 @@ function login_check() {
     ) {
         $loginString = $_SESSION['login_string'];
         $userId = $_SESSION['user_id'];
+        $noEmpleado = $_SESSION['usr_no_empleado'];
         //$username = $_SESSION['username'];
+        $nombreCompleto = $_SESSION['usr_nombre_completo'];
         $email = $_SESSION['email'];
         $agnId = $_SESSION['usr_agn_id'];
         $type = $_SESSION['usr_type'];
@@ -300,7 +315,7 @@ function checkbrute($userId) {
     return false;
 }
 
-function admin_access_check($mysqli) {
+function admin_access_check() {
     $adminAccess = isset($_SESSION['usr_adm_access']) ? $_SESSION['usr_adm_access'] : 0;
     $adminAccess = intval($adminAccess);
     return ($adminAccess > 0);
@@ -318,7 +333,7 @@ function esc_url($url) {
     $url = (string) $url;
 
     $count = 1;
-    while ($count) {
+    while($count) {
         $url = str_replace($strip, '', $url, $count);
     }
 
@@ -330,90 +345,11 @@ function esc_url($url) {
     $url = str_replace("'", '&#039;', $url);
 
     if($url[0] !== '/') {
-        // We're only interested in relative links from $_SERVER['PHP_SELF']
+        //We're only interested in relative links from $_SERVER['PHP_SELF']
         return '';
     } else {
         return $url;
     }
-}
-
-function own_array_column($array, $column) {
-    $myFunction = function($interlnalArray, $internalColumn) {
-        $internalValues = array();
-        foreach($interlnalArray as $current) {
-            $internalValues[] = $current[$internalColumn];
-        }
-        $internalValues = array_values($internalValues);
-        return $internalValues;
-    };
-    $version = phpversion();
-    $elements = explode('.', $version);
-    $first = (integer)($elements[0]);
-    if($first === 5) {
-        $count = count($elements);
-        switch($count) {
-            case 1:
-                $proyectos_values = $myFunction($array, $column);
-                break;
-            case 2:
-                $second = (integer)($elements[1]);
-                if($second === 5) {
-                    $proyectos_values = $myFunction($array, $column);
-                } else if($second > 5) {
-                    $proyectos_values = array_column($array, $column);
-                } else {
-                    $proyectos_values = $myFunction($array, $column);
-                }
-                break;
-            case 3:
-            default:
-                $second = (integer)($elements[1]);
-                $third = (integer)($elements[2]);
-                if($second === 5) {
-                    if($third >= 0) {
-                        $proyectos_values = array_column($array, $column);
-                    } else {
-                        $proyectos_values = $myFunction($array, $column);
-                    }
-                } else if($second > 5) {
-                    $proyectos_values = array_column($array, $column);
-                } else {
-                    $proyectos_values = $myFunction($array, $column);
-                }
-
-        }
-    } else if($first > 5) {
-        $proyectos_values = array_column($array, $column);
-    } else {
-        $proyectos_values = $myFunction($array, $column);
-    }
-    $proyectos_values = array_values($proyectos_values);
-    return $proyectos_values;
-}
-
-/*
- * Function taken from:
- * http://php.net/manual/es/function.array-filter.php
- * Adapted and customized by Javier Corona, Medigraf, 2015-10-27
- */
-
-function filterByValue($array, $index, $value, $equal) {
-    $newArray = array();
-    if(is_array($array) && count($array) > 0) {
-        foreach(array_keys($array) as $key) {
-            $temp[$key] = $array[$key][$index];
-            if($equal) {
-                if($temp[$key] == $value) {
-                    $newArray[$key] = $array[$key];
-                }
-            } else {
-                if($temp[$key] != $value) {
-                    $newArray[$key] = $array[$key];
-                }
-            }
-        }
-    }
-    return $newArray;
 }
 
 /*

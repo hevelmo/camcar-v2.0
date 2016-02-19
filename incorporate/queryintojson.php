@@ -91,7 +91,10 @@ function rightResult($result) {
     return !array_key_exists('error', $result) && !array_key_exists('process', $result);
 }
 
-function sortArrayByKeys($array, $keys) {
+function sortArrayByKeys($array, $keys, $sort = 'ASC') {
+    $sort = trim($sort);
+    $sort = strtoupper($sort);
+    $sort = ($sort !== 'DESC') ? 'ASC' : $sort;
     $orderCriteria = array();
     for($i = 0; $i < count($keys); $i++) {
         $orderCriteria[] = array();
@@ -103,7 +106,7 @@ function sortArrayByKeys($array, $keys) {
     }
     $eval = 'array_multisort(';
     for($i = 0; $i < count($orderCriteria); $i++) {
-        $eval .= '$orderCriteria[' . $i . '], SORT_ASC, ';
+        $eval .= '$orderCriteria[' . $i . '], SORT_' . $sort . ', ';
     }
     $eval .= '$array);';
     eval($eval);
@@ -250,4 +253,133 @@ function changeLineIntoArray($line, $spl, $structure) {
     }
     return $splArray;
 }
+
+/*
+ * Function taken from:
+ * http://php.net/manual/es/function.array-filter.php
+ * Adapted and customized by Javier Corona, Medigraf, 2015-10-27
+ */
+
+function filterByValue($array, $index, $value, $equal) {
+    $newArray = array();
+    if(is_array($array) && count($array) > 0) {
+        foreach(array_keys($array) as $key) {
+            $temp[$key] = $array[$key][$index];
+            if($equal) {
+                if($temp[$key] == $value) {
+                    $newArray[$key] = $array[$key];
+                }
+            } else {
+                if($temp[$key] != $value) {
+                    $newArray[$key] = $array[$key];
+                }
+            }
+        }
+    }
+    return $newArray;
+}
+
+function ownArrayColumn($array, $column) {
+    $myFunction = function($interlnalArray, $internalColumn) {
+        $internalValues = array();
+        foreach($interlnalArray as $current) {
+            $internalValues[] = $current[$internalColumn];
+        }
+        $internalValues = array_values($internalValues);
+        return $internalValues;
+    };
+    $version = phpversion();
+    $elements = explode('.', $version);
+    $first = (integer)($elements[0]);
+    if($first === 5) {
+        $count = count($elements);
+        switch($count) {
+            case 1:
+                $proyectos_values = $myFunction($array, $column);
+                break;
+            case 2:
+                $second = (integer)($elements[1]);
+                if($second === 5) {
+                    $proyectos_values = $myFunction($array, $column);
+                } else if($second > 5) {
+                    $proyectos_values = array_column($array, $column);
+                } else {
+                    $proyectos_values = $myFunction($array, $column);
+                }
+                break;
+            case 3:
+            default:
+                $second = (integer)($elements[1]);
+                $third = (integer)($elements[2]);
+                if($second === 5) {
+                    if($third >= 0) {
+                        $proyectos_values = array_column($array, $column);
+                    } else {
+                        $proyectos_values = $myFunction($array, $column);
+                    }
+                } else if($second > 5) {
+                    $proyectos_values = array_column($array, $column);
+                } else {
+                    $proyectos_values = $myFunction($array, $column);
+                }
+
+        }
+    } else if($first > 5) {
+        $proyectos_values = array_column($array, $column);
+    } else {
+        $proyectos_values = $myFunction($array, $column);
+    }
+    $proyectos_values = array_values($proyectos_values);
+    return $proyectos_values;
+}
+
+function searchMultiArrayKeyValueLike($array, $keys, $mystery, $strict = false) {
+
+    //Internal function: noCaseString
+    $noCaseString = function($valueString) {
+        $valueString = str_replace(array('A', 'á', 'Á', 'ä', 'Ä', 'à', 'À', 'â', 'Â', 'ã', 'Ã'), 'a', $valueString);
+        $valueString = str_replace(array('E', 'é', 'É', 'ë', 'Ë', 'è', 'È', 'ê', 'Ê'), 'e', $valueString);
+        $valueString = str_replace(array('I', 'í', 'Í', 'ï', 'Ï', 'ì', 'Ì', 'î', 'Î'), 'i', $valueString);
+        $valueString = str_replace(array('O', 'ó', 'Ó', 'ö', 'Ö', 'ò', 'Ò', 'ô', 'Ô', 'õ', 'Õ'), 'o', $valueString);
+        $valueString = str_replace(array('U', 'ú', 'Ú', 'ü', 'Ü', 'ù', 'Ù', 'û', 'Û'), 'u', $valueString);
+        $valueString = strtolower($valueString);
+        return $valueString;
+    };
+
+    $newArray = array();
+    if(is_array($array) && count($array) > 0) {
+        $newKeys = array();
+        $keysType = gettype($keys);
+        switch($keysType) {
+            case 'array':
+                $newKeys = $keys;
+                break;
+            case 'string':
+            case 'integer':
+                $newKeys = array($keys);
+                break;
+            default:
+                $newKeys = array();
+        }
+        $indexes = array();
+        foreach($newKeys as $keyCurrent) {
+            $acKeyCurrent = ownArrayColumn($array, $keyCurrent);
+            foreach($acKeyCurrent as $idx => $value) {
+                $value = (!$strict) ? $noCaseString($value) : $value;
+                $mystery = (!$strict) ? $noCaseString($mystery) : $mystery;
+                $pos = strpos($value, $mystery);
+                (gettype($pos) !== 'boolean') ? $indexes[] = $idx : $indexes = $indexes;
+            }
+        }
+        $indexes = array_unique($indexes);
+        sort($indexes);
+        $indexes = array_values($indexes);
+        foreach($indexes as $idx) {
+            $newArray[] = $array[$idx];
+        }
+        $newArray = array_values($newArray);
+    }
+    return $newArray;
+}
+
 ?>

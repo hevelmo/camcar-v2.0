@@ -9,7 +9,7 @@
 
     sec_session_start();
 
-    if (login_check($mysqli) != true) {
+    if(login_check() != true) {
         header('Location: ../../login');
     } else {
         //header('Location: ../admin');
@@ -87,9 +87,9 @@
         <div id="sub-body-one">
             <!-- Auxiliar Temporal Inputs's DIV -->
             <div id='hidden-inputs-session'>
-                <?php /* ?>
-                <?php */ ?>
+                <?php /*
                 <input type='hidden' id='session-usr-username' value="<?php echo htmlentities($_SESSION['username']); ?>">
+                */ ?>
                 <input type='hidden' id='session-usr-id' value="<?php echo htmlentities($_SESSION['user_id']); ?>">
                 <input type='hidden' id='session-usr-type' value="<?php echo htmlentities($_SESSION['usr_type']); ?>">
                 <input type='hidden' id='session-usr-email' value="<?php echo htmlentities($_SESSION['email']); ?>">
@@ -114,7 +114,7 @@
 
             <!-- Footer -->
             <footer class="site-footer">
-                <span class="site-footer-legal">© 2015 Camcar v2</span>
+                <span class="site-footer-legal">© 2016 Camcar v2</span>
             </footer>
         </div>
         <!-- End Sub Body 1 -->
