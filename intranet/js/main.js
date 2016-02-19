@@ -43,4 +43,6 @@ $(document).ready(function() {
     $(domEl.recurrent_body).on('click', domEl.go_section_agreement, goSectionMethods.goSection_agreement);
     $(domEl.recurrent_body).on('click', domEl.go_section_directory, goSectionMethods.goSection_directory);
 
+    // CALL MODAL OVERLAY
+    $(domEl.div_recurrent).on('click', '.call-modal-ovarlay.birthday', callModalOverlayMethod.callModalOverlay);
 });

@@ -1,9 +1,18 @@
 <!-- Panel Cumpleaños -->
 <div class="panel panel-bordered" id="followers">
     <div class="panel-heading">
-        <h3 class="panel-title"><i class="site-panel-icon navi-navicons-birthday-v1 fa-2x" aria-hidden="true"></i> CUMPLEAÑOS</h3>
+        <h3 class="panel-title">
+            <i class="site-panel-icon navi-nav-icons-birthday-v1 fa-2x" aria-hidden="true"></i>
+            <span class="site-panel-span">CUMPLEAÑOS</span>
+        </h3>
+        <div class="ribbon ribbon-vertical ribbon-bookmark ribbon-reverse ribbon-red-camcar">
+            <span class="ribbon-inner">
+                <span class="ribbon-inner-month month-abrev">feb</span>
+                <span class="ribbon-inner-day day-long">28</span>
+            </span>
+        </div>
     </div>
-    <div class="panel-body">
+    <div class="panel-body birthday-section">
         {{#if webservice.length}}
         <h4 class="panel-body-title">FELICIDADES</h4>
         <ul class="list-group list-group-dividered list-group-full">
@@ -17,9 +26,9 @@
                         </a>
                     </div>
                     <div class="media-body">
-                        {{!--<div class="pull-right">
-                            <button type="button" class="btn btn-outline btn-default btn-sm">Follow</button>
-                        </div>--}}
+                        <div class="pull-right">
+                            <button type="button" class="btn btn-block btn-primary btn-sm call-modal-ovarlay birthday">Felicitalo</button>
+                        </div>
                         <div><span>{{nombres}} {{apellido_paterno}} {{apellido_materno}}</span></div>
                         <small>{{edad}} años</small>
                     </div>

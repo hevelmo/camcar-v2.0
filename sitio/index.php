@@ -11,10 +11,10 @@
         <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
         <meta name='viewport' content='width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0' />
 
-		<meta class="temp" name="description" content="Grupo Automotriz, 31 Agencias, 14 Marcas, 13 Ciudades, Seminuevos, Talleres, Contacto, Suscríbete, © Copyright 2015 Camcar, Aviso de Privacidad." />
+		<meta class="temp" name="description" content="Grupo Automotriz, 34 Agencias, 16 Marcas, 15 Ciudades, 1,517 Profesionales, Agencias, Seminuevos, Inventarios de seminuevos, Talleres, Rentas, Noticias, Nosotros, Bolsa de trabajo, Contacto, Newslertter Camcar, Aviso de Privacidad, © Copyright 2015 Camcar" />
         <meta class="temp" name="copyright" content="© Copyright 2015 Camcar" />
         <meta class="temp" name="robots" content="index, follow" />
-        <link class="temp" rel="alternate" hreflang="es-MX" href="http://camcar.mx/sitio" />
+        <link class="temp" rel="alternate" hreflang="es-mx" href="http://camcar.mx/sitio" />
 
 		<title id="head-change-section-title">Camcar Grupo Automotriz</title>
 

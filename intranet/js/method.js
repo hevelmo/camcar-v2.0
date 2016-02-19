@@ -264,6 +264,25 @@
         }
     }
 /* ------------------------------------------------------ *\
+    [Methods] createModalOverlayMethod
+\* ------------------------------------------------------ */
+    var createModalOverlayMethod = {
+        createModalOverlay: function() {
+            modalOverlayAttributes = [
+            ['div', {'id' : 'content-temporal-modal-overlay', 'class':'wrapper_content_interactive'}, '', 1],
+            ];
+            CAMIN.appendMulti('body', modalOverlayAttributes);
+        }
+    }
+/* ------------------------------------------------------ *\
+    [Methods] callModalOverlayMethod
+\* ------------------------------------------------------ */
+    var callModalOverlayMethod = {
+        callModalOverlay: function(event) {
+            createModalOverlayMethod.createModalOverlay();
+        }
+    }
+/* ------------------------------------------------------ *\
     [Methods] cleanStyles
 \* ------------------------------------------------------ */
     var cleanStylesMethod = {

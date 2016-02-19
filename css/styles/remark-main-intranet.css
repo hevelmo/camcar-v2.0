@@ -121,3 +121,105 @@
   border-radius: 0;
   font-weight: bold;
 }
+
+/* PANEL TITLE H3 */
+.panel-bordered > .panel-heading > .panel-title {
+  padding: 10px 10px 0;
+}
+h3.panel-title > i.site-panel-icon,
+h3.panel-title > span.site-panel-span {
+  display: inline-block;
+  vertical-align: middle;
+}
+h3.panel-title > i.site-panel-icon {
+  font-size: 3.5em;
+  margin-right: 0;
+  margin-left: 0;
+  color: #B21117;
+  height: 60px;
+}
+h3.panel-title > span.site-panel-span {
+  font-size: 2em;
+  font-weight: bold;
+  letter-spacing: 0.042em;
+  color: #B21117;
+  padding: 0;
+}
+/* PANEL BODY BIRTHDAY SECTION */
+.panel-body.birthday-section {
+  padding-top: 15px;
+}
+.panel-body.birthday-section .panel-body-title {
+  text-align: center;
+  font-size: 2em;
+  font-weight: 500;
+  letter-spacing: 3px;
+}
+/* REBBON BIRTHDAY */
+.ribbon-red-camcar .ribbon-inner {
+    background-color: #b21117;
+}
+.ribbon-vertical .ribbon-inner {
+  width: 70px;
+  height: 70px;
+}
+.ribbon-red-camcar.ribbon-bookmark.ribbon-vertical.ribbon-reverse .ribbon-inner::before {
+    border-right-color: #b21117;
+    border-bottom-color: transparent;
+    border-left-color: #b21117;
+}
+.ribbon-red-camcar.ribbon-bookmark.ribbon-vertical .ribbon-inner::before {
+    border-right-color: #b21117;
+    border-bottom-color: transparent;
+}
+.ribbon-red-camcar.ribbon-bookmark.ribbon-reverse .ribbon-inner::before {
+    border-right-color: #b21117;
+    border-left-color: transparent;
+}
+.ribbon-red-camcar.ribbon-bookmark .ribbon-inner::before {
+    border-color: #b21117;
+    border-right-color: transparent;
+}
+.ribbon-bookmark.ribbon-reverse.ribbon-vertical .ribbon-inner::before {
+    right: auto;
+    left: 0;
+    border-right-color: #b21117;
+    border-bottom-color: transparent;
+    border-left: 35px solid #b21117;
+}
+.ribbon-bookmark.ribbon-reverse .ribbon-inner::before {
+    right: 100%;
+    left: auto;
+    border-right: 35px solid #b21117;
+    border-left: 10px solid transparent;
+}
+.ribbon-bookmark.ribbon-vertical .ribbon-inner::before {
+    top: 100%;
+    left: 0;
+    margin-top: 0px;
+    border-right: 35px solid #b21117;
+    border-bottom: 10px solid transparent;
+}
+
+.ribbon-red-camcar .ribbon-inner .ribbon-inner-month,
+.ribbon-red-camcar .ribbon-inner .ribbon-inner-day {
+  display: block;
+}
+.ribbon-red-camcar .ribbon-inner .ribbon-inner-month {
+  font-weight: 400;
+  text-shadow: 1px 1px 1px rgba(82, 96, 105, 0.88);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 15px;
+  line-height: 20px;
+  margin-top: -5px;
+  padding: 0px 0px 5px 0px;
+}
+.ribbon-red-camcar .ribbon-inner .ribbon-inner-day {
+  font-size: 2.8em;
+  font-weight: 600;
+  letter-spacing: 2px;
+  line-height: 20px;
+  text-shadow: 1px 1px 1px rgba(82, 96, 105, 0.88);
+  padding: 10px;
+}
