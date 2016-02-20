@@ -1,0 +1,540 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"log",
+				"console.log()"
+			],
+			[
+				"in",
+				"inherit"
+			],
+			[
+				"bxs",
+				"bxsh	box-shadow: ${1:inset }${2:hoff} ${3:voff} ${4:blur} ${5:color};"
+			],
+			[
+				"input",
+				"inputb	input - button"
+			],
+			[
+				"trans",
+				"transition	CSS - transition: ;"
+			],
+			[
+				"tr",
+				"trs	transition"
+			],
+			[
+				"bord",
+				"border-bottom"
+			],
+			[
+				"bdrs",
+				"bdrs	border-radius"
+			],
+			[
+				"font",
+				"font-weight"
+			],
+			[
+				"fade",
+				"fadeOut	.fadeOut()"
+			],
+			[
+				"scroll",
+				"scrollTop	.scrollTop()"
+			],
+			[
+				"scrol",
+				"scrollTop	.scrollTop()"
+			],
+			[
+				"tx",
+				"text-align"
+			],
+			[
+				"send_finan",
+				"send_financing_newsletter"
+			],
+			[
+				"pro",
+				"property"
+			],
+			[
+				"lo",
+				"log"
+			],
+			[
+				"con",
+				"console.	console.log()"
+			],
+			[
+				"dataC",
+				"dataCarVersion"
+			],
+			[
+				"style",
+				"style	Attr"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 354.0,
+		"last_filter": "in",
+		"selected_items":
+		[
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"inss",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 485.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Applications/MAMP/htdocs/viajeroseguro"
+	],
+	"file_history":
+	[
+		"/Applications/MAMP/htdocs/camcar-v2.0/sitio/index.php",
+		"/Applications/MAMP/htdocs/camcar/sitio/index.php",
+		"/Applications/MAMP/htdocs/camcar-v2.0/db/medigraf_camcardb_2016-01-23.sql",
+		"/Users/hevelmo/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/hevelmo/Library/Application Support/Sublime Text 3/Packages/Default/Default (OSX).sublime-keymap",
+		"/Users/hevelmo/Library/Application Support/Sublime Text 3/Packages/Material Theme - Appbar/Material-Theme.sublime-theme",
+		"/Users/hevelmo/Library/Application Support/Sublime Text 3/Installed Packages/Theme - Dark Material.sublime-package",
+		"/Users/hevelmo/Library/Application Support/Sublime Text 3/Packages/Material Theme - White Panels/Material-Theme-Darker.sublime-theme",
+		"/Users/hevelmo/Library/Application Support/Sublime Text 3/Packages/User/Plain text.sublime-settings",
+		"/Applications/MAMP/htdocs/camcar-v2.0/sitio/templates/tmp_section_inventories_preowned_details_formsem_contact_by_model.handlebars",
+		"/Applications/MAMP/htdocs/camcar-v2.0/sitio/templates/tmp_start_site_navbar.handlebars",
+		"/Applications/MAMP/htdocs/camcar-v2.0/css/sitio/styles/media-print.css",
+		"/Applications/MAMP/htdocs/camcar-v2.0/sitio/js/method.js",
+		"/Applications/MAMP/htdocs/camcar-v2.0/sitio/templates/tmp_section_agencies_preowned_start_tabs_agencies.handlebars",
+		"/Applications/MAMP/htdocs/camcar-v2.0/sitio/js/room.js",
+		"/Applications/MAMP/htdocs/camcar-v2.0/sitio/templates/tmp_section_home_dealer_search_gmap.handlebars",
+		"/Applications/MAMP/htdocs/navigation-menu/index.php",
+		"/Applications/MAMP/htdocs/camcar-v2.0/css/sitio/styles/main-sitio.css",
+		"/Applications/MAMP/htdocs/navigation-menu/js/room.js",
+		"/Applications/MAMP/htdocs/camcar-v2.0/css/import-sitio.css",
+		"/Applications/MAMP/htdocs/navigation-menu/js/method.js",
+		"/Users/hevelmo/Downloads/marcgrabanski.com/resources/jquery-google-maps/tutorial-part1.html",
+		"/Applications/MAMP/htdocs/suzuki/suzuki-gdl-new/js/method.js",
+		"/Applications/MAMP/htdocs/suzuki/suzuki-gdl-nueva-vitara/js/method.js",
+		"/Applications/MAMP/htdocs/camcar-v2.0/lib/jquery.jmapping/jquery.jmapping.js",
+		"/Applications/MAMP/htdocs/navigation-menu/incorporate/db_connect.php",
+		"/Applications/MAMP/htdocs/navigation-menu/incorporate/cam_con_ini.php",
+		"/Applications/MAMP/htdocs/navigation-menu/incorporate/functions.php",
+		"/Applications/MAMP/htdocs/navigation-menu/incorporate/queryintojson.php",
+		"/Applications/MAMP/htdocs/camcar-v2.0/incorporate/db_connect.php",
+		"/Applications/MAMP/htdocs/camcar/sitio/templates/temp_view_results_list.handlebars",
+		"/Applications/MAMP/htdocs/camcar/sitio/templates/temp_vehicle_details.handlebars",
+		"/Applications/MAMP/htdocs/camcar/sitio/js/method.js",
+		"/Applications/MAMP/htdocs/camcar/sitio/js/room.js",
+		"/Applications/MAMP/htdocs/camcar-v2.0/sitio/phpobjectjs/to_object/urlsApi.php",
+		"/Applications/MAMP/htdocs/camcar-v2.0/sitio/api/v15/index.php",
+		"/Applications/MAMP/htdocs/camcar-v2.0/css/sitio/styles/footer.css",
+		"/Applications/MAMP/htdocs/camcar-v2.0/sitio/phpobjectjs/to_object/domEl.php",
+		"/Applications/MAMP/htdocs/camcar/sitio/js/main.js",
+		"/Applications/MAMP/htdocs/camcar-v2.0/sitio/js/objects.js",
+		"/Applications/MAMP/htdocs/camcar-v2.0/sitio/js/main.js",
+		"/Applications/MAMP/htdocs/camcar-v2.0/sitio/templates/tmp_section_inventories_preowned_details_single_vehicle_details.handlebars",
+		"/Applications/MAMP/htdocs/camcar-v2.0/sitio/phpobjectjs/to_object/tempsNames.php",
+		"/Applications/MAMP/htdocs/camcar-v2.0/css/sitio/styles/results-items.css",
+		"/Applications/MAMP/htdocs/camcar-v2.0/sitio/templates/tmp_section_inventories_preowned_details_carousel_vehicles.handlebars",
+		"/Applications/MAMP/htdocs/camcar-v2.0/sitio/templates/tmp_section_inventories_preowned_detalis_vehicle_slider_details.handlebars",
+		"/Applications/MAMP/htdocs/camcar-v2.0/sitio/templates/tmp_section_inventories_preowned_details_table_striped_specification.handlebars",
+		"/Applications/MAMP/htdocs/camcar-v2.0/sitio/templates/tmp_section_inventories_preowned_details_start_utility_bar_breadcreumb.handlebars",
+		"/Applications/MAMP/htdocs/camcar-v2.0/sitio/templates/templates.js",
+		"/Applications/MAMP/htdocs/camcar-v2.0/sitio/templates/tmp_section_inventories_preowned_views_results_list.handlebars",
+		"/Applications/MAMP/htdocs/camcar-v2.0/sitio/js/model.js",
+		"/Applications/MAMP/htdocs/camcar-v2.0/sitio/templates/tmp_section_blog_by_news_start_single_post.handlebars",
+		"/Applications/MAMP/htdocs/camcar/sitio/templates/temp_select_model.handlebars",
+		"/Applications/MAMP/htdocs/camcar/sitio/phpobjectjs/to_object/domEl.php",
+		"/Applications/MAMP/htdocs/camcar/sitio/api/v14/index.php",
+		"/Applications/MAMP/htdocs/camcar/sitio/templates/temp_select_marc.handlebars",
+		"/Applications/MAMP/htdocs/camcar-v2.0/css/styles/assets/main/bootstrap-extend.css",
+		"/Applications/MAMP/htdocs/camcar-v2.0/css/sitio/styles/main-navigation.css",
+		"/Applications/MAMP/htdocs/camcar-v2.0/css/styles/assets/main/bootstrap-theme.css",
+		"/Applications/MAMP/htdocs/camcar-v2.0/css/styles/assets/main/bootstrap.css",
+		"/Applications/MAMP/htdocs/camcar-v2.0/sitio/templates/tmp_section_inventories_preowned_select_filter_brands.handlebars",
+		"/Applications/MAMP/htdocs/camcar-v2.0/sitio/templates/tmp_section_inventories_preowned_select_filter_category.handlebars",
+		"/Applications/MAMP/htdocs/camcar-v2.0/sitio/templates/tmp_section_inventories_preowned_select_filter_models.handlebars",
+		"/Users/hevelmo/Downloads/kswedberg.github.io/jquery-smooth-scroll/demo/bbq.html",
+		"/Applications/MAMP/htdocs/camcar-v2.0/sitio/templates/tmp_section_agencies_preowned_by_agencie_start_utility_bar_breadcreumb.handlebars",
+		"/Applications/MAMP/htdocs/camcar-v2.0/sitio/templates/tmp_section_agencies_preowned_start_utility_bar_breadcreumb.handlebars",
+		"/Applications/MAMP/htdocs/camcar-v2.0/sitio/templates/tmp_section_agencies_news_fachada.handlebars",
+		"/Applications/MAMP/htdocs/camcar-v2.0/sitio/templates/tmp_section_agencies_news_address.handlebars",
+		"/Applications/MAMP/htdocs/camcar-v2.0/sitio/templates/tmp_section_agencies_news_by_agencies_video_strip_agencies.handlebars",
+		"/Applications/MAMP/htdocs/camcar-v2.0/sitio/templates/tmp_section_agencies_news_map.handlebars",
+		"/Applications/MAMP/htdocs/camcar-v2.0/css/sitio/styles/video-strip.css",
+		"/Applications/MAMP/htdocs/camcar-v2.0/incorporate/queryintojson.php",
+		"/Applications/MAMP/htdocs/camcar-v2.0/sitio/templates/tmp_section_agencies_news_start_utility_bar_breadcrumb.handlebars",
+		"/Applications/MAMP/htdocs/camcar-v2.0/sitio/templates/tmp_section_agencies_news_by_agencies_start_utility_bar_breadcrumb.handlebars",
+		"/Applications/MAMP/htdocs/camcar-v2.0/sitio/templates/tmp_section_home_our_brands.handlebars",
+		"/Applications/MAMP/htdocs/camcar-v2.0/sitio/templates/tmp_section_agencies_news_by_subagencies_start_utility_bar_breadcrumb.handlebars",
+		"/Applications/MAMP/htdocs/camcar-v2.0/sitio/templates/tmp_section_blog_by_news_start_utility_bar_breadcrumb.handlebars",
+		"/Users/hevelmo/Downloads/wellington.govt.nz/index.html",
+		"/Applications/MAMP/htdocs/camcar-v2.0/css/sitio/form-validation.css",
+		"/Applications/MAMP/htdocs/camcar-v2.0/thecompiler/index.php",
+		"/Applications/MAMP/htdocs/camcar-v2.0/thecompiler/compiler-phpobjectjs.js",
+		"/Applications/MAMP/htdocs/camcar/sitio/templates/temp_agencies_news_categories.handlebars",
+		"/Applications/MAMP/htdocs/thecompiler/index.php",
+		"/Applications/MAMP/htdocs/thecompiler/compiler-phpobjectjs.js",
+		"/Applications/MAMP/htdocs/camcar-v2.0/sitio/phpobjectjs/index.php",
+		"/Applications/MAMP/htdocs/camcar/sitio/templates/temp_agencies_news_filters.handlebars",
+		"/Applications/MAMP/htdocs/camcar/sitio/templates/temp_agencies_news_filters_return.handlebars",
+		"/Applications/MAMP/htdocs/camcar-v2.0/intranet/js/method.js",
+		"/Users/hevelmo/Downloads/hero-slider/index.html",
+		"/Users/hevelmo/Downloads/hero-slider/js/main.js",
+		"/Users/hevelmo/Documents/sublime-projects/camcar_v2.sublime-project",
+		"/Applications/MAMP/htdocs/camcar-v2.0/db/camcardb_2015-12-05.sql",
+		"/Applications/MAMP/htdocs/camcar-v2.0/sitio/templates/tmp_section_home_hero_slide_carousel.handlebars",
+		"/Applications/MAMP/htdocs/camcar/sitio/templates/temp_home_slider.handlebars",
+		"/Applications/MAMP/htdocs/camcar-v2.0/sitio/templates/tmp_section_home_full_width_features.handlebars",
+		"/Applications/MAMP/htdocs/camcar-v2.0/sitio/templates/tmp_section_home_group_counter.handlebars",
+		"/Applications/MAMP/htdocs/camcar/db/untitled",
+		"/Applications/MAMP/htdocs/camcar-v2.0/css/main.css",
+		"/Applications/MAMP/htdocs/camcar-v2.0/intranet/js/main.js",
+		"/Applications/MAMP/htdocs/camcar-v2.0/intranet/templates/tmp_site_navbar.handlebars",
+		"/Applications/MAMP/htdocs/camcar-v2.0/lib/assets/run/site.js",
+		"/Applications/MAMP/htdocs/camcar-v2.0/lib/assets/run/sections/menu.js",
+		"/Applications/MAMP/htdocs/camcar-v2.0/lib/assets/run/sections/menubar.js",
+		"/Applications/MAMP/htdocs/camcar-v2.0/css/styles/basscss.css",
+		"/Applications/MAMP/htdocs/camcar/intranet/admin/templates/tmp_adm_new_sen_form.handlebars",
+		"/Applications/MAMP/htdocs/camcar-v2.0/intranet/admin/templates/tmp_adm_section_new_preowned_page_content.handlebars",
+		"/Applications/MAMP/htdocs/camcar-v2.0/css/styles/remark-main-admin.css",
+		"/Applications/MAMP/htdocs/codyHouse/custom-google-map/js/main.js",
+		"/Applications/MAMP/htdocs/camcar/sitio/templates/temp_sem_car_agencies_news.handlebars",
+		"/Applications/MAMP/htdocs/camcar/sitio/templates/temp_section_agencies_news.handlebars",
+		"/Applications/MAMP/htdocs/codyHouse/custom-google-map/css/style.css",
+		"/Applications/MAMP/htdocs/codyHouse/custom-google-map/index.html",
+		"/Applications/MAMP/htdocs/camcar-v2.0/sitio/templates/tmp_agencies_news_start_utility_bar_breadcrumb.handlebars",
+		"/Applications/MAMP/htdocs/camcar/sitio/templates/temp_sem_car_agencies_preowned.handlebars",
+		"/Applications/MAMP/htdocs/camcar/sitio/templates/temp_section_brand_agencies_news.handlebars",
+		"/Applications/MAMP/htdocs/camcar-v2.0/sitio/js/min/core.min.js",
+		"/Applications/MAMP/htdocs/camcar/sitio/templates/templates.js",
+		"/Applications/MAMP/htdocs/camcar-v2.0/sitio/templates/tmp_section_home_start_site_navbar.handlebars",
+		"/Applications/MAMP/htdocs/camcar-v2.0/css/sitio/herocarousel/herocarousel.css",
+		"/Applications/MAMP/htdocs/camcar-v2.0/css/sitio/styles/hero-carousel.css",
+		"/Applications/MAMP/htdocs/camcar-v2.0/css/sitio/herocarousel/inner.css",
+		"/Applications/MAMP/htdocs/camcar-v2.0/lib/site/herocarousel/herocarousel.app.js",
+		"/Applications/MAMP/htdocs/camcar-v2.0/lib/site/herocarousel/jquery.herocarousel-plugins.js",
+		"/Applications/MAMP/htdocs/camcar-v2.0/lib/site/herocarousel/lab.js",
+		"/Applications/MAMP/htdocs/camcar-v2.0/css/sitio/herocarousel/hero-carousel-animation.css",
+		"/Applications/MAMP/htdocs/camcar/resources/public/css/styles/style-headers-slider-dividers.css",
+		"/Applications/MAMP/htdocs/templates/www.landrover.co.uk/resources/public/js/app.js",
+		"/Applications/MAMP/htdocs/camcar-v2.0/sitio/phpobjectjs/to_object/test.html"
+	],
+	"find":
+	{
+		"height": 26.0
+	},
+	"find_in_files":
+	{
+		"height": 158.0,
+		"where_history":
+		[
+			"/Applications/MAMP/htdocs/camcar/resources/public/css/styles",
+			"/Applications/MAMP/htdocs/lincoln/css/styles"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"postJobOpportunities",
+			", ",
+			"mime",
+			"SUK",
+			"northEast.",
+			"lat()",
+			"lng()",
+			"settings",
+			"category_icon_options",
+			"chooseIconOptions",
+			"icon_options",
+			"}\n",
+			"//",
+			"link_selector",
+			"map-link",
+			"marker_index",
+			"href=\"#\" ",
+			"/jquery.jmapping/",
+			"addAttrNavAgenciesMethod",
+			".grid li.grid-item:nth-child(odd)",
+			"tmp_section_inventories_preowned_details_carousel_vehicles",
+			"tmp_section_inventories_preowned_detalis_vehicle_slider_details",
+			"recurrent_inventories_preowned_details_table_striped_specification",
+			"tmp_section_inventories_preowned_details_table_striped_specification",
+			"getSeminuevosJSON",
+			"recurrent_inventories_preowned_details_start_utility_bar_breadcreumb",
+			"getSeminuevosJSON",
+			"link_sem_action",
+			"getSeminuevosJSON",
+			"campa",
+			"dataStarSiteInventoriesPreowned",
+			"GA",
+			"$",
+			"WHERE",
+			"getMapa",
+			"prependOne",
+			"new_el_attributes",
+			"appendOne(",
+			"select_sem_model",
+			"category",
+			"getBanners",
+			"getSeminuevosJSON",
+			"getSeminuevosById",
+			"getSeminuevosJSON",
+			"getSeminuevos",
+			"semModelData",
+			"semMarcData",
+			"(this)",
+			"agp_nombre_element",
+			"News",
+			"getAgenciesPreOwnedByAgencie",
+			"agn_nombre",
+			"getAgenciesPreOwnedByAgencie",
+			"about-content",
+			"do",
+			"',",
+			"start_agencies_news_address",
+			"start_agencies_news_fachada",
+			"start_agencies_news_midpadding_work",
+			"_start",
+			"_",
+			"getAgenciesNewsByAgencie",
+			"agn_nombre",
+			"agencieNews",
+			"getAgenciesNewsByAgencieJSON",
+			"getAgenciesNewsByAgencie",
+			"$(this)",
+			"start_agencies_news_midpadding_work",
+			"dataStarSiteAgenciesNews",
+			"brandloadUrlsApiAgencie_news",
+			"loadUrlsApiByAgencie_news",
+			"getBrandsLogos",
+			"getAgenciesNewsByTypeAgencie",
+			"load_breadcrumb_news",
+			"getAgenciesNewsByTypeAgencie",
+			"agnPrincipalUrl",
+			"getAgenciesNewsByTypeAgencie",
+			"getAgenciasLogosJSON",
+			"loadBreadcrumbs_blogByPost",
+			"blogId",
+			"blogPostkey",
+			"blogAgencieKey",
+			"getAgenciesNewsByTypeAgencie",
+			"campaBlogAgencia",
+			"blogUrl",
+			"blogPostData",
+			"[Methods] viewSectionAgenciesNewsPrincipalMethod",
+			"[Methods] viewSectionAgenciesNewsMethod",
+			"[Methods] activeLogAgenciesNewsMethod",
+			"[Methods] viewSectionAgenciesNewsMethod",
+			"[Methods] activeLogAgenciesNewsMethod",
+			"[Methods] viewSectionAgenciesNewsMethod",
+			"[Methods] viewNavbarMethod",
+			"Principal",
+			"viewSectionAgenciesNews",
+			"activeLogAgenciesNewsMethod",
+			"[Methods] viewSectionAgenciesNewsMethod",
+			"[Methods] Animated",
+			"[Methods] ",
+			"[functions]",
+			"255",
+			"0,0,0,0",
+			"0,0,0",
+			".hint",
+			"data-hint",
+			".hint",
+			"data-hint",
+			".hint",
+			"data-hint",
+			".hint",
+			" ",
+			"www.myfreemp3.club ",
+			" Waltz www.myfreemp3.club ",
+			"mqMW",
+			"_cText",
+			"div_recurrent",
+			"brandsMethods",
+			"    $(",
+			"//",
+			"target_agencias",
+			"target_agencia",
+			"primaryLink.",
+			"linkContainer.",
+			"ourBrands",
+			"http://suzukigdl.com.mx/",
+			"subtitle02",
+			"01",
+			"banner_suzuki_1600x900.jpg"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 66.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "untitled.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/Documents/sublime-projects/navigator-menu.sublime-project"
+			],
+			[
+				"core",
+				"~/Documents/sublime-projects/core.sublime-project"
+			],
+			[
+				"ca",
+				"~/Documents/sublime-projects/camcar_v1.sublime-project"
+			],
+			[
+				"o",
+				"~/Documents/sublime-projects/ohr.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 314.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+		"max_columns": 2
+	}
+}

@@ -139,5 +139,8 @@ function tempsNames() {
         // PRIVACY NOTICE
         'recurrent_privacy_notice_start_utility_bar_breadcreumb' => 'tmp_section_privacy_notice_start_utility_bar_breadcrumb',
         'recurrent_privacy_notice_start_article_wrapper' => 'tmp_section_privacy_notice_start_article_wrapper',
+
+        // FOOTER NEWSLETTER
+        'recurrent_footer_newsletter' => 'tmp_section_footer_newsletter',
     );
 }

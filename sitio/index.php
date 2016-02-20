@@ -126,7 +126,9 @@
                 <div class="row">
                     <div class="col-md-1 col-md-1"></div>
                     <div class="col-md-10 col-md-10">
+                        <div class="wrapper_content_interactive_footer_newsletter" id="content-temporal-interactive-footer-newsletter"></div>
                         <!-- Begin MailChimp Signup Form -->
+                        <!---->
                         <div id="mc_embed_signup">
                             <form action="//camcar.us6.list-manage.com/subscribe/post?u=eb6adc86fe16ad4e6562f80c1&amp;id=93e761d2cf" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
                                 <div id="mc_embed_signup_scroll">
@@ -188,7 +190,7 @@
                                         <div id="mce-responses" class="clear">
                                             <div class="response" id="mce-error-response" style="display:none"></div>
                                             <div class="response" id="mce-success-response" style="display:none"></div>
-                                        </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                                        </div>
                                         <div style="position: absolute; left: -5000px;">
                                             <input type="text" name="b_eb6adc86fe16ad4e6562f80c1_93e761d2cf" tabindex="-1" value="">
                                         </div>

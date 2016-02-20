@@ -100,6 +100,8 @@ function domEl() {
         'div_hidden_inputs_session' => 'div#hidden-inputs-session',
         'div_hidden_inputs_temporal' => 'div#hidden-inputs-temporal',
         'div_recurrent' => 'div#content-temporal-interactive',
+        // RECURRENT FOOTER NEWSLETER
+        'footer_newsletter_recurrent' => '#content-temporal-interactive-footer-newsletter',
         // FILTER INPUTS
         'input_hidden_mapa' => 'input#hidden_mapa',
         'input_current_hidden_category' => 'input#hidden_category',

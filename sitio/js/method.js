@@ -3338,6 +3338,19 @@
         }
     }
 /* ------------------------------------------------------ *\
+    [Methods] viewFooterNewsletterMethod
+\* ------------------------------------------------------ */
+    var viewFooterNewsletterMethod = {
+        viewFooterNewsletter: function() {
+        },
+        recurrentFooterNewsletter: function() {
+            dataStartFooterNewsletter = [
+
+            ];
+        }
+    }
+
+/* ------------------------------------------------------ *\
     [Methods] clikGoMethods
 \* ------------------------------------------------------ */
     var clikGoMethods = {
